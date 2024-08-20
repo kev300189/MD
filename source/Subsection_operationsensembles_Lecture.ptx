@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Kevin Gervais/ à partir des notes de Jean-Sébastien Turcotte           -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+<!-- J'ai enlevé les questions de compréhension de lecture de la section original, car je ne suis pas encore assez à l'aise pour faire un cours en "classe inversée". Je les mets ici pour créer une nouvelle section de questions de révision -->
+<subsection xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-opens-lec">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices à faire en classe</title>
+    <reading-questions>
+    <introduction xml:id= "intro-opens-lec">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Ces questions sont durant le cours afin de vérifier votre compréhension.</p>
+  </introduction>
+  <exercise>
+    <introduction><p>Soit <m>A=\{a,b,c,d\}</m> et <m>B=\{a,b,c,d,e,f,g\}</m> vivant dans l'ensemble univers <m>\Omega =\{l  ~|~ l \text{ est une lettre de l'alphabet comprise entre } a \text{ et } j  \}</m>. Déterminer:</p></introduction>
+    <task><statement><p>
+    <m>A\cup B</m>
+    </p></statement></task>
+    <task><statement><p>
+    <m>A\cap B</m>
+    </p></statement></task>
+    <task><statement><p>
+    <m>A- B</m>
+    </p></statement></task>
+    <task><statement><p>
+    <m>B-A</m>
+    </p></statement></task>
+    <task><statement><p><m>A^c</m></p></statement></task>
+<task><statement><p><m>B^c</m></p></statement></task>
+    </exercise>
+    <exercise><statement><p>Dessiner l'ensemble <m>A-B</m> sur le diagramme de Venn de la figure suivante.</p>
+    <figure xml:id="fig-Vennvide">
+    <caption>Un diagramme de Venn vide</caption>
+    <image xml:id="img-Vennvide"><description>
+    Un diagramme de Venn contenant des ensembles A et B quelconques est illustré.
+    </description>
+    <sageplot>
+O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+O+A+B
+    </sageplot></image>
+    </figure>
+    </statement></exercise>
+    <exercise><statement>Déterminer le produit cartésien de <m>A=\{\text{Salade repas},\text{Burger du chef},\text{La prise du jour},\text{Soupe deluxe}\}</m> et <m>B=\{\text{Brownie décadent},\text{Tarte succulente},\text{Gâteau alléchant}\}</m>. Quel est votre élément favori de <m>A\times B</m>?</statement></exercise>
+    <exercise>
+    <introduction><p>On considère l'ensemble <m>S=\{n\in \N~|~ n \text{ divise } 6\}</m>.</p></introduction>
+    <task><statement><p>Donner <m>\mathscr{P}(S)</m>.</p></statement></task>
+    <task><statement><p>Trouver un ensemble <m>B\in\mathscr{P}(S)</m> tel que <m>|B|=3</m></p></statement></task>
+    <task><statement><p>Trouver un ensemble <m>C\subseteq\mathscr{P}(S)</m> tel que <m>|C|=3</m></p></statement></task>
+    <task><statement><p>Un étudiant affirme avoir trouvé <m>D\in \mathscr{P}(S)</m> tel que <m>|D|=6</m>. Donner un exemple d'un tel ensemble ou expliquer pourquoi ce n'est pas possible.</p></statement></task>
+    <task><statement><p>Un étudiant affirme avoir trouvé <m>E\subseteq \mathscr{P}(S)</m> tel que <m>|E|=6</m>. Donner un exemple d'un tel ensemble ou expliquer pourquoi ce n'est pas possible.</p></statement></task>
+    </exercise>
+    </reading-questions>
+</subsection>

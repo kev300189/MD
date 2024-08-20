@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                    -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-combinatoireExoSupp">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+    <subexercises>
+    <title>À faire en classe</title>
+    <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
+
+    <exercise xml:id="exo-blocsAnagrammes">
+        <statement><p>On a placé 16 cubes de couleurs rouge, vert, bleu et orange en trois quatres colonnes tel qu'illustré ci-dessous. De combien de façons peut-on ramasser ces cubes, si on doit toujours ramasser un cube se trouvant au-dessus d'une colonne.</p>
+        <p><figure xml:id="fig-cubesCoul">
+            <caption>Dispositions des cubes</caption>
+            <image  width="25%" xml:id="img-cubesCoul" source="Page1.png ">
+            </image>
+            </figure></p>
+        <!--<p>
+            <figure>
+                <caption>RNA Codons Table, by Florian Hollandt</caption>
+                <image xml:id="rna-codons-table" width="100%">
+                    <description>A table of the RNA codons.</description>
+                    <latex-image>
+                        j
+                    </latex-image>
+                </image>
+            </figure>
+
+
+        </p>-->
+        </statement>
+        <hint><p>Utiliser les lettres <m>R, V, B</m> et <m>O</m> pour représenter, respectivement, les cubes de couleurs rouge, vert, bleu et orange. Représenter une façon de ramasser les cubes à l'aide de ces lettres.</p></hint>
+        <answer><p><m>\frac{16!}{6!4!2!4!}</m></p></answer>
+    </exercise>
+
+    <exercise xml:id="exo-ordrePasOrdre">
+        <statement><p> On considère l'ensemble <m>A=\{0,1,2,3,\dots, 9\}</m>. Combiens de <m>3-</m>permutations de <m>A</m> sont telles que les nombres sont en ordre croissant. Par exemple, <m>126</m> et <m>079</m> sont en ordre croissant, mais <m>405</m> ne l'est pas.</p> </statement>
+        <answer><p><m>\Binomial{10}{3}=\frac{10!}{7!3!}</m>.</p></answer>
+    </exercise>
+
+    <exercise>
+        <introduction><p>On veut assoir huits personnes autour d'une table circulaire.</p></introduction>
+        <task>
+            <statement>
+                <p>
+                    De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins à gauche et à droite?
+                </p>
+            </statement>
+            <answer><m>\frac{8!}{8}=7!</m>.</answer>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins, peu importe qu'ils soient à gauche ou à droite?
+                </p>
+            </statement>
+            <answer><m>\frac{8!}{8\cdot 2}=\frac{7!}{2}</m>.</answer>
+        </task>
+    </exercise>
+
+    <exercise>
+        <statement><p>On veut assoir <m>15</m> personnes autour de deux tables circulaires. On peut Assoir <m>10</m> personnes à la première table, et les cinq autres à la seconde table. De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins à gauche et à droite?</p></statement>
+        <hint><p>Commencer par choisir les personnes qui seront à la première table, et ensuite placer tout le monde sur les tables.</p></hint>
+        <answer><m>\Binomial{15}{10}\cdot \frac{10!}{10} \cdot \frac{5!}{5}=\Binomial{15}{10}\cdot {9!} \cdot {4!}</m></answer>
+    </exercise>
+
+    <exercise>
+        <task>
+            <statement><p>Combiens de mots différents peut-on former à partir des lettres du mot <m>DATAGRAMME</m>?</p></statement>
+            <answer><p><m>\frac{10!}{3!2!}</m></p></answer>
+        </task>
+        <task>
+            <statement><p>Parmi les mots formés à la première partie, combiens d'entres eux ont tous les <m>A</m> ensembles?</p></statement>
+            <answer><p><m>\frac{8!}{2!}</m></p></answer>
+        </task>
+        <task>
+            <statement><p>Parmi les mots formés à la première partie, combiens d'entres eux ont tous les <m>M</m> ensembles?</p></statement>
+            <answer><p><m>\frac{9!}{3!}</m></p></answer>
+        </task>
+        <task>
+            <statement><p>Parmi les mots formés à la première partie, combiens d'entres eux ont tous les <m>A</m> ensembles et tous les <m>M</m> ensembles?</p></statement>
+            <answer><p><m>{7!}</m></p></answer>
+        </task>
+        <task>
+            <statement><p>Parmi les mots formés à la première partie, combiens d'entres eux ont tous les <m>A</m> ensembles ou tous les <m>M</m> ensembles?</p></statement>
+            <answer><p><m>\frac{8!}{2!}+\frac{9!}{3!}-7!</m></p></answer>
+        </task>
+    </exercise>
+    <exercise>
+        <statement><p>De combien de façons peut-on  placer <m>24</m> livres différents sur quatre étagères?</p></statement>
+        <answer><m>\frac{27!}{3!}</m></answer>
+        <hint><p>Représenter un placement à l'aide des nombres <m>1</m> à <m>24</m> pour les livres et des barres pour séparer les étagères. Par exemple <m>4,2,5| 7,3 | 6, 1| 8, \dots, 24</m> représente le placement avec les livres <m>4</m>, <m>2</m> et <m>5</m> sur la première étagère, les livres <m>7</m> et <m>3</m> sur la deuxième étagère, les livres <m>6</m> et <m>1</m> sur la troisième étagère et les livres <m>8</m> à <m>24</m> sur la dernière. </p></hint>
+    </exercise>
+    <exercise>
+        <introduction>Un palindrome est un mot qui est le même si on le lit à l'endroit que si on le lit à l'envers. Par exemple, <m>abcba</m> est un palindrome.</introduction>
+        <task>
+            <statement>
+                <p>Combien de palindromes de cinq lettres peut-on former avec les <m>26</m> lettres de l'alphabet ?</p>
+            </statement>
+            <hint>Il suffit de choisir les trois premières lettres.</hint>
+            <answer><m>26^3</m>.</answer>
+        </task>
+        <task>
+            <statement>
+                <p>Combien de palindromes de six lettres peut-on former avec les <m>26</m> lettres de l'alphabet ?</p>
+            </statement>
+            <hint>Il suffit de choisir les trois premières lettres.</hint>
+            <answer><m>26^3</m>.</answer>
+        </task>
+        <task>
+            <statement>
+                <p>Combien de palindromes de <m>n</m> lettres peut-on former avec les <m>26</m> lettres de l'alphabet ?</p>
+            </statement>
+            <hint>La réponse dépend de la parité de <m>n</m>.</hint>
+            <answer>Si <m>n</m> est pair, on pose <m>m=\frac{n}{2}</m>. Si <m>n</m> est impair, on pose <m>m=\frac{n+1}{2}</m>. La réponse est alors <m>26^m</m>.</answer>
+        </task> 
+        <task>
+            <statement>
+                <p>Combien de palindromes de cinq lettres peut-on former avec les <m>26</m> lettres de l'alphabet si chaque lettre ne peut pas être utilisée plus de deux fois?</p>
+            </statement>
+            <answer><p><m>P_{3}^{26}=\frac{26!}{23!}=26\cdot 25 \cdot 24</m>.</p></answer>
+        </task>
+    </exercise>
+
+    <exercise>
+        <statement><p>On place huit points, notés de <m>A</m> à <m>H</m> sur un cercle à égale distance. Combien de triangles peut-on former à partir de ces points, tel qu'illustré sur la figure ci-dessous?</p>
+        <p><figure xml:id="fig-triangleCercle">
+            <caption>Un triangle dans un cercle</caption>
+            <image width="25%" xml:id="img-triangleCercle" source="triangleCercle.png">
+            </image>
+            </figure></p></statement>
+        <answer><m>\Binomial{8}{3}=\frac{8!}{3!5!}</m></answer>
+    </exercise>
+
+    <exercise>
+        <statement><p>On place huit personnes autour d'une table carré, en mettant deux personnes par côté. De combien de façons peut-on accomnplir cette tâche si les deux premières compositions ci-dessous sont équivalentes, mais pas la troisièrme?</p>
+        <p> <figure xml:id="fig-configuration">
+            <caption>Trois configurations</caption>
+            <sidebyside>
+            <figure xml:id="fig-tableA">
+            <caption>Équivalent</caption>
+            <image width="25%" source="tableA.png">
+            </image>
+            </figure>
+            <figure xml:id="fig-tableB">
+            <caption>Équivalent</caption>
+            <image width="25%" source="tableB.png">
+            </image>
+            </figure>
+            <figure xml:id="fig-tableC">
+            <caption>Pas équivalent</caption>
+            <image  width="25%" source="tableC.png">
+            </image>
+            </figure>
+            </sidebyside> 
+            </figure></p>
+        </statement>
+        <answer><p><m>\frac{8!}{4}</m></p></answer>
+    </exercise>
+    <exercise>
+        <statement><p>De combien de façons peut-on placer quatre billes noires (indiscernables) dans cinq urnes différentes?</p></statement>
+        <answer>
+            <p>
+                <m>\Binomial{8}{4}=\frac{8!}{4!4!}</m>
+            </p>
+        </answer>
+    </exercise>
+    <exercise>
+        <introduction><p>Déterminer le coefficient du terme <m>x^9y^3</m> dans le développement de:</p></introduction>
+        <task>
+            <statement><p><m>(x+y)^{12}</m></p></statement>
+            <answer><m>\Binomial{12}{9}=\frac{12!}{9!3!}</m></answer>
+        </task>
+        <task>
+            <statement><p><m>(x+2y)^{12}</m></p></statement>
+            <answer><m>2^3\cdot \Binomial{12}{9}=2^3\cdot \frac{12!}{9!3!}</m></answer>
+        </task>
+        <task>
+            <statement><p><m>(2x+y)^{12}</m></p></statement>
+            <answer><m>2^9\cdot \Binomial{12}{9}=2^9\cdot \frac{12!}{9!3!}</m></answer>
+        </task>
+    </exercise>
+
+    <exercise>
+        <introduction><p>Un joueur de poker pige cinq cartes d'un paquet de <m>52</m> cartes standard. Combien de mains différentes peut-il obtenir:</p></introduction>
+        <task>
+            <statement><p>telles que les cinq cartes sont de la même sorte?</p></statement>
+            <answer><m>\Binomial{4}{1}\Binomial{13}{1}=\frac{4!}{1!3!}\frac{13!}{1!12!}=4\cdots 13</m></answer>
+        
+        </task>
+        <task>
+            <statement><p>qui contiennent quatre as?</p></statement>
+            <answer><m>48</m></answer>
+        
+        </task>
+        <task>
+            <statement><p>qui contiennent quatre cartes de la même valeur?</p></statement>
+            <answer><m>13\cdot 48</m></answer>        
+        </task>
+        <task>
+            <statement><p>qui contiennent trois as et deux valets?</p></statement>
+            <answer><m>\Binomial{4}{3}\cdot \Binomial{4}{2}=4\cdot 6 = 24</m></answer>
+        
+        </task>
+        <task>
+            <statement><p>qui contiennent trois as et une paire?</p></statement>
+            <answer><m>\Binomial{4}{3}\cdot \Binomial{4}{2}\cdot 12 =288</m></answer>
+        
+        </task>
+        <task>
+            <statement><p>qui contiennent deux paires (et une carte d'une troisième valeur)?</p></statement>
+            <answer><m>\Binomial{13}{2}\cdot \Binomial{4}{2}\cdot \Binomial{4}{2} \cdot 44=\frac{13!}{2!11!}\cdot \frac{4!}{2!2!}\cdot \frac{4!}{2!2!} \cdot 44</m></answer>
+        
+        </task>
+    </exercise>
+    <exercise>
+        <introduction><p>Déterminer le nombre de solutions entières à l'équation 
+        <me>x_1+x_2+x_3+x_4 = 32</me>
+        où</p></introduction>
+        <task>
+            <statement><p><m>x_i\geq 0</m> pour <m>1\leq i \leq 4</m>.</p></statement>
+            <answer><m>\Binomial{35}{3}=\frac{35!}{32!3!}</m></answer>
+        </task>
+        <task>
+            <statement><p><m>x_i \gt 0</m> pour <m>1\leq i \leq 4</m>.</p></statement>
+            <answer><m>\Binomial{31}{3}=\frac{31!}{28!3!}</m></answer>
+        </task>
+        <task>
+            <statement><p><m>x_1, x_2\geq 5</m> et <m>x_3, x_4\geq 7</m>.</p></statement>
+            <answer><m>\Binomial{11}{3}=\frac{11!}{9!3!}</m></answer>
+        </task>
+    </exercise>
+    <exercise>
+        <introduction><p>Déterminer le nombre de solutions entières à l'équation 
+        <me>x_1+x_2+x_3+x_4+x_5 \leq 40</me>
+        où</p></introduction>
+        <task>
+            <statement><p><m>x_i\geq 0</m> pour <m>1\leq i \leq 5</m>.</p></statement>
+            <answer><m>\Binomial{45}{5}=\frac{45!}{40!5!}</m></answer>
+        </task>
+        <task>
+            <statement><p><m>x_i\geq -3</m> pour <m>1\leq i \leq 5</m>.</p></statement>
+            <answer><m>\Binomial{60}{5}=\frac{60!}{55!5!}</m></answer>
+        </task>
+    </exercise>
+
+    <!--<exercise>
+        <statement><p>Déterminer la valeur de <m>n\in \N</m> pour laquelle les équations 
+        <md>
+            <mrow>x_1+x_2+x_3+\cdots +x_{19}\amp = n</mrow>
+            <mrow>y_1+y_2+y_3+\cdots +y_{64}\amp = n</mrow>
+        </md>
+    ont le même nombre de solutions entières positives (<m>x_i\geq 0</m> et <m>y_i\geq 0</m>).
+    </p>
+</statement>
+    </exercise> -->
+
+    <exercise>
+        <statement><p>Combien de solutions entières positives y a-t-il pour la paire d'équations 
+            <md>
+                <mrow>x_1+x_2+x_3+\cdots +x_{7}\amp = 37</mrow>
+                <mrow>x_1+x_2+x_3\amp = 6</mrow>
+            </md>
+        </p></statement>
+        <answer><m>\Binomial{8}{2}\cdot \Binomial{34}{3}=\frac{8!}{6!2!}\cdot \frac{34!}{31!3!}</m></answer>
+    </exercise>
+    </subexercises>
+
+</exercises>

@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-fonctions">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Les fonctions </title>
+    <introduction xml:id= "intro-fonctions">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Dans un cours de mathématiques discrètes, on étudie les fonctions d'un point de vue différent à celui auquel on est habitué. Pour ce faire, on commence par parler de relations. Étant donné deux ensembles <m>A,B</m>, potentiellement égaux, on peut s'intéresser aux relations qui existent entre les éléments de ces ensembles. Par exemple, on peut parler d'un lien de famille entre ensembles de personnes, une catégorisation de produits (un ensemble d'aliments et un ensemble contenant des identifiants comme  fruit, légume, viande, etc.) etc.</p>
+    </introduction>
+    
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    <subsection>
+    <title>Définitions et exemples</title>
+    <p>Soit <m>A</m> et <m>B</m> deux ensembles. Une relation est un sous-ensemble  <m>R\subseteq A\times B</m>. On dit parfois que <m>R</m> est une relation de <m>A</m> vers <m>B</m>.  Deux éléments <m>a\in A</m> et <m>b\in B</m> sont dits en relation si <m>(a,b)\in R</m>. On écrit aussi <m>a~ R~ b</m> ou <m>a\sim b</m> pour dire que les éléments <m>a,b</m> sont en relation.</p>
+    <example xml:id="ex-rel">
+    <title>Un exemple de relation</title>
+    <statement><p>On considère l'ensemble <m>A=B</m> formé des provinces canadiennes. On pose <me>R=\{(p,q)\in A\times A~|~\text{il existe une frontière terrestre entre } p \text{ et }q\}</me>. On cherche trois éléments de <m>A\times A</m> qui sont en relation <m>R</m> et deux qui ne le sont pas.</p></statement>
+    <solution><p>On considère le Québec. La province possède une frontière commune avec l'Ontario à l'ouest, avec le Nouveau-Brunswick au sud-est et avec Terre-Neuve par le biais du Labrador à l'est. Ainsi <m>(\text{Québec},\text{Ontario}),(\text{Québec},\text{Nouveau-Brunswick}),(\text{Québec},\text{Terre-Neuve})\in R</m>.</p>
+    <p>Par contre, le Québec n'a pas de frontière terrestre avec l'Alberta ou la Colombie-Britannique alors <m>(\text{Québec},\text{Alberta}),(\text{Québec},\text{Colombie-Britannique})\notin R</m>.</p>
+    </solution>
+    </example>
+    <p>Le type de relation le plus important et utile en mathématique est certainement la fonction. Une relation est une fonction si elle respecte des conditions additionnelles.</p>
+    <definition xml:id="def-fonction">
+    <title>Une fonction</title>
+    <statement><p>Soit <m>A,B</m> deux ensembles et <m>R\subseteq A\times B</m> une relation. On dit que <m>R</m> est une <em>fonction</em> si chaque élément <m>a\in A</m> fait partie d'exactement un élément de <m>R</m>. En d'autres mots, un élément de <m>A</m> ne peut être en relation qu'avec un seul élément de <m>B</m>.  </p>
+    <p>Traditionnellement, on dénote les fonctions par les lettres <m>f,g,h</m>. On écrit alors
+    <md>
+    <mrow>f&amp;: &amp;A&amp;\to B</mrow>
+    <mrow>&amp;&amp;a&amp;\to f(a)=b</mrow>
+    </md>.</p>
+    <p>Chaque élément <m>a\in A</m> possède un et un seul élément <m>b\in B</m> tel que <m>f(a)=b</m>, mais un élément de <m>B</m> peut ne pas être atteint par un élément de <m>A</m>. Dans la définition d'une fonction, on spécifie souvent les trois ensembles suivants:
+    <dl>
+    <li><title>Le domaine:</title><p>L'ensemble <m>A</m> est appelé le domaine de la fonction.</p></li>
+    <li><title>Le codomaine:</title><p>L'ensemble <m>B</m> est appelé le codomaine de la fonction.</p></li>
+    <li><title>L'image:</title><p>L'image est l'ensemble des <m>b\in B</m> qui sont atteints par au moins une valeur  <m>a\in A</m>: <md>
+    <mrow>\text{Ima}(f)=\{b\in B~|~ \text{il existe }\amp a\in A </mrow>
+    <mrow>\amp \text{ tel que } f(a)=b\}</mrow>
+    </md>.</p>
+    <p>Si <m>f(a)=b</m>, on dit aussi que <m>b</m> est l'image de <m>a</m> et que <m>a</m> est une préimage de <m>b</m>. L'ensemble de toutes les préimages de <m>b</m> est parfois noté <m>f^{-1}(\{b\})</m>. On laisse parfois de côté les accolades, mais il faut alors faire attention de ne pas confondre <m>f^{-1}(b)</m>, qui est un ensemble, avec la fonction inverse de <m>f</m>, dont il sera question dans la sous-section <xref ref="sssec-injsurj"/>.</p>
+    </li>
+    </dl>
+    </p>
+    </statement>
+    </definition>
+    <p>Une fonction est une machine qui associe à chaque entrée exactement une sortie. Le processus par lequel s'effectue la transformation peut souvent être explicite, mais parfois implicite ou inconnu. </p>
+    <p>Si <m>C\subseteq A</m> est un sous-ensemble du domaine d'une fonction <m>f</m> et qu'on souhaite considérer la fonction restreinte sur ce sous-ensemble, on écrira <m>\left. f\right|_C</m> (voir l'exercice <xref ref="exo-fctrest"/>).</p>
+    <example>
+    <title>Des fonctions</title>
+    <statement><p>On cherche parmi les relations suivantes lesquelles sont des fonctions:
+    <ol>
+    <li><p>La relation définie à l'exemple <xref ref="ex-rel"/>.</p></li>
+    <li><p>La relation qui associe à chaque étudiant d'un cours une note à la fin de la session.</p></li>
+    <li><p>La relation qui associe à un étudiant les langages de programmation qu'il connait.</p></li>
+    <li><p>La relation de <m>\N</m> vers <m>\N</m> qui associe à un nombre <m>k</m> son carré <m>k^2</m>.</p></li>
+    <li><p>La relation de <m>\N</m> vers <m>\R</m> qui associe à un nombre <m>k</m> les nombres <m>r</m> tels <m>r^2=k</m>.</p></li>
+    <li><p>La relation <m>f:\N\to \N</m> définie par <m>f(n)=\frac{n}{2}</m>.</p></li>
+    <li><p>La relation <m>f:\N\to \Q</m> définie par <m>f(n)=\frac{n}{2}</m>.</p></li>
+    <li><p>La relation de <m>\N\backslash\{0\}</m> vers <m>\N</m> qui associe à <m>n</m> le <m>n^{\text{ième}}</m> nombre premier.</p></li>
+    </ol>
+    </p></statement>
+    <solution>
+    <p><ol>
+    <li>
+    <p>La relation entre les provinces de Canada n'est pas une fonction. Une province peut être en relation avec plusieurs autres, comme le Québec. Une province peut aussi ne pas être en relation avec aucune autre, comme l'Île-du-Prince-Édouard.</p>
+    </li>
+    <li><p>À la fin de la session, chaque étudiant aura une note. Deux étudiants auront peut-être la même note, mais ce n'est pas contre l'idée d'une fonction. Par contre, un étudiant aura une et une seule note. C'est donc une fonction.</p></li>
+    <li><p>Parce qu'un étudiant pourrait connaitre plus d'un langage de programmation, ce n'est pas une fonction. De même, peut-être qu'un étudiant ne sait même pas programmer. Il ne serait donc en relation avec aucun language de programmation.</p></li>
+    <li><p>Cette relation est une fonction, car à tout nombre <m>k\in \N</m>, il existe une seule valeur pour <m>k^2</m>. Par exemple, si on note cette fonction par <m>f</m>, alors <m>f(4)=16,f(5)=25</m> etc.</p></li>
+    <li><p>Ce n'est pas une fonction car, étant donné <m>k\in N</m>, il existe deux nombres dans <m>\R</m> pour lesquels cela est possible, soit <m>\pm \sqrt{k}</m>. Par exemple, le naturel <m>4</m> serait associé à la fois à <m>-2</m> et à <m>2</m> par cette relation.</p>
+    <p>Si on changeait le codomaine par l'ensemble des rééls positifs, <m>\R^{+}</m>, alors on aurait une fonction.</p>
+    </li>
+    <li><p>Cette relation n'est pas une fonction, car certaines valeurs du domaine ne possèdent pas d'image. C'est le cas pour <m>3</m>, puisque <m>f(3)=\frac{3}{2}\notin \N</m>.</p></li>
+    <li><p>Cette fois-ci, le codomaine est adéquat et on a une fonction puisque la valeur <m>\frac{n}{2}</m> est unique pour chaque <m>n\in \N</m>.</p></li>
+    <li><p>Cette relation est une fonction, car il n'existe qu'un seul <m>n^\text{ième}</m> nombre premier et qu'il en existe une infinité. Toutefois, contrairement aux autres fonctions ci-dessus, il n'y a pas de formule explicite pour déterminer <m>f(n)</m>. La liste des premiers nombres premiers est <m>2,3,5,7,11,13,17,19,23,\ldots</m>.</p></li>
+    </ol></p>
+    </solution>
+    </example>
+    <p>Étant donné deux ensembles <m>A</m> et <m>B</m>, combien y a-t-il de fonctions différentes qui vont de <m>A</m> vers <m>B</m> ? Si les ensembles ont une cardinalité finie, il sera possible de les compter.</p>
+    <example><title>Toutes le fonctions entre deux ensembles</title>
+    <statement><p>Soit <m>A=\{0,1\}</m> et <m>B=\{0,1,2\}</m>. On cherche à faire la liste de toutes les fonctions possibles partant de <m>A</m> vers <m>B</m>.</p>
+    <p>Il y aura <m>9</m> fonctions. Avant de poursuivre, tenter de voir pourquoi.</p>
+    </statement>
+    <solution>
+    <p>On sait que chaque élément du domaine doit être envoyé sur exactement un élément du codomaine. Comme on a deux éléments dans le domaine et que pour chacun on a trois choix dans le codomaine, on devrait trouver <m>3\cdot3=9</m> fonctions. Elles sont dans la table <xref ref="tab-fctAB"/>. L'ordre n'est évidemment pas important, mais remarquer comment elles ont été listées. On est parti avec <m>f(0)=0</m> pour ensuite faire toutes les valeurs possibles pour <m>f(1)</m>. Ensuite, on prend la deuxième option <m>f(0)=1</m> et on répète, pour finalement arriver avec <m>f(0)=2</m> et ses variantes pour <m>f(1)</m>. </p>
+    <table xml:id="tab-fctAB"><title>Les fonctions de <m>A</m> vers <m>B</m></title>
+  <tabular top="major">
+    <row>
+      <cell>
+        <m>f</m>
+      </cell>
+      <cell>
+        <m>f(0)</m>
+      </cell>
+      <cell>
+        <m>f(1)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <m>f_1</m>
+      </cell>
+      <cell>
+        <m>0</m>
+      </cell>
+      <cell>
+        <m>0</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <m>f_2</m>
+      </cell>
+      <cell>
+        <m>0</m>
+      </cell>
+      <cell>
+        <m>1</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <m>f_3</m>
+      </cell>
+      <cell>
+        <m>0</m>
+      </cell>
+      <cell>
+        <m>2</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <m>f_4</m>
+      </cell>
+      <cell>
+        <m>1</m>
+      </cell>
+      <cell>
+        <m>0</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <m>f_5</m>
+      </cell>
+      <cell>
+        <m>1</m>
+      </cell>
+      <cell>
+        <m>1</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <m>f_6</m>
+      </cell>
+      <cell>
+        <m>1</m>
+      </cell>
+      <cell>
+        <m>2</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <m>f_7</m>
+      </cell>
+      <cell>
+        <m>2</m>
+      </cell>
+      <cell>
+        <m>0</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <m>f_8</m>
+      </cell>
+      <cell>
+        <m>2</m>
+      </cell>
+      <cell>
+        <m>1</m>
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        <m>f_9</m>
+      </cell>
+      <cell>
+        <m>2</m>
+      </cell>
+      <cell>
+        <m>2</m>
+      </cell>
+    </row>
+  </tabular>
+</table>
+    </solution>
+    </example>
+    </subsection>
+  <subsection>
+  <title>Représentation d'une fonction</title>
+  <p>Pour aider à comprendre  une fonction, il peut être pratique de la visualiser à l'aide de différents outils. Selon le domaine et/ou le codomaine, certains sont plus appropriés que d'autres. À titre d'exemple, on considère les ensembles <m>A=\{0,1,2,3\}</m> et <m>B=\{1,2,3\}</m> et la fonction définie comme suit:
+  <m>
+  f(0)=1,f(1)=3,f(2)=1,f(3)=2
+  </m>.
+  </p>
+  <p>Une première représentation est celle d'un diagramme sagittal. Cette représentation n'est pratique que si le nombre d'éléments de chaque ensemble est relativement petit. Le diagramme sagittal de la fonction <m>f</m> est illustré à la figure <xref ref="fig-diasagi" text="custom">ci-dessous</xref>.</p>
+  <figure xml:id="fig-diasagi">
+  <caption>Un diagramme sagittal de <m>f</m></caption>
+  <image xml:id="img-diasagi">
+  <sageplot>
+var("y")
+Ovales=ellipse((-2, 0), 1, 2,axes=False,color="black")+ellipse((2, 0), 1, 2,axes=False,color="black")
+A=text("A",(-3,2),color="black")+points([(-2,-1.3),(-2,-0.45),(-2,0.45),(-2,1.3)],color="black")+text("0",(-2.2,1.3),color="black")+text("1",(-2.2,0.45),color="black")+text("2",(-2.2,-0.45),color="black")+text("3",(-2.2,-1.3),color="black")
+B=text("B",(3,2),color="black")+points([(2,-0.8),(2,0.05),(2,0.95)],color="black")+text("1",(2.2,0.95),color="black")+text("2",(2.2,0.05),color="black")+text("3",(2.2,-0.8),color="black")
+fleches=arrow((-2,1.3),(2,0.95),color="black",arrowsize=2)+arrow((-2,0.45),(2,-0.8),color="black",arrowsize=2)+arrow((-2,-0.45),(2,0.95),color="black",arrowsize=2)+arrow((-2,-1.3),(2,0.05),color="black",arrowsize=2)
+Ovales+A+B+fleches
+  </sageplot>
+  </image>
+  </figure>
+  <p>Les ellipses autour des éléments sont parfois omis dans cette représentation.</p>
+  <p>Une autre méthode est en effectuant tout simplement une représentation graphique des valeurs. Cette méthode ne fonctionne que si les ensembles sont numériques bien sûr. Ci-dessous, la représentation de la fonction <m>f</m> ainsi que d'une fonction <m>g:\R\to\R</m> sinusoïdale. C'est surtout dans un contexte continue qu'on utilise ce type de représentation, mais à l'occasion aussi dans un contexte discret.</p>
+  <sidebyside width="40%">
+  <figure>
+  <caption>Un graphique pour <m>f</m></caption>
+  <image xml:id="img-pointsf">
+  <sageplot>
+points([(0,1),(1,3),(2,1),(3,2)],color="black",pointsize=40)
+  </sageplot>
+  </image>
+  </figure>
+  <figure xml:id="fig-sinus">
+  <caption>Une fonction sinusoïdale</caption>
+  <image xml:id="img-sinus">
+  <sageplot>
+plot(sin(3*x)*cos(x/2),(x,-pi,pi),color="black")
+  </sageplot>
+  </image>
+  </figure>
+  </sidebyside>
+  <p>Une autre manière que l'on considère est de donner une table de valeurs. Celle-ci est utile dans un contexte discret, même lorsque le domaine possède une infinité d'éléments. On peut parfois y déceler une suite logique. Voici la table de valeurs de la fonction <m>f</m>. </p>
+  <table>
+  <title>La table de valeurs pour la fonction <m>f</m></title>
+  <tabular top="major">
+    <row bottom="medium">
+      <cell>
+        n
+      </cell>
+      <cell>
+        f(n)
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+    <row>
+      <cell>
+        2
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        3
+      </cell>
+      <cell>
+        2
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>Une telle table pourrait aussi être horizontale.</p>
+<p>Finalement, une fonction peut-être représentée par une règle algébrique. Selon les cas et en fonction des outils disponibles, cela permet de faire une analyse approfondie du comportement de la fonction. La règle de la fonction sinusoïdale de la figure <xref ref="fig-sinus"/> est <m>g(x)=\sin(3x)\cos(x/2)</m>.</p>
+  </subsection>
+   <!--
+   <subsection>
+    <title>Les permutations</title>
+    <p>On s'intéresse maintenant à un type particulier de fonctions, appelées les permutations d'un ensemble. Une permutation est une fonction d'un ensemble <m>A</m> vers lui-même telle que chaque élément du codomaine possède une préimage. C'est un exemple de bijection, concept qui sera défini dans la sous-section <xref ref="sssec-injsurj"/>.</p>
+    <example>
+    <title>Les permutations d'un ensemble à trois éléments</title>
+    <statement><p>On considère un ensemble <m>A=\{1,2,3\}</m>. On cherche à faire la liste des six<fn><p>Comment arrive-t-on à six?</p></fn> permutations de cet ensemble.</p></statement>
+    <solution>
+    <p>Une première option est d'attribuer à chaque élément lui-même dans son image. Une telle permutaiton est appelé &#x00AB; identité &#x00BB;, puisqu'elle laisse tout en place. Une autre option serait de laisser l'image de <m>1</m> à <m>1</m> et d'inverser les deux autres. En répétant ceci avec <m>2</m> et <m>3</m>, on obtient trois permutations, en plus de l'identité. Les deux autres s'obtiennent mélangeant toutes les valeurs. La liste de toutes les permutations se trouvent ci-dessous.</p>
+    <sidebyside>
+    <tabular top="major">
+    <row>
+      <cell>
+        n
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        f(n)
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+  </tabular>
+    <tabular top="major">
+    <row>
+      <cell>
+        n
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        f(n)
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        3
+      </cell>
+      <cell>
+        2
+      </cell>
+    </row>
+  </tabular>
+  <tabular top="major">
+    <row>
+      <cell>
+        n
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        f(n)
+      </cell>
+      <cell>
+        3
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+  </tabular>
+    </sidebyside>
+    <sidebyside>
+      <tabular top="major">
+    <row>
+      <cell>
+        n
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        f(n)
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+  </tabular>
+    <tabular top="major">
+    <row>
+      <cell>
+        n
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        f(n)
+      </cell>
+      <cell>
+        3
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        2
+      </cell>
+    </row>
+  </tabular>
+    <tabular top="major">
+    <row>
+      <cell>
+        n
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        3
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        f(n)
+      </cell>
+      <cell>
+        2
+      </cell>
+      <cell>
+        3
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+  </tabular>
+    </sidebyside>
+    </solution>
+    </example>
+    <p>Une notation pratique pour les permutations consiste à les écrire dans.</p>
+    </subsection> Les permutations À voir 
+    --> <!--Les permutations -->
+    <subsection>
+    <title>La composition de fonctions</title>
+    <p>On considère trois ensembles <m>A,B,C</m>, où <m>A</m> représente les élèves d'un cours à l'université, <m>B</m> représente la note de ces élèves (en pourcentage) et <m>C</m> représente les cotes possibles (<m>A^+,A,A^-,\ldots, D,F</m>). On peut imaginer une fonction qui à chaque élève associe une note puis, pour chaque note est associée une cote selon un barême préétablit par l'enseignant. Peut-on directement avoir une fonction qui à chaque élève retourne la cote? C'est un exemple de composition de fonctions.</p>
+    <definition xml:id="def-compofct">
+    <title>La composition de deux fonctions</title>
+    <statement><p>Soit <m>g:A\to B</m> et <m>f:B\to C</m> deux fonctions. La composition de <m>f</m> et <m>g</m>, notée <m>f\circ g</m> est une fonction de <m>A</m> vers <m>C</m> définie par
+    <me>
+    (f\circ g)(a)=f(g(a))
+    </me> pour tout élément <m>a\in A</m>.</p></statement>
+    </definition>
+    <p>Cette relation est bel et bien une fonction, car tous les éléments de <m>A</m> possèdent une image et celle-ci est unique puisque les relations <m>f,g</m> sont des fonctions. L'image de <m>a</m> par <m>g</m> est donc unique, tout comme l'image de <m>g(a)\in B</m> par <m>f</m>. La figure <xref ref="fig-compofct"/> représente la composition de deux fonctions.</p>
+    <figure xml:id="fig-compofct">
+    <caption>La composition <m>f\circ g</m></caption>
+    <image xml:id="img-compofct">
+    <description>Trois ensembles A,B,C sont dessinés contenant respectivement les éléments a,g de a et f de g de a. Des flèches illustrant la fonction g partent de l'ensemble A à gauche vers l'ensemble B au centre, des flèches illustrant la fonction f partent de l'ensemble B au centre vers l'ensemble C à droite et des flèches illustrant la composition f rong g partent de l'ensemble A vers l'ensemble C. </description>
+    <sageplot>
+Ellipse=ellipse((-3,0),1,2,axes=False,color="black")+ellipse((-0,0),1,2,axes=False,color="black")+ellipse((3,0),1,2,axes=False,color="black")
+Pts=points([(-3,1)],color="black",pointsize=20)+points([(-0,1)],color="black",pointsize=20)+points([(3,1)],color="black",pointsize=20)
+Fleches=arrow((-2,0),(-1,0),color="black",arrowsize=2,width=1)+arrow((1,0),(2,0),color="black",arrowsize=2,width=1)+bezier_path(path=[[(-3,-2),(0,-4),(2.7,-2.2)]])+arrow((2.7,-2.2),(3,-2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-3,1),(-1.5,1.7),(-0.2,1.1)]])+arrow((-0.2,1.1),(0,1),color="black",width=1,arrowsize=2)+bezier_path(path=[[(0,1),(1.5,1.7),(2.8,1.1)]])+arrow((2.8,1.1),(3,1),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-3,1),(0,3),(2.6,1.4)]])+arrow((2.6,1.4),(3,1.1),color="black",width=1,arrowsize=2)
+Txt=text("$a$",(-3,0.7),color="black",fontsize=12)+text("$g(a)$",(-0,0.7),color="black",fontsize=12)+text("$f(g(a))$",(3,0.7),color="black",fontsize=12)+text("$g$",(-1.5,-0.3),color="black",fontsize=12)+text("$f$",(1.5,-0.3),color="black",fontsize=12)+text("$g$",(-1.5,1.55),color="black",fontsize=12)+text("$f$",(1.5,1.55),color="black",fontsize=12)+text(r"$f\circ g$",(-0,2.4),color="black",fontsize=12)+text(r"$f\circ g$",(-0,-3.3),color="black",fontsize=12)+text("$A$",(-3,-1.6),color="black",fontsize=12)+text("$B$",(-0,-1.6),color="black",fontsize=12)+text("$C$",(3,-1.6),color="black",fontsize=12)
+Ellipse+Pts+Fleches+Txt
+    </sageplot>
+    </image>
+    </figure>
+    <example xml:id="ex-composagi">
+    <title>Composition de deux fonctions</title>
+    <statement><p>Soit <m>A,B,C</m> trois ensembles et <m>f,g</m> des fonctions telles qu'illustrés à la figure <xref ref="fig-composagi"/>. On veut déterminer
+    <ol>
+    <li><p>Le domaine, le codomaine et l'image de <m>f,g</m> et <m>f\circ g</m>.</p></li>
+    <li><p>Les valeurs, si possible de <m>f(a),g(a),(f\circ g)(a)</m>.</p></li>
+    <li><p>Les préimages, si possible, <m>f^{-1}(-4),g^{-1}(-4),(f\circ g)^{-1}(-4)</m>. </p></li>
+    </ol>
+    </p>
+    <figure xml:id="fig-composagi">
+    <caption>Un diagramme sagittal de <m>f,g</m> et leur composition</caption>
+    <image xml:id="img-composagi">
+    <description>Un graphique sagittal à trois ensembles est illustré. À gauche, les éléments a,b,c de l'ensemble A sont envoyés respectivement sur 1,3 et 1 dans l'ensemble B au centre. L'ensemble B contient les éléments 1,2,3 qui sont envoyés dans l'ensemble C respectivement sur -4,-1,-2. L'ensemble C contient aussi l'élément -3. </description>
+    <sageplot>
+Ellipse=ellipse((-3,0),1,2,axes=False,color="black")+ellipse((-0,0),1,2,axes=False,color="black")+ellipse((3,0),1,2,axes=False,color="black")
+Pts=points([(-3,1)],color="black",pointsize=20)+points([(-3,0)],color="black",pointsize=20)+points([(-3,-1)],color="black",pointsize=20)+points([(-0,1)],color="black",pointsize=20)+points([(-0,0)],color="black",pointsize=20)+points([(-0,-1)],color="black",pointsize=20)+points([(3,1)],color="black",pointsize=20)+points([(3,1/3)],color="black",pointsize=20)+points([(3,-1/3)],color="black",pointsize=20)+points([(3,-1)],color="black",pointsize=20)
+Fleches=arrow((-3,0),(0,-1),color="black",arrowsize=2,width=1)+arrow((0,1),(3,-1),color="black",arrowsize=2,width=1)+arrow((0,-1),(3,1/3),color="black",arrowsize=2,width=1)+arrow((-3,-1),(0,1),color="black",arrowsize=2,width=1)+arrow((-3,1),(0,1),color="black",arrowsize=2,width=1)+arrow((0,0),(3,1),color="black",arrowsize=2,width=1)
+Txt=text("$a$",(-3.2,1),color="black",fontsize=12)+text("$b$",(-3.2,0),color="black",fontsize=12)+text("$c$",(-3.2,-1),color="black",fontsize=12)+text("$1$",(-0,1.2),color="black",fontsize=12)+text("$3$",(-0,-1.2),color="black",fontsize=12)+text("$2$",(-0,-0.2),color="black",fontsize=12)+text("$-1$",(3.2,1),color="black",fontsize=12)+text("$-2$",(3.2,1/3),color="black",fontsize=12)+text("$-3$",(3.2,-1/3),color="black",fontsize=12)+text("$-4$",(3.2,-1),color="black",fontsize=12)+text("$A$",(-3,-1.6),color="black",fontsize=12)+text("$B$",(-0,-1.6),color="black",fontsize=12)+text("$C$",(3,-1.6),color="black",fontsize=12)
+Fct=bezier_path(path=[[(-3,-2),(0,-4),(2.7,-2.2)]])+arrow((2.7,-2.2),(3,-2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-3,2),(-1.5,2.7),(-0.2,2.1)]])+arrow((-0.2,2.1),(0,2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-0,2),(1.5,2.7),(3-0.2,2.1)]])+arrow((3-0.2,2.1),(3,2),color="black",width=1,arrowsize=2)+text(r"$f\circ g$",(-0,-3.3),color="black",fontsize=12)+text("$f$",(1.5,2.55),color="black",fontsize=12)+text("$g$",(-1.5,2.55),color="black",fontsize=12)
+Ellipse+Pts+Fleches+Txt+Fct
+    </sageplot>
+    </image>
+    </figure>
+    </statement>
+    <solution>
+    <p><ol>
+    <li><p>On commence par la fonction <m>f</m>. Son domaine est l'ensemble <m>B=\{1,2,3\}</m>, son codomaine est l'ensemble <m>C=\{-1,-2,-3,-4\}</m> et son image est le sous-ensemble de <m>C</m> contenant les éléments <m>-1,-2,-4</m>.</p>
+    <p>Pour la fonction <m>g</m>, son domaine est l'ensemble <m>A=\{a,b,c\}</m>, son codomaine est l'ensemble <m>B=\{1,2,3\}</m> et son image est le sous-ensemble de <m>C</m> contenant les éléments <m>1,3</m>.</p>
+    <p>Finalement pour la composition <m>f\circ g</m>, son domaine est l'ensemble <m>A=\{a,b,c\}</m>, son codomaine est l'ensemble <m>C=\{-1,-2,-3,-4\}</m> et son image est le sous-ensemble de <m>C</m> contenant les éléments <m>-2,-4</m>.</p></li>
+    <li><p>Comme <m>a\notin B=\text{dom}(f)</m>, on ne peut pas déterminer l'image de <m>a</m> par <m>f</m>. Par contre <m>a\in A=\text{dom}(g)=\text{dom}(f\circ g)</m>, on a <m>g(a)=1</m> et <m>(f\circ g)(a)=-4</m></p></li>
+    <li><p>La ou les préimage de <m>-4</m> par la fonction <m>f</m> est l'ensemble des valeurs <m>x\in B=\text{dom}(f)</m> telles que <m>f(x)=-4</m>. On a <m>f^{-1}(-4)=\{1\}.</m> Pour la composition, on cherche l'ensemble des <m>x\in A=\text{dom}(f\circ g)</m> telle que <m>(f\circ g)(x)=-4</m>. On trouve <m>(f\circ g)^{-1}(-4)=\{a,c\}</m>. </p></li>
+    </ol></p>
+    </solution>
+    </example>
+    </subsection>
+    <subsection xml:id="sssec-injsurj">
+    <title>Fonctions injectives et surjectives</title>
+    <p>On a vu dans l'exemple <xref ref="ex-composagi"/> que certaines fonctions envoient plusieurs éléments sur une même image. On a aussi vu que certaines fonctions n'atteignent pas toutes les valeurs de leur codomaine. Ce sont souvent des propriétés qu'il est souhaitable d'avoir ou du moins, elles entrainent d'heureuses conséquences.</p>
+    <definition xml:id="def-inj">
+    <title>Fonction injective</title>
+    <statement><p>Soit <m>F:A\to B</m> une fonction. On dit que <m>f</m> est injective si et seulement si les éléments de l'image ne sont atteints par <m>f</m> que par exactement un élément du domaine.  En langage mathématique, on écrit que si <m>f(a_1)=f(a_2)</m>, alors nécessairement <m>a_1=a_2</m>.</p></statement>
+    </definition>
+    <p>Avec une fonction injective, il n'y a pas de collision dans le codomaine, c'est-à-dire deux valeurs du domaine qui sont envoyées sur le même éléments. Dans ce cas, la préimage d'un élément du codomaine est soit l'ensemble vide, soit un élément unique du domaine.</p>
+    <example xml:id="ex-inj">
+    <title>Des fonctions injectives</title>
+    <statement><p>On considère les fonctions suivantes et on cherche celles qui sont injectives:
+    <ol>
+    <li><p>La fonction de <m>\R\to \R</m> définie par <m>f(x)=x^2</m>.</p></li>
+    <li><p>La fonction de <m>\R^{+}\to \R^{+}</m><fn><p>Par <m>\R^{+}</m>, on veut dire l'ensemble<m>\{x\in \R~|~ x\geq 0\}</m></p></fn> définie par <m>f(x)=x^2</m>.</p></li>
+    <li><p>La fonction d'un ensemble <m>A</m> quelconque vers ce même ensemble <m>A</m> qui associe chaque élément à lui-même. </p></li>
+    <li><p>Soit <m>A=\{0,1,2\}</m>. On pose <m>B=A\cup\{3\}</m>. On définit <m>f:\mathscr{P}(A)\to B</m> comme étant la fonction qui associe à chaque élément de <m>\mathscr{P}(A)</m> sa cardinalité.</p></li>
+    </ol></p></statement>
+    <solution><p><ol>
+    <li><p>Cette fonction n'est pas injective puisque pour tout <m>x\in \R</m>, on a <m>f(x)=f(-x)=^2</m>. En particulier, si <m>x\neq 0</m>, on obtient deux valeurs différentes du domaine qui donne la même image, par exemple <m>f(-1)=f(1)=1</m>. </p></li>
+    <li><p>Cette fois, comme le domaine est restreint aux réels positifs, il n'y a plus de <m>-x</m> possible. Chaque nombre réel positif possède une unique racine carrée et donc, chaque élément de l'image n'est atteint que par un seul élément du domaine. C'est une fonction injective. </p></li>
+    <li><p>Parce que <m>A</m> est un ensemble, on sait qu'il n'y a pas de répétitions dans ses éléments. Chaque membre de l'image est atteint par son unique homologue du domaine. C'est donc une injection (on utilise parfois ce terme plutôt que fonction injective).</p></li>
+    <li><p>On essaie de décortiquer un peu la fonction. L'ensemble de puissances contient <m>8</m> éléments. La cardinalité de ces éléments varie de <m>0</m> pour l'ensemble vide à <m>3</m> pour l'ensemble <m>A</m> lui-même. On comprend maintenant pourquoi le codomaine ne pouvait être que l'ensemble <m>A</m>. On a dû lui ajoute l'élément <m>3</m> afin que <m>f</m> puisse associer à chaque valeur de <m>\mathscr{P}(A)</m> une réponse.</p>
+    <p>On peut évidemment exhiber plusieurs sous-ensembles qui ont la même cardinalité, par exemple <m>\{0\},\{1\}</m> et <m>\{2\}</m> ou <m>\{0,1\},\{0,2\}</m> et <m>\{1,2\}</m>. Cette fonction n'est donc pas injective.</p>
+    </li>
+    </ol></p></solution>
+    </example>
+    <definition xml:id="def-surj">
+    <title>Fonction surjective</title>
+    <p>Soit <m>F:A\to B</m> une fonction. On dit que <m>f</m> est surjective si et seulement si tous les éléments du codomaine <m>B</m> sont atteints par <m>f</m> par au moins une valeur du domaine <m>A</m>.Ceci est équivalent à dire que le codomaine de la fonction <m>f</m> est l'image de celle-ci. En lagange mathématique, on écrit que pour tout <m>b\in B</m>, il existe au moins un <m>a\in A</m> tel que <m>f(a)=b</m>.</p>
+    </definition>
+    <p>Avec une fonction surjective, personne n'est laissé de côté dans le codomaine. Chaque valeur doit être atteinte.</p>
+    <example xml:id="ex-surj">
+    <title>Des fonctions surjectives</title>
+    <statement><p>On considère les fonctions suivantes et on cherche celles qui sont surjective:
+    <ol>
+    <li><p>La fonction de <m>\R\to \R</m> définie par <m>f(x)=x^2</m>.</p></li>
+    <li><p>La fonction de <m>\R^{+}\to \R^{+}</m><fn><p>Par <m>\R^{+}</m>, on veut dire l'ensemble<m>\{x\in \R~|~ x\geq 0\}</m></p></fn> définie par <m>f(x)=x^2</m>.</p></li>
+    <li><p>La fonction d'un ensemble <m>A</m> quelconque vers ce même ensemble <m>A</m> qui associe chaque élément à lui-même. </p></li>
+    <li><p>Soit <m>A=\{0,1,2\}</m>. On pose <m>B=A\cup\{3\}</m>. On définit <m>f:\mathscr{P}(A)\to B</m> comme étant la fonction qui associe à chaque élément de <m>\mathscr{P}(A)</m> sa cardinalité.</p></li>
+    </ol></p></statement>
+    <solution><p><ol>
+    <li><p>Cette fonction n'est pas surjective puisque pour tout <m>x&lt;0</m>, il n'existe pas de réel qui, mis au carré, donnera <m>x</m>. Par exemple, l'équation <m>x^2=-1</m> n'a pas de solutions dans les réels. </p></li>
+    <li><p>Cette fois, comme le codomaine est restreint aux réels positifs, il n'y a plus de nombres négatifs. Chaque nombre réel positif possède une unique racine carrée et donc, chaque élément de l'image n'est atteint que par un seul élément du domaine. C'est une fonction surjective. </p></li>
+    <li><p>Dans la définition de la fonction, on dit que chaque membre du domaine est associé à son homologue du codomaine. C'est donc une surjection (on utilise parfois ce terme plutôt que fonction surjective).</p></li>
+    <li><p>La cardinalité des éléments de <m>\mathscr{P}(A)</m> varie de <m>0</m> pour l'ensemble vide à <m>3</m> pour l'ensemble <m>A</m> lui-même, passant par <m>1</m> et <m>2</m> avec les sous-ensembles <m>\{0\},\{1\}</m> et <m>\{2\}</m> et <m>\{0,1\},\{0,2\}</m> et <m>\{1,2\}</m>. Cette fonction est donc surjective.</p>
+    </li>
+    </ol></p></solution>
+    </example>
+    <p>La définition de surjection dit que chaque valeur du codomaine est atteinte par au moins un élément du domaine. On peut reformuler la définition de fonction injective en parlant de codomaine aussi de la manière suivante: chaque valeur du codomaine est atteinte par au plus un élément du domaine. Que se passe-t-il lorsqu'une fonction est à la fois injective et surjective? </p>
+    <definition xml:id="def-bij">
+    <title>Fonction bijective</title>
+    <statement><p>Une fonction <m>f:A\to B</m> est dite <em>bijective</em> si elle est à la fois injective et surjective. Une fonction bijective atteint chaque élément du codomaine exactement une fois.</p></statement>
+    </definition>
+    <p>Parmi les fonctions des exemples <xref first="ex-inj" last="ex-surj"/>, la fonction <m>f:\R^{+}\to \R^{+}</m> est une bijection, tout comme la fonction de <m>A</m> vers <m>A</m> associant chaque élément à son homologue. Ce dernier exemple est ce qu'on appelle une fonction identité. </p>
+    <p>La figure <xref ref="fig-fctscorr"/> donne des exemples des différentes combinaisons possibles des propriétés d'injectivité, surjectivité et bijectivité qu'une fonction peut avoir.</p>
+    <figure xml:id="fig-fctscorr">
+    <caption>Différents cas possible d'injectivité, surjectivité et bijectivité</caption>
+    <sidebyside>
+    <figure xml:id="fig-fctscorr_rien">
+    <caption>Fonction ni injective ni surjective</caption>
+    <image xml:id="img-fctscorr_rien">
+    <description>Un ensemble A, à gauche contenant les éléments a,b,c est envoyé vers un ensemble B à droite contenant les éléments 1,2,3. L'élément 1 possède deux préimages et l'élément 2 n'est pas atteint.</description>
+    <sageplot>
+Ellipse=ellipse((-3,0),1,2,axes=False,color="black")+ellipse((-0,0),1,2,axes=False,color="black")#+ellipse((3,0),1,2,axes=False,color="black")
+Pts=points([(-3,1)],color="black",pointsize=20)+points([(-3,0)],color="black",pointsize=20)+points([(-3,-1)],color="black",pointsize=20)+points([(-0,1)],color="black",pointsize=20)+points([(-0,0)],color="black",pointsize=20)+points([(-0,-1)],color="black",pointsize=20)#+points([(3,1)],color="black",pointsize=20)+points([(3,1/3)],color="black",pointsize=20)+points([(3,-1/3)],color="black",pointsize=20)+points([(3,-1)],color="black",pointsize=20)
+Fleches=arrow((-3,0),(0,-1),color="black",arrowsize=2,width=1)+arrow((-3,-1),(0,1),color="black",arrowsize=2,width=1)+arrow((-3,1),(0,1),color="black",arrowsize=2,width=1)#+arrow((0,0),(3,1),color="black",arrowsize=2,width=1)+arrow((0,1),(3,-1),color="black",arrowsize=2,width=1)+arrow((0,-1),(3,1/3),color="black",arrowsize=2,width=1)
+Txt=text("$a$",(-3.2,1),color="black",fontsize=12)+text("$b$",(-3.2,0),color="black",fontsize=12)+text("$c$",(-3.2,-1),color="black",fontsize=12)+text("$1$",(-0,1.2),color="black",fontsize=12)+text("$3$",(-0,-1.2),color="black",fontsize=12)+text("$2$",(-0,-0.2),color="black",fontsize=12)#+text("$-1$",(3.2,1),color="black",fontsize=12)+text("$-2$",(3.2,1/3),color="black",fontsize=12)+text("$-3$",(3.2,-1/3),color="black",fontsize=12)+text("$-4$",(3.2,-1),color="black",fontsize=12)+text("$A$",(-3,-1.6),color="black",fontsize=12)+text("$B$",(-0,-1.6),color="black",fontsize=12)+text("$C$",(3,-1.6),color="black",fontsize=12)
+#Fct=bezier_path(path=[[(-3,-2),(0,-4),(2.7,-2.2)]])+arrow((2.7,-2.2),(3,-2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-3,2),(-1.5,2.7),(-0.2,2.1)]])+arrow((-0.2,2.1),(0,2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-0,2),(1.5,2.7),(3-0.2,2.1)]])+arrow((3-0.2,2.1),(3,2),color="black",width=1,arrowsize=2)+text(r"$f\circ g$",(-0,-3.3),color="black",fontsize=12)+text("$f$",(1.5,2.55),color="black",fontsize=12)+text("$g$",(-1.5,2.55),color="black",fontsize=12)
+Ellipse+Pts+Fleches+Txt#+Fct
+    </sageplot>
+    </image>
+    </figure>
+    <figure xml:id="fig-fctscorr_inj">
+    <caption>Fonction  injective, mais pas surjective</caption>
+    <image xml:id="img-fctscorr_inj">
+    <description>Un ensemble A, à gauche contenant les éléments a,b est envoyé vers un ensemble B à droite contenant les éléments 1,2,3. Les éléments a et 1 correspondent, tout comme b et 2. L'élément 3 n'est pas atteint.</description>
+    <sageplot>
+Ellipse=ellipse((-3,0),1,2,axes=False,color="black")+ellipse((-0,0),1,2,axes=False,color="black")#+ellipse((3,0),1,2,axes=False,color="black")
+Pts=points([(-3,1)],color="black",pointsize=20)+points([(-3,0)],color="black",pointsize=20)+points([(-0,1)],color="black",pointsize=20)+points([(-0,0)],color="black",pointsize=20)+points([(-0,-1)],color="black",pointsize=20)#+points([(3,1)],color="black",pointsize=20)+points([(3,1/3)],color="black",pointsize=20)+points([(3,-1/3)],color="black",pointsize=20)+points([(3,-1)],color="black",pointsize=20)
+Fleches=arrow((-3,0),(0,-0),color="black",arrowsize=2,width=1)+arrow((-3,1),(0,1),color="black",arrowsize=2,width=1)#+arrow((0,0),(3,1),color="black",arrowsize=2,width=1)+arrow((0,1),(3,-1),color="black",arrowsize=2,width=1)+arrow((0,-1),(3,1/3),color="black",arrowsize=2,width=1)
+Txt=text("$a$",(-3.2,1),color="black",fontsize=12)+text("$b$",(-3.2,0),color="black",fontsize=12)+text("$1$",(-0,1.2),color="black",fontsize=12)+text("$2$",(-0,-0.2),color="black",fontsize=12)+text("$3$",(-0,-1.2),color="black",fontsize=12)#+text("$-1$",(3.2,1),color="black",fontsize=12)+text("$-2$",(3.2,1/3),color="black",fontsize=12)+text("$-3$",(3.2,-1/3),color="black",fontsize=12)+text("$-4$",(3.2,-1),color="black",fontsize=12)+text("$A$",(-3,-1.6),color="black",fontsize=12)+text("$B$",(-0,-1.6),color="black",fontsize=12)+text("$C$",(3,-1.6),color="black",fontsize=12)
+#Fct=bezier_path(path=[[(-3,-2),(0,-4),(2.7,-2.2)]])+arrow((2.7,-2.2),(3,-2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-3,2),(-1.5,2.7),(-0.2,2.1)]])+arrow((-0.2,2.1),(0,2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-0,2),(1.5,2.7),(3-0.2,2.1)]])+arrow((3-0.2,2.1),(3,2),color="black",width=1,arrowsize=2)+text(r"$f\circ g$",(-0,-3.3),color="black",fontsize=12)+text("$f$",(1.5,2.55),color="black",fontsize=12)+text("$g$",(-1.5,2.55),color="black",fontsize=12)
+Ellipse+Pts+Fleches+Txt#+Fct
+    </sageplot>
+    </image>
+    </figure>
+    <figure xml:id="fig-fctscorr_surj">
+    <caption>Fonction  surjective, mais pas injective </caption>
+    <image xml:id="img-fctscorr_surj">
+    <description>Un ensemble A, à gauche contenant les éléments a,b,c est envoyé vers un ensemble B à droite contenant les éléments 1,2. L'élément 1 possède deux préimages.</description>
+    <sageplot>
+Ellipse=ellipse((-3,0),1,2,axes=False,color="black")+ellipse((-0,0),1,2,axes=False,color="black")#+ellipse((3,0),1,2,axes=False,color="black")
+Pts=points([(-3,1)],color="black",pointsize=20)+points([(-3,0)],color="black",pointsize=20)+points([(-3,-1)],color="black",pointsize=20)+points([(-0,1)],color="black",pointsize=20)+points([(-0,0)],color="black",pointsize=20)#+points([(-0,-1)],color="black",pointsize=20)#+points([(3,1)],color="black",pointsize=20)+points([(3,1/3)],color="black",pointsize=20)+points([(3,-1/3)],color="black",pointsize=20)+points([(3,-1)],color="black",pointsize=20)
+Fleches=arrow((-3,0),(0,-0),color="black",arrowsize=2,width=1)+arrow((-3,-1),(0,1),color="black",arrowsize=2,width=1)+arrow((-3,1),(0,1),color="black",arrowsize=2,width=1)#+arrow((0,0),(3,1),color="black",arrowsize=2,width=1)+arrow((0,1),(3,-1),color="black",arrowsize=2,width=1)+arrow((0,-1),(3,1/3),color="black",arrowsize=2,width=1)
+Txt=text("$a$",(-3.2,1),color="black",fontsize=12)+text("$b$",(-3.2,0),color="black",fontsize=12)+text("$c$",(-3.2,-1),color="black",fontsize=12)+text("$1$",(-0,1.2),color="black",fontsize=12)+text("$2$",(-0,-0.2),color="black",fontsize=12)#+text("$3$",(-0,-1.2),color="black",fontsize=12)#+text("$-1$",(3.2,1),color="black",fontsize=12)+text("$-2$",(3.2,1/3),color="black",fontsize=12)+text("$-3$",(3.2,-1/3),color="black",fontsize=12)+text("$-4$",(3.2,-1),color="black",fontsize=12)+text("$A$",(-3,-1.6),color="black",fontsize=12)+text("$B$",(-0,-1.6),color="black",fontsize=12)+text("$C$",(3,-1.6),color="black",fontsize=12)
+#Fct=bezier_path(path=[[(-3,-2),(0,-4),(2.7,-2.2)]])+arrow((2.7,-2.2),(3,-2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-3,2),(-1.5,2.7),(-0.2,2.1)]])+arrow((-0.2,2.1),(0,2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-0,2),(1.5,2.7),(3-0.2,2.1)]])+arrow((3-0.2,2.1),(3,2),color="black",width=1,arrowsize=2)+text(r"$f\circ g$",(-0,-3.3),color="black",fontsize=12)+text("$f$",(1.5,2.55),color="black",fontsize=12)+text("$g$",(-1.5,2.55),color="black",fontsize=12)
+Ellipse+Pts+Fleches+Txt#+Fct
+    </sageplot>
+    </image>
+    </figure>
+    <figure xml:id="fig-fctscorr_bij">
+    <caption>Fonction bijective</caption>
+    <image xml:id="img-fctscorr_bij">
+    <description>Un ensemble A, à gauche contenant les éléments a,b,c est envoyé vers un ensemble B à droite contenant les éléments 1,2,3. À chaque élément correspond un et un seul élément.</description>
+    <sageplot>
+Ellipse=ellipse((-3,0),1,2,axes=False,color="black")+ellipse((-0,0),1,2,axes=False,color="black")#+ellipse((3,0),1,2,axes=False,color="black")
+Pts=points([(-3,1)],color="black",pointsize=20)+points([(-3,0)],color="black",pointsize=20)+points([(-3,-1)],color="black",pointsize=20)+points([(-0,1)],color="black",pointsize=20)+points([(-0,0)],color="black",pointsize=20)+points([(-0,-1)],color="black",pointsize=20)#+points([(3,1)],color="black",pointsize=20)+points([(3,1/3)],color="black",pointsize=20)+points([(3,-1/3)],color="black",pointsize=20)+points([(3,-1)],color="black",pointsize=20)
+Fleches=arrow((-3,0),(0,-1),color="black",arrowsize=2,width=1)+arrow((-3,-1),(0,1),color="black",arrowsize=2,width=1)+arrow((-3,1),(0,0),color="black",arrowsize=2,width=1)#+arrow((0,0),(3,1),color="black",arrowsize=2,width=1)+arrow((0,1),(3,-1),color="black",arrowsize=2,width=1)+arrow((0,-1),(3,1/3),color="black",arrowsize=2,width=1)
+Txt=text("$a$",(-3.2,1),color="black",fontsize=12)+text("$b$",(-3.2,0),color="black",fontsize=12)+text("$c$",(-3.2,-1),color="black",fontsize=12)+text("$1$",(-0,1.2),color="black",fontsize=12)+text("$3$",(-0,-1.2),color="black",fontsize=12)+text("$2$",(-0,-0.2),color="black",fontsize=12)#+text("$-1$",(3.2,1),color="black",fontsize=12)+text("$-2$",(3.2,1/3),color="black",fontsize=12)+text("$-3$",(3.2,-1/3),color="black",fontsize=12)+text("$-4$",(3.2,-1),color="black",fontsize=12)+text("$A$",(-3,-1.6),color="black",fontsize=12)+text("$B$",(-0,-1.6),color="black",fontsize=12)+text("$C$",(3,-1.6),color="black",fontsize=12)
+#Fct=bezier_path(path=[[(-3,-2),(0,-4),(2.7,-2.2)]])+arrow((2.7,-2.2),(3,-2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-3,2),(-1.5,2.7),(-0.2,2.1)]])+arrow((-0.2,2.1),(0,2),color="black",width=1,arrowsize=2)+bezier_path(path=[[(-0,2),(1.5,2.7),(3-0.2,2.1)]])+arrow((3-0.2,2.1),(3,2),color="black",width=1,arrowsize=2)+text(r"$f\circ g$",(-0,-3.3),color="black",fontsize=12)+text("$f$",(1.5,2.55),color="black",fontsize=12)+text("$g$",(-1.5,2.55),color="black",fontsize=12)
+Ellipse+Pts+Fleches+Txt#+Fct
+    </sageplot>
+    </image>
+    </figure>
+    </sidebyside>
+    </figure>
+    <p>On considère une fonction <m>f:A\to B</m> qui est bijective. Chaque élément du domaine est envoyé vers exactement un élément du codomaine et chaque élément du codomaine est atteint. Il est donc possible de défaire le travail effectué par la fonction et de partir des éléments de <m>B</m> pour revenir sur les éléments de <m>A</m>. </p>
+    <definition xml:id="def-inverse">
+    <title>Fonction inverse</title>
+    <statement>
+    <p>Soit <m>f:A\to B</m> une bijection. La fonction inverse de <m>f</m>, notée <m>f^{-1}:B\to A</m> est la fonction qui associe à chaque <m>b\in B</m> un élément <m>a\in A</m> tels que <m>f(a)=b</m>. On écrira alors <m>f^{-1}(b)=a</m>.</p>
+    <p>De manière équivalente, la fonction <m>f^{-1}</m> est l'unique fonction <m>f^{-1}:B\to A</m> telle que pour tout élément <m>a \in A</m>, on a <m>\left(f^{-1}\circ f \right)(a)=a</m>, et pour tout élémemt <m>b \in B</m>, on a <m>\left(f\circ f^{-1} \right)(b)=b</m>.</p>
+    </statement>
+    </definition>
+    <p>La fonction <m>f:\R^{+}\to\R^{+}</m> des exemples <xref first="ex-inj" last="ex-surj"/> est bijective. On peut la définir par la règle <m>f(x)=x^2</m>. Son inverse est <m>f^{-1}(x)=\sqrt{x}</m>. La fonction identité de ces mêmes exemples était aussi bijective. Elle est son propre inverse. </p>
+    </subsection>
+    <conclusion xml:id="concl-fonctions">
+    <title>En résumé</title> <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les points importants de cette section sont:
+    <ol>
+    <li><p>La définition d'une <xref ref="def-fonction" text="custom">fonction</xref>;</p></li>
+    <li><p>Les notions de domaine, codomaine et image et la différence entre ces deux derniers ensembles, à savoir que l'image est un sous-ensemble du codomaine, mais que celui-ci peut être plus grand;</p></li>
+    <li><p>La notion de fonction <xref ref="def-inj" text="custom">injective</xref>;</p></li>
+    <li><p>La notion de fonction <xref ref="def-surj" text="custom">surjective</xref>;</p></li>
+    <li><p>La notion de fonction <xref ref="def-bij" text="custom">bijective</xref>.</p></li>
+    </ol></p>
+    </conclusion>
+    <reading-questions>
+    <introduction>
+  <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+  </introduction>
+
+  <exercise xml:id="exo-fctrel">
+    <introduction><p>Soit <m>A=\{0,1,2,3\}</m>,<m>B=\{a,b,c,d\}</m>. Déterminer quelles relations ci-dessous sont des fonctions. Expliquer pourquoi.</p></introduction>
+    <task><statement><p><m>R_1\subseteq A\times B</m> où <m>R_1=\{(0,d),(1,a),(2,b),(3,c)\}</m>;</p></statement></task>
+    <task><statement><p><m>R_2\subseteq A\times B</m> où <m>R_2=\{(1,a),(2,b),(3,c)\}</m>;</p></statement></task>
+<task><statement><p><m>R_3\subseteq A\times B</m> où <m>R_3=\{(0,a),(1,a),(2,b),(3,c)\}</m>;</p></statement></task>
+<task><statement><p><m>R_4\subseteq A\times B</m> où <m>R_4=\{(0,a),(1,a),(2,b),(3,c),(1,d)\}</m>;</p></statement></task>
+    <task><statement><p><m>R_5\subseteq A\times A </m> où <m>R_5=\{(0,0),(1,0),(2,0),(3,0)\}</m>.</p></statement></task>
+    </exercise>
+    <exercise><introduction><p>Soit <m>A=\{n\in \N~|~ 0\leq n\leq 999\}</m> les nombres naturels représentés par <m>1,2</m> ou <m>3</m> chiffres. On définit <m>f:A\to \N</m> comme la fonction qui associe à <m>a\in A</m> la somme des chiffres qui composent <m>a</m>.  Par exemple, <m>f(247)=2+4+7=15</m>.</p></introduction>
+    <task><statement><p>Déterminer <m>f(d)</m> où <m>d</m> est le jour de votre anniversaire.</p></statement></task>
+    <task><statement><p>Trouver l'image de cette fonction.</p></statement></task>
+    <task><statement><p>Trouver <m>f^{-1}(\{4\})</m>.</p></statement></task>
+    <task><statement><p>Trouver <m>f^{-1}(\{2,3\})</m></p></statement></task>
+    </exercise>
+    <exercise><introduction><p>Soit <m>C</m> l'ensemble de tous les chiens. Donner un ensemble <m>B</m> et une relation <m>R:C\to B</m> tels que</p></introduction>
+    <task><statement><p><m>R</m> n'est pas une fonction.</p></statement></task>
+    <task><statement><p><m>R</m> est une fonction.</p></statement></task>
+    </exercise>
+    <exercise><statement><p>Soit <m>A=\{3n-1~|~ n\in \N\ \text{ et }\ 1\leq n \leq 5\}</m> et <m>B=\{c,d,h,o,q\}</m>. Représenter dans un diagramme sagittal la fonction <m>f:A\to B</m> qui associe à <m>a\in A</m> la première lettre de son écriture dans la langue française.</p></statement></exercise>
+    <exercise><statement><p>Quels énoncés parmi les suivants sont équivalent à dire que <m>f:A\to B</m> est injective? Justifier.
+    <ol>
+    <li><p>Le codomaine est égal à l'image.</p></li>
+    <li><p>Pour tout <m>a\in A</m> on a <m>f(a)\neq \emptyset</m>.</p></li>
+    <li><p>Si <m>a_1\neq a_2</m> alors <m>f(a_1)\neq f(a_2)</m>.</p></li> <!-- faux si C=emptyset -->
+    <li><p><m>|A|\leq |B|</m></p></li>
+    </ol>
+    </p></statement>
+    </exercise>
+    <exercise><statement><p>Quels énoncés parmi les suivants sont équivalent à dire que <m>f:A\to B</m> est surjective? Justifier.
+    <ol>
+    <li><p>Le codomaine est égal à l'image.</p></li>
+    <li><p>Pour tout <m>b\in B</m>, on a <m>f^{-1}(\{b\})\neq \emptyset</m>.</p></li>
+    <li><p>Pour tout <m>C\subseteq B</m> où <m>C\neq \emptyset</m>, on a <m>f^{-1}(C)\neq \emptyset</m>.</p></li> <!-- faux si C=emptyset -->
+    <li><p><m>|A|\geq |B|</m></p></li>
+    </ol>
+    </p></statement>
+    </exercise>
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+
+    <!--énumérer toutes les fonctions de A vers B et de B vers A -->
+    </reading-questions>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_fonctions.ptx"/>
+</section>

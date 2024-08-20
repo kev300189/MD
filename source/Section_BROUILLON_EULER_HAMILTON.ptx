@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title>  </title>
+    <introduction xml:id= "intro-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    </introduction>
+    
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    
+    </conclusion>
+    <reading-questions xml:id="rq-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <introduction>
+    <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+    </introduction>
+  
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <!--<xi:include href="Exercices_.ptx" />-->
+</section>
+
+
+
+<!-- <subsection xml:id="subs-cheminCircuit">
+<title> Chemins et circuits</title>
+<definition xml:id="def-chemin">
+<statement>
+<p> Soit <m>n</m> un entier naturel et <m>G</m> un graphe. Un chemin de longueur <m>n</m>  allant du sommet <m>s</m> au sommet <m>t</m> est une suite de sommets de <m>G</m> <m>s_0,\,s_1,\,s_1,\,\dots,\,s_n</m> tels que: </p>
+<p> 
+<ul>
+<li> <m>s_0=s,</m> <m>s_n=t</m>; </li>
+<li> <m>\{s_0,s_1\},\,\{s_1,s_2\},\,\dots,\,\{s_{n-1},s_n\}</m> sont des arêtes de <m>G</m>.</li>
+</ul>
+</p>
+<p>Un chemin sera dit simple s'il traverse une arête au plus une fois.</p>
+</statement>
+</definition>
+
+<definition xml:id="def-circuit">
+<statement><p>Soit <m>n</m> un entier naturel et <m>G</m> un graphe. Un circuit de longueur <m>n</m> est un chemin allant de <m>s</m> à <m>t</m> tel que <m>s=t</m>.</p> </statement>
+</definition>
+
+
+
+</subsection>
+
+<subsection xml:id="subs-eulerien">
+<title> Chemins et circuits eulériens </title>
+<definition xml:id="def-eulerien">
+<statement> 
+<p>
+<ul>
+<li> Un chemin eulérien d'un graphe <m>G</m> est un chemin simple allant de <m>s</m> à <m>t\neq s </m>  passant par toutes les arêtes de <m> G</m>.</li>
+<li> Un circuit eulérien d'un graphe <m>G</m> est un circuit simple passant par toutes les arêtes de <m> G</m>.</li>
+</ul> 
+</p>
+</statement>
+</definition>
+
+<example xml:id="exe-eulerien">
+<statement> 
+<p>
+<ul>
+<li>Le chemin <m>a,c,e,d,c,b,a,d,b</m> est un chemin eulérien du graphe <m>G_1</m>.</li>
+<li>Le chemin <m>a,b,c,d,b</m> est un chemin eulérien du graphe <m>G_2</m>.</li>
+<li> Le circuit <m>a,b,e,d,c,e,a</m> est un circuit eulérien du graphe <m>G_3</m>.</li>
+<li>Le graphe <m>G_4</m> ne possède ni un chemin eulérien, ni un circuit eulérien.</li>
+<li>Le graphe <m>G_5</m> ne possède ni un chemin eulérien, ni un circuit eulérien.</li>
+</ul>
+</p>
+<figure>
+    <caption> Chemins et circuits eulériens</caption>
+    <sidebyside>
+        <figure>
+            <caption> <m>G_1</m></caption>
+            <image source="tikzit_GrapheCheminEuler.jpg"/>
+        </figure>
+        <figure>
+            <caption><m>G_2</m> </caption>
+            <image source="tikzit_GrapheCheminNonCircuitHamilton.jpg" />
+        </figure>
+        <figure>
+            <caption><m>G_3</m> </caption>
+            <image source="tikzit_GrapheCircuitEuler.jpg" />
+        </figure>
+        <figure>
+            <caption><m>G_4</m> </caption>
+            <image source="tikzit_GrapheNoEuler.jpg" />
+        </figure>
+        <figure>
+            <caption><m>G_5</m> </caption>
+            <image source="tikzit_GrapheNoEuler2.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+</example>
+
+<p>Pour montrer l'existance d'un chemin ou d'un circuit eulérien, on peut essayer d'en trouver un. Pour montrer qu'il n'en existe pas, il faut argumenter un peu plus. </p>
+<p>Le critère donne une condition suffisante et nécessaire pour l'existance d'une chemin ou d'un circuit eulérien</p>
+
+<proposition xml:id="prop-eulerien">
+<statement>
+<p> 
+<ul>
+<li> Un graphe <m>G</m> de trois sommets ou plus possède un circuit eulérien si et seulement si <m>\deg(s)</m> est pair pour tout sommet <m>s</m> de <m>G</m>. </li>
+<li> Un graphe <m>G</m> possède un chemin eulérien si et seulement si il existe exactement deux sommets de <m>G</m> ayant un degré impair.</li>
+</ul>
+</p>
+</statement>
+</proposition>
+</subsection>
+
+<subsection xml:id="subs-hamiltonien">
+<title>  Chemins et circuits hamiltoniens</title>
+<definition xml:id="def-hamiltonien">
+<statement> 
+<p>
+<ul>
+<li> Un chemin hamiltonien d'un graphe <m>G</m> est un chemin simple allant de <m>s</m> à <m>t\neq s </m>  passant par tous les sommets de <m> G</m> exactement une fois.</li>
+<li> Un circuit hamiltonien d'un graphe <m>G</m> est un circuit simple passant par tous les sommets de <m> G</m> exactement une fois.</li>
+</ul> 
+</p>
+</statement>
+</definition>
+
+<example xml:id="exe-hamiltonien">
+<statement> 
+<p>
+<ul>
+<li>Le chemin <m>a,e,d,b,c</m> est un chemin hamiltonien du graphe <m>G_1</m>.</li>
+<li>Le chemin <m>a,b,c,d</m> est un chemin hamiltonien du graphe <m>G_2</m>.</li>
+<li> Le circuit <m>a,c,b,e,f,d,a</m> est un circuit hamiltonien du graphe <m>G_3</m>.</li>
+<li>Le graphe <m>G_4</m> ne possède ni un chemin hamiltonien, ni un circuit hamiltonien.</li>
+</ul>
+</p>
+<figure>
+    <caption> Chemins et circuits hamiltoniens</caption>
+    <sidebyside>
+        <figure>
+            <caption> <m>G_1</m></caption>
+            <image source="tikzit_grapheH.jpg"/>
+        </figure>
+        <figure>
+            <caption><m>G_2</m> </caption>
+            <image source="tikzit_GrapheCheminNonCircuitHamilton.jpg" />
+        </figure>
+        <figure>
+            <caption><m>G_3</m> </caption>
+            <image source="tikzit_Graphesdiff2.jpg" />
+        </figure>
+        <figure>
+            <caption><m>G_4</m> </caption>
+            <image source="tikzit_GrapheNoHamilton.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+</example>
+
+<p>Il n'existe pas de condition suffisante et nécessaire à l'exsitance d'une circuit ou d'un chemin hamiltonien. Il existe cependant des conditions suffisantes. En voilà une.</p>
+<proposition xml:id="prop-hamiltonien">
+<statement>
+<p> Si <m>G</m> est un graphe à <m> n</m> sommets avec <m> n\geq 3</m> tel que <m>\deg(s)+\deg(t)\geq n</m> pour toute paire de sommets non-adjacent <m>u</m> et <m>v</m> de <m>G,</m> alors <m>G</m> possède un circuit hamiltonien.</p>
+</statement>
+</proposition>
+
+</subsection>-->
