@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                    -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-opens">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+    <exercisegroup>
+        <title>À faire en classe</title>
+    <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
+    <exercise xml:id="exo-ens1">
+    <introduction><p>Soit <m>A=\{0,1,2,3,4,5\}</m>, <m>B=\{0,3,6,9\}</m> et <m>\Omega=\{n\in \N~|~ n\leq 10\}</m>. Déterminer:</p></introduction>
+    <task><statement><p>
+    <m>A\cup B</m>
+    </p></statement>
+    <answer>
+    <m>A\cup B = \{0,1,2,3,4,5,6,9\}</m>
+    </answer>
+    </task>
+    <task><statement><p>
+    <m>A\cap B</m>
+    </p></statement>
+    <answer>
+    <m>A\cap B = \{0,3\}</m>
+    </answer>
+    </task>
+    <task><statement><p>
+    <m>A- B</m>
+    </p></statement>
+    <answer>
+    <m>A-B=\{1,2,4,5\}</m>
+    </answer>
+    </task>
+    <task><statement><p>
+    <m>B-A</m>
+    </p></statement>
+    <answer>
+    <m>B-A=\{6,9\}</m>
+    </answer> 
+    </task>
+    <task><statement><p>
+    <m>A^c</m>
+    </p></statement>
+    <answer>
+    <m>A^c=\{6,7,8,9,10\}</m>
+    </answer>
+    </task>
+    <task><statement><p>
+    <m>B^c</m>
+    </p></statement>
+    <answer>
+    <m>B^c=\{1,2,4,5,7,8,10\}</m>
+    </answer>
+    </task>
+    </exercise>
+    <exercise>
+    <introduction><p>On a vu les propriétés de <xref ref="li-opensdis" text="custom">distributivité</xref> pour combiner l'union et l'intersection. Cet exercice vise à montrer d'une autre manière que les parenthèses sont importantes.</p></introduction>
+    <task><introduction><figure xml:id="fig-Venn3vide">
+    <caption>Un diagramme de Venn vide</caption>
+    <image xml:id="img-Venn3vide"><description>
+    Un diagramme de Venn contenant des ensembles A, B et C quelconques est illustré.
+    </description>
+    <sageplot>
+O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+C=circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+O+A+B+C
+    </sageplot></image>
+    </figure> <p>Sur des diagrammes de Venn comme celui de la figure <xref ref="fig-Venn3vide"/>, illustrer les ensembles suivants:</p>
+   
+    </introduction>
+    <task><statement><p><m>A\cup (B\cap C)</m></p></statement></task>
+    <task><statement><p><m>(A\cup B)\cap C</m></p></statement></task>
+    </task>
+    <task><statement><p>Expliquer pourquoi, à partir du résultat de la partie précédente, il n'est pas nécessaire de montrer que <m>A\cap(B\cup C)\neq (A\cap B)\cup C</m>.</p></statement><hint><p>Interchanger les rôles de <m>A</m> et <m>C</m> et utiliser la <xref ref="li-openscom" text="custom">commutativité</xref>.</p></hint></task>
+    </exercise>
+    <exercise><introduction><p>Sur un diagramme de Venn comme celui de la figure <xref ref="fig-Venn3vide"/>, illustrer les ensembles suivants.</p></introduction>
+    <task><statement><p><m>A^c\cap B\cap C</m></p></statement></task>
+    <task><statement><p><m>A^c\cap B^c\cap C</m></p></statement></task>
+    <task><statement><p><m>A^c\cap B^c\cap C^c</m></p></statement></task>
+    <task><introduction><p>Utiliser les parties précédentes et un argument de symétrie pour illustrer:</p></introduction>
+    <task><statement> <p><m>A\cap B^c\cap C</m></p> et <m>A\cap B\cap C^c</m>.</statement></task>
+    <task><statement> <p><m>A^c\cap B\cap C^c</m></p> et <m>A\cap B^c\cap C^c</m>.</statement></task>
+    </task>
+	    </exercise>
+    <exercise><introduction><p>Pour chaque diagramme de Venn ci-dessous, décrire l'ensemble ombragée en fonction des ensembles <m>A,B,C</m> et des opérations élémentaires d'union, d'intersection et de complément.</p></introduction>
+    <task><statement>
+    <figure>
+    <caption>Le diagramme de Venn d'un ensemble</caption>
+    <image xml:id="imgVenntoset1">
+    <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+    <sageplot>
+O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+A=plot(sqrt(4-(x+1)^2),(x,-2,1),fill=-2+sqrt(4-x^2))+plot(sqrt(4-(x+1)^2),(x,-3,-2),fill=0)+plot(-sqrt(4-(x+1)^2),(x,-3,-2),fill=0)+circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+C=plot(-sqrt(4-(x)^2)-2,(x,-2,1),color="forestgreen",fill=-sqrt(4-(x+1)^2))+plot(-sqrt(4-(x)^2)-2,(x,1,2),color="forestgreen",fill=sqrt(4-(x)^2)-2)+circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+O+A+B+C
+    </sageplot>
+    </image>
+    </figure>
+    </statement>
+    <answer><m>(A\cup C)\cap(A\cap C)^c=(A\cap C^c)\cup (A^c\cap C)</m>. </answer>
+    </task>
+    <task><statement>
+    <figure>
+    <caption>Le diagramme de Venn d'un ensemble</caption>
+    <image xml:id="imgVenntoset2">
+    <description>Un diagramme de Venn à trois ensembles dans lequel C est ombragé, sauf la partie commune avec uniquement A .</description>
+    <sageplot>
+O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+B=plot(-sqrt(4-(x-1)^2),(x,-1,0),color="red",fill=sqrt(4-(x)^2)-2)+circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+C=plot(-sqrt(4-(x)^2)-2,(x,-2,0),color="forestgreen",fill=-sqrt(4-(x+1)^2))+plot(-sqrt(4-(x)^2)-2,(x,0,1),color="forestgreen",fill=sqrt(4-(x)^2)-2)+plot(-sqrt(4-(x)^2)-2,(x,1,2),color="forestgreen",fill=sqrt(4-(x)^2)-2)+circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+O+A+B+C
+    </sageplot>
+    </image>
+    </figure>
+    </statement>
+    <answer><m> (C\cap B)\cup(C\cap A^c) </m>.</answer>
+    </task>
+		    </exercise>
+    <exercise xml:id="exo-diffsym">
+    <introduction><p>Soit <m>A</m> et <m>B</m> deux ensembles quelconques. On définit la différence symétrique de <m>A</m> et <m>B</m>, note <m>A\oplus B</m> <fn><p>En effet, l'utilisation du symbole d'addition ne semble pas compatible avec le nom.</p></fn>, comme l'ensemble des éléments qui sont dans <m>A</m> ou <m>B</m>, mais pas les deux. </p></introduction>
+    <task><statement><p>Donner la différence symétrique des ensembles <m>A,B</m> de l'exercice <xref ref="exo-ens1"/>.</p></statement>
+    <answer>
+    <m>\{1,2,4,5,6,9\}</m>
+    </answer>
+		    </task> 
+		    <task xml:id="exo-Venndiffsym"><statement><p>Sur un diagramme de Venn comme celui de la figure <xref ref="fig-Vennvide"/>, illustrer l'ensemble <m>A\oplus B</m>.</p> 
+ <!-- IF PDF   <figure xml:id="fig-Vennvide">
+    <caption>Un diagramme de Venn vide</caption>
+    <image xml:id="img-Vennvide"><description>
+    Un diagramme de Venn contenant des ensembles A et B quelconques est illustré.
+    </description>
+    <sageplot>
+O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+O+A+B
+    </sageplot></image>
+    </figure> -->
+     </statement></task>
+    <task xml:id="exo-diffsymprop1">
+<statement><p>Sans faire une preuve complète (pour l'instant), expliquer intuitivement pourquoi <m>A\oplus B=B\oplus A</m><fn><p>Finalement, c'est peut-être le nom &#x00AB; différence &#x00BB; qui est mal choisi, pas le symbole <m>\oplus</m>.</p></fn>.</p></statement>
+<answer>
+<p>Car de dire qu'un élément est dans <m>A</m> ou <m>B</m> est équivalent à dire qu'un élément est dans <m>B</m> ou <m>A</m>.</p>
+<p>De même, de dire qu'un élément est dans <m>A</m> et <m>B</m> est équivalent à dire qu'un élément est dans <m>B</m> et <m>A</m>.</p>
+</answer></task>
+    <task xml:id="exo-diffsymprop2"><statement><p>Sans faire une preuve complète (pour l'instant), expliquer intuitivement pourquoi <m>(A\oplus B)\oplus B=A</m></p></statement>
+    <answer>
+<p>L'union de <m>A \oplus B </m> avec <m>B</m> est <m>A\cup B</m>, alors que l'intersection de <m>A \oplus B </m> avec <m>B</m> est <m>B-A</m>.</p>
+<p>Ainsi, <m>(A\oplus B)\oplus B</m> est l'ensemble contenant les éléments de <m>A\cup B</m>, sans les élément de <m>B - A</m>.</p>
+</answer>
+    <hint><p>Il peut être utile de revoir le diagramme de Venn de la partie <xref ref="exo-Venndiffsym"/>.</p></hint></task>
+    </exercise> 
+     <exercise>
+    <introduction><p>Dans cet exercice, on s'intéresse à la cardinalité de l'union de deux ensembles.</p></introduction>
+    <task><statement><p>Donner deux ensembles <m>A</m> et <m>B</m> tels que <m>|A|=4,|B|=3</m> et <m>|A\cup B|=7</m>. Que vaut <m>|A\cap B|</m>?</p></statement>
+    <answer>
+    Il y a une infinité de solutions. L'une d'elle est <m>A=\{1,2,3,4\}</m> et <m>B=\{5,6,7\}</m>. On a alors <m>|A\cap B|=0</m>. Ceci est vrai pour toutes les solutions.
+    </answer>
+    </task>
+    <task><statement><p>Donner deux ensembles <m>A</m> et <m>B</m> tels que <m>|A|=4,|B|=3</m> et <m>|A\cup B|=5</m>. Que vaut <m>|A\cap B|</m>?</p></statement><answer>Il y a une infinité de solutions. L'une d'elle est <m>A=\{1,2,3,4\}</m> et <m>B=\{3,4,5\}</m>. On a alors <m>|A\cap B|=2</m>. Ceci est vrai pour toutes les solutions.</answer></task>
+    <task><statement><p>Si <m>A=\{a,b,c\}</m> et que <m>|B|=6</m>, quelles sont les valeurs possibles pour <m>|A\cup B|</m>? Donner des exemples d'ensembles <m>B_1,B_2</m> tel que <m>|A\cup B_1|</m> est égale à la plus petite valeur possible et <m>|A\cup B_2|</m> est égale à la plus grande valeur possible. </p></statement><answer>Les cas possibles pour <m>|A\cup B|</m> sont <m>6,7,8,9</m>. On peut prendre <m>B_1=\{a,b,c,d,e,f\}</m> et <m>B_2=\{1,2,3,4,5,6\}</m>.</answer></task>
+    <task><statment><p>Pour chaque cas de la partie précédente, que vaut <m>|A\cap B|</m>?</p></statment>
+    <answer><p>On a:
+  <md> 
+   <mrow>\text{Si } |A\cup B|= 6 \amp \text{, alors } |A\cap B|= 3;</mrow>
+   <mrow>\text{Si } |A\cup B|= 7 \amp \text{, alors } |A\cap B|= 2;</mrow>
+   <mrow>\text{Si } |A\cup B|= 8 \amp \text{, alors } |A\cap B|= 1;</mrow>
+   <mrow>\text{Si } |A\cup B|= 9 \amp \text{, alors } |A\cap B|= 0;</mrow>
+  </md></p>  </answer> 
+    </task>
+    </exercise> 
+    <exercise xml:id="exo-incexc">
+    <title>Le principe d'inclusion-exclusion</title>
+    <statement><p>Soit <m>A</m> et <m>B</m> deux ensembles. Donner un argument justifiant le fait que
+    <me>
+    |A\cup B|=|A|+|B|-|A\cap B|
+    </me>.</p></statement>
+    <solution>
+    Lorsque calcul <m>|A|+|B|</m>, on compte les éléments de <m>|A\cap B|</m> deux fois (une fois dans la valeur de <m>|A|</m> et une fois dans la valeur de <m>|B|</m>). On doit donc soustraire <m>|A\cap B|</m> à <m>|A|+|B|</m>. pour obtenir 
+    </solution>
+    </exercise>
+
+    <exercise>
+    <statement><p>Au Cégep Gérald-Godin à l'automne <m>2021</m>, il y a présentement <m>25</m> étudiants inscrits en mathématiques discrètes et <m>36</m> étudiants inscrits en chimie générale. De plus, <m>14</m> étudiants suivent les deux cours. Combien d'étudiants sont inscrits dans au moins l'un de ces cours?</p></statement>
+    <solution>
+     Par le principe d'inclusion-exclusion, le nombre d'étudiants inscrits dans au moins l'un des cours est <m>25+36-14=47</m>.
+    </solution>
+    </exercise>
+
+    <exercise>
+    <introduction>
+    <p>On s'intéresse aux propriétés de <xref ref="li-opensdis" text="custom">distributivité</xref> et à leur justification. On s'inspire des démonstrations de la proposition <xref ref="prop-opensass"/>.</p>
+    </introduction>
+    <task>
+    <statement><p>À l'aide d'une table d'appartenance, démontrer que <m>A\cup (B\cap C)=(A\cup B)\cap (A\cup C)</m>.</p></statement>
+    <solution>
+    <table>
+    <title>Table d'appartenance pour <m>A\cup(B\cap C)=(A\cup B)\cap (A\cup C)</m></title>
+    <tabular top="major" halign="center">
+    <row bottom="medium">
+      <cell>
+        <m>A</m>
+      </cell>
+      <cell>
+        <m>B</m>
+      </cell>
+      <cell>
+        <m>C</m>
+      </cell>
+      <cell>
+        <m>B\cap C</m>
+      </cell>
+      <cell>
+        <m>A \cup (B\cap C)</m>
+      </cell>
+      <cell>
+        <m>A\cup B</m>
+      </cell>
+      <cell>
+        <m>A\cup C</m>
+      </cell>
+      <cell>
+        <m>(A\cup B)\cap (A\cup C)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+    </row>
+    <row>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+    </row>
+    <row>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+  </tabular>
+</table>
+    </solution>
+    </task>
+    <task>
+    <statement><p>À l'aide d'un argument d'inclusion, démontrer que <m>A\cap (B\cup C)=(A\cap B)\cup (A\cap C)</m>.</p></statement>
+    <solution>
+    <p>On commence par montrer que <m>A\cap (B\cup C) \subseteq (A\cap B)\cup(A\cap C)</m>. On considère un élément <m>x \in A\cap (B\cup C)</m>. Ainsi, par la définition de l'intersection, <m>x\in A</m> et <m>x \in (B\cup C)</m>. Par la définition de l'union, on a que <m>x\in B</m> ou <m>x\in C</m>.</p>
+    <p>Si <m>x \in B</m>, alors <m>x \in (A\cap B)</m>. Si <m>x \in C</m>, alors <m>x \in (A\cap C)</m>. Par ce qui précède, <m>x \in (A\cap B)\cup(A\cap C)</m>. On a donc montré que <m>A\cap (B\cup C) \subseteq (A\cap B)\cup(A\cap C)</m>.</p>
+    <p>On montre ensuite que <m> (A\cap B)\cup(A\cap C) \subseteq A\cap (B\cup C)</m>. On considère un élément <m>x \in (A\cap B)\cup(A\cap C)</m>. Ainsi, par la définition de l'union, <m>x\in (A\cap B)</m> ou <m>x \in(A\cap C)</m>. Dans les deux cas, par la définition de l'intersection, on a que <m>x \in A</m>.</p>
+    <p>Si <m>x \in (A\cap B)</m>, alors <m>x \in B</m>, et  donc <m>x \in (B\cup C)</m>. Si <m>x \in(A\cap C)</m>, alors <m>x \in C</m> et donc <m>x \in (B\cup C)</m>.  Dans les deux cas, on a <m>x \in A\cap(B\cup C)</m>. On a donc montré que <m>(A\cap B)\cup(A\cap C) \subseteq A\cap (B\cup C) </m>. </p>
+    <p>Puisque qu'on a montré que <m>A\cap (B\cup C) \subseteq (A\cap B)\cup(A\cap C)</m> et <m> (A\cap B)\cup(A\cap C) \subseteq A\cap (B\cup C)</m>, on a que <m>A\cap (B\cup C) = (A\cap B)\cup(A\cap C)</m>.</p>
+    </solution>
+    </task>
+    </exercise>
+    <exercise>
+    <introduction>
+    <p>Soit <m>A,B</m> et <m>C</m> de ensembles. En utilisant des arguments d'inclusion, démontrer les relations suivantes:</p>
+    </introduction>
+    <task><statement><p><m>(A-B)-C\subseteq A-C</m></p></statement><solution>Si <m>a\in (A-B)-C</m>, alors <m>a \in (A-B)</m>, mais <m>a \notin C</m>. Puisque <m>a\in A-B</m>, alors <m>a\in A</m>. Ainsi, <m>a\in A</m>, mais <m>a\notin C</m>. Par définition, <m>a\in A-C</m>.</solution></task>
+    <task><statement><p><m>(A-C)\cap (C-B)=\emptyset</m></p></statement><solution><p>On sait que <m>\emptyset \subseteq (A-C)\cap (C-B)</m>.</p> <p>Soit <m>x \in (A-C)\cap (C-B)</m>, alors <m>x\in A-C</m> et <m>x\in C-B</m>. Puisque <m>x\in A-C</m>, alors <m>x\notin C</m>, mais puisque <m>x\in C-B</m>, alors <m>x\in C</m>. Puisque <m>x</m> ne peut pas être à la fois un élément de <m>C</m> et ne pas être un élément de <m>C</m>, un tel <m>x</m> ne peut pas exister.</p> <p>Par ce qui précède, on a que <m>(A-C)\cap (C-B)\subseteq \emptyset</m>, et donc <m>(A-C)\cap (C-B)=\emptyset</m>.</p></solution></task>
+    <task><statement><p><m>(A-B)\cup (C-B)=(A\cup C)-B</m></p></statement>
+    <solution>
+    <p>Si <m>a\in\ (A - B) \cup (C - B)</m>, alors <m>a\in\ A-B</m> ou <m>a\in\ C-B</m>. Si <m>a\in\ A-B</m>, alors <m>a\in\ A</m> et <m>a\notin\ B</m>. Ainsi, <m>a\in\ A\cup C</m>, et donc <m>a\in\ (A\cup C)-B</m>. De la même manière, si <m>a\in\ C-B</m>, on peut montrer que <m>a\in\ (A\cup C)-B</m>, d'où <m>(A-B)\cup (C-B) \subseteq (A\cup C)-B</m>.</p>
+    <p>Si <m>a\in\ (A\cup C)-B</m>, alors <m>a\in\ (A\cup C)</m> et <m>a\notin\ B</m>. Ainsi, <m>a\in\ A</m> ou <m>a\in\ C</m>. Si <m>a\in\ A</m>, alors <m>a\in (A-B)</m>. Si <m>a\in\ C</m>, alors <m>a\in\ C-B</m>. Dans les deux cas, on a <m>a\in\ (A-B)\cup (C-B)</m>, d'où <m>(A\cup C)-B\subseteq (A-B)\cup (C-B)</m>.</p>
+    <p>Par ce qui précède, on a <m>(A-B)\cup (C-B) = (A\cup C)-B</m></p>
+    </solution>
+    </task>
+    </exercise>
+    <exercise><introduction>
+    <p>Deux ensembles <m>A</m> et <m>B</m> sont donnés. Que peut-on dire sur leur relation si:</p> </introduction>
+    <task><statement>
+    <p><m>A\cup B=A</m>?</p>
+    </statement><answer><m>B\subseteq A</m></answer>
+    <hint>Considérer un élément <m>b\in B</m>. Utiliser l'égaliter pour conclure que <m>b \in A</m>. </hint>
+    </task>
+    <task><statement>
+    <p><m>A\cap B=A</m>?</p>
+    </statement><answer><m>A \subseteq B</m></answer>
+    <hint>Considérer un élément <m>a \in A</m>. Utiliser l'égalité pour montrer que <m>a\in B</m>. </hint>
+    </task>
+        <task><statement>
+    <p><m>A- B=A</m>?</p>
+    </statement><answer><m>A\cap B = \emptyset</m></answer>
+    <hint>Considérer un élément <m>x \in A\cap B</m>. Utiliser l'égalité pour montrer que <m>x \notin B.</m> Conclure que l'élément <m>x \in A\cap B</m> ne peut pas exister.</hint>
+    </task>
+            <task><statement>
+    <p><m>A- B=B-A</m>?</p>
+    </statement><answer><m>A=B</m>.</answer>
+    <hint> <p>Montrer d'abord que <m>A\subseteq B</m>. Ceci est équivalent à montrer que <m>A-B=\emptyset</m>. Considérer un élément <m>a \in A-B</m>, et utiliser l'égalité pour montrer que <m>a \notin A</m>. Conclure qu'un tel élément ne peut pas exister, et donc que <m>A-B=\emptyset</m>.</p> 
+          <p> Utiliser un argument similaire pour montrer que <m>B\subseteq A</m></p>
+    </hint>
+    </task>
+    </exercise>
+    <exercise><introduction><p>Montrer à l'aide d'une table d'appartenance les identités</p></introduction>
+    <task>
+    <statement><p><m>A\oplus B=(A\cup B)-(A\cap B)</m></p></statement>
+    <solution>
+    <table>
+    <title>Table d'appartenance pour <m>A\oplus B=(A\cup B)-(A\cap B)</m></title>
+    <tabular top="major" halign="center">
+    <row bottom="medium">
+      <cell>
+        <m>A</m>
+      </cell>
+      <cell>
+        <m>B</m>
+      </cell>
+      <cell>
+        <m>A\oplus B</m>
+      </cell>
+      <cell>
+        <m>A\cup B</m>
+      </cell>
+      <cell>
+        <m>A\cap B</m>
+      </cell>
+      <cell>
+        <m>(A\cup B)- (A\cap B)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+    </row>
+    <row>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+  </tabular>
+</table>
+
+
+ </solution>
+    </task>
+    <task><statement><p><m>A\oplus B=(A-B)\cup(B-A)</m></p></statement>
+<solution>
+    <table>
+    <title>Table d'appartenance pour <m>A\oplus B=(A-B)\cup(B- A)</m></title>
+    <tabular top="major" halign="center">
+    <row bottom="medium">
+      <cell>
+        <m>A</m>
+      </cell>
+      <cell>
+        <m>B</m>
+      </cell>
+      <cell>
+        <m>A\oplus B</m>
+      </cell>
+      <cell>
+        <m>A - B</m>
+      </cell>
+      <cell>
+        <m>B- A</m>
+      </cell>
+      <cell>
+        <m>(A- B)\cup (B-A)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+    </row>
+    <row>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+  </tabular>
+</table>
+
+
+ </solution>
+    </task>
+    </exercise>
+    <exercise xml:id="exo-diffsymprop">
+    <statement><p>Démontrer les identités des exercices <xref ref="exo-diffsymprop1"/> et <xref ref="exo-diffsymprop2"/></p></statement>
+    <solution>
+    <p>Soit <m>a\in\ A\oplus B</m>, alors soit <m>a\in\ A</m> et <m>a\notin\ B</m> ou bien <m>a\notin\ A</m> et <m>a \in\ B</m>. Dans les deux cas, <m>a\in\ B \oplus A</m>. Ainsi, <m>A\oplus B \subseteq B \oplus A</m>. </p>
+    <p>De la même manière, on montre que <m>B \oplus A \subseteq A\oplus B</m>. On conclut donc que <m>A\oplus B=B\oplus A</m>.</p>
+    </solution>
+    <solution>
+    <p>D'une part, si <m>a \in A</m>, alors soit <m>a \in B</m> ou <m>a \notin B</m>. Si <m>a \in B</m> alors <m>a \notin A \oplus B </m>. Ainsi <m>a \in \left(A\oplus B\right)\oplus B</m>, car c'est un élément de <m>B</m>, mais pas de <m>A \oplus B</m>. Si <m>a \notin B</m>, alors <m>a\in A\oplus B</m>. Ainsi <m>a \in \left(A\oplus B\right)\oplus B</m>, car c'est un élément de <m>A\oplus B</m>, mais pas de <m>B</m>. Ainsi, on a montré que <m>A\subseteq (A\oplus B)\oplus B</m>.</p>
+    <p>D'autre part, si <m>a \in \left(A\oplus B\right)\oplus B</m>, alors soit <m>a \in A\oplus B</m> ou <m>a\in B</m>, mais pas les deux en même temps. Si <m>a\in A\oplus B</m> et <m>a\notin B</m>, alors <m>a</m> est un élément de <m>A</m> ou de <m>B</m>, mais on sait que <m>a\notin B</m>, donc <m>a</m> est un élément de <m>A</m>. Si <m>a \notin A\oplus B</m> et <m>a \in B</m>, alors <m>a</m> doit être un élément de <m>A</m>. En effet, si on avait <m>a \in B</m> et <m>a \notin A</m>, on aurait <m>a \in A\oplus B</m>, ce qui n'est pas le cas. Ainsi, on a montré que <m>(A\oplus B)\oplus B \subseteq A </m>.</p> 
+    <p>Puisqu'on a montré que <m>A\subseteq (A\oplus B)\oplus B</m> et que <m>(A\oplus B)\oplus B \subseteq A </m>, on a montrer que que <m>(A\oplus B)\oplus B = A </m> </p>
+
+    </solution>
+    </exercise>
+    </exercisegroup>
+    <exercisegroup>
+    <title>Exercices supplémentaires</title>
+    <exercise>
+    <introduction><p>On considère <m>S</m> l'ensemble des étudiants du programme Sciences informatique et mathématiques à Gérald-Godin et <m>C</m> l'ensemble des étudiants de Gérald-Godin qui sont inscrits en calcul différentiel. Exprimer les ensembles suivants en fonction de <m>S</m> et <m>C</m>. Au besoin, considérer l'ensemble univers <m>G</m> de tous les étudiants inscrits à Gérald-Godin.</p></introduction>
+    <task>
+    <statement><p>Les étudiants de Sciences informatiques et mathématiques qui suivent le cours de calcul différentiel.</p></statement>
+    </task>
+    <task>
+    <statement><p>Les étudiants du cours de calcul différentiel qui ne sont pas en Sciences informatiques et mathématiques.</p></statement>
+    </task>
+    <task>
+    <statement><p>Les étudiants de Sciences informatiques et mathématiques ou inscrits dans le cours de calcul différentiel.</p></statement>
+    </task>
+    <task>
+    <statement><p>Les étudiants du cégep Gérald-Godin qui ne sont pas en calcul différentiel ni en Sciences informatiques et mathéamtiques.</p></statement>
+    </task>
+    <task>
+    <statement><p>Les étudiants de Sciences informatiques et mathématiques ou ceux qui suivent le cours de calcul différentiel, mais qui ne sont pas en Sciences informatiques et mathématiques.</p></statement>
+    </task>
+    <conclusion>Cet exercice peut paraître bidon, mais on peut imaginer un gestionnaire informatique d'une école qui doit gérer une liste de courriels. Peut-être qu'un message précis doit être communiqué à un ensemble spécifique de personnes. On veut alors être certain de ne pas oublier quelqu'un et en même temps, on ne veut pas envoyer le message à quelqu'un qui n'a pas à le recevoir. </conclusion>
+    </exercise>
+    <exercise><statement><p>Déterminer des ensembles <m>A,B</m> tels que <m>A-B=\{a,h,i\},B-A=\{c\}</m> et <m>B\cap A=\{b,f,i\}</m> ou expliquer pourquoi c'est impossible. Dans le cas où c'est possible, est-ce que la réponse est unique?</p></statement>
+    <hint><p>Faire un diagramme de Venn pour voir qu'une réponse unique existe.</p> </hint>
+    </exercise> 
+    <exercise><statement><p>Déterminer des ensembles <m>A,B</m> tels que <m>A-B=\{3,4,7,8\}</m> et <m>B\cap A=\{b,f,i\}</m> ou expliquer pourquoi c'est impossible. Dans le cas où c'est possible, est-ce que la réponse est unique?</p></statement></exercise>
+    <exercise><statement><p>Déterminer des ensembles <m>A,B</m> tels que <m>A-B=\{rouge,vert,jaune\}</m> et <m>B\cap A=\{jaune, mauve, orange\}</m> ou expliquer pourquoi c'est impossible. Dans le cas où c'est possible, est-ce que la réponse est unique?</p></statement></exercise>
+    <exercise>
+    <introduction><p>On va donner les démonstrations des propriétés de la liste <xref ref="li-opensprop"/> qui n'ont pas été faites dans le texte .</p></introduction>
+    <task>
+    <introduction><p>Démontrer les propriétés <xref ref="li-opensId" text="custom"> d'identité </xref>, à savoir</p></introduction>
+    <task><statement><p><m>A\cup \emptyset =A</m></p></statement></task>
+    <task><statement><p> et <m>A\cap \Omega =A</m>.</p></statement></task>
+    </task>
+<task>
+    <introduction><p>Démontrer les propriétés <xref ref="li-opensid" text="custom"> d'idempotence </xref>, à savoir</p></introduction>
+    <task><statement><p><m>A\cup A =A</m></p></statement></task>
+    <task><statement><p> et <m>A\cap A =A</m>.</p></statement></task>
+    </task>
+<task>
+    <introduction><p>Démontrer les propriétés de <xref ref="li-opensdom" text="custom"> domination </xref>, à savoir</p></introduction>
+    <task><statement><p><m>A\cup \Omega =\Omega</m></p></statement></task>
+    <task><statement><p> et <m>A\cap \emptyset =\emptyset</m>.</p></statement></task>
+    </task>
+    <task>
+    <introduction><p>Démontrer les propriétés de <xref ref="li-openscomp" text="custom"> complémentarité et complétude</xref>, à savoir que</p></introduction>
+    <task><statement><p><m>(A^c)^c=A</m>,</p></statement></task>
+    <task><statement><p><m>A\cap A^c=\Omega</m></p></statement></task>
+    <task><statement><p>et <m>A\cap A^c=\emptyset</m></p></statement></task>
+    </task>
+<task>
+    <introduction><p>Démontrer les propriétés <xref ref="li-opensabs" text="custom"> d'absorption </xref>, à savoir</p></introduction>
+    <task><statement><p><m>A\cup (A\cap B) =A</m></p></statement></task>
+    <task><statement><p> et <m>A\cap (A\cup B) =A</m>.</p></statement></task>
+    </task>
+<task>
+    <introduction><p>Démontrer les propriétés de <xref ref="li-openscom" text="custom"> commutativité </xref>, à savoir</p></introduction>
+    <task><statement><p><m>A\cup B =B\cup A</m></p></statement></task>
+    <task><statement><p> et <m>A\cap B =B\cap A</m>.</p></statement></task>
+    </task> 
+    <!-- De Morgann si pas vidéo -->
+    </exercise> 
+    <exercise><introduction><p>Soit <m>A\subseteq \Omega</m> un ensemble arbitraire. Démontrer les propriétés suivantes:</p></introduction>
+    <task>
+    <statement><p><m>A\oplus A=\emptyset</m></p></statement>
+    </task>
+    <task xml:id="exo-Aoplusvide">
+    <statement><p><m>A\oplus \emptyset=A</m></p></statement>
+    </task>
+    <task>
+    <statement><p><m>A\oplus \Omega=A^c</m></p></statement>
+    </task>
+    </exercise> 
+    <exercise><statement><p>Dans l'exercice <xref ref="exo-Aoplusvide"/>, on a vu que <m>A\oplus \emptyset =A</m>. Expliquer pourquoi si <m>A\oplus B=A</m>, alors nécessairement on doit avoir <m>B=\emptyset</m>. </p></statement>
+    <hint><p>Il peut être utile de considérer les quatre <xref ref="exo-ABconfrel" text="custom" >configuations relatives</xref> que peuvent prendre deux ensembles.</p></hint></exercise>
+    <exercise><statement><p>On sait que l'union est une opération <xref ref="li-opensass" text="custom">associative</xref>. Est-ce le cas pour la différence symétrique, c'est-à-dire est-ce que 
+    <me>
+    A\oplus(B\oplus C)=(A\oplus B)\oplus C
+    </me>?</p></statement></exercise> 
+    <exercise>
+    <title>L'union et l'intersection généralisée</title>
+    <introduction><p>Les opérations d'union et d'intersection sont des opérations binaires, qui demandent deux ensembles qui agissent à titre d'opérandes. Parce qu'elle sont associatives, on peut généraliser ces opérations à plus de deux ensembles, possiblement même une infinité. Ainsi, si <m>A_0,A_1,A_2,\ldots , A_n</m> sont des ensembles, on note
+    <me>
+    A_0\cup A_1\cup A_2\cup \cdots \cup A_n=\bigcup_{i=0}^n A_i
+    </me> l'union de ces <m>n</m> ensembles et par
+    <me>
+    A_0\cap A_1\cap A_2\cap \cdots \cap A_n=\bigcap_{i=0}^n A_i
+    </me> leur intersection. La lettre <m>i</m> est appelée  l'indice d'union (ou d'intersection). On aurait pu commencer à <m>1</m> ou à n'importe quel autre entier.</p></introduction>
+    <task><introduction><p>Soit <m>A_{i}=\{n\in N~|~ n\leq i\}</m> défini pour tout <m>i\in \N</m>. Déterminer quel est l'ensemble</p></introduction>
+        <task><statement><p><m>\displaystyle\bigcup_{i=0}^N A_i</m>;</p></statement></task>
+        <task><statement><p><m>\displaystyle\bigcap_{i=0}^N A_i</m>.</p></statement></task>
+    </task>
+    <task><introduction><p>Soit <m>B_{i}=\{n\in N~|~ n\geq i\}</m> défini pour tout <m>i\in \N</m>. Déterminer quel est l'ensemble</p></introduction>
+        <task><statement><p><m>\displaystyle\bigcup_{i=0}^N B_i</m>;</p></statement></task>
+        <task><statement><p><m>\displaystyle\bigcap_{i=0}^N B_i</m>.</p></statement></task>
+    </task>
+    </exercise> 
+    
+    </exercisegroup>
+</exercises>

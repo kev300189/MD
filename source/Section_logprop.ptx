@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-logprop">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> La logique propositionnelle </title>
+    <introduction xml:id= "intro-logprop">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>La logique propositionnelle est l'étude de propositions et leur combinaison par divers connecteurs. De manière plus générale, la logique est l'étude des conséquences de ces combinaisons. Les règles de la logique propositionnelle permettent de distinguer les raisonnements mathématiques valides des autres. Le caractère fondamental des mathématiques repose sur la validité des raisonnements qui sont utilisés pour démontrer les théorèmes et résultats divers.</p> 
+    
+    <p>D'un point de vue pratique, les règles de la logique sont maintenant utilisées en informatique afin que la machine puisse comprendre, sans ambiguité, ce que l'utilisateur veut faire.</p>
+    <p>Dans cette section, on définit la notion de <em>proposition</em>, les connecteurs de <em> conjonction,disjonction</em> et <em>implication</em>. On définit aussi la négation d'une proposition, de même que la réciproque et la contraposée d'une implication. Finalement, on introduit le concept de table de vérité. </p>
+    </introduction>
+    <subsection>
+    <title>Propositions mathématiques et connecteurs logiques</title>
+    <p>L'objet le plus élémentaire de la logique est la proposition. Pour pouvoir faire un raisonnement et le valider, il faut savoir comment écrire et parler des mathématiques. </p>
+    <definition xml:id="def-proposition">
+    <title>Proposition mathématique</title>
+    <statement>
+    <p>Une <em>proposition</em> est un énoncé, une phrase déclarative qui est soit vraie, soit fausse.</p>
+    </statement>
+    </definition>
+    <p>Par exemple, les énoncés suivants sont des propositions, car on peut leur attribuer une valeur de vérité.
+    <ul>
+    <li><p>Le Québec est une province du Canada (c'est vrai).</p></li>
+    <li><p>Le soleil tourne autour de la Terre (c'est faux).</p></li>
+    <li><p><m>1+1=3</m> (c'est faux).</p></li>
+    <li><p>J'ai pris une douche ce matin (c'est soit vrai, soit faux, dépendamment du matin, mais çe ne peut pas être autre chose que vrai ou faux).</p></li>
+    <li><p>Si on est jeudi ou si on est samedi, alors je vais prendre un verre.  (étant donné la journée, on peut déterminer la véracité)</p></li>
+    </ul>
+    Une proposition n'est donc pas nécessairement vraie. Ce qui importe, c'est qu'elle soit vraie ou fausse. La valeur de vérité d'une proposition pourrait même changer dans le temps, par exemple si le Québec devenait indépendant, la première proposition serait fausse, et la véracité de la proposition sur la prise de douche dépend des matins.</p>
+    <p>Les énoncés ci-dessous ne sont pas des propositions.
+    <ul>
+    <li><p>Quel jour de la semaine est-on? (Une question, pas une phrase déclarative.)</p></li>
+    <li><p>Lire le chapitre <xref ref="chap-logique"/> pour le prochain cours (c'est une consigne).</p></li>
+    <li><p><m>x+1\leq 4</m> (si on connaissait <m>x</m>, on pourrait peut-être déterminer la véracité de cette proposition, mais sans informations additionnelles, c'est impossible).</p></li> 
+    </ul>
+    Au sujet de l'énoncé avec la variable <m>x</m>, c'est un exemple de fonction propositionnelle. On les abordera à la section <xref ref="sec-propquant"/>.
+    </p>
+    <p>Les propositions avec lesquelles on travaillera seront plus complexes que les premières du paragraphe ci-dessus. Si on regarde la proposition
+    <me>
+    \text{Si on est jeudi ou si on est samedi, alors je vais prendre un verre.}
+    </me>,
+    on constate qu'elle est composée de plusieurs petites proposition: &#x00AB; on est jeudi&#x00BB;, &#x00AB;on est samedi&#x00BB; et  &#x00AB; je vais prendre un verre&#x00BB;. Ces trois propositions sont par la suite composées à l'aide des connecteurs &#x00AB;ou&#x00BB; et &#x00AB; si<nbsp/>alors&#x00BB;. Une proposition qui ne peut être décomposée davantage est dite atomique, alors qu'une proposition composée est appelée moléculaire.</p>
+    <p>Du côté symbolique, on utilisera principalement  les lettres de l'alphabet minuscule autour de <m>p</m> pour désigner une proposition (atomique ou moléculaire). Par exemple, &#x00AB; si <m>p</m> ou si <m>q</m>, alors <m>r</m>&#x00BB; pourrait représenter la proposition &#x00AB;si on est jeudi ou si on est samedi, alors je vais prendre un verre&#x00BB;. En fait, le deuxième &#x00AB;si&#x00BB; sera souvent laissé de côté, et même les connecteurs auront leur propre symbole.</p>
+    <definition xml:id="def-negation">
+    <title>La négation d'une proposition</title>
+    <p>Soit <m>p</m> une proposition quelconque. On apelle la négation de <m>p</m>, notée <m>\neg p</m>, la proposition &#x00AB; il n'est pas vrai que <m>p</m>&#x00BB;. C'est une proposition qui a toujours comme valeur de vérité le contraire de <m>p</m>.</p>
+    
+    <p>On note parfois aussi la négation comme étant <m>\sim p</m> ou encore <m>!p</m>. Cette dernière option est celle qui est utilisée dans beaucoup de programme informatique.</p>
+    <p>Selon le contexte, on reformulera la proposition <m>\neg p</m> pour que la formulation soit plus naturelle que &#x00AB; il n'est pas vrai que <m>p</m>&#x00BB;. </p>
+    </definition>
+    <p>Par exemple la négation de &#x00AB;Le Québec est une province du Canada &#x00BB; est &#x00AB; Il n'est pas vrai que le Québec est une province du Canada &#x00BB;, que l'on pourrait reformuler plus simplement comme &#x00AB; Le Québec n'est pas une province du Canada &#x00BB;.</p>
+    <definition xml:id="def-conjonction">
+    <title>La conjonction</title>
+    <statement><p>Soit <m>p,q</m> deux propositions. On appelle <m>p</m> et <m>q</m> la conjonction de <m>p,q</m>, notée <m>p\wedge q</m>, la proposition qui est vraie lorsque <m>p</m> et <m>q</m> sont vraies.</p>
+    <p>On note parfois aussi la conjonction entre <m>p</m> et <m>q</m> comme <m>p~\&amp; ~q</m>. C'est aussi la notation qui est utilisée par beaucoup de langages informatiques. Dans la partie textuelle de ces notes, on préfère l'utilisation du symbole <m>\wedge</m>, car il évoque un certain parallèle avec l'intersection de la théorie des ensembles. Le lien deviendra plus clair sous peu.  </p>
+    </statement>
+    </definition>
+    <definition xml:id="def-disjonction">
+    <title>La disjonction</title>
+    <statement><p>Soit <m>p,q</m> deux propositions. On appelle <m>p</m> ou <m>q</m> la disjonction de <m>p,q</m>, notée <m>p\vee q</m>, la proposition qui est vraie lorsque <m>p</m> ou <m>q</m> sont vraies, peut-être les deux.</p>
+    <p>On note parfois aussi la disjonction entre <m>p</m> et <m>q</m> comme <m>p~|~q</m>, <m>p\parallel q</m> ou <m>p+q</m>. Les deux premières notations alternatives sont celles qui sont utilisées par beaucoup de langages informatiques. Dans la partie textuelle de ces notes, on préfère l'utilisation du symbole <m>\vee</m>, car il évoque un certain parallèle avec l'union de la théorie des ensembles. Ce lien deviendra aussi plus clair sous peu. </p></statement>
+    </definition>
+    <p>La proposition &#x00AB; Il fait beau et je suis en congé &#x00BB; est une conjonction de deux propositions atomiques, alors que la proposition <em>On est jeudi ou c'est l'hiver</em> est une disjonction.</p>
+    <remark>
+    <title>Priorité des opérateurs</title>
+    <statement><p>Les opérateurs de disjonctions et de conjonctions sont des opérateurs binaires. Ils s'appliquent sur deux opérandes. L'opérateur de négation quant à lui est un opérateur unaire, qui s'applique sur l'opérande qui le suit. Afin d'éviter une trop grande utilisation de parenthèses, on donne la priorité à l'opérateur unaire.</p>
+    <p>
+    Ainsi, la proposition <m>\neg p\wedge q</m> doit être vue comme <m>(\neg p)\wedge q</m>. Si on veut la négation d'une conjonction ou d'une disjonction, on pourra utiliser les parenthèses comme dans la proposition <m>\neg(p\wedge q)</m>. Dans la section <xref ref="sec-eqlogfnc"/>, on verra comment réécrire cette négation.
+    </p></statement>
+    </remark>
+    </subsection>
+    <subsection>
+    <title>Table de vérité</title>
+    <p>Il n'est pas évident de déterminer la valeur de vérité d'une proposition moléculaire complexe en regardant simplement ses morceaux et leur interaction. Par exemple, quand peut-on dire que la proposition moléculaire &#x00AB; J'ai une soeur ou il n'est pas vrai que ( j'ai une soeur et le ciel est rouge) &#x00BB; est vraie? Si on la décortique, on voit qu'elle est formée des deux propositions atomique <m>p=\text{J'ai une soeur}</m> et <m>q=\text{le ciel est rouge}</m> et représentée symboliquement par <m>p\vee \neg (p\wedge q)</m>. Cette proposition complexe a certainement une valeur de vérité, qui dépend probablement des valeurs de vérités individuelles de <m>p</m> et <m>q</m>.</p>
+    <p>Pour analyser une proposition complexe, on utilise une table de vérité. C'est un outil semblable au tableau d'appartenance introduit à la proposition <xref ref="prop-opensass"/>. Ci-dessous, les tables de vérités des connecteurs de négation, conjonction et disjonction.</p>
+    <figure>
+    <caption>Trois des principales tables de vérité</caption>
+    <sidebyside>
+    <table><title>Table de vérité de la négation</title>
+  <tabular top="major">  
+    <row>
+      <cell right="medium">
+        <m>p</m>
+      </cell>
+      <cell>
+        <m>\neg p</m>
+      </cell>
+    </row>
+    <row>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+  </tabular>
+  </table>
+  <table><title>Table de vérité de la conjonction</title>
+  <tabular top="major"> 
+    <row>
+      <cell>
+        <m>p</m>
+      </cell>
+      <cell right="medium">
+        <m>q</m>
+      </cell>
+      <cell>
+        <m>p\wedge q</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+  </tabular>
+  </table>
+  <table><title>Table de vérité de la disjonction</title>
+    <tabular top="major"> 
+    <row>
+      <cell>
+        <m>p</m>
+      </cell>
+      <cell right="medium">
+        <m>q</m>
+      </cell>
+      <cell>
+        <m>p \vee q</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+  </tabular>
+  </table>
+  </sidebyside>
+</figure>
+<example xml:id="ex-tautologie1">
+<title>Une table de vérité plus complexe</title>
+<statement><p>On considère la proposition <m>p\vee \neg (p\wedge q)</m> et on cherche à déterminer sous quelle condition elle est vraie. On utilise une table de vérité.</p></statement>
+<solution><p>Pour ce type de proposition, il convient de décomposer en plus petits morceaux et d'analyser chacun de ces morceaux afin de former le tout. La table de vérité</p>
+<table>
+<title>Table de vérité d'une proposition complexe</title>
+  <tabular top="major">
+    <row>
+      <cell>
+        <m>p</m>
+      </cell>
+      <cell right="minor">
+        <m>q</m>
+      </cell>
+      <cell>
+        <m>p\wedge q</m>
+      </cell>
+      <cell right="medium">
+        <m>\neg(p\wedge q)</m>
+      </cell>
+      <cell>
+        <m>p\vee \neg(p\wedge q)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="minor">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="minor">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell right="minor">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        F
+      </cell>
+      <cell right="minor">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>Comme on peut le voir, la proposition finale est toujours vraie, indépendamment de la véracité des propositions individuelles <m>p,q</m>. <!--En fait, l'auteur n'a pas de soeur et il est bien connu que le ciel n'est pas rouge. Si on décortique la proposition étudiée, <m>p\wedge q</m> est fausse, car individuellement <m>p</m> et <m>q</m> le sont. On prend la négation de cette proposition, qui est par la suite connectée à <m>p</m> par une disjonction. La proposition complète est donc vraie. --> </p>
+<!-- <p>Les autres cas peuvent s'analyser aussi de cette manière.</p> -->
+</solution>
+</example>
+    </subsection>
+    <subsection>
+    <title>Implication, réciproque et contraposée</title>
+    <p>Une autre manière de connecter des propositions est d'utiliser la formule &#x00AB; si <m>p</m>, alors <m>q</m>&#x00BB;. Par exemple, la proposition &#x00AB; S'il pleut, alors le gazon est mouillé &#x00BB; est une telle proposition.</p>
+    <definition xml:id="def-implication">
+    <title>L'implication logique</title>
+    <statement><p>Soit <m>p</m> et <m>q</m> deux proposition. On appelle si <m>p</m>, alors <m>q</m> l'implication logique, notée <m>p\rightarrow q</m>. C'est une proposition qui est fausse lorsque <m>p</m> est vraie et <m>q</m> est fausse, <em>mais vraie dans tous les autres cas.</em></p>
+    <p>La proposition <m>p</m> est appelée l'hypothèse ou la prémisse et la proposition <m>q</m> est appelée la conséquence ou la conclusion.</p>
+    <p>En plus de si <m>p</m> alors <m>q</m>, on dit parfois aussi <m>p</m> implique <m>q</m>, <m>p</m> seulement si <m>q</m>,<m>p</m> est suffisant pour que <m>q</m> soit vraie ou encore <m>q</m> est nécessaire pour avoir <m>p</m>.</p>
+    </statement>
+    </definition>
+    <p>La table de vérité de l'implication se trouve ci-dessous.</p>
+    <table xml:id="tab-implication">
+    <title>Table de vérité de l'implication</title>
+  <tabular top="major">
+    <row>
+      <cell>
+        <m>p</m>
+      </cell>
+      <cell right="medium">
+        <m>q</m>
+      </cell>
+      <cell>
+        <m>p\rightarrow q</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>À priopri, il semble étrange d'avoir une proposition qui est vraie lorsque ses composantes sont fausses. Il faut réaliser que pour la logique mathématique, il n'est pas important qu'il y ait un lien entre <m>p</m> et <m>q</m> pour les connecter avec l'implication. Ainsi, &#x00AB; si on est jeudi, alors <m>1+1=3</m>&#x00BB; est une implication qui en générale sera considérée comme vraie, puisque six fois sur sept jeudi n'est pas aujourd'hui et que <m>1+1\neq 3</m>, mais lorsque que c'est jeudi, l'implication devient fausse. L'idée générale à retenir est qu'à partir d'une hypothèse qui est vraie, on ne peut que conclure la vérité, mais à partir d'une prémisse fausse, on peut arriver à n'importe quelle conclusion. En particulier pour la dernière ligne, ce n'est pas de dire que <m>q</m> est vraie, mais que l'implication au total est vraie, un peu par défaut si à la fois l'hypothèse et la conclusion sont fausses.</p>
+<p>Pour reprendre la proposition &#x00AB; S'il pleut, alors le gazon est mouillé &#x00BB;, on considère les trois cas de figure suivant: 
+<ol>
+<li><p>Il pleut et le gazon est mouillé.</p></li>
+<li><p>Il ne pleut pas, mais le gazon est mouillé.</p></li>
+<li><p>Il pleut, mais le gazon n'est pas mouillé.</p></li>
+</ol>
+Dans les deux premier cas, la conclusion est vraie. L'implication est alors vérifié. Il n'est pas important de savoir ce qui a causé le gazon à être mouillé. Dans le troisième cas de figure, l'implication est fausse, car elle stipule que la pluie aurait du mouiller le gazon, mais cela ne s'est pas produit. Dans le cas où il ne pleut pas et que le gazon n'est pas mouillé, l'implication serait vraie par défaut. 
+</p>
+<p>À partir d'une implication, on peut définir deux autres propositions reliées. Il est important de les distinguer.</p>
+<definition xml:id="def-reciproquecontraposee">
+<title>La réciproque et la contraposée d'une implication</title>
+<statement>
+<p>Soit <m>p,q</m> des propositions. La proposition <m>q\rightarrow p</m> est appelée la réciproque de <m>p\rightarrow q</m> et la proposition <m>\neg q\rightarrow \neg p</m> est appelée la contraposée.</p>
+</statement>
+</definition>
+<p>Ci-dessous on retrouve les tables de vérité de l'implication <m>p\rightarrow q</m>, sa réciproque et sa contraposée.</p>
+<table>
+<title>Table de vérité de l'implication <m>p\rightarrow q</m>, la réciproque et la contraposée</title>
+  <tabular top="major"> 
+    <row>
+      <cell>
+        <m>p</m>
+      </cell>
+      <cell right="minor">
+        <m>q</m>
+      </cell>
+      <cell>
+        <m>\neg p</m>
+      </cell>
+      <cell right="medium">
+        <m>\neg q</m>
+      </cell>
+      <cell>
+        <m>p\rightarrow q</m>
+      </cell>
+      <cell>
+        <m>q\rightarrow p</m>
+      </cell>
+      <cell>
+        <m>\neg q \rightarrow \neg p</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="minor">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="minor">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell right="minor">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        F
+      </cell>
+      <cell right="minor">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>En particulier, on remarque que l'implication et la contraposée ont exactement les mêmes valeurs de vérités en même temps. On dit de deux propositions qui possèdent cette propriété qu'elles sont équivalentes. On revient sur ce concept à la section <xref ref="sec-eqlogfnc"/>.</p>
+<p>La réciproque par contre n'est pas nécessairement vraie quand l'implication l'est. On peut toutefois imposer cette condition en créant la double implication.</p>
+    <definition>
+    <title>La double implication</title>
+    <statement><p>Soit <m>p</m> et <m>q</m> des propositions. On apelle <m>p</m> si et seulement si <m>q</m>, et on note <m>p\leftrightarrow q</m>, la proposition <m>(p\rightarrow q)\wedge (q\rightarrow p)</m>. On l'appelle aussi la biconditionnelle.</p>
+    <p>On dit aussi <m>p</m> est nécessaire et suffisant pour <m>q</m>.</p>
+    </statement>
+    </definition>
+    </subsection>
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-logprop">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les éléments importants de cette section sont:
+    <ul>
+    <li><p>La définition d'une <xref ref="def-proposition" text="custom">proposition</xref>.</p></li>
+    <li><p>La <xref ref="def-negation" text="custom">négation</xref> d'une proposition et les connecteurs <xref ref="def-conjonction" text="custom"> conjonction</xref> et <xref ref="def-disjonction" text="custom">disjonction</xref>.</p></li>
+    <li><p>La notion d'implication et les formes <q>si <ellipsis/> alors</q>,<q>seulement si</q>,<q>nécessaire</q> et <q>suffisant</q>.</p> </li>
+    <li><p>La notion de <xref ref="def-reciproquecontraposee" text="custom">réciproque et de contraposée</xref>.</p></li>
+    <li><p>La construction d'une table de vérité et les tables de vérité de la conjonction, disjonction et implication.</p></li>
+    <li><p>La double implication et les formes <q>si et seulement si</q> et <q>nécessaire et suffisant</q>.</p></li>
+    </ul>
+    </p>
+    </conclusion>
+    <reading-questions>
+    <introduction>
+  <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+  </introduction>
+  <exercise><introduction><p>Parmi les énoncés suivants, lesquels sont des propositions? Justifier brièvement.</p></introduction>
+  <task><statement><p>Il est 8 heures.</p></statement></task>
+ <task><statement><p>Il est 8 heures?</p></statement></task>
+ <task><statement><p><m>x^2\geq 4</m></p></statement></task>
+ <task><statement><p><m>x^2\geq 4</m> si <m>x=2</m> ou <m>x=5</m></p></statement></task>
+ <task><statement><p>Le café doit être changé toutes les vingt minutes.</p></statement></task>
+ <task><statement><p>J'ai un chien ou un chat.</p></statement></task>
+ <task><statement><p>Il roulait à plus de <m>60</m> km/h et a brulé un feu rouge.</p></statement></task>
+ <task><statement><p>Cette phrase est fausse.</p></statement></task>
+  </exercise>
+  <exercise><statement><p>Parmi les propositions précédentes, identifier celles qui sont moléculaires et décortiquer les en propositions atomiques.</p></statement></exercise>
+  <exercise><introduction><p>On suppose qu'il est connu que l'auteur a un frère, mais il est incertain s'il a une soeur. Déterminer si les propositions suivantes sont vraies, fausses ou s'il manque d'information pour le savoir.</p></introduction>
+  <task><statement><p>L'auteur a un frère ou l'auteur a une soeur.</p></statement></task>
+  <task><statement><p>L'auteur a un frère et l'auteur a une soeur.</p></statement></task>
+  <task><statement><p>L'auteur a une soeur ou l'auteur n'a pas de soeur.</p></statement></task>
+  <task><statement><p>Si l'auteur a une soeur, alors il a un frère.</p></statement></task>
+  <task><statement><p>Si l'auteur a un frère, alors il est a une soeur.</p></statement></task>
+  <task><statement><p>Si l'auteur n'a pas de frère, alors il a une soeur.</p></statement></task>
+  </exercise>
+  <exercise xml:id="exo-ouexclusiflogique"><statement><p>Tout comme pour la théorie des ensembles, on peut définir le <q>ou exclusif</q> pour des propositions logiques. Noté <m>p\oplus q</m>, cette proposition est vrai lorsqu'exactement une des propositions <m>p,q</m> est vraie.</p>
+  <p>Donner la table de vérité du <q>ou exclusif</q>.</p>
+  </statement></exercise>
+  <exercise><statement><p>Donner la table de vérité de la double implication.</p></statement></exercise>
+  <exercise><introduction><p>Chaque phrase ci-dessous peut-être réécrite sous la forme d'une implication. Donner l'hypothèse et la conclusion de chacune de ces implications.</p></introduction>
+      <task><statement><p>Tous les québécois aiment le Canadien de Montréal.</p></statement></task>
+      <task><statement><p>Le record sera battu si les conditions sont favorables.</p></statement></task>
+      <task><statement><p>Le record sera battu seulement si les conditions sont favorables.</p></statement></task>
+      <task><statement><p>Pour avoir un permis de conduire, il est nécessaire d'avoir au moins <m>16</m> ans.</p></statement></task>
+      <task><statement><p>Pour pouvoir acheter de l'alcool, il suffit d'avoir 18 ans.</p></statement></task>
+  </exercise>
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_logprop.ptx"/>
+</section>

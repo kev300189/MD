@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-relationsrecurrence">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Suites et relations de récurrence </title>
+    <introduction xml:id= "intro-relationsrecurrence">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    </introduction>
+    
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    <subsection>
+    <title>Suites</title>
+   <p>On considère les nombres <m>1,3,7,15</m>. Que devrait être le prochain? La réponses à cette question relève peut-être plus de la psychologie que des mathématiques. Comme on le verra, il existe une infinité de bonnes réponses à la question. Il y en a toutefois peut-être quelques-unes plus naturelles, plus évidentes que les autres.</p>
+   <p>Il faut établir quelques éléments de notation et de terminologie avant de poursuivre. Le but de ce chapitre est d'étudier les relations de récurrence et leur solution. Une relation de récurrence est un cas particulier de suites, qui elles sont une sorte de fonction définie sur les naturelles.</p>
+   <definition>
+   <title>Suite</title>
+   <statement><p>Une suite est une fonction dont le domaine est un sous-ensemble des entiers. Traditionnellement, on distingue une suite d'une fonction réelle avec la notation. Plutôt que d'écrire <m>f(n)</m> pour une suite, on utilisera la notation <m>f_n</m>. On spécifie parfois le domaine en utilisant les accodales : <m>\{f_n\}_{n=0}^\infty</m> en gardant en tête que la variable <m>n</m> est toujours un entier.</p></statement>
+   </definition>
+   <p>Une suite peut être définie par une règle, comme une fonction. On appelle souvent la règle de la suite le terme général. </p>
+   <example>
+   <title>Quelques exemples de suites</title>
+   <statement><p>On considères les suites <m>\{a_n\}_{n=0}^\infty, \{b_n\}_{n=1}^\infty</m> et <m>\{c_n}_{n=-2}^{\infty}</m> définies par les termes généraux <m>a_n=n,b_n=\frac{1}{n}</m> et <m>c_n=2^n</m>. On calcule les cinq premiers termes de chaque suite.</p></statement>
+   <solution>
+   <p>On évalue une suite comme on évalue une fonction, en remplaçant la valeur de <m>n</m> dans la règle. Ainsi pour la suite <m>\{a_n\}</m>, les premiers termes sont <m>0,1,2,3,4,\ldots</m>. Pour la suite <m>\{b_n\}</m>, on a <m>\frac{1}{1},\frac{1}{2},\frac{1}{3},\frac{1}{4},\frac{1}{5},\ldots</m>. Finalement pour <m>\{c_n\}</m>, on a <m>\frac{1}{4},\frac{1}{2},1,2,4\ldots</m>.</p>
+   </solution>
+   </example>
+   <p>On prend maintenant deux conventions qui permettront d'alléger la notation. Lorsque le domaine n'est pas précisé, ce sera sous-entendu que ce sera les naturels. Ainsi <m>\{a_n\}_{n=0}^\infty</m> sera simplement <m>\{a_n\}</m>. Également, on écrira souvent <m>a_n</m> pour parler autant de la suite que du terme général, le contexte permettant souvent de faire la distinction.</p>
+   <p>Étant donné un terme général, il est facile de donner les valeurs de la suite. À l'inverse, si on connait quelques termes d'une suite, trouver le terme général est un exercice qui peut être difficile. Par exemple, les nombres <m>1,3,7,15</m> forment le début d'une suite dont le prochain terme pourrait être <m>31</m>. En effet, on peut voir la suite comme étant engendrée par le terme général <m>a_n=2^n-1</m>, pour <m>n\geq 1</m>. Or on pourrait aussi dire que le prochain terme est <m>24</m> si on considère plutôt que le terme général est <m>2^n-1+(n-1)(n-2)(n-3)*(n-4)</m>. En généralisant le principe, on voit que le <q>prochain</q> terme peut être n'importe quoi. L'encyclopédie en ligne des suites entières est une site internet qui répertorie différentes suites d'intérêt particulier. Pour les nombres <m>1,3,7,15</m>, on trouve en date de l'écriture de ces lignes plus de <m>300</m> suites qui contiennent ces quatre nombres. On peut les voir à cette <url href="https://oeis.org/search?q=1%2c3%2c7%2c15&amp;start=10">adresse</url><fn><c>https://oeis.org/search?q=1%2c3%2c7%2c15&amp;start=10</c></fn>.</p>
+   <p>Pour le type de suite que l'on considèrera, ce genre de problème ne se posera pas. Si on a une suite décrite d'une certaine manière, on pourra trouver sa règle et être certain que c'est ce qui était attendu. </p>
+    </subsection>
+    <subsection>
+    <title>Trois problèmes</title>
+    <p>Afin d'introduire la notion de suite définie par récurrence, on considère trois problèmes. Le premier est inspiré d'une légente dans laquelle des moines déplaçaient des disques selon les règles décrites ci-dessous et lorsqu'ils auraient terminé, ce serait la fin du monde.</p>
+    <p>On considère une tour composée de huits disques de grosseurs différentes, empilés de bas en haut du plus gros au plus petit. À droite de la tour, deux tiges vides sont aussi présentes. Le but du jeu est de reconstruire la tour sur une des deux autres tiges, en ne déplaçant qu'un disque à la fois et en ne posant jamais un disque sur un disque plus petit. La question est de savoir en combien de déplacements est-ce possible de le faire (si c'est même possible!)</p>
+    <p>Pour résoudre ce problème, il peut être bon de commencer par un problème plus simple. Si la tour ne contenait qu'un seul disque, alors on pourrait le transférer en un mouvement. On note cela par <m>T_1=1</m>. Pour deux disques, on peut voir assez facilement qu'avec trois mouvements, on aura réussi. On bouge le plus petit disque sur une autre tige, puis le second disque sur la tige inutilisée. Reste à replacer le petit disque sur le plus grand. Cette solution fonctionne et on voit aussi qu'elle est optimale. Il serait impossible de recréer la tour en deux mouvements puisqu'il y a deux disques à déplacer, qu'on ne peut en déplacer qu'un seul par mouvement et qu'on ne peut placer un disque plus grand sur un plus petit. On note alors <m>T_2=3</m>. Qu'en est-il de <m>T_3</m>? Avant de poursuivre la lecture, ce pourrait être une bonne idée d'essayer le problème.</p>
+    <p>Maintenant qu'on a fait quelques cas simples, on peut s'intéresser au cas plus général (encore plus que le problème initial qui correspond à <m>T_8</m>). On note par <m>T_n</m> le nombre de mouvements minimal qu'il est requis de faire pour déplacer la tour selon les règles décrites plus haut. Si le lecteur a essayer et réussi le cas <m>n=3</m>, il aura peut-être remarqué que, avant de pouvoir bougé le plus grand disque, il faut former la tour composée des deux plus petits disques sur une autre tige. Ceci peut se faire en trois mouvements, comme il a été expliqué précédemment. On peut ensuite déplacer le grand disque sur la tige libre, et finalement compléter la tour avec les deux plus petits disques, nécessitant à nouveau 3 mouvements. Au final, le processus aura pris <m>3+1+3=7</m> mouvements. Ceci suggère la relation suivante pour <m>T_n</m>:
+    <me>
+    T_n=2T_{n-1}+1
+    </me>. Une telle relation est appelé une relation de récurrence. Pour qu'on puisse calculer des valeurs, il faut un point de départ. On a déjà calculé <m>T_1=1</m>, qu'on peut prendre comme point de départ. En utilisant la relation de récurrence, on peut obtenir les valeurs suivantes pour <m>T_n</m>.</p>
+<table>
+  <title>Les huit premières valeurs du problème de la tour de Hanoï</title>
+  <tabular>
+    <row>
+      <cell>
+        <m>n</m>
+      </cell>
+      <cell>
+        <m>1</m>
+      </cell>
+      <cell>
+        <m>2</m>
+      </cell>
+      <cell>
+        <m>3</m>
+      </cell>
+      <cell>
+        <m>4</m>
+      </cell>
+      <cell>
+        <m>5</m>
+      </cell>
+      <cell>
+        <m>6</m>
+      </cell>
+      <cell>
+        <m>7</m>
+      </cell>
+      <cell>
+        <m>8</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <m>T_n</m>
+      </cell>
+      <cell>
+        <m>1</m>
+      </cell>
+      <cell>
+        <m>3</m>
+      </cell>
+      <cell>
+        <m>7</m>
+      </cell>
+      <cell>
+        <m>15</m>
+      </cell>
+      <cell>
+        <m>31</m>
+      </cell>
+      <cell>
+        <m>63</m>
+      </cell>
+      <cell>
+        <m>127</m>
+      </cell>
+      <cell>
+        <m>255</m>
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>On reconnait une autre instance de la suite <m>1,3,7,15</m> et on voit que pour <m>n=8</m>, on a besoin de <m>255</m> mouvements pour accomplir la tâche. Dans la légende qui inspira ce problème, les moines devaient reconstruire une tour formée de <m>64</m> blocs. Doit-on craindre pour la fin du monde?</p>
+<p>Le deuxième problème est un classique en informatique. Étant donné une liste de nombres, combien d'opérations sont nécessaires pour les classer en ordre croissant? En fait, cette question n'est pas précise, car il existe plusieurs algorithmes qui font ce travail, et ils ne n'ont pas tous la même efficacité. L'algorithme qui sera considéré pour l'instant est en fait assez mauvais. Il procède comme suit.
+<ol>
+<li><p>À partir d'une liste <c>L</c> de <m>n</m> nombres, on trouve le minimum de la liste.</p></li>
+<li><p>Si le minimum est à la position <m>k</m>, on échange les positions des éléments <c>L[0]</c> et <c>L[k]</c>. Si <m>k=0</m>, on ne fait rien. Le plus petit élément de la liste est maintenant en place.</p></li>
+<li><p>On répète ensuite ces étapes pour placer le minimum des <m>n-1</m> éléments restant à la position <c>1</c> et ainsi de suite.</p></li>
+</ol></p>
+<p>Ce qu'on cherche à savoir ici, c'est combien de comparaison sont nécessaires pour déterminer le minimum. À titre d'exemple, on considère la liste <c>[3,5,2,1,4]</c>. On commence avec l'élément <c>3</c> et on le compare à <c>5</c>. Comme <m>3\leq 5</m>, on le compare avec le prochain élément. Cette fois, <m>2\leq 3</m> et donc </p>
+<!-- À retravailler -->
+<!--<p>Le second problème est souvent objet de commentaires variés sous sa publication sur un réseau social. Étant donné une grille <m>8\times 8</m>, combien de carrés formés de plus petits carrés peut-on compter à l'intérieur? Encore une fois ici, il convient de considérer des cas plus simples. Par exemple, dans une grille <m>1\times 1</m>, il n'y a  qu'un carré. On pose <m>C_1=1</m>. Dans une grille <m>2\times 2</m>, il y a évidemment les quatre carrés formant la grille elle même, de même qu'un grand carré formé des quatre petits. On a alors <m>C_2=4+1=5</m>. On a très peu d'information avec seulement ces deux nombres, même si on commence un peu à percevoir comment on pourra les compter. Avec la grille <m>3\times 3</m>, on compte les neuf carrés formant la grille et le grand carré formé des neufs petits. Mais il y a aussi des carrés formés de quatre petits carrés. On en compte <m>4</m>. On aurait donc <m>9+4+1=14</m> carrés à l'intérieur d'une grille <m>3\times 3</m>, soit <m>C_3=14</m>.</p>
+<p>Pour faire ressortir l'aspect récurrence, on imagine la grille <m>n\times n</m> comme la grille <m>(n-1)\times (n-1)</m> à laquelle on ajoute un <q>L</q> de <m>2n-1</m> carrés, par exemple en bas et à gauche. Le nombre total de carré est donc constitué des carrés entièrement compris dans la sous-grille de taille <m>(n-1)\times (n-1)</m> additionnés de ceux comprenant au moins un carré provenant du <q>L</q>. Pour compter ces derniers, on </p>-->
+
+
+    </subsection>
+    <subsection>
+    <title>Notation sigma</title>
+    </subsection>
+    <conclusion xml:id="concl-relationsrecurrence">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    
+    </conclusion>
+    <reading-questions xml:id="rq-relationsrecurrence">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <introduction>
+  <p>Ces questions sont à faire en classe et à terminer d'ici le prochain cours si nécessaire.</p>
+  </introduction>
+  
+  <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <!--<xi:include href="Exercices_.ptx" />-->
+</section>

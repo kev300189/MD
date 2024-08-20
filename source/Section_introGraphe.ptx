@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-introGraphe">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Introduction à la théorie des graphes</title>
+    <introduction xml:id= "intro-introGraphe">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+        <p>La théorie des graphes est une théorie qui a été utilisée pour la première fois par le mathématicien Leonhard Euler afin de traiter le problème des sept pnts de Königsberg. La ville de Königsberg est construite autour de deux îles  reliées entre elles. Six autres pnts relient les rives de la rivière à l'une des deux îles.</p>
+        <p>Euler a représenté la situation à l'aide de sommets (représentant les îles et les rives) et d'êtes (représentant les ponts). Le problème est alors de savoir s'il est possible d'effectuer une marche passant par chaque pont une seule fois.</p>
+        <p>Depuis, on a utilisé la théorie des graphes pour représenter de noumbreuses situations. Par exemple, lorsqu'on veut vérifier qu'un circuit électronique est planaire (pour savoir s'il est possible de le construire sur une carte), représenter la connection entre plusieurs ordinateurs sur un résau informatique, ou encore pour représenter un réseau téléphonique.</p>
+        <p> L'algorithme des différents moteurs de recherche utilise la théorie des graphes afin de représenter les différents sites et les liens qu'il existe entre ceux-ci. Finalement, on peut aussi penser aux applications permettant de trouver le chemin le plus rapide pour voyager en voiture, à pied ou à vélo.</p>
+    </introduction>
+    
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+<subsection xml:id="subs-defGraphe">
+<title> Les types de graphes</title>
+<introduction xml:id="intro-defGraphe">
+<p>Tel que mentionné plutôt, beaucoup de situations peuvent être représentées à l'aide de sommets reliés entre eux  par des arêtes. Ces représentations sont des objets mathématiques appelés des graphes.</p>
+<p>Il existe plusieurs types de graphes selon les situations qu'on veut représenter. Ici, on donne la définition de deux types de graphes différents. Ces définitions sont les définitions formelles et abstraites d'un graphe, mais il faut garder en tête qu'une des forces des graphes est qu'ils peuvent aider à <em>visualiser</em> les liens entre différents objets. Il est donc souvent plus utile de représenter un graphe par une figure que de travailler avec sa définition formelle.</p> 
+</introduction>
+
+<definition xml:id="def-graphSimple">
+    <title>Un graphe simple</title>
+    <statement>
+<p>Un graphe simple <m>G=(S,A)</m> est défini à l'aide d'une paire d'ensembles <m>S</m> et <m>A</m>.</p>
+<p>L'ensemble <m>S</m> est un ensemble non-vide quelconque. On l'appel l'ensemble des sommets de <m>G</m>.</p>
+<p> L'ensemble <m>A</m> est un ensemble formé de deux éléments <m>S</m>. C'est à dire que les éléments de <m>A</m> sont de la forme <m>a=\{s,t\}</m>, où <m>s\neq t\in\ S</m> (<m>s</m> et <m>t</m> sont des sommets de <m>G</m>). On dit que <m>A</m> est l'ensemble des arêtes de <m>G</m>.</p>
+<p>Soit <m>a=\{s,t\}\in\,A,</m> on dira que <m>s</m> et <m>t</m> sont les extrémités de <m>a</m>. On dira qu'une arête conecte ses deux extrémités ensembles.</p>
+    </statement>
+</definition>
+
+<remark>
+    <title>Sur la définition des graphes simples</title>
+    <statement>
+            <p> Soit <m>G=(S,A)</m> un graphe simple, par la définition de <m>A</m>, on sait que
+            <ol>
+            <li> Les deux extrémités d'une même arête sont distincts;</li>
+            <li> L'ordre dans lequel on écrit les sommets n'a pas d'importance, car <m>\{s,t\}=\{t,s\}</m>. On dit que le graphe est non-orienté;</li>
+            <li> Deux arêtes distinctes ont au moins un sommet distinct (il n'y a pas deux arêtes différentes qui relient les deux mêmes sommets).</li>
+            </ol>
+            </p>
+            <p>Aussi, en général, il se peut que <m>S</m> et <m>A</m> soient des ensembles infinis. Cependant, nous allons principalement considérer des graphes dont l'ensemble des sommets est un ensemble fini. On dira alors que le graphe est fini.</p>
+            <p>Sauf indication contraire, un graphe sera un graphe fini.</p>
+    </statement>
+</remark>
+
+<example xml:id="exe-premiersGrapes">
+<title> Deux graphes </title>
+<statement> 
+<p>Voici deux graphes simples avec respectivement <m>7</m> et <m>5</m> sommets.</p>
+<figure>
+    <caption> Deux graphes</caption>
+    <sidebyside>
+        <figure>
+            <caption> Le graphe <m>G</m> à <m>7</m> sommets</caption>
+            <image source="tikzit_grapheG.jpg"/>
+        </figure>
+        <figure>
+            <caption> Le graphe <m>H</m> à <m>5</m> sommets</caption>
+            <image source="tikzit_grapheH.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+<p> Les arêtes du graphe <m>G</m> sont:
+<md>
+<mrow>\{a,b\}\amp;\{a,f\};</mrow>
+<mrow>\{b,f\}\amp;\{b,e\};\{b,c\};</mrow>
+<mrow>\{c,f\}\amp;\{c,e\};\{c,d\};</mrow>
+<mrow>\{e,f\}\amp;</mrow>
+</md>
+</p>
+
+<p> Les arêtes du graphe <m>H</m> sont:
+<md>
+<mrow>\{a,b\}\amp;\{a,d\};\{a,e\}</mrow>
+<mrow>\{b,d\}\amp;\{b,c\}</mrow>
+<mrow>\{d,e\}\amp;</mrow>
+</md>
+</p>
+</statement>
+</example>
+
+
+<definition xml:id="def-graphOriente">
+    <title>Un graphe orienté</title>
+    <statement>
+<p>Un graphe orienté <m>G=(S,A)</m> est défini à l'aide d'une paire d'ensembles <m>S</m> et <m>A</m>.</p>
+<p>L'ensemble <m>S</m> est un ensemble non-vide quelconque. On l'appel l'ensemble des sommets de <m>G</m>.</p>
+<p> L'ensemble <m>A</m> est un couple d'éléments de <m>S</m>. C'est à dire que les éléments de <m>A</m> sont de la forme <m>a=(s,t)</m>, où <m>s\neq t\in\ S</m> (<m>s</m> et <m>t</m> sont des sommets de <m>G</m>). On dit que <m>A</m> est l'ensemble des arêtes de <m>G</m>.</p>
+<p> Soit <m>a=(s,t)\in\,A,</m> on dira que <m>s</m> et <m>t</m> sont les extrémités de <m>a</m>. On dira aussi que <m>a</m> est l'arête allant de <m>s</m> vers <m>t</m>. Finalement, on représentera <m>a</m> à l'aide d'une flêche partant de <m>s</m> et terminant à <m>t</m>.</p>
+    </statement>
+</definition>
+
+<example xml:id="exe-premierGrapheOriente">
+    <title> Un graphe orienté</title>
+    <statement> 
+    <p>Voici un graphe orienté à <m>4</m> sommets.</p>
+    <figure>
+        <caption> Un graphe orienté</caption>
+        <image width="15%" xml:id="grapheOriente">
+  
+            <latex-image >
+                \begin{tikzpicture}%
+                [>=stealth,
+                 shorten >=1pt,
+                 node distance=2cm,
+                 on grid,
+                 auto,
+                 every state/.style={draw=black!60, fill=black!5, very thick}
+                ]
+              \node[state] (mid)                  {2};
+              \node[state] (upper) [above=of mid] {1};
+              \node[state] (right) [right=of mid] {4};
+              \node[state] (lower) [below=of mid] {3};
+              
+              \path[->]
+              %   FROM       BEND/LOOP           POSITION OF LABEL   LABEL   TO
+                 (upper) edge[bend left]     node                      {} (right)
+                         edge[bend right=80] node[swap,very near start]{} (lower)
+                 (mid)   edge[bend left=10]  node                      {} (right)
+                         edge                node                      {} (lower)
+                         edge                node                      {} (upper)
+                 (lower) edge[bend left=70]  node[swap,very near start]{} (upper)
+                         edge[bend right]    node[swap]                {} (right)
+                 (right) edge[bend left=10]  node                      {} (mid)
+                 ;
+              \end{tikzpicture}
+            </latex-image>
+              </image>
+    </figure>
+    <p> L'ensemble des sommets du graphe est <m>S=\{1,2,3,4\}</m>, et les arêtes sont:
+    <md>
+    <mrow>(1,3);(1,4);</mrow>
+    <mrow>(2,1);(2,3);(2,4)</mrow>
+    <mrow>(3,1);(3,4);</mrow>
+    <mrow>(4,2)</mrow>
+    </md>
+    </p>
+    </statement>
+    </example>
+
+
+    <remark>
+        <title>Quelques différences entre graphes simples et graphes orientés</title>
+        <statement>
+                <p> Soit <m>G=(S,A)</m> un graphe orienté, par la définition de <m>A</m>, on sait que
+                <ol>
+                <li> Les deux extrémités d'une même arête sont distincts;</li>
+                <li> L'ordre dans lequel on écrit les sommets est important, car <m>(s,t)\neq (t,s)</m>;</li>
+                <li> Deux arêtes distinctes peuvent avoir les mêmes sommets, mais pas dans le même ordre, il n'y a donc pas deux arêtes différentes qui partent finissent aux mêmes sommets.</li>
+                </ol>
+                </p>
+                <p>Comme pour les graphes simples, nous allons principalement considérer des graphes dont l'ensemble des sommets est un ensemble fini. On dira alors que le graphe est fini.</p>
+                <p>Sauf indication contraire, un graphe sera un graphe fini.</p>
+        </statement>
+    </remark>
+
+    <p>
+        Finalement, dans les prochaines sections, nous allons étudier des graphes qu'on dira pondérés. Il s'agit simplement de graphes (simples ou orientés) pour lesquels on donne un poids (un nombre réel positif) à chacune des arêtes. C'est ce genre de graphes qui est utilisé pour trouver le chemin le plus cours entre deux points sur une carte.
+    </p>
+</subsection>
+
+<subsection xml:id="subs-terminologie">
+<title> Terminologie de base </title>
+<introduction xml:id="itro-terminologie">
+<p> Pour faire l'étude de graphes, on aimerait faire  ressortir certaines caractéristiques de ceux-ci. Par exemple, est-il possible de tracer le graphe sans qu'aucune arête n'en croise une autre? Ou encore, est-il possible de tracer un chemin passant par toutes les arêtes une seules fois? </p>
+<p> D'un autre côté, on aimetait également être en mesure de différencier les graphes les uns aux autres. En effet, il arrive souvent que deux graphes semblent à priori bien différents, alors qu'il s'agit en fait du même graphe.</p>
+<p> On commence donc à regarder certaines des caractéristiques des graphes. Pour ce faire, on peut commencer par étudier individuellement chaque sommet d'un graphe. La propriété de base d'un sommet est l'ensemble des sommets avec lesquels il est relié par une arête. On peut également regarder le nombre de connections partant de ce sommet.</p>
+</introduction>
+
+<definition xml:id="def-voisinageDegre">
+<title> Voisinage et degré</title>
+<statement>
+<p>Soit <m>G=(S,A)</m> un graphe simple, et soit <m>s,\,t\in\,S:</m>
+<ul>
+<li>On dira que <m>s</m> est adjacent à <m>t</m>, ou bien que <m>s</m> est un voisin de <m>t</m> dans <m>G</m> si  <m>s</m> et <m>t</m> sont les extrémités d'une arête de <m>G</m>, c'est-à-dire si <m>\{s,t\}\in A</m>.</li>
+<li>Le voisinage de <m>s,</m> noté <m>V(s)</m> est l'ensemble de tous les voisins de <m>s</m>.</li>
+<li> Soit <m>R</m> un sous-ensemble des sommets de <m>G</m>, on note <m>V(R)</m> l'union de tous les voisinages <m>V(s)</m> avec <m>s\in\, R </m>.</li>
+<li> Le degré de <m>s</m> est le nombre de voisins de <m>s</m>. </li>
+<li> Le degré du sommet <m>s</m> sera noté <m>\deg(s)</m>.</li>
+
+</ul>
+</p>
+</statement>
+</definition>
+
+<example xml:id="exe-degGrape">
+    <title>Voisinage et degré</title>
+<statement> Déterminer le voisinage et le degré de chaque sommets des graphes <m> G</m> et <m> H</m> de l'exercice <xref ref="exe-premiersGrapes"/>. Calculer la somme des degrés de tous les sommets de chacun des graphes.</statement>
+<solution> 
+<p><alert> Pour <m> G </m></alert></p>
+<p>
+<md>
+<mrow> V(a)\amp=\{b,f\} \amp \deg(a)\amp=2</mrow>
+<mrow> V(b)\amp=\{a,c,e,f\} \amp \deg(b)\amp=4</mrow>
+<mrow> V(c)\amp=\{b,d,e,f\} \amp \deg(c)\amp=4</mrow>
+<mrow> V(d)\amp=\{c\} \amp \deg(d)\amp=1</mrow>
+<mrow> V(e)\amp=\{b,c,f\} \amp \deg(e)\amp=3</mrow>
+<mrow> V(f)\amp=\{a,b,c,e\} \amp \deg(f)\amp=4</mrow>
+<mrow> V(g)\amp=\{\} \amp \deg(g)\amp=0</mrow>
+</md>
+</p>
+<p>De plus, on a <me>\deg(a)+\deg(b)+\deg(c)+\deg(d)+\deg(e)+\deg(f)+\deg(g)=2+4+4+1+3+4+0=18</me></p>
+</solution>
+<solution> 
+<p><alert> Pour <m> H </m></alert></p>
+<p>
+<md>
+<mrow> V(a)\amp=\{b,d,e\} \amp \deg(a)\amp=3</mrow>
+<mrow> V(b)\amp=\{a,c,d\} \amp \deg(b)\amp=3</mrow>
+<mrow> V(c)\amp=\{b\} \amp \deg(c)\amp=1</mrow>
+<mrow> V(d)\amp=\{a,b,e\} \amp \deg(d)\amp=3</mrow>
+<mrow> V(e)\amp=\{a,d\} \amp \deg(e)\amp=2</mrow>
+</md>
+</p>
+<p>De plus, on a <me>\deg(a)+\deg(b)+\deg(c)+\deg(d)+\deg(e)=3+3+1+3+2=12</me></p>
+
+</solution>
+</example>
+
+<p>En regardant l'exemple précédent, on remarque que, lorsqu'on prend la somme des degrés de tous les sommets d'une graphe, chaque arête est compté deux fois. On peut généraliser pour obtenir le théorème suivant. </p>
+
+<proposition xml:id="prop-somDeg">
+<statement><p> Soit <m>G=(S,A)</m> un graphe simple tel que <m>S=\{s_1,\,s_2\,\dots,\,s_k\}</m> à <m>m</m> arêtes.
+<me>\deg(s_1)+\deg(s_1)+\deg(s_2)\cdots+\deg(s_k)=2m</me>
+</p></statement>
+</proposition>
+
+<example> 
+<statement> <p> Combien d'arêtes y a-t-il dans un graphe de <m>10</m> sommets ayant chacun un degré <m>6</m>?</p></statement>
+<answer> Il y a <m>30</m> arêtes. </answer>
+<solution><p>Si <m>m</m> est le nombre d'arêtes, on a que <m>2m=deg(s_1)+\cdots + \deg(s_2)=6+6+6+6+6+6+6+6+6+6=10\cdot 6</m>. Ainsi, on a bien que <m>m=\frac{10\cdot 6}{2}=30</m>.</p></solution>
+</example>
+
+<corollary xml:id="crol-somDeg">
+<statement> Tout graphe simple possède un nombre pair de sommets à degré impair.</statement>
+<proof>
+<statement>
+<p>Soit <m>G=(S,A)</m> un graphe, on pose <m>S=S_1\cup S_2,</m> où <m>S_1=\left\{s\in\,S|\deg(s)\equiv 1 \mod 2\right\}</m> et <m>S_2=\left\{s\in\,S|\deg(s)\equiv 0 \mod 2\right\}</m>.</p>
+<p> On suppose que <m>S_1=\left\{s_1,\,s_2,\dots,\,s_n\right\}</m> et <m>S_2=\left\{t_1,\,t_2,\dots,\,t_k\right\}</m>. On veut montrer que <m>n</m> est pair.</p>
+<p>Par la proposition <xref ref="prop-somDeg"/>, on sait que si <m>m</m> est le nombre d'arêtes de <m>G</m>, alors 
+<m>\deg(s_1)+\deg(s_2)+\cdots+\deg(s_n)+\deg(t_1)+\deg(t_2)+\cdots+\deg(t_k)=2m \equiv 0 \mod 2</m>. Ainsi, on a
+
+<md>
+<mrow> 0\amp\equiv \deg(s_1)+\deg(s_2)+\cdots+\deg(s_n)+\deg(t_1)+\deg(t_2)+\cdots+\deg(t_k) \mod 2</mrow>
+<mrow> 0\amp\equiv \underbrace{1+1+\cdots+1}_{n\text{ fois}}+\underbrace{0+0+\cdots+0}_{k\text{ fois}}\mod 2</mrow>
+<mrow> 0\amp\equiv n\mod 2</mrow>
+</md>
+Ainsi, on a bien que <m>n</m> est pair.
+</p>
+</statement>
+</proof>
+</corollary>
+
+<p>
+    Pour les graphes orientés, il faut adapter un peu la notion de degré.
+</p>
+
+<definition xml:id="def-DegreOriente">
+    <title> Voisinage et degré</title>
+    <statement>
+    <p>Soit <m>G=(S,A)</m> un graphe orienté, et soit <m>s,\,t\in\,S:</m>
+    <ul>
+    <li>On dira que <m>s</m> est adjacent à <m>t</m>, ou bien que <m>s</m> est un voisin de <m>t</m> dans <m>G</m> si  <m>s</m> et <m>t</m> sont les extrémités d'une arête de <m>G</m>, c'est-à-dire si <m>(s,t)\in A</m>.</li>
+    <li>Si <m>(s,t)\in A</m>, on dira que <m>s</m> est l'extrémité initiale de <m>(s,t)</m>, alors que <m>t</m> est l'extrémité terminale ou finale de <m>(s,t)</m>.</li>
+    <li> Le degré entrant de <m>s</m>, noté <m>\deg^-(s)</m>, est le nombre d'arêtes ayant <m>s</m> comme extrémité  terminale. </li>
+    <li> Le degré sortant de <m>s</m>, noté <m>\deg^+(s)</m>, est le nombre d'arêtes ayant <m>s</m> comme extrémité  initiale. </li>
+    </ul>
+    </p>
+    </statement>
+    </definition>
+
+
+<example xml:id="exe-degGrapheOriente">
+    <title>Degré entrant et sortant</title>
+<statement> Déterminer les degrés entrants et sortants de chaque sommet du graphe orienté  de l'exercice <xref ref="exe-premierGrapheOriente"/>.</statement>
+<solution> 
+<p>
+<md>
+<mrow> \deg^-(1)\amp=2 \amp \deg^+(1)\amp=2</mrow>
+<mrow> \deg^-(2) \amp=1  \amp \deg^+(2)\amp=3</mrow>
+<mrow> \deg^-(3) \amp=2 \amp \deg^+(3)\amp=2</mrow>
+<mrow> \deg^-(4)\amp=3  \amp \deg^+(4)\amp=1</mrow>
+</md>
+</p>
+<p>De plus, on remarque que <me>\deg^-(1)+\deg^-(2)+\deg^-(3)+\deg^-(4)=2+1+2+3=8</me>. De même, <me>=\deg^+(1)+\deg^+(2)+\deg^+(3)+\deg^+(4)=2+3+2+1=8</me></p>
+</solution>
+</example>
+
+<p>En regardant l'exemple précédent, on remarque que, lorsqu'on prend la somme des degrés entrants de tous les sommets d'une graphe, chaque arête est compté une fois. De même, lorsqu'on prend la somme des degrés sortants de tous les sommets d'une graphe, chaque arête est compté une fois. On peut généraliser pour obtenir le théorème suivant. </p>
+
+<proposition xml:id="prop-somDegOriente">
+<statement><p> Soit <m>G=(S,A)</m> un graphe orienté tel que <m>S=\{s_1,\,s_2\,\dots,\,s_k\}</m> à <m>m</m> arêtes.
+<me>\deg^-(s_1)+\deg^-(s_1)+\deg^-(s_2)\cdots+\deg^-(s_k)=m</me>
+<me>\deg^+(s_1)+\deg^+(s_1)+\deg^+(s_2)\cdots+\deg^+(s_k)=m</me>.
+</p></statement>
+</proposition>
+</subsection>
+
+<subsection xml:id="subs-grapheParticulier">
+<title> Quelques graphes particuliers</title>
+<introduction> 
+<p>  Certains graphes simples ont des formes particulières qui se retrouve dans plusieurs applications. Voici quelques exemples de classes de graphes simples. </p>
+</introduction>
+
+<definition xml:id="def-grapheKomplet">
+<statement>
+<p>Un graphe complet à <m>n</m> sommets, noté <m>K_n,</m> est un graphe qui contient une arête entre chaque paire de sommets distincts.</p>
+</statement>
+</definition>
+
+<example xml:id="exe-grapheKomplet">
+<title> Les premiers graphes complets <m>K_n</m></title>
+<statement>
+<p>  Voici des représentations de <m>K_n</m> pour <m>n=1,\,2,\,3,\,4,\,5 \text{ et } 6</m>.</p>
+<figure>
+    <caption> <m>K_n</m></caption>
+    <sidebyside>
+        <figure>
+            <caption> <m>K_1</m> </caption>
+            <image source="tikzit_Komplet1.jpg"/>
+        </figure>
+        <figure>
+            <caption> <m>K_2</m></caption>
+            <image source="tikzit_Komplet2.jpg"  />
+        </figure>
+        <figure>
+            <caption> <m>K_3</m></caption>
+            <image source="tikzit_Komplet3.jpg"/>
+        </figure>
+        <figure>
+            <caption> <m>K_4</m></caption>
+            <image source="tikzit_Komplet4.jpg"  />
+        </figure>
+        <figure>
+            <caption> <m>K_5</m></caption>
+            <image source="tikzit_Komplet5.jpg" />
+        </figure>
+        <figure>
+            <caption> <m>K_6</m></caption>
+            <image source="tikzit_Komplet6.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+
+</example>
+
+<definition xml:id="def-grapheCyclique">
+<statement>
+<p>Soit <m>n\geq 3.</m> Le graphe cyclique  (ou le cycle) <m>C_n</m> à <m>n</m> sommets <m>s_1,\,s_2,\,\dots,\,s_n</m> est le graphe dont les arêtes sont <m>\{s_1,s_2\},\,\{s_2,s_3\},\,\dots,\,\{s_{n-1},s_n\}</m> et <m>\{s_n,s_1\}</m>.</p>
+</statement>
+</definition>
+
+<example xml:id="exe-grapheCyclique">
+<title> Les premiers graphes cycliques <m>C_n</m></title>
+<statement>
+<p>  Voici des représentations de <m>C_n</m> pour <m>n=3,\,4,\,5 \text{ et } 6</m>.</p>
+<figure>
+    <caption> <m>C_n</m></caption>
+    <sidebyside>
+        <figure>
+            <caption> <m>C_3</m> </caption>
+            <image source="tikzit_Komplet3.jpg"/>
+        </figure>
+        <figure>
+            <caption> <m>C_4</m></caption>
+            <image source="tikzit_cycle4.jpg"  />
+        </figure>
+        <figure>
+            <caption> <m>C_5</m></caption>
+            <image source="tikzit_cycle5.jpg"/>
+        </figure>
+        <figure>
+            <caption> <m>C_6</m></caption>
+            <image source="tikzit_cycle6.jpg"  />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+
+</example>
+
+<definition xml:id="def-grapheRoue">
+<statement>
+<p>Soit <m>n\geq 3.</m> La roue <m>W_n</m> à <m>n+1</m> sommets est le graphe défini de la façon suivante.</p>
+<p>On part du graphe <m>C_n</m>, on note ses sommets <m>s_1,\,s_2,\,\dots,\,s_n</m> et on lui ajoute un sommet <m>s_{n+1}</m>.</p>
+<p>On ajoute ensuite les arêtes <m>\{s_i,s_{n+1}\}</m> pour <m>i=1,\,2,\,\dots,\, n</m>.</p>
+</statement>
+</definition>
+
+<example xml:id="exe-grapheRoue">
+<title> Les premières roues <m>W_n</m></title>
+<statement>
+<p>  Voici des représentations de <m>W_n</m> pour <m>n=3,\,4,\,5 \text{ et } 6</m>.</p>
+<figure>
+    <caption> <m>W_n</m></caption>
+    <sidebyside>
+        <figure>
+            <caption> <m>W_3</m> </caption>
+            <image source="tikzit_Roue3.jpg"/>
+        </figure>
+        <figure>
+            <caption> <m>W_4</m></caption>
+            <image source="tikzit_Roue4.jpg"  />
+        </figure>
+        <figure>
+            <caption> <m>W_5</m></caption>
+            <image source="tikzit_Roue5.jpg"/>
+        </figure>
+        <figure>
+            <caption> <m>W_6</m></caption>
+            <image source="tikzit_Roue6.jpg"  />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+
+</example>
+
+<p>On termine avec les graphes appelés les hypercubes. </p>
+
+
+<definition xml:id="def-grapheNCube1">
+<title> Les <m>n</m>-Cubes <m> Q_n,</m> version 1</title>
+<statement>
+<p>On construit <m>Q_n</m> par récurrence, c'est-à-dire qu'on définit <m>Q_1,</m>, et ensuite on donne une méthode pour définir <m>Q_{n+1}</m> à partir de <m>Q_n</m>.</p>
+<p>Le graphe <m>Q_0</m> est l'unique graphe à <m>1</m> sommet.</p>
+<p>À partir de <m>Q_n,</m> on définit <m>Q_{n+1}</m> de la façon suivante. On construit tout d'abord deux copies de <m>Q_n</m>.</p>
+<p>Ensuite, on ajoute une arête entre chaque sommet de la première copie de <m>Q_n</m> vers le sommet correspondant dans la deuxième copie de <m>Q_n</m>.</p>
+</statement>
+</definition>
+
+<!--<definition xml:id="def-grapheNCube2">
+<title> Les <m>n</m>-Cubes <m> Q_n,</m> version 2</title>
+<statement>
+<p>On définit <m>Q_n=(S_n,A_n)</m> comme ceci.</p>
+<p>L'ensemble <m>S_n</m> des sommets de <m>Q_n</m> est l'ensemble des chaînes binaires de longueur <m>n</m>.</p>
+<p>Ensuite, l'ensemble des arêtes  est l'ensemble <m>A_n</m> tel que pour deux sommets <m>s</m> et <m>t,</m> alors <m>\{s,t\}\in\,A_n</m> si et seulement si on peut obtenir la chaîne binaire <m>s</m> à partir de la chaîne <m>t</m> en changeant un <m>0</m> par un <m>1,</m> ou vise-versa.</p>
+</statement>
+</definition>-->
+
+<example xml:id="exe-grapheNCube">
+<title> Les premiers <m>n</m>-cubes <m>Q_n</m></title>
+<statement>
+<p>  Voici des représentations de <m>Q_n</m> pour <m>n=0,\,1,\,2,\,4  \text{ et } 5</m>.</p>
+<figure>
+    <caption> <m>Q_n</m></caption>
+    <sidebyside>
+        <figure>
+            <caption> <m>Q_0</m> </caption>
+            <image source="tikzit_Komplet1.jpg"/>
+        </figure>
+        <figure>
+            <caption> <m>Q_1</m></caption>
+            <image source="tikzit_Komplet2.jpg"  />
+        </figure>
+        <figure>
+            <caption> <m>Q_3</m></caption>
+            <image source="tikzit_3cube.jpg"/>
+        </figure>
+        <!--<figure>
+            <caption> <m>Q_3</m> version binaire</caption>
+            <image source="tikzit_3cubeBin.jpg"/>
+        </figure>-->
+        <figure>
+            <caption> <m>Q_4</m></caption>
+            <image source="4cube.svg"  />
+        </figure>
+        <figure>
+            <caption> <m>Q_5</m></caption>
+            <image source="5cube.svg"  />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+
+</example>
+
+</subsection>
+
+
+
+
+
+
+
+
+    <conclusion xml:id="concl-introGraphes">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+<p>Les points importants de cette section sont:
+    <ul>
+    <li><p>La définition d'un <xref ref="def-graphSimple" text="custom">graphe simple</xref>;</p></li>
+    <li><p>La définition  <xref ref="def-voisinageDegre" text="custom"> du voisinage et du degré</xref> d'un sommet d'un graphe simple;</p></li>
+    <li><p>Le lien entre la somme des degrés des sommets et le nombre d'arête donné par la proposition <xref ref="prop-somDeg"/> pour un graphe simple;</p></li>
+    <li><p>La définition d'un <xref ref="def-graphOriente" text="custom">graphe orienté</xref>;</p></li>
+    <li><p>La définition <xref ref="def-DegreOriente" text="custom"> du degré entrant et sortant</xref> d'un sommet d'un graphe orienté;</p></li>
+    <li><p>Le lien entre la somme des degrés entrants et sortants des sommets et le nombre d'arête donné par la proposition <xref ref="prop-somDegOriente"/> pour un graphe orienté;</p></li>
+    <li><p>Les définitions des graphes particuliers données en <xref ref="subs-grapheParticulier" />;</p></li>
+    </ul>
+    </p>
+    </conclusion>
+
+    <!--<reading-questions xml:id="rq-introGraphes">   Ajouter le même identifiant de la section après le - du xml:id
+    <introduction>
+    <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+    </introduction>
+
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>-->
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_introGraphe.ptx" />
+</section>
+
+
