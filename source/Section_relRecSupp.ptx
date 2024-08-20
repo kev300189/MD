@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-relRecSupp">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices supplémentaires </title>
+    <introduction xml:id= "intro-relRecSupp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    </introduction>
+    
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-relRecSupp">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    
+    </conclusion>
+   <!-- <reading-questions xml:id="rq-relRecSupp">  
+    <introduction>
+    <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+    </introduction>
+  
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>-->
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_relRecSupp.ptx" />
+</section>

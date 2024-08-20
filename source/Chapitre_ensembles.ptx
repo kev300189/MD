@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un chapitre du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+
+<!-- Les chapitres sont divisés en trois parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. -->
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chap-ensfct">   <!-- Ajouter l'identifiant du chapitre après le - du xml:id -->
+    <title> Ensembles et fonctions </title>
+    <introduction xml:id= "intro-ensfct">  <!-- Ajouter le même identifiant du chapitre après le - du xml:id -->
+    <p>Dans ce chapitre, on étudie les fondements des mathématiques discrètes. Plus particulièrement, on étudie les ensembles, les fonctions et la logique mathématique.</p>
+    </introduction>
+    
+    <!-- Sections à inclure, dans des fichiers xml différents -->
+    <xi:include href="Section_ensembles.ptx" />
+    <xi:include href="Section_operationsensembles.ptx" />
+    <xi:include href="Section_fonctions.ptx" />
+    <conclusion xml:id="concl-ensfct">  <!-- Ajouter le même identifiant du chapitre après le - du xml:id -->
+    
+    </conclusion>
+    <!-- Possibilité de faire des exercices récapitulatif -->
+</chapter>

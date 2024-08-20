@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                    -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-introGraphe">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+    
+    <subexercises>
+    <title>À faire en classe</title>
+    <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
+
+    <exercise xml:id="exo-degre">
+        <introduction>
+        <p>Pour chacun des graphes ci-dessous, déterminer le degré de chaque sommet et calculer la somme des degrés de tous les sommets.</p>
+        </introduction>
+        <task>
+                <statement>
+                    <p><figure >
+                        <caption> Le graphe <m>G_1</m></caption>
+                        <image source="tikzit_cycle6Bi.jpg" width="50%" />
+                </figure></p>
+                </statement>
+                <!--<answer>
+                    <p> La réponse suivra. </p>
+                </answer>
+                <solution>
+                    <p> La solution suivra. </p>
+                </solution>-->
+        </task>
+        <task>
+            <statement>
+                <p><figure>
+                    <caption> Le graphe <m>G_2</m> </caption>
+                    <image source="tikzit_GraphBipartiOui.jpg" width="50%"/>
+                </figure></p>
+            </statement>
+            <!--<answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>-->
+        </task>
+        <task>
+            <statement>
+                <p><figure>
+                    <caption> Le graphe <m>G_3</m> </caption>
+                    <image source="tikzit_GraphBipartiNon.jpg" width="50%" />
+                </figure></p>
+            </statement>
+            <!--<answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>-->
+        </task>
+        <task>
+            <statement>
+                <p><figure>
+                    <caption> Le graphe <m>G_4</m></caption>
+                    <image source="tikzit_GrapheCheminEuler.jpg" width="50%"/>
+                </figure></p>
+            </statement>
+            <!--<answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>-->
+        </task>
+        <task>
+            <statement>
+                <p><figure>
+                    <caption>Le graphe <m>G_5</m> </caption>
+                    <image source="tikzit_GrapheCheminNonCircuitHamilton.jpg" width="50%" />
+                </figure></p>
+            </statement>
+            <!--<answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>-->
+        </task>
+        <task>
+            <statement>
+                <p><figure>
+                    <caption>Le graphe <m>G_6</m> </caption>
+                    <image source="tikzit_GrapheNoEuler.jpg"  width="50%"/>
+                </figure></p>
+            </statement>
+            <!--<answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>-->
+        </task>
+        <task>
+            <statement>
+                <p><figure>
+                    <caption>Le graphe <m>G_7</m> </caption>
+                    <image source="tikzit_GrapheNoHamilton.jpg" width="50%" />
+                </figure></p>
+            </statement>
+            <!--<answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>-->
+        </task>
+        <task>
+            <statement>
+                <p><figure>
+                    <caption>Le graphe <m>G_8</m> </caption>
+                    <image source="tikzit_cycle6.jpg" width="50%"/>
+                </figure></p>
+            </statement>
+            <!--<answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>-->
+        </task>
+        <task>
+            <statement>
+                <p><figure>
+                    <caption> Le graphe <m>G_9</m></caption>
+                    <image source="tikzit_GrapheSame.jpg" width="50%"/>
+                </figure></p>
+            </statement>
+            <!--<answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>-->
+        </task>
+        <task>
+            <statement>
+                <p><figure>
+                    <caption>Le graphe <m>G_{10}</m> </caption>
+                    <image source="tikzit_GrapheSame2.jpg" width="50%" />
+                </figure></p>
+            </statement>
+            <!--<answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>-->
+        </task>
+        </exercise>
+    
+        <exercise>
+            <statement>
+                <p>Dans les prochaines sections, nous verrons la notions d'isomorphismes de graphes. Intuitivement, deux graphes sont isomorphes s'ils représentent essentiellement le même graphe, mais sous une forme différente.</p>
+                <p>Parmi les graphes de l'exercices <xref ref="exo-degre"/>, est-ce qu'un certains d'entre eux semblents isomorphes? Donner une justification intuitive.</p>
+            </statement>
+        </exercise>
+    
+        <exercise xml:id="exo-hyperCubeBin">
+                <introduction>
+                <p>On définit <m>\tilde{Q}_n=(S_n,A_n)</m> de la façon suivante.</p>
+                <p>L'ensemble <m>S_n</m> des sommets de <m>\tilde{Q}_n</m> est l'ensemble des chaînes binaires de longueur <m>n</m>.</p>
+                <p>Ensuite, l'ensemble des arêtes  est l'ensemble <m>A_n</m> tel que pour deux sommets <m>s</m> et <m>t</m>, alors <m>\{s,t\}\in\,A_n</m> si et seulement si on peut obtenir la chaîne binaire <m>s</m> à partir de la chaîne <m>t</m> en changeant un <m>0</m> par un <m>1,</m> ou vise-versa.</p>
+                <p>Par exemple, dans <m>\tilde{Q}_5</m>, il y a une arête entre les sommets <m>00011</m> et <m>10011</m>, mais pas entre les sommets <m>00011</m> et <m>11011</m>.</p>
+                </introduction>
+                <task>
+                    <statement><p>Tracer <m>\tilde{Q}_n</m> pour <m>1\leq n \leq 3</m>.</p></statement>
+                </task>
+                <task>
+                    <statement><p>À quel graphe est-ce que <m>\tilde{Q}_n</m> fait penser parmi les graphes définis dans la section <xref ref="subs-grapheParticulier"/> ?</p></statement>
+                </task>
+       
+        </exercise>
+
+        <exercise>
+            <introduction>
+                <p>Soit <m>A_1</m>, <m>A_2</m>, <m>\dots</m>, <m>A_n</m> une collection d'ensembles. Le graphe d'intersection de ces ensembles est le graphe dont les sommets sont les ensembles <m>A_i</m>, et il y a une arête entre  deux ensembles différents <m>A_i</m> et <m>A_j</m> si et seulement si <m>A_i\cap A_j \neq \emptyset</m>. Tracer le graphe d'intersection  des ensembles ci-dessous.</p>
+            </introduction>
+            <task><statement><p> <m>A_1=\{0,2,4,6,8\}</m>, <m>A_2=\{0,1,2,3,4\}</m>, <m>A_3=\{1,3,5,7,9\}</m>, <m>A_4=\{5,6,7,8,9\}</m> et <m>A_5=\{0,1,8,9\}</m>.</p></statement></task>
+            <task><statement><p> <me>A_1=\{\dots,-4,-3,-2,-1,0\}</me>, <me>A_2=\{\dots ,-2,-1,0,1,2,\dots\}</me>, <me>A_3=\{\dots,-6,-4,-2,0,2,4,6,\dots\}</me>, <me>A_4=\{\dots,-5,-3,-1,1,3,5,\dots \}</me>, <me>A_5=\{\dots,-6,-3,0,3,6,\dots \}</me>.</p></statement></task>
+        </exercise>
+
+    </subexercises>
+    <subexercises>
+    <title>Exercices supplémentaires</title>
+    </subexercises>
+</exercises>
+
+    
+    

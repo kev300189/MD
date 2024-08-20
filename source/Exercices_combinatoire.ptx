@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                    -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+<!-- À TRIER QUAND SECTION SERA FAITE -->
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-combinatoire">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+    <subexercises>
+    <title>À faire à la maison.</title>
+    <introduction><p>Ces servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés. Il sont à faire d'ici le prochain cours.</p></introduction>
+    <exercise>
+    <statement><p>De combien de manières peut-on sélectionner <m>5</m> volontaires dans la classe?</p></statement>
+    <solution><p>Soit <m>n</m> le nombre de personnes dans la classe. Si <m>n&lt; 5</m>, alors c'est impossible. Sinon, le nombre de possibilités est
+    <me>
+    \frac{n!}{5!(n-5)!}
+    </me>.
+    Pour cela, on identifie les personnes avec <m>5</m> étiquettes <m>V</m> pour volontaires et <m>n-5</m> étiquettes <m>N</m> pour non volontaires.</p></solution>
+    </exercise>
+    <exercise><statement><p>Lors de la finale de la course du <m>100</m> mètres aux derners jeux Olympiques, il y avait <m>8</m> coureurs. De combien de manières possibles le podium pouvait-il être composé?</p></statement>
+    <answer><p><m>\frac{8!}{5!1!1!1!}</m></p></answer>
+    </exercise>
+    <exercise><statement><p>Aux olympiades scolaire de l'école du Bonheur, tous les participants gagnent une médaille. S'il y a <m>24</m> élèves et qu'on attribue <m>5</m> médailles d'or, <m>7</m> médailles d'argent et le reste en bronze, de combien de manières est-ce que la distribution peut être faite?</p></statement>
+    <answer><p><m>\frac{24!}{5!7!12!}</m></p></answer>
+    </exercise>
+    <exercise><statement><p>Dans un groupe de <m>25</m> personnes, on veut former deux équipes. La première sera composée de <m>3</m> attaquants, <m>2</m> défenseurs, <m>2</m> gardiens et <m>3</m> réservistes. La deuxième équipe sera formée de <m>2</m> avants, <m>1</m> passeur,<m>3</m> arrières et <m>2</m> réservistes. On suppose que personne ne fait partie des deux équipes. Combien y a-t-il de possibilités?</p></statement>
+    <answer><p><m>\frac{25!}{3!2!2!3!2!1!3!2!7!}</m></p></answer>
+    </exercise>
+    <exercise><introduction><p>Pour une fin de semaine au chalet, on veut apporter <m>5</m> jeux de société. Dans la collection, on trouve <m>5</m> jeux coopératifs et <m>8</m> jeux de stratégies. Combien de possibilités y a-t-il si:</p></introduction>
+    <task>
+    <statement><p>On ne donne aucune restriction?</p></statement>
+    </task>
+    <task><statement><p>On souhaite avoir exactement deux jeux coopératifs?</p></statement></task>
+    <task><statement><p>Pour des raisons évidentes, on décide d'exclure des jeux coopératifs le jeu <q>Pandémie</q> et que ma conjointe veut absolument apporter le jeu de stratégie <q>Smallworld</q>?</p></statement></task>
+    </exercise>
+    <exercise><introduction><p>Pour mon anniversaire, je souhaite faire un petit événement avec <m>10</m> invités. J'ai <m>8</m> bons amis hommes et <m>6</m> bonnes amies femmes que je considère inviter. Combien de choix est-ce que j'ai si:</p></introduction>
+    <task><statement><p>Je ne mets aucune restriction?</p></statement> 
+    <asnwer><p><m>\frac{14!}{10!4!}</m></p></asnwer></task>   
+    <task><statement><p>Je veux <m>5</m> hommes et <m>5</m> femmes?</p></statement>
+    <answer><p><m>\frac{8!}{5!3!}\frac{6!}{5!1!}</m></p></answer>
+    </task>
+    <task><introduction><p>Roxanne et Samuel forme un couple. Si je décide d'en inviter un des deux, l'autre doit venir aussi.</p></introduction>
+    <task><statement><p>Combien de possibilités s'il n'y a pas d'autres restrictions?</p></statement>
+    <solution><p>On commence par décider si le couple est invité ou non. On obtient leur présence ou absence entraine deux sous-ensembles disjoints de possibilités. Si le couple fait partie des invités, alors il reste <m>8</m> places à combler, à choisir parmi les <m>12</m> autres personnes. Cela fait <m>\frac{12!}{8!4!}</m>.</p>
+    <p> À cela, on ajoute les possibilités où Roxanne et Samuel ne sont pas invités. Il faut alors choisir les <m>10</m> invités parmi les <m>12</m> personnes. Cela fait <m>\frac{12!}{10!2!}</m>.</p>
+    <p>Par le principe d'addition, on a un total de <m>\frac{12!}{8!4!}+\frac{12!}{10!2!}</m> possibilités.</p>
+    </solution>
+    </task>
+    <task><statement>Parmi celles-ci, combien comprennent le couple?</statement>
+    <answer><p><m>\frac{12!}{8!4!}</m></p></answer></task>
+    <task><statement><p>Combien de possibilités si je veux avoir au total <m>5</m> hommes et <m>5</m> femmes?</p></statement>
+    <solution><p>Encore une fois, on sépare en deux cas distincts, selon si Roxanne et Samuel sont présents ou non. Dans le cas où ils sont présent, on doit ensute choisir <m>4</m> hommes parmi les <m>7</m> restant et <m>4</m> femmes parmi les <m>5</m> restant. Selon le principe de multiplication, ceci donnera <m>\frac{7!}{4!3!}\times\frac{5!}{4!1!}</m>.</p>
+    <p>À cela, on doit ajouter les possiblités où Roxanne et Samuel sont absents. Il faut choisir <m>5</m> hommes parmi les <m>7</m> qui ne sont pas Samuel et <m>5</m> femmes parmi les <m>5</m> qui ne sont pas Roxanne. On obtient alors, par le principe de multiplication <m>\frac{7!}{5!2!}\times \frac{5!}{5!0!}</m>.</p>
+    <p>On combine finalement avec le principe d'addition pour avoir un total de <m>\frac{7!}{4!3!}\times\frac{5!}{4!1!}+\frac{7!}{5!2!}\times \frac{5!}{5!0!}</m> possibilités.</p>
+    </solution>
+    </task>
+    <task><statement>Parmi celles-ci, combien comprennent le couple?</statement>
+    <answer><p><m>\frac{7!}{4!3!}\times\frac{5!}{4!1!}</m></p></answer>
+    </task>
+    </task>
+    <task><introduction><p>Parmi mes amis, il y a aussi Christian et Sophie, qui sont en chicane et ne peuvent pas être tous les deux présents.</p></introduction>
+    <task><statement><p>Combien de possibilités y a-t-il s'il n'y a pas d'autres restrictions?</p></statement>
+    <solution><p>Cette-fois, on distingue trois cas: Christian est présent, mais pas Sophie, Sophie est présent, mais pas Christian ou ni Sophie ni Christian sont présents. Ces trois cas sont disctincts et le principe d'addition permettra d'obtenir l'ensemble des possibilités.</p>
+    <p>Si Christian est présent, il faut ensuite choisir les <m>9</m> autres invités parmi les <m>12</m> personnes qui ne sont pas Sophie (ou Christian). Cela donne <m>\frac{12!}{9!3!}</m>. Le même argument montre que si Sophie est présente, mais pas Christian, le nombre de possibilités est aussi <m>\frac{12!}{9!3!}</m>.</p>
+    <p>Finalement, si les deux sont absents, il faut choisir les <m>10</m> invités parmi les <m>12</m> autres possibilités. On obtient alors <m>\frac{12!}{10!2!}</m>. </p>
+    <p>En combinant le tout, il y a <m>2\times \frac{12!}{9!3!}+\frac{12!}{10!2!}</m> possibilités.</p>
+    </solution>
+    </task>
+    <task><statement><p>Combien de possibilités si je veux avoir au total <m>5</m> hommes et <m>5</m> femmes?</p></statement>
+    <answer><p><m>\frac{7!}{4!3!}\frac{5!}{5!0!}+\frac{7!}{5!2!}\frac{5!}{4!1!}+\frac{7!}{5!2!}\frac{5!}{5!0!}</m></p></answer>
+    </task>
+    </task>
+    </exercise>
+    </subexercises>
+    <subexercises>
+    <title>Exercices supplémentaires</title>
+    </subexercises>
+</exercises>

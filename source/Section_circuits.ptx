@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-circuits">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Circuits logiques  </title>
+    <introduction xml:id= "intro-circuits">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Pour la première fois, on évoque spécifiquement  le fonctionnement d'un ordinateur. Les composantes d'un ordinateur sont presque toutes composées de petits circuits électroniques qui sont fait pour accepter deux intensité de courant électrique. Un circuit qui reçoit le niveau élevé de courant sera représenté par un <m>1</m> alors qu'un circuit qui reçoit un faible niveau sera représenté par un <m>0</m>. Cette dualité n'est pas sans rappeler les sections précédentes où les propositions étaient vraie ou fausse.</p>
+    <p>Un ordinateur combine l'information de tous ses circuits pour effectuer ses tâches. Pour cela, il combine ces informations à l'aide de ce qu'on appelle des portes, qui sont analogues aux connecteurs logiques. Les éléments de la présente section sont d'une certaine façon une manière graphique de visualiser les notions de la section <xref ref="sec-logprop"/>.</p>
+    <p>Dans cette section, on définit les portes logiques élémentaires, les circuits logiques et leur construction,</p>
+    </introduction>
+    <subsection>
+    <title>Portes logiques</title>
+    <p>Une porte logique est un dispositif agissant sur un certain nombre d'entrée et produisant à partir de ceux-ci une sortie. Typiquement dans un ordinateur, le niveau de tension de composantes est fourni en entrée afin de produire un résultat ou une information. On peut aussi voir les entrées comme des Vrai ou Faux, des Ouvert ou Fermé ou des <m>1</m> ou <m>0</m>. Une partie d'un circuit peut être illustré comme sur la figure <xref ref="fig-circuitintro"/>. À gauche, on retrouve les entrées (il peut y en avoir une ou plusieurs) et à droite la sortie (encore une fois, une ou plusieurs). Au centre, on retrouve une porte, une espèce de boite noire qui accomplit des opérations logiques pour produire la sortie.</p>
+    <figure xml:id="fig-circuitintro">
+    <caption>Une partie de circuit avec une porte inconnue</caption>
+    <image source="circuitintro.svg">
+    <description> Un rectangle, représentant une porte de nature inconnue, est représenté avec à sa gauche, deux petits traits pour les entrées et à sa droite, un trait pour la sortie.</description>
+    </image>
+    </figure>
+    <p>On définit maintenant les trois portes principales d'un circuit logique. Elles les équivalents des opérateurs logiques <m>\neg,\wedge,\vee</m>. Les portes  NON, ET et OU sont illustrées ci-dessous. </p>
+    <figure xml:id="fig-portesdebase">
+    <caption>Trois portes logiques élémentaires</caption>
+    <sidebyside>
+    <figure xml:id="fig-porteNON">
+    <caption>Porte logique NON</caption>
+    <image source="NON.svg">
+ <description> Un triangle avec un côté vertical à gauche et une extrémité à droite est représenté avec à sa gauche, un petit trait pour l'entrée et à sa droite, un trait pour la sortie. On retrouve aussi à l'extrémité droite du triangle un petit cercle ouvert.</description>
+    </image>
+    </figure>
+    <figure xml:id="fig-porteET">
+    <caption>Porte logique ET</caption>
+    <image source="ET.svg">
+ <description> Une moitié d'ellipse avec un côté vertical à gauche et une extrémité arrondie à droite est représenté avec à sa gauche, deux petits traits pour les entrées et à sa droite, un trait pour la sortie. </description>
+    </image>
+    </figure>
+    <figure xml:id="fig-porteOU">
+    <caption>Porte logiqueOU</caption>
+    <image source="OU.svg">
+ <description> Une figure ressemblant à une fusée couchée sur le côté est représentée avec un côté concave arrondie à gauche et une extrémité à arrondie à droite. À sa gauche, deux petits traits pour l'entrée et à sa droite, un trait pour la sortie.</description>
+    </image>
+    </figure>
+    </sidebyside>
+    </figure>
+    <p>En plus des portes élémentaires, on peut aussi définir des portes pour des opérations comme le ou exclusif. On peut même définir ses propres opérations logiques et leur créer une porte. Concrètement, la porte NON va changer le signal de l'entrée pour l'inverser. Ainsi si une composante avait une tension élevée, envoyer son signal dans une porte NON convertira la tension en basse. Une porte ET regarde les deux entrées et retourne un signal à tension élevée si les deux signaux d'entrée étaient aussi à tension élevée. Finalement la porte OU envoie un signal à tension élevée dès que l'une de ses entrée l'était. Pour se coller à la tradition informatique, on parlera désormais en termes de <m>1</m> et de <m>0</m> pour parler de l'entrée et de la sortie d'un circuit.</p>
+    <p>Évidemment, ces portes à elles seules ne sont pas très intéressante, mais c'est en les combinant qu'on peut faire des choses complexes et utiles. Il y a toutefois quelques règles à respecter. Sous ces conditions, la sortie d'un circuit sera entièrement déterminée par la valeur de ces entrées au moment de la lecture de celles-ci. On regarde un exemple de circuit plus complexe avant d'établir les règles pour combiner les portes.</p>
+    <example xml:id="ex-circuit1">
+    <title>Un premier circuit combiné: dynamique</title>
+    <statement><p>On considère le circuit de la figure <xref ref="fig-circuit1"/>. Si <m>X=1,Y=0,Z=1</m>, quelle est la sortie du circuit?</p>
+    <figure xml:id="fig-circuit1">
+    <caption>Un premier circuit combiné</caption>
+    <image source="circuit1.svg">
+    <description>Un circuit complexe ayant trois entrées est illustrée. Les entrées X et Y passent dans une porte ET, l'entrée Y est transformée par une porte NON et par la suite combinée dans une porte ET avec l'entrée Z. Finalement, le résultat des deux portes ET est combiné dans une porte OU.</description>
+    </image>
+    </figure>
+    </statement>
+    <solution>
+    <p>La figure ci-dessous permet de faire la résolution de ce circuit de manière interactive.</p>
+        <figure xml:id="fig-circuit1sol">
+    <caption>La solution du circuit</caption>
+    <interactive aspect="1:1" platform="geogebra" width="140%"
+      xml:id="geog-circuit1">
+        <slate aspect="1:1" source="circuit1.ggb"
+        surface="geogebra" xml:id="slate-circuit1">
+            setCoordSystem(-4, 26,-4,8,);
+          </slate>
+        <instructions>
+          <p>Utiliser le curseur afin d'obtenir les étapes de la solutions. Il sera par la suite possible de changer les entrées des valeurs <m>X,Y</m> et <m>Z</m>. </p>
+        </instructions>
+        </interactive>
+    </figure>
+    </solution>
+    </example>
+    <p>Quelles sont donc les règles pour avoir un circuit logique valide? Il y en a quatre. La dernière, si elle n'est pas respectée, peut donner lieu à des circuits appelés séquentiels. On ne considère pas ce type de circuits.
+    <ol>
+    <li><p>On ne combine pas deux fils d'entrée. </p></li>
+    <li><p>Une entrée peut se séparer comme l'entrée <m>Y</m> dans le circuit de la figure <xref ref="fig-circuit1"/> afin d'être utilisée par plus d'une porte.</p></li>
+    <li><p>Une sortie peut être utilisée comme entrée.</p></li>
+    <li><p>Par contre, aucune sortie ne retourne dans la porte d'où elle provient, que ce soit immédiatement ou éventuellement.</p></li>
+    </ol>
+    </p>
+    </subsection>
+    <subsection>
+    <title>Parallèle avec la logique propositionnelle</title>
+    <p>On sait que pour chaque possibilité des entrées d'un circuit, on obtiendra une valeur de sortie. Lorsque le nombre de possibilités est raisonnable, on peut faire une table des possibilités. C'est l'équivalent de la table de vérité de la logique propositionnelle. Ci-dessous, la table du circuit de l'exemple <xref ref="ex-circuit1"/>. On peut vérifier avec la figure interactive <xref ref="fig-circuit1sol"/> que les valeurs sont exactes.</p>
+<table>
+<title>Table de vérité du circuit de l'exemple <xref ref="ex-circuit1"/></title>
+  <tabular top="major">
+    <row>
+      <cell>
+        <m>X</m>
+      </cell>
+      <cell>
+        <m>Y</m>
+      </cell>
+      <cell right="medium">
+        <m>Z</m>
+      </cell>
+      <cell halign="center">
+        Sortie
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell halign="center">
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell halign="center">
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell halign="center">
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell halign="center">
+        0
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell halign="center">
+        0
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell halign="center">
+        0
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell halign="center">
+        1
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell halign="center">
+        0
+      </cell>
+    </row>
+    </tabular>
+</table>
+<p>S'il est possible d'associer à un circuit logique une table de vérité, il est également possible de lui associer une expression logique. La sortie du circuit de l'exemple <xref ref="ex-circuit1"/> se lisait d'ailleurs <m>(X\wedge Y)\vee(\neg Y\wedge Z)</m>.</p><aside><title>En passant</title><p>Certaines personnes changent la symbolique lorsqu'ils transforment les circuits en expressions. Ils utilisent <m>\bar{X}</m> pour la négation, <m>X\cdot Y</m> pour <m>X\wedge Y</m> et <m>X+Y</m> au lieu de <m>X\vee Y</m>. On a préféré ici garder la notation propositionnelle afin d'éviter la confusion.</p></aside>
+<example>
+<title>D'autres exemples de circuits logiques</title>
+<statement><p>On considère les circuits de la figure ci-dessous. On cherche à déterminer la table de vérité et une expression de logique propositionnelle pour chacun.</p>
+<figure>
+<caption>Deux circuits logiques</caption>
+<sidebyside>
+<figure>
+<caption>Un circuit à deux entrées</caption>
+<image source="circuit2.svg">
+<description>Un circuit à deux entrées et trois portes logiques est illustré. Le X et le Y sont combinés dans une porte OU. Le Y passe également à travers une porte NON avant d'être combiné avec le résultat de la première porte dans une porte ET.</description>
+</image>
+</figure>
+<figure>
+<caption>Un circuit à trois entrées</caption>
+<image source="circuit3.svg">
+<description>Un circuit à trois entrées et quatre portes logiques est illustrés. Le X et le Y sont combinés dans une porte OU. Le Y et le Z sont combinés dans une porte ET et le résultat de cette porte est inversé par une porte NON. Finalement, cette inversion est combiné avec la porte OU du début dans une porte ET.</description>
+</image>
+</figure>
+</sidebyside>
+</figure>
+</statement>
+<solution>
+<p>On débute par la table de vérité de ce circuit.</p>
+
+<p>On commence avec la paire d'entrées <m>1</m>-<m>1</m>. La porte OU les combinant retournent <m>1</m>. La valeur de <m>Y</m> est inversée par la porte non et se combine ensuite avec le résultat précédent dans la porte ET. Comme la valeur du Y a été inversée et est maintenant <m>0</m>, la porte ET retourne <m>0</m> comme sortie du circuit. </p>
+<p>Pour la paire d'entrée <m>1</m>-<m>0</m>, la porte OU les combinant retournent <m>1</m>.  La valeur de <m>Y</m> est inversée par la porte non et se combine ensuite avec le résultat précédent dans la porte ET. Comme la valeur du Y a été inversée et est maintenant <m>1</m>, la porte ET retourne <m>1</m> comme sortie du circuit. </p>
+<p>Pour la paire d'entrée <m>0</m>-<m>1</m>, la porte OU les combinant retournent <m>1</m>.  La valeur de <m>Y</m> est inversée par la porte non et se combine ensuite avec le résultat précédent dans la porte ET. Comme la valeur du Y a été inversée et est maintenant <m>0</m>, la porte ET retourne <m>0</m> comme sortie du circuit. </p>
+<p>Pour la paire d'entrée <m>0</m>-<m>0</m>, la porte OU les combinant retournent <m>1</m>.  La valeur de <m>Y</m> est inversée par la porte non et se combine ensuite avec le résultat précédent dans la porte ET.  La valeur du Y a été inversée et est maintenant <m>1</m>, mais la porte OU a retourné <m>0</m>. La porte ET finale retourne <m>0</m> comme sortie du circuit. </p>
+<p>Le résumé de ces calculs se trouve dans la table ci-dessous.</p>
+<table>
+ <title>Table de vérité du circuit </title>
+  <tabular top="major">
+    <row>
+      <cell>
+        <m>X</m>
+      </cell>
+      <cell right="medium">
+        <m>Y</m>
+      </cell>
+      <cell right="medium">
+        <m>X\vee Y</m>
+      </cell>
+      <cell right="medium">
+        <m>(X\vee Y)\wedge \neg Y</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>Pour ce qui est de l'expression logique, en suivant le raisonnement des calculs précédents, on arrive à <m>(X\vee Y)\wedge (\neg Y)</m>.</p>
+</solution>
+<solution><p>Souvent, il est plus simple de déterminer d'abord l'expression logique et à partir de celle-ci, écrire la table de vérité. C'est l'approche préconisée ici.</p>
+<p>On peut procéder comme dans le circuit à deux entrées. On peut aussi procéder de la sortie vers les entrées. La porte finale est une porte ET. On sait donc qu'on aura une conjonction de deux propositions. La première partie de la conjonction correspond à la sortie de la porte OU, qui combine le <m>X</m> et le <m>Y</m>. La seconde partie de la porte finale est la sortie d'une inversion. On aura donc une négation. Ce qui est inversé, c'est le résultat de la porte ET, qui combine le <m>Y</m> et le <m>Z</m>. En combinant ces informations, on obtient <m>(X\vee Y)\wedge \neg(Y\wedge Z)</m>.</p>
+<p>On peut ensuite trouver la table de vérité ci-dessous.</p>
+<table>
+<title>Table de vérité du circuit </title>
+  <tabular top="major">
+    <row>
+      <cell>
+        <m>X</m>
+      </cell>
+      <cell>
+        <m>Y</m>
+      </cell>
+      <cell right="medium">
+        <m>Z</m>
+      </cell>
+      <cell right="medium">
+        <m>X\vee Y</m>
+      </cell>
+      <cell right="medium">
+        <m>\neg(Y\wedge Z)</m>
+      </cell>
+      <cell>
+        <m>(X\vee Y)\wedge \neg(Y\wedge Z)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        0
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        0
+      </cell>
+    </row>
+  </tabular>
+</table>
+</solution>
+</example>
+<p>Si on peut trouver une expression logique et une table de vérité à partir d'un circuit logique, on peut probablement trouver une circuit logique à partir d'une expression ou d'une table de vérité. Pour cette dernière option, la forme normale disjonctive sera particulièrement utile. </p>
+<example>
+<title>Des circuits à partir d'une expression logique ou d'une table de vérité</title>
+<statement>
+<p>On considère l'expression logique <m>(X\vee \neg Z)\wedge (\neg Y\vee Z) </m>
+et la table de vérité suivante.</p>
+<table><title>Table de vérité du circuit </title>
+  <tabular halign="center">
+    <row bottom="medium">
+      <cell>
+      <m>X</m>
+      </cell>
+      <cell>
+      <m>Y</m>
+      </cell>
+      <cell right="medium">
+      <m>Z</m>
+      </cell>
+      <cell>
+        <m>f(X,Y,Z)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        1
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        1
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        1
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        1
+      </cell>
+      <cell>
+        0
+      </cell>
+    </row>
+    <row>
+      <cell>
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+      <cell right="medium">
+        0
+      </cell>
+      <cell>
+        0
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>On veut dessiner des circuits logiques équivalents à ceux-ci.</p>
+</statement>
+<solution>
+<p>On débute avec l'expression logique. On voit que la sortie sera obtenue après une porte ET qui combine les deux paires de parenthèses. Dans la première paire, le <m>X</m> est combiné à la négation de <m>Z</m> par une porte OU et dans la seconde, c'est la négation de <m>Y</m> qui est combinée à <m>Z</m>, aussi par une porte OU.</p>
+<p>Comme <m>Z</m> apparait dans les deux paires de parenthèses, il faudra séparer l'entrée en deux. Une solution possible est donner ci-dessous.</p>
+<figure>
+<caption>Le circuit associé à l'expression logique</caption>
+<image source="circuit4.svg">
+<description>Un circuit à trois entrées est illustré. L'entrée X est combinée avec l'inverse de l'entrée Z dans une porte OU. L'entrée Y est inversée et combinée avec l'entrée Z, aussi dans une porte OU. Le résultat de ces deux portes OU est finalement combiné dans une porte ET.</description>
+</image>
+</figure>
+</solution>
+<solution><p>Le plus simple pour construire le circuit associé à une table de vérité est de construire la forme normale disjonctive de l'expression. Comme toutes les sorties tels que <m>X</m> est <m>1</m> donnent <m>1</m>,en combinant <m>X</m> à la cinquième ligne, on obtient <m>X\vee (\neg X\wedge Y\wedge Z)</m>. Il faudra donc combiner l'inverse de <m>X</m> avec <m>Y</m> et ensuite combiner ce résultat avec <m>Z</m> dans des portes ET. Ensuite, on combine cette sortie avec <m>X</m> dans une porte OU. À noter qu'à l'exercice <xref ref="exo-ETmultiple"/>, on verra qu'on peut combiner plus de deux entrées dans une porte ET grâce à l'associativité.</p>
+<p>Le circuit associé à cette table de vérité est illustré ci-dessous.</p>
+<figure>
+<caption>Le circuit associé à la table de vérité</caption>
+<image source="circuit5.svg">
+<description>Un circuit à trois entrées est illustré. L'entrée X est inversée et combinée avec l'entrée Y dans une porte ET. Ensuite, la sortie de cette porte est combinée avec Z dans une autre porte ET. Finalement le résultat de cette seconde porte ET est combinée avec X dans une porte OU. </description>
+</image>
+</figure>
+</solution>
+</example>
+<p>En plus de déterminer des circuits équivalents à des expressions ou des tables de vérité, on peut aussi déterminer l'équivalence de circuits entre eux. Grâce aux règles de la logique, on peut simplifier les circuits. Si on réussit à réduire le nombre de portes utilisées, on aura potentiellement sauvé des coûts de construction du circuit et peut-être aussi en maintenance ou alimentation.</p>
+    </subsection>
+    
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-circuits">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les éléments importants de cette section sont:
+    <ul>
+    <li><p>Les <xref ref="fig-portesdebase" text="custom">représentations</xref> des portes NON,ET et OU. </p></li>
+    <li><p>Le parallèle entre les circuits et les expressions logiques.</p></li>
+    </ul></p>
+    </conclusion>
+    <reading-questions xml:id="rq-circuits">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <introduction>
+  <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+  </introduction>
+  <exercise><introduction><p>On considère le circuit illustré à la figure <xref ref="fig-circuit7"/>.</p>
+    <figure xml:id="fig-circuit7">
+  <caption>Un circuit à trois entrées</caption>
+  <image source="circuit7.svg">
+  <description>Un circuit à trois entrées est illustrée dans lequel l'entrée X est combinée avec l'inverse de l'entrée Y dans une porte ET. Ce résultat est finalement combinée avec Z dans une porte OU.</description>
+  </image>
+  </figure>
+  <p> Déterminer la valeur de la sortie si:</p></introduction>
+  <task><statement><p><m>X=1,Y=0,Z=0</m>;</p></statement></task>
+  <task><statement><p><m>X=0,Y=1,Z=0</m>;</p></statement></task>
+  <task><statement><p><m>X=0,Y=0,Z=1</m>.</p></statement></task>
+  </exercise>
+  <exercise><statement><p>Déterminer la table de vérité du circuit illustré à la figure <xref ref="fig-circuit6"/>. Par quelle porte plus simple aurait-on pu le remplacer?</p>
+  <figure xml:id="fig-circuit6">
+  <caption>Un circuit à trois portes à simplifier</caption>
+  <image source="circuit6.svg">
+  <description>Un circuit à deux entrées est illustrée dans lequel l'entrée X est inversée pour être combinée avec l'entrée Y dans une porte ET. Le résultat de cette porte est ensuite combinée dans une porte OU avec l'entrée X.</description>
+  </image>
+  </figure>
+  </statement></exercise>
+      <exercise><statement><p>En plus des portes NON,ET et OU, on peut aussi créer d'autres portes à l'aide d'expressions fréquemment utilisées. Dans cet exercice, on s'intéresse au circuit du <xref ref="exo-ouexclusiflogique" text="custom">ou exclusif</xref>. Une porte associée à cette opération s'appelle une porte XOR. Elle est illustrée à la figure <xref ref="fig-XOR"/>.</p>
+    <figure xml:id="fig-XOR">
+    <caption>Une porte XOR</caption>
+    <image source="XOR.svg">
+    <description>Une porte à deux entrée est illustrée, semblable à la porte du OU, mais avec un demi-cercle supplémentaire à gauche.</description>
+    </image>
+    </figure>
+    <p>Déterminer une circuit équivalent à une simple porte XOR en termes de porte NON, ET et OU.</p></statement></exercise>
+   <exercise><statement><p>Quel serait un circuit associé à l'expression <m>p\rightarrow q</m>?</p></statement></exercise>
+    <exercise xml:id="exo-demiadditionneur"><statement><p>Un circuit peut avoir plus d'une sortie. C'est particulièrement utile quand un circuit est en fait une partie d'un système plus complexe. Le circuit illustré à la figure <xref ref="fig-demiadditionneur"/> est une partie d'un circuit utilisé pour qu'un ordinateur effectue des additions. On reviendra sur ce type de circuit dans le chapitre <xref ref="chap-reptheonombres"/>.</p>
+    <figure xml:id="fig-demiadditionneur">
+    <caption>Le circuit demi-additionneur</caption>
+    <image source="demiadditionneur.svg">
+    <description>Un circuit à deux entrée est illustrée dans lequel les entrées X et Y sont combinées dans une porte XOR et dans une porte ET. Le circuit retourne deux sorties, le résultat de chacune de ces combinaisons.</description>
+    </image>
+    </figure>
+    <p>Déterminer la table de vérité de ce circuit.</p>
+    </statement></exercise>
+     <exercise><statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_circuits.ptx" />
+   <!-- Faire les portes ET et OU multiples -->
+</section>

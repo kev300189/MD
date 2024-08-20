@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-propGraphes">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Propriétés des graphes</title>
+    <introduction xml:id= "intro-propGraphes">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+	<p>À l'exemple <xref ref="exe-grapheNCube"/> de la section précédente, on a remarqué  qu'on pouvait décrire le même graphe de plusieurs façons. On aimerait donc pouvoir être en mesure de déterminer si, lorsqu'on considère deux graphes, est-ce que ceux-ci sont équivalents. </p>
+        <p>Pour cela, on doit développer le concepte d'isomorphisme. Ce concepte est présent dans toutes les branches des mathématiques. En fait, ce concepte est tellement fondamental en mathématique, que les mathématiciens on même généralisé cette idée au point de définir toutes les branches des mathématiques à l'aide de morphismes (voir la théorie des catégories!).</p>
+        <p> Avant de parler d'isomorphisme, on va définir certaines caractéristiques des graphes. Celles-ci nous permetrons, entre autre, de différencier certains graphes les uns des autres.</p>
+        <p>Finalement, on verra aussi comment on peut créer un graphe à partir de graphes déjà connus.</p>
+    </introduction>
+    
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+<subsection xml:id="subs-graphesBiColoration">
+<title> Graphes bipartis et coloration des graphes </title>
+<introduction>
+    <p>L'une des applications récentes de la théories des graphes est la représentation  d'énormes réseaux d'informations tels que les réseaux sociaux. Dans ce cas, les usagers sont représentés par des sommets, et les liens entre les usagers sont représentés par des arêtes. L'étude de ces graphes fait l'objet de beaucoups de recherche présentement. </p>
+    <p>Dans plusieurs situations, il arrive qu'on puisse distinguer deux types de sommets différents. Par exemple, on pourrait construire un graphe où les sommets représentent les utilisateurs d'Amazon, ainsi que les produits vendus sur le site. Dans ce cas, il y a une arête entre un utilisateur et un produit si l'utilisateur à déjà acheté le produit. Il n'y a donc aucun lien possible entre deux utilisateurs ou entre deux produits. Les graphes de ce type sont appellés des graphes bipartis.</p>
+    <p>On considère ici un exemple plus simple d'utilisation d'un graphe biparti, pour ensuite en donner la définition.</p>
+</introduction>
+
+<example>
+    <statement>
+        <p>On considère une petite compagnie de quatre employés qui travaille sur un projet quelconque. Pour terminer le projet, les employés doivent accomplir six tâches différentes. De plus, chaque employé  est seulement formé à l'accomplissement de certaines tâches.</p>
+        <p>On peut représenté la situation à l'aide d'un graphe <m>G=(S,A)</m>, où <m>S</m> est l'ensemble des employés et des tâches à acomplir. Il y aura une arête entre l'employé <m>e</m> et la tâche <m>t</m> si <m>e</m> est formé pour accomplir <m>t</m>.</p>
+        <p><figure>
+            <caption> Représentation du projet par le graphe <m>G</m></caption>
+            <image source="tikzit_exRepGrapheBi.jpg" />
+    </figure></p>
+     </statement>
+</example>
+
+
+<definition xml:id="def-grapheBi">
+<title> Graphe biparti</title>
+<statement>
+<p> Une graphe <m>G=(S,A)</m> est appelé un graphe biparti si on peut écrire l'ensemble des sommets <m>S</m> comme l'union disjointe de deux sous-ensemble <m>S_1</m> et <m>S_2</m> telle que chaque arête de <m>G</m> a une extrémité dans <m>S_1</m> et une extrémité dans <m>S_2</m>.</p>
+<p>Ainsi, <m>G</m> est biparti si <m>S=S_1\cup S_2,</m> avec <m>S_1\cap S_2=\emptyset</m>, et si pour tout <m>a=\{s,t\}\in\,A,</m>, on a que <m>s\in\, S_1</m> si et seulement si <m>t\in\,S_2</m>.</p>
+</statement>
+</definition>
+
+<example xml:id="exe-grapheBi">
+<title> Un graphe biparti </title>
+<statement>
+<p>Le graphe cyclique <m>C_6</m> est un graphe biparti. On peut le voir à l'aide de la représention de <m>C_6</m> ci dessous, en posant <m>S_1=\{a,b,e\}</m> et <m>S_2=\{c,d,f\}</m>.  </p>
+<p><figure >
+        <caption> Le graphe <m>C_6</m></caption>
+        <image width="25%" source="tikzit_cycle6Bi.jpg" />
+</figure></p>
+</statement>
+</example>
+
+<example xml:id="exe-grapheYesNoBi">
+<title> Reconnaître un graphe bipartie</title>
+<statement>
+<p> Pour déterminer si un graphe est bipartie, on peut choisir aléatoirement un premier sommet <m>s</m> et décider de mettre <m>s</m> dans <m>S_1</m>.</p>
+<p> Ensuite, on place tout le voisinage de <m>s</m> dans <m>S_2</m>. Pour chacun des sommets ajoutés dans <m>S_2</m>, on place leur voisinage dans <m>S_1</m>.</p>
+<p>On poursuit cette procédure jusqu'à ce que chaque sommet soit dans un seul des <m>S_i</m> (et donc que le graphe est biparti), ou jusqu'à ce qu'un sommet soit dans <m>S_1</m> et <m>S_2</m> (et donc le graphe n'est pas biparti).</p>
+<p>En procédant ainsi, on peut voir que le graphe <m>G</m> ci-dessous est biparti, mais pas le graphe <m>H</m>.</p>
+<figure>
+    <caption> Deux graphes bipartis?</caption>
+    <sidebyside>
+        <figure>
+            <caption> Le graphe <m>G</m> est bipartie</caption>
+            <image  source="tikzit_GraphBipartiOui.jpg"/>
+        </figure>
+        <figure>
+            <caption> Le graphe <m>H</m> n'est pas biparti</caption>
+            <image source="tikzit_GraphBipartiNon.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+</example>
+
+<p>Pour illustrer la procédure utilisée dans l'exemple précédent, on peut colorier les sommets d'un graphe, en s'assurant que tous les sommets qui sont voisins soient d'une couleur différente.</p>
+<p> Un graphe sera alors biparti si et seulement si on peut faire une telle coloration en utilisant deux couleurs. De façon général, on peut résoudre certains procblèmes ou bien différentier certains graphes en déterminant le nombre de couleurs minimal qu'on doit utiliser pour colorier un graphe.</p>
+
+
+<definition xml:id="def-colorationGraphe"> 
+<title> Coloration d'un graphe</title>
+<statement> 
+<p> La coloration d'un graphe consiste à attribuer une couleur à chacun de ses sommets de manière à ce que deux sommets adjacents soient d'une couleur différente. </p>
+<p> Plus formellement, on peut définir une coloration d'un graphe <m>G=(S,A)</m> comme une fonction <m>f:S\rightarrow C,</m> ou <m>C</m> est un ensemble de couleurs, tel que si <m>\{s,t\}</m> est une arête de <m>G</m>, alors <m>f(s)\neq f(t)</m>.</p>
+</statement>
+</definition>
+
+<example xml:id="exe-colCycle6">
+<title> Une coloration de <m>C_6</m></title>
+<statement> Voici une coloration à deux couleurs de <m> C_6</m>.
+        <figure >
+            <caption> Coloration à deux couleurs de <m> C_6</m></caption>
+            <image width="25%" source="tikzit_Cycle6Coul.jpg" />
+        </figure>
+</statement>
+</example>
+
+
+<proposition xml:id="prop-colorBiparti">
+<title> Coloration et graphe biparti</title>
+<statement>
+<p> Un graphe <m>G</m> est un graphe biparti si et seulement si il exsite une coloration à deux couleurs de <m>G</m>.</p>
+</statement>
+</proposition>
+
+<example xml:id="exe-colorBiparti">
+<title>Coloration à deux couleurs et graphes bipartis </title>
+<statement>
+<p> En essayant de colorier les graphes de l'exemple <xref ref="exe-grapheYesNoBi"/> avec un minimum de couleur, on obtient les colorations suivantes.</p>
+<figure>
+    <caption> Deux graphes bipartis? Prise deux.</caption>
+    <sidebyside>
+        <figure >
+            <caption> Le graphe <m>G</m> est bipartie</caption>
+            <image source="tikzit_GraphBipartiOuiCol.jpg"/>
+        </figure>
+        <figure >
+            <caption> Le graphe <m>H</m> n'est pas biparti</caption>
+            <image source="tikzit_GraphBipartiNonCol.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+<p>On voit donc que <m>G</m> est biparti, mais pas <m>H</m>.</p>
+</statement>
+</example>
+<p>
+    Finalement, on définit une nouvelle famille de graphes, les graphes bipartis complets.
+</p>
+
+<definition xml:id="def-graphBipartiComplet">
+    <statement>
+        <p>
+            Le graphe biparti complet <m>K_{m,n}</m> est un graphe dont l'enemble des sommets est séparé en sous-ensembles, <m>S_1</m> et <m>S_2</m>, qui ont respectivement <m>m</m> et <m>n</m> sommets. De plus, <m>\{s,t\}</m> est une arête de <m>K_{m,n}</m> si et seulement si <m>s\in S_1</m> et <m>t\in S_2</m>.
+        </p>
+    </statement>
+</definition>
+
+<p>
+    Voici quelques graphes bipartis complets.
+</p>
+
+<example>
+    <statement>
+        <p> Les graphes <m>K_{2,5}</m>, <m>K_{3,3}</m> et <m>K_{3,5}</m>.</p>
+<p><figure>
+    <caption> Graphes bipartis complets</caption>
+    <sidebyside>
+        <figure>
+            <caption>  <m>K_{2,5}</m></caption>
+            <image source="tikzit_grapheK_2_5.jpg"/>
+        </figure>
+        <figure >
+            <caption><m>K_{3,3}</m></caption>
+            <image width="25%" source="tikzit_grapheK_3_3.jpg" />
+        </figure>
+        <figure >
+            <caption><m>K_{3,5}</m></caption>
+            <image source="tikzit_grapheK_3_5.jpg" />
+        </figure>
+    </sidebyside>
+</figure></p>
+
+</statement>
+</example>
+
+</subsection>
+
+<subsection xml:id="subs-formationGraphes">
+    <title>Graphes issus d'autres graphes</title>
+<introduction>
+    <p>
+        Un peu comme avec les ensembles, il est possible de former de nouveaux graphes à partir de graphes existants. Tout d'abord, on peut considérer les sous-graphes d'un graphe <m>G</m>. Ensuite, on regarde comment on peut transformer un graphe en ajoutant ou en retirant des arêtes d'un graphe. Finalement, on considère l'union de deux graphes.
+    </p>
+</introduction>
+
+<definition xml:id="def-sousGraphe">
+    <statement>
+        <p>
+            Soit un graphe <m>G=(S,A)</m>, on dira que le graphe <m>H=(T,B)</m> est un sous-graphe de <m>G</m> si <m>T\subseteq S</m> et <m>B\subseteq A</m>.
+        </p>
+    </statement>
+</definition>
+
+<example xml:id="ex-sousGraphe">
+    <statement><p>Soit le graphe <m>G</m> ci-dessous, les graphes <m>H_1</m> et <m>H_2</m> suivants sont des sous-graphes de <m>G</m>. </p>
+        <p><figure>
+            <caption> Un graphe et des sous-graphes</caption>
+            <sidebyside widths="25% 25% 25%">
+                <figure >
+                    <caption>  <m>G</m></caption>
+                    <image source="tikzit_defSousGrapheG.jpg"/>
+                </figure>
+                <figure >
+                    <caption><m>H_1</m></caption>
+                    <image source="tikzit_defSousGrapheH1.jpg" />
+                </figure>
+                <figure >
+                    <caption><m>H_2</m></caption>
+                    <image source="tikzit_defSousGrapheH2.jpg" />
+                </figure>
+            </sidebyside>
+        </figure></p>
+    </statement>
+</example>
+
+<p>
+    Étant donné un graphe <m>G=(S,A)</m> et un sous-ensemble de sommets <m>T\subseteq S</m>, on aimerait considérer le sous-graphe de <m>G</m> le plus complet possible formé à partir des sommets de <m>T</m>. C'est ce qu'on appelle le sous-graphe de <m>G</m> induit par <m>T</m>.
+</p>
+
+<definition xml:id="def-sousGrapheInduit">
+    <statement>
+        <p>
+            Soit <m>G=(S,A)</m> un graphe et soit <m>T\subseteq S</m>, le sous-graphe induit par <m>T</m> est le sous-graphe <m>H=(T,B)</m>, où <m>B\subseteq A</m> et pour <m>\{t_1,t_2\}\in A</m>, on a que <m>\{t_1,t_2\}\in B</m> si et seulement si <m>t_1,\ t_2\in T</m>.
+        </p>
+    </statement>
+</definition>
+
+<example>
+    <statement><p>Soit <m>G</m> le graphe défini à l'exemple <xref ref="ex-sousGraphe"/>, déterminer le sous-graphe induit par <m>T=\{a,b,c,e\}</m>.</p></statement>
+    <answer><p>
+        <figure >
+        <caption><m>H</m></caption>
+            <image width="25%" source="tikzit_defSousGrapheInduit.jpg" />
+        </figure></p></answer>
+</example>
+
+<p>
+    On regarde maintenant comment on peut ajouter ou retirer des arêtes d'un graphe.
+</p>
+<definition xml:id="def-retraitArete">
+    <statement>
+        <p>
+            Soit <m>G=(S,A)</m> un graphe et <m>a\in A</m>, le sous graphe <m>G-a</m> est le graphe dont les sommets sont <m>S</m> et les arêtes sont <m>A-\{a\}</m>. C'est-à-dire que 
+            <me>G-a=(S,A-\{a\})</me>.
+        </p>
+    </statement>
+</definition>
+
+<example xml:id="ex-retraitArete">
+    <statement>
+        <p>Soit <m>G</m> le graphe représenté ci-dessous, déterminer <m>G-a</m>, où <m>a</m> est l'arête <m>\{s_1,s_4\}</m></p>
+        <p><figure >
+            <caption> Le graphe <m>G</m> </caption>
+                <image width="50%" source="tikzit_exGraphePmAr.jpg"/>
+        </figure></p>
+    </statement>
+    <answer>
+        <p><figure >
+                <caption>  Le graphe <m>G-a</m></caption>
+                <image width="50%" source="tikzit_exGrapheM14Ar.jpg"/>
+            </figure></p>
+    </answer>
+</example>
+
+<definition xml:id="def-ajoutArete">
+    <statement>
+        <p>
+            Soit <m>G=(S,A)</m> un graphe et <m>a = \{s,t\}</m>, où <m>s</m> et <m>t</m> sont des sommets de <m>G</m>, le graphe <m>G+a</m> est le graphe dont les sommets sont <m>S</m> et les arêtes sont <m>A \cup \{a\}</m>. C'est-à-dire que 
+            <me>G+a=(S,A\cup \{a\})</me>.
+        </p>
+    </statement>
+</definition>
+
+<example>
+    <statement>
+        <p>Soit <m>G</m> le graphe défini à l'exemple <xref ref="ex-retraitArete"/>, déterminer <m>G+a</m>, où <m>a</m> est l'arête <m>\{s_1,s_2\}</m>.</p>
+    </statement>
+<answer>
+    <p><figure >
+            <caption>  Le  graphe <m>G+a</m></caption>
+            <image width="50%" source="tikzit_exGrapheP12Ar.jpg"/>
+        </figure></p>
+</answer>
+</example>
+
+
+<definition xml:id="def-unionGraphe">
+    <statement>
+        <p>
+            L'union des graphes <m>G_1=(S_1,A_1)</m> et <m>G_2=(S_2,A_2)</m>, qu'on note <m>G_1\cup G_2</m>, est le graphe de sommets <m>S_1\cup S_2</m> et d'arêtes <m>A_1\cup A_2</m>.
+        </p>
+    </statement>
+</definition>
+
+<example>
+    <statement>
+        <p>Soit <m>G</m> et <m>H</m> les graphes représentés ci-dessous, déterminer <m>G\cup H</m>.</p>
+        <p><figure>
+            <caption> Deux graphes</caption>
+            <sidebyside margins="10% 10%">
+                <figure >
+                    <caption>  <m>G</m></caption>
+                    <image width="50%" source="tikzit_exGrapheUnionG.jpg"/>
+                </figure>
+                <figure >
+                    <caption><m>H</m></caption>
+                    <image source="tikzit_exGrapheUnionH.jpg" />
+                </figure>
+            </sidebyside>
+        </figure></p>
+    </statement>
+    <answer>
+        <p><figure >
+            <caption> L'union de deux graphes</caption>
+            <image width="50%" source="tikzit_exGrapheUnionGH.jpg"/>
+        </figure></p>
+    </answer>
+</example>
+
+
+
+
+</subsection>
+
+
+
+<subsection xml:id="subs-isoGraphe">
+<title>Isomorphismes de graphes </title>
+
+<introduction>
+    <p>
+        On est finalement prêt à donner une définition rigoureuse du fait que deux graphes qui sont décrits différemment peuvent en fait représenter le même graphe.
+    </p>
+</introduction>
+
+
+<definition xml:id="def-isoGraphe">
+<statement><p> Soit <m>G_1=(S_1,A_1)</m> et <m>G_2=(S_2,A_2)</m> deux graphes. On dit que <m>G_1</m> et <m>G_2</m> sont isomorphes si il existe une fonction <m>f:S_1\rightarrow S_2</m> telle que:
+<ul>
+<li><m>f</m> est une bijection;</li>
+<li>les sommets <m>s</m> et <m>t</m> sont adjacents dans <m>G_1</m> si et seulement si <m>f(s)</m> et <m>f(t)</m> sont adjacents dans <m>G_2</m>.</li>
+</ul>
+On dira alors que <m>f </m> est un isomorphisme de graphe.
+</p>
+</statement>
+</definition>
+
+<p>
+    Lorsque deux graphes sont isomorphes, ceci veut dire que ces deux graphes représente en fait exactement le même graphe, qu'on a peut-être décrit différemment. En particulier, deux graphes isomorphes ont exactement les mêmes propriétés. De même, les sommets correspondant ont également les mêmes propriétés.
+</p>
+
+<proposition xml:id="prop-isoGraphe">
+<statement>
+<p> Soit <m>f</m> un isomorphisme entre les graphes <m>G_1=(S_1,A_1)</m> et <m>G_2=(S_2,A_2)</m>.</p>
+<ul>
+<li>Pour tout sommet <m>s</m> de <m>G_1,</m> alors <m>\deg(s)=\deg\left(f(s)\right)</m>. </li>
+<li> <m> |S_1|=|S_2|</m></li>
+<li> <m> |A_1|=|A_2|</m></li>
+<li> Il existe une coloration à <m>n</m> couleurs de <m>G_1</m> si et seulement si il existe une coloration à <m>n</m> couleurs de <m>G_2</m>.</li>
+</ul>
+</statement>
+</proposition>
+
+<example xml:id="exe-nonIso">
+<statement>
+<p>On peut montrer que les deux graphes ci-dessous ne sont pas isomorphes, car il existe une coloration à deux couleurs pour le graphe <m>G,</m> mais il faut trois couleurs pour une coloration de <m>H</m>.</p>
+<figure>
+    <caption> Deux graphes non isomorphes</caption>
+    <sidebyside>
+        <figure >
+            <caption> <m>G</m></caption>
+            <image width="25%" source="tikzit_Graphesdiff2.jpg"/>
+        </figure>
+        <figure >
+            <caption><m>h</m> </caption>
+            <image width="25%" source="tikzit_Graphesdiff1.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+<p>Voici des colorations de ces graphes</p>
+<figure>
+    <caption> Coloration pour différencier des graphes</caption>
+    <sidebyside>
+        <figure>
+            <caption> <m>G</m></caption>
+            <image width="25%" source="tikzit_Graphesdiff2Coul.jpg"/>
+        </figure>
+        <figure>
+            <caption><m>H</m> </caption>
+            <image width="25%" source="tikzit_GraphesdiffCoul.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+</example>
+
+<p>Voici un exemple de deux graphes qui sont isomorphes.</p>
+
+<example xml:id="exe-ouiIso">
+<statement>
+<p>Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <m>f</m> allant des sommets de <m>G</m> vers les sommets de <m>H</m> comme ceci:
+<md>
+<mrow> f(s_1)\amp=t_4</mrow>
+<mrow> f(s_2)\amp=t_5</mrow>
+<mrow> f(s_3)\amp=t_1</mrow>
+<mrow> f(s_4)\amp=t_3</mrow>
+<mrow> f(s_5)\amp=t_2</mrow>
+</md>
+</p>
+<figure>
+    <caption> Graphes isomorphes</caption>
+    <sidebyside>
+        <figure >
+            <caption> <m>G</m></caption>
+            <image source="tikzit_GrapheSame.jpg"/>
+        </figure>
+        <figure >
+            <caption><m>h</m> </caption>
+            <image   source="tikzit_GrapheSame2.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+</example>
+
+
+<p>Une autre paire de graphes qui sont isomorphes</p>
+<example xml:id="exe-ouiIso2">
+<statement>
+<p>Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <m>g</m> allant des sommets de <m>G</m> vers les sommets de <m>H</m> comme ceci:
+<md>
+<mrow> g(a)\amp=s_2</mrow>
+<mrow> g(b)\amp=s_6</mrow>
+<mrow> g(c)\amp=s_4</mrow>
+<mrow> g(d)\amp=s_3</mrow>
+<mrow> g(e)\amp=s_5</mrow>
+<mrow> g(f)\amp=s_1</mrow>
+</md>
+</p>
+<figure>
+    <caption> Graphes isomorphes</caption>
+    <sidebyside>
+        <figure >
+            <caption> <m>G</m></caption>
+            <image source="tikzit_GrapheIsoSimpleOui1.jpg"/>
+        </figure>
+        <figure >
+            <caption><m>H</m> </caption>
+            <image width="75%" source="tikzit_GrapheIsoSimpleOui2.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+</example>
+</subsection>
+
+
+
+    <conclusion xml:id="concl-propGraphes">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    
+    </conclusion>
+
+    <reading-questions xml:id="rq-propGraphes">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <introduction>
+    <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+    </introduction>
+    
+    <exercise>
+        <statement>
+            <p>Pour quelles valeurs de <m>n</m> est-ce que les graphes <m>C_n</m> sont bipartis.</p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <introduction>
+            <p>Est-ce que les graphes ci-dessous sont bipartis? Si oui, justifier.</p>
+        </introduction>
+        <task><statement>
+            <p><figure >
+                <caption> <m>G</m></caption>
+                <image width="25%" source="tikzit_QCL_BipartiOUI1.jpg"/>
+            </figure></p>
+        </statement></task>
+        <task><statement>
+            <p><figure >
+                <caption> <m>G</m></caption>
+                <image width="25%" source="tikzit_QCL_BipartiNON.jpg"/>
+            </figure></p>
+        </statement></task>
+        <task><statement>
+            <p><figure >
+                <caption> <m>G</m></caption>
+                <image width="25%" source="tikzit_QCL_BipartiOUI2.jpg"/>
+            </figure></p>
+        </statement></task>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p>Combien existe-t-il de sous-graphes de <m>K_3</m>?</p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <introduction>
+            <p>Représenter l'union des paires de gaphes ci-dessous.</p>
+        </introduction>
+        <task><statement>
+            <p><figure>
+                <caption> Union de graphes</caption>
+                <sidebyside widths="40% 40%">
+                    <figure >
+                        <caption> <m>G_1</m></caption>
+                        <image  source="tikzit_QCL_UnionG1.jpg"/>
+                    </figure>
+                    <figure >
+                        <caption><m>H_1</m> </caption>
+                        <image  source="tikzit_QCL_UnionH1.jpg" />
+                    </figure>
+                </sidebyside>
+            </figure></p>
+        </statement></task>
+        <task><statement>
+            <p><figure>
+                <caption> Union de graphes</caption>
+                <sidebyside widths="40% 40%">
+                    <figure >
+                        <caption> <m>G_2</m></caption>
+                        <image  source="tikzit_QCL_UnionG2.jpg"/>
+                    </figure>
+                    <figure>
+                        <caption><m>H_2</m> </caption>
+                        <image   source="tikzit_QCL_UnionH2.jpg" />
+                    </figure>
+                </sidebyside>
+            </figure></p>
+        </statement></task>
+    </exercise>
+
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>
+
+    <xi:include href="Exercices_propGraphe.ptx" />
+    
+</section>

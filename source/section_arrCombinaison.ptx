@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_arrCombinaison">
+<title>Permutations et combinaisons</title>
+<introduction>
+<p>On peut remarquer que plusieurs des exemples et exercices faits à la section <xref ref="sec_prodSomme"/> font intervernir des méthodes et des expressions qui se ressemblent. Par exemple, on voit souvent apparaître des termes de la forme <m>6\times 5\times4  </m>.  </p>
+<p>Ces expressions sont reliées à des conceptes important dans le dénombrement, c'est-à-dire les permutations et les combinaisons. On remarque également que plusieurs problèmes difficiles peuvent être résolu en utilisant les mêmes méthodes. On présente donc quelques exemples typiques qu'on peut utiliser pour résoudre une grande catégorie de problèmes.</p>
+<p>Finalement, on présente le triangle de Pascal, qui permet de calculer de manière différente le nombre de combinaisons, ainsi que le binôme de Newton, qui utilise le nombre de combinaisons afin de calculer rapidement des epxressions de la forme <m>(x+y)^n</m>.</p>
+</introduction>
+
+<subsection xml:id="subs_permArr">  
+    <title> Les permutations</title>
+    <introduction>
+        <p>On considère les deux problèmes de dénombrement suivants. Premièrement, on veut choisir trois personnes parmi un groupe de <m>25</m> personnes. Deuxièmement, on considère le nombre de podiums différents qu'il peut y avoir dans une course de <m>25</m> personnes.</p>
+        <p>Dans les deux cas, on doit choisir trois personnes parmi <m>25</m>. Cependant, pour le premier exemple, l'ordre dans lequel on choisit les trois personnes n'a pas d'importance, alors que pour le deuxième exemple, l'ordre est très important! Dans le premier cas, on dira que l’on compte les combinaisons, alors que dans le deuxième cas, on compte les permutations.</p>
+        <p>Étrangement, il est plus façile de compter le nombre de podiums que de compter le nombre de façons de choisir trois personnes. On commence donc par considérer le deuxième problème, et on retournera au problème de choisir trois personnes parmi <m>25</m> en <xref ref="subs_combBinomial"/> .</p>
+        <p>En utilisant le principe du produit, on voit rapidement qu'il y a <m>25\times24\times23 = 13\ 800 </m> podiums différents. Le concepte de permutation permet de généraliser cet exemple.</p>
+    </introduction>
+
+<definition xml:id="def_perm"> 
+<ol> 
+<li> Une permutation d'un ensemble d'objets est un arrangement ordonné de ces objets.</li>
+<li>Une <m>r-</m>permutation d'un ensemble d'objets est un arrangement ordonné de <m>r</m> objets de l'ensemble.</li>
+</ol>
+</definition>
+
+<example xml:id="ex_introPerm" >
+<title> Une première permutation </title>
+<statement> Soit <m>E=\{a,b,c\}</m>. Combien y a-t-il de permutations différentes de l'ensemble <m>E</m>. </statement>
+<answer> <m>6</m></answer>
+<solution>
+<p>Si on veut arranger (de façon ordonnée) les éléments de l'ensemble <m>E</m>, cela veut dire qu'on choisit un élément à la première position, un à la deuxième et finalement un à la troisième.</p> 
+<p>Lorsqu'on choisit l'élément en première position, il y a <m>3</m> choix possibles. Une fois l'élément fixé à la première position, il reste <m>2</m> choix pour l'élément à la deuxième position. Finalement, il ne reste qu'un seul choix pour la dernière position. Ainsi, par le principe du produit, il y a <m>3\cdot 2\cdot 1 = 6</m> permutations possible<statement>
+    <p>
+        
+    </p>
+</statement>.</p>
+</solution> 
+</example>
+<p>L'exemple précédent semble montrer qu'on peut  déterminer le nombre de permutations d'un ensemble de taille finie quelconque. Pour cela, on utilise la notation ci-dessous.</p>
+
+<definition xml:id="def_facto"> 
+<statement> Soit <m>k\in\ \N</m>, on définit <m>k!</m> (on dit la factorielle de <m>k</m>, ou bien <m>k</m> factoriel) de la façon suivante. Si <m>k=0</m>, alors <m>0!=1</m>. Si <m>k\geq 1</m>, alors <me>k!=k\cdot (k-1)\cdot (k-2) \cdots 3\cdot 2\cdot 1</me>. </statement>
+</definition>
+<remark> 
+<statement> Nous allons donner une définition alternative de <m>k!</m> par récurrence un peu plus tard. </statement>
+</remark>
+
+<p>Avec cette nouvelle notation, on est prêt à démontrer la proposition suivante.</p>
+
+<proposition xml:id="prop_nbrPerm">
+<statement>
+Soit <m>E</m> un ensemble de cardinalité finie <m>|E|=n</m>, alors il existe <m>n!</m> différentes permutations de l'ensemble <m>E</m>.
+</statement>
+<proof>
+Une méthode pour démontrer cette proposition est de généraliser la solution de l'exemple <xref ref="ex_introPerm"/>. Une autre méthode est de remarquer que de trouver un arrangement ordonné des éléments de <m>E</m> est équivalent à trouver une fonction injective <m>f:\{1,2,\dots,n\} \to  E</m>. Par l'exemple <xref ref="ex_comptFctInj"/>, on sait qu'il y a <m>n!</m> telles fonctions.
+</proof>
+</proposition>
+
+<p>De façon similaire, on peut déterminer le nombre de <m>r</m>-permutations d'un ensemble <m>E</m> de cardinalité finie <m>n</m>. En effet, une <m>r</m>-permutation est équivalent à une fonction injective <m>f: \{1,\dots,r\} \to  E </m>. On utilisera une notation particulière pour ce nombre.</p>
+
+<definition xml:id="def_nbrRPerm">
+<statement> Le nombre de <m>r-</m>permutations d'un ensemble <m>E</m> tel que <m>|E|=n\in\ \N</m> est noté <m>\Permutation{n}{r}</m> </statement>
+</definition>
+
+<proposition xml:id="prop_nbrRPerm">
+<statement> <m>\Permutation{n}{r}=\frac{n!}{(n-r)!}</m>. </statement>
+<proof><p>Encore une fois, il sufffit de remarquer que ceci est équivalent à compter des fonctions injective <m>f:\{1,2,\dots,r\} \to  E</m>. Par l'exemple <xref ref="ex_comptFctInj"/>, on sait qu'il y a <m>\frac{n!}{(n-r)!}</m> telles fonctions. </p></proof>
+</proposition>
+
+<p>
+    On regarde maintenant deux problèmes typiques faisant intervenir des permutations.
+</p>
+
+<example>
+<title>Des anagrammes</title>
+<statement> Une anagramme d'une suite de lettres est une permutation de ces lettres. Lorsqu'on compte le nombre d'anagrammes possibles, on ne s'intéresse pas à savoir si la permutation est un vrai mot. Combien d'anagrammes des lettres <m>ABCDEFGH</m> sont telles que les lettres <m>ABC</m> doivent apparaître dans cet ordre en un seul bloc?</statement>
+<solution><p>Puisque la suite <m>ABC</m> doit apparaître dans cet ordre en un seul bloc, il suffit de compter les permutations de <m>6</m> lettres différentes (on considère <m>ABC</m> comme une seule lettre). Ainsi, il y en a <m>6!</m>. </p></solution>
+</example>
+
+<example>
+<title>Le parcours d'un vendeur</title>
+<statement> Un vendeur doit visiter huit villes différentes, l'une d'elles étant Saint-Rémi, pour son travail. Sachant qu'il doit terminer son voyage à Saint-Rémi, de combien de façons différentes peut-il visiter ces huit villes ? </statement>
+<solution><p>Puisqu'il doit terminer ces visites à Saint-Rémi, il ne reste qu'à déterminer l'ordre des sept premières villes qu'il doit visiter. Ainsi, il s'agit d'une permutation de sept objets, et on sait qu'il y en a <m>7!</m>. </p></solution>
+</example>
+
+</subsection>
+
+
+<subsection xml:id="subs_combBinomial"> 
+    <title>Les combinaisons</title>
+<introduction>
+<p>Tel que mentionné précédemment, il est à pripori un peu plus complexe de choisir trois personnes parmi <m>25</m> que d'ordonner trois de ces <m>25</m> personnes. </p>
+<p>Pour arriver à déterminer le nombre de choix possibles, on commence par définir le concepte de combinaison. Par la suite, on utilise le lien qu'il existe entre les permutations et les combinaisons afin de déterminer le nombre de façons de choisir <m>r</m> objets parmi <m>n</m>.</p>
+</introduction>
+<definition xml:id="def_combBin">
+<ol>
+<li>Soit <m>E</m> un ensemble de cardinalité finie <m>|E|=n,</m> une <m>r-</m>combinaison de <m>E</m> est une sélection non ordonnée de <m></m> <m>r</m> éléments de <m>E</m>.</li>
+<li>Le nombre de <m>r</m>-combinaisons d'un ensemble de cardinalité finie <m>n</m> est noté <m>\Binomial{n}{r}</m>.</li>
+<li>Les expressions de la forme <m>\Binomial{n}{r}</m>, sont appelées les coefficients binômiaux.</li>
+</ol>
+</definition>
+
+<proposition xml:id="prop_nbrRComb">
+<statement>
+Soit <m>E</m> un ensemble de cardinalité finie <m>|E|=n,</m>  et soit <m>r\in\, \N</m> tel que <m>r\leq n</m>, alors <m>\Binomial{n}{r}=\frac{n!}{r!(n-r)!}</m>.
+</statement>
+<proof>
+<p>On sait que le nombre de <m>r-</m>permutations est <m>\Permutation{n}{r}=\frac{n!}{(n-r)!}</m>. Nous allons utiliser le principe du produit afin de compter <m>\Permutation{n}{r}</m> d'une autre façon. On peut séparer la tâche de choisir une permutation en deux étapes. Premièrement, on choisit <m>r</m> éléments de <m>E</m>. Deuxièmement, on choisit un ordre pour ces éléments (on permute ces <m>r</m> éléments).</p> 
+<p>Le nombre de façons de choisir les <m>r</m> éléments de <m>E</m> est <m>\Binomial{n}{r}</m>. Pour chaque choix de <m>r</m> éléments , le nombre de façons d'ordonner ceux-ci  est <m>r!</m> (le nombre de permutations des <m>r</m> éléments). Ainsi, par le principe du produit, on a <me>\Permutation{n}{r}=\Binomial{n}{r}\cdot r!</me>. On a alors <me>\Binomial{n}{r}=\frac{\Permutation{n}{r}}{r!}=\frac{n!}{r!(n-r)!}</me>.</p>
+</proof>
+</proposition>
+
+<p>
+    On regarde maintenant deux exemples typiques faisant intervenir les combinaisons.
+</p>
+
+<example>
+<title>Mains de poker</title>
+<statement> Combien de mains de cinq cartes peuvent être formées à partir d'un jeu de cartes standard de <m>52</m> cartes?</statement>
+<solution>Il s'agit de compter les combinaisons de <m>5</m> cartes parmi <m>52</m>. On sait qu'il y en a <m>\Binomial{52}{5}=\frac{52!}{5!47!}</m></solution>
+</example>
+
+<example xml:id="ex-chaineBin"> 
+<title> Des chaînes binaires</title>
+<statement> Combien de chaînes binaires de longueur <m>n</m> contiennent exactement <m>r</m> caractères <m>1</m>? </statement>
+<solution>
+<p>Pour dénombrer ces chaînes, on remarque que pour choisir une telle chaîne binaire, il suffit de choisir <m>r</m> positions où l'on place les <m>1</m> parmi les <m>n</m> positions possibles. Il s'agit donc de compter les combinaisons de <m>r</m> parmi <m>n</m>. Il y en a <m>\Binomial{n}{r}</m>.</p>
+<p>On peut également remarquer que, s'il y a exactement <m>r</m> caractères <m>1</m>, alors il y aura <m>n-r</m> caractères <m>0</m>. Ainsi, on aurait également pu choisir les <m>n-r</m> positions des <m>0</m>. Il y a donc <m>\Binomial{n}{n-r}</m> façons de le faire.</p>
+<p>Ainsi, on devrait avoir que <m>\Binomial{n}{r}=\Binomial{n}{n-r}</m></p>
+</solution>
+<answer>
+    <p>
+        <m>\Binomial{n}{r} </m>
+    </p>
+</answer>
+</example>
+
+<p>
+    Les coefficients binômiaux sont utilisés dans plusieurs branches des mathématiques. Voici quelques propriétés qu'on peut déduire facilement à l'aide de la définition et de la proposition <xref ref="prop_nbrRComb"/>.
+</p>
+
+<corollary xml:id="cor_divEntier">
+<statement> Soit <m>n,\,r\in\,\N</m> tels que <m>r\leq n,</m> alors <m>\frac{n!}{r!(n-r)!}</m> est un entier naturel.</statement>
+<proof>
+<p>Puisque la proposition <xref ref="prop_nbrRComb"/> nous donne que <m>\frac{n!}{r!(n-r)!}=\Binomial{n}{r}</m>,  et que <m>\Binomial{n}{r}</m> est un nombre de combinaisons, alors ce nombre est nécessairement un entier naturel.</p>
+</proof>
+</corollary>
+
+<corollary xml:id="cor_combComplement">
+<statement> Soit <m>n,\,r\in\,\N</m> tels que <m>r\leq n,</m> alors <m>\Binomial{n}{r}=\Binomial{n}{n-r}</m>.</statement>
+<proof> Il suffit d'utiliser la proposition <xref ref="prop_nbrRComb"/> et la commutativité du produit dans <m>\N</m>.</proof>
+</corollary>
+
+<remark>
+    Un corollaire est une proposition qui découle directement d'une autre proposition.
+</remark>
+</subsection>
+
+<subsection xml:id="subs-trianglePascalBinomNewton">
+<title>Le triangle de Pascal et le binôme de Newton</title>
+
+
+<introduction>
+    <p>Les combinaisons apparaîssent à plusieurs moments dans l'histoire des mathématiques. Le triangle de Pascal est un exemple où l'on peut représenter visuellement les termes <m>\Binomial{n}{r}</m> afin de les calculer rapidement.</p>
+    <p>Un autre exemple est lorsqu'on veut développer l'expression <m>(x+y)^n</m>. On explore ici ces deux situations.</p>
+</introduction>
+
+<subsubsection>
+<title>Le triangle de Pascal</title>
+<definition xml:id="def-trianglePascal">
+    <statement>
+        <p>
+            Le triangle de Pascal est une représentation des coefficients <m>\Binomial{n}{r}</m> dans un tableau triangulaire. On représente ici les six premières lignes.
+        </p>
+        <me>
+            \begin{matrix}
+             \amp  \amp \amp  \amp  \amp 1 \amp  \amp  \amp  \amp   \amp   \\  
+   \amp  \amp \amp  \amp 1 \amp  \amp 1 \amp  \amp  \amp  \amp  \\ 
+   \amp  \amp \amp 1 \amp  \amp 2 \amp  \amp 1 \amp  \amp \amp  \\
+   \amp  \amp 1\amp   \amp 3 \amp  \amp 3 \amp  \amp 1 \amp  \amp  \\
+   \amp 1 \amp  \amp 4 \amp  \amp 6 \amp  \amp 4 \amp  \amp 1 \amp  \\  
+  1 \amp  \amp 5 \amp  \amp 10 \amp  \amp 10 \amp  \amp 5 \amp  \amp 1 \\ 
+\end{matrix}
+        </me>
+        <p>Le premier et le dernier nombre de chaque ligne est un <m>1</m>. Les autres nombres sont obtenus successivement (ligne par ligne) en additionnant les deux nombres se trouvant au-dessus. </p>
+        <p>En terme des coefficients <m>\Binomial{n}{r}</m>, le triangle nous donne</p>
+        <me>
+            \begin{matrix}
+             \amp  \amp \amp  \amp  \amp \Binomial{0}{0} \amp  \amp  \amp  \amp   \amp   \\  
+   \amp  \amp \amp  \amp \Binomial{1}{0} \amp  \amp \Binomial{1}{1} \amp  \amp  \amp  \amp  \\ 
+   \amp  \amp \amp \Binomial{2}{0} \amp  \amp \Binomial{2}{1} \amp  \amp \Binomial{2}{2} \amp  \amp \amp  \\
+   \amp  \amp \Binomial{3}{0}\amp   \amp \Binomial{3}{1} \amp  \amp \Binomial{3}{2} \amp  \amp \Binomial{3}{3} \amp  \amp  \\
+   \amp \Binomial{4}{0} \amp  \amp \Binomial{4}{1} \amp  \amp \Binomial{4}{2} \amp  \amp \Binomial{4}{3} \amp  \amp \Binomial{4}{4} \amp  \\  
+   \Binomial{5}{0} \amp  \amp \Binomial{5}{1} \amp  \amp \Binomial{5}{2} \amp  \amp \Binomial{5}{3} \amp  \amp \Binomial{5}{4} \amp  \amp \Binomial{5}{5} \\ 
+\end{matrix}
+        </me>
+    </statement>
+</definition>
+
+<p>
+    En fait, la construction du triangle de Pascal laisse deviner qu'on peut déterminer les coefficients <m>\Binomial{n}{r}</m> à l'aide de sommes, plutôt qu'à l'aide de la définition. En fait, on peut en déduire la formule de Pascal, qu'on donne à la proposition <xref ref="prop-formulePascal"/>.
+</p>
+
+<proposition xml:id="prop-formulePascal">
+    <statement>
+        <p>
+            Soit <m>n,\ r\in \N</m> tels que <m>0 \lt r \leq n</m>, alors 
+            <me>
+                \Binomial{n}{r}=\Binomial{n-1}{r-1} + \Binomial{n-1}{r}.
+            </me>
+        </p>
+    </statement>
+    <proof><p> On a 
+        <md>
+            <mrow> \Binomial{n-1}{r-1}+\Binomial{n-1}{r} \amp = \frac{(n-1)!}{(r-1)!((n-1)-(r-1))!}+\frac{(n-1)!}{(r)!((n-1)-r)!}</mrow>
+            <mrow>  \amp = \frac{(n-1)!}{(r-1)!(n-r)!}+\frac{(n-1)!}{(r)!(n-r-1)!}</mrow>
+            <mrow>  \amp = \frac{(n-1)!(r)}{(r)(r-1)!(n-r)!}+\frac{(n-1)!(n-r)}{(r)!(n-r-1)!(n-r)}</mrow>
+            <mrow>  \amp = \frac{(n-1)!(r)}{(r)!(n-r)!}+\frac{(n-1)!(n-r)}{(r)!(n-r)!}</mrow>
+            <mrow>  \amp = \frac{(n-1)!(r)+(n-1)!(n-r)}{(r)!(n-r)!}</mrow>
+            <mrow>  \amp = \frac{(n-1)!(r+n-r)}{(r)!(n-r)!}</mrow>
+            <mrow>  \amp = \frac{(n-1)!(n)}{(r)!(n-r)!}</mrow>
+            <mrow>  \amp = \frac{(n)!}{(r)!(n-r)!}</mrow>
+            <mrow>  \amp = \Binomial{n}{r}</mrow>
+        </md></p>  </proof>
+</proposition>
+
+</subsubsection>
+
+<subsubsection>
+    <title>Le binôme de Newton</title>
+<introduction>
+<p>
+    Après avoir calculé à de nombreuses reprises des expressions comme <m>(x+3)^2= x^2+6x +9</m> ou  encore <m>(2x+5)^2=4x^2+20x+25</m>, on peut deviner que 
+    <me>
+        (x+y)^2=x^2+2xy+y^2.
+    </me>
+</p>
+<p>
+    On peut voir une certaine structure dans cette expression, et on peut se demander s'il est possible de généraliser cette formule.
+</p>
+<p>
+    Par exemple, avec un peu de travail, on obtient que 
+    <me> (x+y)^3 =x^3 +3x^2y + 3 xy^2 + y^3</me>.
+</p>
+<p>
+    En comparant les expressions de <m>(x+y)^2</m> et de <m>(x+y)^3</m> aux lignes du triangle de Pascal, on voit que les coefficients devants les termes <m>x^ny^m</m> sont ceux qu'on retrouve aux lignes appropriées du triangle de Pascal. Ce résultat est vrai en général, et est énoncé à la proposition <xref ref="prop-binomNewton" text="custom"> ci-dessous </xref>.
+</p>
+</introduction>
+<proposition xml:id="prop-binomNewton">
+    <statement>
+        <p>
+            Soit <m>x,\ y \in \R</m> et <m>n,\ r\in \N</m> tels que <m>0\leq r\leq n</m>, alors le coefficient devant le terme <m>x^{n-r} y^{r}</m> de l'expression <m>(x+y)^n</m> est donné par <m>\Binomial{n}{n-r}</m>.
+        </p>
+    </statement>
+    <proof>Une preuve par récurrence sera présentée plus tard.</proof>
+</proposition>
+
+
+<example xml:id="ex-binomNewton">
+    <title>Les coefficients de <m>(x+y)^5</m></title>
+    <statment><p>
+        Utiliser la proposition <xref ref="prop-binomNewton"/> afin de développer l'expression <m>(x+y)^5</m>.
+    </p></statment>
+    <solution>
+        <p>
+            On devra utiliser les coefficents <m>\Binomial{n}{n-r}</m>, pour <m>r</m> allant de <m>0</m> à <m>5</m>. On peut les calculer à partir de la définition, ou bien à partir du triangle de Pascal. On obtient:
+            <md>
+                <mrow> \Binomial{5}{0}\amp= 1 </mrow>
+                <mrow> \Binomial{5}{1}\amp= 5 </mrow>
+                <mrow> \Binomial{5}{2}\amp= 10  </mrow>
+                <mrow> \Binomial{5}{3}\amp= 10 </mrow>
+                <mrow> \Binomial{5}{4}\amp= 5 </mrow>
+                <mrow> \Binomial{5}{5}\amp= 1 </mrow>
+            </md>
+        </p>
+        <p>Ainsi, par la proposition <xref ref="prop-binomNewton"/>, on a que 
+            <md>
+            <mrow>(x+y)^5 \amp=1x^5y^0+5x^4y^1+10x^3y^2+10x^2y^3+5x^1y^4+1x^0y^5</mrow> 
+            <mrow>\amp=x^5+5x^4y+10x^3y^2+10x^2y^3+5xy^4+y^5</mrow> 
+            </md>
+        </p>
+    </solution>
+    
+</example>
+</subsubsection>
+
+</subsection>
+
+<subsection xml:id="subs-permCombGen">
+<title>Les permutations et combinaisons généralisées </title>
+<introduction>
+<p> On veut maintennant généraliser les conceptes de permutations et de combinaisons. Une première généralisation est de considérer les dénombrements d'objets indiscernables. Un exemple typique sera les anagrammes de mots avec des lettres qui se répètent.</p>
+<p>Une deuxième façon de généraliser est de considérer des permutations et des combinaisons lorsqu'on peut répéter les éléments de l'ensemble que l'on choisit.</p>
+<p>On a déjà fait plusieurs exemples qui sont des permutations avec répétition (voir entre autre <xref ref="ex-comptFonction"/>,  <xref ref="ex-combProdSomme1"/> et <xref ref="ex-combProdSomme2"/>). Le dénombrement de ces situations se fait assez facilement grâce au principe du produit. </p>
+<p>Cependant, le dénombrement de combinaisons avec répétition est un problème plus complexe. Il faudra développer une technique plus sophistiquée. </p> 
+</introduction>
+
+
+<subsubsection xml:id="subsub-permInd">
+<title>Permutations avec des objets indiscernables</title>
+<introduction> 
+<p>On commence par considérer l'exemple le plus simple, c'est-à-dire lorsque les objets sont séparés en deux types d'objets indiscernables. En fait, on revisite l'exemple <xref ref="ex-chaineBin"/>, mais on adopte une stratégie différente qu'on pourra utiliser plus tard. Cette méthode permet de généraliser la formule des permutations de <m>k</m> types d'objets indiscernables. On peut également généraliser la méthode utilisée à l'exemple <xref ref="ex-chaineBin"/>, mais la notation est un peu plus lourde. </p>
+</introduction>
+
+<example>
+    <title>Des chaînes binaires</title>
+<introduction>
+Combien de chaînes binaires sont:
+</introduction>
+<task>
+<statement>
+formées de quatre caractères <m>1</m> et trois caractères <m>0</m>?
+</statement>
+<solution>
+<p>Une première solution est d'étiqueter les <m>1</m>  et les <m>0</m> par <m>1_a,</m> <m>1_b,</m> <m>1_c</m> et <m>1_d</m>, ainsi que <m>0_a,</m> <m>0_b</m> et <m>0_c</m>. Le nombre de permutations de ces nouveaux caractères est <m>(4+3)!=7!</m>. </p>  
+<p>Cependant, lorsqu'on enlève l'étiquetage, on remarque que pour chaque permutation qu'on vient de dénombrer, il y en a plusieurs autres qui sont équivalentes. Par exemple, lorqu'on a les étiquettes, la chaîne <m>1_a1_b1_c1_d0_a0_b0_c</m> est initiallement considérée différente à la chaîne <m>1_b1_c1_a1_d0_b0_a0_c</m>. Cependant, lorsqu'on enlève les étiquettes, les deux chaînes donnent la même, soit <m>1111000</m>. </p>
+<p>Pour chaque chaîne obtenu, on en a <m>4!\cdot 3!</m> qui sont équivalents. Le <m>4!</m> provient des permutations des quatre <m>1,</m> alors que le <m>3!</m> correspond aux permutations des <m>0</m>.</p>
+<p>Par le principe de la division, on a que le nombre de chaînes binaires est <me>\frac{8!}{4!\cdot 3!}=\Binomial{8}{4}</me>.</p>
+</solution>
+<solution>
+<p>Une autre solution est de voir le problème comme étant une combinaison, comme on a fait à l'exemple <xref ref="ex-chaineBin"/> . En effet, on peut choisir une telle chaîne binaire en choisissant les positions des <m>1</m>. Puisqu'il y aura <m>8</m> positions au total et qu'on doit choisir la position pour les quatre caractères <m>1</m>. Ainsi, il s'agit d'une combinaison de <m>4</m> objets parmi <m>8</m>.</p>
+</solution>
+</task>
+<task>
+<statement>
+formées de <m>n</m> caractères dont <m>r</m> de ces caractères sont des <m>1</m>?
+</statement>
+<solution>
+    <p>On commence par compter le nombre de permutations de tous les objets en supposant qu'ils sont tous différents. Il y a alors <m>n!</m> permutations. </p>  
+    <p>Cependant, pour chacune de ces permutations, il y a en <m>n_1!\cdot n_2!</m> qui sont équivalentes.</p>
+    <p>Le <m>n_1!</m> provient des permutations des objets de type <m>1,</m> alors que le <m>n_2!</m> correspond aux permutations des objets de type <m>2</m>.</p>
+</solution>
+<solution> On doit choisir les <m>r</m> positions des caractères <m>1</m> parmi les <m>n</m> positions. Ainsi, la réponse sera <m>\Binomial{n}{r}</m>.</solution>
+</task>
+</example>
+
+<p>On veut maintenant considérer le cas où les objets sont séparés en <m>k</m> types d'objets indiscernables.</p>
+<proposition xml:id="prop-permInd">
+<statement>
+<p> Le nombre de permutations différentes de <m>n</m> objets, où il y <m>n_1</m> objets indiscernables de type <m>1</m>, <m>n_2</m> objets indiscernables de type <m>2</m>, <m>\dots,</m> et <m>n_k</m> objets indiscernables de type <m>k</m> est
+<me>\frac{n!}{n_1!n_2!\cdots n_k!}</me>
+</p>
+</statement>
+<proof>
+    <p>On commence par compter le nombre de permutations de tous les objets en supposant qu'ils sont tous différents. Il y a alors <m>n!</m> permutations. </p>  
+    <p>Cependant, pour chacune de ces permutations, il y a en <m>n_1!\cdot n_2!\cdots n_k!</m> qui sont équivalentes.</p>
+    <p>Le <m>n_1!</m> provient des permutations des objets de type <m>1,</m>  le <m>n_2!</m> correspond aux permutations des objets de type <m>2</m>, et ainsi de suite jusqu'aux <m>n_k!</m> permutations des objets de type <m>k</m>.</p>
+    <p>Par le principe de la division, on a que le nombre de permutations de nos objets est <me>\frac{n!}{n_1!\cdot n_2!\cdots n_k!}</me>.</p>
+
+</proof>
+<proof>
+<p>On commence par choisir les <m>n_1</m> positions parmi les <m>n</m> positions totales pour les objets de type <m>1</m>. Il y a <m>\Binomial{n}{n_1}</m> façons de le faire.</p>
+<p>Par la suite, on choisit les <m>n_2</m> positions parmi les <m>n-n_1</m> positions restantes pour les objets de type <m>2</m>.  Il y a <m>\Binomial{n-n_1}{n_2}</m> façons de le faire. </p>
+<p>On doit maintenant choisir les <m>n_3</m> positions parmi les <m>n-n_1-n_2</m> positions restantes pour les objets de type <m>3</m>.  Il y a <m>\Binomial{n-n_1-n_2}{n_3}</m> façons de le faire. </p>
+<p>En poursuivant ainsi, jusqu'aux objets de type <m>k</m>, et en utilisant le principe du produit, on a que le nombres de permutations est
+<md>
+<mrow>\amp = \Binomial{n}{n_1}\Binomial{n-n_1}{n_2}\cdots \Binomial{n-n_1-n_2-\cdots-n_{k-1}}{n_{k}}</mrow>
+<mrow>\amp = \frac{n!}{(n-n_1)!n_1!}\frac{(n-n_1)!}{(n-n_1-n_2)!n_2!}\cdots \frac{(n-n_1-n_2-\cdots-n_{k-1})!}{0!n_{k}!}</mrow>
+<mrow>\amp = \frac{n!}{n_1!n_2!\cdots n_k!}</mrow>
+</md>
+
+</p>
+
+</proof>
+
+
+</proposition>
+
+
+</subsubsection>
+
+<subsubsection xml:id="subsub-permRep">
+<title>Permutations avec répétitions</title>
+<introduction> On peut généraliser la méthode pour résoudre l'exemple <xref ref="ex-comptFonction"/> afin de trouver le nombre de permutations avec répétitions. En fait, on peut même utiliser le résultat de <xref ref="ex-comptFonction" text="custom"> cet exemple</xref> afin de démontrer directement la formule suivante.</introduction>
+<proposition xml:id="prop-permRep">
+<statement><p>Le nombre de <m>r-</m>permutations d'un ensemble <m>E</m> de <m>n</m> objets si on accepte les répétitions est <m>n^r</m>.</p></statement>
+<proof><p> Choisir une telle <m>r-</m>permutation est équivalent à choisir une fonction <m>f: \{1,\dots,r\}\to E</m>. Par l'exemple , on a que le nombre de <m>r-</m>permutations de <m>n</m> objets avec répétition est <m>n^r</m>. </p></proof>
+</proposition>
+
+</subsubsection>
+
+<subsubsection xml:id="subsub-combRep">
+<title>Combinaisons avec répétitions</title>
+<introduction>
+<p> On considère l'exemple suivant. Un magasin de bagels vend quatre sortes de bagels différents: nature, sésame, pavot et bleuet. En supposons que le magasin possède plus de <m>8</m> bagels de chaque sorte, de combien de façons peut-on choisir <m>8</m> bagels. Ceci est un exemple de combinaisons avec répétition. Ici,  on pourrait par exemple choisir 
+<md>
+<mrow> 2 \amp \text{ bagels natures;} \amp \text{ ou bien }  \amp\amp2\amp\text{ bagels natures;}</mrow>
+<mrow> 4 \amp \text{ bagels au sésame;} \amp \amp\amp1 \amp\text{ bagels au sésame;}</mrow>
+<mrow> 1 \amp \text{ bagels au pavot;} \amp \amp\amp 3\amp\text{ bagels au pavot;}</mrow>
+<mrow> 1 \amp \text{ bagels au bleuet;} \amp \amp\amp 2 \amp\text{ bagels au bleuet;}</mrow>
+</md>
+</p>
+<remark>On pourrait aussi s'imaginer qu'on tire <m>8</m> billes de couleur rouge, bleu, vert ou jaune d'une urne contenant au moins <m>8</m> billes de chaque couleur.</remark>
+<p>Une façon de représenter l'exemple précédent de façon un peu plus algébrique est la suivante. On considère <m>x_i\in\,\N</m> pour <m>i=1,2,3,4</m>. De combien de façons peut-on choisir les <m>x_i</m> pour que <m>x_1+x_2+x_3+x_4=8</m>?</p>
+<p>Pour pouvoir compter le nombre de solutions, on fait la transformation suivante. Pour chaque solution <m>x_1+x_2+x_3+x_4=8</m>, on considère la chaîne binaire formée comme ceci: on échange chaque <m>x_1</m> par une séquence de <m>1</m> de longueur <m>x_i</m>, et on ajoute un unique <m>0</m> entre chaque séquence de <m>1</m> (ça revient à échanger  chaque <m>+</m> en un <m>0</m>).</p>
+<p>Par exemple, la solution <m>2+4+1+1=8</m> sera transformée en la chaîne <me>11011110101</me>.</p>
+<p>Ainsi, on vient de trouver une bijection entre les solutions à l'équation <m>x_1+x_2+x_3+x_4=8</m> et les chaînes binaires de longueur <m>8+3=11</m> formées de huit caractères <m>1</m> et de trois caractères <m>0</m>.</p>
+<p>On sait qu'il existe <m>\Binomial{11}{8}</m> telles chaînes. On peut généraliser cet argument pour trouver le nombre de <m>r-</m>combinaisons avec répétition.</p>
+
+
+</introduction>
+
+<proposition xml:id="prop-combRep">
+<statement><p>Soit <m>x_i\in\, \N</m> pour <m>i=1,2,\dots,r</m>, le nombre de solutions à l'équation 
+<me>
+x_1+x_2+\cdots + x_r = n
+</me>
+est <m>\Binomial{n+r-1}{n}=\Binomial{n+r-1}{r-1}</m>.
+</p></statement>
+<proof><p> On peut définir une bijection entre ces solutions et les chaînes binaires de longueur <m>n+ (r-1)</m> formées de <m>n</m> caractères <m>1</m> et <m>r-1</m> caractère <m>0</m> en utilisant la méthode précédente. Ainsi, le nombre de solutions est bien <m>\Binomial{n+r-1}{r}</m>.</p></proof>
+</proposition>
+
+<p>Pour ce genre de problèmes, il arrive souvent qu'on ajoute certaines conditions. L'exemple ci-dessous montre comment traiter ces conditions.</p>
+
+<example>
+<title> Combinaisons avec répétition</title>
+<introduction><p> Déterminer le nombre de solutions à l'équation <m>x_1+x_2+x_3+x_4+x_5+x_6=13</m>, pour <m>x_i\in\,\N</m>, avec <m>i=1,2,3,4,5,6</m>, si :</p></introduction>
+<task> 
+<statement><p>il n'y a pas d'autre condition?</p></statement>
+<answer><p><m>\Binomial{18}{13}=\frac{18!}{13!5!}</m></p></answer>
+</task>
+<task> 
+<statement><p><m>x_i\geq 1</m> pour tout <m>i</m>?</p></statement>
+<answer><m>\Binomial{12}{7}=\frac{12!}{7!5!}</m></answer>
+<solution>
+<p>Pour s'assurer que <m>x_i\geq 1</m>, on introduit des variables intermédiaires <m>y_i\geq 0</m> telles que <m>x_i=y_i+1</m>. Ainsi, en remplaçant dans l'équation, on a <m>(y_1+1)+(y_2+1)+(y_3+1)+(y_4+1)+(y_5+1)+(y_6+1)=13</m>, ce qui devient <m>y_1+y_2+y_3+y_4+y_5+y_6=7</m>.</p>
+<p>Ainsi, il y aura <m>\Binomial{12}{7}=\frac{12!}{7!5!}</m></p>
+</solution>
+</task>
+<task> 
+<statement><p> <m>x_3\geq 2</m></p></statement>
+<answer><m>\Binomial{16}{11}=\frac{16!}{11!5!}</m></answer>
+<solution>
+<p>Pour s'assurer que <m>x_3\geq 2</m>, on introduit la variable intermédiaire <m>y_3\geq 0</m> telle que <m>x_3=y_3+2</m>. Ainsi, en remplaçant dans l'équation, on a <m>x_1+x_2+(y_3+2)+x_4+x_5+x_6=13</m>, ce qui devient <m>x_1+x_2+y_3+x_4+x_5+x_6=11</m>.</p>
+<p>Ainsi, il y aura <m>\Binomial{16}{11}=\frac{16!}{11!5!}</m></p>
+</solution>
+</task>
+
+<task> 
+<statement><p> <m>x_3\leq 3</m></p></statement>
+<answer><m>\Binomial{12}{7}=\frac{12!}{7!5!}</m></answer>
+<solution>
+<p>On compte toutes les solutions à l'équation (sans restriction) et on retire les solutions qui ne respecte pas la condition, c'est-à-dire les solutions telles que <m>x_3\geq 3</m>. Pour s'assurer que <m>x_3\geq 3</m>, on introduit la variable intermédiaire <m>y_3\geq 0</m> telle que <m>x_3=y_3+3</m>. Ainsi, en remplaçant dans l'équation <m>x_1+x_2+(y_3+3)+x_4+x_5+x_6=13</m>, ce qui devient <m>x_1+x_2+y_3+x_4+x_5+x_6=10</m>.</p>
+<p>Ainsi, il y aura <m>\Binomial{18}{5}-\Binomial{15}{5}=\frac{18!}{13!5!}-\frac{15!}{10!5!}</m></p>
+</solution>
+</task>
+</example>
+
+</subsubsection>
+
+
+</subsection>
+
+
+
+
+
+<conclusion xml:id="concl-arrCombinaison">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les points importants de cette section sont:
+    <ul>
+    <li><p>Les <xref ref="prop_nbrRPerm" text="custom">  permutations</xref>;</p></li>
+    <li><p>Les <xref ref="prop_nbrRComb" text="custom">  combinaisons</xref>;</p></li>
+    <li><p>Le <xref ref="def-trianglePascal" text="custom">  triangle de Pascal</xref> et le <xref ref="ex-binomNewton" text="custom"> binôme de Newton</xref>;</p></li>
+    <li><p> Les <xref ref="prop-permInd" text="custom">  permutations d'objets indiscernables</xref>;</p></li>
+    <li><p> Les <xref ref="prop-permRep" text="custom">  permutations avec répétition</xref>;</p></li>
+    <li><p>Les <xref ref="prop-combRep" text="custom">  combinaisons avec répétitions</xref>.</p></li>
+    </ul>
+    </p>
+    </conclusion>
+
+
+    <reading-questions xml:id="rq-arrCombinaison">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <introduction>
+    <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+    </introduction>
+    <exercise>
+        <statement><p>Sans utiliser une calculatrice (ou un autre outil informatique), expliquer comment calculer <m>\frac{100!}{98!}</m>.</p></statement>
+    </exercise>
+
+
+    <exercise> 
+        <introduction><p>On considère l'ensemble <m>A=\{a,b,c,d,e,f,g\}</m></p></introduction>
+        <task><statement><p>Combien de permutations de l'ensemble <m>A</m> y a-t-il?</p></statement></task>
+        <task><statement><p>Combien de permutations de l'ensemble <m>A</m> commencent par <m>g</m>?</p></statement></task>
+        <task xml:id="exo-sousEns"><statement><p>Combien de sous-ensembles de <m>A</m> sont possèdent quatre éléments?</p></statement></task>
+        <task xml:id="exo-sousEnsComplement"><statement><p>Combien de sous-ensembles de <m>A</m> sont possèdent trois éléments?</p></statement></task>
+        <task><statement>
+            <p>Que peut-on remarquer lorsqu'on compare les résultats de <xref ref="exo-sousEns"/> et de <xref ref="exo-sousEnsComplement"/>? Donner une explication intuitive de ce qu'on observe.</p>
+        </statement></task>
+       <!-- <answer><m>\Permutation{7}{7}=7!</m></answer> -->
+        </exercise>
+ 
+        <exercise>
+            <statement><p>Combien de mots peut-on former avec les lettres du mots <m>ANAGRAMME</m>?</p></statement>
+        </exercise>
+
+<exercise >
+    <statement> <p>On forme des chaînes binaires de longueur <m>8</m>, formés de quatres caractères "<m>0</m>" et quatre caractères "<m>1</m>". Combien de ces chaînes binaires y a-t-il?</p></statement>
+</exercise>
+    
+
+    <exercise>
+        <statement>
+            <p>Soit <m>x_i\in\, \N</m> pour <m>i=1,2,3,4</m>, trouver le nombre de solutions à l'équation 
+            <me>
+            x_1+x_2+x_3+x_4 = 25.
+            </me></p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p>Trouver le coefficient devant <m>x^4y^6</m> dans l'expression <m>(x+y)^{10}</m>.</p>
+        </statement>
+    </exercise>
+
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>
+
+
+ <xi:include href="Exercices_arrCombinaison.ptx"/> 
+
+</section>

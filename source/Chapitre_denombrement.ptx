@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="chap-denombrement" >
+  <title>Dénombrement</title>
+
+
+<xi:include href="./section_prodSomme.ptx" />¸
+<xi:include href="./section_arrCombinaison.ptx" /> 
+<xi:include href="./Section_combinatoireExoSupp.ptx" /> 
+
+</chapter>

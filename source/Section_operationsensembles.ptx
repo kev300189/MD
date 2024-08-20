@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-opens">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Opérations sur les ensembles </title>
+    <introduction xml:id= "intro-opens">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <title>Introduction</title>
+    <p> Il est possible de combiner des ensembles de différentes manières. On pourrait vouloir créer à partir de deux ensembles <m>A</m> et <m>B</m> un nouvel ensemble qui contiendrait tous les éléments qui sont dans <m>A</m> ou <m>B</m>, ceux qui sont à la fois dans <m>A</m> et <m>B</m> et ainsi de suite. On verra que ces opérations obéissent à des propriétés particulières, qui reviendront aussi dans le chapitre <xref ref="chap-logique"/></p>
+    <p>Dans cette section, on définit l'union, l'intersection, le produit cartésien et la différence de deux ensembles. On définit aussi le complément d'un ensemble par rapport à un ensemble univers <m>\Omega</m>.</p>
+    </introduction>
+    <subsection xml:id="sssec-opens">
+    <title>Opérations élémentaires sur les ensembles</title>
+    <p>La première opération que l'on considère est celle qui, à partir de deux ensembles, crée un nouvel ensemble dont les éléments sont dans au moins l'un des deux ensembles. On l'appelle l'union.  </p>
+    <definition xml:id="def-union">
+    <title>L'union de deux ensembles</title>
+    <statement><p>Soit <m>A</m> et <m>B</m> des ensembles quelconques. <em>L'union</em> de <m>A</m> et <m>B</m>, notée <m>A\cup B</m> est l'ensemble qui contient tous les éléments qui sont dans <m>A</m> ou dans <m>B</m>, potentiellement les deux:
+    <me>
+    A\cup B=\{c~|~ c\in A \text{ ou } c\in B\}
+    </me>.
+    </p> 
+    <p>Le mot &#x00AB; ou &#x00BB; n'a pas la même signification ici que dans la langue usuelle. On parle d'un &#x00AB; ou &#x00BB; inclusif. L'opération qui crée un ensemble dont les éléments sont dans <m>A</m> ou dans <m>B</m>, mais pas les deux est appelée la différence symétrique (voir exercice <xref ref="exo-diffsym"/>). C'est l'équivalent d'un &#x00AB; ou &#x00BB; exclusif. </p>
+    </statement>
+    </definition>
+    <example>
+    <title>L'union de deux ensembles</title>
+    <statement><p>Soit <m>A=\{a,b,c,d\}</m> et <m>B=\{1,2,c,d,e\}</m> deux ensembles. On cherche à écrire <m>A\cup B</m> en extension.</p></statement>
+    <solution>
+    <p>L'union est <m>A\cup B=\{a,b,c,d,e,1,2\}</m>. À remarquer qu'on ne met qu'une fois les éléments, comme le veut la définition d'un ensemble.</p>
+    </solution>
+    </example>
+    <p>La deuxième opération est celle qui, à partir de deux ensembles,  crée un nouvel ensemble dont les éléments sont simultanément dans <m>A</m> et <m>B</m>. On l'appelle l'intersection.</p>
+    <definition xml:id="def-intersection">
+    <title>L'intersection de deux ensembles</title>
+    <statement>
+    <p>Soit <m>A</m> et <m>B</m> des ensembles quelconques. <em>L'intersection</em> de <m>A</m> et <m>B</m>, notée <m>A\cap B</m> est l'ensemble qui contient tous les éléments qui sont dans <m>A</m> et dans <m>B</m>:
+    <me>
+    A\cap B=\{c~|~ c\in A \text{ et } c\in B\}
+    </me>.
+    </p>
+    <p>Deux ensembles dont l'intersection est vide sont dits <em>disjoints</em>.</p>
+    </statement>
+    </definition>
+    <example>
+    <title>L'intersection de deux ensembles</title>
+    <statement>
+    <p>On reprend les ensembles <m>A=\{a,b,c,d\}</m> et <m>B=\{1,2,c,d,e\}</m>. On cherche à écrire <m>A\cap B</m> en extension.</p>
+    </statement>
+    <solution>
+    <p>L'intersection est <m>A\cap B=\{c,d\}</m>.</p>
+    </solution>
+    </example>
+    <p>L'union et l'intersection de deux ensembles sont  illlustrées à la figure <xref ref="fig-unionintersection"/>.</p>
+    <figure xml:id="fig-unionintersection">
+    <caption>L'union (à gauche) et l'intersection (à droite) de deux ensembles <m>A</m> et <m>B</m></caption>
+    <sidebyside width="40%">
+    <image xml:id="img-union">
+    <description>Le diagramme de Venn de deux ensembles est illustré, avec l'union de A et B colorée.</description>
+    <sageplot>
+O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+A=circle((-1,0),2,color="grey",fill=True,alpha=0.5)+circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+B=circle((1,0),2,color="grey",fill=True,alpha=0.5)+circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+T=text(r"$A\cup B$, colorée en gris",(0,3),color="black")
+O+A+B+T    
+    </sageplot>
+    </image>
+    <image xml:id="img-intersection">
+    <description>Le diagramme de Venn de deux ensembles est illustré, avec l'intersection de A et B colorée.</description>
+    <sageplot>
+O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+A=plot(sqrt(4-(x+1)^2),(x,0,1),fill=0)+plot(-sqrt(4-(x+1)^2),(x,0,1),fill=0)+circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+B=plot(sqrt(4-(x-1)^2),(x,-1,0),fill=0)+plot(-sqrt(4-(x-1)^2),(x,-1,0),fill=0)+circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+T=text(r"$A\cap B$, colorée en gris",(0,3),color="black")
+O+A+B+T    
+    </sageplot>
+    </image>
+    </sidebyside>
+    </figure>
+    <p>L'union de deux ensembles est en quelque sorte une addition sur ces ensembles et l'intersection est une sorte de multiplication. Il y a quelques subtilités et différences, mais les propriétés de ces opérations, énoncées à la sous-section <xref ref="sssec-propoper"/> iront dans ce sens. On définit maintenant la différence entre deux ensembles. </p>
+    <definition xml:id="def-differenceens">
+    <title>La différence de deux ensembles</title>
+    <statement><p>Soit <m>A</m> et <m>B</m> deux ensembles. La différence entre <m>A</m> et <m>B</m>, notée <m>A-B</m> (<m>A</m> moins <m>B</m>) est un ensemble dont les éléments sont tous dans <m>A</m>, mais pas dans <m>B</m>:
+    <me>
+    A-B=\{a\in A~|~ a\notin B\}
+    </me>.</p>
+    <p>La différence est parfois aussi notéé <m>A\backslash B</m> et on dit aussi <m>A</m> sauf <m>B</m>. On préfèrera la notation <m>A-B</m>, car elle se conforme avec celle utilisée par Sage.</p>
+    </statement>
+    </definition>
+    <example>
+    <title>La différence de deux ensembles</title>
+    <statement>
+    <p>Soit <m>A=\{a,b,c,d\}</m> et <m>B=\{1,2,c,d,e\}</m>. On cherche à décrire en extension les ensembles <m>A-B</m> et <m>B-A</m> (vont-ils être égaux?)</p>
+    </statement>
+    <solution><p>Pour l'ensemble <m>A-B</m>, on retranche les éléments de <m>A</m> qui sont aussi dans <m>B</m>. Il reste <m>A-B=\{a,b\}</m>.</p>
+    <p>Pour ce qui est de <m>B-A</m>, on obtient <m>B-A=\{1,2,e\}</m>.</p></solution>
+    </example>
+    <p>Lorsqu'un ensemble est vu comme un sous-ensemble d'un ensemble univers <m>\Omega</m>, on donne un nom particulier aux éléments qui sont dans <m>\Omega</m>, mais pas dans <m>A</m>. C'est le complément de <m>A</m>.</p>
+    <definition xml:id="def-compens">
+    <title>Le complément d'un ensemble</title>
+    <statement><p>Soit <m>A</m> un ensemble à l'intérieur d'un ensemble univers <m>\Omega</m>. On apelle le complément de <m>A</m> l'ensemble des éléments de <m>\Omega</m> qui ne sont pas dans <m>A</m> et on le note:
+    <me>
+    A^c=\Omega-A
+    </me>.</p>
+    <p>On utilise parfois aussi la notion <m>\bar{A}</m> ou <m>A^{'}</m> pour désigner le complément.</p>
+    </statement>
+    </definition>
+    <example>
+    <title>Le complément d'ensembles</title>
+    <statement><p>On considère les ensembles <m>A=\{0,2,4,6,8,10\}</m> et <m>B=\{n\in \N ~|~ n\leq 7\}</m>. On cherche à décrire les compléments de <m>A</m> et <m>B</m> par rapport aux ensembles <m>\Omega_1=\{n\in \N ~|~ n\leq 10\}</m> et <m>\Omega_2=\N</m>.</p></statement>
+    <solution>
+    <p>On commence par trouver les compléments par rapport à l'ensemble univers <m>\Omega_1</m>. Pour <m>A</m>, on remarque que les éléments sont les nombres pairs plus petit ou égaux à <m>10</m>. Dans <m>\Omega_1</m>, son complément sera alors <m>A^c=\{1,3,5,7,9\}</m>. Pour <m>B</m>, on cherche tous les nombres naturels qui sont inférieurs ou égaux à <m>10</m> (donc dans <m>\Omega_1</m>), mais pas inférieurs ou égaux à <m>7</m> (donc dans <m>B</m>). Il reste donc <m>B^c=\{8,9,10\}</m>. </p>
+    <p>Maintenant pour <m>\Omega_2</m>, on observe que l'ensemble est infini. On pourrait écrire <m>A^c=\{1,3,5,7,9,11,12,13,14,15,\ldots\}</m>, mais comme la suite logique est en deux parties (d'abord, les impairs inférieurs à <m>10</m>, puis tous les nombres naturels plus grand que <m>10</m>), on pourrait préférer l'écrire en deux partie:
+    <me>
+    A^c=\{1,3,5,7,9\}\cup\{11,12,13,14,\ldots\}
+    </me>.
+    </p>
+    <p>Pour l'ensemble <m>B</m>, on peut utiliser une description en compréhension assez clair:
+    <me>
+    B^c=\{n\in \N~|~ n\geq 8\}
+    </me>.</p>
+    </solution>
+    </example>
+    <p>Une dernière opération sur les ensembles que l'on considère est le produit cartésien. Celle-ci sera particulièrement utile pour définir d'autres concepts de manières adéquates. On introduit dans un premier temps la notion de paires ordonnées.</p>
+    <definition>
+    <title>Paire ordonnée</title>
+    <statement>
+    <p>Une paire ordonnée, ou couple, est une collection de deux objets dont l'ordre est important. On la note <m>(a,b)</m> avec <m>a,b</m> des objets quelconques. Pour deux paires ordonnées <m>(a_1,b_1),(a_2,b_2)</m>, on a <m>(a_1,b_1)=(a_2,b_2)</m> si et seulement si <m>a_1=a_2</m> et <m>b_1=b_2</m>.</p>
+    </statement>
+    </definition>
+    <definition xml:id="def-prodcart">
+    <title>Le produit cartésien</title>
+    <statement><p>Soit <m>A</m> et <m>B</m> deux ensembles. Le produit cartésien de <m>A</m> par <m>B</m>, noté <m>A\times B</m> est l'ensemble de toutes les paires ordonnées <m>(a,b)</m> formées à partir des éléments des ensemble <m>A,B</m>:
+    <me>
+    A\times B=\{(a,b)~|~a\in A\text{ et }b\in B\}
+    </me>.
+    </p>
+    </statement>
+    <!-- remarque sur {(a_1,b_1),(a_2,b_2)}={(a_2,b_2),(a_1,b_1)} mais pas {(b_1,a_1),(b_2,a_2)} Exercice ou remark-->
+    </definition>
+    <example>
+    <title>Le produit cartésien de deux ensembles</title>
+    <statement><p>On considère les ensembles <m>A=\{a,b\}</m> et <m>B=\{0,1,2\}</m>. On cherche à décrire le produit cartésien <m>A\times B</m> en extension.</p></statement>
+    <solution>
+    <p>On doit énumérer toutes les paires ordonnées possibles. On verra au chapitre <xref ref="chap-denombrement"/> comment compter le nombre de paires. Voici une méthode simple pour les énumérer sans en oublier lorsque les ensembles sont finis.
+    <ol>
+    <li><p>On prend le premier élément de <m>A</m> et on crée toutes les paires ordonnées possibles contenant cet élément. </p></li>
+    <li><p>On répète avec les autres éléments de <m>A</m> jusqu'à épuisement de l'ensemble <m>A</m>.</p></li>
+    </ol></p>
+    <p>On a donc <m>A\times B=\{(a,0),(a,1),(a,2),(b,0),(b,1),(b,2)\}</m>.</p>
+    </solution>
+    </example>
+    </subsection>
+    <subsection xml:id="sssec-propoper">
+    <title>Propriétés des opérations élémentaires</title>
+    <p>Les opérations définies à la sous-section précédente peuvent interagir de plusieurs manières entre elles et être combinées. On peut les démontrer de plusieurs manières. On en présente deux ci-dessous. On donne la liste des propriétés dans un premier temps et on effectue la démonstration de deux d'entre elles par la suite. Les exercices complèteront les preuves. Pour chaque propriété, <m>A,B,C</m> sont des ensembles quelconques et <m>\Omega</m> est un ensemble univers avec <m>A\subseteq \Omega</m>.</p>
+    <list xml:id="li-opensprop">
+    <title>Propriétés des opérations sur les ensembles</title>
+    <ol>
+    <li xml:id="li-opensId"><p>Les propriétés d'identité:
+    <ul>
+    <li><p><m>A\cup \emptyset =A</m></p></li>
+    <li><p><m>A\cap \Omega =A</m></p></li>
+    </ul>
+    Ajouter le vide à <m>A</m> ne change pas <m>A</m>, et comme <m>A\subseteq \Omega</m>, l'intersection avec <m>\Omega</m> redonne <m>A</m>.
+    </p></li>
+    <li xml:id="li-opensid"><p>Les propriétés d'idempotence:
+    <ul>
+    <li><p><m>A\cup A =A</m></p></li>
+    <li><p><m>A\cap A =A</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-opensdom"><p>Les propriétés de domination:
+    <ul>
+    <li><p><m>A\cup \Omega=\Omega</m></p></li>
+    <li><p><m>A\cap \emptyset=\emptyset</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-openscomp"><p>Les propriétés de complémentarité et de complétude:
+    <ul><li><p>
+    <m>(A^c)^c=A</m>
+    </p></li>
+    <li><p><m>A\cup A^c=\Omega</m></p></li>
+    <li><p><m>A\cap A^c=\emptyset</m></p></li>
+    </ul>
+    </p>
+    </li>
+    <li xml:id="li-opensabs"><p>Les propriétés d'absorption:
+    <ul>
+    <li><p><m>A\cup(A\cap B)=A</m></p></li>
+    <li><p><m>A\cap(A\cup B)=A</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-openscom"><p>Les propriétés de commutativité: 
+    <ul>
+    <li><p><m>A\cup B=B\cup A</m></p></li>
+    <li><p><m>A\cap B=B\cap A</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-opensass"><p>Les propriétés d'associativité: 
+    <ul>
+    <li><p><m>A\cup (B\cup C)=(A\cup B)\cup C</m></p></li>
+    <li><p><m>A\cap (B\cap C)=(A\cap B)\cap C</m></p></li>
+    </ul>
+    Ceci fait en sorte qu'on peut écrire <m>A\cup B\cup C</m> ou <m>A\cap B\cap C</m> sans aucun souci de clarté, l'ordre n'étant pas important.
+    </p></li>
+    <li xml:id="li-opensdis"><p>Les propriétés de distributivité
+    <ul>
+    <li><p><m>A\cup (B\cap C)=(A\cup B)\cap (A\cup C)</m></p></li>
+    <li><p><m>A\cap (B\cup C)=(A\cap B)\cup (A\cap C)</m></p></li>
+    </ul>
+    <p>Ici par contre, les parenthèses sont importantes pour préciser quelles des deux opérations on veut effectuer en premier.</p>
+    </p></li>
+    <li xml:id="li-opensDeMorgan"><p>Les lois de De Morgan:
+    <ul>
+    <li><p><m>(A\cap B)^c=A^c\cup B^c</m></p></li>
+    <li><p><m>(A\cup B)^c=A^c\cap B^c</m></p></li>
+    </ul>
+    </p></li>
+    </ol></list>
+    <p>Beaucoup de ces propriétés sont intuitives quand on prend le temps d'y réfléchir un instant. L'analogie de l'addition et de la multiplication mentionnée plus tôt faisait référence aux propriétés de commutativité, d'associativité et de distributivité avec une subtilité/différence à trouver!<!-- + ne se distribue pas sur *--> On démontre la propriété <xref ref="li-opensass"/> ci-dessous afin d'illustrer deux techniques de preuves utilisées dans la théorie des ensembles.</p>
+    <proposition xml:id="prop-opensass">
+    <title>L'union et l'intersection ont la propriété d'associativité</title>
+    <statement><p>Soit <m>A,B,C</m> trois ensembles quelconques. Alors
+    <md>
+    <mrow>A\cup(B\cup C)&amp;=(A\cup B)\cup C</mrow>
+    <mrow>A\cap(B\cap C)&amp;=(A\cap B)\cap C</mrow>
+    </md>.</p></statement>
+    <proof><p>Pour démontrer l'identité de l'union, on utilise une table d'appartenance. Ce type de table reviendra dans la section <xref ref="sec-logprop"/> (sous le nom de table de vérité). Voici comment remplir une telle table.
+    <ol>
+    <li><p>Sur la première ligne, on met tous les ensembles pertinents à notre égalité, en commençant par les ensembles les plus simples à la gauche.</p></li>
+    <li><p>En fonction du nombre d'ensembles seuls, on remplit les lignes sous les premières colonnes (ne contenant qu'un ensemble seul) avec des &#x00AB; non &#x00BB; (signifiant que l'élément n'est pas dans l'ensemble) ou &#x00AB; oui &#x00BB; (signifiant l'appartenance de l'élément à l'ensemble) afin d'obtenir toutes les combinaisons possibles.</p></li>
+    <li><p>On remplit le reste de la table en utilisant la définition des opérations utilisées.</p></li>
+    </ol>
+    L'égalité est vrai si les colonnes correspondant aux membres de part et d'autre de l'égalité sont identiques.
+    </p>
+    <p>
+    Voici la table pour l'identité <m>A\cup(B\cup C)=(A\cup B)\cup C</m>
+    </p>
+    <table>
+    <title>Table d'appartenance pour <m>A\cup(B\cup C)=(A\cup B)\cup C</m></title>
+    <tabular top="major" halign="center">
+    <row bottom="medium">
+      <cell>
+        <m>A</m>
+      </cell>
+      <cell>
+        <m>B</m>
+      </cell>
+      <cell>
+        <m>C</m>
+      </cell>
+      <cell>
+        <m>A\cup B</m>
+      </cell>
+      <cell>
+        <m>B\cup C</m>
+      </cell>
+      <cell>
+        <m>A\cup (B\cup C)</m>
+      </cell>
+      <cell>
+        <m>(A\cup B)\cup C</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+    </row>
+    <row>
+      <cell>
+        non
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        non
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+      <cell>
+        oui
+      </cell>
+    </row>
+  </tabular>
+</table>
+    </proof>
+    <proof><p>On démontre l'identité de l'intersection avec le concept de sous-ensemble et d'égalité: si <m>E,F</m> sont des ensembles tels que <m>E\subseteq F</m> et <m>F\subseteq E</m>, alors <m>E=F</m>. Pour ce faire, on commence par montrer que <m>A\cap(B\cap C)\subseteq (A\cap B)\cap C</m>.</p>
+    <p>On veut montrer qu'un élément arbitraire de <m>A\cap(B\cap C)</m> sera aussi dans <m>(A\cap B)\cap C</m>. Pour cela, il peut-être utile de transposer l'ensemble en mots. Soit <m>a\in A\cap(B\cap C)</m>. Alors l'élément <m>a</m> est dans l'intersection de <m>A</m> et de <m>(B\cap C)</m> (en résolvant l'intersection extérieure à la parenthèse) et donc, <m>a\in A</m> et <m>a\in (B\cap C)</m>. Puisqu'on sait maintenant que <m>a\in (B\cap C)</m>, on peut aussi dire que <m>a\in B</m> et <m>a\in C</m>. Donc <m>a</m> est dans chacun des trois ensembles <m>A,B,C</m> (sous l'hypothèse initiale que <m>a\in A\cap(B\cap C)</m>). </p>
+    <p>En particulier, puisque <m>a</m> est dans <m>A</m> et <m>B</m>, on obtient que <m>a\in (A\cap B)</m>. Finalement, en utilisant le fait que <m>a\in C</m>, on a que <m>a\in (A\cap B)</m> et <m>a\in C</m> et donc, <m>a\in (A\cap B)\cap C</m>. On a bel et bien <m>A\cap(B\cap C)\subseteq (A\cap B)\cap C</m>.</p>
+    <p>L'idée pour montrer l'autre direction, soit que <m>(A\cap B)\cap C\subseteq A\cap(B\cap C)</m> est identique.</p>
+    <p>Soit <m>b</m> un élément arbitraire de <m>(A\cap B)\cap C</m>. Alors <m>b</m> est dans l'intersection de <m>A\cap B</m> et de <m>C</m>. En particulier, <m>b</m> est dans <m>C</m>. Puisque <m>b</m> est dans l'intersection de <m>A</m> et <m>B</m>, on voit que <m>b</m> est à la fois dans <m>A</m> et dans <m>B</m> (et dans <m>C</m>!). Comme <m>b</m> est à la fois dans <m>B</m> et dans <m>C</m>, il est dans leur intersection. En combinant cela avec le fait que <m>b\in A</m>, on obtient que <m>b</m> est dans l'intersection de  <m>A</m> et <m>B\cap C</m>. Ainsi <m>b\in A\cap(B\cap C) </m>.</p>
+    <p>Comme <m>A\cap(B\cap C)\subseteq (A\cap B)\cap C</m> et <m>A\cap(B\cap C)\supseteq (A\cap B)\cap C</m>, on conclut finalement que <m>A\cap(B\cap C)=(A\cap B)\cap C</m>.</p>
+    </proof>
+    </proposition>
+    </subsection>
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-opens">
+    <title>En résumé</title><!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les points importants de cette section sont:
+    <ul>
+    <li><p>L'opération <xref ref="def-union" text="custom">union</xref> de deux ensembles;</p></li>
+    <li><p>L'opération <xref ref="def-intersection" text="custom">intersection</xref> de deux ensembles;</p></li>
+    <li><p>L'opération <xref ref="def-differenceens" text="custom">différence</xref> de deux ensembles;</p></li>
+    <li><p>L'opération <xref ref="def-compens" text="custom">complément</xref> d'un ensemble par rapport à l'ensemble univers;</p></li>
+    <li><p>L'opération <xref ref="def-prodcart" text="custom">produit cartésien</xref> de deux ensembles;</p></li>
+    <li><p>Les <xref ref="li-opensprop" text="custom">propriétés</xref> de ces opérations.</p></li>
+    </ul>
+    </p>
+    </conclusion>
+   <!--Inclure les exercices de la section ci-dessous--> 
+<reading-questions xml:id="rq-opens">
+    <introduction xml:id= "intro-opens-lec">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+  </introduction>
+  <exercise>
+    <introduction><p>Soit <m>A=\{a,b,c,d\}</m> et <m>B=\{a,b,c,d,e,f,g\}</m> vivant dans l'ensemble univers <m>\Omega =\{l  ~|~ l \text{ est une lettre de l'alphabet comprise entre } a \text{ et } j  \}</m>. Déterminer:</p></introduction>
+    <task><statement><p>
+    <m>A\cup B</m>
+    </p></statement></task>
+    <task><statement><p>
+    <m>A\cap B</m>
+    </p></statement></task>
+    <task><statement><p>
+    <m>A- B</m>
+    </p></statement></task>
+    <task><statement><p>
+    <m>B-A</m>
+    </p></statement></task>
+    <task><statement><p><m>A^c</m></p></statement></task>
+<task><statement><p><m>B^c</m></p></statement></task>
+    </exercise>
+    <exercise><statement><p>Dessiner l'ensemble <m>A-B</m> sur le diagramme de Venn de la figure suivante.</p>
+    <figure xml:id="fig-Vennvide">
+    <caption>Un diagramme de Venn vide</caption>
+    <image xml:id="img-Vennvide"><description>
+    Un diagramme de Venn contenant des ensembles A et B quelconques est illustré.
+    </description>
+    <sageplot>
+O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+O+A+B
+    </sageplot></image>
+    </figure>
+    </statement></exercise>
+    <exercise><statement>Déterminer le produit cartésien de <m>A=\{\text{Salade repas},\text{Burger du chef},\text{La prise du jour},\text{Soupe deluxe}\}</m> et <m>B=\{\text{Brownie décadent},\text{Tarte succulente},\text{Gâteau alléchant}\}</m>. Quel est votre élément favori de <m>A\times B</m>?</statement></exercise>
+    <exercise>
+    <introduction><p>On considère l'ensemble <m>S=\{n\in \N~|~ n \text{ divise } 6\}</m>.</p></introduction>
+    <task><statement><p>Donner <m>\mathscr{P}(S)</m>.</p></statement></task>
+    <task><statement><p>Trouver un ensemble <m>B\in\mathscr{P}(S)</m> tel que <m>|B|=3</m></p></statement></task>
+    <task><statement><p>Trouver un ensemble <m>C\subseteq\mathscr{P}(S)</m> tel que <m>|C|=3</m></p></statement></task>
+    <task><statement><p>Un étudiant affirme avoir trouvé <m>D\in \mathscr{P}(S)</m> tel que <m>|D|=6</m>. Donner un exemple d'un tel ensemble ou expliquer pourquoi ce n'est pas possible.</p></statement></task>
+    <task><statement><p>Un étudiant affirme avoir trouvé <m>E\subseteq \mathscr{P}(S)</m> tel que <m>|E|=6</m>. Donner un exemple d'un tel ensemble ou expliquer pourquoi ce n'est pas possible.</p></statement></task>
+    </exercise>
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>
+
+    <xi:include href="Exercices_operationsensembles.ptx" />
+</section>
+<!-- idée: Preuve par diagramme de Venn style oscar fin 0.4 -->

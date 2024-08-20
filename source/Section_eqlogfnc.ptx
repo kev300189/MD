@@ -1,0 +1,972 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-eqlogfnc">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Équivalence logique et formes normales </title>
+    <introduction xml:id= "intro-eqlogfnc">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>On peut créer une infinité d'énoncés à l'aide des différents connecteurs logiques. Mais pour un nombre de variables propositionnelles donné, il n'existe qu'un nombre fini de combinaisons des valeurs de vérité de ces variables. Par exemple, avec deux variables <m>p,q</m>, on peut former les combinaisons <m>V\text{-}V, V\text{-}F,F\text{-}V,F\text{-}F</m>. Pour chacune de ces possibilités, la proposition moléculaire étudiée a deux possibilités, vraie ou fausse. C'est donc dire qu'il n'existe que <m>16</m> propositions distinctes qui utilisent deux variables propositionnelles.</p>
+    <p>Il existe donc une forme d'équivalence entre certaines propositions. On cherchera à établir des outils qui permettront d'établir ces équivalences. La table de vérité en est un, mais on verra qu'en pratique, elle n'est pas toujours une bonne option. On continuera aussi à voir un certain parallèle entre la logique mathématique et la théorie des ensembles.</p>
+    <p>Dans cette section, on définit les notions de tautologie, de contradiction et d'équivalence logique. On établit différentes règles de simplification, dont les loi de De Morgan. Finalement, on définit la forme normale conjonctive. </p>
+    </introduction>
+    <subsection>
+    <title>Équivalence logique</title>
+    <p>Parmi toutes les propositions qui existent, peu importe les valeurs assignées aux variables propositionnelles, il y en a une qui est toujours vraie et une qui est toujours fausse. Le cas le plus simple d'une proposition toujours vraie est <m>p\vee \neg p</m> et la plus simple proposition toujours fausse est <m>p\wedge \neg p</m>.</p>
+    <definition xml:id="def-tautologiecontradiction">
+    <title>Tautologie et contradiction</title>
+    <statement><p>Une proposition qui est toujours vraie peu importe la valeur de vérité des morceaux qui la composent est appelée une <em>tautologie</em>. Une proposition qui est toujours fausse quant à elle est appelée une <em>contradiction</em>.</p>
+    <p>Pour dénoter une tautologie et une contradiction, on écrira parfois respectivement <m>V</m> et <m>F</m>, pour vraie et fausse.</p>
+    </statement>
+    </definition>
+    <p>La proposition analysée à l'exemple <xref ref="ex-tautologie1"/> était un exemple plus complexe de tautologie mettant en jeu deux variables propositionnelles.</p>
+    <p>La négation d'une tautologie est une contradiction et la négation d'une contradiction est une tautologie.</p>
+    <p> Des propositions sont équivalentes si elles sont vraies en même temps. On utilise la notion de tautologie pour énoncer cela.</p>
+    <definition xml:id="def-propequivalentes">
+    <title>Propositions équivalentes</title>
+    <statement><p>Soit <m>p,q</m> deux propositions. On dit que <m>p</m> est équivalente à <m>q</m>, et on écrit <m>p\equiv q</m>, si <m>p\leftrightarrow q</m> est une tautologie.</p></statement>
+    </definition>
+    <p>On utilise la définition pour montrer que la négation d'une disjonction est la conjonction des négations. Cette propriété est l'une des deux lois de De Morgan pour la logique, analogues à celles de la théorie des ensembles.</p>
+    <example>
+    <title>La négation d'une disjonction</title>
+    <statement><p>Dans l'exercice <xref ref="exo-negdisj"/>, on a montré que la proposition <m>\neg(p\vee q)</m> était équivalente à <m>\neg p \wedge \neg q</m>. On montre que c'est le cas en exhibant la tautologie.</p></statement>
+    <solution>
+    <p>Voici la table de vérité de <m>\neg(p\vee q)\leftrightarrow (\neg p \wedge \neg q) </m>.
+<table>
+<title>Équivalence entre négation de la disjonction et conjonction des négations</title>
+  <tabular top="major">
+    <row>
+      <cell>
+        <m>p</m>
+      </cell>
+      <cell right="minor">
+        <m>q</m>
+      </cell>
+      <cell>
+        <m>\neg p</m>
+      </cell>
+      <cell>
+        <m>\neg q</m>
+      </cell>
+      <cell>
+        <m>p\vee q</m>
+      </cell>
+      <cell>
+        <m>\neg (p\vee q)</m>
+      </cell>
+      <cell right="medium">
+        <m>\neg p \wedge \neg q<nbsp /></m>
+      </cell>
+      <cell>
+        <m>\neg (p\vee q) \leftrightarrow (\neg p\wedge \neg q)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="minor">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell right="minor">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell right="minor">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        F
+      </cell>
+      <cell right="minor">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+  </tabular>
+</table> 
+    </p>
+    <p>On peut donc dire que <m>\neg(p\vee q)\equiv\neg p \wedge \neg q</m>.</p>
+    </solution>
+    </example>
+    <p>On peut établir l'autre lois de De Morgan, ainsi que d'autres équivalences simples avec les opérateurs logiques. Elles sont données dans la liste ci-dessous. Noter la ressemblance avec les <xref ref="li-opensprop" text="custom">propriétés des opérations sur les ensembles</xref>.
+    </p>
+<list xml:id="li-oplogprop">
+    <title>Équivalences logiques de base</title>
+    <ol>
+    <li xml:id="li-oplogId"><p>Les propriétés d'identité:
+    <ul>
+    <li><p><m>p\vee F \equiv p</m></p></li>
+    <li><p><m>p\wedge V \equiv p</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-oplogid"><p>Les propriétés d'idempotence:
+    <ul>
+    <li><p><m>p\vee p \equiv p</m></p></li>
+    <li><p><m>p\wedge p \equiv p</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-oplogdom"><p>Les propriétés de domination:
+    <ul>
+    <li><p><m>p\vee V\equiv V</m></p></li>
+    <li><p><m>p\wedge F\equiv F</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-oplogcomp"><p>Les propriétés de négation:
+    <ul><li><p>
+    <m>\neg(\neg p)\equiv p</m>
+    </p></li>
+    <li><p><m>p\vee \neg p \equiv V</m></p></li>
+    <li><p><m>p\wedge \neg p\equiv F</m></p></li>
+    </ul>
+    </p>
+    </li>
+    <li xml:id="li-oplogabs"><p>Les propriétés d'absorption:
+    <ul>
+    <li><p><m>p\vee(p\wedge q)\equiv p</m></p></li>
+    <li><p><m>p\wedge(p\vee q)\equiv p</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-oplogcom"><p>Les propriétés de commutativité: 
+    <ul>
+    <li><p><m>p\vee q\equiv q\vee p</m></p></li>
+    <li><p><m>p\wedge q\equiv q\wedge p</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-oplogass"><p>Les propriétés d'associativité: 
+    <ul>
+    <li><p><m>p\vee (q\vee r)\equiv (p\vee q)\vee r</m></p></li>
+    <li><p><m>p\wedge (q\wedge r)\equiv (p\wedge q)\wedge r</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-oplogdis"><p>Les propriétés de distributivité
+    <ul>
+    <li><p><m>p\vee (q\wedge r)\equiv (p\vee q)\wedge (p\vee r)</m></p></li>
+    <li><p><m>p\wedge (q\vee r)\equiv (p\wedge q)\vee (p\wedge r)</m></p></li>
+    </ul>
+    </p></li>
+    <li xml:id="li-oplogDeMorgan"><p>Les lois de De Morgan:
+    <ul>
+    <li><p><m>\neg(p\wedge q)\equiv \neg p\vee \neg q</m></p></li>
+    <li><p><m>\neg(p\vee q)\equiv \neg p\wedge \neg q</m></p></li>
+    </ul>
+    </p></li>
+    </ol></list>
+    <p>En particuler, les loi de De Morgan sont utiles pour  déterminer la négation d'expressions complexes, autant en symboles logiques qu'en expressions courantes.</p>
+    <example>
+    <title>Applications des lois de De Morgan</title>
+    <statement>
+    <p>On cherche à écrire la négation des propositions suivantes en s'assurant que le symbole <m>\neg</m> ne soit que directement collé à une variable et sans double négation.
+    <ol>
+    <li><p><m>(\neg p\vee q)\wedge (p\wedge \neg r)</m></p></li>
+    <li><p><m>\neg (p\wedge q)\vee (r\vee q)</m></p></li>
+    <li><p>Je vais prendre des sushis au saumon et au thon ou un bol poke avec un rouleau de printemps.</p></li>
+    </ol>
+    </p>
+    </statement>
+    <solution>
+    <p>Pour des propositions complexes, il peut être utile de les décomposer en morceaux avec d'appliquer une règle ou une propriété sur chacun des morceaux et d'ensuite réécrire. Les solutions suivantes illustrent cela.<ol>
+    <li><p>On pose <m>P=(\neg p \vee q)</m> et <m>Q=p\wedge \neg r</m>. La proposition à nier est équivalente à <m>P\wedge Q</m>. Selon la <xref ref="li-oplogDeMorgan" text="custom">loi de De Morgan</xref> pour la conjonction, on a
+    <me>
+    \neg(P\wedge Q)\equiv\neg P\vee \neg Q
+    </me>.</p>
+    <p>On doit maintenant écrire les négations respectives de <m>P\equiv\neg p \vee q</m> et <m>Q\equiv p\wedge \neg r</m>. Pour <m>P</m>, on a
+    <md>
+    <mrow>\neg P&amp;\equiv\neg (\neg p\vee q)</mrow>
+    <mrow>      &amp;\equiv(\neg (\neg p))\wedge \neg q &amp; &amp; \text{selon } <xref ref="li-oplogDeMorgan"/></mrow>
+    <mrow>      &amp;\equiv p\wedge \neg q &amp;&amp; \text{selon } <xref ref="li-oplogcomp"/></mrow>
+    </md>. Pour <m>Q</m>,
+    <md>
+    <mrow>\neg Q&amp;\equiv\neg(p\wedge \neg r)</mrow>
+    <mrow>      &amp;\equiv(\neg p)\vee(\neg (\neg r))&amp; &amp; \text{selon } <xref ref="li-oplogDeMorgan"/></mrow>
+    <mrow>      &amp;\equiv \neg p\vee  r &amp;&amp; \text{selon } <xref ref="li-oplogcomp"/></mrow>
+    </md>.</p>
+    <p>Finalement en combinant le tout, on obtient
+    <me>
+    \neg((\neg p\vee q)\wedge (p\wedge \neg r))=(p\wedge \neg q )\vee (\neg p\vee  r)
+    </me>.</p>
+    </li>
+    <li><p>D'une manière similaire, on pose <m>P=\neg (p\wedge q)</m> et <m>Q=r\vee q</m> de sorte <m>\neg (p\wedge q)\vee (r\vee q)=P\vee Q</m>. Selon la <xref ref="li-oplogDeMorgan" text="custom">loi de De Morgan</xref> pour la conjonction, on a
+    <me>
+    \neg(P\vee Q)\equiv\neg P\wedge \neg Q
+    </me>. 
+    </p>
+<p>On doit maintenant écrire les négations respectives de <m>P=\neg (p \wedge q)</m> et <m>Q=r\vee  q</m>. Pour <m>P</m>, on a
+    <md>
+    <mrow>\neg P&amp;\equiv\neg \neg (p \wedge q)</mrow>
+    <mrow>      &amp;\equiv p \wedge  q &amp;&amp; \text{selon } <xref ref="li-oplogcomp"/></mrow>
+    </md>. Pour <m>Q</m>,
+    <md>
+    <mrow>\neg Q&amp;\equiv\neg(r\vee q)</mrow>
+    <mrow>      &amp;\equiv\neg r\wedge \neg q&amp; &amp; \text{selon } <xref ref="li-oplogDeMorgan"/></mrow>
+    </md>.</p>
+    <p>En combinant le tout , on a 
+    <me>
+    \neg (\neg (p\wedge q)\vee (r\vee q))\equiv (p \wedge q)\wedge (\neg r\wedge \neg q)
+    </me>.</p>
+    </li>
+    <li><p>Pour cette proposition, on commence par définir des variables. On pose 
+    <md>
+    <mrow>s=\text{Je vais prendre des sushis au saumon.}</mrow>
+    <mrow>t=\text{Je vais prendre des sushis au thon.}</mrow>
+    <mrow>p=\text{Je vais prendre un bol poke.}</mrow>
+    <mrow>r=\text{Je vais prendre un rouleau de printemps.}</mrow>
+    </md>
+    </p>
+    <p>La proposition peut donc être écrite comme étant <m>(s\wedge t)\vee (p\wedge r)</m>. Selon <xref ref="li-oplogDeMorgan" text="custom">De Morgan</xref>, la négation de l'union devient 
+    <me>
+    \neg(s\wedge t)\vee (p\wedge r)\equiv\neg(s\wedge t)\wedge \neg(p\wedge r)
+    </me>.
+    Toujours selon <xref ref="li-oplogDeMorgan" text="custom">De Morgan</xref>, les intersections deviennent respectivement
+    <me>
+    \neg(s\wedge t)\equiv\neg s\vee \neg t
+    </me>
+    et 
+    <me>
+    \neg(p\wedge r)\equiv\neg p\vee \neg r
+    </me>.
+    On obtient alors <m>\neg((s\wedge t)\vee (p\wedge r))\equiv(\neg s\vee \neg t)\wedge \neg p\vee \neg r</m>.
+    </p>
+    <p>Individuellement, on peut traduire la négation des quatre propositions initiales par
+    <md>
+    <mrow>\neg s&amp;\equiv\text{Je ne prendrai pas de sushis au saumon.}</mrow>
+    <mrow>\neg t&amp;\equiv\text{Je ne prendrai pas de sushis au thon.}</mrow>
+    <mrow>\neg p&amp;\equiv\text{Je ne prendrai pas de bol poke.}</mrow>
+    <mrow>\neg r&amp;\equiv\text{Je ne prendrai pas de rouleau de printemps.}</mrow>
+    </md>
+    </p>
+    <p>Au final, la négation de la proposition serait <q>Je ne prendrai pas de sushis au saumon ou au thon et je ne prendrai pas de bol poke ou de rouleau de printemps.</q>; ce à quoi l'auteur répondrait de considérer de changer de restaurant!</p>
+    <p>On a choisi de considérer le <q>ou</q> comme étant inclusif ici, d'une part parce que cela simplifie le problème en fonction de ce qui a été vu et d'autre part, il n'est pas déraisonnable qu'une personne commande à la fois des sushis et un bol poke ou un rouleau de printemps.</p>
+    </li>
+    </ol></p>
+    </solution>
+    </example>
+    <p>À l'exercice <xref ref="exo-egenslog"/>, on a montré comment on pouvait démontrer l'égalité de deux ensembles à l'aide de l'écriture logique. On regarde un autre exemple ci-dessous.</p>
+    <example>
+    <title>L'égalité de deux ensembles d'un point de vue logique</title>
+    <statement>
+    <p>Soit <m>A,B</m> deux ensembles. On veut montrer que
+    <me>
+    (A-B)^c=A^c\cup B
+    </me>
+    en utilisant un argument de logique mathématique.</p>
+    </statement>
+    <solution>
+    <p>La différence de deux ensembles s'écrit d'un point de vu logique comme <me>A-B=\{x~|~ x\in A\wedge x\notin B\}</me>. On cherche le complément de cet ensemble, et donc la négation de la proposition <m>x\in A\wedge x\notin B</m>. On a
+    <md>
+    <mrow>(A-B)^c&amp;=\{x~|~ \neg(x\in A\wedge x\notin B)\}</mrow>
+    <mrow>       &amp;=\{x~|~ \neg(x\in A)\vee \neg (x\notin B)&amp;&amp; \text{Selon De Morgan} <xref ref="li-oplogDeMorgan"/></mrow>
+    <mrow>       &amp;=\{x~|~ x\notin A \vee x\in B\} &amp;&amp; \text{La négation de la relation d'appartenance est la non appartenance et vice-versa}</mrow>
+    <mrow>       &amp;= A^c\cup B&amp;&amp;\text{Définition de l'union et du complément}</mrow>
+    </md>.
+    </p>
+    </solution>
+    </example>
+    </subsection>
+    <subsection>
+    <title>Formes normales</title>
+    <p>Jusqu'à maintenant, on a défini la notion de négation ainsi que les connecteurs de disjonction, conjonction et implication. Avec l'implication, on a aussi établi la double implication à l'aide d'une conjonction. On peut réécrire les implications simple et double en n'utilisant que les symboles <m>\neg, \vee</m> et <m>\wedge</m>. On pourra aussi faire la même chose avec le <q>ou exclusif</q> (voir l'exercice <xref ref="exo-ouexclusifnormal"/>).</p>
+    <example xml:id="ex-implicationsansfleche">
+    <title>L'implication, sans flèche</title>
+    <statement><p>
+    On considère la proposition <m>p\rightarrow q</m>. On veut la réécrire en n'utilisant que des symboles parmi <m>\neg,\vee, \wedge</m>. Pour cela, on s'inspire de sa négation obtenue à l'exercice <xref ref="exo-negimplication"/>.
+    </p></statement>
+    <solution>
+    <p>Selon l'exercice <xref ref="exo-negimplication"/>, il est possible d'écrire 
+    <me>
+    \neg (p\rightarrow q)\equiv p\wedge \neg q
+    </me>.
+    Si on nie à nouveau cette équivalence, on devrait pouvoir réécrire l'implication sans flèche. Ainsi
+    <md>
+    <mrow>p\rightarrow q&amp;\equiv\neg \neg (p\rightarrow q) </mrow>
+    <mrow>              &amp;\equiv\neg (p\wedge \neg q) &amp;&amp; \text{Selon } <xref ref="exo-negimplication"/></mrow>
+    <mrow>              &amp;\equiv \neg p \vee \neg\neg q &amp;&amp; \text{Selon De Morgan } <xref ref="li-oplogDeMorgan"/> </mrow>
+    <mrow>              &amp;\equiv \neg p \vee q &amp;&amp; \text{Selon } <xref ref="li-oplogcomp"/></mrow>
+    </md>.
+    </p>
+    <p>On peut donc dire que <m>p\rightarrow q\equiv \neg p\vee q</m>.</p>
+    </solution>
+    </example>
+    <p>Toute proposition logique peut s'écrire en utilisant uniquement les symboles <m>\neg, \vee,\wedge</m>. Une proposition ainsi écrite sera dite sous forme normale. On distinguera deux formes particulières.</p>
+    <p>On exige dans un premier temps que toute négation affecte seulement une variable, quitte à utiliser les lois de De Morgan si nécessaire. Par la suite, la forme normale disjonctive est écrite comme un certain nombre de conjonctions (<m>\wedge</m>) connectées par des disjonctions (<m>\vee</m>), alors que la forme normale conjonctive est écrite comme un certain nombre de disjonctions connectées par des conjonctions. Par exemple,
+    <me>
+    (\neg p\wedge q \wedge \neg r)\vee (p\wedge \neg q)
+    </me>
+    est une forme normale disjonctive alors que
+    <me>
+    (p\vee \neg q)\wedge \neg r
+    </me> est une forme normale conjonctive. Par contre,
+    <me>
+    \neg(p\vee q)\vee (r\wedge \neg q)
+    </me>
+    et
+    <me>
+    ((p\wedge q)\vee r)\wedge (q\vee \neg r)
+    </me>
+    n'en sont pas. La première possède une négation qui affecte plus d'une variable, alors que la seconde contient une parenthèse ayant à la fois une conjonction et une disjonction.
+    </p>
+    <p>Pour obtenir des formes normales à partir des expressions ci-dessus, il faut utiliser les lois de De Morgan et de distributivité.</p>
+    <example xml:id="ex-fnprop">
+    <title>Transformer des propositions sous formes normales</title>
+    <statement><p>On reprend les deux propositions     <me>
+    \neg(p\vee q)\vee (r\wedge \neg q)
+    </me>
+    et
+    <me>
+    ((p\wedge q)\vee r)\wedge (q\vee \neg r)
+    </me>. On veut les écrire sous l'une des deux formes normales.</p></statement>
+    <solution>
+    <p>Il faut utiliser la loi de  <xref ref="li-oplogDeMorgan" text="custom"> De Morgan</xref> afin d'enlever la négation devant la première parenthèse. Celle-ci devient
+    <me>
+    \neg(p\vee q)\equiv\neg p \wedge \neg q
+    </me>. On peut ensuite réécrire la proposition comme étant
+    <me>
+    \neg(p\vee q)\vee (r\wedge \neg q)\equiv(\neg p \wedge \neg q)\vee (r\wedge \neg q)
+    </me>, qui est une forme normale disjonctive.</p>
+    <p>Pour la seconde proposition, il faut distribuer la disjonction dans l'expression <m>(p\wedge q)\vee r</m>. En utilisant <xref ref="li-oplogdis" text="custom">la distributivité</xref>, on obtient
+    <me>
+    (p\wedge q)\vee r\equiv(p\vee r)\wedge (q\vee r)
+    </me>. En combinant avec le reste de la proposition initiale, on a
+    <me>
+    ((p\wedge q)\vee r)\wedge (q\vee \neg r)\equiv (p\vee r)\wedge (q\vee r)\wedge (q\vee \neg r)
+    </me>, qui est une forme normale conjonctive.</p>
+    </solution>
+    </example>
+    <p>Pour obtenir les formes normales, on peut utiliser les différentes propriétés des connecteurs logiques jusqu'à l'obtention de la forme souhaitée, comme à l'exemple <xref ref="ex-fnprop"/>, ou utiliser une table de vérité. La table de vérité est particulièrement utile pour trouver la forme normale disjonctive d'une proposition. </p>
+    <p>En effet, la forme normale disjonctive est un ensemble de sous-propositions connectées par des <m>\vee</m>. À partir de la table de vérité d'une proposition, il suffit donc de connecter ensemble les lignes qui rendent la proposition vraie. Ceci est illustrée à l'exemple suivant.</p>
+    <example xml:id="ex-fnddetable">
+    <title>Forme normale disjonctive à partir de la table de vérité</title>
+    <statement>
+    <p>On reprend la proposition <m>((p\wedge q)\vee r)\wedge (q\vee \neg r)</m>, dont une forme normale conjonctive a été trouvée à l'exemple <xref ref="ex-fnprop"/>. La table de vérité de cette proposition est donnée ci-dessous.</p>
+<table>
+<title>Table de vérité de <m>((p\wedge q)\vee r)\wedge (q\vee \neg r)</m> </title>
+  <tabular top="major">
+    <row>
+      <cell>
+        <m>p</m>
+      </cell>
+      <cell>
+        <m>q</m>
+      </cell>
+      <cell right="medium">
+        <m>r</m>
+      </cell>
+      <cell right="medium">
+        <m>\neg r</m>
+      </cell>
+      <cell>
+        <m>p\wedge q</m>
+      </cell>
+      <cell>
+        <m>q\wedge \neg r</m>
+      </cell>
+      <cell right="medium">
+        <m>(p\wedge q)\vee r</m>
+      </cell>
+      <cell>
+        <m>((p\wedge q)\vee r)\wedge (q\wedge \neg r)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+  </tabular>
+</table>
+<p>On cherche une forme normale disjonctive,</p>
+    </statement>
+    <solution>
+    <p>En regardant la table de vérité, on cible les lignes qui rendent la propositions vraie. Il y a lorsque <m>p,q</m> et <m>\neg r</m> sont vraies, de même que lorsque <m>\neg p, q</m> et <m>\neg r</m>. La proposition peut donc s'écrire de manière équivalente comme
+    <me>
+    ((p\wedge q)\vee r)\wedge (q\wedge \neg r)\equiv (p\wedge q\wedge \neg r)\vee (\neg p\wedge q\wedge \neg r)
+    </me>.</p>
+    </solution>
+    </example>
+    <p>Pour obtenir la forme normale conjonctive à partir de la table de vérité, il faut travailler un peu plus fort. On utilise le fait que De Morgan transforme les <m>\wedge</m> en <m>\vee</m> et vice-versa par le biais de la négation. En prenant la forme disjonctive de la négation d'une proposition et en la niant à son tour, on obtiendra la forme conjonctive de la proposition originale. </p>
+    <example>
+    <title>Forme normale conjonctive à partir de la table de vérité</title>
+    <statement>
+    <p>On reprend la proposition <m>\neg (p\vee q)\vee (r\wedge \neg q)</m>, dont une forme normale disjonctive a été trouvée à l'exemple <xref ref="ex-fnprop"/>. La table de vérité de cette proposition est donnée ci-dessous.</p>  
+<table>
+ <title>Table de vérité de <m>\neg (p\vee q)\vee (r\wedge \neg q)</m> </title>
+  <tabular top="major">
+<row>
+      <cell>
+        <m>p</m>
+      </cell>
+      <cell>
+        <m>q</m>
+      </cell>
+      <cell right="medium">
+        <m>r</m>
+      </cell>
+      <cell right="medium">
+        <m>\neg q</m>
+      </cell>
+      <cell>
+        <m>p\vee q</m>
+      </cell>
+      <cell>
+        <m>\neg (p\vee q)</m>
+      </cell>
+      <cell right="medium">
+        <m>r\wedge \neg q</m>
+      </cell>
+      <cell>
+        <m>\neg (p\vee q)\vee(r\wedge \neg q)</m>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+    </row>
+    <row>
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+    <row bottom="major">
+      <cell>
+        F
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell right="medium">
+        V
+      </cell>
+      <cell>
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+      <cell right="medium">
+        F
+      </cell>
+      <cell>
+        V
+      </cell>
+    </row>
+  </tabular>
+</table> 
+    <p>On cherche une forme normale conjonctive.</p>
+    </statement>
+    <solution>
+    <p>On considère la négation de la proposition initiale. Cette négation est vraie aux lignes <m>1,2,4,5,6</m> de la table de vérité. On peut, à la manière de l'exemple <xref ref="ex-fnddetable"/> dire que
+    <me>
+    \neg(\neg (p\vee q)\vee (r\wedge \neg q))\equiv (p\wedge q\wedge r)\vee (p\wedge q\wedge \neg r)\vee (p\wedge \neg q\wedge \neg r)\vee (\neg p\wedge q\wedge r)\vee (\neg p \wedge q \wedge \neg r)
+    </me>.</p>
+    <p>Pour retrouver la forme conjonctive de la proposition initiale, on nie l'équivalence ci-dessus. On a alors
+    <md>
+    <mrow>\neg (p\vee q)\vee (r\wedge \neg q)&amp;\equiv\neg((p\wedge q\wedge r)\vee (p\wedge q\wedge \neg r)\vee (p\wedge \neg q\wedge \neg r)\vee (\neg p\wedge q\wedge r)\vee (\neg p \wedge q \wedge \neg r))</mrow>
+    <mrow>&amp;\equiv \neg(p\wedge q\wedge r)\wedge \neg(p\wedge q\wedge \neg r)\wedge \neg(p\wedge \neg q\wedge \neg r)\wedge \neg(\neg p\wedge q\wedge r)\wedge \neg(\neg p \wedge q \wedge \neg r)</mrow>
+    <mrow>&amp;\equiv (\neg p\vee \neg q\vee \neg r)\wedge (\neg p\vee \neg q\vee r)\wedge (\neg p\vee  q\vee  r)\wedge ( p\vee\neg q\vee \neg r)\wedge ( p \vee\neg q \vee  r)</mrow>
+    </md>, où on a utilisé De Morgan pour transformer les négations.</p>
+    </solution>
+    </example>
+    <p>En adoptant une convention, une équipe de programmeurs peut tirer avantage d'avoir des expressions sous forme normale. En particulier cela peut faciliter la mise à jour du code, car tout est uniforme.</p>
+    </subsection>
+    
+    <conclusion xml:id="concl-eqlogfnc">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>Les points importants de cette section sont:
+    <ul>
+    <li><p>Les notions de <xref ref="def-tautologiecontradiction" text="custom">tautologie et de contradiction</xref>;</p></li>
+    <li><p>La notion de <xref ref="def-propequivalentes" text="custom">propositions équivalentes</xref>;</p></li>
+    <li><p>Les différentes <xref ref="li-oplogprop" text="custom">équivalences logiques </xref> de base et leurs liens avec les <xref ref="li-opensprop" text="custom">propriétés</xref> des opérations sur les ensembles;</p></li>
+    <li><p>La forme <xref ref="ex-implicationsansfleche" text="custom">sans flèche</xref> de l'implication;</p></li>
+    <li><p>Les formes normales disjonctive et conjonctive et comment les obtenirs à partir de la table de vérité.</p></li>
+    </ul>
+    </p>
+    </conclusion>
+    <reading-questions xml:id="rq-eqlogfnc">
+    <introduction>
+  <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+  </introduction>
+  <exercise><statement><p>Utiliser des tables de vérité pour démontrer les <xref ref="li-oplogabs" text="custom">propriétés d'absorption</xref>.</p></statement></exercise>
+  <exercise><statement><p>Montrer que <m>\neg(p\oplus q)</m> est logiquement équivalent à <m>p\leftrightarrow q</m>.</p></statement></exercise>
+  
+  <exercise><statement><p>Montrer que <m>(\neg p \wedge q)\wedge (p\vee \neg q)</m> est une contradiction.</p></statement></exercise>
+  <exercise>
+  <statement><p>Déterminer si <m>p\rightarrow (q\vee r)</m> est équivalent à <m>(p\rightarrow q)\vee (p\rightarrow r)</m>, à savoir si l'implication se distribue sur la disjonction.</p></statement>
+  </exercise>
+  <exercise><statement><p>Soit <m>p,q,r</m> des variables propositionnelles. Donner une proposition moléculaire formée à partir de <m>p,q,r</m> qui est vraie quand exactement deux variables sont vraies et fausse dans les autres cas.</p></statement>
+  <hint>Penser à quoi ressemble la table de vérité de cette proposition afin de trouver une forme normale.</hint></exercise>
+  <exercise><statement><p>Transformer l'expression <m>(\neg p \wedge q) \vee \neg (\neg r \vee q)</m> en l'une des formes normales en utilisant les propriétés (pas de table de vérité).</p></statement></exercise>
+  <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <xi:include href="Exercices_eqlogfnc.ptx"/>
+</section>
+<!-- EQ avec implication p28 Rosen-->

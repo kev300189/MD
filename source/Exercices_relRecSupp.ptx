@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue un fichier auxiliaire du livre                    -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-relRecSupp">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>
+    <!-- 
+   <exercise xml:id="exo-nom">
+    <introduction>
+    <p>L'énoncé de l'exercice.</p>
+    </introduction>
+    <task>
+            <statement>
+                <p>La première lettre de la question.</p>
+            </statement>
+            <answer>
+                <p> La réponse suivra. </p>
+            </answer>
+            <solution>
+                <p> La solution suivra. </p>
+            </solution>
+    </task>
+    </exercise>
+    -->
+    <subexercises>
+    <title>À faire en classe</title>
+    <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
+
+    <exercise >
+        <introduction>
+            <p>Un modèle qu'on peut utilisé pour approximer  le nombre de homards pêchés par année est de supposer que le nombre de homards pêchés dans une année est la moyennes du nombre de homards pêchés dans les deux années précédentes. </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>En supposant que le modèle est vrai, trouver une relation de récurrence pour la suite <m>\{L_n\}</m>, où <m>L_n</m> est le nombre de homard pêchés à l'année <m>n</m>.</p>
+            </statement>
+            <answer><p>On a <m>L_n=\frac{L_{n-1}}{2}+\frac{L_{n-2}}{2}</m>.</p></answer>
+        </task>
+        <task>
+            <statement>
+                <p>Déterminer <m>L_n</m>, sachant que 100 000 homards ont été pêchés à l'an 1, et 300 000 ont été pêchés à l'an 2.</p>
+            </statement>
+            <answer><p>On a <m>L_n=\frac{800\ 000}{3}\left(\frac{-1}{2}\right)^n + \frac{700\ 000}{3}</m>.</p></answer>
+        </task>
+    </exercise>
+<exercise>
+    <introduction>
+        <p>Un client d'une banque dépose 100 000 <m>\$</m> dans un compte d'investissement. À la fin de chaque année (le dernier jour de l'année), on ajoute au compte de banque deux montants. Le premier est <m>20\%</m> du montant dans le compte durant cette année, et le deuxième est <m>45\%</m> du montant dans le compte durant l'année précédente.</p>
+    </introduction>
+    <task>
+        <statement>
+            <p>Trouver une relation de récurrence pour la suite <m>\{P_n\}</m>, où <m>P_n</m> est le montant en <m>\$</m> dans le compte à la fin de l'an <m>n</m>.</p>
+        </statement>
+        <answer><p>On a <m>P_n=1,20 P_{n-1}+045P_{n-2}</m>.</p></answer>
+    </task>
+    <task>
+        <statement>
+            <p>En utilisant <m>P_{0}=100\ 000</m> et <m>P_1=120\ 000</m>, trouver une expression pour <m>P_n</m>.</p>
+        </statement>
+        <answer><p>À l'aide de l'équation caractéristique est des conditions initiales, on à <m>P_n=\frac{250\ 000}{3}\left(\frac{3}{2}\right)^n+\frac{50\ 000}{3}\left(\frac{-3}{10}\right)^n</m>.</p></answer>
+    </task>
+</exercise>
+<exercise>
+    <introduction>
+        <p>Un nouvel enmployé dans une compagnie se fait offrir un salaire de <m>50\ 000 \$</m> par année. De plus, l'employé se fait promettre qu'à la fin de chaque année, son salaire sera le double de celui de l'année précédente plus <m>10\ 000 \$</m> par année passée à travailler pour la compagnie.</p>
+    </introduction>
+    <task>
+        <statement>
+            <p>Trouver une relation pour la suite <m>\{s_n\}</m>, où <m>s_n</m> est le salaire en <m>\$</m> de l'employé à l'année <m>n</m>. Ici, la condition initiale est <m>s_1=50\ 000</m>.</p>
+        </statement>
+        <answer><p>On a <m>s_n=2s_{n-1}+10\ 000(n-1)</m>.</p></answer>
+    </task>
+    <task>
+        <statement>
+            <p>Trouver l'expression de <m>s_n</m>. Utiliser une solution particulière de la forme <m>cn+d</m>, où <m>c</m> et <m>d</m> sont des constantes à déterminer.</p>
+        </statement>
+        <solution>
+            <p>
+                On commence par résoudre la relation homogène. On trouve alors <m>s_n^{(h)}=\alpha (2)^n </m>
+            </p>
+            <p>
+                Ensuite, on remplaçant par <m>cn+d</m> dans la relation, on obtient 
+                <md>
+                    <mrow> cn+d \amp = 2(c(n-1) + d ) +10\ 000(n-1) \amp\amp </mrow>
+                    <mrow>   cn+d \amp = 2cn - 2c+2d +10\ 000n-10\ 000 \amp\amp \text{ en distribuant}</mrow>
+                    <mrow> (c)n+(d)  \amp = (2c + 10\ 000)n + (2d-2c-10\ 000) \amp\amp  \text{ en distribuant}</mrow>
+                </md>.
+            </p>
+            <p>
+                En comparant les termes devant les <m>n</m> et les termes constant, on obtient les deux équations <m>c = 2c - 10\ 000 </m> et <m>d = 2d-2c-10\ 000 </m>. On peut alors résoudre ce système d'équations et trouver <m>c=d=-10\ 000</m>. On a alors que la solution particulière est <m>-10\ 000 c - 10\ 000</m>.
+            </p>
+            <p>
+                Ainsi, on a que <m>s_n =\alpha 2^n -10\ 000 (n+1)</m>. À l'aide de la condition initiale, on a <m>s_1=50\ 000 = \alpha 2  -20\ 000</m>, et donc  <m>\frac{70\ 000}{2}=\alpha</m>.
+            </p>
+            <p>
+                Par ce qui précède, on a <m>s_n= 70\ 000 2^{n-1} - 10\ 000(n+1)</m>.
+            </p>
+        </solution>
+    </task>
+</exercise>
+<exercise>
+    <introduction>
+        <p>On considère un échiquier de dimension <m>2\times n</m>, c'est-à-dire un échiquer formé de deux rangés, et chacune de ces rangés est formée de <m>n</m> cases. On veut recouvrir cet échiquer à l'aide de tuiles de dimension <m>1\times 2</m>, <m>2\times 1</m> et <m>2\times 2</m>.</p>
+        <p>On note <m>a_n</m> le nombre de façons d'accomplir cette tâche.</p>
+    </introduction>
+    <task>
+        <statement>
+            <p>Déterminer <m>a_1</m> et <m>a_2</m>.</p>
+        </statement>
+        <solution>
+            <p>Si <m>n = 1</m>, l'échiquier est de dimension <m>2\times 1</m>. Il y a donc une seule façon d'accomplir cette tâche, en plaçant une tuile <m>2\times 1</m>. Ainsi, <m>a_1=1</m>.</p>
+            <p>Si <m>n = 2</m>, l'échiquier est de dimension <m>2\times 2</m>. Il y a donc trois façons d'accomplir cette tâche. En plaçant deux tuiles  de dimension <m>2\times 1</m>, en plaçant deux tuiles  de dimension <m>1\times 2</m> ou encore en plaçant une tuile de dimension <m>2\times 2</m>. Ainsi, <m>a_2=3</m>.</p>
+        </solution>
+    </task>
+    <task>
+        <statement>
+            <p>Trouver une relation de récurrence pour <m>a_n</m>.</p>
+        </statement>
+        <solution>
+            <p>On sépare la tâche en trois catégories. Pour se faire, on regarde quelle sorte de tuile à été utilisée afin de recouvrir la case en haut à gauche de l'échiquer. Il y a trois façons de le faire, une pour chaque type de tuiles, <m>1\times 2</m>, <m>2\times 1</m> ou <m>2\times 2</m>. </p>
+            <p>Si on a utilisé une tuile de dimension <m>2\times 1</m>, il reste à recouvrir un échiquier de dimension <m>2\times (n-1)</m>. Il y a <m>a_{n-1}</m> façons d'accomplir cette tâche.</p>
+            <p>Si on a utilisé une tuile de dimension <m>1\times 2</m>, alors on a nécessairement urilisé une autre tuile de dimension <m>1\times 2</m> pour recouvrir la case en bas à gauche. Il reste donc à recouvrir un échiquier de dimension <m>2\times (n-2)</m>. Il y a <m>a_{n-2}</m> façons d'accomplir cette tâche.</p>
+            <p>Finalement, si on a utilisé une tuile de dimension <m>2\times 2</m>, il reste à recouvrir un échiquier de dimension <m>2\times (n-2)</m>. Il y a <m>a_{n-2}</m> façons d'accomplir cette tâche.</p>
+            <p>Ainsi, par le principe de la somme, on a <m>a_n=a_{n-1}+a_{n-2}+a_{n-2}=a_{n-1}+2a_{n-2}</m>.</p>
+        </solution>
+    </task>
+    <task><statement>
+        <p>
+            Résoudre la relation de récurrence à l'aide des conditions initiales (à l'aide de <m>a_1</m> et <m>a_2</m>).
+        </p>
+    </statement>
+    <solution>
+        <p> À l'aide de l'équation caractéristique, on trouve que <m>a_n=\alpha_1 (2)^n + \alpha_2 (-1)^n</m>.</p>
+        <p>Puisque <m>1=a_1= 2\alpha_1-\alpha_2</m> et <m>3=a_2=4\alpha_1 +\alpha_2</m>, on peut résoudre ces équations et obtenir <m>\alpha_1=\frac{2}{3}</m> et <m>\alpha_2=\frac{1}{3}</m>.</p>
+        <p>Ainsi, <m>a_n=\frac{2\cdot 2^n}{3}+\frac{1(-1)^n}{3}=\frac{2^{n+1}+(-1)^n}{3}</m>.</p> 
+    </solution>
+</task>
+</exercise>
+
+<exercise>
+    <introduction><p>On considère <m>s_n</m> le nombre de chaînes binaites de longueur <m>n</m> qui contiennent la suite de caractères <m>01</m>.</p></introduction>
+    <task>
+        <statement>
+            <p>Trouver les conditions initiales, c'est-à-dire, déterminer <m>s_1</m> et <m>s_2</m>.</p>
+        </statement>
+        <answer><p>On a <m>a_1=0</m> et <m>a_2=1</m>.</p></answer>
+    </task>
+    <task>
+        <statement> 
+            <p>Trouver une relation re récurrence pour la suite <m>\{s_n\}</m>.</p>
+        </statement>
+        <hint><p>La relation est une relation linéaire non homogène.</p></hint>
+        <solution>
+            <p>On considère la tâche d'écrire une chaîne binaire de longueur <m>n</m> contenant la suite <m>01</m>. On utilise le principe de la somme selon le premier caractère utilisé.</p>
+            <p>Si le premier caractère est un <m>1</m>, alors il doit y avoir la suite <m>01</m> à quelque part dans les <m>n-1</m> caractères restants. Ainsi, il reste à choisir une chaînes à <m>n-1</m> caractères contenant la suite <m>01</m>. Il y a <m>s_{n-1}</m> façons d'accomplir cette tâche.</p>
+            <p>Si le premier caractère utilisé est un <m>0</m>, il faut faire plus attention. On doit encore séparer en deux cas.</p>
+            <p>Tout d'abord, si la chaîne commence par <m>0</m>, il se peut que la suite <m>01</m> se trouve parmi les <m>n-1</m> caractères restants. Ainsi, il reste à choisir une chaînes à <m>n-1</m> caractères contenant la suite <m>01</m>. Il y a <m>s_{n-1}</m> façons d'accomplir cette tâche. </p>
+            <p>Cependant, on remarque que dans le cas précédent, on ne compte pas les chaînes qui contiennent la suite <m>01</m> uniquement dans les deux premiers caractères. On suppose donc que la suite <m>01</m> se retouve dans la chaîne uniquement au début de celle-ci. C'est-à-dire que la chaîne commence par <m>01</m>, mais n'a pas la suite <m>01</m> dans les <m>n-2</m> caractères restants. Ainsi, il reste à choisir une chaîne de <m>n-2</m> caractères qui ne contient pas la suite <m>01</m>. En passant par le complément, il y a <m>2^{n-2}-s_{n-2}</m> façons d'accomplir cette tâche.</p>
+            <p>Par le principe de la somme, on a <m>s_n=2s_{n-1}-s_{n-2}+2^{n-2}</m>.</p>
+        </solution>
+    </task>
+    <task>
+        <statement><p>Trouver une expression pour <m>s_n</m>. Puisque la relation est non homogène, on devra utiliser une solution particulière. Prendre une solution particulière de la forme <m>c 2^n</m>, où <m>c\in \R</m> est une constante à déterminer.</p></statement>
+        <solution>
+            <p>
+                On commence par résoudre la relation homogène. On trouve alors <m>s_n^{(h)}=\alpha_1 (1)^n + \alpha_2 n (1)^n= \alpha_1  + \alpha_2 n</m>
+            </p>
+            <p>
+                Ensuite, on remplaçant par <m>c2^n</m> dans la relation, on obtient 
+                <md>
+                    <mrow> c2^n \amp = 2(c2^{n-1}) - c2^{n-2} + 2^{n-2} \amp\amp </mrow>
+                    <mrow> \Rightarrow  2c \amp = 2c - c+1 \amp\amp \text{ en divisant par } 2^{n-2}</mrow>
+                    <mrow> \Rightarrow  c \amp = 1 \amp\amp </mrow>
+                </md>.
+            </p>
+            <p>
+                Ainsi, on a que <m>s_n = \alpha_1  + \alpha_2 n + 2^n</m>. À l'aide des conditions initiales, on a <m>s_1=0 = \alpha_1 + \alpha_2</m> et <m>s_2=1=\alpha_1 + 2\alpha_2</m>. On peut résoudre ces équations et obtenir <m>\alpha_1=-1</m> et <m>\alpha_2=1</m>.
+            </p>
+            <p>
+                Par ce qui précède, on a <m>s_n= -1 + n + 2^n</m>.
+            </p>
+        </solution>
+    </task>
+</exercise>
+
+    </subexercises>
+    <!--<subexercises>
+    <title>Exercices supplémentaires</title>
+    </subexercises>-->
+</exercises>
