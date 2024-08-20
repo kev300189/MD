@@ -20,7 +20,7 @@
     <!-- Sections à inclure, dans des fichiers xml différents -->
     <xi:include href="Section_methodePreuve.ptx" />
     <xi:include href="section_induction.ptx" /> 
-    <xi:include href="Section_pigeonHoles.ptx" />
+    <xi:include href="section_pigeonHoles.ptx" />
     <xi:include href="Section_preuvesSupp.ptx" /><!---->
     <conclusion xml:id="concl-">  <!-- Ajouter le même identifiant du chapitre après le - du xml:id -->
     
