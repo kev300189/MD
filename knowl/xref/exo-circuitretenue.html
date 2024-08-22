@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">12<span class="period">.</span></span>
+</h5>
+<div class="para">Montrer en utilisant une table de vérité et la forme normale disjonctive que la retenue d’un additionneur s’écrit comme <span class="process-math">\(R\equiv ((A\oplus B)\wedge P)\vee (A\wedge B)\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">À l’aide de la table de vérité, on trouve la forme normale disjonctive de:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+R\equiv (\neg A \wedge B\wedge P)\vee( A \wedge \neg B\wedge P)\vee(A \wedge  B\wedge  \neg P)\vee(A \wedge B\wedge P) \text{.}
+\end{equation*}
+</div>
+<div class="para">À l’aide des propriétés, on obtient</div>
+</div>
+<div class="displaymath process-math">
+\begin{align*}
+R&amp;\equiv (\neg A \wedge B\wedge P)\vee( A \wedge \neg B\wedge P)\vee(A \wedge  B\wedge  \neg P)\vee(A \wedge B\wedge P)&amp;&amp;\\
+&amp;\equiv (((\neg A \wedge B)\vee(A \wedge \neg B)) \wedge P )\vee(A \wedge  B\wedge  \neg P)\vee(A \wedge B\wedge P)&amp;&amp;\text{distributivité de la conjonction sur la disjonction}\\
+&amp;\equiv(((\neg A \wedge B)\vee(A \wedge \neg B)) \wedge P )\vee ((A\wedge B)\wedge(\neg P \vee P))&amp;&amp;\text{distributivité de la conjonction sur la disjonction}\\
+&amp;\equiv (((\neg A \wedge B)\vee(A \wedge \neg B)) \wedge P )\vee ((A\wedge B)\wedge(V))&amp;&amp;\text{propriété de la négation}\\
+&amp;\equiv (((\neg A \wedge B)\vee(A \wedge \neg B)) \wedge P )\vee (A\wedge B)&amp;&amp;\text{propriété d'identité}\\
+&amp;\equiv((A\oplus B)\wedge P)\vee (A\wedge B)&amp;&amp; \text{définition du ou exclusif}
+\end{align*}
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-representation.html#exo-circuitretenue">Contexte</a></span>
+</body>
+</html>

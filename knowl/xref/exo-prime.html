@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">10<span class="period">.</span></span>
+</h5>Soit <span class="process-math">\(p\in\,\N\)</span> un nombre premier et <span class="process-math">\(m,\,n\in\,\N\text{.}\)</span> Montrer que si <span class="process-math">\(p\)</span> divise <span class="process-math">\(m\cdot n,\)</span> alors <span class="process-math">\(p\)</span> divise <span class="process-math">\(m\)</span> ou <span class="process-math">\(n\text{.}\)</span><div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">Par preuve directe, en passant par <span class="process-math">\(\mod p\)</span> et en utilisant l’inverse modulo <span class="process-math">\(p\text{.}\)</span>
+</div></details><details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">Faire la preuve en deux étapes. Soit <span class="process-math">\(p\mid n\)</span> ou bien <span class="process-math">\(p\not\mid n\text{.}\)</span>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On suppose que <span class="process-math">\(p\)</span> divise <span class="process-math">\(m\cdot n,\)</span> et on veut montrer que <span class="process-math">\(p\)</span> divise <span class="process-math">\(m\)</span> ou <span class="process-math">\(n\text{.}\)</span> Si <span class="process-math">\(p\mid n\text{,}\)</span> on a terminer. Si <span class="process-math">\(p\)</span> ne divise pas <span class="process-math">\(n,\)</span> on doit montrer que <span class="process-math">\(p\)</span> divise <span class="process-math">\(m\)</span>
+</div> <div class="para logical">
+<div class="para">Puisque <span class="process-math">\(p\)</span> ne divise pas <span class="process-math">\(n\)</span> et puisque <span class="process-math">\(p\)</span> est un nombre premier, on a que <span class="process-math">\(\pgcd(n,p)=1.\)</span> Ainsi, on sait que <span class="process-math">\(n\)</span> possède un inverse modulo <span class="process-math">\(p,\)</span> c’est-à-dire qu’il existe un entier <span class="process-math">\(a\)</span> tel que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a\cdot n \equiv 1 \mod p\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">D’un autre côté, puisque <span class="process-math">\(p\)</span> divise <span class="process-math">\(m\cdot n\text{,}\)</span> on a que <span class="process-math">\(n\cdot m \equiv 0 \mod p\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">On a alors</div>
+<div class="displaymath process-math">
+\begin{align*}
+\amp\amp n\cdot m \amp\equiv 0 \mod p\\
+\text{d'où } \amp\amp (a n)\cdot m \amp\equiv a \cdot 0 \mod p\\
+\amp\amp (1)m\amp\equiv 0 \mod p\\
+\amp\amp m\amp\equiv 0 \mod p
+\end{align*}
+</div>
+<div class="para">c’est-à-dire que <span class="process-math">\(p\mid m\)</span>
+</div>
+</div>
+</div></details>
+</div></article><span class="incontext"><a class="internal" href="sec_methodePreuve.html#exo-prime">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Propriété de l’arithmétique modulaire.</span>
+</h4>
+<div class="para logical">
+<div class="para">Soit <span class="process-math">\(a,b,c,d\in \mathbb{Z}\)</span> et <span class="process-math">\(n&gt;0\)</span> des entiers tels que <span class="process-math">\(a\equiv b\mod n\)</span> et <span class="process-math">\(c\equiv d\mod n\text{.}\)</span> Alors</div>
+<ol class="decimal" id="prop-moduloprop-2-1-5">
+<li><div class="para"><span class="process-math">\((a+c)\equiv (b+d)\mod n\text{;}\)</span></div></li>
+<li><div class="para"><span class="process-math">\((a-c)\equiv (b-d)\mod n\text{;}\)</span></div></li>
+<li><div class="para"><span class="process-math">\((ac)\equiv (bd)\mod n\text{.}\)</span></div></li>
+</ol>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">L’idée derrière cette propriété découle du fait suivant: si <span class="process-math">\(a=b\text{,}\)</span> alors pour tout <span class="process-math">\(c\in \R\text{,}\)</span> on a <span class="process-math">\(a+c=b+c\text{.}\)</span> On peut toujours effectuer une même opération de part et d’autre d’une égalité et préserver celle-ci. Dans le contexte des congruences modulo <span class="process-math">\(n\text{,}\)</span> il n’est pas nécessaire d’ajouter de chaque côté le même nombre, en autant que les ajouts soient dans la même classe d’équivalence. On démontre maintenant la première propriété.</div> <div class="para logical">
+<div class="para">Puisque <span class="process-math">\(a\equiv b\mod n\)</span> et <span class="process-math">\(c\equiv d \mod n\text{,}\)</span> on sait qu’il existe <span class="process-math">\(q_1,q_2,q_3,q_4,r_1,r_2\in \mathbb{Z}\)</span> tels que <span class="process-math">\(a=nq_1+r_1,b=nq_2+r_1,c=nq_3+r_2\)</span> et <span class="process-math">\(d=nq_4+r_2\text{.}\)</span> En additionnant <span class="process-math">\(a+c\)</span> et <span class="process-math">\(b+d\text{,}\)</span> on trouve</div>
+<div class="displaymath process-math">
+\begin{align*}
+a+c&amp;=nq_1+r_1+nq_3+r_2\\
+&amp;=nq_1+nq_3+r_1+r_2\\
+&amp;=n(q_1+q_3)+(r_1+r_2)\text{.}
+\end{align*}
+</div>
+<div class="para">De même</div>
+<div class="displaymath process-math">
+\begin{align*}
+b+d&amp;=nq_2+r_1+nq_4+r_2\\
+&amp;=nq_2+nq_4+r_1+r_2\\
+&amp;=n(q_2+q_4)+(r_1+r_2)\text{.}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">Si <span class="process-math">\(r_1+r_2&lt; n\text{,}\)</span> alors on vient de montrer que <span class="process-math">\(a+c\)</span> et <span class="process-math">\(b+d\)</span> ont le même reste lorsque divisés par <span class="process-math">\(n\text{.}\)</span> Ils sont donc congrus modulo <span class="process-math">\(n\text{.}\)</span> Si toutefois <span class="process-math">\(r_1+r_2\geq n\text{,}\)</span> alors il faut d’abord écrire <span class="process-math">\(r_1+r_2=n+r_3\text{.}\)</span> Puisque <span class="process-math">\(0\leq r_1,r_2&lt; n\text{,}\)</span> on sait que <span class="process-math">\(r_1+r_2&lt; 2n\)</span> et donc <span class="process-math">\(0\leq r_3&lt; n\text{.}\)</span> On a alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a+c=n(q_1+q_3+1)+r_3
+\end{equation*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+b+d=n(q_2+q_4+1)+r_3
+\end{equation*}
+</div>
+<div class="para">et le résultat tient aussi.</div>
+</div></article></details><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">La deuxième propriété peut être démontrée d’une manière identique à la première, mais on choisit ici de présenter une approche différente tirant profit de la proposition <a href="sec-modulo.html#prop-modulodivisibilite" class="xref" data-knowl="./knowl/xref/prop-modulodivisibilite.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.3.5: Congruence modulo n et divisibilité">3.3.5</a>. D’une part, si <span class="process-math">\(a\equiv b\mod n\text{,}\)</span> alors <span class="process-math">\(a-b=k_1n\)</span> puisque <span class="process-math">\(n\mid (a-b)\text{.}\)</span> De même, <span class="process-math">\(c-d=k_2n\text{.}\)</span> On peut alors écrire <span class="process-math">\(a-c=k_1n+b-(k_2n+d)\text{,}\)</span> qui devient <span class="process-math">\(a-c=(k_1+k_2)n+b-d\text{.}\)</span> Or cela signifie que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/prop-modulodivisibilite.html ./knowl/xref/prop-modulodivisibilite.html">
+\begin{equation*}
+a-c-(b+d)=(k_1+k_2)n
+\end{equation*}
+</div>
+<div class="para">et donc, que <span class="process-math">\(n\mid (a-c-(b-d))\text{.}\)</span> Selon la proposition <a href="sec-modulo.html#prop-modulodivisibilite" class="xref" data-knowl="./knowl/xref/prop-modulodivisibilite.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.3.5: Congruence modulo n et divisibilité">3.3.5</a>, on a donc <span class="process-math">\(a-c\equiv b-d\text{.}\)</span>
+</div>
+</div></article></details><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">Voir l’exercice <code class="code-inline tex2jax_ignore">[provisional cross-reference: exo-produitmodulopreuve]</code>.</div></article></details><span class="incontext"><a class="internal" href="sec-modulo.html#prop-moduloprop">Contexte</a></span>
+</body>
+</html>

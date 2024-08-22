@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.11</span><span class="period">.</span>
+</h4>Soit <span class="process-math">\(E\)</span> un ensemble de cardinalité finie <span class="process-math">\(|E|=n,\)</span>  et soit <span class="process-math">\(r\in\, \N\)</span> tel que <span class="process-math">\(r\leq n\text{,}\)</span> alors <span class="process-math">\(\Binomial{n}{r}=\frac{n!}{r!(n-r)!}\text{.}\)</span></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">On sait que le nombre de <span class="process-math">\(r-\)</span>permutations est <span class="process-math">\(\Permutation{n}{r}=\frac{n!}{(n-r)!}\text{.}\)</span> Nous allons utiliser le principe du produit afin de compter <span class="process-math">\(\Permutation{n}{r}\)</span> d’une autre façon. On peut séparer la tâche de choisir une permutation en deux étapes. Premièrement, on choisit <span class="process-math">\(r\)</span> éléments de <span class="process-math">\(E\text{.}\)</span> Deuxièmement, on choisit un ordre pour ces éléments (on permute ces <span class="process-math">\(r\)</span> éléments).</div> <div class="para logical">
+<div class="para">Le nombre de façons de choisir les <span class="process-math">\(r\)</span> éléments de <span class="process-math">\(E\)</span> est <span class="process-math">\(\Binomial{n}{r}\text{.}\)</span> Pour chaque choix de <span class="process-math">\(r\)</span> éléments , le nombre de façons d’ordonner ceux-ci  est <span class="process-math">\(r!\)</span> (le nombre de permutations des <span class="process-math">\(r\)</span> éléments). Ainsi, par le principe du produit, on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Permutation{n}{r}=\Binomial{n}{r}\cdot r!\text{.}
+\end{equation*}
+</div>
+<div class="para">On a alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\Binomial{n}{r}=\frac{\Permutation{n}{r}}{r!}=\frac{n!}{r!(n-r)!}\text{.}
+\end{equation*}
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec_arrCombinaison.html#prop_nbrRComb">Contexte</a></span>
+</body>
+</html>

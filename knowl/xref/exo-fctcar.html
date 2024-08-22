@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">9<span class="period">.</span></span>
+</h5>
+<div class="introduction"><div class="para logical">
+<div class="para">Soit <span class="process-math">\(A\)</span> un ensemble et soit <span class="process-math">\(C\subseteq  A\)</span> un sous-ensemble. La fonction caractéristique de <span class="process-math">\(C\text{,}\)</span> notée <span class="process-math">\(\mathbb{1}_C\)</span> est une fonction de <span class="process-math">\(A\)</span> vers <span class="process-math">\(\{0,1\}\)</span> définie par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbb{1}_C(a)=\begin{cases}
+1 &amp; \text{ si } a\in C \\
+0 &amp; \text{ si } a\notin C
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">.</div>
+</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para">À titre d’exemple, on considère l’ensemble  <span class="process-math">\(A=\{a,b,c\}\)</span> et le sous-ensemble <span class="process-math">\(C=\{a,b\}\text{.}\)</span> Quels sont les éléments de <span class="process-math">\(\mathbb{1}_C\text{?}\)</span>
+</div>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<span class="process-math">\(\mathbb{1}_C = \{(a,1),(b,1),(c,0)\}\text{.}\)</span> Ainsi, on a <span class="process-math">\(\mathbb{1}_C(a)=1\text{,}\)</span> <span class="process-math">\(\mathbb{1}_C(b)=1\)</span> et <span class="process-math">\(\mathbb{1}_C(c)=0\)</span>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para">Pour des ensembles <span class="process-math">\(C,D\subseteq A\)</span> quelconques, montrer que <span class="process-math">\(\mathbb{1}_{C\cap D}=\mathbb{1}_C\cdot\mathbb{1}_D\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Soit <span class="process-math">\(a\in A\text{,}\)</span> on veut comparer <span class="process-math">\(\mathbb{1}_C(a)\cdot \mathbb{1}_D(a)\)</span> à <span class="process-math">\(\mathbb{1}_{C\cap D}(a)\text{.}\)</span>
+</div> <div class="para">Si <span class="process-math">\(a\in C\cap D\text{,}\)</span> alors <span class="process-math">\(\mathbb{1}_{C\cap D}(a)=1\text{.}\)</span> De plus, on a que <span class="process-math">\(a\in C\)</span> et <span class="process-math">\(a \in D\text{.}\)</span> Ainsi, <span class="process-math">\(\mathbb{1}_C(a)\cdot \mathbb{1}_D(a)=1\cdot 1=1\)</span>
+</div> <div class="para">Si <span class="process-math">\(a\notin C\cap D\text{,}\)</span> alors <span class="process-math">\(\mathbb{1}_{C\cap D}(a)=0\text{.}\)</span> De plus, on a que <span class="process-math">\(a\notin C\)</span> (c’est-à-dire que <span class="process-math">\(\mathbb{1}_C(a)=0\)</span>) ou <span class="process-math">\(a \notin D\)</span> (c’est-à-dire que <span class="process-math">\(\mathbb{1}_D(a)=0\)</span>). Dans les deux cas, on a <span class="process-math">\(\mathbb{1}_C(a)\cdot \mathbb{1}_D(a)=0\text{.}\)</span>
+</div>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para">Pour des ensembles <span class="process-math">\(C,D\subseteq A\)</span> quelconques, montrer que <span class="process-math">\(\mathbb{1}_{C\cup D}=\mathbb{1}_C+\mathbb{1}_D-\mathbb{1}_C\cdot\mathbb{1}_D\text{.}\)</span>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Soit <span class="process-math">\(a\in A\text{,}\)</span> on veut comparer <span class="process-math">\(\mathbb{1}_C(a)+ \mathbb{1}_D(a)-\mathbb{1}_C(a)\cdot \mathbb{1}_D(a)\)</span> à <span class="process-math">\(\mathbb{1}_{C\cup D}(a)\text{.}\)</span>
+</div> <div class="para">Si <span class="process-math">\(a\in C\cup D\text{,}\)</span> alors <span class="process-math">\(\mathbb{1}_{C\cup D}(a)=1\text{.}\)</span> On veut montrer que <span class="process-math">\(\mathbb{1}_C(a)+\mathbb{1}_D(a)-\mathbb{1}_C(a)\cdot \mathbb{1}_D(a)=1\text{.}\)</span> Pour ce faire, on doit séparer le cas où <span class="process-math">\(a\in C\cap D\)</span> du cas où <span class="process-math">\(a\notin C\cap D\text{.}\)</span>
+</div> <div class="para">Par la partie précédente, on sait que <span class="process-math">\(\mathbb{1}_{C\cap D}=\mathbb{1}_C\cdot \mathbb{1}_D\text{.}\)</span> Ainsi, si <span class="process-math">\(a\in C\cap D\text{,}\)</span> alors <span class="process-math">\(\mathbb{1}_C(a)+\mathbb{1}_D(a)-\mathbb{1}_C(a)\cdot \mathbb{1}_D(a)=1+1-1=1\)</span> .</div> <div class="para">Si on a plutôt <span class="process-math">\(a\notin C\cap D\text{,}\)</span> alors puisqu’on sait que <span class="process-math">\(a \in C\cup D\text{,}\)</span> on a que <span class="process-math">\(a \in C\cap D^c\)</span> ou bien <span class="process-math">\(a\in C^c\cap D\text{.}\)</span> Dans les deux cas, on a <span class="process-math">\(\mathbb{1}_C(a)+\mathbb{1}_D(a)-\mathbb{1}_C(a)\cdot \mathbb{1}_D(a)=1+0-0=1\)</span>
+</div> <div class="para">Finalement, si <span class="process-math">\(a\notin C\cup D\text{,}\)</span> alors <span class="process-math">\(\mathbb{1}_{C\cap D}(a)=0\text{.}\)</span> De plus, on a que <span class="process-math">\(a\notin C\)</span> et <span class="process-math">\(a \notin D\text{.}\)</span> Ainsi, <span class="process-math">\(\mathbb{1}_C(a)+\mathbb{1}_D(a)-\mathbb{1}_C(a)\cdot \mathbb{1}_D(a)=0+0-0\cdot 0=0\text{.}\)</span>
+</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On peut aussi montrer l’égalité à l’aide d’une table d’appartenance, à laquelle on ajoutes des colones pour les valeurs des fonctions.</div> <figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.3.21<span class="period">.</span></span><span class="space"> </span>Table d’appartenance pour <span class="process-math">\(\mathbb{1}_{C\cup D}=\mathbb{1}_C+\mathbb{1}_D-\mathbb{1}_C\cdot\mathbb{1}_D\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(C\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(D\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(C\cup D\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(C\cap D\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(\mathbb{1}_C\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(\mathbb{1}_D \)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(\mathbb{1}_{C\cup D}\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(\mathbb{1}_{C}\cdot \mathbb{1}_{D}\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(\mathbb{1}_C+\mathbb{1}_D-\mathbb{1}_{C}\cdot \mathbb{1}_{D}\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+<td class="c m b0 r0 l0 t0 lines">1</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+<td class="c m b0 r0 l0 t0 lines">0</td>
+</tr>
+<tr>
+<td class="c m b3 r0 l0 t0 lines">non</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">non</td>
+<td class="c m b3 r0 l0 t0 lines">0</td>
+<td class="c m b3 r0 l0 t0 lines">1</td>
+<td class="c m b3 r0 l0 t0 lines">1</td>
+<td class="c m b3 r0 l0 t0 lines">0</td>
+<td class="c m b3 r0 l0 t0 lines">1</td>
+</tr>
+</table></div></figure>
+</div></details>
+</div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para">Trouver une expression pour la fonction caractéristique du complément de <span class="process-math">\(C\)</span> en fonction de celle de <span class="process-math">\(C\text{.}\)</span>
+</div>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(\mathbb{1}_{C^c}=1-\mathbb{1}_C\text{.}\)</span></div></details></div></article></article><span class="incontext"><a class="internal" href="sec-fonctions.html#exo-fctcar">Contexte</a></span>
+</body>
+</html>

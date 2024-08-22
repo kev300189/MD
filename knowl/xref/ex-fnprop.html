@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Transformer des propositions sous formes normales.</span>
+</h4>
+<div class="para logical">
+<div class="para">On reprend les deux propositions</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\neg(p\vee q)\vee (r\wedge \neg q)
+\end{equation*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+((p\wedge q)\vee r)\wedge (q\vee \neg r)\text{.}
+\end{equation*}
+</div>
+<div class="para">On veut les écrire sous l’une des deux formes normales.</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Il faut utiliser la loi de  <a href="sec-eqlogfnc.html#li-oplogDeMorgan" class="xref" data-knowl="./knowl/xref/li-oplogDeMorgan.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 2.2.5:9">De Morgan</a> afin d’enlever la négation devant la première parenthèse. Celle-ci devient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-oplogDeMorgan.html">
+\begin{equation*}
+\neg(p\vee q)\equiv\neg p \wedge \neg q\text{.}
+\end{equation*}
+</div>
+<div class="para">On peut ensuite réécrire la proposition comme étant</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-oplogDeMorgan.html">
+\begin{equation*}
+\neg(p\vee q)\vee (r\wedge \neg q)\equiv(\neg p \wedge \neg q)\vee (r\wedge \neg q)\text{,}
+\end{equation*}
+</div>
+<div class="para">qui est une forme normale disjonctive.</div>
+</div> <div class="para logical">
+<div class="para">Pour la seconde proposition, il faut distribuer la disjonction dans l’expression <span class="process-math">\((p\wedge q)\vee r\text{.}\)</span> En utilisant <a href="sec-eqlogfnc.html#li-oplogdis" class="xref" data-knowl="./knowl/xref/li-oplogdis.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 2.2.5:8">la distributivité</a>, on obtient</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-oplogdis.html">
+\begin{equation*}
+(p\wedge q)\vee r\equiv(p\vee r)\wedge (q\vee r)\text{.}
+\end{equation*}
+</div>
+<div class="para">En combinant avec le reste de la proposition initiale, on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-oplogdis.html">
+\begin{equation*}
+((p\wedge q)\vee r)\wedge (q\vee \neg r)\equiv (p\vee r)\wedge (q\vee r)\wedge (q\vee \neg r)\text{,}
+\end{equation*}
+</div>
+<div class="para">qui est une forme normale conjonctive.</div>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-eqlogfnc.html#ex-fnprop">Contexte</a></span>
+</body>
+</html>

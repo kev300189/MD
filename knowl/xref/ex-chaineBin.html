@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.2.13</span><span class="period">.</span><span class="space"> </span><span class="title">Des chaînes binaires.</span>
+</h4>Combien de chaînes binaires de longueur <span class="process-math">\(n\)</span> contiennent exactement <span class="process-math">\(r\)</span> caractères <span class="process-math">\(1\text{?}\)</span><div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para"><span class="process-math">\(\Binomial{n}{r} \)</span></div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Pour dénombrer ces chaînes, on remarque que pour choisir une telle chaîne binaire, il suffit de choisir <span class="process-math">\(r\)</span> positions où l’on place les <span class="process-math">\(1\)</span> parmi les <span class="process-math">\(n\)</span> positions possibles. Il s’agit donc de compter les combinaisons de <span class="process-math">\(r\)</span> parmi <span class="process-math">\(n\text{.}\)</span> Il y en a <span class="process-math">\(\Binomial{n}{r}\text{.}\)</span>
+</div> <div class="para">On peut également remarquer que, s’il y a exactement <span class="process-math">\(r\)</span> caractères <span class="process-math">\(1\text{,}\)</span> alors il y aura <span class="process-math">\(n-r\)</span> caractères <span class="process-math">\(0\text{.}\)</span> Ainsi, on aurait également pu choisir les <span class="process-math">\(n-r\)</span> positions des <span class="process-math">\(0\text{.}\)</span> Il y a donc <span class="process-math">\(\Binomial{n}{n-r}\)</span> façons de le faire.</div> <div class="para">Ainsi, on devrait avoir que <span class="process-math">\(\Binomial{n}{r}=\Binomial{n}{n-r}\)</span>
+</div>
+</div></details>
+</div></article><span class="incontext"><a class="internal" href="sec_arrCombinaison.html#ex-chaineBin">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">6<span class="period">.</span></span><span class="space"> </span><span class="title">Le lemme de Bézout.</span>
+</h5>
+<div class="introduction">
+<div class="para logical">
+<div class="para">Soit <span class="process-math">\(a,b\)</span> des naturels non nuls tels que <span class="process-math">\(\pgcd{(a,b)}=d\text{.}\)</span> Alors il existe <span class="process-math">\(x,y\in \Z\)</span> tels que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+d=ax+by
+\end{equation*}
+</div>
+</div> <div class="para">Cette relation a des conséquences importantes en théorie des nombres. On montre dans cet exercice comment démontrer l’existence des entiers <span class="process-math">\(x,y\)</span> et on explique comment on peut trouver de tels entiers.</div>
+</div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para">On considère l’ensemble <span class="process-math">\(S=\{n\in \N~|~ n=ax+by \text{ avec } x,y\in \Z\text{ et } n&gt;0\}\text{.}\)</span> C’est donc l’ensemble des naturels plus grands que zéro qu’il est possible de former avec <span class="process-math">\(a,b\)</span> en les combinant avec des entiers quelconques.</div> <div class="para">Montrer que <span class="process-math">\(S\)</span> est non vide. En particulier, puisque <span class="process-math">\(S\)</span> est un ensemble de nombres naturels, il existe un plus petit élément.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para">Il suffit de montrer qu’il existe au moins une paire <span class="process-math">\((x,y)\in \Z\times \Z\)</span> telle que <span class="process-math">\(ax+by &gt; 0\text{.}\)</span> Pour cela, on prend <span class="process-math">\(x=\frac{|a|}{a}\)</span> et <span class="process-math">\(y=\frac{|b|}{b}\text{.}\)</span> Dans ce cas, on a que <span class="process-math">\(ax=|a|\)</span> et <span class="process-math">\(by=|b|\text{.}\)</span> Ainsi, <span class="process-math">\(ax+by=|a|+|b| \gt 0\text{.}\)</span> En effet, on rappel que <span class="process-math">\(a\)</span> et <span class="process-math">\(b\)</span> sont non nuls, et donc <span class="process-math">\(ax+by=|a|+|b| \neq 0\text{.}\)</span>
+</div></div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para">On pose <span class="process-math">\(d_0\in S\)</span> le plus petit élément de cet ensemble. On veut montrer que <span class="process-math">\(d_0|a\)</span> et <span class="process-math">\(d_0|b\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">On considère la division de <span class="process-math">\(a\)</span> par <span class="process-math">\(d_0\text{,}\)</span> qu’on écrit sous la forme quotient reste</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a=d_0q+r\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">Montrer que <span class="process-math">\(r\in S\cup\{0\}\)</span> en l’écrivant comme <span class="process-math">\(ax+by\)</span> avec <span class="process-math">\(x,y\in \mathbb{Z}\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Puisque <span class="process-math">\(d_0\in S\text{,}\)</span> on peut écrire <span class="process-math">\(d_0=ax_1+by_1\)</span> pour <span class="process-math">\(x_1,\ y_1\ \in \Z\text{.}\)</span> Ainsi, on a</div>
+<div class="displaymath process-math">
+\begin{align*}
+a\amp = d_0q+r \\
+a\amp = (ax_1+by_1)q+r
+\end{align*}
+</div>
+<div class="para">et donc</div>
+<div class="displaymath process-math">
+\begin{align*}
+r\amp = a-(ax_1+by_1)q \\
+\amp = a(1-qx_1)+b(-qy_1)= ax+by
+\end{align*}
+</div>
+<div class="para">où <span class="process-math">\(x=1-qx_1\ \in\ \Z\)</span> et <span class="process-math">\(y=-qy_1\ \in\ \Z\text{.}\)</span>
+</div>
+</div> <div class="para">Ainsi, si <span class="process-math">\(r=0\text{,}\)</span> alors <span class="process-math">\(r=0\in S\cup \{0\}\text{.}\)</span> De l’autre côté, si <span class="process-math">\(r\neq 0\text{,}\)</span> puisque <span class="process-math">\(r =ax+by\text{,}\)</span> on sait que <span class="process-math">\(r\in S\text{.}\)</span> En particulier, <span class="process-math">\(r\ \in S\cup \{0\}\text{.}\)</span>
+</div>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para">Utiliser le fait que dans la forme quotient reste, on a <span class="process-math">\(0\leq r&lt; d_0\text{,}\)</span> le fait que <span class="process-math">\(r\in S\cup\{0\}\)</span> et le fait que <span class="process-math">\(d_0\)</span> est le plus petit élément de <span class="process-math">\(S\)</span> pour déterminer la valeur de <span class="process-math">\(r\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">On veut montrer que <span class="process-math">\(r=0\text{.}\)</span> En effet, Puisque <span class="process-math">\(r\in S\cup\{0\}\text{,}\)</span> si <span class="process-math">\(r\neq 0\text{,}\)</span> alors <span class="process-math">\(r\in S\)</span> et <span class="process-math">\(0\lt r \lt d_0\text{.}\)</span> Or, si <span class="process-math">\(r\in\ S\text{,}\)</span> alors par définition de <span class="process-math">\(d_0\text{,}\)</span> on a que <span class="process-math">\(d_0\leq r\text{,}\)</span> ce qui est impossible si <span class="process-math">\(0\lt r \lt d_0\text{.}\)</span> On doit donc avoir <span class="process-math">\(r=0\text{.}\)</span>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para">Conclure que <span class="process-math">\(d_0|a\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Puisque <span class="process-math">\(r=0\text{,}\)</span> on a que <span class="process-math">\(a=d_0q\text{,}\)</span> et donc <span class="process-math">\(d_0|a\text{.}\)</span>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="para">Argumenter que <span class="process-math">\(d_0\)</span> divise aussi <span class="process-math">\(b\)</span> pour les mêmes raisons.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">On remplace <span class="process-math">\(a\)</span> par <span class="process-math">\(b\)</span> dans les parties <span class="process-math">\((b)\)</span> à <span class="process-math">\((d)\text{,}\)</span> et on obtient que <span class="process-math">\(d_0|b\text{.}\)</span>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(f)</span></h6>
+<div class="para">Le plus petit élément de <span class="process-math">\(S\)</span> est donc un diviseur de <span class="process-math">\(a\)</span> et <span class="process-math">\(b\text{.}\)</span> On va maintenant montrer que c’est nécessairement le <span class="process-math">\(\pgcd\)</span> de ces deux nombres.</div> <div class="para logical">
+<div class="para">Si <span class="process-math">\(c\)</span> est un diviseur commun de <span class="process-math">\(a\)</span> et <span class="process-math">\(b\text{,}\)</span> montrer que <span class="process-math">\(c\)</span> divise <span class="process-math">\(d_0\)</span> en utilisant l’équation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+d_0=as+bt
+\end{equation*}
+</div>
+<div class="para">pour certains <span class="process-math">\(s,t\in \mathbb{Z}\text{.}\)</span> Si <span class="process-math">\(c|d_0\text{,}\)</span> alors nécessairement <span class="process-math">\(c\leq d_0\text{,}\)</span> ce qui complète la preuve.</div>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Si <span class="process-math">\(c|a\)</span> et <span class="process-math">\(c|a\text{,}\)</span> alors <span class="process-math">\(a=cq_1\)</span> et <span class="process-math">\(b=cq_2\)</span> pour <span class="process-math">\(q_1,\ q_2\ \in Z\text{.}\)</span> Ainsi, on a<div class="displaymath process-math">
+\begin{equation*}
+d_0=as+bt=cq_1s+cq_2t = c(q_1s+q_2t).
+\end{equation*}
+</div>Ainsi, <span class="process-math">\(c|d_0\text{,}\)</span> car <span class="process-math">\((q_1s+q_2t)\ \in\ \Z\text{.}\)</span> Ceci montre que <span class="process-math">\(d_0=\pgcd{(a,b)}\in S\text{.}\)</span>
+</div></details></div></article></article><span class="incontext"><a class="internal" href="sec-divisibilite.html#exo-Bezout">Contexte</a></span>
+</body>
+</html>

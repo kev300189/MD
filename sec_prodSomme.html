@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MaDIR Méthodes de dénombrement: Principes de base</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathématiques discrètes">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#ex-ensext-2-1-1 { counter-set: ex-ensext-2-1-1 0; }
+#ex-ensext-2-1-1 > li::marker { content: ""counter(ex-ensext-2-1-1,decimal)"."; }
+#ex-ensext-2-1-1 > li { counter-increment: ex-ensext-2-1-1; }
+#ex-ensext-3-1-1 { counter-set: ex-ensext-3-1-1 0; }
+#ex-ensext-3-1-1 > li::marker { content: ""counter(ex-ensext-3-1-1,decimal)"."; }
+#ex-ensext-3-1-1 > li { counter-increment: ex-ensext-3-1-1; }
+#sec-ens-3-8-2-1-1 { counter-set: sec-ens-3-8-2-1-1 0; }
+#sec-ens-3-8-2-1-1 > li::marker { content: ""counter(sec-ens-3-8-2-1-1,decimal)"."; }
+#sec-ens-3-8-2-1-1 > li { counter-increment: sec-ens-3-8-2-1-1; }
+#sec-ens-3-8-3-1-1 { counter-set: sec-ens-3-8-3-1-1 0; }
+#sec-ens-3-8-3-1-1 > li::marker { content: ""counter(sec-ens-3-8-3-1-1,decimal)"."; }
+#sec-ens-3-8-3-1-1 > li { counter-increment: sec-ens-3-8-3-1-1; }
+#sssec-opens-19-3-1-2 { counter-set: sssec-opens-19-3-1-2 0; }
+#sssec-opens-19-3-1-2 > li::marker { content: ""counter(sssec-opens-19-3-1-2,decimal)"."; }
+#sssec-opens-19-3-1-2 > li { counter-increment: sssec-opens-19-3-1-2; }
+#li-opensprop-2 { counter-set: li-opensprop-2 0; }
+#li-opensprop-2 > li::marker { content: ""counter(li-opensprop-2,decimal)"."; }
+#li-opensprop-2 > li { counter-increment: li-opensprop-2; }
+#prop-opensass-3-1-2 { counter-set: prop-opensass-3-1-2 0; }
+#prop-opensass-3-1-2 > li::marker { content: ""counter(prop-opensass-3-1-2,decimal)"."; }
+#prop-opensass-3-1-2 > li { counter-increment: prop-opensass-3-1-2; }
+#sec-fonctions-3-8-2-1-1 { counter-set: sec-fonctions-3-8-2-1-1 0; }
+#sec-fonctions-3-8-2-1-1 > li::marker { content: ""counter(sec-fonctions-3-8-2-1-1,decimal)"."; }
+#sec-fonctions-3-8-2-1-1 > li { counter-increment: sec-fonctions-3-8-2-1-1; }
+#sec-fonctions-3-8-3-1-1 { counter-set: sec-fonctions-3-8-3-1-1 0; }
+#sec-fonctions-3-8-3-1-1 > li::marker { content: ""counter(sec-fonctions-3-8-3-1-1,decimal)"."; }
+#sec-fonctions-3-8-3-1-1 > li { counter-increment: sec-fonctions-3-8-3-1-1; }
+#ex-composagi-2-1-4 { counter-set: ex-composagi-2-1-4 0; }
+#ex-composagi-2-1-4 > li::marker { content: ""counter(ex-composagi-2-1-4,decimal)"."; }
+#ex-composagi-2-1-4 > li { counter-increment: ex-composagi-2-1-4; }
+#ex-composagi-3-1-1 { counter-set: ex-composagi-3-1-1 0; }
+#ex-composagi-3-1-1 > li::marker { content: ""counter(ex-composagi-3-1-1,decimal)"."; }
+#ex-composagi-3-1-1 > li { counter-increment: ex-composagi-3-1-1; }
+#ex-inj-2-1-1 { counter-set: ex-inj-2-1-1 0; }
+#ex-inj-2-1-1 > li::marker { content: ""counter(ex-inj-2-1-1,decimal)"."; }
+#ex-inj-2-1-1 > li { counter-increment: ex-inj-2-1-1; }
+#ex-inj-3-1-1 { counter-set: ex-inj-3-1-1 0; }
+#ex-inj-3-1-1 > li::marker { content: ""counter(ex-inj-3-1-1,decimal)"."; }
+#ex-inj-3-1-1 > li { counter-increment: ex-inj-3-1-1; }
+#ex-surj-2-1-1 { counter-set: ex-surj-2-1-1 0; }
+#ex-surj-2-1-1 > li::marker { content: ""counter(ex-surj-2-1-1,decimal)"."; }
+#ex-surj-2-1-1 > li { counter-increment: ex-surj-2-1-1; }
+#ex-surj-3-1-1 { counter-set: ex-surj-3-1-1 0; }
+#ex-surj-3-1-1 > li::marker { content: ""counter(ex-surj-3-1-1,decimal)"."; }
+#ex-surj-3-1-1 > li { counter-increment: ex-surj-3-1-1; }
+#concl-fonctions-2-1 { counter-set: concl-fonctions-2-1 0; }
+#concl-fonctions-2-1 > li::marker { content: ""counter(concl-fonctions-2-1,decimal)"."; }
+#concl-fonctions-2-1 > li { counter-increment: concl-fonctions-2-1; }
+#sec-fonctions-8-6-1-1-2 { counter-set: sec-fonctions-8-6-1-1-2 0; }
+#sec-fonctions-8-6-1-1-2 > li::marker { content: "("counter(sec-fonctions-8-6-1-1-2,lower-alpha)")"; }
+#sec-fonctions-8-6-1-1-2 > li { counter-increment: sec-fonctions-8-6-1-1-2; }
+#sec-fonctions-8-7-1-1-2 { counter-set: sec-fonctions-8-7-1-1-2 0; }
+#sec-fonctions-8-7-1-1-2 > li::marker { content: "("counter(sec-fonctions-8-7-1-1-2,lower-alpha)")"; }
+#sec-fonctions-8-7-1-1-2 > li { counter-increment: sec-fonctions-8-7-1-1-2; }
+#exo--2-7-1-1-3 { counter-set: exo--2-7-1-1-3 0; }
+#exo--2-7-1-1-3 > li::marker { content: "("counter(exo--2-7-1-1-3,lower-alpha)")"; }
+#exo--2-7-1-1-3 > li { counter-increment: exo--2-7-1-1-3; }
+#exo--2-8-1-1-1 { counter-set: exo--2-8-1-1-1 0; }
+#exo--2-8-1-1-1 > li::marker { content: ""counter(exo--2-8-1-1-1,lower-roman)""; }
+#exo--2-8-1-1-1 > li { counter-increment: exo--2-8-1-1-1; }
+#exo--2-8-2-2-1 { counter-set: exo--2-8-2-2-1 0; }
+#exo--2-8-2-2-1 > li::marker { content: ""counter(exo--2-8-2-2-1,lower-roman)""; }
+#exo--2-8-2-2-1 > li { counter-increment: exo--2-8-2-2-1; }
+#exo--2-8-3-2-1 { counter-set: exo--2-8-3-2-1 0; }
+#exo--2-8-3-2-1 > li::marker { content: ""counter(exo--2-8-3-2-1,lower-roman)""; }
+#exo--2-8-3-2-1 > li { counter-increment: exo--2-8-3-2-1; }
+#exo--2-8-4-2-1 { counter-set: exo--2-8-4-2-1 0; }
+#exo--2-8-4-2-1 > li::marker { content: ""counter(exo--2-8-4-2-1,lower-roman)""; }
+#exo--2-8-4-2-1 > li { counter-increment: exo--2-8-4-2-1; }
+#exo--2-8-5-2-1 { counter-set: exo--2-8-5-2-1 0; }
+#exo--2-8-5-2-1 > li::marker { content: ""counter(exo--2-8-5-2-1,lower-roman)""; }
+#exo--2-8-5-2-1 > li { counter-increment: exo--2-8-5-2-1; }
+#sec-logprop-5-7-1 { counter-set: sec-logprop-5-7-1 0; }
+#sec-logprop-5-7-1 > li::marker { content: ""counter(sec-logprop-5-7-1,decimal)"."; }
+#sec-logprop-5-7-1 > li { counter-increment: sec-logprop-5-7-1; }
+#li-oplogprop-2 { counter-set: li-oplogprop-2 0; }
+#li-oplogprop-2 > li::marker { content: ""counter(li-oplogprop-2,decimal)"."; }
+#li-oplogprop-2 > li { counter-increment: li-oplogprop-2; }
+#sec-eqlogfnc-3-13-2-1-2 { counter-set: sec-eqlogfnc-3-13-2-1-2 0; }
+#sec-eqlogfnc-3-13-2-1-2 > li::marker { content: ""counter(sec-eqlogfnc-3-13-2-1-2,decimal)"."; }
+#sec-eqlogfnc-3-13-2-1-2 > li { counter-increment: sec-eqlogfnc-3-13-2-1-2; }
+#sec-eqlogfnc-3-13-3-1-1 { counter-set: sec-eqlogfnc-3-13-3-1-1 0; }
+#sec-eqlogfnc-3-13-3-1-1 > li::marker { content: ""counter(sec-eqlogfnc-3-13-3-1-1,decimal)"."; }
+#sec-eqlogfnc-3-13-3-1-1 > li { counter-increment: sec-eqlogfnc-3-13-3-1-1; }
+#sssec-predicats-3-2-1-1 { counter-set: sssec-predicats-3-2-1-1 0; }
+#sssec-predicats-3-2-1-1 > li::marker { content: ""counter(sssec-predicats-3-2-1-1,decimal)"."; }
+#sssec-predicats-3-2-1-1 > li { counter-increment: sssec-predicats-3-2-1-1; }
+#sssec-predicats-3-3-1-1 { counter-set: sssec-predicats-3-3-1-1 0; }
+#sssec-predicats-3-3-1-1 > li::marker { content: ""counter(sssec-predicats-3-3-1-1,decimal)"."; }
+#sssec-predicats-3-3-1-1 > li { counter-increment: sssec-predicats-3-3-1-1; }
+#sssec-predicats-5-2-1-2 { counter-set: sssec-predicats-5-2-1-2 0; }
+#sssec-predicats-5-2-1-2 > li::marker { content: ""counter(sssec-predicats-5-2-1-2,decimal)"."; }
+#sssec-predicats-5-2-1-2 > li { counter-increment: sssec-predicats-5-2-1-2; }
+#sssec-predicats-5-3-1-1 { counter-set: sssec-predicats-5-3-1-1 0; }
+#sssec-predicats-5-3-1-1 > li::marker { content: ""counter(sssec-predicats-5-3-1-1,decimal)"."; }
+#sssec-predicats-5-3-1-1 > li { counter-increment: sssec-predicats-5-3-1-1; }
+#sssec-quantificateurs-6-2-1-1 { counter-set: sssec-quantificateurs-6-2-1-1 0; }
+#sssec-quantificateurs-6-2-1-1 > li::marker { content: ""counter(sssec-quantificateurs-6-2-1-1,decimal)"."; }
+#sssec-quantificateurs-6-2-1-1 > li { counter-increment: sssec-quantificateurs-6-2-1-1; }
+#sssec-quantificateurs-6-3-1-1 { counter-set: sssec-quantificateurs-6-3-1-1 0; }
+#sssec-quantificateurs-6-3-1-1 > li::marker { content: ""counter(sssec-quantificateurs-6-3-1-1,decimal)"."; }
+#sssec-quantificateurs-6-3-1-1 > li { counter-increment: sssec-quantificateurs-6-3-1-1; }
+#sssec-quantificateurs-10-2-1-1 { counter-set: sssec-quantificateurs-10-2-1-1 0; }
+#sssec-quantificateurs-10-2-1-1 > li::marker { content: ""counter(sssec-quantificateurs-10-2-1-1,decimal)"."; }
+#sssec-quantificateurs-10-2-1-1 > li { counter-increment: sssec-quantificateurs-10-2-1-1; }
+#sssec-quantificateurs-10-3-1-1 { counter-set: sssec-quantificateurs-10-3-1-1 0; }
+#sssec-quantificateurs-10-3-1-1 > li::marker { content: ""counter(sssec-quantificateurs-10-3-1-1,decimal)"."; }
+#sssec-quantificateurs-10-3-1-1 > li { counter-increment: sssec-quantificateurs-10-3-1-1; }
+#sec-propquant-5-6-2-1-1 { counter-set: sec-propquant-5-6-2-1-1 0; }
+#sec-propquant-5-6-2-1-1 > li::marker { content: ""counter(sec-propquant-5-6-2-1-1,decimal)"."; }
+#sec-propquant-5-6-2-1-1 > li { counter-increment: sec-propquant-5-6-2-1-1; }
+#sec-propquant-5-6-3-1 { counter-set: sec-propquant-5-6-3-1 0; }
+#sec-propquant-5-6-3-1 > li::marker { content: ""counter(sec-propquant-5-6-3-1,decimal)"."; }
+#sec-propquant-5-6-3-1 > li { counter-increment: sec-propquant-5-6-3-1; }
+#sec-propquant-5-12-2-1-1 { counter-set: sec-propquant-5-12-2-1-1 0; }
+#sec-propquant-5-12-2-1-1 > li::marker { content: ""counter(sec-propquant-5-12-2-1-1,decimal)"."; }
+#sec-propquant-5-12-2-1-1 > li { counter-increment: sec-propquant-5-12-2-1-1; }
+#exo-propquant-2-10-1-1-2 { counter-set: exo-propquant-2-10-1-1-2 0; }
+#exo-propquant-2-10-1-1-2 > li::marker { content: "("counter(exo-propquant-2-10-1-1-2,lower-alpha)")"; }
+#exo-propquant-2-10-1-1-2 > li { counter-increment: exo-propquant-2-10-1-1-2; }
+#exo-propquant-2-10-2-1 { counter-set: exo-propquant-2-10-2-1 0; }
+#exo-propquant-2-10-2-1 > li::marker { content: "("counter(exo-propquant-2-10-2-1,lower-alpha)")"; }
+#exo-propquant-2-10-2-1 > li { counter-increment: exo-propquant-2-10-2-1; }
+#sec-circuits-3-9-1 { counter-set: sec-circuits-3-9-1 0; }
+#sec-circuits-3-9-1 > li::marker { content: ""counter(sec-circuits-3-9-1,decimal)"."; }
+#sec-circuits-3-9-1 > li { counter-increment: sec-circuits-3-9-1; }
+#sec-representation-3-4-2-1-1 { counter-set: sec-representation-3-4-2-1-1 0; }
+#sec-representation-3-4-2-1-1 > li::marker { content: ""counter(sec-representation-3-4-2-1-1,decimal)"."; }
+#sec-representation-3-4-2-1-1 > li { counter-increment: sec-representation-3-4-2-1-1; }
+#sec-representation-3-4-3-1-2 { counter-set: sec-representation-3-4-3-1-2 0; }
+#sec-representation-3-4-3-1-2 > li::marker { content: ""counter(sec-representation-3-4-3-1-2,decimal)"."; }
+#sec-representation-3-4-3-1-2 > li { counter-increment: sec-representation-3-4-3-1-2; }
+#sec-representation-4-5-2-1-1 { counter-set: sec-representation-4-5-2-1-1 0; }
+#sec-representation-4-5-2-1-1 > li::marker { content: ""counter(sec-representation-4-5-2-1-1,decimal)"."; }
+#sec-representation-4-5-2-1-1 > li { counter-increment: sec-representation-4-5-2-1-1; }
+#sec-representation-4-5-3-1-1 { counter-set: sec-representation-4-5-3-1-1 0; }
+#sec-representation-4-5-3-1-1 > li::marker { content: ""counter(sec-representation-4-5-3-1-1,decimal)"."; }
+#sec-representation-4-5-3-1-1 > li { counter-increment: sec-representation-4-5-3-1-1; }
+#ex-decimalebinaire-2-1-1 { counter-set: ex-decimalebinaire-2-1-1 0; }
+#ex-decimalebinaire-2-1-1 > li::marker { content: ""counter(ex-decimalebinaire-2-1-1,decimal)"."; }
+#ex-decimalebinaire-2-1-1 > li { counter-increment: ex-decimalebinaire-2-1-1; }
+#algo-binhex-2-1-1 { counter-set: algo-binhex-2-1-1 0; }
+#algo-binhex-2-1-1 > li::marker { content: ""counter(algo-binhex-2-1-1,decimal)"."; }
+#algo-binhex-2-1-1 > li { counter-increment: algo-binhex-2-1-1; }
+#algo-binhex-2-2-1 { counter-set: algo-binhex-2-2-1 0; }
+#algo-binhex-2-2-1 > li::marker { content: ""counter(algo-binhex-2-2-1,decimal)"."; }
+#algo-binhex-2-2-1 > li { counter-increment: algo-binhex-2-2-1; }
+#exo-puissmoinsnombre-18-2-1 { counter-set: exo-puissmoinsnombre-18-2-1 0; }
+#exo-puissmoinsnombre-18-2-1 > li::marker { content: "("counter(exo-puissmoinsnombre-18-2-1,lower-alpha)")"; }
+#exo-puissmoinsnombre-18-2-1 > li { counter-increment: exo-puissmoinsnombre-18-2-1; }
+#exo-representation-3-2-3-1-1-8 { counter-set: exo-representation-3-2-3-1-1-8 0; }
+#exo-representation-3-2-3-1-1-8 > li::marker { content: "("counter(exo-representation-3-2-3-1-1-8,lower-alpha)")"; }
+#exo-representation-3-2-3-1-1-8 > li { counter-increment: exo-representation-3-2-3-1-1-8; }
+#sec-divisibilite-3-5-2-1-1 { counter-set: sec-divisibilite-3-5-2-1-1 0; }
+#sec-divisibilite-3-5-2-1-1 > li::marker { content: ""counter(sec-divisibilite-3-5-2-1-1,decimal)"."; }
+#sec-divisibilite-3-5-2-1-1 > li { counter-increment: sec-divisibilite-3-5-2-1-1; }
+#sec-divisibilite-3-5-3-1-1 { counter-set: sec-divisibilite-3-5-3-1-1 0; }
+#sec-divisibilite-3-5-3-1-1 > li::marker { content: ""counter(sec-divisibilite-3-5-3-1-1,decimal)"."; }
+#sec-divisibilite-3-5-3-1-1 > li { counter-increment: sec-divisibilite-3-5-3-1-1; }
+#def-pgcd-2-1-7 { counter-set: def-pgcd-2-1-7 0; }
+#def-pgcd-2-1-7 > li::marker { content: ""counter(def-pgcd-2-1-7,decimal)"."; }
+#def-pgcd-2-1-7 > li { counter-increment: def-pgcd-2-1-7; }
+#sec-divisibilite-5-6-2-1-1 { counter-set: sec-divisibilite-5-6-2-1-1 0; }
+#sec-divisibilite-5-6-2-1-1 > li::marker { content: ""counter(sec-divisibilite-5-6-2-1-1,decimal)"."; }
+#sec-divisibilite-5-6-2-1-1 > li { counter-increment: sec-divisibilite-5-6-2-1-1; }
+#exo-divisibilite-3-2-2-1-5 { counter-set: exo-divisibilite-3-2-2-1-5 0; }
+#exo-divisibilite-3-2-2-1-5 > li::marker { content: "("counter(exo-divisibilite-3-2-2-1-5,lower-alpha)")"; }
+#exo-divisibilite-3-2-2-1-5 > li { counter-increment: exo-divisibilite-3-2-2-1-5; }
+#ex-modulotemps-2-1-2 { counter-set: ex-modulotemps-2-1-2 0; }
+#ex-modulotemps-2-1-2 > li::marker { content: ""counter(ex-modulotemps-2-1-2,decimal)"."; }
+#ex-modulotemps-2-1-2 > li { counter-increment: ex-modulotemps-2-1-2; }
+#prop-moduloprop-2-1-5 { counter-set: prop-moduloprop-2-1-5 0; }
+#prop-moduloprop-2-1-5 > li::marker { content: ""counter(prop-moduloprop-2-1-5,decimal)"."; }
+#prop-moduloprop-2-1-5 > li { counter-increment: prop-moduloprop-2-1-5; }
+#sec-modulo-4-12-2-1-2 { counter-set: sec-modulo-4-12-2-1-2 0; }
+#sec-modulo-4-12-2-1-2 > li::marker { content: ""counter(sec-modulo-4-12-2-1-2,decimal)"."; }
+#sec-modulo-4-12-2-1-2 > li { counter-increment: sec-modulo-4-12-2-1-2; }
+#sec-modulo-5-4-2-1-1 { counter-set: sec-modulo-5-4-2-1-1 0; }
+#sec-modulo-5-4-2-1-1 > li::marker { content: ""counter(sec-modulo-5-4-2-1-1,decimal)"."; }
+#sec-modulo-5-4-2-1-1 > li { counter-increment: sec-modulo-5-4-2-1-1; }
+#concl-modulo-1-1 { counter-set: concl-modulo-1-1 0; }
+#concl-modulo-1-1 > li::marker { content: ""counter(concl-modulo-1-1,decimal)"."; }
+#concl-modulo-1-1 > li { counter-increment: concl-modulo-1-1; }
+#exo-modulo-2-5-2-1 { counter-set: exo-modulo-2-5-2-1 0; }
+#exo-modulo-2-5-2-1 > li::marker { content: "("counter(exo-modulo-2-5-2-1,lower-alpha)")"; }
+#exo-modulo-2-5-2-1 > li { counter-increment: exo-modulo-2-5-2-1; }
+#prop-regleProd-2 { counter-set: prop-regleProd-2 0; }
+#prop-regleProd-2 > li::marker { content: ""counter(prop-regleProd-2,decimal)"."; }
+#prop-regleProd-2 > li { counter-increment: prop-regleProd-2; }
+#prop-regleSomme-2 { counter-set: prop-regleSomme-2 0; }
+#prop-regleSomme-2 > li::marker { content: ""counter(prop-regleSomme-2,decimal)"."; }
+#prop-regleSomme-2 > li { counter-increment: prop-regleSomme-2; }
+#prop-incExclu-2-1 { counter-set: prop-incExclu-2-1 0; }
+#prop-incExclu-2-1 > li::marker { content: ""counter(prop-incExclu-2-1,decimal)"."; }
+#prop-incExclu-2-1 > li { counter-increment: prop-incExclu-2-1; }
+#prop-div-2-1 { counter-set: prop-div-2-1 0; }
+#prop-div-2-1 > li::marker { content: ""counter(prop-div-2-1,decimal)"."; }
+#prop-div-2-1 > li { counter-increment: prop-div-2-1; }
+#def_perm-1 { counter-set: def_perm-1 0; }
+#def_perm-1 > li::marker { content: ""counter(def_perm-1,decimal)"."; }
+#def_perm-1 > li { counter-increment: def_perm-1; }
+#def_combBin-1 { counter-set: def_combBin-1 0; }
+#def_combBin-1 > li::marker { content: ""counter(def_combBin-1,decimal)"."; }
+#def_combBin-1 > li { counter-increment: def_combBin-1; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="madir.html"><span class="title">Mathématiques discrètes:</span> <span class="subtitle">Version préliminaire</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Table des matières"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Table des matières</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Résultats de la recherche: </h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="chap-denombrement.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-denombrement.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="sec_arrCombinaison.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+
+\newcommand{\Permutation}[2]{P_{#2}^{#1}}
+\newcommand{\Binomial}[2]{C_{#2}^{#1}}
+
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\Det}{det}
+\DeclareMathOperator{\pgcd}{pgcd}
+\DeclareMathOperator{\ppcm}{ppcm}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-ensfct.html" class="internal"><span class="codenumber">1</span> <span class="title">Ensembles et fonctions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ens.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Les ensembles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Définitions et exemples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-4" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Relation entre deux ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-5" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Représentation graphique d’ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-6" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Ensembles particuliers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ens.html#exo-ens" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-opens.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Opérations sur les ensembles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-opens.html#sssec-opens" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Opérations élémentaires sur les ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-opens.html#sssec-propoper" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Propriétés des opérations élémentaires</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-opens.html#rq-opens" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-opens.html#exo-opens" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-fonctions.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Les fonctions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Définitions et exemples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Représentation d’une fonction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">La composition de fonctions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sssec-injsurj" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Fonctions injectives et surjectives</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-8" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-fonctions.html#exo-" class="internal"><span class="codenumber">1.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-logique.html" class="internal"><span class="codenumber">2</span> <span class="title">Logique mathématique</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-logprop.html" class="internal"><span class="codenumber">2.1</span> <span class="title">La logique propositionnelle</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Propositions mathématiques et connecteurs logiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Table de vérité</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-5" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Implication, réciproque et contraposée</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-7" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-logprop.html#exo-logprop" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqlogfnc.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Équivalence logique et formes normales</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqlogfnc.html#sec-eqlogfnc-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Équivalence logique</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqlogfnc.html#sec-eqlogfnc-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Formes normales</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-eqlogfnc.html#rq-eqlogfnc" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqlogfnc.html#exo-eqlogfnc" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-propquant.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Les propositions quantifiées</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sssec-predicats" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Prédicats</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sssec-quantificateurs" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Quantificateurs existentiel et universel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sec-propquant-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Négation et combinaisons de quantificateurs</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-propquant.html#rq-propquant" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propquant.html#exo-propquant" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-circuits.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Circuits logiques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-circuits.html#sec-circuits-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Portes logiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-circuits.html#sec-circuits-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Parallèle avec la logique propositionnelle</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-circuits.html#rq-circuits" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-circuits.html#exo-circuits" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-reptheonombres.html" class="internal"><span class="codenumber">3</span> <span class="title">Représentation des nombres et arithmétique modulaire</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-representation.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Représentation des nombres</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Systèmes positionnels</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Représentation en base deux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-5" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Représentation en base hexadécimale</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Opérations élémentaires en base deux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Représentation en circuits d’opérations binaires</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-representation.html#rq-representation" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-representation.html#exo-representation" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-divisibilite.html" class="internal"><span class="codenumber">3.2</span> <span class="title">La divisibilité dans les entiers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">L’opération de division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Retour sur la conversion à partir de la base dix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">L’algorithme d’Euclide</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-divisibilite.html#rq-divisibilite" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-divisibilite.html#exo-divisibilite" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-modulo.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Arithmétique modulaire</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-3" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Congruence modulo <span class="process-math">\(n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-4" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Arithmétique modulaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-5" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Résolution d’équations en congruence modulo</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-6" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Introduction à la cryptographie</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-modulo.html#rq-modulo" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-modulo.html#exo-modulo" class="internal"><span class="codenumber">3.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="chap-denombrement.html" class="internal"><span class="codenumber">4</span> <span class="title">Dénombrement</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec_prodSomme.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Méthodes de dénombrement: Principes de base</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-regleProd" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Principe du produit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-regleSomme" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Principe de la somme</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-combProdSomme1" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Combinaison du principe du produit et du principe de la somme</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-incExclu" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Le principe d’inclusion-exclusion (ou de la soustraction )</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-div" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Le principe de la division</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_prodSomme.html#rq-prodSomme" class="internal"><span class="codenumber">4.1.6</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_prodSomme.html#exo-prodSomme" class="internal"><span class="codenumber">4.1.7</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Permutations et combinaisons</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs_permArr" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Les permutations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs_combBinomial" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Les combinaisons</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Le triangle de Pascal et le binôme de Newton</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton-3" class="internal"><span class="codenumber">4.2.3.1</span> <span class="title">Le triangle de Pascal</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton-4" class="internal"><span class="codenumber">4.2.3.2</span> <span class="title">Le binôme de Newton</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-permCombGen" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Les permutations et combinaisons généralisées</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-permInd" class="internal"><span class="codenumber">4.2.4.1</span> <span class="title">Permutations avec des objets indiscernables</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-permRep" class="internal"><span class="codenumber">4.2.4.2</span> <span class="title">Permutations avec répétitions</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-combRep" class="internal"><span class="codenumber">4.2.4.3</span> <span class="title">Combinaisons avec répétitions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_arrCombinaison.html#rq-arrCombinaison" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_arrCombinaison.html#exo-combinatoire" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-combinatoireExoSupp.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices supplémentaires</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-combinatoireExoSupp.html#exo-combinatoireExoSupp" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec_prodSomme"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.1</span><span class="space"> </span><span class="title">Méthodes de dénombrement: Principes de base</span>
+</h2>
+<section class="introduction" id="sec_prodSomme-2"><div class="para" id="sec_prodSomme-2-1">Dans ce chapitre nous, allons étudier les différentes méthodes permettant de compter des objets ayant certaines propriétés. Les techniques de dénombrement sont basées sur des principes relativement simples, mais peuvent demander beaucoup d’ingéniosité afin de dénombrer les bons objets, ne pas en oublier et les compter une seule fois!</div> <div class="para" id="sec_prodSomme-2-2">Dans cette section, nous étudierons les principes du produit et de la somme et leur variante.</div></section><section class="subsection" id="subs-regleProd"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="space"> </span><span class="title">Principe du produit</span>
+</h3>
+<section class="introduction" id="subs-regleProd-2"><div class="para" id="subs-regleProd-2-1">Lorsqu’on veut compter le nombre de façons différentes d’accomplir une tâche, il peut être plus efficaces de séparer la tâche en étapes. On doit alors comptrer le nombre de façons d’accomplir chacune des étapes, et ensuite les multiplier pour obtenir le résultat. C’est ce qu’on appelle le principe du produit. On considère un exemple de base avant d’énoncer le principe en général.</div></section><details id="ex-introProdCostumes" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Le nombre de constumes.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-introProdCostumes-2-1">Supposons qu’un de vos amis doit choisir un costume pour animer un spectacle. Si votre amis  doit choisir parmi 3 chapeaux, 6 chandails et 4 pantalons. De combien de façons différentes peut-ils s’habiller?</div>
+<div class="solutions"><details id="ex-introProdCostumes-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">On sépare la tâche de choisir le costume en trois étapes: Choisir le chapeau, choisir le chandail et finalement choisir les pantalons. Il y a 3 façons d’exécuter la première tâche, 6 façons d’exécuter la deuxième tâche et 4 façons d’exécuter la troisième. Ainsi, au total, il y a <span class="process-math">\(3\cdot 6\cdot 4 =72\)</span> façons de choisir un costume différent.</div></details></div></article></details><article class="remark remark-like" id="rem-ordreChoixOrdre"><h4 class="heading">
+<span class="type">Remarque</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span>
+</h4>À l’exemple <a href="sec_prodSomme.html#ex-introProdCostumes" class="xref" data-knowl="./knowl/xref/ex-introProdCostumes.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 4.1.1: Le nombre de constumes">4.1.1</a>, l’ordre dans lequel on exécute chacune des tâches n’a pas d’importance. Si votre ami choisi son chapeau en premier, ou bien il peut choisir son chandail en premier, et le nombre de costumes ne changera pas. Ainsi, lorsqu’on veut dénombrer les costumes, on peut décider d’un ordre arbitraire (par exemple, chapeau, chandail, pantalons).</article><div class="para" id="subs-regleProd-5">Le principe utilisé à l’exemple précédent est ce qu’on appelle le principe du produit. On le nomme parfois aussi le principe du ET, car on doit faire un premier choix, ET ensuite faire un deuxième choix. En language plus formel, le principe du produit peut s’énoncer de deux façons.</div>
+<article class="proposition theorem-like" id="prop-regleProd"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Principe du produit.</span>
+</h4>
+<ol class="decimal" id="prop-regleProd-2">
+<li id="prop-regleProd-2-1"><div class="para" id="p-derived-prop-regleProd-2-1">Supposons qu’une procédure peut être séparée en une séquence de deux tâches. S’il existe <span class="process-math">\(n_1\)</span> façons d’exécuter la première tâche, et <span class="process-math">\(n_2\)</span> façons d’exécuter la deuxième tâche, alors il y a <span class="process-math">\(n_1n_2\)</span> façons d’exécuter la procédure.</div></li>
+<li id="prop-regleProd-2-2"><div class="para" id="p-derived-prop-regleProd-2-2">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> deux ensembles, alors <span class="process-math">\(|A\times B|=|A|\cdot |B|\text{,}\)</span> c’est-à-dire que la cardinalité du produit cartésien est le produit des cardinalités.</div></li>
+</ol></article><details id="ex-baseProd" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Exemples de base du principe du produit.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="introduction" id="ex-baseProd-2">On veut compter le nombre de façons d’accomplir chacune des tâches suivantes.</div>
+<article class="task exercise-like" id="ex-baseProd-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>Une compagnie formée de seulement deux employés, Damien et Laura, loue un étage d’un immeuble de bureaux. Si cet étage possède 15 bureaux, de combien de manières peut-on assigner un bureau à chaque employé?<div class="solutions">
+<details id="ex-baseProd-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(210 \)</span></div></details><details id="ex-baseProd-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Pour assigner un bureau à chaque employé, on commence à assigner un bureau à Laura, puis on assigne un bureau à Damien. Il y a 15 bureaux possibles pour Laura. Ensuite, il reste 14 bureaux possibles pour Damien. Ainsi, il y a <span class="process-math">\(15\cdot 14 = 210 \)</span> façons d’assigner un bureau à chaque employé.</div></details>
+</div></article><article class="task exercise-like" id="ex-baseProd-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>Les chaises d’un auditorium sont étiquetées à l’aide d’une lettre un d’un nombre entier de 1 à 100. Combien de chaise peut-on étiqueter de cette façon.<div class="solutions">
+<details id="ex-baseProd-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(2600\)</span></div></details><details id="ex-baseProd-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Pour étiqueter une chaise, on doit d’abord choisir une lettre, et ensuite choisir un nombre entier de 1 à 100. Il y a 26 choix possibles pour la lettre, et 100 choix possibles pour l’entier. On peut donc étiqueter <span class="process-math">\(26\cdot 100 = 2600\)</span> chaises.</div></details>
+</div></article><article class="task exercise-like" id="ex-baseProd-5"><h5 class="heading"><span class="codenumber">(c)</span></h5>Combien de plaques d’immatriculation peut-on obtenir, si une plaque est formée de 3 lettres suivies de trois chiffres si l’on accepte toutes les séquences possibles?<div class="solutions">
+<details id="ex-baseProd-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(17576000\)</span></div></details><details id="ex-baseProd-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Pour chaque lettre, il y a 26 choix possibles. Pour chaque chiffre, il y a 10 choix possibles. Il y a donc <span class="process-math">\(26\cdot 26\cdot 26 \cdot 10\cdot 10\cdot 10 = 17576000\)</span> possibilités.</div></details>
+</div></article></article></details><div class="para" id="subs-regleProd-8">À l’exercice <a href="sec-fonctions.html#exo-nbrFonctions" class="xref" data-knowl="./knowl/xref/exo-nbrFonctions.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 1.3.6.10.a">1.3.6.10.a</a>, on a considérer le nombres de fonctions, de fonctions injectives et de fonctions surjective allant de <span class="process-math">\(A=\{0,1\}\)</span> vers <span class="process-math">\(B=\{a,b,c\}\text{.}\)</span>  Puisque ces ensembles sont assez petits, on a pû énumérer toutes ces fonctions directement. On veut maintenant utiliser le principe du produit pour compter le nombres de fonctions et le nombres de fonctions injectives allant de <span class="process-math">\(A\)</span> vers <span class="process-math">\(B\text{.}\)</span> Par la suite, on va généraliser à des ensembles quelconques.</div>
+<details id="nbrFonctionsProd" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Retour sur le nombre de fonctions.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="introduction" id="nbrFonctionsProd-2"><div class="para" id="nbrFonctionsProd-2-1">Soit <span class="process-math">\(A=\{0,1\}\)</span> et <span class="process-math">\(B=\{a,b,c\}\text{.}\)</span>
+</div></div>
+<article class="task exercise-like" id="nbrFonctionsProd-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>Combien y a-t-il de fonctions <span class="process-math">\(f:A\to B\text{.}\)</span><div class="solutions"><details id="nbrFonctionsProd-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="nbrFonctionsProd-3-2-1">On compte le nombre de façons qu’il y a de définir une telle fonction <span class="process-math">\(f\text{.}\)</span> Pour se faire, on sépare la tâche en deux étapes: choisir la valeur de <span class="process-math">\(f(0)\)</span> et ensuite choisir la  valeur de <span class="process-math">\(f(1)\text{.}\)</span>
+</div> <div class="para" id="nbrFonctionsProd-3-2-2">Lorsqu’on choisit la valeur de <span class="process-math">\(f(0)\text{,}\)</span> on a trois choix possibles: <span class="process-math">\(f(0)=a\text{,}\)</span> <span class="process-math">\(f(0)=b\)</span> ou bien <span class="process-math">\(f(0)=c\text{.}\)</span>
+</div> <div class="para" id="nbrFonctionsProd-3-2-3">Une fois qu’on a choisit <span class="process-math">\(f(0)\text{,}\)</span> on doit choisir <span class="process-math">\(f(1)\text{.}\)</span> Encore une fois, on a trois choix possibles: <span class="process-math">\(f(1)=a\text{,}\)</span> <span class="process-math">\(f(1)=b\)</span> ou bien <span class="process-math">\(f(1)=c\text{.}\)</span>
+</div> <div class="para" id="nbrFonctionsProd-3-2-4">Par le principe du produit, il y a alors <span class="process-math">\(3\cdot 3 =9\)</span> façons différentes de choisir une fonction <span class="process-math">\(f:A\to B\text{.}\)</span>
+</div> <div class="para" id="nbrFonctionsProd-3-2-5">On remarque encore une fois que le fait de choisir <span class="process-math">\(f(0)\)</span> avant <span class="process-math">\(f(1)\)</span> n’a pas d’importance. Puisque celà n’a pas d’importance, on peut donc décider d’un ordre arbitraire.</div>
+</div></details></div></article><article class="task exercise-like" id="nbrFonctionsProd-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>Combien y a-t-il de fonctions injectives <span class="process-math">\(f:A\to B\text{.}\)</span><div class="solutions"><details id="nbrFonctionsProd-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="nbrFonctionsProd-4-2-1">Comme à la partie précédente, on compte le nombre de façons qu’il y a de définir une telle fonction <span class="process-math">\(f\text{.}\)</span> Pour se faire, on sépare la tâche en deux étapes: choisir la valeur de <span class="process-math">\(f(0)\)</span> et ensuite choisir la  valeur de <span class="process-math">\(f(1)\text{.}\)</span>
+</div> <div class="para" id="nbrFonctionsProd-4-2-2">Lorsqu’on choisit la valeur de <span class="process-math">\(f(0)\text{,}\)</span> on a trois choix possibles: <span class="process-math">\(f(0)=a\text{,}\)</span> <span class="process-math">\(f(0)=b\)</span> ou bien <span class="process-math">\(f(0)=c\text{.}\)</span>
+</div> <div class="para" id="nbrFonctionsProd-4-2-3">Une fois qu’on a choisit <span class="process-math">\(f(0)\text{,}\)</span> on doit choisir <span class="process-math">\(f(1)\text{.}\)</span> Attention! Ici, on veut une fonction injective! Supposons par exemple que <span class="process-math">\(f(0)=c\text{,}\)</span> il ne reste alors que <em class="emphasis">deux choix possibles</em>:  <span class="process-math">\(f(1)=a\)</span> ou bien <span class="process-math">\(f(1)=b\text{.}\)</span> La même chose est vrai si on avait choisit une autre valeur pour <span class="process-math">\(f(0)\text{,}\)</span> il ne resterait que deux choix possibles pour <span class="process-math">\(f(1)\text{.}\)</span>
+</div> <div class="para" id="nbrFonctionsProd-4-2-4">Par le principe du produit, il y a alors <span class="process-math">\(3\cdot 2 =6\)</span> façons différentes de choisir une fonction <span class="process-math">\(f:A\to B\text{.}\)</span>
+</div>
+</div></details></div></article></article></details><article class="remark remark-like" id="subs-regleProd-10"><h4 class="heading">
+<span class="type">Remarque</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="period">.</span>
+</h4>Le cas des fonctions surjectives est beaucoup plus complexe. On étudiera ce cas dans une prochaine section <code class="code-inline tex2jax_ignore">[provisional cross-reference: exe-nbrFonctionsSurj]</code>.</article><div class="para" id="subs-regleProd-11">On veut maintenant généraliser l’exemple précédent à des ensembles finis quelconques.</div>
+<details id="ex-comptFonction" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Compter des fonctions : Cas général.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="introduction" id="ex-comptFonction-2">Soit deux ensembles <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> tels que <span class="process-math">\(|A|=m\)</span> et <span class="process-math">\(|B|=n\text{.}\)</span>
+</div>
+<article class="task exercise-like" id="ex-comptFonction-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>Combien de fonctions différentes <span class="process-math">\(f: A\rightarrow B\)</span> existe-t-il.<div class="solutions">
+<details id="ex-comptFonction-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(n^m \)</span></div></details><details id="ex-comptFonction-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Pour chaque élément <span class="process-math">\(a\in A\text{,}\)</span> on doit choisir la valeur de <span class="process-math">\(f(a)\text{.}\)</span> Ainsi, pour chaque <span class="process-math">\(a\in A\text{,}\)</span>il y a <span class="process-math">\(n\)</span> possibilité pour <span class="process-math">\(f(a)\text{.}\)</span> Ainsi, par le principe du produit, il y aura <span class="process-math">\(n\cdot n\cdot \cdots \cdot n =n^m\)</span> fonctions différentes.</div></details>
+</div></article><article class="task exercise-like" id="ex_comptFctInj"><h5 class="heading"><span class="codenumber">(b)</span></h5>Combien de fonctions injectives différentes <span class="process-math">\(f: A\rightarrow B\)</span> existe-t-il.<div class="solutions">
+<details id="ex_comptFctInj-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<span class="process-math">\(n\cdot (n-1)\cdot \cdots \cdot (n-(m-1)) \)</span> si <span class="process-math">\(m\leq n\text{,}\)</span> <span class="process-math">\(0\)</span> sinon.</div></details><details id="ex_comptFctInj-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex_comptFctInj-3-1">Supposons qu’on étiquette les éléments de <span class="process-math">\(A\)</span> par <span class="process-math">\(a_1,a_2,\dots,a_m\text{.}\)</span> On commence par choisir la valeur de <span class="process-math">\(f(a_1)\text{.}\)</span> Il y a <span class="process-math">\(n\)</span> choix possible. On note cette valeur  <span class="process-math">\(b_1\text{,}\)</span> c’est-à-dire que <span class="process-math">\(f(a_1)=b_1\text{.}\)</span>
+</div> <div class="para" id="ex_comptFctInj-3-2">On veut maintenant choisir la valeur de <span class="process-math">\(f(a_2)\text{.}\)</span> Puisque <span class="process-math">\(f\)</span> est injective, <span class="process-math">\(f(a_2)\neq b_1\text{.}\)</span> Il reste donc <span class="process-math">\(n-1\)</span> choix pour <span class="process-math">\(f(a_2)\text{.}\)</span> On veut poursuivre ce raisonement de façon général pour tout les éléments de <span class="process-math">\(A\text{.}\)</span>
+</div> <div class="para" id="ex_comptFctInj-3-3">Supposons qu’on ait choisi les valeurs de <span class="process-math">\(f(a_i)\)</span> pour tous les <span class="process-math">\(k\)</span> premières valeurs de <span class="process-math">\(i\text{,}\)</span> c’est-à-dire pour <span class="process-math">\(1\leq i \leq k \lt m\text{,}\)</span> et qu’on veut maintenant choisir la valeur de <span class="process-math">\(f(a_{k+1})\text{.}\)</span> Puisque <span class="process-math">\(f\)</span> est injective, on aura que <span class="process-math">\(f(a_{k+1})\neq f(a_i)\)</span> pour <span class="process-math">\(1\leq i \leq k \lt m\text{.}\)</span> Il reste donc <span class="process-math">\(n-k\)</span> choix pour la valeur de <span class="process-math">\(f(a_{k+1})\text{.}\)</span> On répète cette démarche jusqu’à ce qu’on ait défini <span class="process-math">\(f(a_m)\text{.}\)</span>
+</div> <div class="para" id="ex_comptFctInj-3-4">On remarque d’ailleurs que si <span class="process-math">\(m\gt n\text{,}\)</span> on ne peut pas trouver de fonction injective (car on ne pourra pas trouver de valeur pour tous les <span class="process-math">\(f(a_i)\)</span>).</div> Ainsi, par le principe du produit, il y aura <span class="process-math">\((n)\cdot (n-1)\cdot \cdots \cdot( n-(m-1) )\)</span> fonctions injectives différentes. En effet, lorsqu’on veut choisir la valeur de <span class="process-math">\(f(a_m)\text{,}\)</span> il restera <span class="process-math">\(m-1\)</span> choix possible (attention aux indices!).</div></details>
+</div></article></article></details><div class="para" id="subs-regleProd-13">À la section <a href="sec-ens.html" class="internal" title="Section 1.1: Les ensembles">1.1</a>, on a introduit, pour un ensemble <span class="process-math">\(A\text{,}\)</span>  l’ensemble <span class="process-math">\(\mathscr{P}(A)\)</span>  des puissances de <span class="process-math">\(A\)</span> (voir <a href="sec-ens.html#def-enspuiss" class="xref" data-knowl="./knowl/xref/def-enspuiss.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 1.1.12: L’ensemble des puissances">1.1.12</a>). On avait remarqué que la cardinalité de <span class="process-math">\(\mathscr{P}(A)\)</span>  semblait être donnée par <span class="process-math">\(|\mathscr{P}(A)|= 2^{|A|}\text{.}\)</span> On utilise le principe du produit sur un exemple avant de généraliser à une ensemble de taille fini quelconque.</div>
+<details id="ex-nbrSousEnsIntro" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.8</span><span class="period">.</span><span class="space"> </span><span class="title">Retour sur l’ensemble des puissances.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-nbrSousEnsIntro-2-1">On considère l’ensemble <span class="process-math">\(A=\{a,b,c\}\text{.}\)</span> On sait que <span class="process-math">\(|\mathscr{P}(A)|=2^3\text{,}\)</span> car on a décrit  <span class="process-math">\(\mathscr{P}(A)\)</span> en extension à la section <a href="sec-ens.html" class="internal" title="Section 1.1: Les ensembles">1.1</a>.</div> <div class="para" id="ex-nbrSousEnsIntro-2-2">On veut utiliser le principe du produit pour arriver à la même conclusion. On pourra ensuite généralister au cas où <span class="process-math">\(|A|=n\text{.}\)</span>
+</div>
+<div class="solutions"><details id="ex-nbrSousEnsIntro-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-nbrSousEnsIntro-3-1">On veut dénombrer le nombre de sous-ensembles différents de <span class="process-math">\(A\text{.}\)</span> Ceci revient à compter le nombre de façons qu’on peut choisir un tel sous-ensemble <span class="process-math">\(E \subseteq A\text{.}\)</span>
+</div> <div class="para" id="ex-nbrSousEnsIntro-3-2">Pour se faire, on sépare la tâche "choisir <span class="process-math">\(E\)</span>" en trois étapes. On commence par choisir si <span class="process-math">\(a \in E\text{.}\)</span> Il y a deux choix possibles (oui ou non). On choisit ensuite si <span class="process-math">\(b\in E\text{.}\)</span> Il y a deux choix possibles (oui ou non). Finalement, on choisit si <span class="process-math">\(c\in E\text{.}\)</span> Encore une fois, il y a deux choix possibles.</div> <div class="para" id="ex-nbrSousEnsIntro-3-3">Par le principe du produit, il y a <span class="process-math">\(2\cdot 2\cdot 2 = 2^3=8\)</span> façons différentes de choisir un ensemble <span class="process-math">\(E\in \mathscr{P}(A)\text{,}\)</span> et donc <span class="process-math">\(|\mathscr{P}(A)|=2^3\text{.}\)</span>
+</div>
+</div></details></div></article></details><div class="para" id="subs-regleProd-15">En utilisant un argument similaire, on peut déterminer la taille de l’ensemble des puissances pour un ensemble fini de taille quelconque.</div>
+<details id="ex-nbrSousEns" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">L’ensemble des puissances: Cas général.</span>
+</h4></summary><article class="example example-like knowl__content">Soit <span class="process-math">\(A\)</span> un ensemble de cardinalité fini, disons <span class="process-math">\(|A|=n\in \ \N\text{,}\)</span> quelle est la cardinalité de <span class="process-math">\(\mathscr{P}(A)\)</span> ? C’est-à-dire, quelle est la valeur de <span class="process-math">\(|\mathscr{P}(A)|\text{?}\)</span><div class="solutions">
+<details id="ex-nbrSousEns-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(|\mathscr{P}(A)|= 2^n\)</span></div></details><details id="ex-nbrSousEns-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-nbrSousEns-4-1">Supposons qu’on ordonne les éléments de <span class="process-math">\(A\)</span> d’une manière quelconque, c’est-à-dire qu’on les étiquette par <span class="process-math">\(a_1,\ a_2\,\ \dots, a_n\text{.}\)</span>
+</div> <div class="para" id="ex-nbrSousEns-4-2">On veut maintenant construire (choisir) un sous-ensemble <span class="process-math">\(E\)</span> de <span class="process-math">\(A\text{.}\)</span> Pour se faire, on regarde successivement chaque élément de <span class="process-math">\(A\text{.}\)</span> Pour chaque élément <span class="process-math">\(a_i\text{,}\)</span> il y a deux choix possibles. Soit <span class="process-math">\(a_i\in\ E\text{,}\)</span> soit <span class="process-math">\(a_i\notin\ E\text{.}\)</span> Par le principe du produit, il y a <span class="process-math">\(2\times 2\times \cdots\times 2 =2^n\)</span> façons différentes de construire le sous-ensemble <span class="process-math">\(E\text{.}\)</span> Ainsi, <span class="process-math">\(\left|\mathscr{P}(A)\right|=2^n\text{.}\)</span>
+</div>
+</div></details>
+</div></article></details><div class="para" id="subs-regleProd-17">À la section, <a href="sec_arrCombinaison.html" class="internal" title="Section 4.2: Permutations et combinaisons">4.2</a>, on étudiera plus en détails les permutations et les combinaisons. On introduit l’idée avec l’exemple <a href="sec_prodSomme.html#ex-permIntro" class="xref" data-knowl="./knowl/xref/ex-permIntro.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 4.1.10: Les permutations">ci-dessous</a>, ainsi qu’avec l’exemple <a href="sec_prodSomme.html#ex-divIntro" class="xref" data-knowl="./knowl/xref/ex-divIntro.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 4.1.22: Choisir trois personnes parmi quatre">4.1.22</a> .</div>
+<details id="ex-permIntro" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Les permutations.</span>
+</h4></summary><article class="example example-like knowl__content">Combien de "mots" différents peut-on écrire en utilisant les lettres du "mot" <span class="process-math">\(ABCDE\text{.}\)</span> Ici, "mot" veut simplement dire une suite de lettres, même si le "mot" n’est pas un vrai mot en français (ou n’importe quelle autre langue). On dit aussi qu’il s’agit des permutations des lettres de <span class="process-math">\(ABCDE\text{.}\)</span><div class="solutions">
+<details id="ex-permIntro-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-permIntro-3-1">On utilise le principe du produit. On choisit la première lettre du mot, ensuite la deuxième, et ainsi de suite jusqu’à la dernière lettre.</div> <div class="para" id="ex-permIntro-3-2">Pour la première lettre, on a <span class="process-math">\(5\)</span> choix possibles. Pour la deuxième lettre, il reste <span class="process-math">\(4\)</span> choix possibles. Pour la troisième lettre, il reste <span class="process-math">\(3\)</span> choix possibles. Pour la quatrième lettre, il reste <span class="process-math">\(2\)</span> choix possibles. Finalement, il ne reste que <span class="process-math">\(1\)</span> choix pour la dernière lettre.</div> <div class="para" id="ex-permIntro-3-3">Ainsi, il y a <span class="process-math">\(5\times 4\times 3\times 2\times 1 =120\)</span> mots différents qu’on peut obtenir à partir des lettres de <span class="process-math">\(ABCDE\text{.}\)</span>
+</div>
+</div></details><details id="ex-permIntro-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex-permIntro-4-1">
+<div class="para">Une solution alternative est de remarquer qu’un mot utilisant les lettres de <span class="process-math">\(ABCDE\)</span> est équivalent à une fonction injective <span class="process-math">\(f: \{1,2,3,4,5\}\to \{A,B,C,D,E\}\text{,}\)</span> où <span class="process-math">\(f(i)\)</span> est la lettre à la position <span class="process-math">\(i\)</span> du mot. Par exemple, les mots <span class="process-math">\(ABCDE\)</span> et <span class="process-math">\(EDCBA\)</span> sont équivalents aux fonctions <span class="process-math">\(f_1\)</span> et <span class="process-math">\(f_2\)</span> définies par</div>
+<div class="displaymath process-math" id="ex-permIntro-4-1-9">
+\begin{align*}
+f_1(1)\amp=A \amp f_2(1)\amp=E \\
+f_1(2)\amp=B \amp f_2(2)\amp=D \\
+f_1(3)\amp=C \amp f_2(3)\amp=C \\
+f_1(4)\amp=D \amp f_2(4)\amp=B \\
+f_1(5)\amp=E \amp f_2(5)\amp=A 
+\end{align*}
+</div>
+</div> <div class="para" id="ex-permIntro-4-2">Ainsi, le nombre de mots différents formés à partir des lettres de <span class="process-math">\(ABCDE\)</span> est aussi le nombre de fonctions injectives de <span class="process-math">\(\{1,2,3,4,5\}\)</span> vers <span class="process-math">\(\{A,B,C,D,E\}\text{.}\)</span> Par l’exemple <a href="sec_prodSomme.html#ex_comptFctInj" class="xref" data-knowl="./knowl/xref/ex_comptFctInj.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 4.1.7.b">4.1.7.b</a>, on sait qu’il y en a <span class="process-math">\(5\times 4\times 3\times 2\times 1 =120\text{.}\)</span>
+</div>
+</div></details>
+</div></article></details></section><section class="subsection" id="subs-regleSomme"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="space"> </span><span class="title">Principe de la somme</span>
+</h3>
+<section class="introduction" id="subs-regleSomme-2"><div class="para" id="subs-regleSomme-2-1">Il est parfoit difficile d’utiliser le principe du produit directement pour dénombrer une situation. Celà  se produit souvent lorsque le nombre de façons d’accomplir une tâche dépend d’une condition. On doit alors compter le nombre de façons d’accomplir la tâche pour chaque condition, et ensuite additionner ces résultats. On commence par considérer un exemple très simple, avant d’énoncer ce principe.</div></section><details id="ex-regleSommeIntro" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">Des lettres ou des chiffres.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-regleSommeIntro-2-1">Supposons que l’on doive créer un mot de passe composer de quatres caractères pour un site quelconque. Suppsons qu’en plus touts les caractères doivents soit tous êtres une des <span class="process-math">\(26\)</span> lettres de l’alphabet, ou bien ils doivent tous être un chiffre (de <span class="process-math">\(0\)</span> à <span class="process-math">\(9\)</span>). Combien de façons différentes y a-t-il de choisir un mot de passe?</div>
+<div class="solutions"><details id="ex-regleSommeIntro-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-regleSommeIntro-3-1">On sépare la tâche selon si on choisit d’utiliser des lettres où des chiffres pour notre mot de passe.</div> <div class="para" id="ex-regleSommeIntro-3-2">Si on choisit d’utiliser des lettres pour le mot de passe, on aura <span class="process-math">\(26\)</span> choix pour chacun des caractères, et donc <span class="process-math">\(26^4\)</span> choix possibles pour le mot de passe.</div> <div class="para" id="ex-regleSommeIntro-3-3">Si par contre, on choisit d’utiliser des chiffres, alors on aura <span class="process-math">\(10\)</span> choix pour chacun des carctères, et donc <span class="process-math">\(10^4\)</span> choix possibles pour le mot de passe.</div> <div class="para" id="ex-regleSommeIntro-3-4">Au total, puisqu’on doit avoir des lettres ou des chiffres, il y aura <span class="process-math">\(26^4+10^4=466\ 976\)</span> choix possibles.</div>
+</div></details></div></article></details><div class="para" id="subs-regleSomme-4">Le principe utilisé à l’exemple précédent s’appelle le principe de la somme. On le nomme également le principe du OU, car on peut accomplir la tâche d’une première façon OU d’une deuxième façon. En language plus formel, le principe de la somme peut s’énoncer de deux façons.</div>
+<article class="proposition theorem-like" id="prop-regleSomme"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.1.12</span><span class="period">.</span><span class="space"> </span><span class="title">Principe de la somme.</span>
+</h4>
+<ol class="decimal" id="prop-regleSomme-2">
+<li id="prop-regleSomme-2-1"><div class="para" id="p-derived-prop-regleSomme-2-1">Si une tâche peut soit être effectuée de <span class="process-math">\(n_1\)</span> façons, soit de <span class="process-math">\(n_2\)</span> façons, et que toutes les <span class="process-math">\(n_1\)</span> façons sont différentes des <span class="process-math">\(n_2\)</span> façons, alors il y a <span class="process-math">\(n_1+n_2\)</span> façons d’effectuer la tâche.</div></li>
+<li id="prop-regleSomme-2-2"><div class="para" id="p-derived-prop-regleSomme-2-2">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> deux ensembles tels que <span class="process-math">\(A\cap B =\emptyset\text{,}\)</span> c’est-à-dire que <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> sont disjoints, alors <span class="process-math">\(|A\cup B|=|A|+|B|\)</span>
+</div></li>
+</ol></article><div class="para" id="subs-regleSomme-6">On montre ici comment utiliser le principe de la somme dans le cas  le plus simple. Dans les faits, on devra souvent utiliser le principe à plusieurs reprises, où bien le combinner au principe du produit.</div>
+<details id="ex-baseSomme" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">Exemple de base du principe de la somme.</span>
+</h4></summary><article class="example example-like knowl__content">Supposons que le Cégep Gérald-Godin veut choisir, parmi les professeurs en mathématiques ou les professeurs en informatique, un représentant du programme de SIM pour siéger sur un comité exécutif. Sachant qu’il y a <span class="process-math">\(9\)</span> professeur en mathématiques et <span class="process-math">\(7\)</span> professeurs en informatique. Combien de façons y a-t-il de choisir ce représentant, en supposons qu’un professeur ne peut pas être à la fois un professeur d’informatique et un professeur de mathématique?<div class="solutions">
+<details id="ex-baseSomme-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(16\)</span></div></details><details id="ex-baseSomme-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Il y a <span class="process-math">\(9\)</span> façons de choisir un professeur de mathématiques, alors qu’il y a <span class="process-math">\(7\)</span> façons de choisir un professeur d’informatique. Puisque le représentant est soit un professeur de mathématiques, soit un professeur d’informatique, il y a <span class="process-math">\(9+7=16\)</span> façons différentes de choisir un tel représentant.</div></details>
+</div></article></details><div class="para" id="subs-regleSomme-8">Évidemment, il est souvent utile de séparer une tâche en plus de deux choix. On peut alors utiliser le principe de la somme à plusieurs reprises, tel qu’illustré à l’exemple <a href="sec_prodSomme.html#ex-baseSommeSuccessive" class="xref" data-knowl="./knowl/xref/ex-baseSommeSuccessive.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 4.1.14: Utilisation successive du principe de la somme">4.1.14</a> .</div>
+<details id="ex-baseSommeSuccessive" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.14</span><span class="period">.</span><span class="space"> </span><span class="title">Utilisation successive du principe de la somme.</span>
+</h4></summary><article class="example example-like knowl__content">Un élève d’un cours d’informatique doit choisir pour l’évaluation finale,  un projet parmi trois listes selon le langage de programmation utilisé. S’il y a <span class="process-math">\(15\)</span> projets possibles en C, <span class="process-math">\(12\)</span> projets possible en python et <span class="process-math">\(7\)</span> projets possible en Pascal, combien de projets différents est-ce qu’un élève peut choisir?<div class="solutions">
+<details id="ex-baseSommeSuccessive-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(34\)</span></div></details><details id="ex-baseSommeSuccessive-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Lorsqu’un élève choisit son projet, il peut soit choisir de le faire en C, soit en python ou soit en Pascal. S’il choisit de le faire en C, il aura <span class="process-math">\(15\)</span> choix possible. S’il choisit de le faire en python, il en aura <span class="process-math">\(12\text{,}\)</span> alors que s’il le fait en Pascal, il n’en aura que <span class="process-math">\(7\text{.}\)</span> Si on utilise le principe de la somme à deux reprises, on a qu’il y a <span class="process-math">\(15+12+7=34\)</span> façons de choisir un projet pour l’évaluation finale.</div></details>
+</div></article></details></section><section class="subsection" id="subs-combProdSomme1"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="space"> </span><span class="title">Combinaison du principe du produit et du principe de la somme</span>
+</h3>
+<section class="introduction" id="subs-combProdSomme1-2"><div class="para" id="subs-combProdSomme1-2-1">Tel que mentionné précédemment, il est souvent nécessaire de combiner le principe de la somme avec le principe du produit. Souvent, on commence par utiliser le principe de la somme pour séparer la tâche selon certaines conditions, et ensuite on utilise le principe du produit pour dénombrer le nombre de façons d’exécuter la tâche sous chacune des conditions. Ces ce qu’on a fait à l’exemple <a href="sec_prodSomme.html#ex-regleSommeIntro" class="xref" data-knowl="./knowl/xref/ex-regleSommeIntro.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 4.1.11: Des lettres ou des chiffres">4.1.11</a>.</div></section><details id="ex-combProdSomme1" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.15</span><span class="period">.</span><span class="space"> </span><span class="title">Nombre de variables en BASIC.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-combProdSomme1-2-1">Dans une version du language informatique BASIC, le nom d’une variable doit être une chaîne de caractères formée d’un ou de deux caractère alphanumérique. Un caractère alphanumérique est soit une des <span class="process-math">\(26\)</span> lettre de l’alphabet ou bien un chiffre de <span class="process-math">\(0\)</span> à <span class="process-math">\(9\text{.}\)</span>
+</div> <div class="para" id="ex-combProdSomme1-2-2">De plus, le premier caractère doit toujours être une lettre, et il existe <span class="process-math">\(5\)</span> nom de variables formées de deux caractères qui sont des variables protégées, c’est-à-dire qu’on ne peut pas donner ces noms à nos variables. Combien de noms de variables différents peut-on avoir dans cette version de BASIC?</div>
+<div class="solutions">
+<details id="ex-combProdSomme1-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(957\)</span></div></details><details id="ex-combProdSomme1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-combProdSomme1-3-1">Soit <span class="process-math">\(V\)</span> le nombre de noms de variables possible. Soit aussi <span class="process-math">\(V_1\)</span> le nombre de ces noms formés d’un seul caractère, et soit <span class="process-math">\(V_2\)</span> le nombre des noms formés de deux caractères. Ainsi, par le principe de la somme, on aura <span class="process-math">\(V=V_1+V_2\text{.}\)</span>
+</div> <div class="para" id="ex-combProdSomme1-3-2">Pour <span class="process-math">\(V_1\text{.}\)</span> Puisque le premier caractère doit être une lettre, il y a seulement <span class="process-math">\(26\)</span>possibilités, c’est-à-dire <span class="process-math">\(V_1=26\text{.}\)</span>
+</div> <div class="para" id="ex-combProdSomme1-3-3">Pour <span class="process-math">\(V_2\text{.}\)</span> On doit choisir le premier caractère, qui doit être une lettre (donc <span class="process-math">\(26\)</span> possibilités), et ensuite le deuxième caractère qui peut être soit une lettre soit un chiffre (par le principe de la somme, il y a <span class="process-math">\(26+10=36\)</span> possibilités). Ainsi, par le principe du produit, il y a <span class="process-math">\(26\cdot 36=936\)</span> possibilités. Cependant, on doit retirer les <span class="process-math">\(5\)</span> possibilités représentant les noms réservés. On a donc <span class="process-math">\(V_2=936-5=931\text{.}\)</span>
+</div> <div class="para" id="ex-combProdSomme1-3-4">Finalement, on obtient <span class="process-math">\(V=V_1+V_2=26+931=957\text{.}\)</span>
+</div>
+</div></details>
+</div></article></details><div class="para" id="subs-combProdSomme1-4">Bien que le principe de la somme et le principe du produit soient relativement simples en principe, ils ne sont pas toujours si simple de voir comment les utiliser pour répondre à un problème de dénombrement. Ceci peut rendre la résolution de problèmes de dénombrement particulièrement frustant... Voici un exemple où il faut utiliser d’un peu plus d’intuition pour trouver la solution.</div>
+<details id="ex_sousEnsPair" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.16</span><span class="period">.</span><span class="space"> </span><span class="title">Sous-ensembles de cardinalité paire.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="introduction" id="ex_sousEnsPair-2">Soit <span class="process-math">\(E\)</span> un ensemble fini de cardinalité <span class="process-math">\(n\text{.}\)</span> Combien de sous-ensembles de <span class="process-math">\(E\)</span> on une cardinalité paire si:</div>
+<article class="task exercise-like" id="ex_sousEnsPair-3"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<span class="process-math">\(n=4\text{;}\)</span><div class="solutions">
+<details id="ex_sousEnsPair-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(2^{3}\)</span></div></details><details id="ex_sousEnsPair-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="ex_sousEnsPair-3-3-1">
+<div class="para">Supposons que <span class="process-math">\(E=\{e_1, e_2, e_3, e_4\}\text{.}\)</span> Puisque l’ensemble est de cardinalité relativement petite, on peut essayer d’énumérer ces sous-ensembles de cardinalité paire. On obtient alors</div>
+<div class="displaymath process-math" id="ex_sousEnsPair-3-3-1-2">
+\begin{align*}
+E_1\amp=\{e_3, {\color{red}e_4}\}  \amp  E_2\amp=\{\} \\
+E_3\amp= \{e_1, {\color{red}e_4}\}\amp E_4\amp=\{e_1,e_2\}   \\
+E_5\amp= \{e_2, {\color{red}e_4}\} \amp E_6\amp =\{e_1,e_3\}  \\
+E_7\amp= \{e_1, e_2, e_3, {\color{red}e_4}\} \amp E_8\amp  = \{e_2,e_3\}.
+\end{align*}
+</div>
+</div> <div class="para logical" id="ex_sousEnsPair-3-3-2">
+<div class="para">Avant de considérer le cas général, on fait quelques remarques. Notons <span class="process-math">\(A=E-\{e_4\}=\{e_1, e_2, e_3\}\text{.}\)</span> On peut voir que le nombre de sous-ensembles de cardinalité pair de <span class="process-math">\(E\)</span> est équivalent au nombre de sous-ensembles de <span class="process-math">\(A\text{.}\)</span> En fait, on peut voir un lien entre ceux-ci si on liste les sous-ensembles de <span class="process-math">\(A\text{.}\)</span>
+</div>
+<div class="displaymath process-math" id="ex_sousEnsPair-3-3-2-5">
+\begin{align*}
+A_1\amp=\{e_3\}  \amp  A_2\amp=\{\} \\
+A_3\amp= \{e_1\}\amp A_4\amp=\{e_1,e_2\}   \\
+A_5\amp= \{e_2\} \amp A_6\amp =\{e_1,e_3\}  \\
+A_7\amp= \{e_1, e_2, e_3\} \amp A_8\amp  = \{e_2,e_3\}.
+\end{align*}
+</div>
+</div> <div class="para" id="ex_sousEnsPair-3-3-3">En effet, si on compares les sous-ensembles <span class="process-math">\(E_i\)</span> aux les sous-ensembles <span class="process-math">\(A_i\text{,}\)</span> on remarque que ceux ayant un indice paire  sont égaux, c’est-à-dire que <span class="process-math">\(E_2=A_2\text{,}\)</span> <span class="process-math">\(E_4=A_4\text{,}\)</span> <span class="process-math">\(E_6=A_6\)</span> et <span class="process-math">\(E_7A_7\text{.}\)</span> De même, chaque sous-ensemble <span class="process-math">\(E_i\)</span> ayant un indice impair est obtenu à partir du sous-ensemble <span class="process-math">\(A_i\text{,}\)</span> auquel on a ajouté l’élément <span class="process-math">\(\color{red}e_4\text{,}\)</span> c’est-à-dire que <span class="process-math">\(E_1=A_1\cup \{{\color{red}e_4}\}\text{,}\)</span> <span class="process-math">\(E_3=A_3\cup \{{\color{red}e_4}\}\text{,}\)</span> <span class="process-math">\(E_5=A_5\cup \{{\color{red}e_4}\}\)</span> et <span class="process-math">\(E_7=A_7\cup \{{\color{red}e_4}\}\text{.}\)</span>
+</div> <div class="para" id="ex_sousEnsPair-3-3-4">On utilisera cette remarque pour déterminer la solution dans le cas général.</div>
+</div></details>
+</div></article><article class="task exercise-like" id="ex_sousEnsPair-4"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<span class="process-math">\(n\)</span> est un entier quelconque.<div class="solutions">
+<details id="ex_sousEnsPair-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(2^{n-1}\text{.}\)</span></div></details><details id="ex_sousEnsPair-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex_sousEnsPair-4-3-1">Suposons qu’on écrit <span class="process-math">\(E=\{e_1,\dots,e_n\}\)</span> et posons <span class="process-math">\(A=E-\{e_n\}\text{.}\)</span> Notons <span class="process-math">\(P\)</span> le nombre de sous-ensembles de <span class="process-math">\(E\)</span> de cardinalité pair. On choisit <span class="process-math">\(X\)</span> un sous-ensemble de cardinalité pair de la façon suivante. Tout d’abord, on remarque que soit <span class="process-math">\(e_n\in\, X\text{,}\)</span> ou bien <span class="process-math">\(e_n\notin\, X\text{.}\)</span> Ainsi, par le principe de la somme, on a que <span class="process-math">\(P=P_1+P_2\text{,}\)</span> où <span class="process-math">\(P_1\)</span> est le nombre de sous-ensembles de cardinalité pair contenant <span class="process-math">\(e_n\text{,}\)</span> et <span class="process-math">\(P_2\)</span> le nombre de ces sous-ensembles qui ne contiennent pas <span class="process-math">\(e_n\text{.}\)</span>
+</div> <div class="para" id="ex_sousEnsPair-4-3-2">D’un côté, on remarque que  <span class="process-math">\(e_n\notin\, X\)</span> si et seulement si <span class="process-math">\(X\subseteq A\)</span> et <span class="process-math">\(|X|\)</span> est pair. Ainsi, <span class="process-math">\(P_1\)</span> est le nombre de sous-ensembles de <span class="process-math">\(E-\{e_n\}\)</span> de cardinalité paire.</div> <div class="para" id="ex_sousEnsPair-4-3-3">De l’autre côté, on remarque aussi que <span class="process-math">\(e_n\in\, X\)</span> si et seulement si <span class="process-math">\(X-\{e_n\}\subseteq A\)</span> avec <span class="process-math">\(|X-\{e_n\}|\)</span> impair. Ainsi, <span class="process-math">\(P_2\)</span> est le nombre de sous-ensembles de <span class="process-math">\(E-\{e_n\}\)</span> de cardinalité impair.</div> <div class="para" id="ex_sousEnsPair-4-3-4">Par ce qui précède, on a que <span class="process-math">\(P=P_1+P_2\)</span> est aussi le nombre de sous-ensembles de <span class="process-math">\(A\text{.}\)</span> Or, on sait que ce nombre est <span class="process-math">\(|\mathscr{P}\left(A\right)|=2^{n-1}\text{.}\)</span>
+</div>
+</div></details>
+</div></article></article></details><div class="para" id="subs-combProdSomme1-6">Dans certains problèmes de dénombrement, il arrive qu’au moins une des tâches doit être accomplie d’une certaine façon, en ajoutant une restriction quelconque. Dans ce cas, il est souvent plus utile de compter toutes les façons possibles d’accomplir la tâche, et de lui soustraire les façons d’accomplir la tâche qui ne respectent pas la restriction. On utilise alors le principe de la somme "à l’envers". Ce genre d’argument est très utile lorsqu’on voit les mots "au moins un" dans l’exercice.</div>
+<details id="ex-combProdSomme2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.17</span><span class="period">.</span><span class="space"> </span><span class="title">Nombre de mots de passe.</span>
+</h4></summary><article class="example example-like knowl__content">Un site internet vous demande de choisir un mot de passe lors de la création de votre compte. Ce mot de passe doit être formé de <span class="process-math">\(6,\ 7\text{ ou }8\)</span> caractères alphanumériques. De plus, chaque mot de passe doit contenir au moins un chiffre. Combien de mots de passe possible y a-t-il?<div class="solutions">
+<details id="ex-combProdSomme2-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(2\ 684\ 483\ 063\ 360\)</span></div></details><details id="ex-combProdSomme2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-combProdSomme2-3-1">On note <span class="process-math">\(P\)</span> le nombre de mots de passe total, et <span class="process-math">\(P_i\)</span> le nombre de mots de passe à <span class="process-math">\(i\)</span> caractères, pour <span class="process-math">\(i\in\ \{6,\ 7,\ 8\}\text{.}\)</span> Par le principe de la somme, on a <span class="process-math">\(P=P_6+P_7+P_8\text{.}\)</span>
+</div> <div class="para" id="ex-combProdSomme2-3-2">Pour calculer <span class="process-math">\(P_6\text{,}\)</span> on compte tous les mots de passe à <span class="process-math">\(6\)</span> caractères. Par la suite, on lui soustrait le nombre de mots de passe à <span class="process-math">\(6\)</span> caractères qui ne contiennent pas de chiffres. En effet, par le principe de la somme <span class="process-math">\(\text{Mots de passe à }6\text{ caractères }=\text{Mots de passe à }6\text{ caractères sans chiffre}+\text{Mots de passe à }6\text{ caractères avec chiffres}\text{,}\)</span> et donc <span class="process-math">\(\text{Mots de passe à }6\text{ caractères avec chiffres}=\text{Mots de passe à }6\text{ caractères }-\text{Mots de passe à }6\text{ caractères sans chiffres}\text{.}\)</span>
+</div> <div class="para" id="ex-combProdSomme2-3-3">Par le principe du produit, il y a <span class="process-math">\(36^6\)</span> chaîne de <span class="process-math">\(6\)</span> caractères alphanumériques. De plus, <span class="process-math">\(26^6\)</span> de ces chaînes ne contiennent que des lettres, c’est-à-dire ne contiennent pas de chiffres. Ainsi, par l’argument donné au paragraphe précédent, <span class="process-math">\(P_6=36^6-26^6=2\ 176\ 782\ 336-308\ 915\ 776=1\ 867\ 866\ 560\text{.}\)</span> On utilise le même argument pour <span class="process-math">\(P_7\)</span> et <span class="process-math">\(P_8\text{.}\)</span>
+</div> <div class="para" id="ex-combProdSomme2-3-4">Pour <span class="process-math">\(P_7\text{,}\)</span> on obtient <span class="process-math">\(P_7=36^7-26^7= 70\ 332\ 353\ 920 - 78\ 364\ 164\ 096 = 8\ 031\ 810\ 176\)</span>
+</div> <div class="para" id="ex-combProdSomme2-3-5">Pour <span class="process-math">\(P_8\text{,}\)</span> on obtient <span class="process-math">\(P_8=36^8-26^8= 2\ 821\ 109\ 907\ 456 - 208\ 827\ 064\ 576 =2\ 612\ 282\ 842\ 880\)</span>
+</div> <div class="para" id="ex-combProdSomme2-3-6">Ainsi, on a <span class="process-math">\(P = P_6+P_7+P_8=2\ 684\ 483\ 063\ 360\text{.}\)</span>
+</div>
+</div></details>
+</div></article></details></section><section class="subsection" id="subs-incExclu"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">4.1.4</span><span class="space"> </span><span class="title">Le principe d’inclusion-exclusion (ou de la soustraction )</span>
+</h3>
+<section class="introduction" id="subs-incExclu-2">Il arrive que, lorsqu’on sépare les façons d’effectuer une tâche en deux catégories, certaines des façons d’effectuer la tâche se retrouve dans les deux catégories. Dans ce cas, on ne peut pas simplement utiliser le principe de la somme, car on compte les éléments qui se trouves dans les deux catégories deux fois.</section><details id="ex-incluExcluIntro" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.18</span><span class="period">.</span><span class="space"> </span><span class="title">Le nombre de constumes bleus ou vert!</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-incluExcluIntro-2-1">Supposons qu’un de vos amis doit choisir un costume pour animer un spectacle. Si votre amis  doit choisir parmi 5 chapeaux dont 3 sont bleus, 2 chandails et 6 pantalons, dont 4 sont verts. De combien de façons différentes peut-ils s’habiller, s’il doit porter un chapeau bleau ou un pantalon vert?</div>
+<div class="solutions"><details id="ex-incluExcluIntro-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-incluExcluIntro-3-1">On note <span class="process-math">\(C\)</span> le nombre de costumes avec chapeau bleu ou pantalon vert. Pour déterminer <span class="process-math">\(C\text{,}\)</span> on sépare la tâche de choisir le costume en deux catégories: la première catégorie est celle formée des costumes avec un chapeau bleu, alors que la deuxième est celle formée des costumes avec un pantalon vert.</div> <div class="para" id="ex-incluExcluIntro-3-2">On note <span class="process-math">\(C_b\)</span> le nombre de costume avec chapeau bleu, et <span class="process-math">\(C_v\)</span> le nombre de costumes avec un pantalon vert. Par le principe du produit, on a que <span class="process-math">\(C_b=3\times 2\times 6 =36\text{.}\)</span> De même, on obtient  <span class="process-math">\(C_v=5\times 2\times 4=40\)</span>
+</div> <div class="para" id="ex-incluExcluIntro-3-3">Cependant, <span class="process-math">\(C\neq C_b+C_v\text{!}\)</span> En effet, dans l’expression <span class="process-math">\(C_b+C_v\text{,}\)</span> on a compter les costumes avec chapeau bleu <em class="emphasis">et</em> pantalon vert deux fois. Une fois dans <span class="process-math">\(C_b\text{,}\)</span> et une fois dans <span class="process-math">\(C_v\text{.}\)</span>
+</div> <div class="para" id="ex-incluExcluIntro-3-4">Ainsi, on note <span class="process-math">\(C_{bv}\)</span> le nombre de costumes avec chapeau bleu et pantalon vert. On obtient <span class="process-math">\(C_{bv}=3\times 2\times 4=24 \text{.}\)</span> Ainsi, on a <span class="process-math">\(C=C_b+C_v-C_{bv}=36+40-24=52\text{.}\)</span>
+</div>
+</div></details></div></article></details><article class="remark remark-like" id="subs-incExclu-4"><h4 class="heading">
+<span class="type">Remarque</span><span class="space"> </span><span class="codenumber">4.1.19</span><span class="period">.</span>
+</h4>
+<div class="para" id="subs-incExclu-4-1">On aurait pu résoudre l’exemple <a href="sec_prodSomme.html#ex-incluExcluIntro" class="xref" data-knowl="./knowl/xref/ex-incluExcluIntro.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 4.1.18: Le nombre de constumes bleus ou vert!">4.1.18</a> en séparant le choix des costumes en trois catégories, les costumes avec chapeau bleu mais pantalon non vert (il y en a <span class="process-math">\(3\times 2\times 2= 12\)</span>), les costumes avec chapeau bleu et pantalon vert (il y en a <span class="process-math">\(24\)</span> ), et finalement les costumes avec chapeau non bleu et pantalon vert (il y en a <span class="process-math">\(2\times 2\times 4=16\)</span>).</div> <div class="para" id="subs-incExclu-4-2">De cette façon, on peut utiliser le principe de la somme directement et obtenir le nombre de costumes avec chapeau bleu ou pantalon vert, qui est <span class="process-math">\(12+24+16=52\text{.}\)</span>
+</div></article><div class="para" id="subs-incExclu-5">Le principe utilisé à l’exemple <a href="sec_prodSomme.html#ex-incluExcluIntro" class="xref" data-knowl="./knowl/xref/ex-incluExcluIntro.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 4.1.18: Le nombre de constumes bleus ou vert!">4.1.18</a> est le principe d’inclusion-exclusion. Il s’agit du même principe que celui de la formule <a href="sec-opens.html#exo-incexc" class="xref" data-knowl="./knowl/xref/exo-incexc.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 1.2.4.7: Le principe d’inclusion-exclusion">1.2.4.7</a>. On énnonce le principe de deux façons différentes.</div>
+<article class="proposition theorem-like" id="prop-incExclu"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.1.20</span><span class="period">.</span><span class="space"> </span><span class="title">Principe d’inclusion-exclusion.</span>
+</h4>
+<ol class="decimal" id="prop-incExclu-2-1">
+<li id="prop-incExclu-2-1-1"><div class="para" id="p-derived-prop-incExclu-2-1-1">Supposons qu’on peut séparer les façons d’effectuer une tâche en deux catégories. Si la première catégorie est formée de <span class="process-math">\(n_1\)</span> façons d’accomplir la tâche, la deuxième catégorie  est formée de <span class="process-math">\(n_2\)</span> façons d’accomplir la tâche, et si <span class="process-math">\(n_3\)</span> de ces façons d’accomplir la tâche font partie des deux catégories en même temps, alors il y a <span class="process-math">\(n_1+n_2-n_3\)</span> façons d’effectuer la tâche.</div></li>
+<li id="prop-incExclu-2-1-2"><div class="para" id="p-derived-prop-incExclu-2-1-2">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> deux ensembles, alors <span class="process-math">\(|A\cup B|=|A|+|B|-|A\cap B|\)</span>
+</div></li>
+</ol></article></section><details id="ex-incExclu" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.21</span><span class="period">.</span><span class="space"> </span><span class="title">Exemple de base du principe d’inclusion-exclusion.</span>
+</h3></summary><article class="example example-like knowl__content">Une chaîne binaire est une chaîne de caractères où chaque caractère est soit un <span class="process-math">\(1\text{,}\)</span> soit un <span class="process-math">\(0\text{.}\)</span> Combien de chaînes binaires de longueur <span class="process-math">\(8\)</span> qui commencent par un <span class="process-math">\(1\)</span> ou finisse avec deux <span class="process-math">\(0\)</span> ?<div class="solutions">
+<details id="ex-incExclu-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(160\)</span></div></details><details id="ex-incExclu-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-incExclu-3-1">Soit <span class="process-math">\(B\)</span> le nombre de chaînes binaires voulues, et soit <span class="process-math">\(B_1\)</span> les chaînes binaires de longueur <span class="process-math">\(8\)</span> commençant par un <span class="process-math">\(1\)</span> et <span class="process-math">\(B_{00}\)</span> les chaînes binaires de longueur <span class="process-math">\(8\)</span> se terminant avec deux <span class="process-math">\(0\text{.}\)</span>
+</div> <div class="para logical" id="ex-incExclu-3-2">
+<div class="para">Si on utilise directement le principe de la somme (de façon erronée), on obtient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B=B_1+B_{00}.
+\end{equation*}
+</div>
+<div class="para">Cependant, on ne peut pas utiliser le principe de la somme, car il existe des chaînes binaires de longueur <span class="process-math">\(8\)</span> qui commence par un <span class="process-math">\(1\)</span> <em class="alert">ET</em> se terminent par deux <span class="process-math">\(0\text{.}\)</span> On note ces chaînes <span class="process-math">\(B_{100}=B_1\cap B_{00}\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="ex-incExclu-3-3">
+<div class="para">Ainsi, par le principe d’inclusion-exclusion, on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B=B_1+B_{00}-B_{100}.
+\end{equation*}
+</div>
+</div> <div class="para" id="ex-incExclu-3-4">Par le principe du produit, on a que <span class="process-math">\(B_1=2^7\text{.}\)</span> En effet, chaque caractère, sauf le premier (qui est fixé à <span class="process-math">\(1\)</span>), peut être un <span class="process-math">\(1\)</span> ou un <span class="process-math">\(0\text{.}\)</span> Il reste donc <span class="process-math">\(7\)</span> choix à faire, avec <span class="process-math">\(2\)</span> possibilités pour chaque choix.</div> <div class="para" id="ex-incExclu-3-5">De même, on peut voir que <span class="process-math">\(B_00= 2^6\text{,}\)</span> car cette fois deux des caractères sont fixés.</div> <div class="para" id="ex-incExclu-3-6">Enfin, on peut également voir par le principe du produit que <span class="process-math">\(B_{100}=2^5\text{,}\)</span> car trois des caractères sont fixés.</div> <div class="para logical" id="ex-incExclu-3-7">
+<div class="para">Finalement, on a</div>
+<div class="displaymath process-math" id="ex-incExclu-3-7-1">
+\begin{align*}
+B\amp=B_1+B_{00}-B_{100}=2^7+2^6-2^5\\
+\amp=1000\ 0000_2+100\ 0000_2-10\ 0000_2\\
+\amp=1010\ 0000_2=160
+\end{align*}
+</div>
+</div>
+</div></details>
+</div></article></details><section class="subsection" id="subs-div"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">4.1.5</span><span class="space"> </span><span class="title">Le principe de la division</span>
+</h3>
+<section class="introduction" id="subs-div-2"><div class="para" id="subs-div-2-1">Une technique de dénombrement intéressante pour obtenir certaines égalités de manière très efficace est de compter la même chose de deux façons différentes. On peut se servir de cette idée lorsqu’on utilise le principe du produit de deux façons différentes pour la même tâche. Ceci nous permettra de simplifier certains problèmes de dénombrement.</div> <div class="para" id="subs-div-2-2">Par exemple, on considère deux problèmes simillaire, mais pour lesquels celui qui semble plus complexe est simple à résoudre.</div> <div class="para" id="subs-div-2-3">D’un côté,  supposons qu’on doive choisir trois personnes dans un groupe de quatre, sans leur attribuer un rôle particulier. Ceci est équivalent à dénombrer les sous-ensemble <span class="process-math">\(X\subseteq A\text{,}\)</span> avec <span class="process-math">\(|X|=3\)</span> et <span class="process-math">\(|A|=4\text{.}\)</span> Avec de petite cardinalité, on peut simplement énumérer les sous-ensembles <span class="process-math">\(X\text{.}\)</span> Cependant, il est à priori difficile de dénombrer cette situation avec des cardinalités plus élevés.</div> <div class="para" id="subs-div-2-4">D’un autre côté, supposons que qu’on doive choisir un président, un vice-président et un trésorier parmi un groupe de quatre personnes. En utilisant le principe du produit, il est facile de compter le nombre de façons d’accomplir cette tâche.</div> <div class="para" id="subs-div-2-5">On remarque qu’on peut séparer la tâche de choisir un président, un vice-président et un trésorier  parmi quatres personnes en deux étapes. Tout d’abord on choisit les trois personnes parmi quatres, et ensuite on choisit leur rôle. Étonnament, il est plus difficile de comptrer le nombre de façons de choisir trois personnes, que de choisir trois personnes avec un rôle.</div> <div class="para" id="subs-div-2-6">L’exemple ci-dessous nous permettra de montrer comment utiliser le lien entre ces deux situations pour dénombrer le nombre de façons de choisir trois personnes parmi quatres sans rôle.</div></section><details id="ex-divIntro" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.22</span><span class="period">.</span><span class="space"> </span><span class="title">Choisir trois personnes parmi quatre.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="introduction" id="ex-divIntro-2"><div class="para" id="ex-divIntro-2-1">On doit choisir trois personnes parmi un groupe de quatre personnes afin de former un commité.</div></div>
+<article class="task exercise-like" id="ex-divAvecOrdre"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="ex-divAvecOrdre-1-1">De combien de façon peut-on choisir ces trois personnes, si on doit choisir un président, un vice-président et un trésorier?</div>
+<div class="solutions"><details id="ex-divAvecOrdre-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="ex-divAvecOrdre-2-1">On doit choisir un président, et ensuite choisir un vice-président, et finalement choisir un trésorier. Par le principe du produit, il y a <span class="process-math">\(4\times 3\times 2 =24\)</span> façons de former le commité.</div></div></details></div></article><article class="task exercise-like" id="ex-divSansOrdre"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="ex-divSansOrdre-1-1">De combien de façon peut-on choisir ces trois personnes, si on ne leur atribue pas un rôle particulier?</div>
+<div class="solutions"><details id="ex-divSansOrdre-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-divSansOrdre-2-1">Tout d’abord, on rappel qu’en <a href="sec_prodSomme.html#ex-divAvecOrdre" class="xref" data-knowl="./knowl/xref/ex-divAvecOrdre.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 4.1.22.a">4.1.22.a</a>, on a vue qu’il y a <span class="process-math">\(24\)</span> façons de choisir un président, un vice-président et un trésorier. Ensuite, on remarque que qu’on peut séparer cette tâche en deux étapes.</div> <div class="para" id="ex-divSansOrdre-2-2">Premièrement, on choisit trois personnes parmi quatre. On note <span class="process-math">\(C_3^4\)</span> le nombre de façons d’accomplir cette étape. Ensuite, on choisit un rôle pour chacune des personnes. À l’aide du principe du produit, on sait qu’il y a <span class="process-math">\(3\times 2\times 1 =6\)</span> façons d’accomplir cette étape.</div> <div class="para" id="ex-divSansOrdre-2-3">Ainsi, on sait que <span class="process-math">\(24=C_3^4\times 6\text{.}\)</span> On peut alors isoler <span class="process-math">\(C_3^4\)</span> pour obtenir <span class="process-math">\(C_3^4=\frac{24}{6}=4\text{.}\)</span>
+</div>
+</div></details></div></article></article></details><div class="para" id="subs-div-4">Le principe utilisé à l’exemple précédent s’appelle le principe de la division. Il est basé sur le principe du produit, et on peut l’énoncer de trois façons différentes.</div>
+<article class="proposition theorem-like" id="prop-div"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.1.23</span><span class="period">.</span><span class="space"> </span><span class="title">Principe de la division.</span>
+</h4>
+<ol class="decimal" id="prop-div-2-1">
+<li id="prop-div-2-1-1"><div class="para" id="p-derived-prop-div-2-1-1">S’il est possible d’accomplir une procédure de <span class="process-math">\(n\)</span> façon, mais que pour chacune de ces façons, il y a exactement <span class="process-math">\(d\)</span> façons qui sont équivalentes, alors il y aura <span class="process-math">\(\frac{n}{d}\)</span> façons différentes d’accomplir la tâche.</div></li>
+<li id="prop-div-2-1-2"><div class="para" id="p-derived-prop-div-2-1-2">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> deux ensembles finis et non vides, alors <span class="process-math">\(|A|=\frac{|A\times B|}{|B|}\)</span>
+</div></li>
+<li id="prop-div-2-1-3"><div class="para" id="p-derived-prop-div-2-1-3">Si <span class="process-math">\(f: A\rightarrow B\)</span> est une fonction de <span class="process-math">\(A\)</span> vers <span class="process-math">\(B\)</span> deux ensembles finis, et si pour chaque <span class="process-math">\(b\in\ B\text{,}\)</span> il existe exactement <span class="process-math">\(d\gt 0\)</span> préimages de <span class="process-math">\(b\text{,}\)</span> c’est-à-dire que <span class="process-math">\(\left|f^{-1}(b)\right|=d\text{,}\)</span> alors <span class="process-math">\(|B|=\frac{|A|}{d}\)</span>
+</div></li>
+</ol></article><details id="ex-div" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.24</span><span class="period">.</span><span class="space"> </span><span class="title">Exemple de base du principe de la division.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-div-2-1">Supposons qu’on doivent placer quatre personnes, Damien, Jean-Michel, Alexandre et Valérie, autours du table rondes (à quatre chaises).</div> <div class="para" id="ex-div-2-2">De combien de façons différentes peut-on accomplir cette tâche, si deux façons de s’assoir sont considérées les mêmes si chaque personne possède le même voisin à gauche et le même voisin à droite.</div>
+<div class="solutions">
+<details id="ex-div-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(6\)</span></div></details><details id="ex-div-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-div-4-1">On commence par assigner une première chaise à Valérie. Celle-ci choisit arbitrairement une chaise qu’on numérote par <span class="process-math">\(1\text{.}\)</span> Ensuite, on numérote les autres chaises de <span class="process-math">\(2\)</span> à <span class="process-math">\(4\)</span> de façon systématique (disons en tournant dans le sens horaire). Il y aura <span class="process-math">\(4\)</span> façons différentes de faire ceci, car le résultat dépend uniquement du choix de Valérie.</div> <div class="para" id="ex-div-4-2">Par la suite, on assigne arbitrairement une personne à la chaise <span class="process-math">\(2\)</span> (il y aura <span class="process-math">\(3\)</span> façons de faire ce choix).  On continue pour la chaise <span class="process-math">\(3\)</span> (<span class="process-math">\(2\)</span> façons) et finalement la chaise <span class="process-math">\(4\)</span> ( <span class="process-math">\(1\)</span> seule façon de faire).</div> <div class="para" id="ex-div-4-3">Par le principe du produit, il y a <span class="process-math">\(4\cdot 3\cdot 2\cdot 1 = 4!=24\)</span> façons d’accomplir cette tâche.</div> <div class="para" id="ex-div-4-4">Cependant, on se rend compte que le choix de la première chaise n’a pas d’impacte sur l’arrangement final, car on distingue deux arrangements seulement si les voisins des gens sont différents. Par le principe de la division, il y aura <span class="process-math">\(\frac{24}{4}=6\)</span> façons différentes d’assoir les gens.</div>
+</div></details>
+</div></article></details></section><section class="conclusion" id="concl-prodSomme"> <div class="para" id="concl-prodSomme-1">Dans les problèmes de dénombrement, on remarque qu’une petite modification à une question peut entraîner une grande différence dans la méthode de résolution. Il est alors important d’utiliser le bon principe au bon moment.</div> <div class="para" id="concl-prodSomme-2">On remarque également que, pour résoudre certain problème, il est parfois plus facile de transformer celui-ci en un problème déjà résolu. À la section <a href="sec_arrCombinaison.html" class="internal" title="Section 4.2: Permutations et combinaisons">4.2</a>, on introduit quelques cas de base qui nous servirons à résoudre une grande partie des problèmes de dénombrement.</div> <div class="para logical" id="concl-prodSomme-3">
+<div class="para">Les points importants de cette section sont:</div>
+<ul class="disc" id="concl-prodSomme-3-1">
+<li id="concl-prodSomme-3-1-1"><div class="para" id="concl-prodSomme-3-1-1-1">Le <a href="sec_prodSomme.html#prop-regleProd" class="xref" data-knowl="./knowl/xref/prop-regleProd.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 4.1.3: Principe du produit">principe du produit</a>;</div></li>
+<li id="concl-prodSomme-3-1-2"><div class="para" id="concl-prodSomme-3-1-2-1">Le <a href="sec_prodSomme.html#prop-regleSomme" class="xref" data-knowl="./knowl/xref/prop-regleSomme.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 4.1.12: Principe de la somme">principe de la somme</a>;</div></li>
+<li id="concl-prodSomme-3-1-3"><div class="para" id="concl-prodSomme-3-1-3-1">Le <a href="sec_prodSomme.html#prop-incExclu" class="xref" data-knowl="./knowl/xref/prop-incExclu.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 4.1.20: Principe d’inclusion-exclusion">principe d’inclusion-exclusion</a>;</div></li>
+<li id="concl-prodSomme-3-1-4"><div class="para" id="concl-prodSomme-3-1-4-1">Le <a href="sec_prodSomme.html#prop-div" class="xref" data-knowl="./knowl/xref/prop-div.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 4.1.23: Principe de la division">principe de la division</a>;</div></li>
+</ul>
+</div></section><section class="reading-questions" id="rq-prodSomme"><h3 class="heading hide-type">
+<span class="type">Questions de compréhension de la lecture</span><span class="space"> </span><span class="codenumber">4.1.6</span><span class="space"> </span><span class="title">Questions de compréhension de la lecture</span>
+</h3>
+<section class="introduction" id="rq-prodSomme-1"><div class="para" id="rq-prodSomme-1-1">Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</div></section><article class="exercise exercise-like" id="rq-prodSomme-2"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="introduction" id="rq-prodSomme-2-1"><div class="para" id="rq-prodSomme-2-1-1">Un test est formé de <span class="process-math">\(10\)</span> questions à choix multiples. Chaque question possède <span class="process-math">\(4\)</span> réponse possible.</div></div>
+<article class="task exercise-like" id="rq-prodSomme-2-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>De combien de façons un étudiant peut-il répondre aux questions s’il répond à toutes les questions?</article><article class="task exercise-like" id="rq-prodSomme-2-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>De combien de façons un étudiant peut-il répondre aux questions s’il peut laisser une réponse vide à certaines questions?</article></article><article class="exercise exercise-like" id="rq-prodSomme-3"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="rq-prodSomme-3-1-1">Une marque populaire de vêtements produit des chandails en <span class="process-math">\(12\)</span> couleurs, en version à manches courtes ou à manches longues et est offert en trois tailles différentes. Combien de types de chandails différents sont produit par cette marque?</div></article><article class="exercise exercise-like" id="rq-prodSomme-4"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="rq-prodSomme-4-1"><div class="para" id="rq-prodSomme-4-1-1">Combien d’entiers <span class="process-math">\(0\leq n \lt 100\text{:}\)</span>
+</div></div>
+<article class="task exercise-like" id="rq-prodSomme-4-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="rq-prodSomme-4-2-1-1">sont divisible par <span class="process-math">\(7\text{?}\)</span>
+</div></article><article class="task exercise-like" id="rq-prodSomme-4-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="rq-prodSomme-4-3-1-1">sont divisible par <span class="process-math">\(7\text{,}\)</span> mais pas par <span class="process-math">\(11\text{?}\)</span>
+</div></article><article class="task exercise-like" id="rq-prodSomme-4-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>sont divisible par <span class="process-math">\(7\)</span> et par <span class="process-math">\(11\text{?}\)</span></article><article class="task exercise-like" id="rq-prodSomme-4-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>sont divisible par <span class="process-math">\(7\)</span> ou par <span class="process-math">\(11\text{?}\)</span></article><article class="task exercise-like" id="rq-prodSomme-4-6"><h5 class="heading"><span class="codenumber">(e)</span></h5>sont divisible par exactement un des entiers <span class="process-math">\(7\)</span> ou <span class="process-math">\(11\text{?}\)</span></article><article class="task exercise-like" id="rq-prodSomme-4-7"><h5 class="heading"><span class="codenumber">(f)</span></h5>ne sont divisible ni par <span class="process-math">\(7\)</span> ni par <span class="process-math">\(11\text{?}\)</span></article><article class="task exercise-like" id="rq-prodSomme-4-8"><h5 class="heading"><span class="codenumber">(g)</span></h5>ont des chiffres différents les uns des autres?</article><article class="task exercise-like" id="rq-prodSomme-4-9"><h5 class="heading"><span class="codenumber">(h)</span></h5>ont des chiffres différents les uns des autres et sont pair?</article></article><article class="exercise exercise-like" id="rq-prodSomme-5"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="introduction" id="rq-prodSomme-5-1"><div class="para" id="rq-prodSomme-5-1-1">On considère des chaînes de trois caractères de chiffres en base <span class="process-math">\(10\text{.}\)</span> Combien de ces chaînes:</div></div>
+<article class="task exercise-like" id="rq-prodSomme-5-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="rq-prodSomme-5-2-1-1">ne contiennent pas le même chiffre trois fois?</div></article><article class="task exercise-like" id="rq-prodSomme-5-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="rq-prodSomme-5-3-1-1">ont exactement deux chiffres qui sont des <span class="process-math">\(4\text{?}\)</span>
+</div></article></article><article class="exercise exercise-like" id="rq-prodSomme-6"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="rq-prodSomme-6-1-1">Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</div></article></section><section class="exercises" id="exo-prodSomme"><h3 class="heading hide-type">
+<span class="type">Exercices</span><span class="space"> </span><span class="codenumber">4.1.7</span><span class="space"> </span><span class="title">Exercices</span>
+</h3>
+<article class="subexercises" id="exo-prodSomme-2"><h4 class="heading"><span class="title">À faire en classe</span></h4>
+<div class="introduction" id="exo-prodSomme-2-2"><div class="para" id="exo-prodSomme-2-2-1">Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d’apprentissage plus avancés.</div></div>
+<article class="exercise exercise-like" id="exo-prodSomme-2-3"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-prodSomme-2-3-1"><div class="para" id="exo-prodSomme-2-3-1-1">Combien de chaînes de quatre chiffres</div></div>
+<article class="task exercise-like" id="exo-prodSomme-2-3-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-prodSomme-2-3-2-1-1">sont formées de chiffres différents?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-3-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-3-2-2-1"><span class="process-math">\(10\cdot 9\cdot 8\cdot 7=5040 \text{.}\)</span></div></div></details><details id="exo-prodSomme-2-3-2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="exo-prodSomme-2-3-2-3-1">Lorsqu’on choisit le premier chiffre, il y a <span class="process-math">\(10\)</span> possibilités. Pour chaque chiffre qu’on choisit par la suite, il y a toujours un choix de moins que pour le chiffre précédent. Ainsi, par le principe du produit, on a <span class="process-math">\(10\cdot 9\cdot 8\cdot 7=5040 \)</span>
+</div></div></details>
+</div></article><article class="task exercise-like" id="exo-prodSomme-2-3-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-prodSomme-2-3-3-1-1">se terminent par un nombre pair?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-3-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-3-3-2-1"><span class="process-math">\(5\cdot 10^3 = 5\,000\)</span></div></div></details><details id="exo-prodSomme-2-3-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="exo-prodSomme-2-3-3-3-1">On commence par choisir le dernier chiffre. Pour que celui-ci soit pair, il y a <span class="process-math">\(5\)</span> choix possibles. Pour chacun des autres chiffres, il y a <span class="process-math">\(10\)</span> possibilités, car les chiffres peuvent se répéter.</div></div></details>
+</div></article><article class="task exercise-like" id="exo-prodSomme-2-3-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-prodSomme-2-3-4-1-1">ont exactement trois chiffres qui sont des <span class="process-math">\(9\text{?}\)</span>
+</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-3-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-3-4-2-1"><span class="process-math">\(9+9+9+9=36\)</span></div></div></details><details id="exo-prodSomme-2-3-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exo-prodSomme-2-3-4-3-1">On conditionne sur la position du chiffre qui n’est pas un <span class="process-math">\(9\text{.}\)</span> C’est-à-dire qu’on utilise le principe de la somme selon la position du chiffre qui n’est pas <span class="process-math">\(9\text{.}\)</span>
+</div> <div class="para" id="exo-prodSomme-2-3-4-3-2">Le chiffre est soit à la position <span class="process-math">\(1\text{,}\)</span> soit à la position <span class="process-math">\(2\text{,}\)</span> soit à la position <span class="process-math">\(3\)</span> ou bien à la position <span class="process-math">\(4\text{.}\)</span> Dans chacun des cas, il ne reste qu’à trouver la valeur de ce chiffre, car on sait que les autres chiffres sont des <span class="process-math">\(9\text{.}\)</span> Il y aura donc <span class="process-math">\(9\)</span> possibilités, soit <span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(2\text{,}\)</span> <span class="process-math">\(3\text{,}\)</span> <span class="process-math">\(4\text{,}\)</span> <span class="process-math">\(5\text{,}\)</span> <span class="process-math">\(6\text{,}\)</span> <span class="process-math">\(7\)</span> ou <span class="process-math">\(8\text{.}\)</span>
+</div> <div class="para" id="exo-prodSomme-2-3-4-3-3">Ainsi, par le principe de la somme, il y a <span class="process-math">\(9+9+9+9=36\)</span> possibilités.</div>
+</div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-prodSomme-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="para" id="exo-prodSomme-2-4-1-1">Lors de la finale de la course du <span class="process-math">\(100\)</span> mètres aux derniers jeux Olympiques, il y avait <span class="process-math">\(8\)</span> coureurs. De combien de manières possibles le podium pouvait-il être composé?</div>
+<div class="solutions"><details id="exo-prodSomme-2-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="exo-prodSomme-2-4-2-1"><span class="process-math">\(\frac{8!}{5!}=8\cdot 7\cdot 6\)</span></div> <div class="para" id="exo-prodSomme-2-4-2-2">La notation <span class="process-math">\(k!\)</span> sera définie  <a href="sec_arrCombinaison.html#def_facto" class="xref" data-knowl="./knowl/xref/def_facto.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 4.2.3">à la prochaine section</a>.</div>
+</div></details></div></article><article class="exercise exercise-like" id="exo-prodSomme-2-5"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-prodSomme-2-5-1"><div class="para" id="exo-prodSomme-2-5-1-1">Combien de chaînes de sept lettres minuscules y a-t-il</div></div>
+<article class="task exercise-like" id="exo-prodSomme-2-5-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-prodSomme-2-5-2-1-1">si les lettres peuvent se répéter?</div>
+<div class="solutions"><details id="exo-prodSomme-2-5-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-5-2-2-1"><span class="process-math">\(26^7 \)</span></div></div></details></div></article><article class="task exercise-like" id="exo-prodSomme-2-5-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-prodSomme-2-5-3-1-1">si les lettres ne peuvent pas se répéter?</div>
+<div class="solutions"><details id="exo-prodSomme-2-5-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-5-3-2-1"><span class="process-math">\(26\cdot 25\cdot 24\cdot 23\cdot 22\cdot 21 \cdot 20  \)</span></div></div></details></div></article><article class="task exercise-like" id="exo-prodSomme-2-5-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-prodSomme-2-5-4-1-1">qui commencent par un “x”, si les lettres peuvent se répéter?</div>
+<div class="solutions"><details id="exo-prodSomme-2-5-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-5-4-2-1"><span class="process-math">\(26^6 \)</span></div></div></details></div></article><article class="task exercise-like" id="exo-prodSomme-2-5-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-prodSomme-2-5-5-1-1">qui commencent par un “x”, si les lettres ne peuvent pas se répéter?</div>
+<div class="solutions"><details id="exo-prodSomme-2-5-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-5-5-2-1"><span class="process-math">\(25\cdot 24\cdot 23\cdot 22\cdot 21 \cdot 20  \)</span></div></div></details></div></article><article class="task exercise-like" id="exo-prodSomme-2-5-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="para" id="exo-prodSomme-2-5-6-1-1">qui commencent et se terminent par un “x”, si les lettres peuvent se répéter?</div>
+<div class="solutions"><details id="exo-prodSomme-2-5-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-5-6-2-1"><span class="process-math">\(26^5 \)</span></div></div></details></div></article><article class="task exercise-like" id="exo-prodSomme-2-5-7"><h6 class="heading"><span class="codenumber">(f)</span></h6>
+<div class="para" id="exo-prodSomme-2-5-7-1-1">qui commencent par les lettres “bo” (dans cet ordre), si les lettres peuvent se répéter?</div>
+<div class="solutions"><details id="exo-prodSomme-2-5-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-5-7-2-1"><span class="process-math">\(26^5 \)</span></div></div></details></div></article><article class="task exercise-like" id="exo-prodSomme-2-5-8"><h6 class="heading"><span class="codenumber">(g)</span></h6>
+<div class="para" id="exo-prodSomme-2-5-8-1-1">qui commencent  <em class="emphasis">et</em> se terminent par les lettres “bo” (dans cet ordre), si les lettres peuvent se répéter?</div>
+<div class="solutions"><details id="exo-prodSomme-2-5-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-5-8-2-1"><span class="process-math">\(26^3 \)</span></div></div></details></div></article><article class="task exercise-like" id="exo-prodSomme-2-5-9"><h6 class="heading"><span class="codenumber">(h)</span></h6>
+<div class="para" id="exo-prodSomme-2-5-9-1-1">qui commencent  <em class="emphasis">ou</em> se terminent par les lettres “bo” (dans cet ordre), si les lettres peuvent se répéter?</div>
+<div class="solutions"><details id="exo-prodSomme-2-5-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-5-9-2-1"><span class="process-math">\(26^5+26^5-26^3 \)</span></div></div></details></div></article></article><article class="exercise exercise-like" id="exo-prodSomme-2-6"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="para" id="exo-prodSomme-2-6-1-1">Soit <span class="process-math">\(E\)</span> un ensemble tel que <span class="process-math">\(|E|=100\text{.}\)</span> Combien de sous-ensembles de <span class="process-math">\(E\)</span> possède plus d’un élément?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-6-2-1"><span class="process-math">\(2^{100}-101\)</span></div></div></details><details id="exo-prodSomme-2-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Il y a <span class="process-math">\(2^{100}\)</span> sous-ensemble au total. Il y a un sous-ensemble qui ne contient aucun élément (l’esemble vide) et il y a <span class="process-math">\(100\)</span> sous-ensemble contenant un seul élément. Ainsi, il y aura <span class="process-math">\(2^{100}-101\)</span> sous-ensembles avec plus d’un élément.</div></details>
+</div></article><article class="exercise exercise-like" id="exo-prodSomme-2-7"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-prodSomme-2-7-1"><div class="para" id="exo-prodSomme-2-7-1-1">On considère les entiers <span class="process-math">\(n\text{,}\)</span> <span class="process-math">\(0\lt n\lt 1\,000\,000\text{.}\)</span>
+</div></div>
+<article class="task exercise-like" id="exo-prodSomme-2-7-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-prodSomme-2-7-2-1-1">Combien de ces entiers <span class="process-math">\(n\)</span> sont divisibles par <span class="process-math">\(4\)</span> ou <span class="process-math">\(6\text{?}\)</span>
+</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-7-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-prodSomme-2-7-2-2-1">Pour être divisible par <span class="process-math">\(4\)</span> et par <span class="process-math">\(6\text{,}\)</span> il faut et il suffit d’être divisible par <span class="process-math">\(12\text{.}\)</span>
+</div></div></details><details id="exo-prodSomme-2-7-2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-7-2-3-1"><span class="process-math">\(333\,332 \)</span></div></div></details>
+</div></article><article class="task exercise-like" id="exo-prodSomme-2-7-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-prodSomme-2-7-3-1-1">Combien de ces entiers <span class="process-math">\(n\)</span> ne sont divisibles ni par <span class="process-math">\(4\)</span> ni par <span class="process-math">\(6\text{?}\)</span>
+</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-7-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">L’énoncé “n’est divisible ni par <span class="process-math">\(4\text{,}\)</span> ni par <span class="process-math">\(6\)</span>” est la négation de l’éoncé “est divisible par <span class="process-math">\(4\)</span> ou par <span class="process-math">\(6\)</span>”.</div></details><details id="exo-prodSomme-2-7-3-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-7-3-3-1"><span class="process-math">\(666\,667\)</span></div></div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-prodSomme-2-8"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-prodSomme-2-8-1"><div class="para" id="exo-prodSomme-2-8-1-1">Supposons qu’un mot de passe pour un système informatique doit avoir entre <span class="process-math">\(8\)</span> et <span class="process-math">\(12\)</span> (inclusivement) caractères, où chaque caractère est soit une lettre minuscule ou manjuscule, un chiffre ou l’un des caractères spéciaux  <span class="process-math">\(\ast,\, \gt,\,\lt,\,!,\,+\text{ et }= \text{.}\)</span>
+</div></div>
+<article class="task exercise-like" id="exo-prodSomme-2-8-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-prodSomme-2-8-2-1-1">Combien de mots de passe différents sont disponibles pour ce système informatique?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-8-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">Pour chaque caractère, il y a <span class="process-math">\(26+26+10+6\)</span> possibilités. Il faut utiliser le principe de la somme selon le nombre de caractères.</div></details><details id="exo-prodSomme-2-8-2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-8-2-3-1"><span class="process-math">\(9\,920\,671\,339\,261\,325\,541\,376\)</span></div></div></details>
+</div></article><article class="task exercise-like" id="exo-prodSomme-2-8-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-prodSomme-2-8-3-1-1">Combien de ces mots de passe contiennent au moins un des caractères spéciaux?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-8-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">Combien de ces mots de passe ne contiennt pas de caractères spéciaux?</div></details><details id="exo-prodSomme-2-8-3-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-8-3-3-1"><span class="process-math">\(6\,641\,514\,961\,387\,068\,437\,760\)</span></div></div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-prodSomme-2-9"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-prodSomme-2-9-1"><div class="para" id="exo-prodSomme-2-9-1-1">On considère l’ensemble des propositions formées à partir de <span class="process-math">\(n\)</span> propositions atomiques.</div></div>
+<article class="task exercise-like" id="exo-prodSomme-2-9-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-prodSomme-2-9-2-1-1">Combien de lignes possède le tableau de vérité d’une de ces propositions?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-9-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-prodSomme-2-9-2-2-1">Chaque de ligne dans le tableau de vérité correspond à une combinaison des valeurs de vérités des <span class="process-math">\(n\)</span> propositions atomiques.</div></div></details><details id="exo-prodSomme-2-9-2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-9-2-3-1"><span class="process-math">\(2^n\)</span></div></div></details>
+</div></article><article class="task exercise-like" id="exo-prodSomme-2-9-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-prodSomme-2-9-3-1-1">Combien de tableaux de vérité différents y a-t-il pour ces propositions? On considère que deux tableaux sont les mêmes si leur dernière colone sont les mêmes.</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-9-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">On considère que deux tableaux de vérités sont les mêmes si les propositions se trouvant à la dernière colone sont équivalentes.</div></details><details id="exo-prodSomme-2-9-3-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">Si <span class="process-math">\(P\)</span> est une proposition de cet ensemble, pour chaque ligne du tableau de vérité, combien de valeur de vérité est-ce que <span class="process-math">\(P\)</span> peut avoir ?</div></details><details id="exo-prodSomme-2-9-3-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-9-3-4-1"><span class="process-math">\(2^{2^n}\)</span></div></div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-prodSomme-2-10"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-prodSomme-2-10-1"><div class="para" id="exo-prodSomme-2-10-1-1">On considère les fonctions <span class="process-math">\(f:\{1,2,\dots,n\}\to \{0,1\}\)</span> où <span class="process-math">\(n\in\,\N^\ast\text{.}\)</span>
+</div></div>
+<article class="task exercise-like" id="exo-prodSomme-2-10-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-prodSomme-2-10-2-1-1">Conbien de ces fonctions sont injectives?</div>
+<div class="solutions"><details id="exo-prodSomme-2-10-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-10-2-2-1">Si <span class="process-math">\(n=1\text{,}\)</span> il y en a <span class="process-math">\(2\text{.}\)</span> Si <span class="process-math">\(n=2\text{,}\)</span> il y en a aussi 2. Si <span class="process-math">\(n\geq3\text{,}\)</span> il y en a <span class="process-math">\(0\text{.}\)</span>
+</div></div></details></div></article><article class="task exercise-like" id="exo-prodSomme-2-10-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-prodSomme-2-10-3-1-1">Combien de ces fonctions sont telles que <span class="process-math">\(f(1)=f(n)=0\text{?}\)</span>
+</div>
+<div class="solutions"><details id="exo-prodSomme-2-10-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Si <span class="process-math">\(n=1\)</span> ou <span class="process-math">\(n=2\text{,}\)</span> il y en a une seule. Si <span class="process-math">\(n \geq 3\text{,}\)</span> il y en a <span class="process-math">\(2^{n-2}\text{.}\)</span>
+</div></details></div></article><article class="task exercise-like" id="exo-prodSomme-2-10-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-prodSomme-2-10-4-1-1">Combien de ces fonctions sont telles que <span class="process-math">\(|f^{-1}(1)\cap\{1,2,\dots,n-1\}|=1\text{?}\)</span>
+</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-10-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-prodSomme-2-10-4-2-1">Ici, on doit supposer que <span class="process-math">\(n\geq 2\text{,}\)</span> car sinon la notation <span class="process-math">\(\{1,2,\dots,n-1\}\)</span> n’est pas cohérente.</div></div></details><details id="exo-prodSomme-2-10-4-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-10-4-3-1">Si <span class="process-math">\(n\geq 2\text{,}\)</span> alors il y aura <span class="process-math">\(2\cdot(n-1)\)</span> fonctions qui respectent la condition.</div></div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-prodSomme-2-11"><h5 class="heading"><span class="codenumber">9<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-prodSomme-2-11-1"><div class="para" id="exo-prodSomme-2-11-1-1">Pour un mariage, de combien de façons différentes est-ce qu’un photographe peu arranger en une ligne <span class="process-math">\(6\)</span> personnes d’un groupe de <span class="process-math">\(10\text{,}\)</span> où les mariés sont dans le groupe de <span class="process-math">\(10\text{,}\)</span> si</div></div>
+<article class="task exercise-like" id="exo-prodSomme-2-11-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-prodSomme-2-11-2-1-1">la mariée doit être sur la photo?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-11-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-prodSomme-2-11-2-2-1">On commence par placer la mariée. Une fois la mariée placée, il reste à placer <span class="process-math">\(5\)</span> personnes parmi les <span class="process-math">\(9\)</span> personnes restantes.</div></div></details><details id="exo-prodSomme-2-11-2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-11-2-3-1"><span class="process-math">\(6\frac{9!}{4!}=90720\)</span></div></div></details>
+</div></article><article class="task exercise-like" id="exo-prodSomme-2-11-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-prodSomme-2-11-3-1-1">les mariés doivent tous deux être sur la photo?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-11-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-prodSomme-2-11-3-2-1">On commence par placer la mariée. Une fois la mariée placée, on place le marié. Une fois les mariés placé, il reste à placer <span class="process-math">\(4\)</span> personnes parmi les <span class="process-math">\(8\)</span> personnes restantes.</div></div></details><details id="exo-prodSomme-2-11-3-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-11-3-3-1"><span class="process-math">\(6\cdot 5\frac{8!}{4!}=50400\)</span></div></div></details>
+</div></article><article class="task exercise-like" id="exo-prodSomme-2-11-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-prodSomme-2-11-4-1-1">exactement un des mariés doit être sur la photo?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-11-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">On commence par choisir si c’est la marié ou le marié qui est sur la photo.</div></details><details id="exo-prodSomme-2-11-4-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">On peut aussi utiliser le principe de la somme selon lequel des deux est sur la photo.</div></details><details id="exo-prodSomme-2-11-4-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-11-4-4-1"><span class="process-math">\(6\frac{8!}{3!}+6\frac{8!}{3!}=80640\)</span></div></div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-prodSomme-2-12"><h5 class="heading"><span class="codenumber">10<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-prodSomme-2-12-1"><div class="para" id="exo-prodSomme-2-12-1-1">Pour un mariage, de combien de façons différentes est-ce qu’un photographe peu arranger en une ligne <span class="process-math">\(6\)</span> personnes, incluant les mariés, si</div></div>
+<article class="task exercise-like" id="exo-prodSomme-2-12-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-prodSomme-2-12-2-1-1">les mariés doivent être l’un à côté de l’autre?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-12-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">On peut considérer les mariés comme une seule personne! Il suffit de choisir qui est à gauche, et qui est à droite!</div></details><details id="exo-prodSomme-2-12-2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-12-2-3-1"><span class="process-math">\(240\)</span></div></div></details>
+</div></article><article class="task exercise-like" id="exo-prodSomme-2-12-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-prodSomme-2-12-3-1-1">la mariée n’est pas à côté du marié?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-12-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-prodSomme-2-12-3-2-1">On vient d’énumérer les façons d’accomplir cette tâche si les mariés sont l’un à côté de l’autre. Comment faire pour calculer le complément?</div></div></details><details id="exo-prodSomme-2-12-3-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">De combien de façons peut-on accomplir la tâche sans aucune restriction?</div></details><details id="exo-prodSomme-2-12-3-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-12-3-4-1"><span class="process-math">\(480\)</span></div></div></details>
+</div></article><article class="task exercise-like" id="exo-prodSomme-2-12-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-prodSomme-2-12-4-1-1">la mariée est quelque part à gauche du marié?</div>
+<div class="solutions">
+<details id="exo-prodSomme-2-12-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-prodSomme-2-12-4-2-1">De combien de façons peut-on accomplir la tâche sans aucune restriction? Parmi ces façons, y a-t-il plus de façons d’avoir la mariée à droite ou à gauche du marié?</div></div></details><details id="exo-prodSomme-2-12-4-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-12-4-3-1"><span class="process-math">\(360\)</span></div></div></details>
+</div></article></article></article><article class="subexercises" id="exo-prodSomme-3"><h4 class="heading"><span class="title">Exercices supplémentaires</span></h4>
+<article class="exercise exercise-like" id="dur"><h5 class="heading"><span class="codenumber">11<span class="period">.</span></span></h5>
+<div class="para" id="dur-1-1">Combien de chaînes binaires de longueur <span class="process-math">\(10\)</span> contiennent cinq <span class="process-math">\(1\)</span> consécutifs ou cinq <span class="process-math">\(0\)</span> consécutifs?</div>
+<div class="solutions">
+<details id="dur-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="dur-2-1">Utiliser le principe de la somme en séparant selon l’endroit où commence la séquence de longueur cinq. Il y aura plusieurs cas à considérer.</div> <div class="para" id="dur-2-2">Il faudra aussi utiliser le principe d’inclusion-exclusion.</div>
+</div></details><details id="dur-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="dur-3-1">Attention! La chaîne binaire peut contenir plus de cinq <span class="process-math">\(1\)</span> ( ou <span class="process-math">\(0\)</span>) consécutifs. C’est à dire qu’il faut compter la chaîne <span class="process-math">\(1111110000\)</span>
+</div></div></details><details id="dur-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(222\)</span></div></details><details id="dur-5" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="dur-5-1">On commence par compter celles qui ont une séquence de cinq <span class="process-math">\(1\)</span> consécutifs. De plus, on conditionne sur la position du premier <span class="process-math">\(1\)</span> de la première séquence de <span class="process-math">\(1\)</span> consécutifs.</div> <div class="para" id="dur-5-2">Si la séquence commence à la première position, les chaînes seront de la forme <span class="process-math">\(11111\ast\ast\ast\ast\ast\text{,}\)</span> où les <span class="process-math">\(\ast\)</span> sont quelconques (<span class="process-math">\(0\text{ ou }1\)</span>). Il y a donc <span class="process-math">\(2^5\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="dur-5-3">Si la séquence commence à la deuxième position, les chaînes seront de la forme <span class="process-math">\(011111\ast\ast\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="dur-5-4">Si la séquence commence à la troisième position, les chaînes seront de la forme <span class="process-math">\(\ast011111\ast\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="dur-5-5">Si la séquence commence à la quatrième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast011111\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="dur-5-6">Si la séquence commence à la cinquième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast\ast011111\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="dur-5-7">Si la séquence commence à la sixième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast\ast\ast011111\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="dur-5-8">Ainsi, il y a <span class="process-math">\(2^5+2^4+2^4+2^4+2^4+2^4=112\)</span> chaînes ayant une séquence de cinq <span class="process-math">\(1\)</span> consécutifs. Par symétrie du problème, on sait qu’il y aura autant de chaînes ayant une chaîne de cinq <span class="process-math">\(0\)</span> consécutifs.</div> <div class="para" id="dur-5-9">Finalement, on doit remarquer qu’il y a deux chaînes qui possèdent une séquences de cinq <span class="process-math">\(1\)</span> consécutifs et une séquence de cinq <span class="process-math">\(0\)</span> consécutifs. Il s’agit de <span class="process-math">\(1111100000\)</span> et <span class="process-math">\(0000011111\)</span>
+</div> <div class="para" id="dur-5-10">Par le principe d’inclusion-exclusion, on a <span class="process-math">\(112+112-2=222\)</span>
+</div>
+</div></details>
+</div></article><article class="exercise exercise-like" id="Tresdur"><h5 class="heading"><span class="codenumber">12<span class="period">.</span></span></h5>
+<div class="para" id="Tresdur-1-1">Combien de chaînes binaires de longueur <span class="process-math">\(8\)</span> contiennent quatre <span class="process-math">\(1\)</span> consécutifs ou trois <span class="process-math">\(0\)</span> consécutifs?</div>
+<div class="solutions">
+<details id="Tresdur-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="Tresdur-2-1">Cette question est similaire au <a href="sec_prodSomme.html#dur" class="xref" data-knowl="./knowl/xref/dur.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 4.1.7.11">numéro précédent</a>, mais plus dificile, car on peut avoir plusieurs fois trois <span class="process-math">\(0\)</span> consécutifs dans la même chaîne.</div></div></details><details id="Tresdur-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(147\)</span></div></details><details id="Tresdur-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="Tresdur-4-1">On commence par compter celles qui ont une séquence de quatre <span class="process-math">\(1\)</span> consécutifs. De plus, on conditionne sur la position du premier <span class="process-math">\(1\)</span> de la première séquence de <span class="process-math">\(1\)</span> consécutifs.</div> <div class="para" id="Tresdur-4-2">Si la séquence commence à la première position, les chaînes seront de la forme <span class="process-math">\(1111\ast\ast\ast\ast\text{,}\)</span> où les <span class="process-math">\(\ast\)</span> sont quelconques (<span class="process-math">\(0\text{ ou }1\)</span>). Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-3">Si la séquence commence à la deuxième position, les chaînes seront de la forme <span class="process-math">\(01111\ast\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^3\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-4">Si la séquence commence à la troisième position, les chaînes seront de la forme <span class="process-math">\(\ast01111\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^3\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-5">Si la séquence commence à la quatrième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast01111\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^3\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-6">Si la séquence commence à la cinquième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast\ast01111\text{.}\)</span> Il y a donc <span class="process-math">\(2^3\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-7">Ainsi, il y a <span class="process-math">\(2^4+2^3+2^3+2^3+2^3=48\)</span> chaînes ayant une séquence de cinq <span class="process-math">\(1\)</span> consécutifs.</div> <div class="para" id="Tresdur-4-8">Par la suite, on compte celles qui ont une séquence de trois <span class="process-math">\(0\)</span> consécutifs. De plus, on conditionne sur la position du premier <span class="process-math">\(0\)</span> de la <em class="emphasis">première</em> séquence de <span class="process-math">\(0\)</span> consécutifs.</div> <div class="para" id="Tresdur-4-9">Si la séquence commence à la première position, les chaînes seront de la forme <span class="process-math">\(000\ast\ast\ast\ast\ast\text{,}\)</span> où les <span class="process-math">\(\ast\)</span> sont quelconques (<span class="process-math">\(0\text{ ou }1\)</span>). Il y a donc <span class="process-math">\(2^5\)</span> chaînes dont la première séquence de <span class="process-math">\(0\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-10">Si la séquence commence à la deuxième position, les chaînes seront de la forme <span class="process-math">\(1000\ast\ast\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la première séquence de <span class="process-math">\(0\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-11">Si la séquence commence à la troisième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast1000\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la première séquence de <span class="process-math">\(0\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-12">Si la séquence commence à la quatrième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast\ast1000\ast\text{,}\)</span> mais ne peut pas être  <span class="process-math">\(0001000\ast\)</span> car la <em class="emphasis">première</em> séquence  doit commencer à la quatrième position! Il y a donc <span class="process-math">\(2^4-2\)</span> chaînes dont la première séquence de <span class="process-math">\(0\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-13">Si la séquence commence à la cinquième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast\ast\ast1000\text{.}\)</span> Cependant,  il y a <span class="process-math">\(3\)</span> chaînes ayant une séquence d’au moins trois <span class="process-math">\(0\)</span> au début de la chaîne. Il s’agit de <span class="process-math">\(00001000\text{,}\)</span> <span class="process-math">\(00011000\)</span> et <span class="process-math">\(10001000\text{.}\)</span> Il y a donc <span class="process-math">\(2^4-3\)</span> chaînes dont la première séquence de <span class="process-math">\(0\)</span> commence à cette position.</div> <div class="para" id="Tresdur-4-14">Ainsi, il y a <span class="process-math">\(2^5+2^4+2^4+2^4+(2^4-2)+(2^4-3)=107\)</span> chaînes ayant une séquence de cinq <span class="process-math">\(1\)</span> consécutifs.</div> <div class="para" id="Tresdur-4-15">Finalement, on doit remarquer qu’il y a huit chaînes qui possèdent une séquences de quatre <span class="process-math">\(1\)</span> consécutifs et une séquence de trois <span class="process-math">\(0\)</span> consécutifs.</div> <div class="para" id="Tresdur-4-16">Par le principe d’inclusion-exclusion, on a <span class="process-math">\(48+107-8=147\text{.}\)</span>
+</div>
+</div></details>
+</div></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="chap-denombrement.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec_arrCombinaison.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

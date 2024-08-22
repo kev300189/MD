@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">De la base dix vers le binaire.</span>
+</h4>
+<div class="para logical">
+<div class="para">On cherche à convertir les nombres suivants en binaire:</div>
+<ol class="decimal" id="ex-decimalebinaire-2-1-1">
+<li><div class="para"><span class="process-math">\(101\text{;}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(187\text{.}\)</span></div></li>
+</ol>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">On sait qu’un nombre en binaire va s’écrire sous la forme <span class="process-math">\(d_n2^n+d_{n-1}2^{n-1}+\cdots + d_12^1+d_02^0\)</span> avec tous les <span class="process-math">\(d_k\in \{0,1\}\text{.}\)</span> Pour trouver <span class="process-math">\(n\text{,}\)</span> on cherche la plus grande puissance de la base qui est plus petite ou égale au  nombre à convertir. Le nombre <span class="process-math">\(n\)</span> sera celui la valeur de cette puissance. Ainsi pour <span class="process-math">\(101\text{,}\)</span> la plus grande puissance qui est plus petite est <span class="process-math">\(2^6=64\text{.}\)</span> On a donc</div>
+<div class="displaymath process-math">
+\begin{equation*}
+101=d_62^6+d_{5}2^{5}+\cdots + d_12^1+d_02^0\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Il faut ensuite choisir la plus grande valeur de <span class="process-math">\(d_n\)</span> possible de sorte que <span class="process-math">\(d_n b^n\)</span> soit inférieure au nombre <span class="process-math">\(n\text{.}\)</span> Pour la base deux, le choix est simple et sera toujours <span class="process-math">\(1\text{.}\)</span> Ainsi pour <span class="process-math">\(101\text{,}\)</span> on a <span class="process-math">\(d_6=1\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+101=2^6+d_{5}2^{5}+\cdots + d_12^1+d_02^0\text{.}
+\end{equation*}
+</div>
+<div class="para">On envoie le terme trouvé du côté du nombre <span class="process-math">\(n\)</span> en soustrayant et on répète ce processus jusqu’à ce que tous les <span class="process-math">\(d_k\)</span> soient déterminés.</div>
+<div class="displaymath process-math">
+\begin{align*}
+101-2^6&amp;=d_{5}2^{5}+d_{4}2^{4}+d_{3}2^{3}+d_{2}2^{2} + d_12^1+d_02^0\\
+37&amp;=d_{5}2^{5}+d_{4}2^{4}+d_{3}2^{3}+d_{2}2^{2} + d_12^1+d_02^0\\
+\end{align*}
+<p class="intertext">La plus grande puissance plus petite que le nombre à gauche est <span class="process-math">\(2^5\)</span></p>
+\begin{align*}
+37&amp;=2^5+d_{4}2^{4}+d_{3}2^{3}+d_{2}2^{2} + d_12^1+d_02^0\\
+37-2^5&amp;=d_{4}2^{4}+d_{3}2^{3}+d_{2}2^{2} + d_12^1+d_02^0\\
+5&amp;=d_{4}2^{4}+d_{3}2^{3}+d_{2}2^{2} + d_12^1+d_02^0\\
+\end{align*}
+<p class="intertext">La plus grande puissance qui est plus petite que 5 est 4. Les puissances précédente qui ne sont pas utilisées sont multipliées par zéro.</p>
+\begin{align*}
+5&amp;=0\times 2^{4}+0\times 2^{3}+2^{2} + d_12^1+d_02^0\\
+5-2^2&amp;=d_1 2^1+d_02^0\\
+1&amp;=d_1 2^1+d_02^0\\
+\end{align*}
+<p class="intertext">La puissance 0 est égale à 1 et donc</p>
+\begin{align*}
+1&amp;=0\times 2^1+2^0\text{.}
+\end{align*}
+</div>
+<div class="para">En reprenant les valeurs de <span class="process-math">\(d_k\)</span> non nulles, on a</div>
+<div class="displaymath process-math">
+\begin{equation*}
+101=1100101_2\text{.}
+\end{equation*}
+</div>
+</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical">
+<div class="para">On montre une manière plus concise d’écrire le raisonnement précédent. La plus grande puissance de <span class="process-math">\(2\)</span> qui est inférieure ou égale à <span class="process-math">\(187\)</span> est <span class="process-math">\(128\text{.}\)</span> On a donc</div>
+<div class="displaymath process-math">
+\begin{align*}
+187&amp;=128+\text{quelque chose}\\
+\end{align*}
+<p class="intertext">Puisque 187-128=59 et que la plus grande puissance de 2 inférieure à 59 est 32, on a</p>
+\begin{align*}
+187&amp;=128+32+\text{autre chose}\\
+\end{align*}
+<p class="intertext">autre chose doit être égal à 27 lorsqu’on fait la soustraction. La plus grande puissance inférieure à cela est 16 et donc</p>
+\begin{align*}
+187&amp;=128+32+16+\text{quelque chose d'autre}\\
+\end{align*}
+<p class="intertext">on poursuit ainsi et on obtient finalement</p>
+\begin{align*}
+187&amp;=128+32+16+8+2+1\\
+187&amp;=10111011_2
+\end{align*}
+</div>
+</div></div></details>
+</div></article><span class="incontext"><a class="internal" href="sec-representation.html#ex-decimalebinaire">Contexte</a></span>
+</body>
+</html>

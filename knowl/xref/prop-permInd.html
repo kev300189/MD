@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h5 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">4.2.22</span><span class="period">.</span>
+</h5>
+<div class="para logical">
+<div class="para">Le nombre de permutations différentes de <span class="process-math">\(n\)</span> objets, où il y <span class="process-math">\(n_1\)</span> objets indiscernables de type <span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(n_2\)</span> objets indiscernables de type <span class="process-math">\(2\text{,}\)</span> <span class="process-math">\(\dots,\)</span> et <span class="process-math">\(n_k\)</span> objets indiscernables de type <span class="process-math">\(k\)</span> est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{n!}{n_1!n_2!\cdots n_k!}
+\end{equation*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h5></summary><article class="hiddenproof knowl__content"><div class="para">On commence par compter le nombre de permutations de tous les objets en supposant qu’ils sont tous différents. Il y a alors <span class="process-math">\(n!\)</span> permutations.</div> <div class="para">Cependant, pour chacune de ces permutations, il y a en <span class="process-math">\(n_1!\cdot n_2!\cdots n_k!\)</span> qui sont équivalentes.</div> <div class="para">Le <span class="process-math">\(n_1!\)</span> provient des permutations des objets de type <span class="process-math">\(1,\)</span>  le <span class="process-math">\(n_2!\)</span> correspond aux permutations des objets de type <span class="process-math">\(2\text{,}\)</span> et ainsi de suite jusqu’aux <span class="process-math">\(n_k!\)</span> permutations des objets de type <span class="process-math">\(k\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Par le principe de la division, on a que le nombre de permutations de nos objets est</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{n!}{n_1!\cdot n_2!\cdots n_k!}\text{.}
+\end{equation*}
+</div>
+</div></article></details><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h5 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h5></summary><article class="hiddenproof knowl__content"><div class="para">On commence par choisir les <span class="process-math">\(n_1\)</span> positions parmi les <span class="process-math">\(n\)</span> positions totales pour les objets de type <span class="process-math">\(1\text{.}\)</span> Il y a <span class="process-math">\(\Binomial{n}{n_1}\)</span> façons de le faire.</div> <div class="para">Par la suite, on choisit les <span class="process-math">\(n_2\)</span> positions parmi les <span class="process-math">\(n-n_1\)</span> positions restantes pour les objets de type <span class="process-math">\(2\text{.}\)</span>  Il y a <span class="process-math">\(\Binomial{n-n_1}{n_2}\)</span> façons de le faire.</div> <div class="para">On doit maintenant choisir les <span class="process-math">\(n_3\)</span> positions parmi les <span class="process-math">\(n-n_1-n_2\)</span> positions restantes pour les objets de type <span class="process-math">\(3\text{.}\)</span>  Il y a <span class="process-math">\(\Binomial{n-n_1-n_2}{n_3}\)</span> façons de le faire.</div> <div class="para logical">
+<div class="para">En poursuivant ainsi, jusqu’aux objets de type <span class="process-math">\(k\text{,}\)</span> et en utilisant le principe du produit, on a que le nombres de permutations est</div>
+<div class="displaymath process-math">
+\begin{align*}
+\amp = \Binomial{n}{n_1}\Binomial{n-n_1}{n_2}\cdots \Binomial{n-n_1-n_2-\cdots-n_{k-1}}{n_{k}}\\
+\amp = \frac{n!}{(n-n_1)!n_1!}\frac{(n-n_1)!}{(n-n_1-n_2)!n_2!}\cdots \frac{(n-n_1-n_2-\cdots-n_{k-1})!}{0!n_{k}!}\\
+\amp = \frac{n!}{n_1!n_2!\cdots n_k!}
+\end{align*}
+</div>
+</div></article></details><span class="incontext"><a class="internal" href="sec_arrCombinaison.html#prop-permInd">Contexte</a></span>
+</body>
+</html>

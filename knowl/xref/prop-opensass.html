@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">L’union et l’intersection ont la propriété d’associativité.</span>
+</h4>
+<div class="para logical">
+<div class="para">Soit <span class="process-math">\(A,B,C\)</span> trois ensembles quelconques. Alors</div>
+<div class="displaymath process-math">
+\begin{align*}
+A\cup(B\cup C)&amp;=(A\cup B)\cup C\\
+A\cap(B\cap C)&amp;=(A\cap B)\cap C\text{.}
+\end{align*}
+</div>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical">
+<div class="para">Pour démontrer l’identité de l’union, on utilise une table d’appartenance. Ce type de table reviendra dans la section <a href="sec-logprop.html" class="internal" title="Section 2.1: La logique propositionnelle">2.1</a> (sous le nom de table de vérité). Voici comment remplir une telle table.</div>
+<ol class="decimal" id="prop-opensass-3-1-2">
+<li><div class="para">Sur la première ligne, on met tous les ensembles pertinents à notre égalité, en commençant par les ensembles les plus simples à la gauche.</div></li>
+<li><div class="para">En fonction du nombre d’ensembles seuls, on remplit les lignes sous les premières colonnes (ne contenant qu’un ensemble seul) avec des « non » (signifiant que l’élément n’est pas dans l’ensemble) ou « oui » (signifiant l’appartenance de l’élément à l’ensemble) afin d’obtenir toutes les combinaisons possibles.</div></li>
+<li><div class="para">On remplit le reste de la table en utilisant la définition des opérations utilisées.</div></li>
+</ol>
+<div class="para">L’égalité est vrai si les colonnes correspondant aux membres de part et d’autre de l’égalité sont identiques.</div>
+</div> <div class="para">Voici la table pour l’identité <span class="process-math">\(A\cup(B\cup C)=(A\cup B)\cup C\)</span>
+</div> <figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.15<span class="period">.</span></span><span class="space"> </span>Table d’appartenance pour <span class="process-math">\(A\cup(B\cup C)=(A\cup B)\cup C\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(C\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\cup B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(B\cup C\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\cup (B\cup C)\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\((A\cup B)\cup C\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b3 r0 l0 t0 lines">non</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+</tr>
+</table></div></figure></article></details><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">On démontre l’identité de l’intersection avec le concept de sous-ensemble et d’égalité: si <span class="process-math">\(E,F\)</span> sont des ensembles tels que <span class="process-math">\(E\subseteq F\)</span> et <span class="process-math">\(F\subseteq E\text{,}\)</span> alors <span class="process-math">\(E=F\text{.}\)</span> Pour ce faire, on commence par montrer que <span class="process-math">\(A\cap(B\cap C)\subseteq (A\cap B)\cap C\text{.}\)</span>
+</div> <div class="para">On veut montrer qu’un élément arbitraire de <span class="process-math">\(A\cap(B\cap C)\)</span> sera aussi dans <span class="process-math">\((A\cap B)\cap C\text{.}\)</span> Pour cela, il peut-être utile de transposer l’ensemble en mots. Soit <span class="process-math">\(a\in A\cap(B\cap C)\text{.}\)</span> Alors l’élément <span class="process-math">\(a\)</span> est dans l’intersection de <span class="process-math">\(A\)</span> et de <span class="process-math">\((B\cap C)\)</span> (en résolvant l’intersection extérieure à la parenthèse) et donc, <span class="process-math">\(a\in A\)</span> et <span class="process-math">\(a\in (B\cap C)\text{.}\)</span> Puisqu’on sait maintenant que <span class="process-math">\(a\in (B\cap C)\text{,}\)</span> on peut aussi dire que <span class="process-math">\(a\in B\)</span> et <span class="process-math">\(a\in C\text{.}\)</span> Donc <span class="process-math">\(a\)</span> est dans chacun des trois ensembles <span class="process-math">\(A,B,C\)</span> (sous l’hypothèse initiale que <span class="process-math">\(a\in A\cap(B\cap C)\)</span>).</div> <div class="para">En particulier, puisque <span class="process-math">\(a\)</span> est dans <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> on obtient que <span class="process-math">\(a\in (A\cap B)\text{.}\)</span> Finalement, en utilisant le fait que <span class="process-math">\(a\in C\text{,}\)</span> on a que <span class="process-math">\(a\in (A\cap B)\)</span> et <span class="process-math">\(a\in C\)</span> et donc, <span class="process-math">\(a\in (A\cap B)\cap C\text{.}\)</span> On a bel et bien <span class="process-math">\(A\cap(B\cap C)\subseteq (A\cap B)\cap C\text{.}\)</span>
+</div> <div class="para">L’idée pour montrer l’autre direction, soit que <span class="process-math">\((A\cap B)\cap C\subseteq A\cap(B\cap C)\)</span> est identique.</div> <div class="para">Soit <span class="process-math">\(b\)</span> un élément arbitraire de <span class="process-math">\((A\cap B)\cap C\text{.}\)</span> Alors <span class="process-math">\(b\)</span> est dans l’intersection de <span class="process-math">\(A\cap B\)</span> et de <span class="process-math">\(C\text{.}\)</span> En particulier, <span class="process-math">\(b\)</span> est dans <span class="process-math">\(C\text{.}\)</span> Puisque <span class="process-math">\(b\)</span> est dans l’intersection de <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> on voit que <span class="process-math">\(b\)</span> est à la fois dans <span class="process-math">\(A\)</span> et dans <span class="process-math">\(B\)</span> (et dans <span class="process-math">\(C\text{!}\)</span>). Comme <span class="process-math">\(b\)</span> est à la fois dans <span class="process-math">\(B\)</span> et dans <span class="process-math">\(C\text{,}\)</span> il est dans leur intersection. En combinant cela avec le fait que <span class="process-math">\(b\in A\text{,}\)</span> on obtient que <span class="process-math">\(b\)</span> est dans l’intersection de  <span class="process-math">\(A\)</span> et <span class="process-math">\(B\cap C\text{.}\)</span> Ainsi <span class="process-math">\(b\in A\cap(B\cap C) \text{.}\)</span>
+</div> <div class="para">Comme <span class="process-math">\(A\cap(B\cap C)\subseteq (A\cap B)\cap C\)</span> et <span class="process-math">\(A\cap(B\cap C)\supseteq (A\cap B)\cap C\text{,}\)</span> on conclut finalement que <span class="process-math">\(A\cap(B\cap C)=(A\cap B)\cap C\text{.}\)</span>
+</div></article></details><span class="incontext"><a class="internal" href="sec-opens.html#prop-opensass">Contexte</a></span>
+</body>
+</html>

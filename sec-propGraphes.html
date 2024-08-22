@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MaDIR Propriétés des graphes</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathématiques discrètes">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#ex-ensext-2-1-1 { counter-set: ex-ensext-2-1-1 0; }
+#ex-ensext-2-1-1 > li::marker { content: ""counter(ex-ensext-2-1-1,decimal)"."; }
+#ex-ensext-2-1-1 > li { counter-increment: ex-ensext-2-1-1; }
+#ex-ensext-3-1-1 { counter-set: ex-ensext-3-1-1 0; }
+#ex-ensext-3-1-1 > li::marker { content: ""counter(ex-ensext-3-1-1,decimal)"."; }
+#ex-ensext-3-1-1 > li { counter-increment: ex-ensext-3-1-1; }
+#sec-ens-3-8-2-1-1 { counter-set: sec-ens-3-8-2-1-1 0; }
+#sec-ens-3-8-2-1-1 > li::marker { content: ""counter(sec-ens-3-8-2-1-1,decimal)"."; }
+#sec-ens-3-8-2-1-1 > li { counter-increment: sec-ens-3-8-2-1-1; }
+#sec-ens-3-8-3-1-1 { counter-set: sec-ens-3-8-3-1-1 0; }
+#sec-ens-3-8-3-1-1 > li::marker { content: ""counter(sec-ens-3-8-3-1-1,decimal)"."; }
+#sec-ens-3-8-3-1-1 > li { counter-increment: sec-ens-3-8-3-1-1; }
+#sssec-opens-19-3-1-2 { counter-set: sssec-opens-19-3-1-2 0; }
+#sssec-opens-19-3-1-2 > li::marker { content: ""counter(sssec-opens-19-3-1-2,decimal)"."; }
+#sssec-opens-19-3-1-2 > li { counter-increment: sssec-opens-19-3-1-2; }
+#li-opensprop-2 { counter-set: li-opensprop-2 0; }
+#li-opensprop-2 > li::marker { content: ""counter(li-opensprop-2,decimal)"."; }
+#li-opensprop-2 > li { counter-increment: li-opensprop-2; }
+#prop-opensass-3-1-2 { counter-set: prop-opensass-3-1-2 0; }
+#prop-opensass-3-1-2 > li::marker { content: ""counter(prop-opensass-3-1-2,decimal)"."; }
+#prop-opensass-3-1-2 > li { counter-increment: prop-opensass-3-1-2; }
+#sec-fonctions-3-8-2-1-1 { counter-set: sec-fonctions-3-8-2-1-1 0; }
+#sec-fonctions-3-8-2-1-1 > li::marker { content: ""counter(sec-fonctions-3-8-2-1-1,decimal)"."; }
+#sec-fonctions-3-8-2-1-1 > li { counter-increment: sec-fonctions-3-8-2-1-1; }
+#sec-fonctions-3-8-3-1-1 { counter-set: sec-fonctions-3-8-3-1-1 0; }
+#sec-fonctions-3-8-3-1-1 > li::marker { content: ""counter(sec-fonctions-3-8-3-1-1,decimal)"."; }
+#sec-fonctions-3-8-3-1-1 > li { counter-increment: sec-fonctions-3-8-3-1-1; }
+#ex-composagi-2-1-4 { counter-set: ex-composagi-2-1-4 0; }
+#ex-composagi-2-1-4 > li::marker { content: ""counter(ex-composagi-2-1-4,decimal)"."; }
+#ex-composagi-2-1-4 > li { counter-increment: ex-composagi-2-1-4; }
+#ex-composagi-3-1-1 { counter-set: ex-composagi-3-1-1 0; }
+#ex-composagi-3-1-1 > li::marker { content: ""counter(ex-composagi-3-1-1,decimal)"."; }
+#ex-composagi-3-1-1 > li { counter-increment: ex-composagi-3-1-1; }
+#ex-inj-2-1-1 { counter-set: ex-inj-2-1-1 0; }
+#ex-inj-2-1-1 > li::marker { content: ""counter(ex-inj-2-1-1,decimal)"."; }
+#ex-inj-2-1-1 > li { counter-increment: ex-inj-2-1-1; }
+#ex-inj-3-1-1 { counter-set: ex-inj-3-1-1 0; }
+#ex-inj-3-1-1 > li::marker { content: ""counter(ex-inj-3-1-1,decimal)"."; }
+#ex-inj-3-1-1 > li { counter-increment: ex-inj-3-1-1; }
+#ex-surj-2-1-1 { counter-set: ex-surj-2-1-1 0; }
+#ex-surj-2-1-1 > li::marker { content: ""counter(ex-surj-2-1-1,decimal)"."; }
+#ex-surj-2-1-1 > li { counter-increment: ex-surj-2-1-1; }
+#ex-surj-3-1-1 { counter-set: ex-surj-3-1-1 0; }
+#ex-surj-3-1-1 > li::marker { content: ""counter(ex-surj-3-1-1,decimal)"."; }
+#ex-surj-3-1-1 > li { counter-increment: ex-surj-3-1-1; }
+#concl-fonctions-2-1 { counter-set: concl-fonctions-2-1 0; }
+#concl-fonctions-2-1 > li::marker { content: ""counter(concl-fonctions-2-1,decimal)"."; }
+#concl-fonctions-2-1 > li { counter-increment: concl-fonctions-2-1; }
+#sec-fonctions-8-6-1-1-2 { counter-set: sec-fonctions-8-6-1-1-2 0; }
+#sec-fonctions-8-6-1-1-2 > li::marker { content: "("counter(sec-fonctions-8-6-1-1-2,lower-alpha)")"; }
+#sec-fonctions-8-6-1-1-2 > li { counter-increment: sec-fonctions-8-6-1-1-2; }
+#sec-fonctions-8-7-1-1-2 { counter-set: sec-fonctions-8-7-1-1-2 0; }
+#sec-fonctions-8-7-1-1-2 > li::marker { content: "("counter(sec-fonctions-8-7-1-1-2,lower-alpha)")"; }
+#sec-fonctions-8-7-1-1-2 > li { counter-increment: sec-fonctions-8-7-1-1-2; }
+#exo--2-7-1-1-3 { counter-set: exo--2-7-1-1-3 0; }
+#exo--2-7-1-1-3 > li::marker { content: "("counter(exo--2-7-1-1-3,lower-alpha)")"; }
+#exo--2-7-1-1-3 > li { counter-increment: exo--2-7-1-1-3; }
+#exo--2-8-1-1-1 { counter-set: exo--2-8-1-1-1 0; }
+#exo--2-8-1-1-1 > li::marker { content: ""counter(exo--2-8-1-1-1,lower-roman)""; }
+#exo--2-8-1-1-1 > li { counter-increment: exo--2-8-1-1-1; }
+#exo--2-8-2-2-1 { counter-set: exo--2-8-2-2-1 0; }
+#exo--2-8-2-2-1 > li::marker { content: ""counter(exo--2-8-2-2-1,lower-roman)""; }
+#exo--2-8-2-2-1 > li { counter-increment: exo--2-8-2-2-1; }
+#exo--2-8-3-2-1 { counter-set: exo--2-8-3-2-1 0; }
+#exo--2-8-3-2-1 > li::marker { content: ""counter(exo--2-8-3-2-1,lower-roman)""; }
+#exo--2-8-3-2-1 > li { counter-increment: exo--2-8-3-2-1; }
+#exo--2-8-4-2-1 { counter-set: exo--2-8-4-2-1 0; }
+#exo--2-8-4-2-1 > li::marker { content: ""counter(exo--2-8-4-2-1,lower-roman)""; }
+#exo--2-8-4-2-1 > li { counter-increment: exo--2-8-4-2-1; }
+#exo--2-8-5-2-1 { counter-set: exo--2-8-5-2-1 0; }
+#exo--2-8-5-2-1 > li::marker { content: ""counter(exo--2-8-5-2-1,lower-roman)""; }
+#exo--2-8-5-2-1 > li { counter-increment: exo--2-8-5-2-1; }
+#sec-logprop-5-7-1 { counter-set: sec-logprop-5-7-1 0; }
+#sec-logprop-5-7-1 > li::marker { content: ""counter(sec-logprop-5-7-1,decimal)"."; }
+#sec-logprop-5-7-1 > li { counter-increment: sec-logprop-5-7-1; }
+#li-oplogprop-2 { counter-set: li-oplogprop-2 0; }
+#li-oplogprop-2 > li::marker { content: ""counter(li-oplogprop-2,decimal)"."; }
+#li-oplogprop-2 > li { counter-increment: li-oplogprop-2; }
+#sec-eqlogfnc-3-13-2-1-2 { counter-set: sec-eqlogfnc-3-13-2-1-2 0; }
+#sec-eqlogfnc-3-13-2-1-2 > li::marker { content: ""counter(sec-eqlogfnc-3-13-2-1-2,decimal)"."; }
+#sec-eqlogfnc-3-13-2-1-2 > li { counter-increment: sec-eqlogfnc-3-13-2-1-2; }
+#sec-eqlogfnc-3-13-3-1-1 { counter-set: sec-eqlogfnc-3-13-3-1-1 0; }
+#sec-eqlogfnc-3-13-3-1-1 > li::marker { content: ""counter(sec-eqlogfnc-3-13-3-1-1,decimal)"."; }
+#sec-eqlogfnc-3-13-3-1-1 > li { counter-increment: sec-eqlogfnc-3-13-3-1-1; }
+#sssec-predicats-3-2-1-1 { counter-set: sssec-predicats-3-2-1-1 0; }
+#sssec-predicats-3-2-1-1 > li::marker { content: ""counter(sssec-predicats-3-2-1-1,decimal)"."; }
+#sssec-predicats-3-2-1-1 > li { counter-increment: sssec-predicats-3-2-1-1; }
+#sssec-predicats-3-3-1-1 { counter-set: sssec-predicats-3-3-1-1 0; }
+#sssec-predicats-3-3-1-1 > li::marker { content: ""counter(sssec-predicats-3-3-1-1,decimal)"."; }
+#sssec-predicats-3-3-1-1 > li { counter-increment: sssec-predicats-3-3-1-1; }
+#sssec-predicats-5-2-1-2 { counter-set: sssec-predicats-5-2-1-2 0; }
+#sssec-predicats-5-2-1-2 > li::marker { content: ""counter(sssec-predicats-5-2-1-2,decimal)"."; }
+#sssec-predicats-5-2-1-2 > li { counter-increment: sssec-predicats-5-2-1-2; }
+#sssec-predicats-5-3-1-1 { counter-set: sssec-predicats-5-3-1-1 0; }
+#sssec-predicats-5-3-1-1 > li::marker { content: ""counter(sssec-predicats-5-3-1-1,decimal)"."; }
+#sssec-predicats-5-3-1-1 > li { counter-increment: sssec-predicats-5-3-1-1; }
+#sssec-quantificateurs-6-2-1-1 { counter-set: sssec-quantificateurs-6-2-1-1 0; }
+#sssec-quantificateurs-6-2-1-1 > li::marker { content: ""counter(sssec-quantificateurs-6-2-1-1,decimal)"."; }
+#sssec-quantificateurs-6-2-1-1 > li { counter-increment: sssec-quantificateurs-6-2-1-1; }
+#sssec-quantificateurs-6-3-1-1 { counter-set: sssec-quantificateurs-6-3-1-1 0; }
+#sssec-quantificateurs-6-3-1-1 > li::marker { content: ""counter(sssec-quantificateurs-6-3-1-1,decimal)"."; }
+#sssec-quantificateurs-6-3-1-1 > li { counter-increment: sssec-quantificateurs-6-3-1-1; }
+#sssec-quantificateurs-10-2-1-1 { counter-set: sssec-quantificateurs-10-2-1-1 0; }
+#sssec-quantificateurs-10-2-1-1 > li::marker { content: ""counter(sssec-quantificateurs-10-2-1-1,decimal)"."; }
+#sssec-quantificateurs-10-2-1-1 > li { counter-increment: sssec-quantificateurs-10-2-1-1; }
+#sssec-quantificateurs-10-3-1-1 { counter-set: sssec-quantificateurs-10-3-1-1 0; }
+#sssec-quantificateurs-10-3-1-1 > li::marker { content: ""counter(sssec-quantificateurs-10-3-1-1,decimal)"."; }
+#sssec-quantificateurs-10-3-1-1 > li { counter-increment: sssec-quantificateurs-10-3-1-1; }
+#sec-propquant-5-6-2-1-1 { counter-set: sec-propquant-5-6-2-1-1 0; }
+#sec-propquant-5-6-2-1-1 > li::marker { content: ""counter(sec-propquant-5-6-2-1-1,decimal)"."; }
+#sec-propquant-5-6-2-1-1 > li { counter-increment: sec-propquant-5-6-2-1-1; }
+#sec-propquant-5-6-3-1 { counter-set: sec-propquant-5-6-3-1 0; }
+#sec-propquant-5-6-3-1 > li::marker { content: ""counter(sec-propquant-5-6-3-1,decimal)"."; }
+#sec-propquant-5-6-3-1 > li { counter-increment: sec-propquant-5-6-3-1; }
+#sec-propquant-5-12-2-1-1 { counter-set: sec-propquant-5-12-2-1-1 0; }
+#sec-propquant-5-12-2-1-1 > li::marker { content: ""counter(sec-propquant-5-12-2-1-1,decimal)"."; }
+#sec-propquant-5-12-2-1-1 > li { counter-increment: sec-propquant-5-12-2-1-1; }
+#exo-propquant-2-10-1-1-2 { counter-set: exo-propquant-2-10-1-1-2 0; }
+#exo-propquant-2-10-1-1-2 > li::marker { content: "("counter(exo-propquant-2-10-1-1-2,lower-alpha)")"; }
+#exo-propquant-2-10-1-1-2 > li { counter-increment: exo-propquant-2-10-1-1-2; }
+#exo-propquant-2-10-2-1 { counter-set: exo-propquant-2-10-2-1 0; }
+#exo-propquant-2-10-2-1 > li::marker { content: "("counter(exo-propquant-2-10-2-1,lower-alpha)")"; }
+#exo-propquant-2-10-2-1 > li { counter-increment: exo-propquant-2-10-2-1; }
+#sec-circuits-3-9-1 { counter-set: sec-circuits-3-9-1 0; }
+#sec-circuits-3-9-1 > li::marker { content: ""counter(sec-circuits-3-9-1,decimal)"."; }
+#sec-circuits-3-9-1 > li { counter-increment: sec-circuits-3-9-1; }
+#sec-representation-3-4-2-1-1 { counter-set: sec-representation-3-4-2-1-1 0; }
+#sec-representation-3-4-2-1-1 > li::marker { content: ""counter(sec-representation-3-4-2-1-1,decimal)"."; }
+#sec-representation-3-4-2-1-1 > li { counter-increment: sec-representation-3-4-2-1-1; }
+#sec-representation-3-4-3-1-2 { counter-set: sec-representation-3-4-3-1-2 0; }
+#sec-representation-3-4-3-1-2 > li::marker { content: ""counter(sec-representation-3-4-3-1-2,decimal)"."; }
+#sec-representation-3-4-3-1-2 > li { counter-increment: sec-representation-3-4-3-1-2; }
+#sec-representation-4-5-2-1-1 { counter-set: sec-representation-4-5-2-1-1 0; }
+#sec-representation-4-5-2-1-1 > li::marker { content: ""counter(sec-representation-4-5-2-1-1,decimal)"."; }
+#sec-representation-4-5-2-1-1 > li { counter-increment: sec-representation-4-5-2-1-1; }
+#sec-representation-4-5-3-1-1 { counter-set: sec-representation-4-5-3-1-1 0; }
+#sec-representation-4-5-3-1-1 > li::marker { content: ""counter(sec-representation-4-5-3-1-1,decimal)"."; }
+#sec-representation-4-5-3-1-1 > li { counter-increment: sec-representation-4-5-3-1-1; }
+#ex-decimalebinaire-2-1-1 { counter-set: ex-decimalebinaire-2-1-1 0; }
+#ex-decimalebinaire-2-1-1 > li::marker { content: ""counter(ex-decimalebinaire-2-1-1,decimal)"."; }
+#ex-decimalebinaire-2-1-1 > li { counter-increment: ex-decimalebinaire-2-1-1; }
+#algo-binhex-2-1-1 { counter-set: algo-binhex-2-1-1 0; }
+#algo-binhex-2-1-1 > li::marker { content: ""counter(algo-binhex-2-1-1,decimal)"."; }
+#algo-binhex-2-1-1 > li { counter-increment: algo-binhex-2-1-1; }
+#algo-binhex-2-2-1 { counter-set: algo-binhex-2-2-1 0; }
+#algo-binhex-2-2-1 > li::marker { content: ""counter(algo-binhex-2-2-1,decimal)"."; }
+#algo-binhex-2-2-1 > li { counter-increment: algo-binhex-2-2-1; }
+#exo-puissmoinsnombre-18-2-1 { counter-set: exo-puissmoinsnombre-18-2-1 0; }
+#exo-puissmoinsnombre-18-2-1 > li::marker { content: "("counter(exo-puissmoinsnombre-18-2-1,lower-alpha)")"; }
+#exo-puissmoinsnombre-18-2-1 > li { counter-increment: exo-puissmoinsnombre-18-2-1; }
+#exo-representation-3-2-3-1-1-8 { counter-set: exo-representation-3-2-3-1-1-8 0; }
+#exo-representation-3-2-3-1-1-8 > li::marker { content: "("counter(exo-representation-3-2-3-1-1-8,lower-alpha)")"; }
+#exo-representation-3-2-3-1-1-8 > li { counter-increment: exo-representation-3-2-3-1-1-8; }
+#sec-divisibilite-3-5-2-1-1 { counter-set: sec-divisibilite-3-5-2-1-1 0; }
+#sec-divisibilite-3-5-2-1-1 > li::marker { content: ""counter(sec-divisibilite-3-5-2-1-1,decimal)"."; }
+#sec-divisibilite-3-5-2-1-1 > li { counter-increment: sec-divisibilite-3-5-2-1-1; }
+#sec-divisibilite-3-5-3-1-1 { counter-set: sec-divisibilite-3-5-3-1-1 0; }
+#sec-divisibilite-3-5-3-1-1 > li::marker { content: ""counter(sec-divisibilite-3-5-3-1-1,decimal)"."; }
+#sec-divisibilite-3-5-3-1-1 > li { counter-increment: sec-divisibilite-3-5-3-1-1; }
+#def-pgcd-2-1-7 { counter-set: def-pgcd-2-1-7 0; }
+#def-pgcd-2-1-7 > li::marker { content: ""counter(def-pgcd-2-1-7,decimal)"."; }
+#def-pgcd-2-1-7 > li { counter-increment: def-pgcd-2-1-7; }
+#sec-divisibilite-5-6-2-1-1 { counter-set: sec-divisibilite-5-6-2-1-1 0; }
+#sec-divisibilite-5-6-2-1-1 > li::marker { content: ""counter(sec-divisibilite-5-6-2-1-1,decimal)"."; }
+#sec-divisibilite-5-6-2-1-1 > li { counter-increment: sec-divisibilite-5-6-2-1-1; }
+#exo-divisibilite-3-2-2-1-5 { counter-set: exo-divisibilite-3-2-2-1-5 0; }
+#exo-divisibilite-3-2-2-1-5 > li::marker { content: "("counter(exo-divisibilite-3-2-2-1-5,lower-alpha)")"; }
+#exo-divisibilite-3-2-2-1-5 > li { counter-increment: exo-divisibilite-3-2-2-1-5; }
+#ex-modulotemps-2-1-2 { counter-set: ex-modulotemps-2-1-2 0; }
+#ex-modulotemps-2-1-2 > li::marker { content: ""counter(ex-modulotemps-2-1-2,decimal)"."; }
+#ex-modulotemps-2-1-2 > li { counter-increment: ex-modulotemps-2-1-2; }
+#prop-moduloprop-2-1-5 { counter-set: prop-moduloprop-2-1-5 0; }
+#prop-moduloprop-2-1-5 > li::marker { content: ""counter(prop-moduloprop-2-1-5,decimal)"."; }
+#prop-moduloprop-2-1-5 > li { counter-increment: prop-moduloprop-2-1-5; }
+#sec-modulo-4-12-2-1-2 { counter-set: sec-modulo-4-12-2-1-2 0; }
+#sec-modulo-4-12-2-1-2 > li::marker { content: ""counter(sec-modulo-4-12-2-1-2,decimal)"."; }
+#sec-modulo-4-12-2-1-2 > li { counter-increment: sec-modulo-4-12-2-1-2; }
+#sec-modulo-5-4-2-1-1 { counter-set: sec-modulo-5-4-2-1-1 0; }
+#sec-modulo-5-4-2-1-1 > li::marker { content: ""counter(sec-modulo-5-4-2-1-1,decimal)"."; }
+#sec-modulo-5-4-2-1-1 > li { counter-increment: sec-modulo-5-4-2-1-1; }
+#concl-modulo-1-1 { counter-set: concl-modulo-1-1 0; }
+#concl-modulo-1-1 > li::marker { content: ""counter(concl-modulo-1-1,decimal)"."; }
+#concl-modulo-1-1 > li { counter-increment: concl-modulo-1-1; }
+#exo-modulo-2-5-2-1 { counter-set: exo-modulo-2-5-2-1 0; }
+#exo-modulo-2-5-2-1 > li::marker { content: "("counter(exo-modulo-2-5-2-1,lower-alpha)")"; }
+#exo-modulo-2-5-2-1 > li { counter-increment: exo-modulo-2-5-2-1; }
+#prop-regleProd-2 { counter-set: prop-regleProd-2 0; }
+#prop-regleProd-2 > li::marker { content: ""counter(prop-regleProd-2,decimal)"."; }
+#prop-regleProd-2 > li { counter-increment: prop-regleProd-2; }
+#prop-regleSomme-2 { counter-set: prop-regleSomme-2 0; }
+#prop-regleSomme-2 > li::marker { content: ""counter(prop-regleSomme-2,decimal)"."; }
+#prop-regleSomme-2 > li { counter-increment: prop-regleSomme-2; }
+#prop-incExclu-2-1 { counter-set: prop-incExclu-2-1 0; }
+#prop-incExclu-2-1 > li::marker { content: ""counter(prop-incExclu-2-1,decimal)"."; }
+#prop-incExclu-2-1 > li { counter-increment: prop-incExclu-2-1; }
+#prop-div-2-1 { counter-set: prop-div-2-1 0; }
+#prop-div-2-1 > li::marker { content: ""counter(prop-div-2-1,decimal)"."; }
+#prop-div-2-1 > li { counter-increment: prop-div-2-1; }
+#def_perm-1 { counter-set: def_perm-1 0; }
+#def_perm-1 > li::marker { content: ""counter(def_perm-1,decimal)"."; }
+#def_perm-1 > li { counter-increment: def_perm-1; }
+#def_combBin-1 { counter-set: def_combBin-1 0; }
+#def_combBin-1 > li::marker { content: ""counter(def_combBin-1,decimal)"."; }
+#def_combBin-1 > li { counter-increment: def_combBin-1; }
+#exe-plusieursEquiv-2-2 { counter-set: exe-plusieursEquiv-2-2 0; }
+#exe-plusieursEquiv-2-2 > li::marker { content: ""counter(exe-plusieursEquiv-2-2,decimal)"."; }
+#exe-plusieursEquiv-2-2 > li { counter-increment: exe-plusieursEquiv-2-2; }
+#exe-plusieursEquiv-3-1 { counter-set: exe-plusieursEquiv-3-1 0; }
+#exe-plusieursEquiv-3-1 > li::marker { content: ""counter(exe-plusieursEquiv-3-1,decimal)"."; }
+#exe-plusieursEquiv-3-1 > li { counter-increment: exe-plusieursEquiv-3-1; }
+#exo-methodePreuve-1-17-1-2 { counter-set: exo-methodePreuve-1-17-1-2 0; }
+#exo-methodePreuve-1-17-1-2 > li::marker { content: "("counter(exo-methodePreuve-1-17-1-2,lower-alpha)")"; }
+#exo-methodePreuve-1-17-1-2 > li { counter-increment: exo-methodePreuve-1-17-1-2; }
+#def-induction-2-1-3 { counter-set: def-induction-2-1-3 0; }
+#def-induction-2-1-3 > li::marker { content: ""counter(def-induction-2-1-3,decimal)"."; }
+#def-induction-2-1-3 > li { counter-increment: def-induction-2-1-3; }
+#subs-defGraphe-4-2-1-3 { counter-set: subs-defGraphe-4-2-1-3 0; }
+#subs-defGraphe-4-2-1-3 > li::marker { content: ""counter(subs-defGraphe-4-2-1-3,decimal)"."; }
+#subs-defGraphe-4-2-1-3 > li { counter-increment: subs-defGraphe-4-2-1-3; }
+#subs-defGraphe-8-2-1-3 { counter-set: subs-defGraphe-8-2-1-3 0; }
+#subs-defGraphe-8-2-1-3 > li::marker { content: ""counter(subs-defGraphe-8-2-1-3,decimal)"."; }
+#subs-defGraphe-8-2-1-3 > li { counter-increment: subs-defGraphe-8-2-1-3; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="madir.html"><span class="title">Mathématiques discrètes:</span> <span class="subtitle">Version préliminaire</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Table des matières"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Table des matières</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Résultats de la recherche: </h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-introGraphe.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-theorieGraphes.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><span class="next-button button disabled"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+
+\newcommand{\Permutation}[2]{P_{#2}^{#1}}
+\newcommand{\Binomial}[2]{C_{#2}^{#1}}
+
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\Det}{det}
+\DeclareMathOperator{\pgcd}{pgcd}
+\DeclareMathOperator{\ppcm}{ppcm}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-ensfct.html" class="internal"><span class="codenumber">1</span> <span class="title">Ensembles et fonctions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ens.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Les ensembles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Définitions et exemples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-4" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Relation entre deux ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-5" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Représentation graphique d’ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-6" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Ensembles particuliers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ens.html#exo-ens" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-opens.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Opérations sur les ensembles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-opens.html#sssec-opens" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Opérations élémentaires sur les ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-opens.html#sssec-propoper" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Propriétés des opérations élémentaires</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-opens.html#rq-opens" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-opens.html#exo-opens" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-fonctions.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Les fonctions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Définitions et exemples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Représentation d’une fonction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">La composition de fonctions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sssec-injsurj" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Fonctions injectives et surjectives</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-8" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-fonctions.html#exo-" class="internal"><span class="codenumber">1.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-logique.html" class="internal"><span class="codenumber">2</span> <span class="title">Logique mathématique</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-logprop.html" class="internal"><span class="codenumber">2.1</span> <span class="title">La logique propositionnelle</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Propositions mathématiques et connecteurs logiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Table de vérité</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-5" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Implication, réciproque et contraposée</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-7" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-logprop.html#exo-logprop" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqlogfnc.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Équivalence logique et formes normales</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqlogfnc.html#sec-eqlogfnc-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Équivalence logique</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqlogfnc.html#sec-eqlogfnc-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Formes normales</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-eqlogfnc.html#rq-eqlogfnc" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqlogfnc.html#exo-eqlogfnc" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-propquant.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Les propositions quantifiées</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sssec-predicats" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Prédicats</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sssec-quantificateurs" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Quantificateurs existentiel et universel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sec-propquant-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Négation et combinaisons de quantificateurs</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-propquant.html#rq-propquant" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propquant.html#exo-propquant" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-circuits.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Circuits logiques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-circuits.html#sec-circuits-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Portes logiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-circuits.html#sec-circuits-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Parallèle avec la logique propositionnelle</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-circuits.html#rq-circuits" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-circuits.html#exo-circuits" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-reptheonombres.html" class="internal"><span class="codenumber">3</span> <span class="title">Représentation des nombres et arithmétique modulaire</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-representation.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Représentation des nombres</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Systèmes positionnels</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Représentation en base deux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-5" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Représentation en base hexadécimale</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Opérations élémentaires en base deux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Représentation en circuits d’opérations binaires</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-representation.html#rq-representation" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-representation.html#exo-representation" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-divisibilite.html" class="internal"><span class="codenumber">3.2</span> <span class="title">La divisibilité dans les entiers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">L’opération de division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Retour sur la conversion à partir de la base dix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">L’algorithme d’Euclide</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-divisibilite.html#rq-divisibilite" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-divisibilite.html#exo-divisibilite" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-modulo.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Arithmétique modulaire</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-3" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Congruence modulo <span class="process-math">\(n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-4" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Arithmétique modulaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-5" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Résolution d’équations en congruence modulo</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-6" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Introduction à la cryptographie</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-modulo.html#rq-modulo" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-modulo.html#exo-modulo" class="internal"><span class="codenumber">3.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-denombrement.html" class="internal"><span class="codenumber">4</span> <span class="title">Dénombrement</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_prodSomme.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Méthodes de dénombrement: Principes de base</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-regleProd" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Principe du produit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-regleSomme" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Principe de la somme</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-combProdSomme1" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Combinaison du principe du produit et du principe de la somme</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-incExclu" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Le principe d’inclusion-exclusion (ou de la soustraction )</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-div" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Le principe de la division</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_prodSomme.html#rq-prodSomme" class="internal"><span class="codenumber">4.1.6</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_prodSomme.html#exo-prodSomme" class="internal"><span class="codenumber">4.1.7</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Permutations et combinaisons</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs_permArr" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Les permutations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs_combBinomial" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Les combinaisons</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Le triangle de Pascal et le binôme de Newton</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton-3" class="internal"><span class="codenumber">4.2.3.1</span> <span class="title">Le triangle de Pascal</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton-4" class="internal"><span class="codenumber">4.2.3.2</span> <span class="title">Le binôme de Newton</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-permCombGen" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Les permutations et combinaisons généralisées</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-permInd" class="internal"><span class="codenumber">4.2.4.1</span> <span class="title">Permutations avec des objets indiscernables</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-permRep" class="internal"><span class="codenumber">4.2.4.2</span> <span class="title">Permutations avec répétitions</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-combRep" class="internal"><span class="codenumber">4.2.4.3</span> <span class="title">Combinaisons avec répétitions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_arrCombinaison.html#rq-arrCombinaison" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_arrCombinaison.html#exo-combinatoire" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-combinatoireExoSupp.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices supplémentaires</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-combinatoireExoSupp.html#exo-combinatoireExoSupp" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-preuveMath.html" class="internal"><span class="codenumber">5</span> <span class="title">Les preuves mathématiques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_methodePreuve.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Méthodes de preuves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_methodePreuve.html#subs-terminomolgie" class="internal"><span class="codenumber">5.1.1</span> <span class="title">Un peu de terminologie</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_methodePreuve.html#subs-methodePreuve" class="internal"><span class="codenumber">5.1.2</span> <span class="title">Différentes méthodes de preuves</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_methodePreuve.html#subsub-preuveDirecte" class="internal"><span class="codenumber">5.1.2.1</span> <span class="title">Preuve directe</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_methodePreuve.html#subsub-preuvInd" class="internal"><span class="codenumber">5.1.2.2</span> <span class="title">Preuve indirecte</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_methodePreuve.html#subsub-preuveContradiction" class="internal"><span class="codenumber">5.1.2.3</span> <span class="title">Preuve par contradiction</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_methodePreuve.html#subsub-bidirectionnel" class="internal"><span class="codenumber">5.1.2.4</span> <span class="title">La double implication</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_methodePreuve.html#rq-methodePreuve" class="internal"><span class="codenumber">5.1.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_methodePreuve.html#exo-methodePreuve" class="internal"><span class="codenumber">5.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_induction.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Les preuves par récurrence (par induction)</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_induction.html#subs_introInduction" class="internal"><span class="codenumber">5.2.1</span> <span class="title">Les différentes étapes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_induction.html#subs-exemples" class="internal"><span class="codenumber">5.2.2</span> <span class="title">Exemples de preuves par récurrence</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_induction.html#rq-induction" class="internal"><span class="codenumber">5.2.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_induction.html#exo-induction" class="internal"><span class="codenumber">5.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_pidgeonHoles.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Principe des tiroirs de Dirichlet</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pidgeonHoles.html#subs_statement" class="internal"><span class="codenumber">5.3.1</span> <span class="title">Introduction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_pidgeonHoles.html#subs_exemple" class="internal"><span class="codenumber">5.3.2</span> <span class="title">Exemples</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_pidgeonHoles.html#rq-pigeonHoles" class="internal"><span class="codenumber">5.3.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_pidgeonHoles.html#exo-pigeonHoles" class="internal"><span class="codenumber">5.3.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-preuvesSupp.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercices supplémentaires</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-preuvesSupp.html#exo-preuvesSupp" class="internal"><span class="codenumber">5.4</span> <span class="title">Exercices</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-relationRecurrence.html" class="internal"><span class="codenumber">6</span> <span class="title">Relations de récurrence</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-relRecLinHom.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Relations de récurrence linéaires homogènes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-relRecLinHom.html#subs-defRelRec" class="internal"><span class="codenumber">6.1.1</span> <span class="title">Suites et relations de récurrence</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-relRecLinHom.html#subs-relRecLinHom" class="internal"><span class="codenumber">6.1.2</span> <span class="title">Relations de récurrence  et forme générale</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-relRecLinHom.html#subs-recLinHom" class="internal"><span class="codenumber">6.1.3</span> <span class="title">Relations de récurrence linéaires homogènes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-relRecLinHom.html#subs-solLinHom" class="internal"><span class="codenumber">6.1.4</span> <span class="title">Solutions aux équations de récurrence linéaires homogènes d’odre 2: Cas 1</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-relRecLinHom.html#subs-solLinHom2" class="internal"><span class="codenumber">6.1.5</span> <span class="title">Solutions aux équations de récurrence linéaires homogènes d’odre 2: Cas 2</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-relRecLinHom.html#subs-ordrePGDeux" class="internal"><span class="codenumber">6.1.6</span> <span class="title">Relations de récurrence linéaires homogènes d’ordre <span class="process-math">\(k\)</span></span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-relRecLinHom.html#rq-relRecLinHom" class="internal"><span class="codenumber">6.1.7</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-relRecLinHom.html#exo-relRecLinHom" class="internal"><span class="codenumber">6.1.8</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-relRecLinNonHom.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Relations de récurrence linéaires non-homogènes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-relRecLinNonHom.html#subs-" class="internal"><span class="codenumber">6.2.1</span> <span class="title"></span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-relRecLinNonHom.html#rq-relRexLinNonHom" class="internal"><span class="codenumber">6.2.2</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-relRecLinNonHom.html#exo-relRecLinNonHom" class="internal"><span class="codenumber">6.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-relRecSupp.html" class="internal"><span class="codenumber">6.3</span> <span class="title">Exercices supplémentaires</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-relRecSupp.html#exo-relRecSupp" class="internal"><span class="codenumber">6.3</span> <span class="title">Exercices</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="chap-theorieGraphes.html" class="internal"><span class="codenumber">7</span> <span class="title">Théorie des graphes</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-introGraphe.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Introduction à la théorie des graphes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-defGraphe" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Les types de graphes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-terminologie" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Terminologie de base</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-grapheParticulier" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Quelques graphes particuliers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introGraphe.html#exo-introGraphe" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-propGraphes.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Propriétés des graphes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-graphesBiColoration" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Graphes bipartis et coloration des graphes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-formationGraphes" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Graphes issus d’autres graphes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-isoGraphe" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Isomorphismes de graphes</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-propGraphes.html#rq-propGraphes" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propGraphes.html#exo-propGraphe" class="internal"><span class="codenumber">7.2.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-propGraphes"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">7.2</span><span class="space"> </span><span class="title">Propriétés des graphes</span>
+</h2>
+<section class="introduction" id="intro-propGraphes"> <div class="para" id="intro-propGraphes-1">À l’exemple <a href="sec-introGraphe.html#exe-grapheNCube" class="xref" data-knowl="./knowl/xref/exe-grapheNCube.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.1.27: Les premiers n-cubes Q_n">7.1.27</a> de la section précédente, on a remarqué  qu’on pouvait décrire le même graphe de plusieurs façons. On aimerait donc pouvoir être en mesure de déterminer si, lorsqu’on considère deux graphes, est-ce que ceux-ci sont équivalents.</div> <div class="para" id="intro-propGraphes-2">Pour cela, on doit développer le concepte d’isomorphisme. Ce concepte est présent dans toutes les branches des mathématiques. En fait, ce concepte est tellement fondamental en mathématique, que les mathématiciens on même généralisé cette idée au point de définir toutes les branches des mathématiques à l’aide de morphismes (voir la théorie des catégories!).</div> <div class="para" id="intro-propGraphes-3">Avant de parler d’isomorphisme, on va définir certaines caractéristiques des graphes. Celles-ci nous permetrons, entre autre, de différencier certains graphes les uns des autres.</div> <div class="para" id="intro-propGraphes-4">Finalement, on verra aussi comment on peut créer un graphe à partir de graphes déjà connus.</div></section><section class="subsection" id="subs-graphesBiColoration"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">7.2.1</span><span class="space"> </span><span class="title">Graphes bipartis et coloration des graphes</span>
+</h3>
+<section class="introduction" id="subs-graphesBiColoration-2"><div class="para" id="subs-graphesBiColoration-2-1">L’une des applications récentes de la théories des graphes est la représentation  d’énormes réseaux d’informations tels que les réseaux sociaux. Dans ce cas, les usagers sont représentés par des sommets, et les liens entre les usagers sont représentés par des arêtes. L’étude de ces graphes fait l’objet de beaucoups de recherche présentement.</div> <div class="para" id="subs-graphesBiColoration-2-2">Dans plusieurs situations, il arrive qu’on puisse distinguer deux types de sommets différents. Par exemple, on pourrait construire un graphe où les sommets représentent les utilisateurs d’Amazon, ainsi que les produits vendus sur le site. Dans ce cas, il y a une arête entre un utilisateur et un produit si l’utilisateur à déjà acheté le produit. Il n’y a donc aucun lien possible entre deux utilisateurs ou entre deux produits. Les graphes de ce type sont appellés des graphes bipartis.</div> <div class="para" id="subs-graphesBiColoration-2-3">On considère ici un exemple plus simple d’utilisation d’un graphe biparti, pour ensuite en donner la définition.</div></section><details id="subs-graphesBiColoration-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.1</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-graphesBiColoration-3-1-1">On considère une petite compagnie de quatre employés qui travaille sur un projet quelconque. Pour terminer le projet, les employés doivent accomplir six tâches différentes. De plus, chaque employé  est seulement formé à l’accomplissement de certaines tâches.</div> <div class="para" id="subs-graphesBiColoration-3-1-2">On peut représenté la situation à l’aide d’un graphe <span class="process-math">\(G=(S,A)\text{,}\)</span> où <span class="process-math">\(S\)</span> est l’ensemble des employés et des tâches à acomplir. Il y aura une arête entre l’employé <span class="process-math">\(e\)</span> et la tâche <span class="process-math">\(t\)</span> si <span class="process-math">\(e\)</span> est formé pour accomplir <span class="process-math">\(t\text{.}\)</span>
+</div> <div class="para" id="subs-graphesBiColoration-3-1-3"><figure class="figure figure-like" id="subs-graphesBiColoration-3-1-3-1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/tikzit_exRepGrapheBi.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.2<span class="period">.</span></span><span class="space"> </span>Représentation du projet par le graphe <span class="process-math">\(G\)</span></figcaption></figure></div></article></details><article class="definition definition-like" id="def-grapheBi"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Graphe biparti.</span>
+</h4> <div class="para" id="def-grapheBi-2-1">Une graphe <span class="process-math">\(G=(S,A)\)</span> est appelé un graphe biparti si on peut écrire l’ensemble des sommets <span class="process-math">\(S\)</span> comme l’union disjointe de deux sous-ensemble <span class="process-math">\(S_1\)</span> et <span class="process-math">\(S_2\)</span> telle que chaque arête de <span class="process-math">\(G\)</span> a une extrémité dans <span class="process-math">\(S_1\)</span> et une extrémité dans <span class="process-math">\(S_2\text{.}\)</span>
+</div> <div class="para" id="def-grapheBi-2-2">Ainsi, <span class="process-math">\(G\)</span> est biparti si <span class="process-math">\(S=S_1\cup S_2,\)</span> avec <span class="process-math">\(S_1\cap S_2=\emptyset\text{,}\)</span> et si pour tout <span class="process-math">\(a=\{s,t\}\in\,A,\text{,}\)</span> on a que <span class="process-math">\(s\in\, S_1\)</span> si et seulement si <span class="process-math">\(t\in\,S_2\text{.}\)</span>
+</div></article><details id="exe-grapheBi" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Un graphe biparti.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-grapheBi-2-1">Le graphe cyclique <span class="process-math">\(C_6\)</span> est un graphe biparti. On peut le voir à l’aide de la représention de <span class="process-math">\(C_6\)</span> ci dessous, en posant <span class="process-math">\(S_1=\{a,b,e\}\)</span> et <span class="process-math">\(S_2=\{c,d,f\}\text{.}\)</span>
+</div> <div class="para" id="exe-grapheBi-2-2"><figure class="figure figure-like" id="exe-grapheBi-2-2-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_cycle6Bi.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.5<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(C_6\)</span></figcaption></figure></div></article></details><details id="exe-grapheYesNoBi" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Reconnaître un graphe bipartie.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-grapheYesNoBi-2-1">Pour déterminer si un graphe est bipartie, on peut choisir aléatoirement un premier sommet <span class="process-math">\(s\)</span> et décider de mettre <span class="process-math">\(s\)</span> dans <span class="process-math">\(S_1\text{.}\)</span>
+</div> <div class="para" id="exe-grapheYesNoBi-2-2">Ensuite, on place tout le voisinage de <span class="process-math">\(s\)</span> dans <span class="process-math">\(S_2\text{.}\)</span> Pour chacun des sommets ajoutés dans <span class="process-math">\(S_2\text{,}\)</span> on place leur voisinage dans <span class="process-math">\(S_1\text{.}\)</span>
+</div> <div class="para" id="exe-grapheYesNoBi-2-3">On poursuit cette procédure jusqu’à ce que chaque sommet soit dans un seul des <span class="process-math">\(S_i\)</span> (et donc que le graphe est biparti), ou jusqu’à ce qu’un sommet soit dans <span class="process-math">\(S_1\)</span> et <span class="process-math">\(S_2\)</span> (et donc le graphe n’est pas biparti).</div> <div class="para" id="exe-grapheYesNoBi-2-4">En procédant ainsi, on peut voir que le graphe <span class="process-math">\(G\)</span> ci-dessous est biparti, mais pas le graphe <span class="process-math">\(H\text{.}\)</span>
+</div> <figure class="figure figure-like" id="exe-grapheYesNoBi-2-5"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-grapheYesNoBi-2-5-2-1"><img src="external/tikzit_GraphBipartiOui.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span>Le graphe <span class="process-math">\(G\)</span> est bipartie</figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-grapheYesNoBi-2-5-2-2"><img src="external/tikzit_GraphBipartiNon.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span>Le graphe <span class="process-math">\(H\)</span> n’est pas biparti</figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.7<span class="period">.</span></span><span class="space"> </span>Deux graphes bipartis?</figcaption></figure></article></details><div class="para" id="subs-graphesBiColoration-7">Pour illustrer la procédure utilisée dans l’exemple précédent, on peut colorier les sommets d’un graphe, en s’assurant que tous les sommets qui sont voisins soient d’une couleur différente.</div>
+<div class="para" id="subs-graphesBiColoration-8">Un graphe sera alors biparti si et seulement si on peut faire une telle coloration en utilisant deux couleurs. De façon général, on peut résoudre certains procblèmes ou bien différentier certains graphes en déterminant le nombre de couleurs minimal qu’on doit utiliser pour colorier un graphe.</div>
+<article class="definition definition-like" id="def-colorationGraphe"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Coloration d’un graphe.</span>
+</h4> <div class="para" id="def-colorationGraphe-2-1">La coloration d’un graphe consiste à attribuer une couleur à chacun de ses sommets de manière à ce que deux sommets adjacents soient d’une couleur différente.</div> <div class="para" id="def-colorationGraphe-2-2">Plus formellement, on peut définir une coloration d’un graphe <span class="process-math">\(G=(S,A)\)</span> comme une fonction <span class="process-math">\(f:S\rightarrow C,\)</span> ou <span class="process-math">\(C\)</span> est un ensemble de couleurs, tel que si <span class="process-math">\(\{s,t\}\)</span> est une arête de <span class="process-math">\(G\text{,}\)</span> alors <span class="process-math">\(f(s)\neq f(t)\text{.}\)</span>
+</div></article><details id="exe-colCycle6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Une coloration de <span class="process-math">\(C_6\)</span>.</span>
+</h4></summary><article class="example example-like knowl__content">Voici une coloration à deux couleurs de <span class="process-math">\(C_6\text{.}\)</span> <figure class="figure figure-like" id="exe-colCycle6-2-2"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_Cycle6Coul.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.10<span class="period">.</span></span><span class="space"> </span>Coloration à deux couleurs de <span class="process-math">\(C_6\)</span></figcaption></figure></article></details><article class="proposition theorem-like" id="prop-colorBiparti"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">Coloration et graphe biparti.</span>
+</h4>
+<div class="para" id="prop-colorBiparti-2-1">Un graphe <span class="process-math">\(G\)</span> est un graphe biparti si et seulement si il exsite une coloration à deux couleurs de <span class="process-math">\(G\text{.}\)</span>
+</div></article><details id="exe-colorBiparti" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.12</span><span class="period">.</span><span class="space"> </span><span class="title">Coloration à deux couleurs et graphes bipartis.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-colorBiparti-2-1">En essayant de colorier les graphes de l’exemple <a href="sec-propGraphes.html#exe-grapheYesNoBi" class="xref" data-knowl="./knowl/xref/exe-grapheYesNoBi.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.6: Reconnaître un graphe bipartie">7.2.6</a> avec un minimum de couleur, on obtient les colorations suivantes.</div> <figure class="figure figure-like" id="exe-colorBiparti-2-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-colorBiparti-2-2-2-1"><img src="external/tikzit_GraphBipartiOuiCol.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span>Le graphe <span class="process-math">\(G\)</span> est bipartie</figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-colorBiparti-2-2-2-2"><img src="external/tikzit_GraphBipartiNonCol.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span>Le graphe <span class="process-math">\(H\)</span> n’est pas biparti</figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.13<span class="period">.</span></span><span class="space"> </span>Deux graphes bipartis? Prise deux.</figcaption></figure> <div class="para" id="exe-colorBiparti-2-3">On voit donc que <span class="process-math">\(G\)</span> est biparti, mais pas <span class="process-math">\(H\text{.}\)</span>
+</div></article></details><div class="para" id="subs-graphesBiColoration-13">Finalement, on définit une nouvelle famille de graphes, les graphes bipartis complets.</div>
+<article class="definition definition-like" id="def-graphBipartiComplet"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.14</span><span class="period">.</span>
+</h4>
+<div class="para" id="def-graphBipartiComplet-1-1">Le graphe biparti complet <span class="process-math">\(K_{m,n}\)</span> est un graphe dont l’enemble des sommets est séparé en sous-ensembles, <span class="process-math">\(S_1\)</span> et <span class="process-math">\(S_2\text{,}\)</span> qui ont respectivement <span class="process-math">\(m\)</span> et <span class="process-math">\(n\)</span> sommets. De plus, <span class="process-math">\(\{s,t\}\)</span> est une arête de <span class="process-math">\(K_{m,n}\)</span> si et seulement si <span class="process-math">\(s\in S_1\)</span> et <span class="process-math">\(t\in S_2\text{.}\)</span>
+</div></article><div class="para" id="subs-graphesBiColoration-15">Voici quelques graphes bipartis complets.</div>
+<details id="subs-graphesBiColoration-16" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.15</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-graphesBiColoration-16-1-1">Les graphes <span class="process-math">\(K_{2,5}\text{,}\)</span> <span class="process-math">\(K_{3,3}\)</span> et <span class="process-math">\(K_{3,5}\text{.}\)</span>
+</div> <div class="para" id="subs-graphesBiColoration-16-1-2"><figure class="figure figure-like" id="subs-graphesBiColoration-16-1-2-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:33.3333333333333%;"><figure class="figure figure-like" id="subs-graphesBiColoration-16-1-2-1-2-1"><img src="external/tikzit_grapheK_2_5.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(K_{2,5}\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:33.3333333333333%;"><figure class="figure figure-like" id="subs-graphesBiColoration-16-1-2-1-2-2"><img src="external/tikzit_grapheK_3_3.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(K_{3,3}\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:33.3333333333333%;"><figure class="figure figure-like" id="subs-graphesBiColoration-16-1-2-1-2-3"><img src="external/tikzit_grapheK_3_5.jpg" class="contained"><figcaption><span class="codenumber">(c)</span><span class="space"> </span><span class="process-math">\(K_{3,5}\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.16<span class="period">.</span></span><span class="space"> </span>Graphes bipartis complets</figcaption></figure></div></article></details></section><section class="subsection" id="subs-formationGraphes"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">7.2.2</span><span class="space"> </span><span class="title">Graphes issus d’autres graphes</span>
+</h3>
+<section class="introduction" id="subs-formationGraphes-2"><div class="para" id="subs-formationGraphes-2-1">Un peu comme avec les ensembles, il est possible de former de nouveaux graphes à partir de graphes existants. Tout d’abord, on peut considérer les sous-graphes d’un graphe <span class="process-math">\(G\text{.}\)</span> Ensuite, on regarde comment on peut transformer un graphe en ajoutant ou en retirant des arêtes d’un graphe. Finalement, on considère l’union de deux graphes.</div></section><article class="definition definition-like" id="def-sousGraphe"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.17</span><span class="period">.</span>
+</h4>
+<div class="para" id="def-sousGraphe-1-1">Soit un graphe <span class="process-math">\(G=(S,A)\text{,}\)</span> on dira que le graphe <span class="process-math">\(H=(T,B)\)</span> est un sous-graphe de <span class="process-math">\(G\)</span> si <span class="process-math">\(T\subseteq S\)</span> et <span class="process-math">\(B\subseteq A\text{.}\)</span>
+</div></article><details id="ex-sousGraphe" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.18</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-sousGraphe-1-1">Soit le graphe <span class="process-math">\(G\)</span> ci-dessous, les graphes <span class="process-math">\(H_1\)</span> et <span class="process-math">\(H_2\)</span> suivants sont des sous-graphes de <span class="process-math">\(G\text{.}\)</span>
+</div> <div class="para" id="ex-sousGraphe-1-2"><figure class="figure figure-like" id="ex-sousGraphe-1-2-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:4.166666666666667%;margin-right:4.166666666666667%;">
+<div class="sbspanel top" style="width:27.2727272727273%;"><figure class="figure figure-like" id="ex-sousGraphe-1-2-1-2-1"><img src="external/tikzit_defSousGrapheG.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:27.2727272727273%;"><figure class="figure figure-like" id="ex-sousGraphe-1-2-1-2-2"><img src="external/tikzit_defSousGrapheH1.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_1\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:27.2727272727273%;"><figure class="figure figure-like" id="ex-sousGraphe-1-2-1-2-3"><img src="external/tikzit_defSousGrapheH2.jpg" class="contained"><figcaption><span class="codenumber">(c)</span><span class="space"> </span><span class="process-math">\(H_2\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.19<span class="period">.</span></span><span class="space"> </span>Un graphe et des sous-graphes</figcaption></figure></div></article></details><div class="para" id="subs-formationGraphes-5">Étant donné un graphe <span class="process-math">\(G=(S,A)\)</span> et un sous-ensemble de sommets <span class="process-math">\(T\subseteq S\text{,}\)</span> on aimerait considérer le sous-graphe de <span class="process-math">\(G\)</span> le plus complet possible formé à partir des sommets de <span class="process-math">\(T\text{.}\)</span> C’est ce qu’on appelle le sous-graphe de <span class="process-math">\(G\)</span> induit par <span class="process-math">\(T\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="def-sousGrapheInduit"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.20</span><span class="period">.</span>
+</h4>
+<div class="para" id="def-sousGrapheInduit-1-1">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe et soit <span class="process-math">\(T\subseteq S\text{,}\)</span> le sous-graphe induit par <span class="process-math">\(T\)</span> est le sous-graphe <span class="process-math">\(H=(T,B)\text{,}\)</span> où <span class="process-math">\(B\subseteq A\)</span> et pour <span class="process-math">\(\{t_1,t_2\}\in A\text{,}\)</span> on a que <span class="process-math">\(\{t_1,t_2\}\in B\)</span> si et seulement si <span class="process-math">\(t_1,\ t_2\in T\text{.}\)</span>
+</div></article><details id="subs-formationGraphes-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.21</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-formationGraphes-7-1-1">Soit <span class="process-math">\(G\)</span> le graphe défini à l’exemple <a href="sec-propGraphes.html#ex-sousGraphe" class="xref" data-knowl="./knowl/xref/ex-sousGraphe.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.18">7.2.18</a>, déterminer le sous-graphe induit par <span class="process-math">\(T=\{a,b,c,e\}\text{.}\)</span>
+</div>
+<div class="solutions"><details id="subs-formationGraphes-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="subs-formationGraphes-7-2-1"><figure class="figure figure-like" id="subs-formationGraphes-7-2-1-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_defSousGrapheInduit.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.22<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div></div></details></div></article></details><div class="para" id="subs-formationGraphes-8">On regarde maintenant comment on peut ajouter ou retirer des arêtes d’un graphe.</div>
+<article class="definition definition-like" id="def-retraitArete"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.23</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def-retraitArete-1-1">
+<div class="para">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe et <span class="process-math">\(a\in A\text{,}\)</span> le sous graphe <span class="process-math">\(G-a\)</span> est le graphe dont les sommets sont <span class="process-math">\(S\)</span> et les arêtes sont <span class="process-math">\(A-\{a\}\text{.}\)</span> C’est-à-dire que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G-a=(S,A-\{a\})\text{.}
+\end{equation*}
+</div>
+</div></article><details id="ex-retraitArete" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.24</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-retraitArete-1-1">Soit <span class="process-math">\(G\)</span> le graphe représenté ci-dessous, déterminer <span class="process-math">\(G-a\text{,}\)</span> où <span class="process-math">\(a\)</span> est l’arête <span class="process-math">\(\{s_1,s_4\}\)</span>
+</div> <div class="para" id="ex-retraitArete-1-2"><figure class="figure figure-like" id="ex-retraitArete-1-2-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_exGraphePmAr.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.25<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G\)</span></figcaption></figure></div>
+<div class="solutions"><details id="ex-retraitArete-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="ex-retraitArete-2-1"><figure class="figure figure-like" id="ex-retraitArete-2-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_exGrapheM14Ar.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.26<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G-a\)</span></figcaption></figure></div></div></details></div></article></details><article class="definition definition-like" id="def-ajoutArete"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.27</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def-ajoutArete-1-1">
+<div class="para">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe et <span class="process-math">\(a = \{s,t\}\text{,}\)</span> où <span class="process-math">\(s\)</span> et <span class="process-math">\(t\)</span> sont des sommets de <span class="process-math">\(G\text{,}\)</span> le graphe <span class="process-math">\(G+a\)</span> est le graphe dont les sommets sont <span class="process-math">\(S\)</span> et les arêtes sont <span class="process-math">\(A \cup \{a\}\text{.}\)</span> C’est-à-dire que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G+a=(S,A\cup \{a\})\text{.}
+\end{equation*}
+</div>
+</div></article><details id="subs-formationGraphes-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.28</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-formationGraphes-12-1-1">Soit <span class="process-math">\(G\)</span> le graphe défini à l’exemple <a href="sec-propGraphes.html#ex-retraitArete" class="xref" data-knowl="./knowl/xref/ex-retraitArete.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.24">7.2.24</a>, déterminer <span class="process-math">\(G+a\text{,}\)</span> où <span class="process-math">\(a\)</span> est l’arête <span class="process-math">\(\{s_1,s_2\}\text{.}\)</span>
+</div>
+<div class="solutions"><details id="subs-formationGraphes-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="subs-formationGraphes-12-2-1"><figure class="figure figure-like" id="subs-formationGraphes-12-2-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_exGrapheP12Ar.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.29<span class="period">.</span></span><span class="space"> </span>Le  graphe <span class="process-math">\(G+a\)</span></figcaption></figure></div></div></details></div></article></details><article class="definition definition-like" id="def-unionGraphe"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.30</span><span class="period">.</span>
+</h4>
+<div class="para" id="def-unionGraphe-1-1">L’union des graphes <span class="process-math">\(G_1=(S_1,A_1)\)</span> et <span class="process-math">\(G_2=(S_2,A_2)\text{,}\)</span> qu’on note <span class="process-math">\(G_1\cup G_2\text{,}\)</span> est le graphe de sommets <span class="process-math">\(S_1\cup S_2\)</span> et d’arêtes <span class="process-math">\(A_1\cup A_2\text{.}\)</span>
+</div></article><details id="subs-formationGraphes-14" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.31</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-formationGraphes-14-1-1">Soit <span class="process-math">\(G\)</span> et <span class="process-math">\(H\)</span> les graphes représentés ci-dessous, déterminer <span class="process-math">\(G\cup H\text{.}\)</span>
+</div> <div class="para" id="subs-formationGraphes-14-1-2"><figure class="figure figure-like" id="subs-formationGraphes-14-1-2-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="subs-formationGraphes-14-1-2-1-2-1"><img src="external/tikzit_exGrapheUnionG.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="subs-formationGraphes-14-1-2-1-2-2"><img src="external/tikzit_exGrapheUnionH.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.32<span class="period">.</span></span><span class="space"> </span>Deux graphes</figcaption></figure></div>
+<div class="solutions"><details id="subs-formationGraphes-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="subs-formationGraphes-14-2-1"><figure class="figure figure-like" id="subs-formationGraphes-14-2-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_exGrapheUnionGH.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.33<span class="period">.</span></span><span class="space"> </span>L’union de deux graphes</figcaption></figure></div></div></details></div></article></details></section><section class="subsection" id="subs-isoGraphe"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">7.2.3</span><span class="space"> </span><span class="title">Isomorphismes de graphes</span>
+</h3>
+<section class="introduction" id="subs-isoGraphe-2"><div class="para" id="subs-isoGraphe-2-1">On est finalement prêt à donner une définition rigoureuse du fait que deux graphes qui sont décrits différemment peuvent en fait représenter le même graphe.</div></section><article class="definition definition-like" id="def-isoGraphe"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.34</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def-isoGraphe-1-1">
+<div class="para">Soit <span class="process-math">\(G_1=(S_1,A_1)\)</span> et <span class="process-math">\(G_2=(S_2,A_2)\)</span> deux graphes. On dit que <span class="process-math">\(G_1\)</span> et <span class="process-math">\(G_2\)</span> sont isomorphes si il existe une fonction <span class="process-math">\(f:S_1\rightarrow S_2\)</span> telle que:</div>
+<ul class="disc" id="def-isoGraphe-1-1-6">
+<li id="def-isoGraphe-1-1-6-1"><div class="para" id="p-derived-def-isoGraphe-1-1-6-1">
+<span class="process-math">\(f\)</span> est une bijection;</div></li>
+<li id="def-isoGraphe-1-1-6-2"><div class="para" id="p-derived-def-isoGraphe-1-1-6-2">les sommets <span class="process-math">\(s\)</span> et <span class="process-math">\(t\)</span> sont adjacents dans <span class="process-math">\(G_1\)</span> si et seulement si <span class="process-math">\(f(s)\)</span> et <span class="process-math">\(f(t)\)</span> sont adjacents dans <span class="process-math">\(G_2\text{.}\)</span>
+</div></li>
+</ul>
+<div class="para">On dira alors que <span class="process-math">\(f \)</span> est un isomorphisme de graphe.</div>
+</div></article><div class="para" id="subs-isoGraphe-4">Lorsque deux graphes sont isomorphes, ceci veut dire que ces deux graphes représente en fait exactement le même graphe, qu’on a peut-être décrit différemment. En particulier, deux graphes isomorphes ont exactement les mêmes propriétés. De même, les sommets correspondant ont également les mêmes propriétés.</div>
+<article class="proposition theorem-like" id="prop-isoGraphe"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.2.35</span><span class="period">.</span>
+</h4>
+<div class="para" id="prop-isoGraphe-1-1">Soit <span class="process-math">\(f\)</span> un isomorphisme entre les graphes <span class="process-math">\(G_1=(S_1,A_1)\)</span> et <span class="process-math">\(G_2=(S_2,A_2)\text{.}\)</span>
+</div> <ul class="disc" id="prop-isoGraphe-1-2">
+<li id="prop-isoGraphe-1-2-1"><div class="para" id="p-derived-prop-isoGraphe-1-2-1">Pour tout sommet <span class="process-math">\(s\)</span> de <span class="process-math">\(G_1,\)</span> alors <span class="process-math">\(\deg(s)=\deg\left(f(s)\right)\text{.}\)</span>
+</div></li>
+<li id="prop-isoGraphe-1-2-2"><div class="para" id="p-derived-prop-isoGraphe-1-2-2"><span class="process-math">\(\displaystyle |S_1|=|S_2|\)</span></div></li>
+<li id="prop-isoGraphe-1-2-3"><div class="para" id="p-derived-prop-isoGraphe-1-2-3"><span class="process-math">\(\displaystyle |A_1|=|A_2|\)</span></div></li>
+<li id="prop-isoGraphe-1-2-4"><div class="para" id="p-derived-prop-isoGraphe-1-2-4">Il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_1\)</span> si et seulement si il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_2\text{.}\)</span>
+</div></li>
+</ul></article><details id="exe-nonIso" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.36</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-nonIso-1-1">On peut montrer que les deux graphes ci-dessous ne sont pas isomorphes, car il existe une coloration à deux couleurs pour le graphe <span class="process-math">\(G,\)</span> mais il faut trois couleurs pour une coloration de <span class="process-math">\(H\text{.}\)</span>
+</div> <figure class="figure figure-like" id="exe-nonIso-1-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-2-2-1"><img src="external/tikzit_Graphesdiff2.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-2-2-2"><img src="external/tikzit_Graphesdiff1.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(h\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.37<span class="period">.</span></span><span class="space"> </span>Deux graphes non isomorphes</figcaption></figure> <div class="para" id="exe-nonIso-1-3">Voici des colorations de ces graphes</div> <figure class="figure figure-like" id="exe-nonIso-1-4"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-4-2-1"><img src="external/tikzit_Graphesdiff2Coul.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-4-2-2"><img src="external/tikzit_GraphesdiffCoul.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.38<span class="period">.</span></span><span class="space"> </span>Coloration pour différencier des graphes</figcaption></figure></article></details><div class="para" id="subs-isoGraphe-7">Voici un exemple de deux graphes qui sont isomorphes.</div>
+<details id="exe-ouiIso" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.39</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="exe-ouiIso-1-1">
+<div class="para">Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <span class="process-math">\(f\)</span> allant des sommets de <span class="process-math">\(G\)</span> vers les sommets de <span class="process-math">\(H\)</span> comme ceci:</div>
+<div class="displaymath process-math" id="exe-ouiIso-1-1-4">
+\begin{align*}
+f(s_1)\amp=t_4\\
+f(s_2)\amp=t_5\\
+f(s_3)\amp=t_1\\
+f(s_4)\amp=t_3\\
+f(s_5)\amp=t_2
+\end{align*}
+</div>
+</div> <figure class="figure figure-like" id="exe-ouiIso-1-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso-1-2-2-1"><img src="external/tikzit_GrapheSame.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso-1-2-2-2"><img src="external/tikzit_GrapheSame2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(h\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.40<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure></article></details><div class="para" id="subs-isoGraphe-9">Une autre paire de graphes qui sont isomorphes</div>
+<details id="exe-ouiIso2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.41</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="exe-ouiIso2-1-1">
+<div class="para">Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <span class="process-math">\(g\)</span> allant des sommets de <span class="process-math">\(G\)</span> vers les sommets de <span class="process-math">\(H\)</span> comme ceci:</div>
+<div class="displaymath process-math" id="exe-ouiIso2-1-1-4">
+\begin{align*}
+g(a)\amp=s_2\\
+g(b)\amp=s_6\\
+g(c)\amp=s_4\\
+g(d)\amp=s_3\\
+g(e)\amp=s_5\\
+g(f)\amp=s_1
+\end{align*}
+</div>
+</div> <figure class="figure figure-like" id="exe-ouiIso2-1-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso2-1-2-2-1"><img src="external/tikzit_GrapheIsoSimpleOui1.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso2-1-2-2-2"><img src="external/tikzit_GrapheIsoSimpleOui2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.42<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure></article></details></section><section class="conclusion" id="concl-propGraphes"></section><section class="reading-questions" id="rq-propGraphes"><h3 class="heading hide-type">
+<span class="type">Questions de compréhension de la lecture</span><span class="space"> </span><span class="codenumber">7.2.4</span><span class="space"> </span><span class="title">Questions de compréhension de la lecture</span>
+</h3>
+<section class="introduction" id="rq-propGraphes-1"><div class="para" id="rq-propGraphes-1-1">Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</div></section><article class="exercise exercise-like" id="rq-propGraphes-2"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="rq-propGraphes-2-1-1">Pour quelles valeurs de <span class="process-math">\(n\)</span> est-ce que les graphes <span class="process-math">\(C_n\)</span> sont bipartis.</div></article><article class="exercise exercise-like" id="rq-propGraphes-3"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="introduction" id="rq-propGraphes-3-1"><div class="para" id="rq-propGraphes-3-1-1">Est-ce que les graphes ci-dessous sont bipartis? Si oui, justifier.</div></div>
+<article class="task exercise-like" id="rq-propGraphes-3-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="rq-propGraphes-3-2-1-1"><figure class="figure figure-like" id="rq-propGraphes-3-2-1-1-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_QCL_BipartiOUI1.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.43<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></article><article class="task exercise-like" id="rq-propGraphes-3-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="rq-propGraphes-3-3-1-1"><figure class="figure figure-like" id="rq-propGraphes-3-3-1-1-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_QCL_BipartiNON.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.44<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></article><article class="task exercise-like" id="rq-propGraphes-3-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="rq-propGraphes-3-4-1-1"><figure class="figure figure-like" id="rq-propGraphes-3-4-1-1-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_QCL_BipartiOUI2.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.45<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></article></article><article class="exercise exercise-like" id="rq-propGraphes-4"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="rq-propGraphes-4-1-1">Combien existe-t-il de sous-graphes de <span class="process-math">\(K_3\text{?}\)</span>
+</div></article><article class="exercise exercise-like" id="rq-propGraphes-5"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="introduction" id="rq-propGraphes-5-1"><div class="para" id="rq-propGraphes-5-1-1">Représenter l’union des paires de gaphes ci-dessous.</div></div>
+<article class="task exercise-like" id="rq-propGraphes-5-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="rq-propGraphes-5-2-1-1"><figure class="figure figure-like" id="rq-propGraphes-5-2-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="rq-propGraphes-5-2-1-1-1-2-1"><img src="external/tikzit_QCL_UnionG1.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_1\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="rq-propGraphes-5-2-1-1-1-2-2"><img src="external/tikzit_QCL_UnionH1.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_1\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.46<span class="period">.</span></span><span class="space"> </span>Union de graphes</figcaption></figure></div></article><article class="task exercise-like" id="rq-propGraphes-5-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="rq-propGraphes-5-3-1-1"><figure class="figure figure-like" id="rq-propGraphes-5-3-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="rq-propGraphes-5-3-1-1-1-2-1"><img src="external/tikzit_QCL_UnionG2.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_2\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="rq-propGraphes-5-3-1-1-1-2-2"><img src="external/tikzit_QCL_UnionH2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_2\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.47<span class="period">.</span></span><span class="space"> </span>Union de graphes</figcaption></figure></div></article></article><article class="exercise exercise-like" id="rq-propGraphes-6"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="rq-propGraphes-6-1-1">Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</div></article></section><section class="exercises" id="exo-propGraphe"><h3 class="heading hide-type">
+<span class="type">Exercices</span><span class="space"> </span><span class="codenumber">7.2.5</span><span class="space"> </span><span class="title">Exercices</span>
+</h3>
+<article class="subexercises" id="exo-propGraphe-2"><h4 class="heading"><span class="title">À faire en classe</span></h4>
+<div class="introduction" id="exo-propGraphe-2-2"><div class="para" id="exo-propGraphe-2-2-1">Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d’apprentissage plus avancés.</div></div>
+<article class="exercise exercise-like" id="exo-propGraphe-2-3"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="para" id="exo-propGraphe-2-3-1-1">Tracer tous les sous-graphes contenant au moins une arête du graphe <span class="process-math">\(G\)</span> ci-dessous. <figure class="figure figure-like" id="exo-propGraphe-2-3-1-1-2"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/tikzit_grapheFleche.jpg" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.48<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure>
+</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="para" id="exo-propGraphe-2-4-1-1">Montrer par récurence que le graphe <span class="process-math">\(K_n\)</span> possèdent <span class="process-math">\(\frac{n^2-n}{2}\)</span> arêtes, pour <span class="process-math">\(n\in \N^\ast\)</span>
+</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-5"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="para" id="exo-propGraphe-2-5-1-1">Démonter que si <span class="process-math">\(G\)</span> est un graphe biparti avec <span class="process-math">\(v\)</span> sommets et <span class="process-math">\(e\)</span> arêtes, alors <span class="process-math">\(e\leq \frac{v^2}{4}\)</span>
+</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-6"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-propGraphe-2-6-1"><div class="para" id="exo-propGraphe-2-6-1-1">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe simple, on défini le graphe complémentaire à <span class="process-math">\(G\text{,}\)</span> qu’on note <span class="process-math">\(\overline{G}\text{,}\)</span> comme étant le graphe ayant les mêmes sommets que <span class="process-math">\(G\text{,}\)</span> et où deux sommets sont adjacents dans <span class="process-math">\(\overline{G}\)</span> si et seulement si ils ne le sont pas dans <span class="process-math">\(G\text{.}\)</span> Représenter ou décriver les graphes ci-dessous.</div></div>
+<article class="task exercise-like" id="exo-propGraphe-2-6-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-propGraphe-2-6-2-1-1"><span class="process-math">\(\overline{C_4}\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-6-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-propGraphe-2-6-3-1-1"><span class="process-math">\(\overline{C_5}\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-6-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-propGraphe-2-6-4-1-1"><span class="process-math">\(\overline{Q_2}\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-6-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-propGraphe-2-6-5-1-1"><span class="process-math">\(\overline{Q_3}\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-6-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="para" id="exo-propGraphe-2-6-6-1-1">
+<span class="process-math">\(\overline{K_n}\text{,}\)</span> où <span class="process-math">\(n\in \N^\ast\)</span> est quelconque.</div></article><article class="task exercise-like" id="exo-propGraphe-2-6-7"><h6 class="heading"><span class="codenumber">(f)</span></h6>
+<div class="para" id="exo-propGraphe-2-6-7-1-1">
+<span class="process-math">\(\overline{K_{m,n}}\text{,}\)</span> où <span class="process-math">\(m,n\in \N^\ast\)</span> sont quelconques.</div></article></article><article class="exercise exercise-like" id="exo-propGraphe-2-7"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
+<div class="para" id="exo-propGraphe-2-7-1-1">Si <span class="process-math">\(G\)</span> est un graphe simple avec <span class="process-math">\(15\)</span> arêtes et <span class="process-math">\(\overline{G}\)</span> a <span class="process-math">\(13\)</span> arêtes, combien de sommets y a-t-il dans <span class="process-math">\(G\text{?}\)</span>
+</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-8"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div class="para" id="exo-propGraphe-2-8-1-1">Si <span class="process-math">\(G\)</span> est un graphe simple avec <span class="process-math">\(e\)</span> arêtes et <span class="process-math">\(v\)</span> sommets, combien y a-t-il d’arêtes dans le graphe <span class="process-math">\(\overline{G}\text{?}\)</span>
+</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-9"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
+<div class="para" id="exo-propGraphe-2-9-1-1">Démontrer que si <span class="process-math">\(G\)</span> est un graphe simple avec <span class="process-math">\(n\)</span> sommets, alors <span class="process-math">\(G\cup \overline{G}\)</span> est le graphe <span class="process-math">\(K_n\text{.}\)</span>
+</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-10"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-propGraphe-2-10-1"><div class="para" id="exo-propGraphe-2-10-1-1">On dit que le graphe <span class="process-math">\(G\)</span> est régulier si tous ses sommets on le même degré. Pour quelles valeurs de <span class="process-math">\(m\)</span> et <span class="process-math">\(n\)</span> les graphes suivants sont-ils réguliers?</div></div>
+<article class="task exercise-like" id="exo-propGraphe-2-10-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-propGraphe-2-10-2-1-1"><span class="process-math">\(C_n\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-10-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-propGraphe-2-10-3-1-1"><span class="process-math">\(Q_n\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-10-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-propGraphe-2-10-4-1-1"><span class="process-math">\(K_n\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-10-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-propGraphe-2-10-5-1-1"><span class="process-math">\(K_{m,n}\)</span></div></article></article><article class="exercise exercise-like" id="exo-propGraphe-2-11"><h5 class="heading"><span class="codenumber">9<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-propGraphe-2-11-1"><div class="para" id="exo-propGraphe-2-11-1-1">Pour chacune des paires de graphes ci-dessous, déterminer s’ils sont isomorphes. S’il ne sont pas isomorphes, justifier. S’il le sont, trouver un isomorphisme.</div></div>
+<article class="task exercise-like" id="exo-propGraphe-2-11-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-propGraphe-2-11-2-1-1"><figure class="figure figure-like" id="exo-propGraphe-2-11-2-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-2-1-1-1-2-1"><img src="external/tikzit_isoG1.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_1\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-2-1-1-1-2-2"><img src="external/tikzit_isoH1.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_1\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.49<span class="period">.</span></span><span class="space"> </span>Deux graphes isomorphes?</figcaption></figure></div></article><article class="task exercise-like" id="exo-propGraphe-2-11-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-propGraphe-2-11-3-1-1"><figure class="figure figure-like" id="exo-propGraphe-2-11-3-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-3-1-1-1-2-1"><img src="external/tikzit_isoG2.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_2\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-3-1-1-1-2-2"><img src="external/tikzit_isoH2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_2\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.50<span class="period">.</span></span><span class="space"> </span>Deux graphes isomorphes?</figcaption></figure></div></article><article class="task exercise-like" id="exo-propGraphe-2-11-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-propGraphe-2-11-4-1-1"><figure class="figure figure-like" id="exo-propGraphe-2-11-4-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-4-1-1-1-2-1"><img src="external/tikzit_isoG3.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_3\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-4-1-1-1-2-2"><img src="external/tikzit_isoH3.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_3\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.51<span class="period">.</span></span><span class="space"> </span>Deux graphes isomorphes?</figcaption></figure></div></article></article></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-introGraphe.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

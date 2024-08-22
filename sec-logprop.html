@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MaDIR La logique propositionnelle</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathématiques discrètes">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#ex-ensext-2-1-1 { counter-set: ex-ensext-2-1-1 0; }
+#ex-ensext-2-1-1 > li::marker { content: ""counter(ex-ensext-2-1-1,decimal)"."; }
+#ex-ensext-2-1-1 > li { counter-increment: ex-ensext-2-1-1; }
+#ex-ensext-3-1-1 { counter-set: ex-ensext-3-1-1 0; }
+#ex-ensext-3-1-1 > li::marker { content: ""counter(ex-ensext-3-1-1,decimal)"."; }
+#ex-ensext-3-1-1 > li { counter-increment: ex-ensext-3-1-1; }
+#sec-ens-3-8-2-1-1 { counter-set: sec-ens-3-8-2-1-1 0; }
+#sec-ens-3-8-2-1-1 > li::marker { content: ""counter(sec-ens-3-8-2-1-1,decimal)"."; }
+#sec-ens-3-8-2-1-1 > li { counter-increment: sec-ens-3-8-2-1-1; }
+#sec-ens-3-8-3-1-1 { counter-set: sec-ens-3-8-3-1-1 0; }
+#sec-ens-3-8-3-1-1 > li::marker { content: ""counter(sec-ens-3-8-3-1-1,decimal)"."; }
+#sec-ens-3-8-3-1-1 > li { counter-increment: sec-ens-3-8-3-1-1; }
+#sssec-opens-19-3-1-2 { counter-set: sssec-opens-19-3-1-2 0; }
+#sssec-opens-19-3-1-2 > li::marker { content: ""counter(sssec-opens-19-3-1-2,decimal)"."; }
+#sssec-opens-19-3-1-2 > li { counter-increment: sssec-opens-19-3-1-2; }
+#li-opensprop-2 { counter-set: li-opensprop-2 0; }
+#li-opensprop-2 > li::marker { content: ""counter(li-opensprop-2,decimal)"."; }
+#li-opensprop-2 > li { counter-increment: li-opensprop-2; }
+#prop-opensass-3-1-2 { counter-set: prop-opensass-3-1-2 0; }
+#prop-opensass-3-1-2 > li::marker { content: ""counter(prop-opensass-3-1-2,decimal)"."; }
+#prop-opensass-3-1-2 > li { counter-increment: prop-opensass-3-1-2; }
+#sec-fonctions-3-8-2-1-1 { counter-set: sec-fonctions-3-8-2-1-1 0; }
+#sec-fonctions-3-8-2-1-1 > li::marker { content: ""counter(sec-fonctions-3-8-2-1-1,decimal)"."; }
+#sec-fonctions-3-8-2-1-1 > li { counter-increment: sec-fonctions-3-8-2-1-1; }
+#sec-fonctions-3-8-3-1-1 { counter-set: sec-fonctions-3-8-3-1-1 0; }
+#sec-fonctions-3-8-3-1-1 > li::marker { content: ""counter(sec-fonctions-3-8-3-1-1,decimal)"."; }
+#sec-fonctions-3-8-3-1-1 > li { counter-increment: sec-fonctions-3-8-3-1-1; }
+#ex-composagi-2-1-4 { counter-set: ex-composagi-2-1-4 0; }
+#ex-composagi-2-1-4 > li::marker { content: ""counter(ex-composagi-2-1-4,decimal)"."; }
+#ex-composagi-2-1-4 > li { counter-increment: ex-composagi-2-1-4; }
+#ex-composagi-3-1-1 { counter-set: ex-composagi-3-1-1 0; }
+#ex-composagi-3-1-1 > li::marker { content: ""counter(ex-composagi-3-1-1,decimal)"."; }
+#ex-composagi-3-1-1 > li { counter-increment: ex-composagi-3-1-1; }
+#ex-inj-2-1-1 { counter-set: ex-inj-2-1-1 0; }
+#ex-inj-2-1-1 > li::marker { content: ""counter(ex-inj-2-1-1,decimal)"."; }
+#ex-inj-2-1-1 > li { counter-increment: ex-inj-2-1-1; }
+#ex-inj-3-1-1 { counter-set: ex-inj-3-1-1 0; }
+#ex-inj-3-1-1 > li::marker { content: ""counter(ex-inj-3-1-1,decimal)"."; }
+#ex-inj-3-1-1 > li { counter-increment: ex-inj-3-1-1; }
+#ex-surj-2-1-1 { counter-set: ex-surj-2-1-1 0; }
+#ex-surj-2-1-1 > li::marker { content: ""counter(ex-surj-2-1-1,decimal)"."; }
+#ex-surj-2-1-1 > li { counter-increment: ex-surj-2-1-1; }
+#ex-surj-3-1-1 { counter-set: ex-surj-3-1-1 0; }
+#ex-surj-3-1-1 > li::marker { content: ""counter(ex-surj-3-1-1,decimal)"."; }
+#ex-surj-3-1-1 > li { counter-increment: ex-surj-3-1-1; }
+#concl-fonctions-2-1 { counter-set: concl-fonctions-2-1 0; }
+#concl-fonctions-2-1 > li::marker { content: ""counter(concl-fonctions-2-1,decimal)"."; }
+#concl-fonctions-2-1 > li { counter-increment: concl-fonctions-2-1; }
+#sec-fonctions-8-6-1-1-2 { counter-set: sec-fonctions-8-6-1-1-2 0; }
+#sec-fonctions-8-6-1-1-2 > li::marker { content: "("counter(sec-fonctions-8-6-1-1-2,lower-alpha)")"; }
+#sec-fonctions-8-6-1-1-2 > li { counter-increment: sec-fonctions-8-6-1-1-2; }
+#sec-fonctions-8-7-1-1-2 { counter-set: sec-fonctions-8-7-1-1-2 0; }
+#sec-fonctions-8-7-1-1-2 > li::marker { content: "("counter(sec-fonctions-8-7-1-1-2,lower-alpha)")"; }
+#sec-fonctions-8-7-1-1-2 > li { counter-increment: sec-fonctions-8-7-1-1-2; }
+#exo--2-7-1-1-3 { counter-set: exo--2-7-1-1-3 0; }
+#exo--2-7-1-1-3 > li::marker { content: "("counter(exo--2-7-1-1-3,lower-alpha)")"; }
+#exo--2-7-1-1-3 > li { counter-increment: exo--2-7-1-1-3; }
+#exo--2-8-1-1-1 { counter-set: exo--2-8-1-1-1 0; }
+#exo--2-8-1-1-1 > li::marker { content: ""counter(exo--2-8-1-1-1,lower-roman)""; }
+#exo--2-8-1-1-1 > li { counter-increment: exo--2-8-1-1-1; }
+#exo--2-8-2-2-1 { counter-set: exo--2-8-2-2-1 0; }
+#exo--2-8-2-2-1 > li::marker { content: ""counter(exo--2-8-2-2-1,lower-roman)""; }
+#exo--2-8-2-2-1 > li { counter-increment: exo--2-8-2-2-1; }
+#exo--2-8-3-2-1 { counter-set: exo--2-8-3-2-1 0; }
+#exo--2-8-3-2-1 > li::marker { content: ""counter(exo--2-8-3-2-1,lower-roman)""; }
+#exo--2-8-3-2-1 > li { counter-increment: exo--2-8-3-2-1; }
+#exo--2-8-4-2-1 { counter-set: exo--2-8-4-2-1 0; }
+#exo--2-8-4-2-1 > li::marker { content: ""counter(exo--2-8-4-2-1,lower-roman)""; }
+#exo--2-8-4-2-1 > li { counter-increment: exo--2-8-4-2-1; }
+#exo--2-8-5-2-1 { counter-set: exo--2-8-5-2-1 0; }
+#exo--2-8-5-2-1 > li::marker { content: ""counter(exo--2-8-5-2-1,lower-roman)""; }
+#exo--2-8-5-2-1 > li { counter-increment: exo--2-8-5-2-1; }
+#sec-logprop-5-7-1 { counter-set: sec-logprop-5-7-1 0; }
+#sec-logprop-5-7-1 > li::marker { content: ""counter(sec-logprop-5-7-1,decimal)"."; }
+#sec-logprop-5-7-1 > li { counter-increment: sec-logprop-5-7-1; }
+#li-oplogprop-2 { counter-set: li-oplogprop-2 0; }
+#li-oplogprop-2 > li::marker { content: ""counter(li-oplogprop-2,decimal)"."; }
+#li-oplogprop-2 > li { counter-increment: li-oplogprop-2; }
+#sec-eqlogfnc-3-13-2-1-2 { counter-set: sec-eqlogfnc-3-13-2-1-2 0; }
+#sec-eqlogfnc-3-13-2-1-2 > li::marker { content: ""counter(sec-eqlogfnc-3-13-2-1-2,decimal)"."; }
+#sec-eqlogfnc-3-13-2-1-2 > li { counter-increment: sec-eqlogfnc-3-13-2-1-2; }
+#sec-eqlogfnc-3-13-3-1-1 { counter-set: sec-eqlogfnc-3-13-3-1-1 0; }
+#sec-eqlogfnc-3-13-3-1-1 > li::marker { content: ""counter(sec-eqlogfnc-3-13-3-1-1,decimal)"."; }
+#sec-eqlogfnc-3-13-3-1-1 > li { counter-increment: sec-eqlogfnc-3-13-3-1-1; }
+#sssec-predicats-3-2-1-1 { counter-set: sssec-predicats-3-2-1-1 0; }
+#sssec-predicats-3-2-1-1 > li::marker { content: ""counter(sssec-predicats-3-2-1-1,decimal)"."; }
+#sssec-predicats-3-2-1-1 > li { counter-increment: sssec-predicats-3-2-1-1; }
+#sssec-predicats-3-3-1-1 { counter-set: sssec-predicats-3-3-1-1 0; }
+#sssec-predicats-3-3-1-1 > li::marker { content: ""counter(sssec-predicats-3-3-1-1,decimal)"."; }
+#sssec-predicats-3-3-1-1 > li { counter-increment: sssec-predicats-3-3-1-1; }
+#sssec-predicats-5-2-1-2 { counter-set: sssec-predicats-5-2-1-2 0; }
+#sssec-predicats-5-2-1-2 > li::marker { content: ""counter(sssec-predicats-5-2-1-2,decimal)"."; }
+#sssec-predicats-5-2-1-2 > li { counter-increment: sssec-predicats-5-2-1-2; }
+#sssec-predicats-5-3-1-1 { counter-set: sssec-predicats-5-3-1-1 0; }
+#sssec-predicats-5-3-1-1 > li::marker { content: ""counter(sssec-predicats-5-3-1-1,decimal)"."; }
+#sssec-predicats-5-3-1-1 > li { counter-increment: sssec-predicats-5-3-1-1; }
+#sssec-quantificateurs-6-2-1-1 { counter-set: sssec-quantificateurs-6-2-1-1 0; }
+#sssec-quantificateurs-6-2-1-1 > li::marker { content: ""counter(sssec-quantificateurs-6-2-1-1,decimal)"."; }
+#sssec-quantificateurs-6-2-1-1 > li { counter-increment: sssec-quantificateurs-6-2-1-1; }
+#sssec-quantificateurs-6-3-1-1 { counter-set: sssec-quantificateurs-6-3-1-1 0; }
+#sssec-quantificateurs-6-3-1-1 > li::marker { content: ""counter(sssec-quantificateurs-6-3-1-1,decimal)"."; }
+#sssec-quantificateurs-6-3-1-1 > li { counter-increment: sssec-quantificateurs-6-3-1-1; }
+#sssec-quantificateurs-10-2-1-1 { counter-set: sssec-quantificateurs-10-2-1-1 0; }
+#sssec-quantificateurs-10-2-1-1 > li::marker { content: ""counter(sssec-quantificateurs-10-2-1-1,decimal)"."; }
+#sssec-quantificateurs-10-2-1-1 > li { counter-increment: sssec-quantificateurs-10-2-1-1; }
+#sssec-quantificateurs-10-3-1-1 { counter-set: sssec-quantificateurs-10-3-1-1 0; }
+#sssec-quantificateurs-10-3-1-1 > li::marker { content: ""counter(sssec-quantificateurs-10-3-1-1,decimal)"."; }
+#sssec-quantificateurs-10-3-1-1 > li { counter-increment: sssec-quantificateurs-10-3-1-1; }
+#sec-propquant-5-6-2-1-1 { counter-set: sec-propquant-5-6-2-1-1 0; }
+#sec-propquant-5-6-2-1-1 > li::marker { content: ""counter(sec-propquant-5-6-2-1-1,decimal)"."; }
+#sec-propquant-5-6-2-1-1 > li { counter-increment: sec-propquant-5-6-2-1-1; }
+#sec-propquant-5-6-3-1 { counter-set: sec-propquant-5-6-3-1 0; }
+#sec-propquant-5-6-3-1 > li::marker { content: ""counter(sec-propquant-5-6-3-1,decimal)"."; }
+#sec-propquant-5-6-3-1 > li { counter-increment: sec-propquant-5-6-3-1; }
+#sec-propquant-5-12-2-1-1 { counter-set: sec-propquant-5-12-2-1-1 0; }
+#sec-propquant-5-12-2-1-1 > li::marker { content: ""counter(sec-propquant-5-12-2-1-1,decimal)"."; }
+#sec-propquant-5-12-2-1-1 > li { counter-increment: sec-propquant-5-12-2-1-1; }
+#exo-propquant-2-10-1-1-2 { counter-set: exo-propquant-2-10-1-1-2 0; }
+#exo-propquant-2-10-1-1-2 > li::marker { content: "("counter(exo-propquant-2-10-1-1-2,lower-alpha)")"; }
+#exo-propquant-2-10-1-1-2 > li { counter-increment: exo-propquant-2-10-1-1-2; }
+#exo-propquant-2-10-2-1 { counter-set: exo-propquant-2-10-2-1 0; }
+#exo-propquant-2-10-2-1 > li::marker { content: "("counter(exo-propquant-2-10-2-1,lower-alpha)")"; }
+#exo-propquant-2-10-2-1 > li { counter-increment: exo-propquant-2-10-2-1; }
+#sec-circuits-3-9-1 { counter-set: sec-circuits-3-9-1 0; }
+#sec-circuits-3-9-1 > li::marker { content: ""counter(sec-circuits-3-9-1,decimal)"."; }
+#sec-circuits-3-9-1 > li { counter-increment: sec-circuits-3-9-1; }
+#sec-representation-3-4-2-1-1 { counter-set: sec-representation-3-4-2-1-1 0; }
+#sec-representation-3-4-2-1-1 > li::marker { content: ""counter(sec-representation-3-4-2-1-1,decimal)"."; }
+#sec-representation-3-4-2-1-1 > li { counter-increment: sec-representation-3-4-2-1-1; }
+#sec-representation-3-4-3-1-2 { counter-set: sec-representation-3-4-3-1-2 0; }
+#sec-representation-3-4-3-1-2 > li::marker { content: ""counter(sec-representation-3-4-3-1-2,decimal)"."; }
+#sec-representation-3-4-3-1-2 > li { counter-increment: sec-representation-3-4-3-1-2; }
+#sec-representation-4-5-2-1-1 { counter-set: sec-representation-4-5-2-1-1 0; }
+#sec-representation-4-5-2-1-1 > li::marker { content: ""counter(sec-representation-4-5-2-1-1,decimal)"."; }
+#sec-representation-4-5-2-1-1 > li { counter-increment: sec-representation-4-5-2-1-1; }
+#sec-representation-4-5-3-1-1 { counter-set: sec-representation-4-5-3-1-1 0; }
+#sec-representation-4-5-3-1-1 > li::marker { content: ""counter(sec-representation-4-5-3-1-1,decimal)"."; }
+#sec-representation-4-5-3-1-1 > li { counter-increment: sec-representation-4-5-3-1-1; }
+#ex-decimalebinaire-2-1-1 { counter-set: ex-decimalebinaire-2-1-1 0; }
+#ex-decimalebinaire-2-1-1 > li::marker { content: ""counter(ex-decimalebinaire-2-1-1,decimal)"."; }
+#ex-decimalebinaire-2-1-1 > li { counter-increment: ex-decimalebinaire-2-1-1; }
+#algo-binhex-2-1-1 { counter-set: algo-binhex-2-1-1 0; }
+#algo-binhex-2-1-1 > li::marker { content: ""counter(algo-binhex-2-1-1,decimal)"."; }
+#algo-binhex-2-1-1 > li { counter-increment: algo-binhex-2-1-1; }
+#algo-binhex-2-2-1 { counter-set: algo-binhex-2-2-1 0; }
+#algo-binhex-2-2-1 > li::marker { content: ""counter(algo-binhex-2-2-1,decimal)"."; }
+#algo-binhex-2-2-1 > li { counter-increment: algo-binhex-2-2-1; }
+#exo-puissmoinsnombre-18-2-1 { counter-set: exo-puissmoinsnombre-18-2-1 0; }
+#exo-puissmoinsnombre-18-2-1 > li::marker { content: "("counter(exo-puissmoinsnombre-18-2-1,lower-alpha)")"; }
+#exo-puissmoinsnombre-18-2-1 > li { counter-increment: exo-puissmoinsnombre-18-2-1; }
+#exo-representation-3-2-3-1-1-8 { counter-set: exo-representation-3-2-3-1-1-8 0; }
+#exo-representation-3-2-3-1-1-8 > li::marker { content: "("counter(exo-representation-3-2-3-1-1-8,lower-alpha)")"; }
+#exo-representation-3-2-3-1-1-8 > li { counter-increment: exo-representation-3-2-3-1-1-8; }
+#sec-divisibilite-3-5-2-1-1 { counter-set: sec-divisibilite-3-5-2-1-1 0; }
+#sec-divisibilite-3-5-2-1-1 > li::marker { content: ""counter(sec-divisibilite-3-5-2-1-1,decimal)"."; }
+#sec-divisibilite-3-5-2-1-1 > li { counter-increment: sec-divisibilite-3-5-2-1-1; }
+#sec-divisibilite-3-5-3-1-1 { counter-set: sec-divisibilite-3-5-3-1-1 0; }
+#sec-divisibilite-3-5-3-1-1 > li::marker { content: ""counter(sec-divisibilite-3-5-3-1-1,decimal)"."; }
+#sec-divisibilite-3-5-3-1-1 > li { counter-increment: sec-divisibilite-3-5-3-1-1; }
+#def-pgcd-2-1-7 { counter-set: def-pgcd-2-1-7 0; }
+#def-pgcd-2-1-7 > li::marker { content: ""counter(def-pgcd-2-1-7,decimal)"."; }
+#def-pgcd-2-1-7 > li { counter-increment: def-pgcd-2-1-7; }
+#sec-divisibilite-5-6-2-1-1 { counter-set: sec-divisibilite-5-6-2-1-1 0; }
+#sec-divisibilite-5-6-2-1-1 > li::marker { content: ""counter(sec-divisibilite-5-6-2-1-1,decimal)"."; }
+#sec-divisibilite-5-6-2-1-1 > li { counter-increment: sec-divisibilite-5-6-2-1-1; }
+#exo-divisibilite-3-2-2-1-5 { counter-set: exo-divisibilite-3-2-2-1-5 0; }
+#exo-divisibilite-3-2-2-1-5 > li::marker { content: "("counter(exo-divisibilite-3-2-2-1-5,lower-alpha)")"; }
+#exo-divisibilite-3-2-2-1-5 > li { counter-increment: exo-divisibilite-3-2-2-1-5; }
+#ex-modulotemps-2-1-2 { counter-set: ex-modulotemps-2-1-2 0; }
+#ex-modulotemps-2-1-2 > li::marker { content: ""counter(ex-modulotemps-2-1-2,decimal)"."; }
+#ex-modulotemps-2-1-2 > li { counter-increment: ex-modulotemps-2-1-2; }
+#prop-moduloprop-2-1-5 { counter-set: prop-moduloprop-2-1-5 0; }
+#prop-moduloprop-2-1-5 > li::marker { content: ""counter(prop-moduloprop-2-1-5,decimal)"."; }
+#prop-moduloprop-2-1-5 > li { counter-increment: prop-moduloprop-2-1-5; }
+#sec-modulo-4-12-2-1-2 { counter-set: sec-modulo-4-12-2-1-2 0; }
+#sec-modulo-4-12-2-1-2 > li::marker { content: ""counter(sec-modulo-4-12-2-1-2,decimal)"."; }
+#sec-modulo-4-12-2-1-2 > li { counter-increment: sec-modulo-4-12-2-1-2; }
+#sec-modulo-5-4-2-1-1 { counter-set: sec-modulo-5-4-2-1-1 0; }
+#sec-modulo-5-4-2-1-1 > li::marker { content: ""counter(sec-modulo-5-4-2-1-1,decimal)"."; }
+#sec-modulo-5-4-2-1-1 > li { counter-increment: sec-modulo-5-4-2-1-1; }
+#concl-modulo-1-1 { counter-set: concl-modulo-1-1 0; }
+#concl-modulo-1-1 > li::marker { content: ""counter(concl-modulo-1-1,decimal)"."; }
+#concl-modulo-1-1 > li { counter-increment: concl-modulo-1-1; }
+#exo-modulo-2-5-2-1 { counter-set: exo-modulo-2-5-2-1 0; }
+#exo-modulo-2-5-2-1 > li::marker { content: "("counter(exo-modulo-2-5-2-1,lower-alpha)")"; }
+#exo-modulo-2-5-2-1 > li { counter-increment: exo-modulo-2-5-2-1; }
+#prop-regleProd-2 { counter-set: prop-regleProd-2 0; }
+#prop-regleProd-2 > li::marker { content: ""counter(prop-regleProd-2,decimal)"."; }
+#prop-regleProd-2 > li { counter-increment: prop-regleProd-2; }
+#prop-regleSomme-2 { counter-set: prop-regleSomme-2 0; }
+#prop-regleSomme-2 > li::marker { content: ""counter(prop-regleSomme-2,decimal)"."; }
+#prop-regleSomme-2 > li { counter-increment: prop-regleSomme-2; }
+#prop-incExclu-2-1 { counter-set: prop-incExclu-2-1 0; }
+#prop-incExclu-2-1 > li::marker { content: ""counter(prop-incExclu-2-1,decimal)"."; }
+#prop-incExclu-2-1 > li { counter-increment: prop-incExclu-2-1; }
+#prop-div-2-1 { counter-set: prop-div-2-1 0; }
+#prop-div-2-1 > li::marker { content: ""counter(prop-div-2-1,decimal)"."; }
+#prop-div-2-1 > li { counter-increment: prop-div-2-1; }
+#def_perm-1 { counter-set: def_perm-1 0; }
+#def_perm-1 > li::marker { content: ""counter(def_perm-1,decimal)"."; }
+#def_perm-1 > li { counter-increment: def_perm-1; }
+#def_combBin-1 { counter-set: def_combBin-1 0; }
+#def_combBin-1 > li::marker { content: ""counter(def_combBin-1,decimal)"."; }
+#def_combBin-1 > li { counter-increment: def_combBin-1; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="madir.html"><span class="title">Mathématiques discrètes:</span> <span class="subtitle">Version préliminaire</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Table des matières"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Table des matières</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Résultats de la recherche: </h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="chap-logique.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-logique.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="sec-eqlogfnc.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+
+\newcommand{\Permutation}[2]{P_{#2}^{#1}}
+\newcommand{\Binomial}[2]{C_{#2}^{#1}}
+
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\Det}{det}
+\DeclareMathOperator{\pgcd}{pgcd}
+\DeclareMathOperator{\ppcm}{ppcm}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-ensfct.html" class="internal"><span class="codenumber">1</span> <span class="title">Ensembles et fonctions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ens.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Les ensembles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Définitions et exemples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-4" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Relation entre deux ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-5" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Représentation graphique d’ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-6" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Ensembles particuliers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ens.html#exo-ens" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-opens.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Opérations sur les ensembles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-opens.html#sssec-opens" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Opérations élémentaires sur les ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-opens.html#sssec-propoper" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Propriétés des opérations élémentaires</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-opens.html#rq-opens" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-opens.html#exo-opens" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-fonctions.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Les fonctions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Définitions et exemples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Représentation d’une fonction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">La composition de fonctions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sssec-injsurj" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Fonctions injectives et surjectives</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-8" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-fonctions.html#exo-" class="internal"><span class="codenumber">1.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="chap-logique.html" class="internal"><span class="codenumber">2</span> <span class="title">Logique mathématique</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-logprop.html" class="internal"><span class="codenumber">2.1</span> <span class="title">La logique propositionnelle</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Propositions mathématiques et connecteurs logiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Table de vérité</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-5" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Implication, réciproque et contraposée</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-7" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-logprop.html#exo-logprop" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqlogfnc.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Équivalence logique et formes normales</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqlogfnc.html#sec-eqlogfnc-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Équivalence logique</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqlogfnc.html#sec-eqlogfnc-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Formes normales</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-eqlogfnc.html#rq-eqlogfnc" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqlogfnc.html#exo-eqlogfnc" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-propquant.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Les propositions quantifiées</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sssec-predicats" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Prédicats</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sssec-quantificateurs" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Quantificateurs existentiel et universel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sec-propquant-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Négation et combinaisons de quantificateurs</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-propquant.html#rq-propquant" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propquant.html#exo-propquant" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-circuits.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Circuits logiques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-circuits.html#sec-circuits-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Portes logiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-circuits.html#sec-circuits-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Parallèle avec la logique propositionnelle</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-circuits.html#rq-circuits" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-circuits.html#exo-circuits" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-reptheonombres.html" class="internal"><span class="codenumber">3</span> <span class="title">Représentation des nombres et arithmétique modulaire</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-representation.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Représentation des nombres</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Systèmes positionnels</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Représentation en base deux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-5" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Représentation en base hexadécimale</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Opérations élémentaires en base deux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Représentation en circuits d’opérations binaires</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-representation.html#rq-representation" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-representation.html#exo-representation" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-divisibilite.html" class="internal"><span class="codenumber">3.2</span> <span class="title">La divisibilité dans les entiers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">L’opération de division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Retour sur la conversion à partir de la base dix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">L’algorithme d’Euclide</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-divisibilite.html#rq-divisibilite" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-divisibilite.html#exo-divisibilite" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-modulo.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Arithmétique modulaire</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-3" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Congruence modulo <span class="process-math">\(n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-4" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Arithmétique modulaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-5" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Résolution d’équations en congruence modulo</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-6" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Introduction à la cryptographie</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-modulo.html#rq-modulo" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-modulo.html#exo-modulo" class="internal"><span class="codenumber">3.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-denombrement.html" class="internal"><span class="codenumber">4</span> <span class="title">Dénombrement</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_prodSomme.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Méthodes de dénombrement: Principes de base</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-regleProd" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Principe du produit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-regleSomme" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Principe de la somme</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-combProdSomme1" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Combinaison du principe du produit et du principe de la somme</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-incExclu" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Le principe d’inclusion-exclusion (ou de la soustraction )</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-div" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Le principe de la division</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_prodSomme.html#rq-prodSomme" class="internal"><span class="codenumber">4.1.6</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_prodSomme.html#exo-prodSomme" class="internal"><span class="codenumber">4.1.7</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Permutations et combinaisons</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs_permArr" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Les permutations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs_combBinomial" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Les combinaisons</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Le triangle de Pascal et le binôme de Newton</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton-3" class="internal"><span class="codenumber">4.2.3.1</span> <span class="title">Le triangle de Pascal</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton-4" class="internal"><span class="codenumber">4.2.3.2</span> <span class="title">Le binôme de Newton</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-permCombGen" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Les permutations et combinaisons généralisées</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-permInd" class="internal"><span class="codenumber">4.2.4.1</span> <span class="title">Permutations avec des objets indiscernables</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-permRep" class="internal"><span class="codenumber">4.2.4.2</span> <span class="title">Permutations avec répétitions</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-combRep" class="internal"><span class="codenumber">4.2.4.3</span> <span class="title">Combinaisons avec répétitions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_arrCombinaison.html#rq-arrCombinaison" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_arrCombinaison.html#exo-combinatoire" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-combinatoireExoSupp.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices supplémentaires</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-combinatoireExoSupp.html#exo-combinatoireExoSupp" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-logprop"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">2.1</span><span class="space"> </span><span class="title">La logique propositionnelle</span>
+</h2>
+<section class="introduction" id="intro-logprop"> <div class="para" id="intro-logprop-1">La logique propositionnelle est l’étude de propositions et leur combinaison par divers connecteurs. De manière plus générale, la logique est l’étude des conséquences de ces combinaisons. Les règles de la logique propositionnelle permettent de distinguer les raisonnements mathématiques valides des autres. Le caractère fondamental des mathématiques repose sur la validité des raisonnements qui sont utilisés pour démontrer les théorèmes et résultats divers.</div> <div class="para" id="intro-logprop-2">D’un point de vue pratique, les règles de la logique sont maintenant utilisées en informatique afin que la machine puisse comprendre, sans ambiguité, ce que l’utilisateur veut faire.</div> <div class="para" id="intro-logprop-3">Dans cette section, on définit la notion de <em class="emphasis">proposition</em>, les connecteurs de <em class="emphasis">conjonction,disjonction</em> et <em class="emphasis">implication</em>. On définit aussi la négation d’une proposition, de même que la réciproque et la contraposée d’une implication. Finalement, on introduit le concept de table de vérité.</div></section><section class="subsection" id="sec-logprop-3"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="space"> </span><span class="title">Propositions mathématiques et connecteurs logiques</span>
+</h3>
+<div class="para" id="sec-logprop-3-2">L’objet le plus élémentaire de la logique est la proposition. Pour pouvoir faire un raisonnement et le valider, il faut savoir comment écrire et parler des mathématiques.</div>
+<article class="definition definition-like" id="def-proposition"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Proposition mathématique.</span>
+</h4> <div class="para" id="def-proposition-2-1">Une <em class="emphasis">proposition</em> est un énoncé, une phrase déclarative qui est soit vraie, soit fausse.</div></article><div class="para logical" id="sec-logprop-3-4">
+<div class="para">Par exemple, les énoncés suivants sont des propositions, car on peut leur attribuer une valeur de vérité.</div>
+<ul class="disc" id="sec-logprop-3-4-1">
+<li id="sec-logprop-3-4-1-1"><div class="para" id="sec-logprop-3-4-1-1-1">Le Québec est une province du Canada (c’est vrai).</div></li>
+<li id="sec-logprop-3-4-1-2"><div class="para" id="sec-logprop-3-4-1-2-1">Le soleil tourne autour de la Terre (c’est faux).</div></li>
+<li id="sec-logprop-3-4-1-3"><div class="para" id="sec-logprop-3-4-1-3-1">
+<span class="process-math">\(1+1=3\)</span> (c’est faux).</div></li>
+<li id="sec-logprop-3-4-1-4"><div class="para" id="sec-logprop-3-4-1-4-1">J’ai pris une douche ce matin (c’est soit vrai, soit faux, dépendamment du matin, mais çe ne peut pas être autre chose que vrai ou faux).</div></li>
+<li id="sec-logprop-3-4-1-5"><div class="para" id="sec-logprop-3-4-1-5-1">Si on est jeudi ou si on est samedi, alors je vais prendre un verre.  (étant donné la journée, on peut déterminer la véracité)</div></li>
+</ul>
+<div class="para">Une proposition n’est donc pas nécessairement vraie. Ce qui importe, c’est qu’elle soit vraie ou fausse. La valeur de vérité d’une proposition pourrait même changer dans le temps, par exemple si le Québec devenait indépendant, la première proposition serait fausse, et la véracité de la proposition sur la prise de douche dépend des matins.</div>
+</div>
+<div class="para logical" id="sec-logprop-3-5">
+<div class="para">Les énoncés ci-dessous ne sont pas des propositions.</div>
+<ul class="disc" id="sec-logprop-3-5-1">
+<li id="sec-logprop-3-5-1-1"><div class="para" id="sec-logprop-3-5-1-1-1">Quel jour de la semaine est-on? (Une question, pas une phrase déclarative.)</div></li>
+<li id="sec-logprop-3-5-1-2"><div class="para" id="sec-logprop-3-5-1-2-1">Lire le chapitre <a href="chap-logique.html" class="internal" title="Chapitre 2: Logique mathématique">2</a> pour le prochain cours (c’est une consigne).</div></li>
+<li id="sec-logprop-3-5-1-3"><div class="para" id="sec-logprop-3-5-1-3-1">
+<span class="process-math">\(x+1\leq 4\)</span> (si on connaissait <span class="process-math">\(x\text{,}\)</span> on pourrait peut-être déterminer la véracité de cette proposition, mais sans informations additionnelles, c’est impossible).</div></li>
+</ul>
+<div class="para">Au sujet de l’énoncé avec la variable <span class="process-math">\(x\text{,}\)</span> c’est un exemple de fonction propositionnelle. On les abordera à la section <a href="sec-propquant.html" class="internal" title="Section 2.3: Les propositions quantifiées">2.3</a>.</div>
+</div>
+<div class="para logical" id="sec-logprop-3-6">
+<div class="para">Les propositions avec lesquelles on travaillera seront plus complexes que les premières du paragraphe ci-dessus. Si on regarde la proposition</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{Si on est jeudi ou si on est samedi, alors je vais prendre un verre.}\text{,}
+\end{equation*}
+</div>
+<div class="para">on constate qu’elle est composée de plusieurs petites proposition: « on est jeudi», «on est samedi» et  « je vais prendre un verre». Ces trois propositions sont par la suite composées à l’aide des connecteurs «ou» et « si alors». Une proposition qui ne peut être décomposée davantage est dite atomique, alors qu’une proposition composée est appelée moléculaire.</div>
+</div>
+<div class="para" id="sec-logprop-3-7">Du côté symbolique, on utilisera principalement  les lettres de l’alphabet minuscule autour de <span class="process-math">\(p\)</span> pour désigner une proposition (atomique ou moléculaire). Par exemple, « si <span class="process-math">\(p\)</span> ou si <span class="process-math">\(q\text{,}\)</span> alors <span class="process-math">\(r\)</span>» pourrait représenter la proposition «si on est jeudi ou si on est samedi, alors je vais prendre un verre». En fait, le deuxième «si» sera souvent laissé de côté, et même les connecteurs auront leur propre symbole.</div>
+<article class="definition definition-like" id="def-negation"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span><span class="space"> </span><span class="title">La négation d’une proposition.</span>
+</h4> <div class="para" id="def-negation-2">Soit <span class="process-math">\(p\)</span> une proposition quelconque. On apelle la négation de <span class="process-math">\(p\text{,}\)</span> notée <span class="process-math">\(\neg p\text{,}\)</span> la proposition « il n’est pas vrai que <span class="process-math">\(p\)</span>». C’est une proposition qui a toujours comme valeur de vérité le contraire de <span class="process-math">\(p\text{.}\)</span>
+</div> <div class="para" id="def-negation-3">On note parfois aussi la négation comme étant <span class="process-math">\(\sim p\)</span> ou encore <span class="process-math">\(!p\text{.}\)</span> Cette dernière option est celle qui est utilisée dans beaucoup de programme informatique.</div> <div class="para" id="def-negation-4">Selon le contexte, on reformulera la proposition <span class="process-math">\(\neg p\)</span> pour que la formulation soit plus naturelle que « il n’est pas vrai que <span class="process-math">\(p\)</span>».</div></article><div class="para" id="sec-logprop-3-9">Par exemple la négation de «Le Québec est une province du Canada » est « Il n’est pas vrai que le Québec est une province du Canada », que l’on pourrait reformuler plus simplement comme « Le Québec n’est pas une province du Canada ».</div>
+<article class="definition definition-like" id="def-conjonction"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">La conjonction.</span>
+</h4> <div class="para" id="def-conjonction-2-1">Soit <span class="process-math">\(p,q\)</span> deux propositions. On appelle <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> la conjonction de <span class="process-math">\(p,q\text{,}\)</span> notée <span class="process-math">\(p\wedge q\text{,}\)</span> la proposition qui est vraie lorsque <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> sont vraies.</div> <div class="para" id="def-conjonction-2-2">On note parfois aussi la conjonction entre <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> comme <span class="process-math">\(p~\&amp; ~q\text{.}\)</span> C’est aussi la notation qui est utilisée par beaucoup de langages informatiques. Dans la partie textuelle de ces notes, on préfère l’utilisation du symbole <span class="process-math">\(\wedge\text{,}\)</span> car il évoque un certain parallèle avec l’intersection de la théorie des ensembles. Le lien deviendra plus clair sous peu.</div></article><article class="definition definition-like" id="def-disjonction"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">La disjonction.</span>
+</h4> <div class="para" id="def-disjonction-2-1">Soit <span class="process-math">\(p,q\)</span> deux propositions. On appelle <span class="process-math">\(p\)</span> ou <span class="process-math">\(q\)</span> la disjonction de <span class="process-math">\(p,q\text{,}\)</span> notée <span class="process-math">\(p\vee q\text{,}\)</span> la proposition qui est vraie lorsque <span class="process-math">\(p\)</span> ou <span class="process-math">\(q\)</span> sont vraies, peut-être les deux.</div> <div class="para" id="def-disjonction-2-2">On note parfois aussi la disjonction entre <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> comme <span class="process-math">\(p~|~q\text{,}\)</span> <span class="process-math">\(p\parallel q\)</span> ou <span class="process-math">\(p+q\text{.}\)</span> Les deux premières notations alternatives sont celles qui sont utilisées par beaucoup de langages informatiques. Dans la partie textuelle de ces notes, on préfère l’utilisation du symbole <span class="process-math">\(\vee\text{,}\)</span> car il évoque un certain parallèle avec l’union de la théorie des ensembles. Ce lien deviendra aussi plus clair sous peu.</div></article><div class="para" id="sec-logprop-3-12">La proposition « Il fait beau et je suis en congé » est une conjonction de deux propositions atomiques, alors que la proposition <em class="emphasis">On est jeudi ou c’est l’hiver</em> est une disjonction.</div>
+<article class="remark remark-like" id="sec-logprop-3-13"><h4 class="heading">
+<span class="type">Remarque</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Priorité des opérateurs.</span>
+</h4> <div class="para" id="sec-logprop-3-13-2-1">Les opérateurs de disjonctions et de conjonctions sont des opérateurs binaires. Ils s’appliquent sur deux opérandes. L’opérateur de négation quant à lui est un opérateur unaire, qui s’applique sur l’opérande qui le suit. Afin d’éviter une trop grande utilisation de parenthèses, on donne la priorité à l’opérateur unaire.</div> <div class="para" id="sec-logprop-3-13-2-2">Ainsi, la proposition <span class="process-math">\(\neg p\wedge q\)</span> doit être vue comme <span class="process-math">\((\neg p)\wedge q\text{.}\)</span> Si on veut la négation d’une conjonction ou d’une disjonction, on pourra utiliser les parenthèses comme dans la proposition <span class="process-math">\(\neg(p\wedge q)\text{.}\)</span> Dans la section <a href="sec-eqlogfnc.html" class="internal" title="Section 2.2: Équivalence logique et formes normales">2.2</a>, on verra comment réécrire cette négation.</div></article></section><section class="subsection" id="sec-logprop-4"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="space"> </span><span class="title">Table de vérité</span>
+</h3>
+<div class="para" id="sec-logprop-4-2">Il n’est pas évident de déterminer la valeur de vérité d’une proposition moléculaire complexe en regardant simplement ses morceaux et leur interaction. Par exemple, quand peut-on dire que la proposition moléculaire « J’ai une soeur ou il n’est pas vrai que ( j’ai une soeur et le ciel est rouge) » est vraie? Si on la décortique, on voit qu’elle est formée des deux propositions atomique <span class="process-math">\(p=\text{J'ai une soeur}\)</span> et <span class="process-math">\(q=\text{le ciel est rouge}\)</span> et représentée symboliquement par <span class="process-math">\(p\vee \neg (p\wedge q)\text{.}\)</span> Cette proposition complexe a certainement une valeur de vérité, qui dépend probablement des valeurs de vérités individuelles de <span class="process-math">\(p\)</span> et <span class="process-math">\(q\text{.}\)</span>
+</div>
+<div class="para" id="sec-logprop-4-3">Pour analyser une proposition complexe, on utilise une table de vérité. C’est un outil semblable au tableau d’appartenance introduit à la proposition <a href="sec-opens.html#prop-opensass" class="xref" data-knowl="./knowl/xref/prop-opensass.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 1.2.14: L’union et l’intersection ont la propriété d’associativité">1.2.14</a>. Ci-dessous, les tables de vérités des connecteurs de négation, conjonction et disjonction.</div>
+<figure class="figure figure-like" id="sec-logprop-4-4"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel fixed-width top" style="width:33.3333333333333%;"><figure class="table table-like" id="sec-logprop-4-4-2-1"><table class="tabular">
+<tr>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(\neg p\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b3 r2 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+</tr>
+</table>
+<figcaption><span class="codenumber">(a)</span><span class="space"> </span>Table de vérité de la négation</figcaption></figure></div>
+<div class="sbspanel fixed-width top" style="width:33.3333333333333%;"><figure class="table table-like" id="sec-logprop-4-4-2-2"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\wedge q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r2 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+</tr>
+</table>
+<figcaption><span class="codenumber">(b)</span><span class="space"> </span>Table de vérité de la conjonction</figcaption></figure></div>
+<div class="sbspanel fixed-width top" style="width:33.3333333333333%;"><figure class="table table-like" id="sec-logprop-4-4-2-3"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p \vee q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r2 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+</tr>
+</table>
+<figcaption><span class="codenumber">(c)</span><span class="space"> </span>Table de vérité de la disjonction</figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.1.6<span class="period">.</span></span><span class="space"> </span>Trois des principales tables de vérité</figcaption></figure><details id="ex-tautologie1" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span><span class="space"> </span><span class="title">Une table de vérité plus complexe.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-tautologie1-2-1">On considère la proposition <span class="process-math">\(p\vee \neg (p\wedge q)\)</span> et on cherche à déterminer sous quelle condition elle est vraie. On utilise une table de vérité.</div>
+<div class="solutions"><details id="ex-tautologie1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="ex-tautologie1-3-1">Pour ce type de proposition, il convient de décomposer en plus petits morceaux et d’analyser chacun de ces morceaux afin de former le tout. La table de vérité</div> <figure class="table table-like" id="ex-tautologie1-3-2"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.8<span class="period">.</span></span><span class="space"> </span>Table de vérité d’une proposition complexe</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r1 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\wedge q\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\(\neg(p\wedge q)\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\vee \neg(p\wedge q)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r1 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r2 l0 t0 lines">V</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+</tr>
+</table></div></figure> <div class="para" id="ex-tautologie1-3-3">Comme on peut le voir, la proposition finale est toujours vraie, indépendamment de la véracité des propositions individuelles <span class="process-math">\(p,q\text{.}\)</span> </div> </div></details></div></article></details></section><section class="subsection" id="sec-logprop-5"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="space"> </span><span class="title">Implication, réciproque et contraposée</span>
+</h3>
+<div class="para" id="sec-logprop-5-2">Une autre manière de connecter des propositions est d’utiliser la formule « si <span class="process-math">\(p\text{,}\)</span> alors <span class="process-math">\(q\)</span>». Par exemple, la proposition « S’il pleut, alors le gazon est mouillé » est une telle proposition.</div>
+<article class="definition definition-like" id="def-implication"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">L’implication logique.</span>
+</h4> <div class="para" id="def-implication-2-1">Soit <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> deux proposition. On appelle si <span class="process-math">\(p\text{,}\)</span> alors <span class="process-math">\(q\)</span> l’implication logique, notée <span class="process-math">\(p\rightarrow q\text{.}\)</span> C’est une proposition qui est fausse lorsque <span class="process-math">\(p\)</span> est vraie et <span class="process-math">\(q\)</span> est fausse, <em class="emphasis">mais vraie dans tous les autres cas.</em>
+</div> <div class="para" id="def-implication-2-2">La proposition <span class="process-math">\(p\)</span> est appelée l’hypothèse ou la prémisse et la proposition <span class="process-math">\(q\)</span> est appelée la conséquence ou la conclusion.</div> <div class="para" id="def-implication-2-3">En plus de si <span class="process-math">\(p\)</span> alors <span class="process-math">\(q\text{,}\)</span> on dit parfois aussi <span class="process-math">\(p\)</span> implique <span class="process-math">\(q\text{,}\)</span> <span class="process-math">\(p\)</span> seulement si <span class="process-math">\(q\text{,}\)</span><span class="process-math">\(p\)</span> est suffisant pour que <span class="process-math">\(q\)</span> soit vraie ou encore <span class="process-math">\(q\)</span> est nécessaire pour avoir <span class="process-math">\(p\text{.}\)</span>
+</div></article><div class="para" id="sec-logprop-5-4">La table de vérité de l’implication se trouve ci-dessous.</div>
+<figure class="table table-like" id="tab-implication"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.10<span class="period">.</span></span><span class="space"> </span>Table de vérité de l’implication</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\rightarrow q\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r2 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+</tr>
+</table></div></figure><div class="para" id="sec-logprop-5-6">À priopri, il semble étrange d’avoir une proposition qui est vraie lorsque ses composantes sont fausses. Il faut réaliser que pour la logique mathématique, il n’est pas important qu’il y ait un lien entre <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> pour les connecter avec l’implication. Ainsi, « si on est jeudi, alors <span class="process-math">\(1+1=3\)</span>» est une implication qui en générale sera considérée comme vraie, puisque six fois sur sept jeudi n’est pas aujourd’hui et que <span class="process-math">\(1+1\neq 3\text{,}\)</span> mais lorsque que c’est jeudi, l’implication devient fausse. L’idée générale à retenir est qu’à partir d’une hypothèse qui est vraie, on ne peut que conclure la vérité, mais à partir d’une prémisse fausse, on peut arriver à n’importe quelle conclusion. En particulier pour la dernière ligne, ce n’est pas de dire que <span class="process-math">\(q\)</span> est vraie, mais que l’implication au total est vraie, un peu par défaut si à la fois l’hypothèse et la conclusion sont fausses.</div>
+<div class="para logical" id="sec-logprop-5-7">
+<div class="para">Pour reprendre la proposition « S’il pleut, alors le gazon est mouillé », on considère les trois cas de figure suivant:</div>
+<ol class="decimal" id="sec-logprop-5-7-1">
+<li id="sec-logprop-5-7-1-1"><div class="para" id="sec-logprop-5-7-1-1-1">Il pleut et le gazon est mouillé.</div></li>
+<li id="sec-logprop-5-7-1-2"><div class="para" id="sec-logprop-5-7-1-2-1">Il ne pleut pas, mais le gazon est mouillé.</div></li>
+<li id="sec-logprop-5-7-1-3"><div class="para" id="sec-logprop-5-7-1-3-1">Il pleut, mais le gazon n’est pas mouillé.</div></li>
+</ol>
+<div class="para">Dans les deux premier cas, la conclusion est vraie. L’implication est alors vérifié. Il n’est pas important de savoir ce qui a causé le gazon à être mouillé. Dans le troisième cas de figure, l’implication est fausse, car elle stipule que la pluie aurait du mouiller le gazon, mais cela ne s’est pas produit. Dans le cas où il ne pleut pas et que le gazon n’est pas mouillé, l’implication serait vraie par défaut.</div>
+</div>
+<div class="para" id="sec-logprop-5-8">À partir d’une implication, on peut définir deux autres propositions reliées. Il est important de les distinguer.</div>
+<article class="definition definition-like" id="def-reciproquecontraposee"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.1.11</span><span class="period">.</span><span class="space"> </span><span class="title">La réciproque et la contraposée d’une implication.</span>
+</h4> <div class="para" id="def-reciproquecontraposee-2-1">Soit <span class="process-math">\(p,q\)</span> des propositions. La proposition <span class="process-math">\(q\rightarrow p\)</span> est appelée la réciproque de <span class="process-math">\(p\rightarrow q\)</span> et la proposition <span class="process-math">\(\neg q\rightarrow \neg p\)</span> est appelée la contraposée.</div></article><div class="para" id="sec-logprop-5-10">Ci-dessous on retrouve les tables de vérité de l’implication <span class="process-math">\(p\rightarrow q\text{,}\)</span> sa réciproque et sa contraposée.</div>
+<figure class="table table-like" id="sec-logprop-5-11"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.12<span class="period">.</span></span><span class="space"> </span>Table de vérité de l’implication <span class="process-math">\(p\rightarrow q\text{,}\)</span> la réciproque et la contraposée</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r1 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(\neg p\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\(\neg q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\rightarrow q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(q\rightarrow p\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(\neg q \rightarrow \neg p\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r1 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+<td class="l m b3 r2 l0 t0 lines">V</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+</tr>
+</table></div></figure><div class="para" id="sec-logprop-5-12">En particulier, on remarque que l’implication et la contraposée ont exactement les mêmes valeurs de vérités en même temps. On dit de deux propositions qui possèdent cette propriété qu’elles sont équivalentes. On revient sur ce concept à la section <a href="sec-eqlogfnc.html" class="internal" title="Section 2.2: Équivalence logique et formes normales">2.2</a>.</div>
+<div class="para" id="sec-logprop-5-13">La réciproque par contre n’est pas nécessairement vraie quand l’implication l’est. On peut toutefois imposer cette condition en créant la double implication.</div>
+<article class="definition definition-like" id="sec-logprop-5-14"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">2.1.13</span><span class="period">.</span><span class="space"> </span><span class="title">La double implication.</span>
+</h4> <div class="para" id="sec-logprop-5-14-2-1">Soit <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> des propositions. On apelle <span class="process-math">\(p\)</span> si et seulement si <span class="process-math">\(q\text{,}\)</span> et on note <span class="process-math">\(p\leftrightarrow q\text{,}\)</span> la proposition <span class="process-math">\((p\rightarrow q)\wedge (q\rightarrow p)\text{.}\)</span> On l’appelle aussi la biconditionnelle.</div> <div class="para" id="sec-logprop-5-14-2-2">On dit aussi <span class="process-math">\(p\)</span> est nécessaire et suffisant pour <span class="process-math">\(q\text{.}\)</span>
+</div></article></section><section class="conclusion" id="concl-logprop"> <div class="para logical" id="concl-logprop-1">
+<div class="para">Les éléments importants de cette section sont:</div>
+<ul class="disc" id="concl-logprop-1-1">
+<li id="concl-logprop-1-1-1"><div class="para" id="concl-logprop-1-1-1-1">La définition d’une <a href="sec-logprop.html#def-proposition" class="xref" data-knowl="./knowl/xref/def-proposition.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 2.1.1: Proposition mathématique">proposition</a>.</div></li>
+<li id="concl-logprop-1-1-2"><div class="para" id="concl-logprop-1-1-2-1">La <a href="sec-logprop.html#def-negation" class="xref" data-knowl="./knowl/xref/def-negation.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 2.1.2: La négation d’une proposition">négation</a> d’une proposition et les connecteurs <a href="sec-logprop.html#def-conjonction" class="xref" data-knowl="./knowl/xref/def-conjonction.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 2.1.3: La conjonction">conjonction</a> et <a href="sec-logprop.html#def-disjonction" class="xref" data-knowl="./knowl/xref/def-disjonction.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 2.1.4: La disjonction">disjonction</a>.</div></li>
+<li id="concl-logprop-1-1-3"><div class="para" id="concl-logprop-1-1-3-1">La notion d’implication et les formes “si … alors”,“seulement si”,“nécessaire” et “suffisant”.</div></li>
+<li id="concl-logprop-1-1-4"><div class="para" id="concl-logprop-1-1-4-1">La notion de <a href="sec-logprop.html#def-reciproquecontraposee" class="xref" data-knowl="./knowl/xref/def-reciproquecontraposee.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 2.1.11: La réciproque et la contraposée d’une implication">réciproque et de contraposée</a>.</div></li>
+<li id="concl-logprop-1-1-5"><div class="para" id="concl-logprop-1-1-5-1">La construction d’une table de vérité et les tables de vérité de la conjonction, disjonction et implication.</div></li>
+<li id="concl-logprop-1-1-6"><div class="para" id="concl-logprop-1-1-6-1">La double implication et les formes “si et seulement si” et “nécessaire et suffisant”.</div></li>
+</ul>
+</div></section><section class="reading-questions" id="sec-logprop-7"><h3 class="heading hide-type">
+<span class="type">Questions de compréhension de la lecture</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="space"> </span><span class="title">Questions de compréhension de la lecture</span>
+</h3>
+<section class="introduction" id="sec-logprop-7-1"><div class="para" id="sec-logprop-7-1-1">Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</div></section><article class="exercise exercise-like" id="sec-logprop-7-2"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="introduction" id="sec-logprop-7-2-1"><div class="para" id="sec-logprop-7-2-1-1">Parmi les énoncés suivants, lesquels sont des propositions? Justifier brièvement.</div></div>
+<article class="task exercise-like" id="sec-logprop-7-2-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="sec-logprop-7-2-2-1-1">Il est 8 heures.</div></article><article class="task exercise-like" id="sec-logprop-7-2-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="sec-logprop-7-2-3-1-1">Il est 8 heures?</div></article><article class="task exercise-like" id="sec-logprop-7-2-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="sec-logprop-7-2-4-1-1"><span class="process-math">\(x^2\geq 4\)</span></div></article><article class="task exercise-like" id="sec-logprop-7-2-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="sec-logprop-7-2-5-1-1">
+<span class="process-math">\(x^2\geq 4\)</span> si <span class="process-math">\(x=2\)</span> ou <span class="process-math">\(x=5\)</span>
+</div></article><article class="task exercise-like" id="sec-logprop-7-2-6"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para" id="sec-logprop-7-2-6-1-1">Le café doit être changé toutes les vingt minutes.</div></article><article class="task exercise-like" id="sec-logprop-7-2-7"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para" id="sec-logprop-7-2-7-1-1">J’ai un chien ou un chat.</div></article><article class="task exercise-like" id="sec-logprop-7-2-8"><h5 class="heading"><span class="codenumber">(g)</span></h5>
+<div class="para" id="sec-logprop-7-2-8-1-1">Il roulait à plus de <span class="process-math">\(60\)</span> km/h et a brulé un feu rouge.</div></article><article class="task exercise-like" id="sec-logprop-7-2-9"><h5 class="heading"><span class="codenumber">(h)</span></h5>
+<div class="para" id="sec-logprop-7-2-9-1-1">Cette phrase est fausse.</div></article></article><article class="exercise exercise-like" id="sec-logprop-7-3"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="sec-logprop-7-3-1-1">Parmi les propositions précédentes, identifier celles qui sont moléculaires et décortiquer les en propositions atomiques.</div></article><article class="exercise exercise-like" id="sec-logprop-7-4"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="introduction" id="sec-logprop-7-4-1"><div class="para" id="sec-logprop-7-4-1-1">On suppose qu’il est connu que l’auteur a un frère, mais il est incertain s’il a une soeur. Déterminer si les propositions suivantes sont vraies, fausses ou s’il manque d’information pour le savoir.</div></div>
+<article class="task exercise-like" id="sec-logprop-7-4-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="sec-logprop-7-4-2-1-1">L’auteur a un frère ou l’auteur a une soeur.</div></article><article class="task exercise-like" id="sec-logprop-7-4-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="sec-logprop-7-4-3-1-1">L’auteur a un frère et l’auteur a une soeur.</div></article><article class="task exercise-like" id="sec-logprop-7-4-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="sec-logprop-7-4-4-1-1">L’auteur a une soeur ou l’auteur n’a pas de soeur.</div></article><article class="task exercise-like" id="sec-logprop-7-4-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="sec-logprop-7-4-5-1-1">Si l’auteur a une soeur, alors il a un frère.</div></article><article class="task exercise-like" id="sec-logprop-7-4-6"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para" id="sec-logprop-7-4-6-1-1">Si l’auteur a un frère, alors il est a une soeur.</div></article><article class="task exercise-like" id="sec-logprop-7-4-7"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para" id="sec-logprop-7-4-7-1-1">Si l’auteur n’a pas de frère, alors il a une soeur.</div></article></article><article class="exercise exercise-like" id="exo-ouexclusiflogique"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="para" id="exo-ouexclusiflogique-1-1">Tout comme pour la théorie des ensembles, on peut définir le “ou exclusif” pour des propositions logiques. Noté <span class="process-math">\(p\oplus q\text{,}\)</span> cette proposition est vrai lorsqu’exactement une des propositions <span class="process-math">\(p,q\)</span> est vraie.</div> <div class="para" id="exo-ouexclusiflogique-1-2">Donner la table de vérité du “ou exclusif”.</div></article><article class="exercise exercise-like" id="sec-logprop-7-6"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="sec-logprop-7-6-1-1">Donner la table de vérité de la double implication.</div></article><article class="exercise exercise-like" id="sec-logprop-7-7"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="introduction" id="sec-logprop-7-7-1"><div class="para" id="sec-logprop-7-7-1-1">Chaque phrase ci-dessous peut-être réécrite sous la forme d’une implication. Donner l’hypothèse et la conclusion de chacune de ces implications.</div></div>
+<article class="task exercise-like" id="sec-logprop-7-7-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="sec-logprop-7-7-2-1-1">Tous les québécois aiment le Canadien de Montréal.</div></article><article class="task exercise-like" id="sec-logprop-7-7-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="sec-logprop-7-7-3-1-1">Le record sera battu si les conditions sont favorables.</div></article><article class="task exercise-like" id="sec-logprop-7-7-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="sec-logprop-7-7-4-1-1">Le record sera battu seulement si les conditions sont favorables.</div></article><article class="task exercise-like" id="sec-logprop-7-7-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="sec-logprop-7-7-5-1-1">Pour avoir un permis de conduire, il est nécessaire d’avoir au moins <span class="process-math">\(16\)</span> ans.</div></article><article class="task exercise-like" id="sec-logprop-7-7-6"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para" id="sec-logprop-7-7-6-1-1">Pour pouvoir acheter de l’alcool, il suffit d’avoir 18 ans.</div></article></article><article class="exercise exercise-like" id="sec-logprop-7-8"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="para" id="sec-logprop-7-8-1-1">Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</div></article></section><section class="exercises" id="exo-logprop"><h3 class="heading hide-type">
+<span class="type">Exercices</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="space"> </span><span class="title">Exercices</span>
+</h3>
+<div class="exercisegroup" id="exo-logprop-2">
+<h4 class="heading"><span class="title">À faire en classe.</span></h4>
+<div class="introduction" id="exo-logprop-2-2"><div class="para" id="exo-logprop-2-2-1">Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d’apprentissage plus avancés.</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="exo-logprop-2-3"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="para logical" id="exo-logprop-2-3-1-1">
+<div class="para">Construire la table de vérité pour</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(p\vee q)\wedge (p\vee \neg q)\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details id="exo-logprop-2-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-logprop-2-3-2-1"><figure class="table table-like" id="exo-logprop-2-3-2-1-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.14<span class="period">.</span></span><span class="space"> </span>Table de vérité de <span class="process-math">\((p\vee q)\wedge (p\vee \neg q) \)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r1 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(\neg q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\((p\vee q)\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\((p\vee \neg q)\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\((p\vee q)\wedge (p\vee \neg q) \)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r1 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r2 l0 t0 lines">V</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+</tr>
+</table></div></figure></div></div></details></div></article><article class="exercise exercise-like" id="exo-logprop-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-logprop-2-4-1"><div class="para" id="exo-logprop-2-4-1-1">Dans chacune des propositions suivantes, est-il plus probable que le « ou » soit inclusif ou exclusif? Justifier</div></div>
+<article class="task exercise-like" id="exo-logprop-2-4-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-logprop-2-4-2-1-1">Je vais prendre du riz ou des frites avec mon poulet.</div>
+<div class="solutions"><details id="exo-logprop-2-4-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Les deux s’argumentent</div></details></div></article><article class="task exercise-like" id="exo-logprop-2-4-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-logprop-2-4-3-1-1">Pour s’inscrire à ce cours, il faut avoir réussi deux cours de mathématiques ou trois cours de physique.</div>
+<div class="solutions"><details id="exo-logprop-2-4-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Inclusif. Si quelqu’un à réussi deux cours de mathématiques et trois cours de physique, il pourra encore s’inscrire à ce cours.</div></details></div></article><article class="task exercise-like" id="exo-logprop-2-4-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-logprop-2-4-4-1-1">Le Canadien a gagné ou perdu hier.</div>
+<div class="solutions"><details id="exo-logprop-2-4-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Exclusif. On ne peut pas gagner et perdre en même temps!</div></details></div></article></article><article class="exercise exercise-like" id="exo-logprop-2-5"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-logprop-2-5-1">
+<div class="para logical" id="exo-logprop-2-5-1-1">
+<div class="para">On considère les propositions</div>
+<ul class="disc" id="exo-logprop-2-5-1-1-1">
+<li id="exo-logprop-2-5-1-1-1-1"><div class="para" id="exo-logprop-2-5-1-1-1-1-1">
+<span class="process-math">\(p:\)</span> J’ai passé le cours de mathématiques discrètes.</div></li>
+<li id="exo-logprop-2-5-1-1-1-2"><div class="para" id="exo-logprop-2-5-1-1-1-2-1">
+<span class="process-math">\(q:\)</span> J’ai réussi mon examen final avec <span class="process-math">\(70%\)</span> .</div></li>
+<li id="exo-logprop-2-5-1-1-1-3"><div class="para" id="exo-logprop-2-5-1-1-1-3-1">
+<span class="process-math">\(r:\)</span> Je n’ai pas fait tous les devoirs recommandés par mon professeur.</div></li>
+</ul>
+</div> <div class="para" id="exo-logprop-2-5-1-2">Écrire les propositions suivantes en langage courant.</div>
+</div>
+<article class="task exercise-like" id="exo-logprop-2-5-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-logprop-2-5-2-1-1"><span class="process-math">\(p\wedge q\)</span></div>
+<div class="solutions"><details id="exo-logprop-2-5-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">J’ai passé mon cours de mathématiques discrètes et j’ai réussi mon examen final avec <span class="process-math">\(70\text{.}\)</span>
+</div></details></div></article><article class="task exercise-like" id="exo-logprop-2-5-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-logprop-2-5-3-1-1"><span class="process-math">\(\neg p \wedge r\)</span></div>
+<div class="solutions"><details id="exo-logprop-2-5-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Je n’ai pas passé le cours de mathématiques discrètes et je n’ai pas fais tous les devoirs recommandés par mon professeur.</div></details></div></article><article class="task exercise-like" id="exo-logprop-2-5-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-logprop-2-5-4-1-1"><span class="process-math">\(q\rightarrow p\)</span></div>
+<div class="solutions"><details id="exo-logprop-2-5-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Puisque j’ai réussi mon examen final avec <span class="process-math">\(70\text{,}\)</span> j’ai passé mon cours de mathématiques discrètes.</div></details></div></article><article class="task exercise-like" id="exo-logprop-2-5-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-logprop-2-5-5-1-1"><span class="process-math">\(\neg p\rightarrow (\neg q\vee r)\)</span></div>
+<div class="solutions"><details id="exo-logprop-2-5-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Si je n’ai pas passé le cours de mathématiques discrètes, alors je n’ai pas réussi mon examen final avec <span class="process-math">\(70\)</span> ou je n’ai pas fait tous les devoirs recommandés par mon professeur.</div></details></div></article><article class="task exercise-like" id="exo-logprop-2-5-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="para" id="exo-logprop-2-5-6-1-1"><span class="process-math">\((p\wedge q)\leftrightarrow \neg r\)</span></div>
+<div class="solutions"><details id="exo-logprop-2-5-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">J’ai passé le cours de mathématiques discrètes en obtenant <span class="process-math">\(70\)</span> à mon examen final si et seulement si j’ai fait tous les devoirs recommandés par mon professeur.</div></details></div></article></article><article class="exercise exercise-like" id="exo-logprop-2-6"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-logprop-2-6-1">
+<div class="para" id="exo-logprop-2-6-1-1">Écrire les phrases suivantes en proposition logique n’utilisant que des variables <span class="process-math">\(p_1, p_2,\dots\)</span> et des connecteurs de la section. Lorsqu’un « ou » devrait être exclusif, utiliser <span class="process-math">\(\oplus\text{.}\)</span>
+</div> <details id="exo-logprop-2-6-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">On pose: <div class="para" id="exo-logprop-2-6-1-2-1">
+<span class="process-math">\(p_1:\)</span> J’irai à l’épicerie.</div> <div class="para" id="exo-logprop-2-6-1-2-2">
+<span class="process-math">\(p_2:\)</span> J’irai chercher les enfants.</div> <div class="para" id="exo-logprop-2-6-1-2-3">
+<span class="process-math">\(p_3:\)</span> Tu m’entend chanter.</div> <div class="para" id="exo-logprop-2-6-1-2-4">
+<span class="process-math">\(p_4:\)</span> Je chante.</div> <div class="para" id="exo-logprop-2-6-1-2-5">
+<span class="process-math">\(p_5:\)</span> Je prend ma douche.</div> <div class="para" id="exo-logprop-2-6-1-2-6">
+<span class="process-math">\(p_6:\)</span> C’est nuageux.</div> <div class="para" id="exo-logprop-2-6-1-2-7">
+<span class="process-math">\(p_7:\)</span> Il pleut.</div> <div class="para" id="exo-logprop-2-6-1-2-8">
+<span class="process-math">\(p_8:\)</span> Je suis seul dans ma voiture.</div> <div class="para" id="exo-logprop-2-6-1-2-9">
+<span class="process-math">\(p_9:\)</span> Il fait chaud.</div> <div class="para" id="exo-logprop-2-6-1-2-10">
+<span class="process-math">\(p_{10}:\)</span> Vous êtes sage.</div> <div class="para" id="exo-logprop-2-6-1-2-11">
+<span class="process-math">\(p_{11}:\)</span> On ira à la plage.</div> <div class="para" id="exo-logprop-2-6-1-2-12">
+<span class="process-math">\(p_{12}:\)</span> Vous achetez cette voiture.</div> <div class="para" id="exo-logprop-2-6-1-2-13">
+<span class="process-math">\(p_{13}:\)</span> Je vous propose <span class="process-math">\(1000\)</span>$ au comptant.</div> <div class="para" id="exo-logprop-2-6-1-2-14">
+<span class="process-math">\(p_{14}:\)</span> Je vous offre un rabais de <span class="process-math">\(1\%\)</span> sur le financement.</div>
+</div></details>
+</div>
+<article class="task exercise-like" id="exo-logprop-2-6-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-logprop-2-6-2-1-1">J’irai à l’épicerie et chercher les enfants.</div>
+<div class="solutions"><details id="exo-logprop-2-6-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(p_1 \wedge p_2\)</span></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-6-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-logprop-2-6-3-1-1">Si tu m’entends chanter, c’est que je suis sous la douche.</div>
+<div class="solutions"><details id="exo-logprop-2-6-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(p_3 \rightarrow p_5\)</span></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-6-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-logprop-2-6-4-1-1">Quand je prends une douche, je chante</div>
+<div class="solutions"><details id="exo-logprop-2-6-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(p_5 \rightarrow p_4\)</span></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-6-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-logprop-2-6-5-1-1">C’est nuageux, mais il n’y a pas de pluie.</div>
+<div class="solutions"><details id="exo-logprop-2-6-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(p_6 \wedge \neg p_7\)</span></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-6-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="para" id="exo-logprop-2-6-6-1-1">Je chante sous la douche ou seul dans ma voiture.</div>
+<div class="solutions"><details id="exo-logprop-2-6-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(p_4 \wedge (p_5\oplus p_8)\)</span></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-6-7"><h6 class="heading"><span class="codenumber">(f)</span></h6>
+<div class="para" id="exo-logprop-2-6-7-1-1">S’il fait chaud et que vous êtes sage, on ira à la plage.</div>
+<div class="solutions"><details id="exo-logprop-2-6-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\((p_9 \wedge p_{10})\rightarrow p_{11}\)</span></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-6-8"><h6 class="heading"><span class="codenumber">(g)</span></h6>
+<div class="para" id="exo-logprop-2-6-8-1-1">Si vous achetez cette voiture, je vous propose <span class="process-math">\(1000\)</span>$ de rabais au comptant ou un rabais de <span class="process-math">\(1\%\)</span> sur le financement.</div>
+<div class="solutions"><details id="exo-logprop-2-6-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(p_{12} \rightarrow (p_{13}\oplus p_{14})\)</span></div></details></div></article></article><article class="exercise exercise-like" id="exo-logprop-2-7"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-logprop-2-7-1"><div class="para" id="exo-logprop-2-7-1-1">Construire la table de vérité des propositions suivantes.</div></div>
+<article class="task exercise-like" id="exo-logprop-2-7-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-logprop-2-7-2-1-1"><span class="process-math">\((p\vee q)\rightarrow (p\wedge q)\)</span></div>
+<div class="solutions"><details id="exo-logprop-2-7-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-logprop-2-7-2-2-1"><figure class="table table-like" id="exo-logprop-2-7-2-2-1-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.15<span class="period">.</span></span><span class="space"> </span>Table de vérité de <span class="process-math">\((p\vee q)\rightarrow (p\wedge q) \)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r1 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\vee q\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\((p\wedge q)\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\((p\vee q) \rightarrow(p\wedge q)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r1 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r2 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+</tr>
+</table></div></figure></div></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-7-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-logprop-2-7-3-1-1"><span class="process-math">\((p\wedge q)\rightarrow \neg r\)</span></div>
+<div class="solutions"><details id="exo-logprop-2-7-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-logprop-2-7-3-2-1"><figure class="table table-like" id="exo-logprop-2-7-3-2-1-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.16<span class="period">.</span></span><span class="space"> </span>Table de vérité de <span class="process-math">\((p\wedge q)\rightarrow \neg r\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r1 l0 t3 lines"><span class="process-math">\(r\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(\neg r\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\(p\wedge q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\((p\wedge q)\rightarrow \neg r\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r1 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+<td class="l m b3 r2 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+</tr>
+</table></div></figure></div></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-7-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-logprop-2-7-4-1-1"><span class="process-math">\((p\vee q)\rightarrow \neg r\)</span></div>
+<div class="solutions"><details id="exo-logprop-2-7-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-logprop-2-7-4-2-1"><figure class="table table-like" id="exo-logprop-2-7-4-2-1-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.17<span class="period">.</span></span><span class="space"> </span>Table de vérité de <span class="process-math">\((p\vee q)\rightarrow \neg r\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r1 l0 t3 lines"><span class="process-math">\(r\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(\neg r\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\(p\vee q\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\((p\vee q)\rightarrow \neg r\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r1 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+<td class="l m b3 r2 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+</tr>
+</table></div></figure></div></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-7-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-logprop-2-7-5-1-1"><span class="process-math">\((p\leftrightarrow q)\vee (\neg p \leftrightarrow r)\)</span></div>
+<div class="solutions"><details id="exo-logprop-2-7-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-logprop-2-7-5-2-1"><figure class="table table-like" id="exo-logprop-2-7-5-2-1-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.18<span class="period">.</span></span><span class="space"> </span>Table de vérité de <span class="process-math">\((p\leftrightarrow q)\vee (\neg p \leftrightarrow r)\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r1 l0 t3 lines"><span class="process-math">\(r\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(\neg p\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\((p\leftrightarrow q)\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\((\neg p \leftrightarrow r)\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\((p\leftrightarrow q)\vee (\neg p \leftrightarrow r)\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r1 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+<td class="l m b3 r2 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+</tr>
+</table></div></figure></div></div></details></div></article></article><article class="exercise exercise-like" id="exo-negdisj"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-negdisj-1"><div class="para" id="exo-negdisj-1-1">Dans cet exercice, on réfléchit à la négation de la disjonction, soit <span class="process-math">\(\neg(p\vee q)\text{.}\)</span> Plus particulièrement, on veut trouver une autre formulation.</div></div>
+<article class="task exercise-like" id="exo-negdisj-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-negdisj-2-1-1">Quelle est la table de vérité de la négation de la disjonction?</div>
+<div class="solutions"><details id="exo-negdisj-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-negdisj-2-2-1"><figure class="table table-like" id="exo-negdisj-2-2-1-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.19<span class="period">.</span></span><span class="space"> </span>Table de vérité de <span class="process-math">\(\neg (p\vee q) \)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r1 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\((p\vee q)\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(\neg (p\vee q) \)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r1 l0 t0 lines">F</td>
+<td class="l m b3 r2 l0 t0 lines">F</td>
+<td class="l m b3 r0 l0 t0 lines">V</td>
+</tr>
+</table></div></figure></div></div></details></div></article><article class="task exercise-like" id="exo-negdisj-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-negdisj-3-1-1">En regardant l’unique ligne qui a pour valeur “vrai”, donner une formulation pour <span class="process-math">\(\neg(p\vee q)\text{.}\)</span>
+</div>
+<div class="solutions"><details id="exo-negdisj-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Une autre formulation serait <span class="process-math">\(\neg p \wedge \neg q\)</span>
+</div></details></div></article><article class="task exercise-like" id="exo-negdisj-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-negdisj-4-1-1">Donner la négation de “Je n’ai pas fait tous les exercices  ou j’ai passé le cours” sous la forme trouvée ci-dessus.</div>
+<div class="solutions"><details id="exo-negdisj-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">J’ai fait tous les exercices et je n’ai pas passé le cours.</div></details></div></article></article><article class="exercise exercise-like" id="exo-negimplication"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-negimplication-1"><div class="para" id="exo-negimplication-1-1">Dans cet exercice, on réfléchit à la négation de l’implication, soit <span class="process-math">\(\neg(p\rightarrow q)\text{.}\)</span> Plus particulièrement, on veut trouver une autre formulation.</div></div>
+<article class="task exercise-like" id="exo-negimplication-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-negimplication-2-1-1">Quelle est la table de vérité de la négation de l’implication?</div>
+<div class="solutions"><details id="exo-negimplication-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-negimplication-2-2-1"><figure class="table table-like" id="exo-negimplication-2-2-1-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.20<span class="period">.</span></span><span class="space"> </span>Table de vérité de <span class="process-math">\(\neg (p\rightarrow q) \)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(p\)</span></td>
+<td class="l m b0 r1 l0 t3 lines"><span class="process-math">\(q\)</span></td>
+<td class="l m b0 r2 l0 t3 lines"><span class="process-math">\((p\rightarrow q)\)</span></td>
+<td class="l m b0 r0 l0 t3 lines"><span class="process-math">\(\neg (p\rightarrow q) \)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+<td class="l m b0 r1 l0 t0 lines">F</td>
+<td class="l m b0 r2 l0 t0 lines">F</td>
+<td class="l m b0 r0 l0 t0 lines">V</td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+<td class="l m b0 r1 l0 t0 lines">V</td>
+<td class="l m b0 r2 l0 t0 lines">V</td>
+<td class="l m b0 r0 l0 t0 lines">F</td>
+</tr>
+<tr>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+<td class="l m b3 r1 l0 t0 lines">F</td>
+<td class="l m b3 r2 l0 t0 lines">V</td>
+<td class="l m b3 r0 l0 t0 lines">F</td>
+</tr>
+</table></div></figure></div></div></details></div></article><article class="task exercise-like" id="exo-negimplication-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-negimplication-3-1-1">En regardant l’unique ligne qui a pour valeur “vrai”, donner une formulation pour <span class="process-math">\(\neg(p\rightarrow q)\)</span> qui n’utilise pas l’implication.</div>
+<div class="solutions"><details id="exo-negimplication-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Une autre formulation serait <span class="process-math">\(p\wedge \neg q\text{.}\)</span>
+</div></details></div></article><article class="task exercise-like" id="exo-negimplication-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-negimplication-4-1-1">Donner la négation de “Si je fais tous les exercices, alors je vais passer le cours” sous la forme trouvée ci-dessus.</div>
+<div class="solutions"><details id="exo-negimplication-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">J’ai fait tous les exercices, et je n’ai pas passé le cours.</div></details></div></article></article><article class="exercise exercise-like" id="exo-logprop-2-10"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-logprop-2-10-1"><div class="para" id="exo-logprop-2-10-1-1">Pour les phrases suivantes, énoncer en langage courant l’implication, la négation, la réciproque et la contraposée.</div></div>
+<article class="task exercise-like" id="exo-logprop-2-10-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-logprop-2-10-2-1-1">Si je fais mes exercices, je vais passer le cours.</div>
+<div class="solutions"><details id="exo-logprop-2-10-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ul class="disc" id="exo-logprop-2-10-2-2-1">
+<li id="exo-logprop-2-10-2-2-1-1"><div class="para" id="exo-logprop-2-10-2-2-1-1-1">Implication: Si je fais mes exercices, alors je vais passer le cours.</div></li>
+<li id="exo-logprop-2-10-2-2-1-2"><div class="para" id="exo-logprop-2-10-2-2-1-2-1">Réciproque: Si je passe le cours, alors j’ai fait mes exercices.</div></li>
+<li id="exo-logprop-2-10-2-2-1-3"><div class="para" id="exo-logprop-2-10-2-2-1-3-1">Contraposée: Si je ne passe pas le cours, alors je n’ai pas fait mes exercices.</div></li>
+</ul></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-10-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-logprop-2-10-3-1-1">Quand je travaille de nuit, je dors jusqu’à 14:00.</div>
+<div class="solutions"><details id="exo-logprop-2-10-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ul class="disc" id="exo-logprop-2-10-3-2-1">
+<li id="exo-logprop-2-10-3-2-1-1"><div class="para" id="exo-logprop-2-10-3-2-1-1-1">Implication: Si travaille de nuit, alors je dors jusqu’à 14:00.</div></li>
+<li id="exo-logprop-2-10-3-2-1-2"><div class="para" id="exo-logprop-2-10-3-2-1-2-1">Réciproque: Si je dors jusqu’à 14:00, alors je travaille de nuit.</div></li>
+<li id="exo-logprop-2-10-3-2-1-3"><div class="para" id="exo-logprop-2-10-3-2-1-3-1">Contraposée: Si je ne dors pas jusqu’à 14:00, alors je ne travaille pas de nuit.</div></li>
+</ul></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-10-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-logprop-2-10-4-1-1">Pour être riche, il suffit de gagner à la loterie</div>
+<div class="solutions"><details id="exo-logprop-2-10-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ul class="disc" id="exo-logprop-2-10-4-2-1">
+<li id="exo-logprop-2-10-4-2-1-1"><div class="para" id="exo-logprop-2-10-4-2-1-1-1">Implication: Si je gagne à la loterie, alors je serai riche.</div></li>
+<li id="exo-logprop-2-10-4-2-1-2"><div class="para" id="exo-logprop-2-10-4-2-1-2-1">Réciproque: Si je suis riche, alors j’ai gagné à la loterie.</div></li>
+<li id="exo-logprop-2-10-4-2-1-3"><div class="para" id="exo-logprop-2-10-4-2-1-3-1">Contraposée: Si je ne suis pas riche, alors je n’ai pas gagné à la loterie.</div></li>
+</ul></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-10-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-logprop-2-10-5-1-1">Pour être riche, il est nécessaire de gagner à la loterie.</div>
+<div class="solutions"><details id="exo-logprop-2-10-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ul class="disc" id="exo-logprop-2-10-5-2-1">
+<li id="exo-logprop-2-10-5-2-1-1"><div class="para" id="exo-logprop-2-10-5-2-1-1-1">Implication: Si je suis riche, alors j’ai gagné à la loterie.</div></li>
+<li id="exo-logprop-2-10-5-2-1-2"><div class="para" id="exo-logprop-2-10-5-2-1-2-1">Réciproque: Si je gagne à la loterie, alors je serai riche.</div></li>
+<li id="exo-logprop-2-10-5-2-1-3"><div class="para" id="exo-logprop-2-10-5-2-1-3-1">Contraposée: Si je n’ai pas gagné à la loterie, alors je ne suis pas riche.</div></li>
+</ul></div></details></div></article><article class="task exercise-like" id="exo-logprop-2-10-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="para" id="exo-logprop-2-10-6-1-1">Le gazon est mouillé chaque fois qu’il pleut.</div>
+<div class="solutions"><details id="exo-logprop-2-10-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><ul class="disc" id="exo-logprop-2-10-6-2-1">
+<li id="exo-logprop-2-10-6-2-1-1"><div class="para" id="exo-logprop-2-10-6-2-1-1-1">Implication: S’il pleut, alors le gazon est mouillé.</div></li>
+<li id="exo-logprop-2-10-6-2-1-2"><div class="para" id="exo-logprop-2-10-6-2-1-2-1">Réciproque: Si le gazon est mouillé, alors il a plu.</div></li>
+<li id="exo-logprop-2-10-6-2-1-3"><div class="para" id="exo-logprop-2-10-6-2-1-3-1">Contraposée: Si le gazon n’est pas mouillé, alors il n’a pas plu.</div></li>
+</ul></div></details></div></article></article>
+</div>
+</div>
+<div class="exercisegroup" id="exo-logprop-3">
+<h4 class="heading"><span class="title">Exercices supplémentaires.</span></h4>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="exo-logprop-3-2"><h5 class="heading"><span class="codenumber">9<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-logprop-3-2-1">
+<div class="para logical" id="exo-logprop-3-2-1-1">
+<div class="para">Il est possible de réécrire la définition d’un ensemble à partir de propositions et de connecteurs logiques. Par exemple, l’union de deux ensembles peut s’écrire</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\cup B=\{c~|~ c\in A \vee c\in B\}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="exo-logprop-3-2-1-2">Écrire les ensembles suivants en utilisant les symboles logiques.</div>
+</div>
+<article class="task exercise-like" id="exo-logprop-3-2-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-logprop-3-2-2-1-1"><span class="process-math">\(A\cap B\)</span></div></article><article class="task exercise-like" id="exo-logprop-3-2-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-logprop-3-2-3-1-1"><span class="process-math">\(A\times B\)</span></div></article><article class="task exercise-like" id="exo-logprop-3-2-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-logprop-3-2-4-1-1">
+<span class="process-math">\(A\oplus B\text{,}\)</span> sans utiliser le symbole logique <span class="process-math">\(\oplus\text{.}\)</span>
+</div></article></article><article class="exercise exercise-like" id="exo-logprop-3-3"><h5 class="heading"><span class="codenumber">10<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-logprop-3-3-1"><div class="para" id="exo-logprop-3-3-1-1">Dans cet exercice, on réfléchit à la négation de la conjonction, soit <span class="process-math">\(\neg(p\wedge q)\text{.}\)</span> Plus particulièrement, on veut trouver une autre formulation.</div></div>
+<article class="task exercise-like" id="exo-logprop-3-3-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-logprop-3-3-2-1-1">Quelle est la table de vérité de la négation de la conjonction?</div></article><article class="task exercise-like" id="exo-logprop-3-3-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-logprop-3-3-3-1-1">En regardant les lignes qui ont pour valeur “vrai”, donner une formulation pour <span class="process-math">\(\neg(p\wedge q)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="exo-logprop-3-3-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-logprop-3-3-4-1-1">Donner la négation de “J’ai fait tous les exercices  et j’ai passé le cours” sous la forme trouvée ci-dessus.</div></article></article><article class="exercise exercise-like" id="exo-egenslog"><h5 class="heading"><span class="codenumber">11<span class="period">.</span></span></h5>
+<div class="para" id="exo-egenslog-1-1">Dans la section <a href="sec-opens.html" class="internal" title="Section 1.2: Opérations sur les ensembles">1.2</a>, on a donné deux moyens pour démontrer l’égalité de deux ensembles, soit avec une table d’appartenance ou avec un argument de double inclusion. On démontre ci-dessous la deuxième <a href="sec-opens.html#li-opensDeMorgan" class="xref" data-knowl="./knowl/xref/li-opensDeMorgan.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:9">loi de De Morgan</a> à l’aide d’une troisième méthode, utilisant la logique.</div> <div class="para logical" id="exo-egenslog-1-2">
+<div class="para">On veut montrer que <span class="process-math">\((A\cup B)^c=A^c\cap B^c\text{.}\)</span> Par définition, on a <span class="process-math">\(A\cup B=\{c~|~ c\in A\vee c\in B\}\text{.}\)</span> D’un point de vue de la logique, le complément représente la négation. On a alors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-negdisj.html" id="exo-egenslog-1-2-3">
+\begin{align*}
+(A\cup B)^c&amp;=\{c~|~\neg ( c\in A\vee c\in B)\}\\
+&amp;=\{c~|~\neg (c\in A)\wedge \neg( c\in B)\} &amp; &amp; \text{Selon } \knowl{./knowl/xref/exo-negdisj.html}{\text{2.1.5.6}}\\
+&amp;=\{c~|~c\notin A\wedge c\notin B)\}&amp; &amp; \text{négation de la relation d'appartenance}\\
+&amp;=A^c\cap B^c &amp;&amp; \text{définition de l'intersection}
+\end{align*}
+</div>
+</div> <div class="para" id="exo-egenslog-1-3">Démontrer la première <a href="sec-opens.html#li-opensDeMorgan" class="xref" data-knowl="./knowl/xref/li-opensDeMorgan.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:9">loi de De Morgan</a> avec cette méthode.</div></article>
+</div>
+</div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="chap-logique.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-eqlogfnc.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

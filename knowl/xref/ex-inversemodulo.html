@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">3.3.18</span><span class="period">.</span><span class="space"> </span><span class="title">Un inverse modulo <span class="process-math">\(72\)</span>.</span>
+</h4>
+<div class="para">On cherche un inverse à <span class="process-math">\(5\)</span> modulo <span class="process-math">\(72\text{,}\)</span> c’est-à-dire un nombre <span class="process-math">\(x\)</span> tel que <span class="process-math">\(5x\equiv 1\mod 72\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Pour trouver un inverse, il faut trouver <span class="process-math">\(x\)</span> tel que <span class="process-math">\(72\mid (5x-1)\text{.}\)</span> En d’autres mots, <span class="process-math">\(5x-1=72y\)</span> pour un certain <span class="process-math">\(y\in \mathbb{Z}\text{.}\)</span> En réécrivant, on remarque qu’il faut que <span class="process-math">\(5x-72y=1\)</span> et de plus, <span class="process-math">\(\pgcd{(5,72)}=1\text{.}\)</span> Le <a href="sec-divisibilite.html#exo-Bezout" class="xref" data-knowl="./knowl/xref/exo-Bezout.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 3.2.5.6: Le lemme de Bézout">lemme de Bézout</a> et l’algorithme d’Euclide seront utiles pour trouver l’inverse. D’une part, on a</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-Bezout.html">
+\begin{align*}
+72&amp;=5\times 14+2\\
+5&amp;=2\times 2+1\\
+2&amp;=1\times 2+0\text{,}
+\end{align*}
+</div>
+<div class="para">selon l’algorithme d’Euclide. Puis, en réorganisant ces équations, on trouve</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-Bezout.html">
+\begin{align*}
+1&amp;=5-2\times 2\\
+1&amp;=5-(72-5\times 14)\times 2\\
+1&amp;=5-72\times 2+5\times 28\\
+1&amp;=5(1+28)-72\times2\\
+1&amp;=5\times (29)-72\times 2\text{.}
+\end{align*}
+</div>
+</div> <div class="para">
+<span class="process-math">\(29\)</span> est donc un inverse à <span class="process-math">\(5\)</span> modulo <span class="process-math">\(72\text{.}\)</span>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-modulo.html#ex-inversemodulo">Contexte</a></span>
+</body>
+</html>

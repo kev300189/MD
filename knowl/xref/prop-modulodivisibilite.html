@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="proposition theorem-like"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Congruence modulo <span class="process-math">\(n\)</span> et divisibilité.</span>
+</h4>
+<div class="para">Soit <span class="process-math">\(a,b\)</span> deux entiers et <span class="process-math">\(n&gt; 0\)</span> un autre entier. Alors <span class="process-math">\(a\equiv b\mod n\)</span> si et seulement si <span class="process-math">\(n\mid (a-b)\text{.}\)</span>
+</div></article><details class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para">Puisqu’on a affaire à une double implication, on procède en deux étapes.</div> <div class="para logical">
+<div class="para">Dans un premier temps, on suppose que <span class="process-math">\(a\equiv b\mod n\)</span> au sens de la définition <a href="sec-modulo.html#def-modulo" class="xref" data-knowl="./knowl/xref/def-modulo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 3.3.1: Congruence modulo n">3.3.1</a>. On tente maintenant de montrer que <span class="process-math">\(n\)</span> divise <span class="process-math">\(a-b\text{.}\)</span> D’une part, on sait qu’il existe <span class="process-math">\(q_1,r_1\in \mathbb{Z}\)</span> tels que <span class="process-math">\(a=nq_1+r_1\text{.}\)</span> De plus,  on sait qu’il existe <span class="process-math">\(q_2,r_2\in \mathbb{Z}\)</span> tels que <span class="process-math">\(b=nq_2+r_2\text{.}\)</span> Puisque <span class="process-math">\(a\equiv b\mod n\text{,}\)</span> on doit avoir <span class="process-math">\(r_1=r_2\text{.}\)</span> On peut alors écrire</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/def-modulo.html">
+\begin{align*}
+a-b&amp;=nq_1+r_1-(nq_2+r_2)\\
+&amp;=nq_1+r_1-nq_2-r_2\\
+&amp;=nq_1-nq_2+r_1-r_2\\
+&amp;=n(q_1-q_2)+0\text{.}
+\end{align*}
+</div>
+<div class="para">Ainsi, puisque <span class="process-math">\(a-b=n(q_1-q_2)\text{,}\)</span> on conclut que <span class="process-math">\(n\mid(a-b)\text{.}\)</span>
+</div>
+</div> <div class="para">On suppose maintenant que <span class="process-math">\(n\mid (a-b)\)</span> et on veut montrer que cette hypothèse entraine que <span class="process-math">\(a\equiv b\mod n\text{.}\)</span> Si <span class="process-math">\(n\)</span> divise <span class="process-math">\(a-b\text{,}\)</span> alors on peut écrire <span class="process-math">\(a-b=kn\)</span> pour un certain <span class="process-math">\(k\in \mathbb{Z}\text{.}\)</span> Si on écrit la division de chaque côté sous la forme quotient reste, il suit du fait que <span class="process-math">\(\frac{a-b}{n}=\frac{a}{n}-\frac{b}{n}\)</span> que la forme quotient reste du côté gauche doit s’écrire <span class="process-math">\(nq_1+r_1-(nq_2+r_2)\text{.}\)</span> De l’autre côté, <span class="process-math">\(\frac{kn}{n}=k\)</span> et le reste est nul. On doit donc avoir <span class="process-math">\(nq_1+r_1-(nq_2+r_2)=kn+0\)</span> et en développant, on est forcé d’avoir <span class="process-math">\(r_1-r_2=0\text{.}\)</span> Les nombres <span class="process-math">\(a,b\)</span> ont donc le même reste lors de la division par <span class="process-math">\(n\)</span> et ainsi, <span class="process-math">\(a\equiv b\mod n\text{.}\)</span>
+</div></article></details><span class="incontext"><a class="internal" href="sec-modulo.html#prop-modulodivisibilite">Contexte</a></span>
+</body>
+</html>

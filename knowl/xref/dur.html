@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">11<span class="period">.</span></span>
+</h5>
+<div class="para">Combien de chaînes binaires de longueur <span class="process-math">\(10\)</span> contiennent cinq <span class="process-math">\(1\)</span> consécutifs ou cinq <span class="process-math">\(0\)</span> consécutifs?</div>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para">Utiliser le principe de la somme en séparant selon l’endroit où commence la séquence de longueur cinq. Il y aura plusieurs cas à considérer.</div> <div class="para">Il faudra aussi utiliser le principe d’inclusion-exclusion.</div>
+</div></details><details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para">Attention! La chaîne binaire peut contenir plus de cinq <span class="process-math">\(1\)</span> ( ou <span class="process-math">\(0\)</span>) consécutifs. C’est à dire qu’il faut compter la chaîne <span class="process-math">\(1111110000\)</span>
+</div></div></details><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(222\)</span></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On commence par compter celles qui ont une séquence de cinq <span class="process-math">\(1\)</span> consécutifs. De plus, on conditionne sur la position du premier <span class="process-math">\(1\)</span> de la première séquence de <span class="process-math">\(1\)</span> consécutifs.</div> <div class="para">Si la séquence commence à la première position, les chaînes seront de la forme <span class="process-math">\(11111\ast\ast\ast\ast\ast\text{,}\)</span> où les <span class="process-math">\(\ast\)</span> sont quelconques (<span class="process-math">\(0\text{ ou }1\)</span>). Il y a donc <span class="process-math">\(2^5\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para">Si la séquence commence à la deuxième position, les chaînes seront de la forme <span class="process-math">\(011111\ast\ast\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para">Si la séquence commence à la troisième position, les chaînes seront de la forme <span class="process-math">\(\ast011111\ast\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para">Si la séquence commence à la quatrième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast011111\ast\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para">Si la séquence commence à la cinquième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast\ast011111\ast\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para">Si la séquence commence à la sixième position, les chaînes seront de la forme <span class="process-math">\(\ast\ast\ast\ast011111\text{.}\)</span> Il y a donc <span class="process-math">\(2^4\)</span> chaînes dont la séquence de <span class="process-math">\(1\)</span> commence à cette position.</div> <div class="para">Ainsi, il y a <span class="process-math">\(2^5+2^4+2^4+2^4+2^4+2^4=112\)</span> chaînes ayant une séquence de cinq <span class="process-math">\(1\)</span> consécutifs. Par symétrie du problème, on sait qu’il y aura autant de chaînes ayant une chaîne de cinq <span class="process-math">\(0\)</span> consécutifs.</div> <div class="para">Finalement, on doit remarquer qu’il y a deux chaînes qui possèdent une séquences de cinq <span class="process-math">\(1\)</span> consécutifs et une séquence de cinq <span class="process-math">\(0\)</span> consécutifs. Il s’agit de <span class="process-math">\(1111100000\)</span> et <span class="process-math">\(0000011111\)</span>
+</div> <div class="para">Par le principe d’inclusion-exclusion, on a <span class="process-math">\(112+112-2=222\)</span>
+</div>
+</div></details>
+</div></article><span class="incontext"><a class="internal" href="sec_prodSomme.html#dur">Contexte</a></span>
+</body>
+</html>

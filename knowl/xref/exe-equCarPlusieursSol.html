@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">6.1.17</span><span class="period">.</span><span class="space"> </span><span class="title">L’équation caractéristique: Un premier cas.</span>
+</h4>
+<div class="para">On considère la relation de récurrence <span class="process-math">\(a_n=a_{n-1}+2a_{n-2}.\)</span> Trouvons (si elles existent) les deux solutions <span class="process-math">\(r_1\)</span> et <span class="process-math">\(r_2\)</span> à son équation caractéristique. Vérifions également que la suite <span class="process-math">\(a_n=3r_1^n+4r_2^n\)</span> satisfait la relation de récurrence.</div> <details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">L’équation caractéristique est obtenue en remplaçant <span class="process-math">\(a_n\)</span> par <span class="process-math">\(r^n\text{.}\)</span> On a alors <span class="process-math">\(0=r^2-r-2=(r-2)(r+1)\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Ainsi, les deux solutions à cette équation sont <span class="process-math">\(r_1=2\)</span> et <span class="process-math">\(r_2=-1.\)</span> En particulier, on a que</div>
+<div class="displaymath process-math">
+\begin{align*}
+r_1^{n}\amp=r_1^{n-1} +2r_1^{n-2}\\
+r_2^{n}\amp=r_2^{n-1} +2r_2^{n-2}
+\end{align*}
+</div>
+</div> <div class="para">Pour vérifier que <span class="process-math">\(a_n=3r_1^n+4r_2^n\)</span> satisfait la relation de récurrence, on doit vérivier que <span class="process-math">\(a_n=a_{n-1}+2a_{n-2}\text{.}\)</span>
+</div> <div class="para">D’une côté, on a que <span class="process-math">\(a_n=3r_1^n+4r_2^n\)</span> (c’est ce qu’on a supposé)</div> <div class="para logical">
+<div class="para">De l’autre côté, on a que</div>
+<div class="displaymath process-math">
+\begin{align*}
+a_{n-1}+2a_{n-2}\amp= (3r_1^{n-1}+4r_2^{n-1})+2(3r_1^{n-2}+4r_2^{n-2})\\
+\amp= (3r_1^{n-1}+3\cdot 2r_1^{n-2})+(4r_2^{n-2}+4\cdot 2r_2^{n-2})\\
+\amp= 3(r_1^{n-1}+ 2r_1^{n-2})+4(r_2^{n-2}+ 2r_2^{n-2})\\
+\amp= 3r_1^n+4r_2^{n}=a_n
+\end{align*}
+</div>
+<div class="para">Ainsi, on a bien que <span class="process-math">\(a_n=3r_1^n+4r_2^n\)</span> satisfait à la relation de récurrence.</div>
+</div>
+</div></details></article><span class="incontext"><a class="internal" href="sec-relRecLinHom.html#exe-equCarPlusieursSol">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.10</span><span class="period">.</span><span class="space"> </span><span class="title">Les permutations.</span>
+</h4>Combien de "mots" différents peut-on écrire en utilisant les lettres du "mot" <span class="process-math">\(ABCDE\text{.}\)</span> Ici, "mot" veut simplement dire une suite de lettres, même si le "mot" n’est pas un vrai mot en français (ou n’importe quelle autre langue). On dit aussi qu’il s’agit des permutations des lettres de <span class="process-math">\(ABCDE\text{.}\)</span><div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On utilise le principe du produit. On choisit la première lettre du mot, ensuite la deuxième, et ainsi de suite jusqu’à la dernière lettre.</div> <div class="para">Pour la première lettre, on a <span class="process-math">\(5\)</span> choix possibles. Pour la deuxième lettre, il reste <span class="process-math">\(4\)</span> choix possibles. Pour la troisième lettre, il reste <span class="process-math">\(3\)</span> choix possibles. Pour la quatrième lettre, il reste <span class="process-math">\(2\)</span> choix possibles. Finalement, il ne reste que <span class="process-math">\(1\)</span> choix pour la dernière lettre.</div> <div class="para">Ainsi, il y a <span class="process-math">\(5\times 4\times 3\times 2\times 1 =120\)</span> mots différents qu’on peut obtenir à partir des lettres de <span class="process-math">\(ABCDE\text{.}\)</span>
+</div>
+</div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Une solution alternative est de remarquer qu’un mot utilisant les lettres de <span class="process-math">\(ABCDE\)</span> est équivalent à une fonction injective <span class="process-math">\(f: \{1,2,3,4,5\}\to \{A,B,C,D,E\}\text{,}\)</span> où <span class="process-math">\(f(i)\)</span> est la lettre à la position <span class="process-math">\(i\)</span> du mot. Par exemple, les mots <span class="process-math">\(ABCDE\)</span> et <span class="process-math">\(EDCBA\)</span> sont équivalents aux fonctions <span class="process-math">\(f_1\)</span> et <span class="process-math">\(f_2\)</span> définies par</div>
+<div class="displaymath process-math">
+\begin{align*}
+f_1(1)\amp=A \amp f_2(1)\amp=E \\
+f_1(2)\amp=B \amp f_2(2)\amp=D \\
+f_1(3)\amp=C \amp f_2(3)\amp=C \\
+f_1(4)\amp=D \amp f_2(4)\amp=B \\
+f_1(5)\amp=E \amp f_2(5)\amp=A 
+\end{align*}
+</div>
+</div> <div class="para">Ainsi, le nombre de mots différents formés à partir des lettres de <span class="process-math">\(ABCDE\)</span> est aussi le nombre de fonctions injectives de <span class="process-math">\(\{1,2,3,4,5\}\)</span> vers <span class="process-math">\(\{A,B,C,D,E\}\text{.}\)</span> Par l’exemple <a href="sec_prodSomme.html#ex_comptFctInj" class="xref" data-knowl="./knowl/xref/ex_comptFctInj.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 4.1.7.b">4.1.7.b</a>, on sait qu’il y en a <span class="process-math">\(5\times 4\times 3\times 2\times 1 =120\text{.}\)</span>
+</div>
+</div></details>
+</div></article><span class="incontext"><a class="internal" href="sec_prodSomme.html#ex-permIntro">Contexte</a></span>
+</body>
+</html>

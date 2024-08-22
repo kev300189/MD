@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="fr-CA" dir="ltr">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>MaDIR Opérations sur les ensembles</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Mathématiques discrètes">
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script>
+var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  "tex": {
+    "inlineMath": [
+      [
+        "\\(",
+        "\\)"
+      ]
+    ],
+    "tags": "none",
+    "tagSide": "right",
+    "tagIndent": ".8em",
+    "packages": {
+      "[+]": [
+        "base",
+        "extpfeil",
+        "ams",
+        "amscd",
+        "color",
+        "newcommand",
+        "knowl"
+      ]
+    }
+  },
+  "options": {
+    "ignoreHtmlClass": "tex2jax_ignore|ignore-math",
+    "processHtmlClass": "process-math",
+    "renderActions": {
+      "findScript": [
+        10,
+        function (doc) {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(function(node) {
+                var display = !!node.type.match(/; *mode=display/);
+                var math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                var text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = {node: text, delim: '', n: 0};
+                math.end = {node: text, delim: '', n: 0};
+                doc.math.push(math);
+            });
+        },
+        ""
+      ]
+    }
+  },
+  "chtml": {
+    "scale": 0.98,
+    "mtextInheritFont": true
+  },
+  "loader": {
+    "load": [
+      "input/asciimath",
+      "[tex]/extpfeil",
+      "[tex]/amscd",
+      "[tex]/color",
+      "[tex]/newcommand",
+      "[pretext]/mathjaxknowl3.js"
+    ],
+    "paths": {
+      "pretext": "_static/pretext/js/lib"
+    }
+  },
+  "startup": {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  }
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
+<script src="_static/pretext/js/lib/jquery.min.js"></script><script src="_static/pretext/js/lib/jquery.sticky.js"></script><script src="_static/pretext/js/lib/jquery.espy.min.js"></script><script src="_static/pretext/js/pretext.js"></script><script src="_static/pretext/js/pretext_add_on.js?x=1"></script><script src="_static/pretext/js/user_preferences.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Évaluer (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+<link href="_static/pretext/css/pretext.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/shell_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/banner_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
+<style>
+#ex-ensext-2-1-1 { counter-set: ex-ensext-2-1-1 0; }
+#ex-ensext-2-1-1 > li::marker { content: ""counter(ex-ensext-2-1-1,decimal)"."; }
+#ex-ensext-2-1-1 > li { counter-increment: ex-ensext-2-1-1; }
+#ex-ensext-3-1-1 { counter-set: ex-ensext-3-1-1 0; }
+#ex-ensext-3-1-1 > li::marker { content: ""counter(ex-ensext-3-1-1,decimal)"."; }
+#ex-ensext-3-1-1 > li { counter-increment: ex-ensext-3-1-1; }
+#sec-ens-3-8-2-1-1 { counter-set: sec-ens-3-8-2-1-1 0; }
+#sec-ens-3-8-2-1-1 > li::marker { content: ""counter(sec-ens-3-8-2-1-1,decimal)"."; }
+#sec-ens-3-8-2-1-1 > li { counter-increment: sec-ens-3-8-2-1-1; }
+#sec-ens-3-8-3-1-1 { counter-set: sec-ens-3-8-3-1-1 0; }
+#sec-ens-3-8-3-1-1 > li::marker { content: ""counter(sec-ens-3-8-3-1-1,decimal)"."; }
+#sec-ens-3-8-3-1-1 > li { counter-increment: sec-ens-3-8-3-1-1; }
+#sssec-opens-19-3-1-2 { counter-set: sssec-opens-19-3-1-2 0; }
+#sssec-opens-19-3-1-2 > li::marker { content: ""counter(sssec-opens-19-3-1-2,decimal)"."; }
+#sssec-opens-19-3-1-2 > li { counter-increment: sssec-opens-19-3-1-2; }
+#li-opensprop-2 { counter-set: li-opensprop-2 0; }
+#li-opensprop-2 > li::marker { content: ""counter(li-opensprop-2,decimal)"."; }
+#li-opensprop-2 > li { counter-increment: li-opensprop-2; }
+#prop-opensass-3-1-2 { counter-set: prop-opensass-3-1-2 0; }
+#prop-opensass-3-1-2 > li::marker { content: ""counter(prop-opensass-3-1-2,decimal)"."; }
+#prop-opensass-3-1-2 > li { counter-increment: prop-opensass-3-1-2; }
+#sec-fonctions-3-8-2-1-1 { counter-set: sec-fonctions-3-8-2-1-1 0; }
+#sec-fonctions-3-8-2-1-1 > li::marker { content: ""counter(sec-fonctions-3-8-2-1-1,decimal)"."; }
+#sec-fonctions-3-8-2-1-1 > li { counter-increment: sec-fonctions-3-8-2-1-1; }
+#sec-fonctions-3-8-3-1-1 { counter-set: sec-fonctions-3-8-3-1-1 0; }
+#sec-fonctions-3-8-3-1-1 > li::marker { content: ""counter(sec-fonctions-3-8-3-1-1,decimal)"."; }
+#sec-fonctions-3-8-3-1-1 > li { counter-increment: sec-fonctions-3-8-3-1-1; }
+#ex-composagi-2-1-4 { counter-set: ex-composagi-2-1-4 0; }
+#ex-composagi-2-1-4 > li::marker { content: ""counter(ex-composagi-2-1-4,decimal)"."; }
+#ex-composagi-2-1-4 > li { counter-increment: ex-composagi-2-1-4; }
+#ex-composagi-3-1-1 { counter-set: ex-composagi-3-1-1 0; }
+#ex-composagi-3-1-1 > li::marker { content: ""counter(ex-composagi-3-1-1,decimal)"."; }
+#ex-composagi-3-1-1 > li { counter-increment: ex-composagi-3-1-1; }
+#ex-inj-2-1-1 { counter-set: ex-inj-2-1-1 0; }
+#ex-inj-2-1-1 > li::marker { content: ""counter(ex-inj-2-1-1,decimal)"."; }
+#ex-inj-2-1-1 > li { counter-increment: ex-inj-2-1-1; }
+#ex-inj-3-1-1 { counter-set: ex-inj-3-1-1 0; }
+#ex-inj-3-1-1 > li::marker { content: ""counter(ex-inj-3-1-1,decimal)"."; }
+#ex-inj-3-1-1 > li { counter-increment: ex-inj-3-1-1; }
+#ex-surj-2-1-1 { counter-set: ex-surj-2-1-1 0; }
+#ex-surj-2-1-1 > li::marker { content: ""counter(ex-surj-2-1-1,decimal)"."; }
+#ex-surj-2-1-1 > li { counter-increment: ex-surj-2-1-1; }
+#ex-surj-3-1-1 { counter-set: ex-surj-3-1-1 0; }
+#ex-surj-3-1-1 > li::marker { content: ""counter(ex-surj-3-1-1,decimal)"."; }
+#ex-surj-3-1-1 > li { counter-increment: ex-surj-3-1-1; }
+#concl-fonctions-2-1 { counter-set: concl-fonctions-2-1 0; }
+#concl-fonctions-2-1 > li::marker { content: ""counter(concl-fonctions-2-1,decimal)"."; }
+#concl-fonctions-2-1 > li { counter-increment: concl-fonctions-2-1; }
+#sec-fonctions-8-6-1-1-2 { counter-set: sec-fonctions-8-6-1-1-2 0; }
+#sec-fonctions-8-6-1-1-2 > li::marker { content: "("counter(sec-fonctions-8-6-1-1-2,lower-alpha)")"; }
+#sec-fonctions-8-6-1-1-2 > li { counter-increment: sec-fonctions-8-6-1-1-2; }
+#sec-fonctions-8-7-1-1-2 { counter-set: sec-fonctions-8-7-1-1-2 0; }
+#sec-fonctions-8-7-1-1-2 > li::marker { content: "("counter(sec-fonctions-8-7-1-1-2,lower-alpha)")"; }
+#sec-fonctions-8-7-1-1-2 > li { counter-increment: sec-fonctions-8-7-1-1-2; }
+#exo--2-7-1-1-3 { counter-set: exo--2-7-1-1-3 0; }
+#exo--2-7-1-1-3 > li::marker { content: "("counter(exo--2-7-1-1-3,lower-alpha)")"; }
+#exo--2-7-1-1-3 > li { counter-increment: exo--2-7-1-1-3; }
+#exo--2-8-1-1-1 { counter-set: exo--2-8-1-1-1 0; }
+#exo--2-8-1-1-1 > li::marker { content: ""counter(exo--2-8-1-1-1,lower-roman)""; }
+#exo--2-8-1-1-1 > li { counter-increment: exo--2-8-1-1-1; }
+#exo--2-8-2-2-1 { counter-set: exo--2-8-2-2-1 0; }
+#exo--2-8-2-2-1 > li::marker { content: ""counter(exo--2-8-2-2-1,lower-roman)""; }
+#exo--2-8-2-2-1 > li { counter-increment: exo--2-8-2-2-1; }
+#exo--2-8-3-2-1 { counter-set: exo--2-8-3-2-1 0; }
+#exo--2-8-3-2-1 > li::marker { content: ""counter(exo--2-8-3-2-1,lower-roman)""; }
+#exo--2-8-3-2-1 > li { counter-increment: exo--2-8-3-2-1; }
+#exo--2-8-4-2-1 { counter-set: exo--2-8-4-2-1 0; }
+#exo--2-8-4-2-1 > li::marker { content: ""counter(exo--2-8-4-2-1,lower-roman)""; }
+#exo--2-8-4-2-1 > li { counter-increment: exo--2-8-4-2-1; }
+#exo--2-8-5-2-1 { counter-set: exo--2-8-5-2-1 0; }
+#exo--2-8-5-2-1 > li::marker { content: ""counter(exo--2-8-5-2-1,lower-roman)""; }
+#exo--2-8-5-2-1 > li { counter-increment: exo--2-8-5-2-1; }
+#sec-logprop-5-7-1 { counter-set: sec-logprop-5-7-1 0; }
+#sec-logprop-5-7-1 > li::marker { content: ""counter(sec-logprop-5-7-1,decimal)"."; }
+#sec-logprop-5-7-1 > li { counter-increment: sec-logprop-5-7-1; }
+#li-oplogprop-2 { counter-set: li-oplogprop-2 0; }
+#li-oplogprop-2 > li::marker { content: ""counter(li-oplogprop-2,decimal)"."; }
+#li-oplogprop-2 > li { counter-increment: li-oplogprop-2; }
+#sec-eqlogfnc-3-13-2-1-2 { counter-set: sec-eqlogfnc-3-13-2-1-2 0; }
+#sec-eqlogfnc-3-13-2-1-2 > li::marker { content: ""counter(sec-eqlogfnc-3-13-2-1-2,decimal)"."; }
+#sec-eqlogfnc-3-13-2-1-2 > li { counter-increment: sec-eqlogfnc-3-13-2-1-2; }
+#sec-eqlogfnc-3-13-3-1-1 { counter-set: sec-eqlogfnc-3-13-3-1-1 0; }
+#sec-eqlogfnc-3-13-3-1-1 > li::marker { content: ""counter(sec-eqlogfnc-3-13-3-1-1,decimal)"."; }
+#sec-eqlogfnc-3-13-3-1-1 > li { counter-increment: sec-eqlogfnc-3-13-3-1-1; }
+#sssec-predicats-3-2-1-1 { counter-set: sssec-predicats-3-2-1-1 0; }
+#sssec-predicats-3-2-1-1 > li::marker { content: ""counter(sssec-predicats-3-2-1-1,decimal)"."; }
+#sssec-predicats-3-2-1-1 > li { counter-increment: sssec-predicats-3-2-1-1; }
+#sssec-predicats-3-3-1-1 { counter-set: sssec-predicats-3-3-1-1 0; }
+#sssec-predicats-3-3-1-1 > li::marker { content: ""counter(sssec-predicats-3-3-1-1,decimal)"."; }
+#sssec-predicats-3-3-1-1 > li { counter-increment: sssec-predicats-3-3-1-1; }
+#sssec-predicats-5-2-1-2 { counter-set: sssec-predicats-5-2-1-2 0; }
+#sssec-predicats-5-2-1-2 > li::marker { content: ""counter(sssec-predicats-5-2-1-2,decimal)"."; }
+#sssec-predicats-5-2-1-2 > li { counter-increment: sssec-predicats-5-2-1-2; }
+#sssec-predicats-5-3-1-1 { counter-set: sssec-predicats-5-3-1-1 0; }
+#sssec-predicats-5-3-1-1 > li::marker { content: ""counter(sssec-predicats-5-3-1-1,decimal)"."; }
+#sssec-predicats-5-3-1-1 > li { counter-increment: sssec-predicats-5-3-1-1; }
+#sssec-quantificateurs-6-2-1-1 { counter-set: sssec-quantificateurs-6-2-1-1 0; }
+#sssec-quantificateurs-6-2-1-1 > li::marker { content: ""counter(sssec-quantificateurs-6-2-1-1,decimal)"."; }
+#sssec-quantificateurs-6-2-1-1 > li { counter-increment: sssec-quantificateurs-6-2-1-1; }
+#sssec-quantificateurs-6-3-1-1 { counter-set: sssec-quantificateurs-6-3-1-1 0; }
+#sssec-quantificateurs-6-3-1-1 > li::marker { content: ""counter(sssec-quantificateurs-6-3-1-1,decimal)"."; }
+#sssec-quantificateurs-6-3-1-1 > li { counter-increment: sssec-quantificateurs-6-3-1-1; }
+#sssec-quantificateurs-10-2-1-1 { counter-set: sssec-quantificateurs-10-2-1-1 0; }
+#sssec-quantificateurs-10-2-1-1 > li::marker { content: ""counter(sssec-quantificateurs-10-2-1-1,decimal)"."; }
+#sssec-quantificateurs-10-2-1-1 > li { counter-increment: sssec-quantificateurs-10-2-1-1; }
+#sssec-quantificateurs-10-3-1-1 { counter-set: sssec-quantificateurs-10-3-1-1 0; }
+#sssec-quantificateurs-10-3-1-1 > li::marker { content: ""counter(sssec-quantificateurs-10-3-1-1,decimal)"."; }
+#sssec-quantificateurs-10-3-1-1 > li { counter-increment: sssec-quantificateurs-10-3-1-1; }
+#sec-propquant-5-6-2-1-1 { counter-set: sec-propquant-5-6-2-1-1 0; }
+#sec-propquant-5-6-2-1-1 > li::marker { content: ""counter(sec-propquant-5-6-2-1-1,decimal)"."; }
+#sec-propquant-5-6-2-1-1 > li { counter-increment: sec-propquant-5-6-2-1-1; }
+#sec-propquant-5-6-3-1 { counter-set: sec-propquant-5-6-3-1 0; }
+#sec-propquant-5-6-3-1 > li::marker { content: ""counter(sec-propquant-5-6-3-1,decimal)"."; }
+#sec-propquant-5-6-3-1 > li { counter-increment: sec-propquant-5-6-3-1; }
+#sec-propquant-5-12-2-1-1 { counter-set: sec-propquant-5-12-2-1-1 0; }
+#sec-propquant-5-12-2-1-1 > li::marker { content: ""counter(sec-propquant-5-12-2-1-1,decimal)"."; }
+#sec-propquant-5-12-2-1-1 > li { counter-increment: sec-propquant-5-12-2-1-1; }
+#exo-propquant-2-10-1-1-2 { counter-set: exo-propquant-2-10-1-1-2 0; }
+#exo-propquant-2-10-1-1-2 > li::marker { content: "("counter(exo-propquant-2-10-1-1-2,lower-alpha)")"; }
+#exo-propquant-2-10-1-1-2 > li { counter-increment: exo-propquant-2-10-1-1-2; }
+#exo-propquant-2-10-2-1 { counter-set: exo-propquant-2-10-2-1 0; }
+#exo-propquant-2-10-2-1 > li::marker { content: "("counter(exo-propquant-2-10-2-1,lower-alpha)")"; }
+#exo-propquant-2-10-2-1 > li { counter-increment: exo-propquant-2-10-2-1; }
+#sec-circuits-3-9-1 { counter-set: sec-circuits-3-9-1 0; }
+#sec-circuits-3-9-1 > li::marker { content: ""counter(sec-circuits-3-9-1,decimal)"."; }
+#sec-circuits-3-9-1 > li { counter-increment: sec-circuits-3-9-1; }
+#sec-representation-3-4-2-1-1 { counter-set: sec-representation-3-4-2-1-1 0; }
+#sec-representation-3-4-2-1-1 > li::marker { content: ""counter(sec-representation-3-4-2-1-1,decimal)"."; }
+#sec-representation-3-4-2-1-1 > li { counter-increment: sec-representation-3-4-2-1-1; }
+#sec-representation-3-4-3-1-2 { counter-set: sec-representation-3-4-3-1-2 0; }
+#sec-representation-3-4-3-1-2 > li::marker { content: ""counter(sec-representation-3-4-3-1-2,decimal)"."; }
+#sec-representation-3-4-3-1-2 > li { counter-increment: sec-representation-3-4-3-1-2; }
+#sec-representation-4-5-2-1-1 { counter-set: sec-representation-4-5-2-1-1 0; }
+#sec-representation-4-5-2-1-1 > li::marker { content: ""counter(sec-representation-4-5-2-1-1,decimal)"."; }
+#sec-representation-4-5-2-1-1 > li { counter-increment: sec-representation-4-5-2-1-1; }
+#sec-representation-4-5-3-1-1 { counter-set: sec-representation-4-5-3-1-1 0; }
+#sec-representation-4-5-3-1-1 > li::marker { content: ""counter(sec-representation-4-5-3-1-1,decimal)"."; }
+#sec-representation-4-5-3-1-1 > li { counter-increment: sec-representation-4-5-3-1-1; }
+#ex-decimalebinaire-2-1-1 { counter-set: ex-decimalebinaire-2-1-1 0; }
+#ex-decimalebinaire-2-1-1 > li::marker { content: ""counter(ex-decimalebinaire-2-1-1,decimal)"."; }
+#ex-decimalebinaire-2-1-1 > li { counter-increment: ex-decimalebinaire-2-1-1; }
+#algo-binhex-2-1-1 { counter-set: algo-binhex-2-1-1 0; }
+#algo-binhex-2-1-1 > li::marker { content: ""counter(algo-binhex-2-1-1,decimal)"."; }
+#algo-binhex-2-1-1 > li { counter-increment: algo-binhex-2-1-1; }
+#algo-binhex-2-2-1 { counter-set: algo-binhex-2-2-1 0; }
+#algo-binhex-2-2-1 > li::marker { content: ""counter(algo-binhex-2-2-1,decimal)"."; }
+#algo-binhex-2-2-1 > li { counter-increment: algo-binhex-2-2-1; }
+#exo-puissmoinsnombre-18-2-1 { counter-set: exo-puissmoinsnombre-18-2-1 0; }
+#exo-puissmoinsnombre-18-2-1 > li::marker { content: "("counter(exo-puissmoinsnombre-18-2-1,lower-alpha)")"; }
+#exo-puissmoinsnombre-18-2-1 > li { counter-increment: exo-puissmoinsnombre-18-2-1; }
+#exo-representation-3-2-3-1-1-8 { counter-set: exo-representation-3-2-3-1-1-8 0; }
+#exo-representation-3-2-3-1-1-8 > li::marker { content: "("counter(exo-representation-3-2-3-1-1-8,lower-alpha)")"; }
+#exo-representation-3-2-3-1-1-8 > li { counter-increment: exo-representation-3-2-3-1-1-8; }
+#sec-divisibilite-3-5-2-1-1 { counter-set: sec-divisibilite-3-5-2-1-1 0; }
+#sec-divisibilite-3-5-2-1-1 > li::marker { content: ""counter(sec-divisibilite-3-5-2-1-1,decimal)"."; }
+#sec-divisibilite-3-5-2-1-1 > li { counter-increment: sec-divisibilite-3-5-2-1-1; }
+#sec-divisibilite-3-5-3-1-1 { counter-set: sec-divisibilite-3-5-3-1-1 0; }
+#sec-divisibilite-3-5-3-1-1 > li::marker { content: ""counter(sec-divisibilite-3-5-3-1-1,decimal)"."; }
+#sec-divisibilite-3-5-3-1-1 > li { counter-increment: sec-divisibilite-3-5-3-1-1; }
+#def-pgcd-2-1-7 { counter-set: def-pgcd-2-1-7 0; }
+#def-pgcd-2-1-7 > li::marker { content: ""counter(def-pgcd-2-1-7,decimal)"."; }
+#def-pgcd-2-1-7 > li { counter-increment: def-pgcd-2-1-7; }
+#sec-divisibilite-5-6-2-1-1 { counter-set: sec-divisibilite-5-6-2-1-1 0; }
+#sec-divisibilite-5-6-2-1-1 > li::marker { content: ""counter(sec-divisibilite-5-6-2-1-1,decimal)"."; }
+#sec-divisibilite-5-6-2-1-1 > li { counter-increment: sec-divisibilite-5-6-2-1-1; }
+#exo-divisibilite-3-2-2-1-5 { counter-set: exo-divisibilite-3-2-2-1-5 0; }
+#exo-divisibilite-3-2-2-1-5 > li::marker { content: "("counter(exo-divisibilite-3-2-2-1-5,lower-alpha)")"; }
+#exo-divisibilite-3-2-2-1-5 > li { counter-increment: exo-divisibilite-3-2-2-1-5; }
+#ex-modulotemps-2-1-2 { counter-set: ex-modulotemps-2-1-2 0; }
+#ex-modulotemps-2-1-2 > li::marker { content: ""counter(ex-modulotemps-2-1-2,decimal)"."; }
+#ex-modulotemps-2-1-2 > li { counter-increment: ex-modulotemps-2-1-2; }
+#prop-moduloprop-2-1-5 { counter-set: prop-moduloprop-2-1-5 0; }
+#prop-moduloprop-2-1-5 > li::marker { content: ""counter(prop-moduloprop-2-1-5,decimal)"."; }
+#prop-moduloprop-2-1-5 > li { counter-increment: prop-moduloprop-2-1-5; }
+#sec-modulo-4-12-2-1-2 { counter-set: sec-modulo-4-12-2-1-2 0; }
+#sec-modulo-4-12-2-1-2 > li::marker { content: ""counter(sec-modulo-4-12-2-1-2,decimal)"."; }
+#sec-modulo-4-12-2-1-2 > li { counter-increment: sec-modulo-4-12-2-1-2; }
+#sec-modulo-5-4-2-1-1 { counter-set: sec-modulo-5-4-2-1-1 0; }
+#sec-modulo-5-4-2-1-1 > li::marker { content: ""counter(sec-modulo-5-4-2-1-1,decimal)"."; }
+#sec-modulo-5-4-2-1-1 > li { counter-increment: sec-modulo-5-4-2-1-1; }
+#concl-modulo-1-1 { counter-set: concl-modulo-1-1 0; }
+#concl-modulo-1-1 > li::marker { content: ""counter(concl-modulo-1-1,decimal)"."; }
+#concl-modulo-1-1 > li { counter-increment: concl-modulo-1-1; }
+#exo-modulo-2-5-2-1 { counter-set: exo-modulo-2-5-2-1 0; }
+#exo-modulo-2-5-2-1 > li::marker { content: "("counter(exo-modulo-2-5-2-1,lower-alpha)")"; }
+#exo-modulo-2-5-2-1 > li { counter-increment: exo-modulo-2-5-2-1; }
+#prop-regleProd-2 { counter-set: prop-regleProd-2 0; }
+#prop-regleProd-2 > li::marker { content: ""counter(prop-regleProd-2,decimal)"."; }
+#prop-regleProd-2 > li { counter-increment: prop-regleProd-2; }
+#prop-regleSomme-2 { counter-set: prop-regleSomme-2 0; }
+#prop-regleSomme-2 > li::marker { content: ""counter(prop-regleSomme-2,decimal)"."; }
+#prop-regleSomme-2 > li { counter-increment: prop-regleSomme-2; }
+#prop-incExclu-2-1 { counter-set: prop-incExclu-2-1 0; }
+#prop-incExclu-2-1 > li::marker { content: ""counter(prop-incExclu-2-1,decimal)"."; }
+#prop-incExclu-2-1 > li { counter-increment: prop-incExclu-2-1; }
+#prop-div-2-1 { counter-set: prop-div-2-1 0; }
+#prop-div-2-1 > li::marker { content: ""counter(prop-div-2-1,decimal)"."; }
+#prop-div-2-1 > li { counter-increment: prop-div-2-1; }
+#def_perm-1 { counter-set: def_perm-1 0; }
+#def_perm-1 > li::marker { content: ""counter(def_perm-1,decimal)"."; }
+#def_perm-1 > li { counter-increment: def_perm-1; }
+#def_combBin-1 { counter-set: def_combBin-1 0; }
+#def_combBin-1 > li::marker { content: ""counter(def_combBin-1,decimal)"."; }
+#def_combBin-1 > li { counter-increment: def_combBin-1; }
+</style>
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Sauter au contenu</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" class="logo-link" target="_blank" href=""></a><div class="title-container">
+<h1 class="heading"><a href="madir.html"><span class="title">Mathématiques discrètes:</span> <span class="subtitle">Version préliminaire</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><button class="toc-toggle button" title="Table des matières"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Table des matières</span></button><div class="searchbox">
+<div class="searchwidget"><button id="searchbutton" class="searchbutton button" type="button" title="Search book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<div id="searchresultsplaceholder" class="searchresultsplaceholder" style="display: none">
+<div class="search-results-controls">
+<input aria-label="Search term" id="ptxsearch" class="ptxsearch" type="text" name="terms" placeholder="Search term"><button title="Close search" id="closesearchresults" class="closesearchresults"><span class="material-symbols-outlined">close</span></button>
+</div>
+<h2 class="search-results-heading">Résultats de la recherche: </h2>
+<div id="searchempty" class="searchempty"><span>Aucun résultat.</span></div>
+<ol id="searchresults" class="searchresults"></ol>
+</div>
+</div>
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-ens.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-ensfct.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="sec-fonctions.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+\newcommand{\Z}{\mathbb{Z}}                
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
+
+\newcommand{\Permutation}[2]{P_{#2}^{#1}}
+\newcommand{\Binomial}[2]{C_{#2}^{#1}}
+
+\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
+\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
+\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
+\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vecl}[1]{\overrightarrow{#1}}
+\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
+\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
+\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
+\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
+\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
+\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}
+\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}
+\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}
+\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
+\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\cis}{cis}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\vspan}{span}
+\DeclareMathOperator{\Det}{det}
+\DeclareMathOperator{\pgcd}{pgcd}
+\DeclareMathOperator{\ppcm}{ppcm}
+\renewcommand{\Re}{\operatorname{Re}}
+\newcommand{\CQFD}{\begin{flushright}   
+$\blacksquare$
+\end{flushright}}
+\newcommand{\cqfd}{\begin{flushright}
+$\Box$
+\end{flushright}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth2"><ul class="structural contains-active toc-item-list">
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="chap-ensfct.html" class="internal"><span class="codenumber">1</span> <span class="title">Ensembles et fonctions</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-ens.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Les ensembles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-3" class="internal"><span class="codenumber">1.1.1</span> <span class="title">Définitions et exemples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-4" class="internal"><span class="codenumber">1.1.2</span> <span class="title">Relation entre deux ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-5" class="internal"><span class="codenumber">1.1.3</span> <span class="title">Représentation graphique d’ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-ens.html#sec-ens-6" class="internal"><span class="codenumber">1.1.4</span> <span class="title">Ensembles particuliers</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-ens.html#exo-ens" class="internal"><span class="codenumber">1.1.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-opens.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Opérations sur les ensembles</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-opens.html#sssec-opens" class="internal"><span class="codenumber">1.2.1</span> <span class="title">Opérations élémentaires sur les ensembles</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-opens.html#sssec-propoper" class="internal"><span class="codenumber">1.2.2</span> <span class="title">Propriétés des opérations élémentaires</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-opens.html#rq-opens" class="internal"><span class="codenumber">1.2.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-opens.html#exo-opens" class="internal"><span class="codenumber">1.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-fonctions.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Les fonctions</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-3" class="internal"><span class="codenumber">1.3.1</span> <span class="title">Définitions et exemples</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-4" class="internal"><span class="codenumber">1.3.2</span> <span class="title">Représentation d’une fonction</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-5" class="internal"><span class="codenumber">1.3.3</span> <span class="title">La composition de fonctions</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-fonctions.html#sssec-injsurj" class="internal"><span class="codenumber">1.3.4</span> <span class="title">Fonctions injectives et surjectives</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-fonctions.html#sec-fonctions-8" class="internal"><span class="codenumber">1.3.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-fonctions.html#exo-" class="internal"><span class="codenumber">1.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-logique.html" class="internal"><span class="codenumber">2</span> <span class="title">Logique mathématique</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-logprop.html" class="internal"><span class="codenumber">2.1</span> <span class="title">La logique propositionnelle</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-3" class="internal"><span class="codenumber">2.1.1</span> <span class="title">Propositions mathématiques et connecteurs logiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-4" class="internal"><span class="codenumber">2.1.2</span> <span class="title">Table de vérité</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-5" class="internal"><span class="codenumber">2.1.3</span> <span class="title">Implication, réciproque et contraposée</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-logprop.html#sec-logprop-7" class="internal"><span class="codenumber">2.1.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-logprop.html#exo-logprop" class="internal"><span class="codenumber">2.1.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-eqlogfnc.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Équivalence logique et formes normales</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqlogfnc.html#sec-eqlogfnc-3" class="internal"><span class="codenumber">2.2.1</span> <span class="title">Équivalence logique</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-eqlogfnc.html#sec-eqlogfnc-4" class="internal"><span class="codenumber">2.2.2</span> <span class="title">Formes normales</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-eqlogfnc.html#rq-eqlogfnc" class="internal"><span class="codenumber">2.2.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-eqlogfnc.html#exo-eqlogfnc" class="internal"><span class="codenumber">2.2.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-propquant.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Les propositions quantifiées</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sssec-predicats" class="internal"><span class="codenumber">2.3.1</span> <span class="title">Prédicats</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sssec-quantificateurs" class="internal"><span class="codenumber">2.3.2</span> <span class="title">Quantificateurs existentiel et universel</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propquant.html#sec-propquant-5" class="internal"><span class="codenumber">2.3.3</span> <span class="title">Négation et combinaisons de quantificateurs</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-propquant.html#rq-propquant" class="internal"><span class="codenumber">2.3.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propquant.html#exo-propquant" class="internal"><span class="codenumber">2.3.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-circuits.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Circuits logiques</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-circuits.html#sec-circuits-3" class="internal"><span class="codenumber">2.4.1</span> <span class="title">Portes logiques</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-circuits.html#sec-circuits-4" class="internal"><span class="codenumber">2.4.2</span> <span class="title">Parallèle avec la logique propositionnelle</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-circuits.html#rq-circuits" class="internal"><span class="codenumber">2.4.3</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-circuits.html#exo-circuits" class="internal"><span class="codenumber">2.4.4</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-reptheonombres.html" class="internal"><span class="codenumber">3</span> <span class="title">Représentation des nombres et arithmétique modulaire</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-representation.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Représentation des nombres</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-3" class="internal"><span class="codenumber">3.1.1</span> <span class="title">Systèmes positionnels</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-4" class="internal"><span class="codenumber">3.1.2</span> <span class="title">Représentation en base deux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-5" class="internal"><span class="codenumber">3.1.3</span> <span class="title">Représentation en base hexadécimale</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-6" class="internal"><span class="codenumber">3.1.4</span> <span class="title">Opérations élémentaires en base deux</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-representation.html#sec-representation-7" class="internal"><span class="codenumber">3.1.5</span> <span class="title">Représentation en circuits d’opérations binaires</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-representation.html#rq-representation" class="internal"><span class="codenumber">3.1.6</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-representation.html#exo-representation" class="internal"><span class="codenumber">3.1.7</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-divisibilite.html" class="internal"><span class="codenumber">3.2</span> <span class="title">La divisibilité dans les entiers</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-3" class="internal"><span class="codenumber">3.2.1</span> <span class="title">L’opération de division</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-4" class="internal"><span class="codenumber">3.2.2</span> <span class="title">Retour sur la conversion à partir de la base dix</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-divisibilite.html#sec-divisibilite-5" class="internal"><span class="codenumber">3.2.3</span> <span class="title">L’algorithme d’Euclide</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-divisibilite.html#rq-divisibilite" class="internal"><span class="codenumber">3.2.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-divisibilite.html#exo-divisibilite" class="internal"><span class="codenumber">3.2.5</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-modulo.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Arithmétique modulaire</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-3" class="internal"><span class="codenumber">3.3.1</span> <span class="title">Congruence modulo <span class="process-math">\(n\)</span></span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-4" class="internal"><span class="codenumber">3.3.2</span> <span class="title">Arithmétique modulaire</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-5" class="internal"><span class="codenumber">3.3.3</span> <span class="title">Résolution d’équations en congruence modulo</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-modulo.html#sec-modulo-6" class="internal"><span class="codenumber">3.3.4</span> <span class="title">Introduction à la cryptographie</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-modulo.html#rq-modulo" class="internal"><span class="codenumber">3.3.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-modulo.html#exo-modulo" class="internal"><span class="codenumber">3.3.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="chap-denombrement.html" class="internal"><span class="codenumber">4</span> <span class="title">Dénombrement</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_prodSomme.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Méthodes de dénombrement: Principes de base</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-regleProd" class="internal"><span class="codenumber">4.1.1</span> <span class="title">Principe du produit</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-regleSomme" class="internal"><span class="codenumber">4.1.2</span> <span class="title">Principe de la somme</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-combProdSomme1" class="internal"><span class="codenumber">4.1.3</span> <span class="title">Combinaison du principe du produit et du principe de la somme</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-incExclu" class="internal"><span class="codenumber">4.1.4</span> <span class="title">Le principe d’inclusion-exclusion (ou de la soustraction )</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_prodSomme.html#subs-div" class="internal"><span class="codenumber">4.1.5</span> <span class="title">Le principe de la division</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_prodSomme.html#rq-prodSomme" class="internal"><span class="codenumber">4.1.6</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_prodSomme.html#exo-prodSomme" class="internal"><span class="codenumber">4.1.7</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Permutations et combinaisons</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs_permArr" class="internal"><span class="codenumber">4.2.1</span> <span class="title">Les permutations</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs_combBinomial" class="internal"><span class="codenumber">4.2.2</span> <span class="title">Les combinaisons</span></a></div></li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton" class="internal"><span class="codenumber">4.2.3</span> <span class="title">Le triangle de Pascal et le binôme de Newton</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton-3" class="internal"><span class="codenumber">4.2.3.1</span> <span class="title">Le triangle de Pascal</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-trianglePascalBinomNewton-4" class="internal"><span class="codenumber">4.2.3.2</span> <span class="title">Le binôme de Newton</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-subsection">
+<div class="toc-title-box"><a href="sec_arrCombinaison.html#subs-permCombGen" class="internal"><span class="codenumber">4.2.4</span> <span class="title">Les permutations et combinaisons généralisées</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-permInd" class="internal"><span class="codenumber">4.2.4.1</span> <span class="title">Permutations avec des objets indiscernables</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-permRep" class="internal"><span class="codenumber">4.2.4.2</span> <span class="title">Permutations avec répétitions</span></a></div></li>
+<li class="toc-item toc-subsubsection"><div class="toc-title-box"><a href="sec_arrCombinaison.html#subsub-combRep" class="internal"><span class="codenumber">4.2.4.3</span> <span class="title">Combinaisons avec répétitions</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec_arrCombinaison.html#rq-arrCombinaison" class="internal"><span class="codenumber">4.2.5</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec_arrCombinaison.html#exo-combinatoire" class="internal"><span class="codenumber">4.2.6</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-combinatoireExoSupp.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices supplémentaires</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-combinatoireExoSupp.html#exo-combinatoireExoSupp" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-opens"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">1.2</span><span class="space"> </span><span class="title">Opérations sur les ensembles</span>
+</h2>
+<section class="introduction" id="intro-opens"><h3 class="heading">Introduction.<span></span>
+</h3>  <div class="para" id="intro-opens-2">Il est possible de combiner des ensembles de différentes manières. On pourrait vouloir créer à partir de deux ensembles <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> un nouvel ensemble qui contiendrait tous les éléments qui sont dans <span class="process-math">\(A\)</span> ou <span class="process-math">\(B\text{,}\)</span> ceux qui sont à la fois dans <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> et ainsi de suite. On verra que ces opérations obéissent à des propriétés particulières, qui reviendront aussi dans le chapitre <a href="chap-logique.html" class="internal" title="Chapitre 2: Logique mathématique">2</a>
+</div> <div class="para" id="intro-opens-3">Dans cette section, on définit l’union, l’intersection, le produit cartésien et la différence de deux ensembles. On définit aussi le complément d’un ensemble par rapport à un ensemble univers <span class="process-math">\(\Omega\text{.}\)</span>
+</div></section><section class="subsection" id="sssec-opens"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="space"> </span><span class="title">Opérations élémentaires sur les ensembles</span>
+</h3>
+<div class="para" id="sssec-opens-2">La première opération que l’on considère est celle qui, à partir de deux ensembles, crée un nouvel ensemble dont les éléments sont dans au moins l’un des deux ensembles. On l’appelle l’union.</div>
+<article class="definition definition-like" id="def-union"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">L’union de deux ensembles.</span>
+</h4> <div class="para logical" id="def-union-2-1">
+<div class="para">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> des ensembles quelconques. <em class="emphasis">L’union</em> de <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> notée <span class="process-math">\(A\cup B\)</span> est l’ensemble qui contient tous les éléments qui sont dans <span class="process-math">\(A\)</span> ou dans <span class="process-math">\(B\text{,}\)</span> potentiellement les deux:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\cup B=\{c~|~ c\in A \text{ ou } c\in B\}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="def-union-2-2">Le mot « ou » n’a pas la même signification ici que dans la langue usuelle. On parle d’un « ou » inclusif. L’opération qui crée un ensemble dont les éléments sont dans <span class="process-math">\(A\)</span> ou dans <span class="process-math">\(B\text{,}\)</span> mais pas les deux est appelée la différence symétrique (voir exercice <a href="sec-opens.html#exo-diffsym" class="xref" data-knowl="./knowl/xref/exo-diffsym.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 1.2.4.5">1.2.4.5</a>). C’est l’équivalent d’un « ou » exclusif.</div></article><details id="sssec-opens-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">L’union de deux ensembles.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="sssec-opens-4-2-1">Soit <span class="process-math">\(A=\{a,b,c,d\}\)</span> et <span class="process-math">\(B=\{1,2,c,d,e\}\)</span> deux ensembles. On cherche à écrire <span class="process-math">\(A\cup B\)</span> en extension.</div>
+<div class="solutions"><details id="sssec-opens-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="sssec-opens-4-3-1">L’union est <span class="process-math">\(A\cup B=\{a,b,c,d,e,1,2\}\text{.}\)</span> À remarquer qu’on ne met qu’une fois les éléments, comme le veut la définition d’un ensemble.</div></div></details></div></article></details><div class="para" id="sssec-opens-5">La deuxième opération est celle qui, à partir de deux ensembles,  crée un nouvel ensemble dont les éléments sont simultanément dans <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{.}\)</span> On l’appelle l’intersection.</div>
+<article class="definition definition-like" id="def-intersection"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">L’intersection de deux ensembles.</span>
+</h4> <div class="para logical" id="def-intersection-2-1">
+<div class="para">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> des ensembles quelconques. <em class="emphasis">L’intersection</em> de <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> notée <span class="process-math">\(A\cap B\)</span> est l’ensemble qui contient tous les éléments qui sont dans <span class="process-math">\(A\)</span> et dans <span class="process-math">\(B\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\cap B=\{c~|~ c\in A \text{ et } c\in B\}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="def-intersection-2-2">Deux ensembles dont l’intersection est vide sont dits <em class="emphasis">disjoints</em>.</div></article><details id="sssec-opens-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">L’intersection de deux ensembles.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="sssec-opens-7-2-1">On reprend les ensembles <span class="process-math">\(A=\{a,b,c,d\}\)</span> et <span class="process-math">\(B=\{1,2,c,d,e\}\text{.}\)</span> On cherche à écrire <span class="process-math">\(A\cap B\)</span> en extension.</div>
+<div class="solutions"><details id="sssec-opens-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="sssec-opens-7-3-1">L’intersection est <span class="process-math">\(A\cap B=\{c,d\}\text{.}\)</span>
+</div></div></details></div></article></details><div class="para" id="sssec-opens-8">L’union et l’intersection de deux ensembles sont  illlustrées à la figure <a href="sec-opens.html#fig-unionintersection" class="xref" data-knowl="./knowl/xref/fig-unionintersection.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 1.2.5">1.2.5</a>.</div>
+<figure class="figure figure-like" id="fig-unionintersection"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/sageplot/img-union.svg" role="img" class="contained" alt="Le diagramme de Venn de deux ensembles est illustré, avec l’union de A et B colorée."></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="generated/sageplot/img-intersection.svg" role="img" class="contained" alt="Le diagramme de Venn de deux ensembles est illustré, avec l’intersection de A et B colorée."></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.5<span class="period">.</span></span><span class="space"> </span>L’union (à gauche) et l’intersection (à droite) de deux ensembles <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span></figcaption></figure><div class="para" id="sssec-opens-10">L’union de deux ensembles est en quelque sorte une addition sur ces ensembles et l’intersection est une sorte de multiplication. Il y a quelques subtilités et différences, mais les propriétés de ces opérations, énoncées à la sous-section <a href="sec-opens.html#sssec-propoper" class="internal" title="Sous-section 1.2.2: Propriétés des opérations élémentaires">1.2.2</a> iront dans ce sens. On définit maintenant la différence entre deux ensembles.</div>
+<article class="definition definition-like" id="def-differenceens"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">1.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">La différence de deux ensembles.</span>
+</h4> <div class="para logical" id="def-differenceens-2-1">
+<div class="para">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> deux ensembles. La différence entre <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> notée <span class="process-math">\(A-B\)</span> (<span class="process-math">\(A\)</span> moins <span class="process-math">\(B\)</span>) est un ensemble dont les éléments sont tous dans <span class="process-math">\(A\text{,}\)</span> mais pas dans <span class="process-math">\(B\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A-B=\{a\in A~|~ a\notin B\}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="def-differenceens-2-2">La différence est parfois aussi notéé <span class="process-math">\(A\backslash B\)</span> et on dit aussi <span class="process-math">\(A\)</span> sauf <span class="process-math">\(B\text{.}\)</span> On préfèrera la notation <span class="process-math">\(A-B\text{,}\)</span> car elle se conforme avec celle utilisée par Sage.</div></article><details id="sssec-opens-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">La différence de deux ensembles.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="sssec-opens-12-2-1">Soit <span class="process-math">\(A=\{a,b,c,d\}\)</span> et <span class="process-math">\(B=\{1,2,c,d,e\}\text{.}\)</span> On cherche à décrire en extension les ensembles <span class="process-math">\(A-B\)</span> et <span class="process-math">\(B-A\)</span> (vont-ils être égaux?)</div>
+<div class="solutions"><details id="sssec-opens-12-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="sssec-opens-12-3-1">Pour l’ensemble <span class="process-math">\(A-B\text{,}\)</span> on retranche les éléments de <span class="process-math">\(A\)</span> qui sont aussi dans <span class="process-math">\(B\text{.}\)</span> Il reste <span class="process-math">\(A-B=\{a,b\}\text{.}\)</span>
+</div> <div class="para" id="sssec-opens-12-3-2">Pour ce qui est de <span class="process-math">\(B-A\text{,}\)</span> on obtient <span class="process-math">\(B-A=\{1,2,e\}\text{.}\)</span>
+</div>
+</div></details></div></article></details><div class="para" id="sssec-opens-13">Lorsqu’un ensemble est vu comme un sous-ensemble d’un ensemble univers <span class="process-math">\(\Omega\text{,}\)</span> on donne un nom particulier aux éléments qui sont dans <span class="process-math">\(\Omega\text{,}\)</span> mais pas dans <span class="process-math">\(A\text{.}\)</span> C’est le complément de <span class="process-math">\(A\text{.}\)</span>
+</div>
+<article class="definition definition-like" id="def-compens"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">1.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Le complément d’un ensemble.</span>
+</h4> <div class="para logical" id="def-compens-2-1">
+<div class="para">Soit <span class="process-math">\(A\)</span> un ensemble à l’intérieur d’un ensemble univers <span class="process-math">\(\Omega\text{.}\)</span> On apelle le complément de <span class="process-math">\(A\)</span> l’ensemble des éléments de <span class="process-math">\(\Omega\)</span> qui ne sont pas dans <span class="process-math">\(A\)</span> et on le note:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^c=\Omega-A\text{.}
+\end{equation*}
+</div>
+</div> <div class="para" id="def-compens-2-2">On utilise parfois aussi la notion <span class="process-math">\(\bar{A}\)</span> ou <span class="process-math">\(A^{'}\)</span> pour désigner le complément.</div></article><details id="sssec-opens-15" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Le complément d’ensembles.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="sssec-opens-15-2-1">On considère les ensembles <span class="process-math">\(A=\{0,2,4,6,8,10\}\)</span> et <span class="process-math">\(B=\{n\in \N ~|~ n\leq 7\}\text{.}\)</span> On cherche à décrire les compléments de <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> par rapport aux ensembles <span class="process-math">\(\Omega_1=\{n\in \N ~|~ n\leq 10\}\)</span> et <span class="process-math">\(\Omega_2=\N\text{.}\)</span>
+</div>
+<div class="solutions"><details id="sssec-opens-15-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="sssec-opens-15-3-1">On commence par trouver les compléments par rapport à l’ensemble univers <span class="process-math">\(\Omega_1\text{.}\)</span> Pour <span class="process-math">\(A\text{,}\)</span> on remarque que les éléments sont les nombres pairs plus petit ou égaux à <span class="process-math">\(10\text{.}\)</span> Dans <span class="process-math">\(\Omega_1\text{,}\)</span> son complément sera alors <span class="process-math">\(A^c=\{1,3,5,7,9\}\text{.}\)</span> Pour <span class="process-math">\(B\text{,}\)</span> on cherche tous les nombres naturels qui sont inférieurs ou égaux à <span class="process-math">\(10\)</span> (donc dans <span class="process-math">\(\Omega_1\)</span>), mais pas inférieurs ou égaux à <span class="process-math">\(7\)</span> (donc dans <span class="process-math">\(B\)</span>). Il reste donc <span class="process-math">\(B^c=\{8,9,10\}\text{.}\)</span>
+</div> <div class="para logical" id="sssec-opens-15-3-2">
+<div class="para">Maintenant pour <span class="process-math">\(\Omega_2\text{,}\)</span> on observe que l’ensemble est infini. On pourrait écrire <span class="process-math">\(A^c=\{1,3,5,7,9,11,12,13,14,15,\ldots\}\text{,}\)</span> mais comme la suite logique est en deux parties (d’abord, les impairs inférieurs à <span class="process-math">\(10\text{,}\)</span> puis tous les nombres naturels plus grand que <span class="process-math">\(10\)</span>), on pourrait préférer l’écrire en deux partie:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A^c=\{1,3,5,7,9\}\cup\{11,12,13,14,\ldots\}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical" id="sssec-opens-15-3-3">
+<div class="para">Pour l’ensemble <span class="process-math">\(B\text{,}\)</span> on peut utiliser une description en compréhension assez clair:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B^c=\{n\in \N~|~ n\geq 8\}\text{.}
+\end{equation*}
+</div>
+</div>
+</div></details></div></article></details><div class="para" id="sssec-opens-16">Une dernière opération sur les ensembles que l’on considère est le produit cartésien. Celle-ci sera particulièrement utile pour définir d’autres concepts de manières adéquates. On introduit dans un premier temps la notion de paires ordonnées.</div>
+<article class="definition definition-like" id="sssec-opens-17"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">1.2.10</span><span class="period">.</span><span class="space"> </span><span class="title">Paire ordonnée.</span>
+</h4> <div class="para" id="sssec-opens-17-2-1">Une paire ordonnée, ou couple, est une collection de deux objets dont l’ordre est important. On la note <span class="process-math">\((a,b)\)</span> avec <span class="process-math">\(a,b\)</span> des objets quelconques. Pour deux paires ordonnées <span class="process-math">\((a_1,b_1),(a_2,b_2)\text{,}\)</span> on a <span class="process-math">\((a_1,b_1)=(a_2,b_2)\)</span> si et seulement si <span class="process-math">\(a_1=a_2\)</span> et <span class="process-math">\(b_1=b_2\text{.}\)</span>
+</div></article><article class="definition definition-like" id="def-prodcart"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">1.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">Le produit cartésien.</span>
+</h4> <div class="para logical" id="def-prodcart-2-1">
+<div class="para">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> deux ensembles. Le produit cartésien de <span class="process-math">\(A\)</span> par <span class="process-math">\(B\text{,}\)</span> noté <span class="process-math">\(A\times B\)</span> est l’ensemble de toutes les paires ordonnées <span class="process-math">\((a,b)\)</span> formées à partir des éléments des ensemble <span class="process-math">\(A,B\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\times B=\{(a,b)~|~a\in A\text{ et }b\in B\}\text{.}
+\end{equation*}
+</div>
+</div> </article><details id="sssec-opens-19" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">1.2.12</span><span class="period">.</span><span class="space"> </span><span class="title">Le produit cartésien de deux ensembles.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="sssec-opens-19-2-1">On considère les ensembles <span class="process-math">\(A=\{a,b\}\)</span> et <span class="process-math">\(B=\{0,1,2\}\text{.}\)</span> On cherche à décrire le produit cartésien <span class="process-math">\(A\times B\)</span> en extension.</div>
+<div class="solutions"><details id="sssec-opens-19-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="sssec-opens-19-3-1">
+<div class="para">On doit énumérer toutes les paires ordonnées possibles. On verra au chapitre <a href="chap-denombrement.html" class="internal" title="Chapitre 4: Dénombrement">4</a> comment compter le nombre de paires. Voici une méthode simple pour les énumérer sans en oublier lorsque les ensembles sont finis.</div>
+<ol class="decimal" id="sssec-opens-19-3-1-2">
+<li id="sssec-opens-19-3-1-2-1"><div class="para" id="sssec-opens-19-3-1-2-1-1">On prend le premier élément de <span class="process-math">\(A\)</span> et on crée toutes les paires ordonnées possibles contenant cet élément.</div></li>
+<li id="sssec-opens-19-3-1-2-2"><div class="para" id="sssec-opens-19-3-1-2-2-1">On répète avec les autres éléments de <span class="process-math">\(A\)</span> jusqu’à épuisement de l’ensemble <span class="process-math">\(A\text{.}\)</span>
+</div></li>
+</ol>
+</div> <div class="para" id="sssec-opens-19-3-2">On a donc <span class="process-math">\(A\times B=\{(a,0),(a,1),(a,2),(b,0),(b,1),(b,2)\}\text{.}\)</span>
+</div>
+</div></details></div></article></details></section><section class="subsection" id="sssec-propoper"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">1.2.2</span><span class="space"> </span><span class="title">Propriétés des opérations élémentaires</span>
+</h3>
+<div class="para" id="sssec-propoper-2">Les opérations définies à la sous-section précédente peuvent interagir de plusieurs manières entre elles et être combinées. On peut les démontrer de plusieurs manières. On en présente deux ci-dessous. On donne la liste des propriétés dans un premier temps et on effectue la démonstration de deux d’entre elles par la suite. Les exercices complèteront les preuves. Pour chaque propriété, <span class="process-math">\(A,B,C\)</span> sont des ensembles quelconques et <span class="process-math">\(\Omega\)</span> est un ensemble univers avec <span class="process-math">\(A\subseteq \Omega\text{.}\)</span>
+</div>
+<figure class="list table-like" id="li-opensprop"><figcaption><span class="type">Liste</span><span class="space"> </span><span class="codenumber">1.2.13<span class="period">.</span></span><span class="space"> </span>Propriétés des opérations sur les ensembles</figcaption><div class="named-list-content"><ol class="decimal" id="li-opensprop-2">
+<li id="li-opensId"><div class="para logical" id="li-opensId-1">
+<div class="para">Les propriétés d’identité:</div>
+<ul class="disc" id="li-opensId-1-1">
+<li id="li-opensId-1-1-1"><div class="para" id="li-opensId-1-1-1-1"><span class="process-math">\(\displaystyle A\cup \emptyset =A\)</span></div></li>
+<li id="li-opensId-1-1-2"><div class="para" id="li-opensId-1-1-2-1"><span class="process-math">\(\displaystyle A\cap \Omega =A\)</span></div></li>
+</ul>
+<div class="para">Ajouter le vide à <span class="process-math">\(A\)</span> ne change pas <span class="process-math">\(A\text{,}\)</span> et comme <span class="process-math">\(A\subseteq \Omega\text{,}\)</span> l’intersection avec <span class="process-math">\(\Omega\)</span> redonne <span class="process-math">\(A\text{.}\)</span>
+</div>
+</div></li>
+<li id="li-opensid"><div class="para logical" id="li-opensid-1">
+<div class="para">Les propriétés d’idempotence:</div>
+<ul class="disc" id="li-opensid-1-1">
+<li id="li-opensid-1-1-1"><div class="para" id="li-opensid-1-1-1-1"><span class="process-math">\(\displaystyle A\cup A =A\)</span></div></li>
+<li id="li-opensid-1-1-2"><div class="para" id="li-opensid-1-1-2-1"><span class="process-math">\(\displaystyle A\cap A =A\)</span></div></li>
+</ul>
+</div></li>
+<li id="li-opensdom"><div class="para logical" id="li-opensdom-1">
+<div class="para">Les propriétés de domination:</div>
+<ul class="disc" id="li-opensdom-1-1">
+<li id="li-opensdom-1-1-1"><div class="para" id="li-opensdom-1-1-1-1"><span class="process-math">\(\displaystyle A\cup \Omega=\Omega\)</span></div></li>
+<li id="li-opensdom-1-1-2"><div class="para" id="li-opensdom-1-1-2-1"><span class="process-math">\(\displaystyle A\cap \emptyset=\emptyset\)</span></div></li>
+</ul>
+</div></li>
+<li id="li-openscomp"><div class="para logical" id="li-openscomp-1">
+<div class="para">Les propriétés de complémentarité et de complétude:</div>
+<ul class="disc" id="li-openscomp-1-1">
+<li id="li-openscomp-1-1-1"><div class="para" id="li-openscomp-1-1-1-1"><span class="process-math">\(\displaystyle (A^c)^c=A\)</span></div></li>
+<li id="li-openscomp-1-1-2"><div class="para" id="li-openscomp-1-1-2-1"><span class="process-math">\(\displaystyle A\cup A^c=\Omega\)</span></div></li>
+<li id="li-openscomp-1-1-3"><div class="para" id="li-openscomp-1-1-3-1"><span class="process-math">\(\displaystyle A\cap A^c=\emptyset\)</span></div></li>
+</ul>
+</div></li>
+<li id="li-opensabs"><div class="para logical" id="li-opensabs-1">
+<div class="para">Les propriétés d’absorption:</div>
+<ul class="disc" id="li-opensabs-1-1">
+<li id="li-opensabs-1-1-1"><div class="para" id="li-opensabs-1-1-1-1"><span class="process-math">\(\displaystyle A\cup(A\cap B)=A\)</span></div></li>
+<li id="li-opensabs-1-1-2"><div class="para" id="li-opensabs-1-1-2-1"><span class="process-math">\(\displaystyle A\cap(A\cup B)=A\)</span></div></li>
+</ul>
+</div></li>
+<li id="li-openscom"><div class="para logical" id="li-openscom-1">
+<div class="para">Les propriétés de commutativité:</div>
+<ul class="disc" id="li-openscom-1-1">
+<li id="li-openscom-1-1-1"><div class="para" id="li-openscom-1-1-1-1"><span class="process-math">\(\displaystyle A\cup B=B\cup A\)</span></div></li>
+<li id="li-openscom-1-1-2"><div class="para" id="li-openscom-1-1-2-1"><span class="process-math">\(\displaystyle A\cap B=B\cap A\)</span></div></li>
+</ul>
+</div></li>
+<li id="li-opensass"><div class="para logical" id="li-opensass-1">
+<div class="para">Les propriétés d’associativité:</div>
+<ul class="disc" id="li-opensass-1-1">
+<li id="li-opensass-1-1-1"><div class="para" id="li-opensass-1-1-1-1"><span class="process-math">\(\displaystyle A\cup (B\cup C)=(A\cup B)\cup C\)</span></div></li>
+<li id="li-opensass-1-1-2"><div class="para" id="li-opensass-1-1-2-1"><span class="process-math">\(\displaystyle A\cap (B\cap C)=(A\cap B)\cap C\)</span></div></li>
+</ul>
+<div class="para">Ceci fait en sorte qu’on peut écrire <span class="process-math">\(A\cup B\cup C\)</span> ou <span class="process-math">\(A\cap B\cap C\)</span> sans aucun souci de clarté, l’ordre n’étant pas important.</div>
+</div></li>
+<li id="li-opensdis"><div class="para logical" id="li-opensdis-1">
+<div class="para">Les propriétés de distributivité</div>
+<ul class="disc" id="li-opensdis-1-1">
+<li id="li-opensdis-1-1-1"><div class="para" id="li-opensdis-1-1-1-1"><span class="process-math">\(\displaystyle A\cup (B\cap C)=(A\cup B)\cap (A\cup C)\)</span></div></li>
+<li id="li-opensdis-1-1-2"><div class="para" id="li-opensdis-1-1-2-1"><span class="process-math">\(\displaystyle A\cap (B\cup C)=(A\cap B)\cup (A\cap C)\)</span></div></li>
+</ul>
+<div class="para"><div class="para" id="li-opensdis-1-2">Ici par contre, les parenthèses sont importantes pour préciser quelles des deux opérations on veut effectuer en premier.</div></div>
+</div></li>
+<li id="li-opensDeMorgan"><div class="para logical" id="li-opensDeMorgan-1">
+<div class="para">Les lois de De Morgan:</div>
+<ul class="disc" id="li-opensDeMorgan-1-1">
+<li id="li-opensDeMorgan-1-1-1"><div class="para" id="li-opensDeMorgan-1-1-1-1"><span class="process-math">\(\displaystyle (A\cap B)^c=A^c\cup B^c\)</span></div></li>
+<li id="li-opensDeMorgan-1-1-2"><div class="para" id="li-opensDeMorgan-1-1-2-1"><span class="process-math">\(\displaystyle (A\cup B)^c=A^c\cap B^c\)</span></div></li>
+</ul>
+</div></li>
+</ol></div></figure><div class="para" id="sssec-propoper-4">Beaucoup de ces propriétés sont intuitives quand on prend le temps d’y réfléchir un instant. L’analogie de l’addition et de la multiplication mentionnée plus tôt faisait référence aux propriétés de commutativité, d’associativité et de distributivité avec une subtilité/différence à trouver! On démontre la propriété <a href="sec-opens.html#li-opensass" class="xref" data-knowl="./knowl/xref/li-opensass.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:7">1.2.13:7</a> ci-dessous afin d’illustrer deux techniques de preuves utilisées dans la théorie des ensembles.</div>
+<article class="proposition theorem-like" id="prop-opensass"><h4 class="heading">
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">1.2.14</span><span class="period">.</span><span class="space"> </span><span class="title">L’union et l’intersection ont la propriété d’associativité.</span>
+</h4>
+<div class="para logical" id="prop-opensass-2-1">
+<div class="para">Soit <span class="process-math">\(A,B,C\)</span> trois ensembles quelconques. Alors</div>
+<div class="displaymath process-math" id="prop-opensass-2-1-2">
+\begin{align*}
+A\cup(B\cup C)&amp;=(A\cup B)\cup C\\
+A\cap(B\cap C)&amp;=(A\cap B)\cap C\text{.}
+\end{align*}
+</div>
+</div></article><details id="prop-opensass-3" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para logical" id="prop-opensass-3-1">
+<div class="para">Pour démontrer l’identité de l’union, on utilise une table d’appartenance. Ce type de table reviendra dans la section <a href="sec-logprop.html" class="internal" title="Section 2.1: La logique propositionnelle">2.1</a> (sous le nom de table de vérité). Voici comment remplir une telle table.</div>
+<ol class="decimal" id="prop-opensass-3-1-2">
+<li id="prop-opensass-3-1-2-1"><div class="para" id="prop-opensass-3-1-2-1-1">Sur la première ligne, on met tous les ensembles pertinents à notre égalité, en commençant par les ensembles les plus simples à la gauche.</div></li>
+<li id="prop-opensass-3-1-2-2"><div class="para" id="prop-opensass-3-1-2-2-1">En fonction du nombre d’ensembles seuls, on remplit les lignes sous les premières colonnes (ne contenant qu’un ensemble seul) avec des « non » (signifiant que l’élément n’est pas dans l’ensemble) ou « oui » (signifiant l’appartenance de l’élément à l’ensemble) afin d’obtenir toutes les combinaisons possibles.</div></li>
+<li id="prop-opensass-3-1-2-3"><div class="para" id="prop-opensass-3-1-2-3-1">On remplit le reste de la table en utilisant la définition des opérations utilisées.</div></li>
+</ol>
+<div class="para">L’égalité est vrai si les colonnes correspondant aux membres de part et d’autre de l’égalité sont identiques.</div>
+</div> <div class="para" id="prop-opensass-3-2">Voici la table pour l’identité <span class="process-math">\(A\cup(B\cup C)=(A\cup B)\cup C\)</span>
+</div> <figure class="table table-like" id="prop-opensass-3-3"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.15<span class="period">.</span></span><span class="space"> </span>Table d’appartenance pour <span class="process-math">\(A\cup(B\cup C)=(A\cup B)\cup C\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(C\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\cup B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(B\cup C\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\cup (B\cup C)\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\((A\cup B)\cup C\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b3 r0 l0 t0 lines">non</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+</tr>
+</table></div></figure></article></details><details id="prop-opensass-4" class="hiddenproof born-hidden-knowl"><summary class="knowl__link"><h4 class="heading"><span class="type">Démonstration<span class="period">.</span></span></h4></summary><article class="hiddenproof knowl__content"><div class="para" id="prop-opensass-4-1">On démontre l’identité de l’intersection avec le concept de sous-ensemble et d’égalité: si <span class="process-math">\(E,F\)</span> sont des ensembles tels que <span class="process-math">\(E\subseteq F\)</span> et <span class="process-math">\(F\subseteq E\text{,}\)</span> alors <span class="process-math">\(E=F\text{.}\)</span> Pour ce faire, on commence par montrer que <span class="process-math">\(A\cap(B\cap C)\subseteq (A\cap B)\cap C\text{.}\)</span>
+</div> <div class="para" id="prop-opensass-4-2">On veut montrer qu’un élément arbitraire de <span class="process-math">\(A\cap(B\cap C)\)</span> sera aussi dans <span class="process-math">\((A\cap B)\cap C\text{.}\)</span> Pour cela, il peut-être utile de transposer l’ensemble en mots. Soit <span class="process-math">\(a\in A\cap(B\cap C)\text{.}\)</span> Alors l’élément <span class="process-math">\(a\)</span> est dans l’intersection de <span class="process-math">\(A\)</span> et de <span class="process-math">\((B\cap C)\)</span> (en résolvant l’intersection extérieure à la parenthèse) et donc, <span class="process-math">\(a\in A\)</span> et <span class="process-math">\(a\in (B\cap C)\text{.}\)</span> Puisqu’on sait maintenant que <span class="process-math">\(a\in (B\cap C)\text{,}\)</span> on peut aussi dire que <span class="process-math">\(a\in B\)</span> et <span class="process-math">\(a\in C\text{.}\)</span> Donc <span class="process-math">\(a\)</span> est dans chacun des trois ensembles <span class="process-math">\(A,B,C\)</span> (sous l’hypothèse initiale que <span class="process-math">\(a\in A\cap(B\cap C)\)</span>).</div> <div class="para" id="prop-opensass-4-3">En particulier, puisque <span class="process-math">\(a\)</span> est dans <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> on obtient que <span class="process-math">\(a\in (A\cap B)\text{.}\)</span> Finalement, en utilisant le fait que <span class="process-math">\(a\in C\text{,}\)</span> on a que <span class="process-math">\(a\in (A\cap B)\)</span> et <span class="process-math">\(a\in C\)</span> et donc, <span class="process-math">\(a\in (A\cap B)\cap C\text{.}\)</span> On a bel et bien <span class="process-math">\(A\cap(B\cap C)\subseteq (A\cap B)\cap C\text{.}\)</span>
+</div> <div class="para" id="prop-opensass-4-4">L’idée pour montrer l’autre direction, soit que <span class="process-math">\((A\cap B)\cap C\subseteq A\cap(B\cap C)\)</span> est identique.</div> <div class="para" id="prop-opensass-4-5">Soit <span class="process-math">\(b\)</span> un élément arbitraire de <span class="process-math">\((A\cap B)\cap C\text{.}\)</span> Alors <span class="process-math">\(b\)</span> est dans l’intersection de <span class="process-math">\(A\cap B\)</span> et de <span class="process-math">\(C\text{.}\)</span> En particulier, <span class="process-math">\(b\)</span> est dans <span class="process-math">\(C\text{.}\)</span> Puisque <span class="process-math">\(b\)</span> est dans l’intersection de <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> on voit que <span class="process-math">\(b\)</span> est à la fois dans <span class="process-math">\(A\)</span> et dans <span class="process-math">\(B\)</span> (et dans <span class="process-math">\(C\text{!}\)</span>). Comme <span class="process-math">\(b\)</span> est à la fois dans <span class="process-math">\(B\)</span> et dans <span class="process-math">\(C\text{,}\)</span> il est dans leur intersection. En combinant cela avec le fait que <span class="process-math">\(b\in A\text{,}\)</span> on obtient que <span class="process-math">\(b\)</span> est dans l’intersection de  <span class="process-math">\(A\)</span> et <span class="process-math">\(B\cap C\text{.}\)</span> Ainsi <span class="process-math">\(b\in A\cap(B\cap C) \text{.}\)</span>
+</div> <div class="para" id="prop-opensass-4-6">Comme <span class="process-math">\(A\cap(B\cap C)\subseteq (A\cap B)\cap C\)</span> et <span class="process-math">\(A\cap(B\cap C)\supseteq (A\cap B)\cap C\text{,}\)</span> on conclut finalement que <span class="process-math">\(A\cap(B\cap C)=(A\cap B)\cap C\text{.}\)</span>
+</div></article></details></section><section class="conclusion" id="concl-opens"><h3 class="heading">En résumé.<span></span>
+</h3> <div class="para logical" id="concl-opens-2">
+<div class="para">Les points importants de cette section sont:</div>
+<ul class="disc" id="concl-opens-2-1">
+<li id="concl-opens-2-1-1"><div class="para" id="concl-opens-2-1-1-1">L’opération <a href="sec-opens.html#def-union" class="xref" data-knowl="./knowl/xref/def-union.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 1.2.1: L’union de deux ensembles">union</a> de deux ensembles;</div></li>
+<li id="concl-opens-2-1-2"><div class="para" id="concl-opens-2-1-2-1">L’opération <a href="sec-opens.html#def-intersection" class="xref" data-knowl="./knowl/xref/def-intersection.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 1.2.3: L’intersection de deux ensembles">intersection</a> de deux ensembles;</div></li>
+<li id="concl-opens-2-1-3"><div class="para" id="concl-opens-2-1-3-1">L’opération <a href="sec-opens.html#def-differenceens" class="xref" data-knowl="./knowl/xref/def-differenceens.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 1.2.6: La différence de deux ensembles">différence</a> de deux ensembles;</div></li>
+<li id="concl-opens-2-1-4"><div class="para" id="concl-opens-2-1-4-1">L’opération <a href="sec-opens.html#def-compens" class="xref" data-knowl="./knowl/xref/def-compens.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 1.2.8: Le complément d’un ensemble">complément</a> d’un ensemble par rapport à l’ensemble univers;</div></li>
+<li id="concl-opens-2-1-5"><div class="para" id="concl-opens-2-1-5-1">L’opération <a href="sec-opens.html#def-prodcart" class="xref" data-knowl="./knowl/xref/def-prodcart.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 1.2.11: Le produit cartésien">produit cartésien</a> de deux ensembles;</div></li>
+<li id="concl-opens-2-1-6"><div class="para" id="concl-opens-2-1-6-1">Les <a href="sec-opens.html#li-opensprop" class="xref" data-knowl="./knowl/xref/li-opensprop.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Liste 1.2.13: Propriétés des opérations sur les ensembles">propriétés</a> de ces opérations.</div></li>
+</ul>
+</div></section><section class="reading-questions" id="rq-opens"><h3 class="heading hide-type">
+<span class="type">Questions de compréhension de la lecture</span><span class="space"> </span><span class="codenumber">1.2.3</span><span class="space"> </span><span class="title">Questions de compréhension de la lecture</span>
+</h3>
+<section class="introduction" id="intro-opens-lec"> <div class="para" id="intro-opens-lec-1">Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</div></section><article class="exercise exercise-like" id="rq-opens-2"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="introduction" id="rq-opens-2-1"><div class="para" id="rq-opens-2-1-1">Soit <span class="process-math">\(A=\{a,b,c,d\}\)</span> et <span class="process-math">\(B=\{a,b,c,d,e,f,g\}\)</span> vivant dans l’ensemble univers <span class="process-math">\(\Omega =\{l  ~|~ l \text{ est une lettre de l'alphabet comprise entre } a \text{ et } j  \}\text{.}\)</span> Déterminer:</div></div>
+<article class="task exercise-like" id="rq-opens-2-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="rq-opens-2-2-1-1"><span class="process-math">\(A\cup B\)</span></div></article><article class="task exercise-like" id="rq-opens-2-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="rq-opens-2-3-1-1"><span class="process-math">\(A\cap B\)</span></div></article><article class="task exercise-like" id="rq-opens-2-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="rq-opens-2-4-1-1"><span class="process-math">\(A- B\)</span></div></article><article class="task exercise-like" id="rq-opens-2-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="rq-opens-2-5-1-1"><span class="process-math">\(B-A\)</span></div></article><article class="task exercise-like" id="rq-opens-2-6"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para" id="rq-opens-2-6-1-1"><span class="process-math">\(A^c\)</span></div></article><article class="task exercise-like" id="rq-opens-2-7"><h5 class="heading"><span class="codenumber">(f)</span></h5>
+<div class="para" id="rq-opens-2-7-1-1"><span class="process-math">\(B^c\)</span></div></article></article><article class="exercise exercise-like" id="rq-opens-3"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="rq-opens-3-1-1">Dessiner l’ensemble <span class="process-math">\(A-B\)</span> sur le diagramme de Venn de la figure suivante.</div> <figure class="figure figure-like" id="fig-Vennvide"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-Vennvide.svg" role="img" class="contained" alt="Un diagramme de Venn contenant des ensembles A et B quelconques est illustré."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.16<span class="period">.</span></span><span class="space"> </span>Un diagramme de Venn vide</figcaption></figure></article><article class="exercise exercise-like" id="rq-opens-4"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>Déterminer le produit cartésien de <span class="process-math">\(A=\{\text{Salade repas},\text{Burger du chef},\text{La prise du jour},\text{Soupe deluxe}\}\)</span> et <span class="process-math">\(B=\{\text{Brownie décadent},\text{Tarte succulente},\text{Gâteau alléchant}\}\text{.}\)</span> Quel est votre élément favori de <span class="process-math">\(A\times B\text{?}\)</span></article><article class="exercise exercise-like" id="rq-opens-5"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="introduction" id="rq-opens-5-1"><div class="para" id="rq-opens-5-1-1">On considère l’ensemble <span class="process-math">\(S=\{n\in \N~|~ n \text{ divise } 6\}\text{.}\)</span>
+</div></div>
+<article class="task exercise-like" id="rq-opens-5-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
+<div class="para" id="rq-opens-5-2-1-1">Donner <span class="process-math">\(\mathscr{P}(S)\text{.}\)</span>
+</div></article><article class="task exercise-like" id="rq-opens-5-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
+<div class="para" id="rq-opens-5-3-1-1">Trouver un ensemble <span class="process-math">\(B\in\mathscr{P}(S)\)</span> tel que <span class="process-math">\(|B|=3\)</span>
+</div></article><article class="task exercise-like" id="rq-opens-5-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
+<div class="para" id="rq-opens-5-4-1-1">Trouver un ensemble <span class="process-math">\(C\subseteq\mathscr{P}(S)\)</span> tel que <span class="process-math">\(|C|=3\)</span>
+</div></article><article class="task exercise-like" id="rq-opens-5-5"><h5 class="heading"><span class="codenumber">(d)</span></h5>
+<div class="para" id="rq-opens-5-5-1-1">Un étudiant affirme avoir trouvé <span class="process-math">\(D\in \mathscr{P}(S)\)</span> tel que <span class="process-math">\(|D|=6\text{.}\)</span> Donner un exemple d’un tel ensemble ou expliquer pourquoi ce n’est pas possible.</div></article><article class="task exercise-like" id="rq-opens-5-6"><h5 class="heading"><span class="codenumber">(e)</span></h5>
+<div class="para" id="rq-opens-5-6-1-1">Un étudiant affirme avoir trouvé <span class="process-math">\(E\subseteq \mathscr{P}(S)\)</span> tel que <span class="process-math">\(|E|=6\text{.}\)</span> Donner un exemple d’un tel ensemble ou expliquer pourquoi ce n’est pas possible.</div></article></article><article class="exercise exercise-like" id="rq-opens-6"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="para" id="rq-opens-6-1-1">Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</div></article></section><section class="exercises" id="exo-opens"><h3 class="heading hide-type">
+<span class="type">Exercices</span><span class="space"> </span><span class="codenumber">1.2.4</span><span class="space"> </span><span class="title">Exercices</span>
+</h3>
+<div class="exercisegroup" id="exo-opens-2">
+<h4 class="heading"><span class="title">À faire en classe.</span></h4>
+<div class="introduction" id="exo-opens-2-2"><div class="para" id="exo-opens-2-2-1">Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d’apprentissage plus avancés.</div></div>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="exo-ens1"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-ens1-1"><div class="para" id="exo-ens1-1-1">Soit <span class="process-math">\(A=\{0,1,2,3,4,5\}\text{,}\)</span> <span class="process-math">\(B=\{0,3,6,9\}\)</span> et <span class="process-math">\(\Omega=\{n\in \N~|~ n\leq 10\}\text{.}\)</span> Déterminer:</div></div>
+<article class="task exercise-like" id="exo-ens1-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-ens1-2-1-1"><span class="process-math">\(A\cup B\)</span></div>
+<div class="solutions"><details id="exo-ens1-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(A\cup B = \{0,1,2,3,4,5,6,9\}\)</span></div></details></div></article><article class="task exercise-like" id="exo-ens1-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-ens1-3-1-1"><span class="process-math">\(A\cap B\)</span></div>
+<div class="solutions"><details id="exo-ens1-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(A\cap B = \{0,3\}\)</span></div></details></div></article><article class="task exercise-like" id="exo-ens1-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-ens1-4-1-1"><span class="process-math">\(A- B\)</span></div>
+<div class="solutions"><details id="exo-ens1-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(A-B=\{1,2,4,5\}\)</span></div></details></div></article><article class="task exercise-like" id="exo-ens1-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-ens1-5-1-1"><span class="process-math">\(B-A\)</span></div>
+<div class="solutions"><details id="exo-ens1-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(B-A=\{6,9\}\)</span></div></details></div></article><article class="task exercise-like" id="exo-ens1-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="para" id="exo-ens1-6-1-1"><span class="process-math">\(A^c\)</span></div>
+<div class="solutions"><details id="exo-ens1-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(A^c=\{6,7,8,9,10\}\)</span></div></details></div></article><article class="task exercise-like" id="exo-ens1-7"><h6 class="heading"><span class="codenumber">(f)</span></h6>
+<div class="para" id="exo-ens1-7-1-1"><span class="process-math">\(B^c\)</span></div>
+<div class="solutions"><details id="exo-ens1-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(B^c=\{1,2,4,5,7,8,10\}\)</span></div></details></div></article></article><article class="exercise exercise-like" id="exo-opens-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-2-4-1"><div class="para" id="exo-opens-2-4-1-1">On a vu les propriétés de <a href="sec-opens.html#li-opensdis" class="xref" data-knowl="./knowl/xref/li-opensdis.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:8">distributivité</a> pour combiner l’union et l’intersection. Cet exercice vise à montrer d’une autre manière que les parenthèses sont importantes.</div></div>
+<article class="task exercise-like" id="exo-opens-2-4-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="introduction" id="exo-opens-2-4-2-1">
+<figure class="figure figure-like" id="fig-Venn3vide"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/img-Venn3vide.svg" role="img" class="contained" alt="Un diagramme de Venn contenant des ensembles A, B et C quelconques est illustré."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.17<span class="period">.</span></span><span class="space"> </span>Un diagramme de Venn vide</figcaption></figure> <div class="para" id="exo-opens-2-4-2-1-2">Sur des diagrammes de Venn comme celui de la figure <a href="sec-opens.html#fig-Venn3vide" class="xref" data-knowl="./knowl/xref/fig-Venn3vide.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 1.2.17">1.2.17</a>, illustrer les ensembles suivants:</div>
+</div>
+<article class="task exercise-like" id="exo-opens-2-4-2-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-2-4-2-2-1-1"><span class="process-math">\(A\cup (B\cap C)\)</span></div></article><article class="task exercise-like" id="exo-opens-2-4-2-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-2-4-2-3-1-1"><span class="process-math">\((A\cup B)\cap C\)</span></div></article></article><article class="task exercise-like" id="exo-opens-2-4-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-opens-2-4-3-1-1">Expliquer pourquoi, à partir du résultat de la partie précédente, il n’est pas nécessaire de montrer que <span class="process-math">\(A\cap(B\cup C)\neq (A\cap B)\cup C\text{.}\)</span>
+</div>
+<div class="solutions"><details id="exo-opens-2-4-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-opens-2-4-3-2-1">Interchanger les rôles de <span class="process-math">\(A\)</span> et <span class="process-math">\(C\)</span> et utiliser la <a href="sec-opens.html#li-openscom" class="xref" data-knowl="./knowl/xref/li-openscom.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:6">commutativité</a>.</div></div></details></div></article></article><article class="exercise exercise-like" id="exo-opens-2-5"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-2-5-1"><div class="para" id="exo-opens-2-5-1-1">Sur un diagramme de Venn comme celui de la figure <a href="sec-opens.html#fig-Venn3vide" class="xref" data-knowl="./knowl/xref/fig-Venn3vide.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 1.2.17">1.2.17</a>, illustrer les ensembles suivants.</div></div>
+<article class="task exercise-like" id="exo-opens-2-5-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-opens-2-5-2-1-1"><span class="process-math">\(A^c\cap B\cap C\)</span></div></article><article class="task exercise-like" id="exo-opens-2-5-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-opens-2-5-3-1-1"><span class="process-math">\(A^c\cap B^c\cap C\)</span></div></article><article class="task exercise-like" id="exo-opens-2-5-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-opens-2-5-4-1-1"><span class="process-math">\(A^c\cap B^c\cap C^c\)</span></div></article><article class="task exercise-like" id="exo-opens-2-5-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="introduction" id="exo-opens-2-5-5-1"><div class="para" id="exo-opens-2-5-5-1-1">Utiliser les parties précédentes et un argument de symétrie pour illustrer:</div></div>
+<article class="task exercise-like" id="exo-opens-2-5-5-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-2-5-5-2-1-1"><span class="process-math">\(A\cap B^c\cap C\)</span></div> et <span class="process-math">\(A\cap B\cap C^c\text{.}\)</span></article><article class="task exercise-like" id="exo-opens-2-5-5-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-2-5-5-3-1-1"><span class="process-math">\(A^c\cap B\cap C^c\)</span></div> et <span class="process-math">\(A\cap B^c\cap C^c\text{.}\)</span></article></article></article><article class="exercise exercise-like" id="exo-opens-2-6"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-2-6-1"><div class="para" id="exo-opens-2-6-1-1">Pour chaque diagramme de Venn ci-dessous, décrire l’ensemble ombragée en fonction des ensembles <span class="process-math">\(A,B,C\)</span> et des opérations élémentaires d’union, d’intersection et de complément.</div></div>
+<article class="task exercise-like" id="exo-opens-2-6-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<figure class="figure figure-like" id="exo-opens-2-6-2-1-1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/imgVenntoset1.svg" role="img" class="contained" alt="Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.18<span class="period">.</span></span><span class="space"> </span>Le diagramme de Venn d’un ensemble</figcaption></figure><div class="solutions"><details id="exo-opens-2-6-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\((A\cup C)\cap(A\cap C)^c=(A\cap C^c)\cup (A^c\cap C)\text{.}\)</span></div></details></div></article><article class="task exercise-like" id="exo-opens-2-6-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<figure class="figure figure-like" id="exo-opens-2-6-3-1-1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="generated/sageplot/imgVenntoset2.svg" role="img" class="contained" alt="Un diagramme de Venn à trois ensembles dans lequel C est ombragé, sauf la partie commune avec uniquement A ."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.19<span class="period">.</span></span><span class="space"> </span>Le diagramme de Venn d’un ensemble</figcaption></figure><div class="solutions"><details id="exo-opens-2-6-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\((C\cap B)\cup(C\cap A^c) \text{.}\)</span></div></details></div></article></article><article class="exercise exercise-like" id="exo-diffsym"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-diffsym-1"><div class="para" id="exo-diffsym-1-1">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> deux ensembles quelconques. On définit la différence symétrique de <span class="process-math">\(A\)</span> et <span class="process-math">\(B\text{,}\)</span> note <span class="process-math">\(A\oplus B\)</span> <details class="ptx-footnote" aria-live="polite" id="exo-diffsym-1-1-6"><summary class="ptx-footnote__number" title="Note de bas de page 1.2.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="exo-diffsym-1-1-6"><div class="para" id="exo-diffsym-1-1-6-1">En effet, l’utilisation du symbole d’addition ne semble pas compatible avec le nom.</div></div></details>, comme l’ensemble des éléments qui sont dans <span class="process-math">\(A\)</span> ou <span class="process-math">\(B\text{,}\)</span> mais pas les deux.</div></div>
+<article class="task exercise-like" id="exo-diffsym-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-diffsym-2-1-1">Donner la différence symétrique des ensembles <span class="process-math">\(A,B\)</span> de l’exercice <a href="sec-opens.html#exo-ens1" class="xref" data-knowl="./knowl/xref/exo-ens1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 1.2.4.1">1.2.4.1</a>.</div>
+<div class="solutions"><details id="exo-diffsym-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(\{1,2,4,5,6,9\}\)</span></div></details></div></article><article class="task exercise-like" id="exo-Venndiffsym"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-Venndiffsym-1-1">Sur un diagramme de Venn comme celui de la figure <a href="sec-opens.html#fig-Vennvide" class="xref" data-knowl="./knowl/xref/fig-Vennvide.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 1.2.16">1.2.16</a>, illustrer l’ensemble <span class="process-math">\(A\oplus B\text{.}\)</span>
+</div> </article><article class="task exercise-like" id="exo-diffsymprop1"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-diffsymprop1-1-1">Sans faire une preuve complète (pour l’instant), expliquer intuitivement pourquoi <span class="process-math">\(A\oplus B=B\oplus A\)</span><details class="ptx-footnote" aria-live="polite" id="exo-diffsymprop1-1-1-2"><summary class="ptx-footnote__number" title="Note de bas de page 1.2.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="exo-diffsymprop1-1-1-2"><div class="para" id="exo-diffsymprop1-1-1-2-1">Finalement, c’est peut-être le nom « différence » qui est mal choisi, pas le symbole <span class="process-math">\(\oplus\text{.}\)</span>
+</div></div></details>.</div>
+<div class="solutions"><details id="exo-diffsymprop1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="exo-diffsymprop1-2-1">Car de dire qu’un élément est dans <span class="process-math">\(A\)</span> ou <span class="process-math">\(B\)</span> est équivalent à dire qu’un élément est dans <span class="process-math">\(B\)</span> ou <span class="process-math">\(A\text{.}\)</span>
+</div> <div class="para" id="exo-diffsymprop1-2-2">De même, de dire qu’un élément est dans <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> est équivalent à dire qu’un élément est dans <span class="process-math">\(B\)</span> et <span class="process-math">\(A\text{.}\)</span>
+</div>
+</div></details></div></article><article class="task exercise-like" id="exo-diffsymprop2"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-diffsymprop2-1-1">Sans faire une preuve complète (pour l’instant), expliquer intuitivement pourquoi <span class="process-math">\((A\oplus B)\oplus B=A\)</span>
+</div>
+<div class="solutions">
+<details id="exo-diffsymprop2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-diffsymprop2-2-1">Il peut être utile de revoir le diagramme de Venn de la partie <a href="sec-opens.html#exo-Venndiffsym" class="xref" data-knowl="./knowl/xref/exo-Venndiffsym.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 1.2.4.5.b">1.2.4.5.b</a>.</div></div></details><details id="exo-diffsymprop2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="exo-diffsymprop2-3-1">L’union de <span class="process-math">\(A \oplus B \)</span> avec <span class="process-math">\(B\)</span> est <span class="process-math">\(A\cup B\text{,}\)</span> alors que l’intersection de <span class="process-math">\(A \oplus B \)</span> avec <span class="process-math">\(B\)</span> est <span class="process-math">\(B-A\text{.}\)</span>
+</div> <div class="para" id="exo-diffsymprop2-3-2">Ainsi, <span class="process-math">\((A\oplus B)\oplus B\)</span> est l’ensemble contenant les éléments de <span class="process-math">\(A\cup B\text{,}\)</span> sans les élément de <span class="process-math">\(B - A\text{.}\)</span>
+</div>
+</div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-opens-2-8"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-2-8-1"><div class="para" id="exo-opens-2-8-1-1">Dans cet exercice, on s’intéresse à la cardinalité de l’union de deux ensembles.</div></div>
+<article class="task exercise-like" id="exo-opens-2-8-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-opens-2-8-2-1-1">Donner deux ensembles <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> tels que <span class="process-math">\(|A|=4,|B|=3\)</span> et <span class="process-math">\(|A\cup B|=7\text{.}\)</span> Que vaut <span class="process-math">\(|A\cap B|\text{?}\)</span>
+</div>
+<div class="solutions"><details id="exo-opens-2-8-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Il y a une infinité de solutions. L’une d’elle est <span class="process-math">\(A=\{1,2,3,4\}\)</span> et <span class="process-math">\(B=\{5,6,7\}\text{.}\)</span> On a alors <span class="process-math">\(|A\cap B|=0\text{.}\)</span> Ceci est vrai pour toutes les solutions.</div></details></div></article><article class="task exercise-like" id="exo-opens-2-8-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-opens-2-8-3-1-1">Donner deux ensembles <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> tels que <span class="process-math">\(|A|=4,|B|=3\)</span> et <span class="process-math">\(|A\cup B|=5\text{.}\)</span> Que vaut <span class="process-math">\(|A\cap B|\text{?}\)</span>
+</div>
+<div class="solutions"><details id="exo-opens-2-8-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Il y a une infinité de solutions. L’une d’elle est <span class="process-math">\(A=\{1,2,3,4\}\)</span> et <span class="process-math">\(B=\{3,4,5\}\text{.}\)</span> On a alors <span class="process-math">\(|A\cap B|=2\text{.}\)</span> Ceci est vrai pour toutes les solutions.</div></details></div></article><article class="task exercise-like" id="exo-opens-2-8-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-opens-2-8-4-1-1">Si <span class="process-math">\(A=\{a,b,c\}\)</span> et que <span class="process-math">\(|B|=6\text{,}\)</span> quelles sont les valeurs possibles pour <span class="process-math">\(|A\cup B|\text{?}\)</span> Donner des exemples d’ensembles <span class="process-math">\(B_1,B_2\)</span> tel que <span class="process-math">\(|A\cup B_1|\)</span> est égale à la plus petite valeur possible et <span class="process-math">\(|A\cup B_2|\)</span> est égale à la plus grande valeur possible.</div>
+<div class="solutions"><details id="exo-opens-2-8-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">Les cas possibles pour <span class="process-math">\(|A\cup B|\)</span> sont <span class="process-math">\(6,7,8,9\text{.}\)</span> On peut prendre <span class="process-math">\(B_1=\{a,b,c,d,e,f\}\)</span> et <span class="process-math">\(B_2=\{1,2,3,4,5,6\}\text{.}\)</span>
+</div></details></div></article><article class="task exercise-like" id="exo-opens-2-8-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-opens-2-8-5-1-1">Pour chaque cas de la partie précédente, que vaut <span class="process-math">\(|A\cap B|\text{?}\)</span>
+</div>
+<details id="exo-opens-2-8-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exo-opens-2-8-5-2-1">
+<div class="para">On a:</div>
+<div class="displaymath process-math" id="exo-opens-2-8-5-2-1-1">
+\begin{align*}
+\text{Si } |A\cup B|= 6 \amp \text{, alors } |A\cap B|= 3;\\
+\text{Si } |A\cup B|= 7 \amp \text{, alors } |A\cap B|= 2;\\
+\text{Si } |A\cup B|= 8 \amp \text{, alors } |A\cap B|= 1;\\
+\text{Si } |A\cup B|= 9 \amp \text{, alors } |A\cap B|= 0;
+\end{align*}
+</div>
+</div></div></details></article></article><article class="exercise exercise-like" id="exo-incexc"><h5 class="heading">
+<span class="codenumber">7<span class="period">.</span></span><span class="space"> </span><span class="title">Le principe d’inclusion-exclusion.</span>
+</h5>
+<div class="para logical" id="exo-incexc-2-1">
+<div class="para">Soit <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> deux ensembles. Donner un argument justifiant le fait que</div>
+<div class="displaymath process-math">
+\begin{equation*}
+|A\cup B|=|A|+|B|-|A\cap B|\text{.}
+\end{equation*}
+</div>
+</div>
+<div class="solutions"><details id="exo-incexc-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Lorsque calcul <span class="process-math">\(|A|+|B|\text{,}\)</span> on compte les éléments de <span class="process-math">\(|A\cap B|\)</span> deux fois (une fois dans la valeur de <span class="process-math">\(|A|\)</span> et une fois dans la valeur de <span class="process-math">\(|B|\)</span>). On doit donc soustraire <span class="process-math">\(|A\cap B|\)</span> à <span class="process-math">\(|A|+|B|\text{.}\)</span> pour obtenir</div></details></div></article><article class="exercise exercise-like" id="exo-opens-2-10"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
+<div class="para" id="exo-opens-2-10-1-1">Au Cégep Gérald-Godin à l’automne <span class="process-math">\(2021\text{,}\)</span> il y a présentement <span class="process-math">\(25\)</span> étudiants inscrits en mathématiques discrètes et <span class="process-math">\(36\)</span> étudiants inscrits en chimie générale. De plus, <span class="process-math">\(14\)</span> étudiants suivent les deux cours. Combien d’étudiants sont inscrits dans au moins l’un de ces cours?</div>
+<div class="solutions"><details id="exo-opens-2-10-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Par le principe d’inclusion-exclusion, le nombre d’étudiants inscrits dans au moins l’un des cours est <span class="process-math">\(25+36-14=47\text{.}\)</span>
+</div></details></div></article><article class="exercise exercise-like" id="exo-opens-2-11"><h5 class="heading"><span class="codenumber">9<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-2-11-1"><div class="para" id="exo-opens-2-11-1-1">On s’intéresse aux propriétés de <a href="sec-opens.html#li-opensdis" class="xref" data-knowl="./knowl/xref/li-opensdis.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:8">distributivité</a> et à leur justification. On s’inspire des démonstrations de la proposition <a href="sec-opens.html#prop-opensass" class="xref" data-knowl="./knowl/xref/prop-opensass.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 1.2.14: L’union et l’intersection ont la propriété d’associativité">1.2.14</a>.</div></div>
+<article class="task exercise-like" id="exo-opens-2-11-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-opens-2-11-2-1-1">À l’aide d’une table d’appartenance, démontrer que <span class="process-math">\(A\cup (B\cap C)=(A\cup B)\cap (A\cup C)\text{.}\)</span>
+</div>
+<div class="solutions"><details id="exo-opens-2-11-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><figure class="table table-like" id="exo-opens-2-11-2-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.20<span class="period">.</span></span><span class="space"> </span>Table d’appartenance pour <span class="process-math">\(A\cup(B\cap C)=(A\cup B)\cap (A\cup C)\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(C\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(B\cap C\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A \cup (B\cap C)\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\cup B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\cup C\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\((A\cup B)\cap (A\cup C)\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+</tr>
+<tr>
+<td class="c m b3 r0 l0 t0 lines">non</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-opens-2-11-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-opens-2-11-3-1-1">À l’aide d’un argument d’inclusion, démontrer que <span class="process-math">\(A\cap (B\cup C)=(A\cap B)\cup (A\cap C)\text{.}\)</span>
+</div>
+<div class="solutions"><details id="exo-opens-2-11-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exo-opens-2-11-3-2-1">On commence par montrer que <span class="process-math">\(A\cap (B\cup C) \subseteq (A\cap B)\cup(A\cap C)\text{.}\)</span> On considère un élément <span class="process-math">\(x \in A\cap (B\cup C)\text{.}\)</span> Ainsi, par la définition de l’intersection, <span class="process-math">\(x\in A\)</span> et <span class="process-math">\(x \in (B\cup C)\text{.}\)</span> Par la définition de l’union, on a que <span class="process-math">\(x\in B\)</span> ou <span class="process-math">\(x\in C\text{.}\)</span>
+</div> <div class="para" id="exo-opens-2-11-3-2-2">Si <span class="process-math">\(x \in B\text{,}\)</span> alors <span class="process-math">\(x \in (A\cap B)\text{.}\)</span> Si <span class="process-math">\(x \in C\text{,}\)</span> alors <span class="process-math">\(x \in (A\cap C)\text{.}\)</span> Par ce qui précède, <span class="process-math">\(x \in (A\cap B)\cup(A\cap C)\text{.}\)</span> On a donc montré que <span class="process-math">\(A\cap (B\cup C) \subseteq (A\cap B)\cup(A\cap C)\text{.}\)</span>
+</div> <div class="para" id="exo-opens-2-11-3-2-3">On montre ensuite que <span class="process-math">\((A\cap B)\cup(A\cap C) \subseteq A\cap (B\cup C)\text{.}\)</span> On considère un élément <span class="process-math">\(x \in (A\cap B)\cup(A\cap C)\text{.}\)</span> Ainsi, par la définition de l’union, <span class="process-math">\(x\in (A\cap B)\)</span> ou <span class="process-math">\(x \in(A\cap C)\text{.}\)</span> Dans les deux cas, par la définition de l’intersection, on a que <span class="process-math">\(x \in A\text{.}\)</span>
+</div> <div class="para" id="exo-opens-2-11-3-2-4">Si <span class="process-math">\(x \in (A\cap B)\text{,}\)</span> alors <span class="process-math">\(x \in B\text{,}\)</span> et  donc <span class="process-math">\(x \in (B\cup C)\text{.}\)</span> Si <span class="process-math">\(x \in(A\cap C)\text{,}\)</span> alors <span class="process-math">\(x \in C\)</span> et donc <span class="process-math">\(x \in (B\cup C)\text{.}\)</span>  Dans les deux cas, on a <span class="process-math">\(x \in A\cap(B\cup C)\text{.}\)</span> On a donc montré que <span class="process-math">\((A\cap B)\cup(A\cap C) \subseteq A\cap (B\cup C) \text{.}\)</span>
+</div> <div class="para" id="exo-opens-2-11-3-2-5">Puisque qu’on a montré que <span class="process-math">\(A\cap (B\cup C) \subseteq (A\cap B)\cup(A\cap C)\)</span> et <span class="process-math">\((A\cap B)\cup(A\cap C) \subseteq A\cap (B\cup C)\text{,}\)</span> on a que <span class="process-math">\(A\cap (B\cup C) = (A\cap B)\cup(A\cap C)\text{.}\)</span>
+</div>
+</div></details></div></article></article><article class="exercise exercise-like" id="exo-opens-2-12"><h5 class="heading"><span class="codenumber">10<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-2-12-1"><div class="para" id="exo-opens-2-12-1-1">Soit <span class="process-math">\(A,B\)</span> et <span class="process-math">\(C\)</span> de ensembles. En utilisant des arguments d’inclusion, démontrer les relations suivantes:</div></div>
+<article class="task exercise-like" id="exo-opens-2-12-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-opens-2-12-2-1-1"><span class="process-math">\((A-B)-C\subseteq A-C\)</span></div>
+<div class="solutions"><details id="exo-opens-2-12-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">Si <span class="process-math">\(a\in (A-B)-C\text{,}\)</span> alors <span class="process-math">\(a \in (A-B)\text{,}\)</span> mais <span class="process-math">\(a \notin C\text{.}\)</span> Puisque <span class="process-math">\(a\in A-B\text{,}\)</span> alors <span class="process-math">\(a\in A\text{.}\)</span> Ainsi, <span class="process-math">\(a\in A\text{,}\)</span> mais <span class="process-math">\(a\notin C\text{.}\)</span> Par définition, <span class="process-math">\(a\in A-C\text{.}\)</span>
+</div></details></div></article><article class="task exercise-like" id="exo-opens-2-12-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-opens-2-12-3-1-1"><span class="process-math">\((A-C)\cap (C-B)=\emptyset\)</span></div>
+<div class="solutions"><details id="exo-opens-2-12-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exo-opens-2-12-3-2-1">On sait que <span class="process-math">\(\emptyset \subseteq (A-C)\cap (C-B)\text{.}\)</span>
+</div> <div class="para" id="exo-opens-2-12-3-2-2">Soit <span class="process-math">\(x \in (A-C)\cap (C-B)\text{,}\)</span> alors <span class="process-math">\(x\in A-C\)</span> et <span class="process-math">\(x\in C-B\text{.}\)</span> Puisque <span class="process-math">\(x\in A-C\text{,}\)</span> alors <span class="process-math">\(x\notin C\text{,}\)</span> mais puisque <span class="process-math">\(x\in C-B\text{,}\)</span> alors <span class="process-math">\(x\in C\text{.}\)</span> Puisque <span class="process-math">\(x\)</span> ne peut pas être à la fois un élément de <span class="process-math">\(C\)</span> et ne pas être un élément de <span class="process-math">\(C\text{,}\)</span> un tel <span class="process-math">\(x\)</span> ne peut pas exister.</div> <div class="para" id="exo-opens-2-12-3-2-3">Par ce qui précède, on a que <span class="process-math">\((A-C)\cap (C-B)\subseteq \emptyset\text{,}\)</span> et donc <span class="process-math">\((A-C)\cap (C-B)=\emptyset\text{.}\)</span>
+</div>
+</div></details></div></article><article class="task exercise-like" id="exo-opens-2-12-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-opens-2-12-4-1-1"><span class="process-math">\((A-B)\cup (C-B)=(A\cup C)-B\)</span></div>
+<div class="solutions"><details id="exo-opens-2-12-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exo-opens-2-12-4-2-1">Si <span class="process-math">\(a\in\ (A - B) \cup (C - B)\text{,}\)</span> alors <span class="process-math">\(a\in\ A-B\)</span> ou <span class="process-math">\(a\in\ C-B\text{.}\)</span> Si <span class="process-math">\(a\in\ A-B\text{,}\)</span> alors <span class="process-math">\(a\in\ A\)</span> et <span class="process-math">\(a\notin\ B\text{.}\)</span> Ainsi, <span class="process-math">\(a\in\ A\cup C\text{,}\)</span> et donc <span class="process-math">\(a\in\ (A\cup C)-B\text{.}\)</span> De la même manière, si <span class="process-math">\(a\in\ C-B\text{,}\)</span> on peut montrer que <span class="process-math">\(a\in\ (A\cup C)-B\text{,}\)</span> d’où <span class="process-math">\((A-B)\cup (C-B) \subseteq (A\cup C)-B\text{.}\)</span>
+</div> <div class="para" id="exo-opens-2-12-4-2-2">Si <span class="process-math">\(a\in\ (A\cup C)-B\text{,}\)</span> alors <span class="process-math">\(a\in\ (A\cup C)\)</span> et <span class="process-math">\(a\notin\ B\text{.}\)</span> Ainsi, <span class="process-math">\(a\in\ A\)</span> ou <span class="process-math">\(a\in\ C\text{.}\)</span> Si <span class="process-math">\(a\in\ A\text{,}\)</span> alors <span class="process-math">\(a\in (A-B)\text{.}\)</span> Si <span class="process-math">\(a\in\ C\text{,}\)</span> alors <span class="process-math">\(a\in\ C-B\text{.}\)</span> Dans les deux cas, on a <span class="process-math">\(a\in\ (A-B)\cup (C-B)\text{,}\)</span> d’où <span class="process-math">\((A\cup C)-B\subseteq (A-B)\cup (C-B)\text{.}\)</span>
+</div> <div class="para" id="exo-opens-2-12-4-2-3">Par ce qui précède, on a <span class="process-math">\((A-B)\cup (C-B) = (A\cup C)-B\)</span>
+</div>
+</div></details></div></article></article><article class="exercise exercise-like" id="exo-opens-2-13"><h5 class="heading"><span class="codenumber">11<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-2-13-1"><div class="para" id="exo-opens-2-13-1-1">Deux ensembles <span class="process-math">\(A\)</span> et <span class="process-math">\(B\)</span> sont donnés. Que peut-on dire sur leur relation si:</div></div>
+<article class="task exercise-like" id="exo-opens-2-13-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-opens-2-13-2-1-1"><span class="process-math">\(A\cup B=A\text{?}\)</span></div>
+<div class="solutions">
+<details id="exo-opens-2-13-2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">Considérer un élément <span class="process-math">\(b\in B\text{.}\)</span> Utiliser l’égaliter pour conclure que <span class="process-math">\(b \in A\text{.}\)</span>
+</div></details><details id="exo-opens-2-13-2-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(B\subseteq A\)</span></div></details>
+</div></article><article class="task exercise-like" id="exo-opens-2-13-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-opens-2-13-3-1-1"><span class="process-math">\(A\cap B=A\text{?}\)</span></div>
+<div class="solutions">
+<details id="exo-opens-2-13-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">Considérer un élément <span class="process-math">\(a \in A\text{.}\)</span> Utiliser l’égalité pour montrer que <span class="process-math">\(a\in B\text{.}\)</span>
+</div></details><details id="exo-opens-2-13-3-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(A \subseteq B\)</span></div></details>
+</div></article><article class="task exercise-like" id="exo-opens-2-13-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-opens-2-13-4-1-1"><span class="process-math">\(A- B=A\text{?}\)</span></div>
+<div class="solutions">
+<details id="exo-opens-2-13-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">Considérer un élément <span class="process-math">\(x \in A\cap B\text{.}\)</span> Utiliser l’égalité pour montrer que <span class="process-math">\(x \notin B.\)</span> Conclure que l’élément <span class="process-math">\(x \in A\cap B\)</span> ne peut pas exister.</div></details><details id="exo-opens-2-13-4-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(A\cap B = \emptyset\)</span></div></details>
+</div></article><article class="task exercise-like" id="exo-opens-2-13-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-opens-2-13-5-1-1"><span class="process-math">\(A- B=B-A\text{?}\)</span></div>
+<div class="solutions">
+<details id="exo-opens-2-13-5-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">
+<div class="para" id="exo-opens-2-13-5-2-1">Montrer d’abord que <span class="process-math">\(A\subseteq B\text{.}\)</span> Ceci est équivalent à montrer que <span class="process-math">\(A-B=\emptyset\text{.}\)</span> Considérer un élément <span class="process-math">\(a \in A-B\text{,}\)</span> et utiliser l’égalité pour montrer que <span class="process-math">\(a \notin A\text{.}\)</span> Conclure qu’un tel élément ne peut pas exister, et donc que <span class="process-math">\(A-B=\emptyset\text{.}\)</span>
+</div> <div class="para" id="exo-opens-2-13-5-2-2">Utiliser un argument similaire pour montrer que <span class="process-math">\(B\subseteq A\)</span>
+</div>
+</div></details><details id="exo-opens-2-13-5-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(A=B\text{.}\)</span></div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-opens-2-14"><h5 class="heading"><span class="codenumber">12<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-2-14-1"><div class="para" id="exo-opens-2-14-1-1">Montrer à l’aide d’une table d’appartenance les identités</div></div>
+<article class="task exercise-like" id="exo-opens-2-14-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-opens-2-14-2-1-1"><span class="process-math">\(A\oplus B=(A\cup B)-(A\cap B)\)</span></div>
+<div class="solutions"><details id="exo-opens-2-14-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><figure class="table table-like" id="exo-opens-2-14-2-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.21<span class="period">.</span></span><span class="space"> </span>Table d’appartenance pour <span class="process-math">\(A\oplus B=(A\cup B)-(A\cap B)\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\oplus B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\cup B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\cap B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\((A\cup B)- (A\cap B)\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+</tr>
+<tr>
+<td class="c m b3 r0 l0 t0 lines">non</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">non</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-opens-2-14-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-opens-2-14-3-1-1"><span class="process-math">\(A\oplus B=(A-B)\cup(B-A)\)</span></div>
+<div class="solutions"><details id="exo-opens-2-14-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><figure class="table table-like" id="exo-opens-2-14-3-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">1.2.22<span class="period">.</span></span><span class="space"> </span>Table d’appartenance pour <span class="process-math">\(A\oplus B=(A-B)\cup(B- A)\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A\oplus B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(A - B\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\(B- A\)</span></td>
+<td class="c m b2 r0 l0 t3 lines"><span class="process-math">\((A- B)\cup (B-A)\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">oui</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+<td class="c m b0 r0 l0 t0 lines">non</td>
+</tr>
+<tr>
+<td class="c m b3 r0 l0 t0 lines">non</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">non</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+<td class="c m b3 r0 l0 t0 lines">oui</td>
+</tr>
+</table></div></figure></div></details></div></article></article><article class="exercise exercise-like" id="exo-diffsymprop"><h5 class="heading"><span class="codenumber">13<span class="period">.</span></span></h5>
+<div class="para" id="exo-diffsymprop-1-1">Démontrer les identités des exercices <a href="sec-opens.html#exo-diffsymprop1" class="xref" data-knowl="./knowl/xref/exo-diffsymprop1.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 1.2.4.5.c">1.2.4.5.c</a> et <a href="sec-opens.html#exo-diffsymprop2" class="xref" data-knowl="./knowl/xref/exo-diffsymprop2.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 1.2.4.5.d">1.2.4.5.d</a>
+</div>
+<div class="solutions">
+<details id="exo-diffsymprop-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exo-diffsymprop-2-1">Soit <span class="process-math">\(a\in\ A\oplus B\text{,}\)</span> alors soit <span class="process-math">\(a\in\ A\)</span> et <span class="process-math">\(a\notin\ B\)</span> ou bien <span class="process-math">\(a\notin\ A\)</span> et <span class="process-math">\(a \in\ B\text{.}\)</span> Dans les deux cas, <span class="process-math">\(a\in\ B \oplus A\text{.}\)</span> Ainsi, <span class="process-math">\(A\oplus B \subseteq B \oplus A\text{.}\)</span>
+</div> <div class="para" id="exo-diffsymprop-2-2">De la même manière, on montre que <span class="process-math">\(B \oplus A \subseteq A\oplus B\text{.}\)</span> On conclut donc que <span class="process-math">\(A\oplus B=B\oplus A\text{.}\)</span>
+</div>
+</div></details><details id="exo-diffsymprop-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="exo-diffsymprop-3-1">D’une part, si <span class="process-math">\(a \in A\text{,}\)</span> alors soit <span class="process-math">\(a \in B\)</span> ou <span class="process-math">\(a \notin B\text{.}\)</span> Si <span class="process-math">\(a \in B\)</span> alors <span class="process-math">\(a \notin A \oplus B \text{.}\)</span> Ainsi <span class="process-math">\(a \in \left(A\oplus B\right)\oplus B\text{,}\)</span> car c’est un élément de <span class="process-math">\(B\text{,}\)</span> mais pas de <span class="process-math">\(A \oplus B\text{.}\)</span> Si <span class="process-math">\(a \notin B\text{,}\)</span> alors <span class="process-math">\(a\in A\oplus B\text{.}\)</span> Ainsi <span class="process-math">\(a \in \left(A\oplus B\right)\oplus B\text{,}\)</span> car c’est un élément de <span class="process-math">\(A\oplus B\text{,}\)</span> mais pas de <span class="process-math">\(B\text{.}\)</span> Ainsi, on a montré que <span class="process-math">\(A\subseteq (A\oplus B)\oplus B\text{.}\)</span>
+</div> <div class="para" id="exo-diffsymprop-3-2">D’autre part, si <span class="process-math">\(a \in \left(A\oplus B\right)\oplus B\text{,}\)</span> alors soit <span class="process-math">\(a \in A\oplus B\)</span> ou <span class="process-math">\(a\in B\text{,}\)</span> mais pas les deux en même temps. Si <span class="process-math">\(a\in A\oplus B\)</span> et <span class="process-math">\(a\notin B\text{,}\)</span> alors <span class="process-math">\(a\)</span> est un élément de <span class="process-math">\(A\)</span> ou de <span class="process-math">\(B\text{,}\)</span> mais on sait que <span class="process-math">\(a\notin B\text{,}\)</span> donc <span class="process-math">\(a\)</span> est un élément de <span class="process-math">\(A\text{.}\)</span> Si <span class="process-math">\(a \notin A\oplus B\)</span> et <span class="process-math">\(a \in B\text{,}\)</span> alors <span class="process-math">\(a\)</span> doit être un élément de <span class="process-math">\(A\text{.}\)</span> En effet, si on avait <span class="process-math">\(a \in B\)</span> et <span class="process-math">\(a \notin A\text{,}\)</span> on aurait <span class="process-math">\(a \in A\oplus B\text{,}\)</span> ce qui n’est pas le cas. Ainsi, on a montré que <span class="process-math">\((A\oplus B)\oplus B \subseteq A \text{.}\)</span>
+</div> <div class="para" id="exo-diffsymprop-3-3">Puisqu’on a montré que <span class="process-math">\(A\subseteq (A\oplus B)\oplus B\)</span> et que <span class="process-math">\((A\oplus B)\oplus B \subseteq A \text{,}\)</span> on a montrer que que <span class="process-math">\((A\oplus B)\oplus B = A \)</span>
+</div>
+</div></details>
+</div></article>
+</div>
+</div>
+<div class="exercisegroup" id="exo-opens-3">
+<h4 class="heading"><span class="title">Exercices supplémentaires.</span></h4>
+<div class="exercisegroup-exercises">
+<article class="exercise exercise-like" id="exo-opens-3-2"><h5 class="heading"><span class="codenumber">14<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-3-2-1"><div class="para" id="exo-opens-3-2-1-1">On considère <span class="process-math">\(S\)</span> l’ensemble des étudiants du programme Sciences informatique et mathématiques à Gérald-Godin et <span class="process-math">\(C\)</span> l’ensemble des étudiants de Gérald-Godin qui sont inscrits en calcul différentiel. Exprimer les ensembles suivants en fonction de <span class="process-math">\(S\)</span> et <span class="process-math">\(C\text{.}\)</span> Au besoin, considérer l’ensemble univers <span class="process-math">\(G\)</span> de tous les étudiants inscrits à Gérald-Godin.</div></div>
+<article class="task exercise-like" id="exo-opens-3-2-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-opens-3-2-2-1-1">Les étudiants de Sciences informatiques et mathématiques qui suivent le cours de calcul différentiel.</div></article><article class="task exercise-like" id="exo-opens-3-2-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-opens-3-2-3-1-1">Les étudiants du cours de calcul différentiel qui ne sont pas en Sciences informatiques et mathématiques.</div></article><article class="task exercise-like" id="exo-opens-3-2-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-opens-3-2-4-1-1">Les étudiants de Sciences informatiques et mathématiques ou inscrits dans le cours de calcul différentiel.</div></article><article class="task exercise-like" id="exo-opens-3-2-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="para" id="exo-opens-3-2-5-1-1">Les étudiants du cégep Gérald-Godin qui ne sont pas en calcul différentiel ni en Sciences informatiques et mathéamtiques.</div></article><article class="task exercise-like" id="exo-opens-3-2-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="para" id="exo-opens-3-2-6-1-1">Les étudiants de Sciences informatiques et mathématiques ou ceux qui suivent le cours de calcul différentiel, mais qui ne sont pas en Sciences informatiques et mathématiques.</div></article><div class="conclusion" id="exo-opens-3-2-7">Cet exercice peut paraître bidon, mais on peut imaginer un gestionnaire informatique d’une école qui doit gérer une liste de courriels. Peut-être qu’un message précis doit être communiqué à un ensemble spécifique de personnes. On veut alors être certain de ne pas oublier quelqu’un et en même temps, on ne veut pas envoyer le message à quelqu’un qui n’a pas à le recevoir.</div></article><article class="exercise exercise-like" id="exo-opens-3-3"><h5 class="heading"><span class="codenumber">15<span class="period">.</span></span></h5>
+<div class="para" id="exo-opens-3-3-1-1">Déterminer des ensembles <span class="process-math">\(A,B\)</span> tels que <span class="process-math">\(A-B=\{a,h,i\},B-A=\{c\}\)</span> et <span class="process-math">\(B\cap A=\{b,f,i\}\)</span> ou expliquer pourquoi c’est impossible. Dans le cas où c’est possible, est-ce que la réponse est unique?</div>
+<div class="solutions"><details id="exo-opens-3-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-opens-3-3-2-1">Faire un diagramme de Venn pour voir qu’une réponse unique existe.</div></div></details></div></article><article class="exercise exercise-like" id="exo-opens-3-4"><h5 class="heading"><span class="codenumber">16<span class="period">.</span></span></h5>
+<div class="para" id="exo-opens-3-4-1-1">Déterminer des ensembles <span class="process-math">\(A,B\)</span> tels que <span class="process-math">\(A-B=\{3,4,7,8\}\)</span> et <span class="process-math">\(B\cap A=\{b,f,i\}\)</span> ou expliquer pourquoi c’est impossible. Dans le cas où c’est possible, est-ce que la réponse est unique?</div></article><article class="exercise exercise-like" id="exo-opens-3-5"><h5 class="heading"><span class="codenumber">17<span class="period">.</span></span></h5>
+<div class="para" id="exo-opens-3-5-1-1">Déterminer des ensembles <span class="process-math">\(A,B\)</span> tels que <span class="process-math">\(A-B=\{rouge,vert,jaune\}\)</span> et <span class="process-math">\(B\cap A=\{jaune, mauve, orange\}\)</span> ou expliquer pourquoi c’est impossible. Dans le cas où c’est possible, est-ce que la réponse est unique?</div></article><article class="exercise exercise-like" id="exo-opens-3-6"><h5 class="heading"><span class="codenumber">18<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-3-6-1"><div class="para" id="exo-opens-3-6-1-1">On va donner les démonstrations des propriétés de la liste <a href="sec-opens.html#li-opensprop" class="xref" data-knowl="./knowl/xref/li-opensprop.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Liste 1.2.13: Propriétés des opérations sur les ensembles">1.2.13</a> qui n’ont pas été faites dans le texte .</div></div>
+<article class="task exercise-like" id="exo-opens-3-6-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="introduction" id="exo-opens-3-6-2-1"><div class="para" id="exo-opens-3-6-2-1-1">Démontrer les propriétés <a href="sec-opens.html#li-opensId" class="xref" data-knowl="./knowl/xref/li-opensId.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:1">d’identité</a>, à savoir</div></div>
+<article class="task exercise-like" id="exo-opens-3-6-2-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-3-6-2-2-1-1"><span class="process-math">\(A\cup \emptyset =A\)</span></div></article><article class="task exercise-like" id="exo-opens-3-6-2-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-3-6-2-3-1-1">et <span class="process-math">\(A\cap \Omega =A\text{.}\)</span>
+</div></article></article><article class="task exercise-like" id="exo-opens-3-6-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="introduction" id="exo-opens-3-6-3-1"><div class="para" id="exo-opens-3-6-3-1-1">Démontrer les propriétés <a href="sec-opens.html#li-opensid" class="xref" data-knowl="./knowl/xref/li-opensid.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:2">d’idempotence</a>, à savoir</div></div>
+<article class="task exercise-like" id="exo-opens-3-6-3-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-3-6-3-2-1-1"><span class="process-math">\(A\cup A =A\)</span></div></article><article class="task exercise-like" id="exo-opens-3-6-3-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-3-6-3-3-1-1">et <span class="process-math">\(A\cap A =A\text{.}\)</span>
+</div></article></article><article class="task exercise-like" id="exo-opens-3-6-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="introduction" id="exo-opens-3-6-4-1"><div class="para" id="exo-opens-3-6-4-1-1">Démontrer les propriétés de <a href="sec-opens.html#li-opensdom" class="xref" data-knowl="./knowl/xref/li-opensdom.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:3">domination</a>, à savoir</div></div>
+<article class="task exercise-like" id="exo-opens-3-6-4-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-3-6-4-2-1-1"><span class="process-math">\(A\cup \Omega =\Omega\)</span></div></article><article class="task exercise-like" id="exo-opens-3-6-4-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-3-6-4-3-1-1">et <span class="process-math">\(A\cap \emptyset =\emptyset\text{.}\)</span>
+</div></article></article><article class="task exercise-like" id="exo-opens-3-6-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="introduction" id="exo-opens-3-6-5-1"><div class="para" id="exo-opens-3-6-5-1-1">Démontrer les propriétés de <a href="sec-opens.html#li-openscomp" class="xref" data-knowl="./knowl/xref/li-openscomp.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:4">complémentarité et complétude</a>, à savoir que</div></div>
+<article class="task exercise-like" id="exo-opens-3-6-5-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-3-6-5-2-1-1"><span class="process-math">\((A^c)^c=A\text{,}\)</span></div></article><article class="task exercise-like" id="exo-opens-3-6-5-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-3-6-5-3-1-1"><span class="process-math">\(A\cap A^c=\Omega\)</span></div></article><article class="task exercise-like" id="exo-opens-3-6-5-4"><h6 class="heading"><span class="codenumber">(iii)</span></h6>
+<div class="para" id="exo-opens-3-6-5-4-1-1">et <span class="process-math">\(A\cap A^c=\emptyset\)</span>
+</div></article></article><article class="task exercise-like" id="exo-opens-3-6-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="introduction" id="exo-opens-3-6-6-1"><div class="para" id="exo-opens-3-6-6-1-1">Démontrer les propriétés <a href="sec-opens.html#li-opensabs" class="xref" data-knowl="./knowl/xref/li-opensabs.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:5">d’absorption</a>, à savoir</div></div>
+<article class="task exercise-like" id="exo-opens-3-6-6-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-3-6-6-2-1-1"><span class="process-math">\(A\cup (A\cap B) =A\)</span></div></article><article class="task exercise-like" id="exo-opens-3-6-6-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-3-6-6-3-1-1">et <span class="process-math">\(A\cap (A\cup B) =A\text{.}\)</span>
+</div></article></article><article class="task exercise-like" id="exo-opens-3-6-7"><h6 class="heading"><span class="codenumber">(f)</span></h6>
+<div class="introduction" id="exo-opens-3-6-7-1"><div class="para" id="exo-opens-3-6-7-1-1">Démontrer les propriétés de <a href="sec-opens.html#li-openscom" class="xref" data-knowl="./knowl/xref/li-openscom.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:6">commutativité</a>, à savoir</div></div>
+<article class="task exercise-like" id="exo-opens-3-6-7-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-3-6-7-2-1-1"><span class="process-math">\(A\cup B =B\cup A\)</span></div></article><article class="task exercise-like" id="exo-opens-3-6-7-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-3-6-7-3-1-1">et <span class="process-math">\(A\cap B =B\cap A\text{.}\)</span>
+</div></article></article></article><article class="exercise exercise-like" id="exo-opens-3-7"><h5 class="heading"><span class="codenumber">19<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-opens-3-7-1"><div class="para" id="exo-opens-3-7-1-1">Soit <span class="process-math">\(A\subseteq \Omega\)</span> un ensemble arbitraire. Démontrer les propriétés suivantes:</div></div>
+<article class="task exercise-like" id="exo-opens-3-7-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-opens-3-7-2-1-1"><span class="process-math">\(A\oplus A=\emptyset\)</span></div></article><article class="task exercise-like" id="exo-Aoplusvide"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-Aoplusvide-1-1"><span class="process-math">\(A\oplus \emptyset=A\)</span></div></article><article class="task exercise-like" id="exo-opens-3-7-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="exo-opens-3-7-4-1-1"><span class="process-math">\(A\oplus \Omega=A^c\)</span></div></article></article><article class="exercise exercise-like" id="exo-opens-3-8"><h5 class="heading"><span class="codenumber">20<span class="period">.</span></span></h5>
+<div class="para" id="exo-opens-3-8-1-1">Dans l’exercice <a href="sec-opens.html#exo-Aoplusvide" class="xref" data-knowl="./knowl/xref/exo-Aoplusvide.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 1.2.4.19.b">1.2.4.19.b</a>, on a vu que <span class="process-math">\(A\oplus \emptyset =A\text{.}\)</span> Expliquer pourquoi si <span class="process-math">\(A\oplus B=A\text{,}\)</span> alors nécessairement on doit avoir <span class="process-math">\(B=\emptyset\text{.}\)</span>
+</div>
+<div class="solutions"><details id="exo-opens-3-8-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-opens-3-8-2-1">Il peut être utile de considérer les quatre <a href="sec-ens.html#exo-ABconfrel" class="xref" data-knowl="./knowl/xref/exo-ABconfrel.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 1.1.5.5">configuations relatives</a> que peuvent prendre deux ensembles.</div></div></details></div></article><article class="exercise exercise-like" id="exo-opens-3-9"><h5 class="heading"><span class="codenumber">21<span class="period">.</span></span></h5>
+<div class="para logical" id="exo-opens-3-9-1-1">
+<div class="para">On sait que l’union est une opération <a href="sec-opens.html#li-opensass" class="xref" data-knowl="./knowl/xref/li-opensass.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:7">associative</a>. Est-ce le cas pour la différence symétrique, c’est-à-dire est-ce que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/li-opensass.html">
+\begin{equation*}
+A\oplus(B\oplus C)=(A\oplus B)\oplus C\text{?}
+\end{equation*}
+</div>
+</div></article><article class="exercise exercise-like" id="exo-opens-3-10"><h5 class="heading">
+<span class="codenumber">22<span class="period">.</span></span><span class="space"> </span><span class="title">L’union et l’intersection généralisée.</span>
+</h5>
+<div class="introduction" id="exo-opens-3-10-2"><div class="para logical" id="exo-opens-3-10-2-1">
+<div class="para">Les opérations d’union et d’intersection sont des opérations binaires, qui demandent deux ensembles qui agissent à titre d’opérandes. Parce qu’elle sont associatives, on peut généraliser ces opérations à plus de deux ensembles, possiblement même une infinité. Ainsi, si <span class="process-math">\(A_0,A_1,A_2,\ldots , A_n\)</span> sont des ensembles, on note</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_0\cup A_1\cup A_2\cup \cdots \cup A_n=\bigcup_{i=0}^n A_i
+\end{equation*}
+</div>
+<div class="para">l’union de ces <span class="process-math">\(n\)</span> ensembles et par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_0\cap A_1\cap A_2\cap \cdots \cap A_n=\bigcap_{i=0}^n A_i
+\end{equation*}
+</div>
+<div class="para">leur intersection. La lettre <span class="process-math">\(i\)</span> est appelée  l’indice d’union (ou d’intersection). On aurait pu commencer à <span class="process-math">\(1\)</span> ou à n’importe quel autre entier.</div>
+</div></div>
+<article class="task exercise-like" id="exo-opens-3-10-3"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="introduction" id="exo-opens-3-10-3-1"><div class="para" id="exo-opens-3-10-3-1-1">Soit <span class="process-math">\(A_{i}=\{n\in N~|~ n\leq i\}\)</span> défini pour tout <span class="process-math">\(i\in \N\text{.}\)</span> Déterminer quel est l’ensemble</div></div>
+<article class="task exercise-like" id="exo-opens-3-10-3-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-3-10-3-2-1-1"><span class="process-math">\(\displaystyle\bigcup_{i=0}^N A_i\text{;}\)</span></div></article><article class="task exercise-like" id="exo-opens-3-10-3-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-3-10-3-3-1-1"><span class="process-math">\(\displaystyle\bigcap_{i=0}^N A_i\text{.}\)</span></div></article></article><article class="task exercise-like" id="exo-opens-3-10-4"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="introduction" id="exo-opens-3-10-4-1"><div class="para" id="exo-opens-3-10-4-1-1">Soit <span class="process-math">\(B_{i}=\{n\in N~|~ n\geq i\}\)</span> défini pour tout <span class="process-math">\(i\in \N\text{.}\)</span> Déterminer quel est l’ensemble</div></div>
+<article class="task exercise-like" id="exo-opens-3-10-4-2"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<div class="para" id="exo-opens-3-10-4-2-1-1"><span class="process-math">\(\displaystyle\bigcup_{i=0}^N B_i\text{;}\)</span></div></article><article class="task exercise-like" id="exo-opens-3-10-4-3"><h6 class="heading"><span class="codenumber">(ii)</span></h6>
+<div class="para" id="exo-opens-3-10-4-3-1-1"><span class="process-math">\(\displaystyle\bigcap_{i=0}^N B_i\text{.}\)</span></div></article></article></article>
+</div>
+</div></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-ens.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-fonctions.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png"></a>
+</div>
+</body>
+</html>

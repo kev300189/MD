@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">2.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">L’implication, sans flèche.</span>
+</h4>
+<div class="para">On considère la proposition <span class="process-math">\(p\rightarrow q\text{.}\)</span> On veut la réécrire en n’utilisant que des symboles parmi <span class="process-math">\(\neg,\vee, \wedge\text{.}\)</span> Pour cela, on s’inspire de sa négation obtenue à l’exercice <a href="sec-logprop.html#exo-negimplication" class="xref" data-knowl="./knowl/xref/exo-negimplication.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 2.1.5.7">2.1.5.7</a>.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">Selon l’exercice <a href="sec-logprop.html#exo-negimplication" class="xref" data-knowl="./knowl/xref/exo-negimplication.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 2.1.5.7">2.1.5.7</a>, il est possible d’écrire</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-negimplication.html ./knowl/xref/exo-negimplication.html ./knowl/xref/li-oplogDeMorgan.html ./knowl/xref/li-oplogcomp.html">
+\begin{equation*}
+\neg (p\rightarrow q)\equiv p\wedge \neg q\text{.}
+\end{equation*}
+</div>
+<div class="para">Si on nie à nouveau cette équivalence, on devrait pouvoir réécrire l’implication sans flèche. Ainsi</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-negimplication.html ./knowl/xref/exo-negimplication.html ./knowl/xref/li-oplogDeMorgan.html ./knowl/xref/li-oplogcomp.html">
+\begin{align*}
+p\rightarrow q&amp;\equiv\neg \neg (p\rightarrow q) \\
+&amp;\equiv\neg (p\wedge \neg q) &amp;&amp; \text{Selon } \knowl{./knowl/xref/exo-negimplication.html}{\text{2.1.5.7}}\\
+&amp;\equiv \neg p \vee \neg\neg q &amp;&amp; \text{Selon De Morgan } \knowl{./knowl/xref/li-oplogDeMorgan.html}{\text{2.2.5:9}} \\
+&amp;\equiv \neg p \vee q &amp;&amp; \text{Selon } \knowl{./knowl/xref/li-oplogcomp.html}{\text{2.2.5:4}}\text{.}
+\end{align*}
+</div>
+</div> <div class="para">On peut donc dire que <span class="process-math">\(p\rightarrow q\equiv \neg p\vee q\text{.}\)</span>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-eqlogfnc.html#ex-implicationsansfleche">Contexte</a></span>
+</body>
+</html>

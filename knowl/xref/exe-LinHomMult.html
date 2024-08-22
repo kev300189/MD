@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">6.1.21</span><span class="period">.</span><span class="space"> </span><span class="title">Équations caractéristiques à une seule racine.</span>
+</h4>
+<div class="para">Trouver l’unique racine <span class="process-math">\(r_1\)</span> à l’Équation caractéristique de la relation de récurrence <span class="process-math">\(a_n=6a_{n-1}-9a_{n-2}\)</span>
+</div> <div class="para">Vérifier que si <span class="process-math">\(a_n=nr_1^n,\)</span> alors la suite <span class="process-math">\(\{a_n\}\)</span> satisfait à la relation de récurrence.</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">L’équation caractéristique est donnée par <span class="process-math">\(0=r^2-6r+9=(r-3)^2.\)</span> Ainsi, l’unique solution à cette équation est <span class="process-math">\(r_1=3.\)</span> Par définition, on a alors que</div>
+<div class="displaymath process-math">
+\begin{equation}
+r_1^{n}=6r_1^{n-1} -9 r_1^{n-2}.\tag{6.1.3}
+\end{equation}
+</div>
+<div class="para">On peut le vérifier en remplaçant <span class="process-math">\(r_1\)</span> par <span class="process-math">\(3,\)</span> c’est-à-dire en vérifiant que</div>
+<div class="displaymath process-math">
+\begin{equation}
+3^{n}=6(3)^{n-1} -9 (3)^{n-2}.\tag{6.1.4}
+\end{equation}
+</div>
+</div> <div class="para">Pour vérifier que <span class="process-math">\(a_n=n(3)^n\)</span> satisfait à la relation de récurrence, on doit vérifier que <span class="process-math">\(n3^n=6(n-1)3^{n-1}-9(n-2)3^{n-2}\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">Or, on a que</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/eq-caract.html">
+\begin{align*}
+6(n-1)3^{n-1}-9(n-2)3^{n-2}\amp= 6n(3)^{n-1}-6(3)^{n-1}-9n(3)^{n-2} +2\cdot 9(3)^{n-2} \\
+\amp= \left(6n(3)^{n-1}-9n(3)^{n-2}\right)+ \left( -6(3)^{n-1} +2\cdot 9(3)^{n-2} \right)\\
+\amp= n\left(6(3)^{n-1}-9(3)^{n-2}\right)+ \left( -6\cdot 3(3)^{n-2} +2\cdot 9(3)^{n-2} \right)\\
+\amp= n\left(3^n\right)+ \left( 0 \right) \text{ par } \knowl{./knowl/xref/eq-caract.html}{\text{(6.1.4)}} \\
+\amp= n3^n=a_n.
+\end{align*}
+</div>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-relRecLinHom.html#exe-LinHomMult">Contexte</a></span>
+</body>
+</html>

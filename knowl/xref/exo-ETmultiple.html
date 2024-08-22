@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">1<span class="period">.</span></span>
+</h5>
+<div class="introduction"><div class="para">Dans cet exercice, on constate qu’il est parfois possible de combiner deux portes en une seule de même nature.</div></div>
+<article class="task exercise-like"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para">Vérifier que les deux circuits suivants sont équivalents.</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like"><img src="external/multiET1.svg" class="contained" alt="Une circuit à trois entrée dans lequel les entrées X et Y sont combinées dans une porte ET pour ensuite être combinées avec Z dans une autre porte ET."><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.19<span class="period">.</span></span><span class="space"> </span>Le premier circuit</figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like"><img src="external/multiET2.svg" class="contained" alt="Une circuit à trois entrée dans lequel l’entrée X est combinée dans une porte ET avec la combinaison par une porte ET des entrées Y et Z"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.20<span class="period">.</span></span><span class="space"> </span>Le second circuit</figcaption></figure></div>
+</div></div> <div class="para">Comment justifier cela avec les notions de la section <a href="sec-eqlogfnc.html" class="internal" title="Section 2.2: Équivalence logique et formes normales">2.2</a>?</div>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para">Une première méthode est de construire la table de vérité des deux circuits, et comparer la valeur des sorties. Ceci revient à faire la démonstration de l’associativité du <span class="process-math">\(\wedge \text{.}\)</span>
+</div> <div class="para">Une autre méthode est d’utiliser les propositions logiques associées aux circuits. On utilise cette méthode.</div> <div class="para">La proposition logique associée au premier circuit est <span class="process-math">\((X\wedge Y)\wedge Z \text{,}\)</span> alors que la proposition associée au deuxième circuit est <span class="process-math">\(X\wedge (Y\wedge Z) \text{.}\)</span> En utilisant l’associativité du <span class="process-math">\(\wedge\text{,}\)</span> on sait que <span class="process-math">\((X\wedge Y)\wedge Z \equiv X\wedge (Y\wedge Z) \text{.}\)</span>
+</div> <div class="para">Puisque les deux propositions associées sont équivalentes, les circuits le sont également</div>
+</div></details></div></article><article class="task exercise-like"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para">Vérifier que le résultat est le même si on remplace les portes ET par des portes OU.</div>
+<div class="solutions"><details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para">Comme à la partie précédente, une première méthode est de construire la table de vérité des deux circuits, et comparer la valeur des sorties. Ceci revient à faire la démonstration de l’associativité du <span class="process-math">\(\vee \text{.}\)</span>
+</div> <div class="para">Une autre méthode est d’utiliser les propositions logiques associées aux circuits. On utilise encore une fois cette méthode.</div> <div class="para">La proposition logique associée au premier circuit est <span class="process-math">\((X\vee Y)\vee Z \text{,}\)</span> alors que la proposition associée au deuxième circuit est <span class="process-math">\(X\vee (Y\vee Z) \text{.}\)</span> En utilisant l’associativité du <span class="process-math">\(\vee\text{,}\)</span> on sait que <span class="process-math">\((X\vee Y)\vee Z \equiv X\vee (Y\vee Z) \text{.}\)</span>
+</div> <div class="para">Puisque les deux propositions associées sont équivalentes, les circuits le sont également</div>
+</div></details></div></article><div class="conclusion">
+<div class="para">Puisque les circuits sont équivalents, on utilisera parfois une porte ET ou une porte OU à plus de deux entrées pour alléger les diagrammes. Un exemple d’une porte ET à trois entrées est illustré ci-dessous.</div> <figure class="figure figure-like"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/multiET3.svg" class="contained" alt="Une circuit à trois entrée dans les entrées X,Y et Z sont combinées dans une unique porte ET."></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.4.21<span class="period">.</span></span><span class="space"> </span>Une porte ET à trois entrées</figcaption></figure>
+</div></article><span class="incontext"><a class="internal" href="sec-circuits.html#exo-ETmultiple">Contexte</a></span>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">11<span class="period">.</span></span>
+</h5>
+<div class="para">Dans la section <a href="sec-opens.html" class="internal" title="Section 1.2: Opérations sur les ensembles">1.2</a>, on a donné deux moyens pour démontrer l’égalité de deux ensembles, soit avec une table d’appartenance ou avec un argument de double inclusion. On démontre ci-dessous la deuxième <a href="sec-opens.html#li-opensDeMorgan" class="xref" data-knowl="./knowl/xref/li-opensDeMorgan.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:9">loi de De Morgan</a> à l’aide d’une troisième méthode, utilisant la logique.</div> <div class="para logical">
+<div class="para">On veut montrer que <span class="process-math">\((A\cup B)^c=A^c\cap B^c\text{.}\)</span> Par définition, on a <span class="process-math">\(A\cup B=\{c~|~ c\in A\vee c\in B\}\text{.}\)</span> D’un point de vue de la logique, le complément représente la négation. On a alors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-negdisj.html">
+\begin{align*}
+(A\cup B)^c&amp;=\{c~|~\neg ( c\in A\vee c\in B)\}\\
+&amp;=\{c~|~\neg (c\in A)\wedge \neg( c\in B)\} &amp; &amp; \text{Selon } \knowl{./knowl/xref/exo-negdisj.html}{\text{2.1.5.6}}\\
+&amp;=\{c~|~c\notin A\wedge c\notin B)\}&amp; &amp; \text{négation de la relation d'appartenance}\\
+&amp;=A^c\cap B^c &amp;&amp; \text{définition de l'intersection}
+\end{align*}
+</div>
+</div> <div class="para">Démontrer la première <a href="sec-opens.html#li-opensDeMorgan" class="xref" data-knowl="./knowl/xref/li-opensDeMorgan.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 1.2.13:9">loi de De Morgan</a> avec cette méthode.</div></article><span class="incontext"><a class="internal" href="sec-logprop.html#exo-egenslog">Contexte</a></span>
+</body>
+</html>

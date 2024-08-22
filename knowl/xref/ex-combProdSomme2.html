@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.1.17</span><span class="period">.</span><span class="space"> </span><span class="title">Nombre de mots de passe.</span>
+</h4>Un site internet vous demande de choisir un mot de passe lors de la création de votre compte. Ce mot de passe doit être formé de <span class="process-math">\(6,\ 7\text{ ou }8\)</span> caractères alphanumériques. De plus, chaque mot de passe doit contenir au moins un chiffre. Combien de mots de passe possible y a-t-il?<div class="solutions">
+<details class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(2\ 684\ 483\ 063\ 360\)</span></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On note <span class="process-math">\(P\)</span> le nombre de mots de passe total, et <span class="process-math">\(P_i\)</span> le nombre de mots de passe à <span class="process-math">\(i\)</span> caractères, pour <span class="process-math">\(i\in\ \{6,\ 7,\ 8\}\text{.}\)</span> Par le principe de la somme, on a <span class="process-math">\(P=P_6+P_7+P_8\text{.}\)</span>
+</div> <div class="para">Pour calculer <span class="process-math">\(P_6\text{,}\)</span> on compte tous les mots de passe à <span class="process-math">\(6\)</span> caractères. Par la suite, on lui soustrait le nombre de mots de passe à <span class="process-math">\(6\)</span> caractères qui ne contiennent pas de chiffres. En effet, par le principe de la somme <span class="process-math">\(\text{Mots de passe à }6\text{ caractères }=\text{Mots de passe à }6\text{ caractères sans chiffre}+\text{Mots de passe à }6\text{ caractères avec chiffres}\text{,}\)</span> et donc <span class="process-math">\(\text{Mots de passe à }6\text{ caractères avec chiffres}=\text{Mots de passe à }6\text{ caractères }-\text{Mots de passe à }6\text{ caractères sans chiffres}\text{.}\)</span>
+</div> <div class="para">Par le principe du produit, il y a <span class="process-math">\(36^6\)</span> chaîne de <span class="process-math">\(6\)</span> caractères alphanumériques. De plus, <span class="process-math">\(26^6\)</span> de ces chaînes ne contiennent que des lettres, c’est-à-dire ne contiennent pas de chiffres. Ainsi, par l’argument donné au paragraphe précédent, <span class="process-math">\(P_6=36^6-26^6=2\ 176\ 782\ 336-308\ 915\ 776=1\ 867\ 866\ 560\text{.}\)</span> On utilise le même argument pour <span class="process-math">\(P_7\)</span> et <span class="process-math">\(P_8\text{.}\)</span>
+</div> <div class="para">Pour <span class="process-math">\(P_7\text{,}\)</span> on obtient <span class="process-math">\(P_7=36^7-26^7= 70\ 332\ 353\ 920 - 78\ 364\ 164\ 096 = 8\ 031\ 810\ 176\)</span>
+</div> <div class="para">Pour <span class="process-math">\(P_8\text{,}\)</span> on obtient <span class="process-math">\(P_8=36^8-26^8= 2\ 821\ 109\ 907\ 456 - 208\ 827\ 064\ 576 =2\ 612\ 282\ 842\ 880\)</span>
+</div> <div class="para">Ainsi, on a <span class="process-math">\(P = P_6+P_7+P_8=2\ 684\ 483\ 063\ 360\text{.}\)</span>
+</div>
+</div></details>
+</div></article><span class="incontext"><a class="internal" href="sec_prodSomme.html#ex-combProdSomme2">Contexte</a></span>
+</body>
+</html>
