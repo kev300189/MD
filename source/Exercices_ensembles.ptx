@@ -49,7 +49,7 @@
    <task>
   <statement><p><m>\{\frac{a}{b}~|~ a,b\in \{-5,2,10\}\}</m>;</p></statement>
   <solution>
-   <p>On a <m>B=\{\frac{a}{b}~|~ a,b,\in\{ -5,2,10\} \}= \{1,\frac{-5}{2},\frac{-1}{2},\frac{-2}{5},\frac{1}{5},-2,5\}</m>. Ainsi,  <m>-2\in B </m> et <m>5\in B</m>.</p>
+   <p>On a <m>B=\{\frac{a}{b}~|~ a,b\in\{ -5,2,10\} \}= \{1,\frac{-5}{2},\frac{-1}{2},\frac{-2}{5},\frac{1}{5},-2,5\}</m>. Ainsi,  <m>-2\in B </m> et <m>5\in B</m>.</p>
   </solution>
   </task>
    <task>
