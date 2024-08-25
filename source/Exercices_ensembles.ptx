@@ -90,8 +90,108 @@
   </solution>
   </exercise>
 
-  <exercise><statement><p>Donner le diagramme de Venn correspondant aux ensembles suivants : <m>\Omega=\{1,2,3,4,5,6\},A=\{1,3,5\},B=\{3,4,5,6\}</m>.</p></statement></exercise>
-  <exercise xml:id="exo-ABconfrel"><statement ><p>Soit <m>A,B\subseteq\Omega</m> deux ensembles quelconques non vides. Dessiner toutes les configurations relatives possibles que peuvent avoir <m>A</m> et <m>B</m> dans un diagramme de Venn (en supposant que si un sous-ensemble est vide, il est absent). </p></statement></exercise>
+  <exercise>
+    <statement><p>Donner le diagramme de Venn correspondant aux ensembles suivants : <m>\Omega=\{1,2,3,4,5,6\},A=\{1,3,5\},B=\{3,4,5,6\}</m>.</p></statement>
+    <answer>
+      <p>
+        <figure xml:id="fig-VennExo">
+          <caption>Un diagramme de Venn des ensembles <m>\Omega</m>, <m>A</m> et <m>B</m>.</caption>
+          <image xml:id="img-VennExo"><description>
+          Le diagramme de Venn des ensembles Omega, A et B est illustré.
+          </description>
+          <sageplot>
+      O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")+text("$2$",(0,3),color="black")
+      A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")+text("$1$",(-2,0),color="black")+text("$3$",(0,1),color="black")+text("$5$",(0,-1),color="black")
+      B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")+text("$4$",(2,1),color="black")+text("$6$",(2,-1),color="black")
+      O+A+B
+          </sageplot></image>
+          </figure>
+      </p>
+    </answer>
+  </exercise>
+  <exercise xml:id="exo-ABconfrel">
+    <statement ><p>Soit <m>A,B\subseteq\Omega</m> deux ensembles quelconques non vides. Dessiner toutes les configurations relatives possibles que peuvent avoir <m>A</m> et <m>B</m> dans un diagramme de Venn (en supposant que si un sous-ensemble est vide, il est absent). </p></statement>
+    <answer>
+    <figure xml:id="fig-VennConfigurations">
+      <caption>Différentes configurations de <m>A</m> et <m>B</m>.</caption>
+      <p><sidebyside width="40%">
+      <image xml:id="img-confABVide">
+      <description>Le diagramme de Venn si <m>A=B=\emptyset</m> est illustré.</description>
+      <sageplot>
+  O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+  T=text(r"$A = B = \emptyset $",(0,3),color="black")
+  O+T    
+      </sageplot>
+      </image>
+      <image xml:id="img-confBVide">
+      <description>Le diagramme de Venn si <m>B=\emptyset</m> est illustré.</description>
+      <sageplot>
+  O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+  A=circle((0,0),2,color="blue")+text("$A$",(-0.25,2.25),color="blue")
+  T=text(r"$B=\emptyset$",(0,3),color="black")
+  O+A+T    
+      </sageplot>
+      </image>
+      </sidebyside></p>
+      <p><sidebyside width="40%">
+        <image xml:id="img-confAvide">
+        <description>Le diagramme de Venn si <m>A=\emptyset</m> est illustré.</description>
+        <sageplot>
+    O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+    B=circle((0,0),2,color="red")+text("$B$",(0.25,2.25),color="red")
+    T=text(r"$A=\emptyset$",(0,3),color="black")
+    O+B+T    
+        </sageplot>
+        </image>
+        <image xml:id="img-confAIntBVide">
+        <description>Le diagramme de Venn si <m>A\cap B=\emptyset</m> est illustré.</description>
+        <sageplot>
+    O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+    A=circle((-1.5,0),1,color="blue")+text("$A$",(-2,1.25),color="blue")
+    B=circle((1.5,0),1,color="red")+text("$B$",(2,1.25),color="red")
+    T=text(r"$A\cap B=\emptyset$",(0,3),color="black")
+    O+A+B+T    
+        </sageplot>
+        </image>
+      </sidebyside></p>
+      <p><sidebyside width="40%">
+      <image xml:id="img-confTrad">
+      <description>Le diagramme de Venn de base est illustré.</description>
+      <sageplot>
+  O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+  A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+  B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+  T=text(r"$A\cap B \neq \emptyset$",(0,3),color="black")
+  O+A+B+T    
+      </sageplot>
+      </image>
+      <image xml:id="img-confAsubB">
+      <description>Le diagramme de Venn lorsque <m>A\subseteq B</m> est illustré.</description>
+      <sageplot>
+  O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+  A=circle((0,0),1,color="blue")+text("$A$",(-1,1),color="blue")
+  B=circle((0,0),2,color="red")+text("$B$",(0.25,2.25),color="red")
+  T=text(r"$A\subseteq B$",(0,3),color="black")
+  O+A+B+T    
+      </sageplot>
+      </image>
+      </sidebyside></p>
+          <p><sidebyside width="40%">
+            <image xml:id="img-confBsubA">
+            <description>Le diagramme de Venn lorsque <m>B\subseteq A</m>  est illustré.
+            </description>
+            <sageplot>
+        O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+        A=circle((0,0),2,color="blue")+text("$A$",(-0.25,2.25),color="blue")
+        B=circle((0,0),1,color="red")+text("$B$",(0.25,1.25),color="red")
+        T=text(r"$B\subseteq A$",(0,3),color="black")
+        O+A+B+T    
+            </sageplot>
+            </image>
+            </sidebyside></p>
+      </figure>
+    </answer>
+  </exercise>
   <exercise>
   <statement><p>Donner <m>\mathscr{P}(A)</m> si <m>A=\{a,3,\Delta\}</m>.</p></statement>
   <answer>
@@ -105,8 +205,8 @@
   <task xml:id="exo-ensdansens2"><statement><p><m>\Bigl\{\{a,b\},\{a\}\Bigr\}</m></p></statement><answer><m>\Bigl|\Bigl\{\{a,b\},\{a\}\Bigr\}\Bigr|=2</m></answer></task>
   <task><statement><p><m>\emptyset</m></p></statement><answer><m>|\emptyset|=0</m></answer></task>
   <task><statement><p><m>\{\emptyset\}</m></p></statement><answer><m>|\{\emptyset\}|=1</m></answer></task>
-  <task xml:id="exo-ensvide1"><statement><p><m>\Bigl\{\{\emptyset,\emptyset\}\Bigr\}</m></p></statement> <answer><m>\Bigl|\Bigl\{\{\emptyset,\emptyset\}\Bigr\}\Bigr|=1</m></answer> </task>
-  <task xml:id="exo-ensvide2"><statement><p><m>\{\emptyset,\{\emptyset\}\}</m></p></statement><answer><m>\Bigl|\Bigl\{\emptyset,\{\emptyset\}\Bigr\}\Bigr|=2</m>
+  <task xml:id="exo-ensvide1"><statement><p><m>\Bigl\{\{\emptyset,\emptyset\}\Bigr\}</m></p></statement> <answer><m>\Biggl|\Bigl\{\{\emptyset,\emptyset\}\Bigr\}\Biggr|=1</m></answer> </task>
+  <task xml:id="exo-ensvide2"><statement><p><m>\Bigl\{\emptyset,\{\emptyset\}\Bigr\}</m></p></statement><answer><m>\Biggl|\Bigl\{\emptyset,\{\emptyset\}\Bigr\}\Biggr|=2</m>
 </answer></task>
   </exercise>
    <exercise xml:id="exo-Russel">
@@ -117,9 +217,8 @@
     <answer><p>Non, <m>X</m> n'est pas bien défini. </p></answer>
     </exercise>
 
-  <exercise><statement><p>Exprimer en mots la différence entre les ensembles des exercices <xref ref="exo-ensdansens1"/> et <xref ref="exo-ensdansens2"/>.</p></statement><answer>L'ensemble <m>\{\{a,b\},a\}</m> contient l'élément <m>a</m>, alors que l'ensemble <m>\{\{a,b\},\{a\}\}</m> contient l'élément <m>\{a\}</m>.</answer></exercise>
-  <exercise><statement><p>Exprimer pourquoi la cardinalité des ensembles des exercices <xref ref="exo-ensvide1"/> et <xref ref="exo-ensvide2"/> est différente.</p></statement><answer>Car l'ensemble <m>\{\{\emptyset,\emptyset\}\}</m> ne contient qu'un seul élément, c'est-à-dire <m>\{\emptyset,\emptyset\}</m>.
-</answer></exercise>
+  <exercise><statement><p>Exprimer en mots la différence entre les ensembles des exercices <xref ref="exo-ensdansens1"/> et <xref ref="exo-ensdansens2"/>.</p></statement><answer>Les deux ensemlbes ont une cardinalité de deux. L'un de leurs éléments, l'élément <m>\{a,b\}</m>, est un élément en commun. Par contre, le deuxième élément est différent. En effet, l'ensemble <m>\Bigl\{\{a,b\},a\Bigr\}</m> contient l'élément <m>a</m>, alors que l'ensemble <m>\Bigl\{\{a,b\},\{a\}\Bigr\}</m> contient l'élément <m>\{a\}</m>, c'est-à-dire l'ensemble contenant <m>a</m>.</answer></exercise>
+  <exercise><statement><p>Exprimer pourquoi la cardinalité des ensembles des exercices <xref ref="exo-ensvide1"/> et <xref ref="exo-ensvide2"/> est différente.</p></statement><answer>Car l'ensemble <m>\Bigl\{\{\emptyset,\emptyset\}\Bigr\}</m> ne contient qu'un seul élément, c'est-à-dire <m>\{\emptyset,\emptyset\}</m>. De l'autre côté, l'ensemble <m>\Bigl\{\emptyset,\{\emptyset\}\Bigr\}</m> contient deux éléments, l'élément <m>\emptyset</m> ainsi que l'élément <m>\{\emptyset\}</m>.</answer></exercise>
     </subexercises>
     <!--<subexercises>
     <title>Exercices supplémentaires</title>
