@@ -93,13 +93,70 @@ O+A+B+C
     </figure> <p>Sur des diagrammes de Venn comme celui de la figure <xref ref="fig-Venn3vide"/>, illustrer les ensembles suivants:</p>
    
     </introduction>
-    <task><statement><p><m>A\cup (B\cap C)</m></p></statement></task>
-    <task><statement><p><m>(A\cup B)\cap C</m></p></statement></task>
+    <task>
+      <statement><p><m>A\cup (B\cap C)</m></p></statement>
+      <answer>
+        <p>
+          <figure>
+            <caption>Le diagramme de Venn d'un ensemble</caption>
+            <image xml:id="imgVennInterUnion">
+            <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+            <sageplot>
+        O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+        A=plot(sqrt(4-(x+1)^2),(x,-2,1),fill=-sqrt(4-(x+1)^2))+plot(sqrt(4-(x+1)^2),(x,-3,-2),fill=0)+plot(-sqrt(4-(x+1)^2),(x,-3,-2),fill=0)+circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+        B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+        C=plot(sqrt(4-(x)^2)-2,(x,-1,2),color="forestgreen",fill=-sqrt(4-(x-1)^2))+plot(-sqrt(4-(x)^2)-2,(x,1,2),color="forestgreen")+circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+        O+A+B+C
+            </sageplot>
+            </image>
+            </figure>
+        </p>
+      </answer>
+    </task>
+    <task>
+      <statement><p><m>(A\cup B)\cap C</m></p></statement>
+      <answer>
+        <p>
+          <figure>
+            <caption>Le diagramme de Venn d'un ensemble</caption>
+            <image xml:id="imgVennUnionInter">
+            <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+            <sageplot>
+        O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+        A=plot(-sqrt(4-(x+1)^2),(x,-2,1),fill=sqrt(4-(x)^2)-2)+circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+        B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+        C=plot(sqrt(4-(x)^2)-2,(x,-1,2),color="forestgreen",fill=-sqrt(4-(x-1)^2))+plot(-sqrt(4-(x)^2)-2,(x,1,2),color="forestgreen")+circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+        O+A+B+C
+            </sageplot>
+            </image>
+            </figure>
+        </p>
+      </answer>
+    </task>
     </task>
     <task><statement><p>Expliquer pourquoi, à partir du résultat de la partie précédente, il n'est pas nécessaire de montrer que <m>A\cap(B\cup C)\neq (A\cap B)\cup C</m>.</p></statement><hint><p>Interchanger les rôles de <m>A</m> et <m>C</m> et utiliser la <xref ref="li-openscom" text="custom">commutativité</xref>.</p></hint></task>
     </exercise>
     <exercise><introduction><p>Sur un diagramme de Venn comme celui de la figure <xref ref="fig-Venn3vide"/>, illustrer les ensembles suivants.</p></introduction>
-    <task><statement><p><m>A^c\cap B\cap C</m></p></statement></task>
+    <task>
+      <statement><p><m>A^c\cap B\cap C</m></p></statement>
+      <answer>
+        <p>
+          <figure>
+            <caption>Le diagramme de Venn d'un ensemble</caption>
+            <image xml:id="imgVennInterC">
+            <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+            <sageplot>
+        O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+        A=plot(-sqrt(4-(x+1)^2),(x,-2,1),fill=sqrt(4-(x)^2)-2)+circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+        B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+        C=plot(sqrt(4-(x)^2)-2,(x,-1,2),color="forestgreen",fill=-sqrt(4-(x-1)^2))+plot(-sqrt(4-(x)^2)-2,(x,1,2),color="forestgreen")+circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+        O+A+B+C
+            </sageplot>
+            </image>
+            </figure>
+        </p>
+      </answer>
+    </task>
     <task><statement><p><m>A^c\cap B^c\cap C</m></p></statement></task>
     <task><statement><p><m>A^c\cap B^c\cap C^c</m></p></statement></task>
     <task><introduction><p>Utiliser les parties précédentes et un argument de symétrie pour illustrer:</p></introduction>
@@ -203,7 +260,7 @@ O+A+B
     |A\cup B|=|A|+|B|-|A\cap B|
     </me>.</p></statement>
     <solution>
-    Lorsque calcul <m>|A|+|B|</m>, on compte les éléments de <m>|A\cap B|</m> deux fois (une fois dans la valeur de <m>|A|</m> et une fois dans la valeur de <m>|B|</m>). On doit donc soustraire <m>|A\cap B|</m> à <m>|A|+|B|</m>. pour obtenir 
+    Lorsqu'on calcul <m>|A|+|B|</m>, on compte les éléments de <m>|A\cap B|</m> deux fois (une fois dans la valeur de <m>|A|</m> et une fois dans la valeur de <m>|B|</m>). On doit donc soustraire <m>|A\cap B|</m> à <m>|A|+|B|</m>. pour obtenir 
     </solution>
     </exercise>
 
@@ -460,6 +517,7 @@ O+A+B
     </row>
   </tabular>
 </table>
+<p> Puisque la colonne de l'expression <m> A\cup (B\cap C)</m> est la même que celle de l'expressions <m>(A\cup B)\cap (A\cup C)</m>, on a bien que <m>A\cup (B\cap C)=(A\cup B)\cap (A\cup C)</m></p>
     </solution>
     </task>
     <task>
@@ -740,7 +798,7 @@ O+A+B
     <exercise xml:id="exo-diffsymprop">
     <statement><p>Démontrer les identités des exercices <xref ref="exo-diffsymprop1"/> et <xref ref="exo-diffsymprop2"/></p></statement>
     <solution>
-    <p>Soit <m>a\in\ A\oplus B</m>, alors soit <m>a\in\ A</m> et <m>a\notin\ B</m> ou bien <m>a\notin\ A</m> et <m>a \in\ B</m>. Dans les deux cas, <m>a\in\ B \oplus A</m>. Ainsi, <m>A\oplus B \subseteq B \oplus A</m>. </p>
+    <p>On considère <m>a\in\ A\oplus B</m>. Par la définition de <m>\oplus</m>, il y a deux cas possibles. Soit <m>a\in\ A</m> et <m>a\notin\ B</m> ou bien <m>a\notin\ A</m> et <m>a \in\ B</m>. Dans les deux cas, <m>a\in\ B \oplus A</m>. Ainsi, <m>A\oplus B \subseteq B \oplus A</m>. </p>
     <p>De la même manière, on montre que <m>B \oplus A \subseteq A\oplus B</m>. On conclut donc que <m>A\oplus B=B\oplus A</m>.</p>
     </solution>
     <solution>
