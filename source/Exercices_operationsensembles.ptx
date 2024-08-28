@@ -98,7 +98,7 @@ O+A+B+C
       <answer>
         <p>
           <figure>
-            <caption>Le diagramme de Venn d'un ensemble</caption>
+            <caption>Le diagramme de Venn de <m>A\cup (B\cap C)</m></caption>
             <image xml:id="imgVennInterUnion">
             <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
             <sageplot>
@@ -118,7 +118,7 @@ O+A+B+C
       <answer>
         <p>
           <figure>
-            <caption>Le diagramme de Venn d'un ensemble</caption>
+            <caption>Le diagramme de Venn de <m>(A\cup B)\cap C</m></caption>
             <image xml:id="imgVennUnionInter">
             <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
             <sageplot>
@@ -142,14 +142,14 @@ O+A+B+C
       <answer>
         <p>
           <figure>
-            <caption>Le diagramme de Venn d'un ensemble</caption>
+            <caption>Le diagramme de Venn de <m>A^c\cap B\cap C</m></caption>
             <image xml:id="imgVennInterC">
             <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
             <sageplot>
         O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
-        A=plot(-sqrt(4-(x+1)^2),(x,-2,1),fill=sqrt(4-(x)^2)-2)+circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
-        B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
-        C=plot(sqrt(4-(x)^2)-2,(x,-1,2),color="forestgreen",fill=-sqrt(4-(x-1)^2))+plot(-sqrt(4-(x)^2)-2,(x,1,2),color="forestgreen")+circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+        A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+        B=plot(-sqrt(4-(x-1)^2),(x,0,1),fill=-sqrt(4-(x+1)^2),color="red")+plot(-sqrt(4-(x-1)^2),(x,1,2),fill=sqrt(4-(x)^2)-2,color="red")+circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+        C=circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
         O+A+B+C
             </sageplot>
             </image>
@@ -157,11 +157,120 @@ O+A+B+C
         </p>
       </answer>
     </task>
-    <task><statement><p><m>A^c\cap B^c\cap C</m></p></statement></task>
-    <task><statement><p><m>A^c\cap B^c\cap C^c</m></p></statement></task>
+    <task>
+      <statement><p><m>A^c\cap B^c\cap C</m></p></statement>
+      <answer>
+      <figure>
+        <caption>Le diagramme de Venn de <m>A^c\cap B^c\cap C</m></caption>
+        <image xml:id="imgVennInterCC">
+        <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+        <sageplot>
+    O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+    A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+    B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+    C=plot(-sqrt(4-(x)^2)-2,(x,-2,0),color="forestgreen",fill=-sqrt(4-(x+1)^2))+plot(-sqrt(4-(x)^2)-2,(x,0,2),color="forestgreen",fill=-sqrt(4-(x-1)^2))+circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+    O+A+B+C
+        </sageplot>
+        </image>
+        </figure>
+      </answer>  
+    </task>
+    <task>
+      <statement><p><m>A^c\cap B^c\cap C^c</m></p></statement>
+      <answer>
+        <figure>
+          <caption>Le diagramme de Venn de <m>A^c\cap B^c\cap C^c</m></caption>
+          <image xml:id="imgVennInterCCC">
+          <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+          <sageplot>
+      O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+      A=plot(-6,(x,-3,-2),color="black",fill=-sqrt(4-(x+1)^2))+plot(4,(x,-5,-3),color="black",fill=0)+plot(4,(x,-3,0),color="black",fill=sqrt(4-(x+1)^2))+circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+      B=plot(-6,(x,2,3),color="black",fill=-sqrt(4-(x-1)^2))+plot(4,(x,3,5),color="black",fill=0)+plot(4,(x,0,3),color="black",fill=sqrt(4-(x-1)^2))+circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+      C=plot(-6,(x,-5,-3),color="black",fill=0)+plot(-6,(x,-2,2),color="black",fill=-sqrt(4-(x)^2)-2)+plot(-6,(x,3,5),color="black",fill=0)+circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+      O+A+B+C
+          </sageplot>
+          </image>
+          </figure>
+        </answer>
+    
+    </task>
     <task><introduction><p>Utiliser les parties précédentes et un argument de symétrie pour illustrer:</p></introduction>
-    <task><statement> <p><m>A\cap B^c\cap C</m></p> et <m>A\cap B\cap C^c</m>.</statement></task>
-    <task><statement> <p><m>A^c\cap B\cap C^c</m></p> et <m>A\cap B^c\cap C^c</m>.</statement></task>
+    <task>
+      <statement> <p><m>A\cap B^c\cap C</m> et <m>A\cap B\cap C^c</m>.</p></statement>
+      <solution>
+        <p>
+          Ici, on remarque qu ces expressions sont les mêmes que l'expression <m>A^c\cap B\cap C</m> si on intervertit l'ensemble <m>A</m> avec l'ensemble <m>B</m> ou <m>C</m>. Ainsi, on peut obtenir les diagrammes de Venn en inversant les lettres.
+        </p>
+        <p>
+          <figure>
+            <caption>Le diagramme de Venn de <m>A\cap B^c\cap C</m></caption>
+            <image xml:id="imgVennInterBComp">
+            <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+            <sageplot>
+        O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+        B=circle((-1,0),2,color="red")+text("$B$",(-2,2),color="red")
+        A=plot(-sqrt(4-(x-1)^2),(x,0,1),fill=-sqrt(4-(x+1)^2),color="blue")+plot(-sqrt(4-(x-1)^2),(x,1,2),fill=sqrt(4-(x)^2)-2,color="blue")+circle((1,0),2,color="blue")+text("$A$",(2,2),color="blue")
+        C=circle((0,-2),2,color="forestgreen")+text("$C$",(-0.5,-4.2),color="forestgreen")
+        O+A+B+C
+            </sageplot>
+            </image>
+            </figure>
+        </p>
+        <p>
+          <figure>
+            <caption>Le diagramme de Venn de <m>A\cap B\cap C^c</m></caption>
+            <image xml:id="imgVennInterCComp">
+            <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+            <sageplot>
+        O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+        C=circle((-1,0),2,color="forestgreen")+text("$C$",(-2,2),color="forestgreen")
+        B=plot(-sqrt(4-(x-1)^2),(x,0,1),fill=-sqrt(4-(x+1)^2),color="red")+plot(-sqrt(4-(x-1)^2),(x,1,2),fill=sqrt(4-(x)^2)-2,color="red")+circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+        A=circle((0,-2),2,color="blue")+text("$A$",(-0.5,-4.2),color="blue")
+        O+A+B+C
+            </sageplot>
+            </image>
+            </figure>
+        </p>
+      </solution>
+    </task>
+    <task>
+      <statement> <p><m>A^c\cap B\cap C^c</m> et <m>A\cap B^c\cap C^c</m>.</p></statement>
+      <solution>
+        <p>
+          Encore une fois, on remarque qu ces expressions sont les mêmes que l'expression <m>A^c\cap B^c\cap C</m> si on intervertit l'ensemble <m>A</m> ou l'ensemble <m>B</m> avec l'ensemble <m>C</m>. Ainsi, on peut obtenir les diagrammes de Venn en inversant les lettres.
+        </p>
+        <p>
+          <figure>
+            <caption>Le diagramme de Venn de <m>A^c\cap B\cap C^c</m></caption>
+            <image xml:id="imgVennInterACComp">
+            <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+            <sageplot>
+              O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+              A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+              C=circle((1,0),2,color="forestgreen")+text("$C$",(2,2),color="forestgreen")
+              B=plot(-sqrt(4-(x)^2)-2,(x,-2,0),color="red",fill=-sqrt(4-(x+1)^2))+plot(-sqrt(4-(x)^2)-2,(x,0,2),color="red",fill=-sqrt(4-(x-1)^2))+circle((0,-2),2,color="red")+text("$B$",(-0.5,-4.2),color="red")
+              O+A+B+C
+                  </sageplot>
+            </image>
+            </figure>
+        </p>
+        <p>
+          <figure>
+            <caption>Le diagramme de Venn de <m>A\cap B^c\cap C^c</m></caption>
+            <image xml:id="imgVennInterBCC">
+            <description>Un diagramme de Venn à trois ensembles dans lequel A et C sont ombragés, sauf pour leur intersection.</description>
+            <sageplot>
+              O=polygon2d([(-5,-6),(-5,4),(5,4),(5,-6)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-4.8,3.8),color="black")
+              C=circle((-1,0),2,color="forestgreen")+text("$C$",(-2,2),color="forestgreen")
+              B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+              A=plot(-sqrt(4-(x)^2)-2,(x,-2,0),color="blue",fill=-sqrt(4-(x+1)^2))+plot(-sqrt(4-(x)^2)-2,(x,0,2),color="blue",fill=-sqrt(4-(x-1)^2))+circle((0,-2),2,color="blue")+text("$A$",(-0.5,-4.2),color="blue")
+              O+A+B+C
+                  </sageplot>
+            </image>
+            </figure>
+        </p>
+      </solution>
+    </task>
     </task>
 	    </exercise>
     <exercise><introduction><p>Pour chaque diagramme de Venn ci-dessous, décrire l'ensemble ombragée en fonction des ensembles <m>A,B,C</m> et des opérations élémentaires d'union, d'intersection et de complément.</p></introduction>
@@ -207,20 +316,23 @@ O+A+B+C
     <m>\{1,2,4,5,6,9\}</m>
     </answer>
 		    </task> 
-		    <task xml:id="exo-Venndiffsym"><statement><p>Sur un diagramme de Venn comme celui de la figure <xref ref="fig-Vennvide"/>, illustrer l'ensemble <m>A\oplus B</m>.</p> 
- <!-- IF PDF   <figure xml:id="fig-Vennvide">
-    <caption>Un diagramme de Venn vide</caption>
-    <image xml:id="img-Vennvide"><description>
-    Un diagramme de Venn contenant des ensembles A et B quelconques est illustré.
-    </description>
-    <sageplot>
-O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
-A=circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
-B=circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
-O+A+B
-    </sageplot></image>
-    </figure> -->
-     </statement></task>
+		    <task xml:id="exo-Venndiffsym">
+          <statement><p>Sur un diagramme de Venn comme celui de la figure <xref ref="fig-Vennvide"/>, illustrer l'ensemble <m>A\oplus B</m>.</p></statement>
+          <answer>
+            <p>
+              <figure xml:id="fig-VennAopluB">
+                <caption>Le diagramme de Venn de <m>A\oplus B</m></caption>
+                <image>
+                <sageplot>
+            O=polygon2d([(-4,-4),(-4,4),(4,4),(4,-4)],color="black",fill=False,axes=False)+text(r"$\Omega$",(-3.8,3.8),color="black")
+            A=plot(sqrt(4-(x+1)^2),(x,-3,-1),color="blue",fill=-sqrt(4-(x+1)^2))+plot(sqrt(4-(x+1)^2),(x,-1,0),color="blue",fill=sqrt(4-(x-1)^2))+plot(-sqrt(4-(x+1)^2),(x,-1,0),color="blue",fill=-sqrt(4-(x-1)^2))+circle((-1,0),2,color="blue")+text("$A$",(-2,2),color="blue")
+            B=plot(sqrt(4-(x-1)^2),(x,1,3),color="red",fill=-sqrt(4-(x-1)^2))+plot(sqrt(4-(x-1)^2),(x,0,1),color="red",fill=sqrt(4-(x+1)^2))+plot(-sqrt(4-(x-1)^2),(x,0,1),color="red",fill=-sqrt(4-(x+1)^2))+circle((1,0),2,color="red")+text("$B$",(2,2),color="red")
+            O+A+B
+                </sageplot></image>
+                </figure>
+            </p>
+          </answer>
+        </task>
     <task xml:id="exo-diffsymprop1">
 <statement><p>Sans faire une preuve complète (pour l'instant), expliquer intuitivement pourquoi <m>A\oplus B=B\oplus A</m><fn><p>Finalement, c'est peut-être le nom &#x00AB; différence &#x00BB; qui est mal choisi, pas le symbole <m>\oplus</m>.</p></fn>.</p></statement>
 <answer>
