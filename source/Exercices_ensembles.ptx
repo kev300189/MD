@@ -110,7 +110,7 @@
     </answer>
   </exercise>
   <exercise xml:id="exo-ABconfrel">
-    <statement ><p>Soit <m>A,B\subseteq\Omega</m> deux ensembles quelconques non vides. Dessiner toutes les configurations relatives possibles que peuvent avoir <m>A</m> et <m>B</m> dans un diagramme de Venn (en supposant que si un sous-ensemble est vide, il est absent). </p></statement>
+    <statement ><p>Soit <m>A,B\subseteq\Omega</m> deux ensembles quelconques. Dessiner toutes les configurations relatives possibles que peuvent avoir <m>A</m> et <m>B</m> dans un diagramme de Venn (en supposant que si un sous-ensemble est vide, il est absent). </p></statement>
     <answer>
     <figure xml:id="fig-VennConfigurations">
       <caption>Différentes configurations de <m>A</m> et <m>B</m>.</caption>
