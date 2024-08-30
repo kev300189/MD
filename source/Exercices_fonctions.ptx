@@ -65,8 +65,22 @@
     <task><statement><p>L'image de <m>0</m> par la composition <m>f\circ g</m>;</p></statement><answer><p>L'image de <m>0</m> par <m>f\circ g</m> est <m>\#</m>. C'est-à-dire que <m>f\circ g(0)=f(g(0))=f(b)=\#</m>.</p></answer></task>
     <task><statement><p>La préimage de <m>\#</m> par la composition <m>f\circ g</m>;</p></statement><answer><p>La préimage de <m>\#</m> par <m>f\circ g</m> est <m>\{0,3,5\}</m>. C'est-à-dire que <m>(f\circ g)^{-1}(\#)=\{0,3,5\}</m>.</p></answer></task>
     </exercise>
-    <exercise><statement><p>Quel est l'image de la fonction <m>f:\emptyset\to B</m>?</p></statement><answer><p>L'image de <m>f</m> est <m>\emptyset</m>.</p></answer>
-    <hint><p>Quel est le produit cartésien de <m>\emptyset</m> et <m>B</m>?</p></hint></exercise>
+    <exercise>
+      <statement><p>Quel est l'image de la fonction <m>f:\emptyset\to B</m>?</p></statement>
+      <answer><p>L'image de <m>f</m> est <m>\emptyset</m>.</p></answer>
+      <hint><p>Pouvez-vous trouver un élément dans l'image de <m>f</m>? Quel est l'ensemble qui ne contient aucun élément?</p></hint>
+      <solution>
+        <p>
+          On montre qu'il est impossible de trouver une élément dans l'image <m>f</m> à partir de la définition de l'image d'une fonction.
+        </p>
+        <p>
+          On suppose que <m>b\in \text{Ima}(f)</m>. Par la définition de l'image, on sait que <m>b</m> possède une préimage, c'est-à-dire qu'il y a un <m>a\in \emptyset</m> tel que <m>f(a)=b</m>. Or, un tel <m>a</m> ne peut pas exister, car il serait élément de l'ensemble <m>\emptyset</m>.
+        </p>
+        <p>
+          Il ne peut donc pas y avoir un élément <m>b\in \text{Ima}(f)</m>, c'est-à-dire que <m> \text{Ima}(f) =\emptyset</m>. Ceci est un exemple par contradiction. On étudiera cette méthode de preuve en plus de détails plus tard.
+        </p>
+      </solution>
+    </exercise>
     <exercise xml:id="exo-fctrest">
     <!-- Dépendant de "exo-fctintro" -->
     <introduction><p>Soit <m>f:A\to B</m> une fonction et <m>C\subseteq A</m> un sous-ensemble de <m>A</m>. On définit la restriction de <m>f</m> sur <m>A</m> comme étant le sous-ensemble de <m>A\times B</m> donné par
