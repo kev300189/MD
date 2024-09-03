@@ -145,8 +145,8 @@
     </exercise>
     <exercise>
     <introduction><p>Dans chacune des propositions suivantes, est-il plus probable que le &#x00AB; ou &#x00BB; soit inclusif ou exclusif? Justifier</p></introduction>
-    <task><statement><p>Je vais prendre du riz ou des frites avec mon poulet.</p></statement><answer>Les deux s'argumentent</answer></task><!-- Les deux s'argumentent -->
-    <task><statement><p>Pour s'inscrire à ce cours, il faut avoir réussi deux cours de mathématiques ou trois cours de physique.</p></statement><answer>Inclusif. Si quelqu'un à réussi deux cours de mathématiques et trois cours de physique, il pourra encore s'inscrire à ce cours.</answer></task> <!-- inclusif -->
+    <task><statement><p>Je vais prendre du riz ou des frites avec mon poulet.</p></statement><answer>Exclusif (on suppose qu'une personne ne peut pas avoir deux accompagnements avec son poulet).</answer></task><!-- Les deux s'argumentent -->
+    <task><statement><p>Pour s'inscrire à ce cours, il faut avoir réussi deux cours de mathématiques ou trois cours de physique.</p></statement><answer>Inclusif. Si quelqu'un a réussi deux cours de mathématiques et trois cours de physique, il pourra encore s'inscrire à ce cours.</answer></task> <!-- inclusif -->
     <task><statement><p>Le Canadien a gagné ou perdu hier.</p></statement><answer>Exclusif. On ne peut pas gagner et perdre en même temps!</answer></task> <!-- exclisif-->
     </exercise>
     <exercise>
@@ -168,7 +168,7 @@
     </exercise>
     <exercise>
     <introduction><p> Écrire les phrases suivantes en proposition logique n'utilisant que des variables <m>p_1, p_2,\dots</m> et des connecteurs de la section. Lorsqu'un &#x00AB; ou &#x00BB; devrait être exclusif, utiliser <m>\oplus</m>.</p>
-    <answer>On pose:
+    <answer><p>On pose:</p>
     <p><m>p_1:</m> J'irai à l'épicerie.</p>
     <p><m>p_2:</m> J'irai chercher les enfants.</p>
     <p><m>p_3:</m> Tu m'entend chanter.</p>
@@ -1091,6 +1091,11 @@
                     </p>
                 </li>
                 <li>
+                  <p>
+                  Négation: J'ai fais mes exercices, mais je ne vais pas passer le cours.  
+                  </p>
+                </li>
+                <li>
                     <p>
                     Réciproque: Si je passe le cours, alors j'ai fait mes exercices.    
                     </p>
@@ -1109,8 +1114,13 @@
             <ul>
                 <li>
                     <p>
-                    Implication: Si travaille de nuit, alors je dors jusqu'à 14:00.    
+                    Implication: Si je travaille de nuit, alors je dors jusqu'à 14:00.    
                     </p>
+                </li>
+                <li>
+                  <p>
+                  Négation: Je travaille de nuit, mais je ne dort pas jusqu'à 14:00.  
+                  </p>
                 </li>
                 <li>
                     <p>
@@ -1135,6 +1145,11 @@
                     </p>
                 </li>
                 <li>
+                  <p>
+                  Négation: J'ai gagné à la loterie, mais je ne suis pas riche.    
+                  </p>
+                </li>
+                <li>
                     <p>
                     Réciproque: Si je suis riche, alors j'ai gagné à la loterie.    
                     </p>
@@ -1157,6 +1172,11 @@
                     </p>
                 </li>
                 <li>
+                  <p>
+                  Négation: Je suis riche, mais je n'ai pas gagné à la loterie.   
+                  </p>
+                </li>
+                <li>
                     <p>
                     Réciproque: Si je gagne à la loterie, alors je serai riche.    
                     </p>
@@ -1177,6 +1197,11 @@
                     <p>
                     Implication: S'il pleut, alors le gazon est mouillé.     
                     </p>
+                </li>
+                <li>
+                  <p>
+                  Négation: Il pleut, mais le gazon n'est pas mouillé.     
+                  </p>
                 </li>
                 <li>
                     <p>
