@@ -174,7 +174,7 @@
     <exercise><introduction><p>Soit <m>f,g,h</m> des fonctions définies de <m>\Z</m> vers <m>\Z</m> par <m>f(n)=n^2,g(n)=n-1</m> et <m>h(n)=n+1</m>. Donner une formule pour les compositons suivantes.</p></introduction>
     <task><statement><p><m>f\circ g\circ h</m></p></statement><answer><m>f\circ g\circ h (n) = n^2</m>.</answer></task>
     <task><statement><p><m> g\circ f\circ h</m></p></statement><answer><m>g\circ f\circ h (n) = n^2+2n</m>.</answer></task>
-    <task><statement><p><m> h\circ f\circ g</m></p></statement><answer><m>h\circ g\circ g (n) = n^2-2n+2</m>.</answer></task>
+    <task><statement><p><m> h\circ f\circ g</m></p></statement><answer><m>h\circ f\circ g (n) = n^2-2n+2</m>.</answer></task>
     </exercise>
     <exercise><introduction><p>Soit <m>A,B</m> deux ensembles et <m>f:A\to B</m> une fonction. Soit <m>C,D\subseteq A</m> deux sous-ensembles de <m>A</m>. Montrer que</p></introduction>
     <task>

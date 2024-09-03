@@ -1008,11 +1008,11 @@ O+A+B+C
     <me>
     A_0\cap A_1\cap A_2\cap \cdots \cap A_n=\bigcap_{i=0}^n A_i
     </me> leur intersection. La lettre <m>i</m> est appelée  l'indice d'union (ou d'intersection). On aurait pu commencer à <m>1</m> ou à n'importe quel autre entier.</p></introduction>
-    <task><introduction><p>Soit <m>A_{i}=\{n\in N~|~ n\leq i\}</m> défini pour tout <m>i\in \N</m>. Déterminer quel est l'ensemble</p></introduction>
+    <task><introduction><p>Soit <m>A_{i}=\{n\in \N~|~ n\leq i\}</m> défini pour tout <m>i\in \N</m>. Pour <m>N \in \N</m> en entier quelconque, déterminer quel est l'ensemble</p></introduction>
         <task><statement><p><m>\displaystyle\bigcup_{i=0}^N A_i</m>;</p></statement></task>
         <task><statement><p><m>\displaystyle\bigcap_{i=0}^N A_i</m>.</p></statement></task>
     </task>
-    <task><introduction><p>Soit <m>B_{i}=\{n\in N~|~ n\geq i\}</m> défini pour tout <m>i\in \N</m>. Déterminer quel est l'ensemble</p></introduction>
+    <task><introduction><p>Soit <m>B_{i}=\{n\in \N~|~ n\geq i\}</m> défini pour tout <m>i\in \N</m>. Pour <m>N \in \N</m> en entier quelconque, déterminer quel est l'ensemble</p></introduction>
         <task><statement><p><m>\displaystyle\bigcup_{i=0}^N B_i</m>;</p></statement></task>
         <task><statement><p><m>\displaystyle\bigcap_{i=0}^N B_i</m>.</p></statement></task>
     </task>
