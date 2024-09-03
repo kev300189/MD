@@ -388,10 +388,6 @@
     <answer><m>\mathbb{1}_{C^c}=1-\mathbb{1}_C</m>.</answer>
     </task>
     </exercise>
-    </exercisegroup>
-    <exercisegroup>
-    <title>À faire en classe durant le deuxième cours de la semaine</title>
-    <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
     <exercise><introduction><p>On considère les ensembles <m>A=\{0,1\}</m> et <m>B=\{a,b,c\}</m>. Dans le chapitre  <xref ref="chap-denombrement"/>, nous verrons des méthodes plus générales pour compter des objtes. Pour l'instnant, vous pouvez utiliser un argument intuitif ou énumérer les fonctions demandées.</p></introduction>
     <task xml:id="exo-nbrFonctions"><introduction><p>On considère les fonctions de <m>A</m> vers <m>B</m>.</p></introduction>
     <task><statement><p>Combien y a-t-il de fonctions possibles?</p></statement><answer>Il y a <m>3^2=9</m> fonctions de <m>A</m> vers <m>B</m>.</answer></task>
