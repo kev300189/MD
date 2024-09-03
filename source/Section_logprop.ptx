@@ -583,7 +583,7 @@ Dans les deux premier cas, la conclusion est vraie. L'implication est alors vér
   <task><statement><p>L'auteur a un frère et l'auteur a une soeur.</p></statement></task>
   <task><statement><p>L'auteur a une soeur ou l'auteur n'a pas de soeur.</p></statement></task>
   <task><statement><p>Si l'auteur a une soeur, alors il a un frère.</p></statement></task>
-  <task><statement><p>Si l'auteur a un frère, alors il est a une soeur.</p></statement></task>
+  <task><statement><p>Si l'auteur a un frère, alors il a une soeur.</p></statement></task>
   <task><statement><p>Si l'auteur n'a pas de frère, alors il a une soeur.</p></statement></task>
   </exercise>
   <exercise xml:id="exo-ouexclusiflogique"><statement><p>Tout comme pour la théorie des ensembles, on peut définir le <q>ou exclusif</q> pour des propositions logiques. Noté <m>p\oplus q</m>, cette proposition est vrai lorsqu'exactement une des propositions <m>p,q</m> est vraie.</p>
