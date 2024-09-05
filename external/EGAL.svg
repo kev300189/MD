@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<svg 
+     version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     width="4.783489341784337cm"
+     height="2.7534231333197647cm"
+     viewBox="0 0 408 235"
+     >
+<title>
+
+</title>
+<g stroke-linejoin="miter" stroke-dashoffset="0.0000" stroke-dasharray="none" stroke-width="1.0000" stroke-miterlimit="10.000" stroke-linecap="square">
+<g id="misc">
+</g><!-- misc -->
+<g id="layer0">
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clip1b96a27c-45ff-48cc-98ee-e6bf2a47f3f4">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip1)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 564.51 434.98 C 606.87 433.20 642.41 402.43 650.22 360.75"/>
+<title>Arc f</title>
+<desc>Arc f: XorGate(A, B)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip1 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clip5e805d07-a0d9-49ce-a6fa-66712b34fa80">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip2)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 650.22 360.75 C 642.41 319.08 606.87 288.30 564.51 286.52"/>
+<title>Arc e</title>
+<desc>Arc e: XorGate(A, B)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip2 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clip3ef08e09-6098-48ae-8592-6d57656c0082">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip3)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 435.94 434.98 C 462.46 419.67 478.80 391.37 478.80 360.75 C 478.80 330.13 462.46 301.84 435.94 286.52"/>
+<title>Arc c</title>
+<desc>Arc c: XorGate(A, B)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip3 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clipeec35921-2751-4bbc-9800-f3278167c9f3">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip4)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 444.51 434.98 C 471.03 419.67 487.37 391.37 487.37 360.75 C 487.37 330.13 471.03 301.84 444.51 286.52"/>
+<title>Arc d</title>
+<desc>Arc d: XorGate(A, B)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip4 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clip4f4956d2-4fc3-4c6e-b103-30d392bb4247">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip5)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 650.22 360.75 L 735.93 360.75"/>
+<title>Segment k</title>
+<desc>Segment k: XorGate(A, B)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip5 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clipd363831d-a4bb-477b-b60c-a4ebc4c8f7f8">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip6)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 435.94 434.98 L 564.51 434.98"/>
+<title>Segment j</title>
+<desc>Segment j: XorGate(A, B)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip6 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clip938d0b70-3f2b-4430-b431-49cc706a2fe7">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip7)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 435.94 286.52 L 564.51 286.52"/>
+<title>Segment i</title>
+<desc>Segment i: XorGate(A, B)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip7 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clipb1a91e5c-2efb-4e95-afda-a0b42c1eef05">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip8)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 468.08 402.25 L 382.37 402.25"/>
+<title>Segment h</title>
+<desc>Segment h: XorGate(A, B)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip8 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clipeb45e67f-38da-46dd-8f72-914eba928112">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip9)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 468.08 319.26 L 382.37 319.26"/>
+<title>Segment g</title>
+<desc>Segment g: XorGate(A, B)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip9 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -344.00, -242.00)">
+<clipPath id="clipf95a117c-9085-468b-80b1-c1c7cb0839b2">
+  <path d="M 344.00 242.00 L 344.00 478.00 L 754.00 478.00 L 754.00 242.00 z"/>
+</clipPath>
+<g clip-path="url(#clip10)">
+<g stroke-width="2.5000" fill="none" stroke-opacity="1.0000" stroke="#000000">
+  <path d="M 655.22 360.75 C 655.22 363.51 652.98 365.75 650.22 365.75 C 647.46 365.75 645.22 363.51 645.22 360.75 C 645.22 357.99 647.46 355.75 650.22 355.75 C 652.98 355.75 655.22 357.99 655.22 360.75 z"/>
+<title>Point B</title>
+<desc>B = (7, 3)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip10 -->
+</g> <!-- transform -->
+</g><!-- layer0 -->
+</g> <!-- default stroke -->
+</svg> <!-- bounding box -->
