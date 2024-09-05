@@ -505,6 +505,9 @@ Une telle fonction est la fonction définie par <m>f(0)=a</m> et <m>f(1)=b</m>.<
    </me>
     </solution>
     </exercise>
+    </exercisegroup>
+    <exercisegroup>
+    <title>Exercices supplémentaires</title>
     <exercise xml:id="exo-compofprei"><introduction><p>Dans cet exercice, <m>f^{-1}</m> fait référence à la préimage de <m>f</m>, pas nécessairment à l'inverse.</p>
     <p>Soit <m>f:A\to B</m> une fonction et soit <m>C\subseteq A</m> et <m>D\subseteq B</m> des sous-ensembles. Analyser les égalités suivantes. Sont-elles toujours/jamais vraies ou seulement parfois? Si c'est parfois, quelle propriété doit avoir <m>f</m> pour garantir qu'elles soient vraies.</p></introduction>
     <task><statement><p><m>f^{-1}(f(C))=C</m></p></statement>
@@ -559,10 +562,7 @@ Une telle fonction est la fonction définie par <m>f(0)=a</m> et <m>f(1)=b</m>.<
     </md> , pour ensuite changer chacun des termes, c'est-
 a-dire que <m>r_i\neq d_{i,i}</m>.  Ainsi, <m>f</m> ne peut pas être une bijection, ce qui est en contradiction avec notre hypothèse initiale. Il n'existe donc pas de bijection entre <m>\N</m> et <m>]0,1[</m>. Par <xref ref="exo-bijTan"/>, il ne peut pas y avoir de bijection entre <m>\N</m> et <m>\R</m>. En fait <m>|\N| \lt |\R|</m>.</solution>
     </task>
-    </exercise>
-    </exercisegroup>
-    <exercisegroup>
-    <title>Exercices supplémentaires</title>
+  </exercise>
     <exercise><introduction><p>Soit <m>A=\{n\in\N~|~ 1\leq n\leq 12\}</m> et <m>B=\{1,2,3,4,6,12\}</m>. On définit la relation <m>PGCD_{12}:A\to B</m> qui associe à <m>a\in A</m> le plus grand commun diviseur de <m>a</m> et <m>12</m>.</p></introduction>
     <task><statement><p>Montrer que cette relation est une fonction.</p></statement></task>
     <task><statement><p>Déterminer l'image de <m>8</m>.</p></statement></task>
