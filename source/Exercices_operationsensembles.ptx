@@ -967,7 +967,7 @@ O+A+B+C
     <task>
     <introduction><p>Démontrer les propriétés de <xref ref="li-openscomp" text="custom"> complémentarité et complétude</xref>, à savoir que</p></introduction>
     <task><statement><p><m>(A^c)^c=A</m>,</p></statement></task>
-    <task><statement><p><m>A\cap A^c=\Omega</m></p></statement></task>
+    <task><statement><p><m>A\cup A^c=\Omega</m></p></statement></task>
     <task><statement><p>et <m>A\cap A^c=\emptyset</m></p></statement></task>
     </task>
 <task>

@@ -704,7 +704,7 @@ Ellipse+Pts+Fleches+Txt#+Fct
 <task><statement><p><m>R_4\subseteq A\times B</m> où <m>R_4=\{(0,a),(1,a),(2,b),(3,c),(1,d)\}</m>;</p></statement></task>
     <task><statement><p><m>R_5\subseteq A\times A </m> où <m>R_5=\{(0,0),(1,0),(2,0),(3,0)\}</m>.</p></statement></task>
     </exercise>
-    <exercise><introduction><p>Soit <m>A=\{n\in \N~|~ 0\leq n\leq 999\}</m> les nombres naturels représentés par <m>1,2</m> ou <m>3</m> chiffres. On définit <m>f:A\to \N</m> comme la fonction qui associe à <m>a\in A</m> la somme des chiffres qui composent <m>a</m>.  Par exemple, <m>f(247)=2+4+7=15</m>.</p></introduction>
+    <exercise><introduction><p>Soit <m>A=\{n\in \N~|~ 0\leq n\leq 999\}</m> les nombres naturels représentés par <m>1,2</m> ou <m>3</m> chiffres. On définit <m>f:A\to \N</m> comme la fonction qui associe à <m>a\in A</m> la somme des chiffres qui composent <m>a</m>.  Par exemple, <m>f(247)=2+4+7=13</m>.</p></introduction>
     <task><statement><p>Déterminer <m>f(d)</m> où <m>d</m> est le jour de votre anniversaire.</p></statement></task>
     <task><statement><p>Trouver l'image de cette fonction.</p></statement></task>
     <task><statement><p>Trouver <m>f^{-1}(\{4\})</m>.</p></statement></task>
