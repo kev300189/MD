@@ -60,7 +60,7 @@
   <exercise><introduction><p>Soit <m>M(a)</m> la proposition <q><m>a</m> est un mammifère</q> et soit <m>O(a)</m> la proposition <q><m>a</m> pond des oeufs</q>, où <m>a</m> est un animal quelconque.</p>
   <p>Décrire en langue française les propositions suivantes:</p>
   </introduction>
-  <task><statement><p><m>\forall a \,(M(a)\vee O(a))</m></p></statement><answer>Tous les animaux sont soit des mammifères ou pondents des oeufs.</answer></task>
+  <task><statement><p><m>\forall a \,(M(a)\vee O(a))</m></p></statement><answer>Tous les animaux sont des mammifères ou pondents des oeufs.</answer></task>
   <task><statement><p><m>\exists a \,(M(a)\wedge  O(a))</m></p></statement><answer>Il y a un mammifère qui pond des oeufs.</answer></task>
   <task><statement><p><m>\neg \exists a \,(M(a)\rightarrow \neg O(a))</m></p></statement><answer>Tous les animaux sont des mammifères et ils pondent des oeufs.</answer></task>
   <task><statement><p><m>\neg \forall a \,(M(a)\vee \neg O(a))</m></p></statement><answer>Il y a un animal qui n'est pas un mammifère et qui pond des oeufs.</answer></task>

@@ -300,10 +300,10 @@ formes+txt
   </introduction>
   <task><statement><p>Il y a une animal jaune à cette ferme.</p></statement></task>
   <task><statement><p>Tous les animaux de la ferme sont des mammifères ou des oiseaux.</p></statement></task>
-  <task><statement><p>Pour tout animal, avoir du blanc signifie aussi avoir du noir.</p></statement></task>
-  <task><statement><p>Le nombre d'animaux d'une certaines espèces est un nombre premier.</p></statement></task>
-  <task><statement><p>Aucun animal n'est de couleur grise.</p></statement></task>
-  <task><statement><p>Il existe deux animaux de même couleurs et qui ne sont pas des vaches.</p></statement></task>
+  <task><statement><p>Pour tout animal de la ferme, avoir du blanc signifie aussi avoir du noir.</p></statement></task>
+  <task><statement><p>Le nombre d'animaux de la ferme d'une certaines espèces est un nombre premier.</p></statement></task>
+  <task><statement><p>Aucun animal de la ferme n'est de couleur grise.</p></statement></task>
+  <task><statement><p>Il existe deux animaux de la ferme qui sont même couleurs, mais qui ne sont pas des vaches.</p></statement></task>
   </exercise>
 <exercise><statement><p>Est-ce que <m>\forall x\,\exists y \,P(x,y)\equiv \exists y\,\forall x \,P(x,y) </m>? Argumenter ou donner un exemple où l'équivalence n'est pas vraie.</p></statement></exercise>
 <exercise><statement><p>Est-ce que <m>\forall x\,\forall y \,P(x,y)\equiv \forall y\,\forall x \,P(x,y) </m>? Argumenter ou donner un exemple où l'équivalence n'est pas vraie.</p></statement></exercise>

@@ -544,10 +544,81 @@
   </blockquote></p>
   <p>Connaissant bien le Sphynx, Batman sait que tout ce qu'il vient d'affirmer est faux. Il réussit à déterminer les deux crimes commis par le Sphynx. Que sont-ils?</p></statement>
   <solution> 
-<p>Sachant que l'énnoncé <q>J'ai capturé la fille du commissaire Gordon ou posé la bombe dans la banque de Gotham</q> est fausse, on sait que le Sphynx n'a ni capturé la fille du commisaaire Gordon ni posé la bombe dans la banque de Gotham. </p> 
+<p>Sachant que l'énnoncé <q>J'ai capturé la fille du commissaire Gordon ou posé la bombe dans la banque de Gotham.</q> est fausse, on sait que le Sphynx n'a ni capturé la fille du commisaaire Gordon ni posé la bombe dans la banque de Gotham. </p> 
 <p>Sachant que l'énnoncé <q>Si j'ai piraté les archives du palais de justice, alors j'ai donné un pot-de-vin à un procureur.</q> est fausse, on sait que le Sphynx a piraté les archives du palais de justice, mais il n'a pas donné un pot-de-vin à un procureur. </p>
 <p>Sachant que l'énnocné <q>Je n'ai pas donné de pot-de-vin ni incendié l'hôpital</q> est fausse. alors soit il a donné un pot-de-vin, soit il a incendié l'hôpital. On sait déjà qu'il n'a pas donné de pot-de-vin, on sait qu'il doit avoir incendié l'hôpital.</p>
 </solution>
+<solution> 
+  <p>On pose 
+    <ul>
+      <li>
+        <p>
+          <m>p</m>: <q> J'ai capturé la fille du commissaire Gordon.</q>;
+        </p>
+      </li>
+    <li>
+      <p>
+        <m>q</m>: <q> J'ai posé la bombe dans la banque de Gotham.</q>;
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>r </m>: <q>J'ai piraté les archives du palais de justice.</q>;
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>s </m>: <q>J'ai donné un pot-de-vin à un procureur.</q>;
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>t </m>: <q>J'ai incendié l'hôpital.</q>.
+      </p>
+    </li>
+  </ul> 
+</p>
+<p>
+  On veut donc trouver deux de ces propositions qui sont vraies. Avec cette notation, on peut traduire chacune des phrase du Sphynx comme suit: 
+  <ul>
+    <li>
+      <p>
+        <m>p \vee q </m> : <q>J'ai capturé la fille du commissaire Gordon ou posé la bombe dans la banque de Gotham.</q>;
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>r \rightarrow s</m> : <q>Si j'ai piraté les archives du palais de justice, alors j'ai donné un pot-de-vin à un procureur.</q>;
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>\neg s \wedge \neg t</m> : <q>Je n'ai pas donné de pot-de-vin ni incendié l'hôpital.</q>.
+      </p>
+    </li>
+  </ul>
+</p>
+<p>
+  Puisque chacune de ces phrases sont fausses, on sait que la négation de chacune d'elle est fausse. Ainsi, les propositions suivantes sont vraies:
+  <ul>
+    <li>
+      <p>
+        <m>\neg (p \vee q) \equiv \neg p \wedge \neg q</m>, et donc <m>p</m> est fausse et <m>q</m> est fausse.
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>\neg (r \rightarrow s) \equiv r \wedge \neg s</m>, et donc <m>r</m> est vraie alors que <m>s</m> est fausse.
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>\neg(\neg s \wedge \neg t)\equiv s \vee  t</m>, et donc on sait que soit <m>s</m> est vraie ou bien <m>t</m> est vraie. Par la partie précédente, on sait que <m>s</m> est fausse, et donc <m>t</m> doit être vraie.
+      </p>
+    </li>
+  </ul> On en conclut que le Sphynx a piraté les archives du palais de justice et il a incendié l'hôpital.
+</p>
+  </solution>
   </exercise>
   <exercise xml:id="exo-ouexclusifnormal"><statement><p>Donner une forme normale disjonctive et une forme normale conjonctive de <m>p\oplus q</m>.</p>  </statement>
     <solution>

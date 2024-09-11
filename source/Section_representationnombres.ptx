@@ -25,7 +25,7 @@
     </introduction>
     
     <!-- Sous-sections à écrire, à même ce fichier -->
-    <subsection>
+    <subsection xml:id="subs-sysPositionnel">
     <title>Systèmes positionnels</title>
     <p>La représentation d'un nombre peut se faire de plusieurs manières. Une manière brute et assez inefficace consiste par exemple à faire un trait pour chaque unité. Ce système devient vite encombrant et il est difficile de rapidement lire un nombre. D'autres systèmes un peu mieux ont été inventés par différentes civilisation au cours de l'histoire.  Un système dans lequel un nombre peut s'écrire sous une forme ressemblant à l'équation <xref ref="eq-basedix"/> de l'introduction est appelé un système positionnel. Ces systèmes sont normalement construits selon une base entière <m>b>1</m>, dans le cas de l'introduction, c'est dix, et d'un ensemble de symboles en nombre égal à la base. On peut utiliser une base différente, par exemple quatre avec les symboles <m>0,1,2,3</m>, pour représenter n'importe quel nombre.</p>
     
@@ -169,7 +169,7 @@
     </row>
   </tabular>
 </table>
-    <example>
+    <example xml:id="ex-binairedecimale">
     <title>Du binaire vers la base dix </title>
     <statement><p>On veut convertir les nombres suivants en base dix:
     <ol>
@@ -439,7 +439,7 @@
     <example xml:id="ex-decihexa">
     <title>Conversion entre système décimal et système hexadécimal</title>
     <statement><p>On veut convertir <m>A0E2F3_{16}</m> en décimal et <m>987654321</m> en hexadécimal.</p></statement>
-    <solution>
+    <solution xml:id="sol-hexadeci">
     <p>La conversion d'hexadécimal vers la base dix étant plus simple, on débute par celle-ci. On a
     <md>
     <mrow>A0E2F3_{16}&amp;=A\times 16^5+0\times 16^4+E\times 16^3+2\times 16^2+F\times 16^1+3\times 16^0</mrow>
@@ -449,7 +449,7 @@
     </md>.
     </p>
     </solution>
-    <solution><p>Pour la conversion de la base décimale vers la base seize, on regarde encore quelle est la plus grande puissance de seize qui est inférieure ou égale au nombre à convertir. Pour <m>987654321</m>, c'est <m>16^7=268435456</m> qui sera utilisé. Il y a toutefois une étape supplémentaire à considérer par rapport à la conversion au binaire. Combien de fois <m>16^7</m> rentre-t-il dans <m>987654321</m>? On utilise Sage pour faire ce calcul, en notant qu'à la section suivante on aura un opérateur spécial qui donnera directement la réponse, sans tenir compte de la partie fractionnaire.</p>
+    <solution xml:id="sol-decihexa"><p>Pour la conversion de la base décimale vers la base seize, on regarde encore quelle est la plus grande puissance de seize qui est inférieure ou égale au nombre à convertir. Pour <m>987654321</m>, c'est <m>16^7=268435456</m> qui sera utilisé. Il y a toutefois une étape supplémentaire à considérer par rapport à la conversion au binaire. Combien de fois <m>16^7</m> rentre-t-il dans <m>987654321</m>? On utilise Sage pour faire ce calcul, en notant qu'à la section suivante on aura un opérateur spécial qui donnera directement la réponse, sans tenir compte de la partie fractionnaire.</p>
     <sage>
     <input>
     987654321.0/16^7
@@ -509,11 +509,18 @@
     <me>
     1\cdot 2^{11}+1\cdot 2^{10}+0\cdot 2^9+1\cdot 2^8+1\cdot 2^7+0\cdot 2^6+0\cdot 2^5+1\cdot 2^4+0\cdot 2^3+1\cdot 2^2+1\cdot 2^1+0\cdot 2^0
     </me>. On regroupe maintenant ces termes en paquets de quatre, en effectuant une mise en évidence de la plus grande puissance de deux possible. On obtient alors
-    <me>
-    (1\cdot 2^{11}+1\cdot 2^{10}+0\cdot 2^9+1\cdot 2^8)+(1\cdot 2^7+0\cdot 2^6+0\cdot 2^5+1\cdot 2^4)+(0\cdot 2^3+1\cdot 2^2+1\cdot 2^1+0\cdot 2^0)=(1\cdot 2^{3}+1\cdot 2^{2}+0\cdot 2^1+1\cdot 2^0)2^8+(1\cdot 2^3+0\cdot 2^2+0\cdot 2^1+1\cdot 2^0)2^4+(0\cdot 2^3+1\cdot 2^2+1\cdot 2^1+0\cdot 2^0)2^0
-    </me>. On peut maintenant remarquer deux choses. Dans un premier temps, on a <m>2^8=(2^4)^2=16^2, 2^4=16^1</m> et <m>2^0=16^0</m>. En regroupant comme cela, on fait ressortir des puissances de 16, justement les puissances nécessaires pour écrire en base hexadécimale. Ensuite, dans les parenthèses, il ne reste que des puissance de deux entre <m>0</m> et <m>3</m>. Avec quatre chiffre binaire, on peut obtenir n'importe quel nombre entre <m>0000_2=0</m> et <m>1111_2=15</m>, exactement le nombre de caractères utilisés dans la base hexadécimale. Le nombre peut donc se réécrire comme suit:
     <md>
-    <mrow tag="star" xml:id="eq-bintohex">(1\cdot 2^{3}+1\cdot 2^{2}+0\cdot 2^1+1\cdot 2^0)16^2+(1\cdot 2^3+0\cdot 2^2+0\cdot 2^1+1\cdot 2^0)16^1+(0\cdot 2^3+1\cdot 2^2+1\cdot 2^1+0\cdot 2^0)16^0 &amp;=(1101_2)16^2+(1001_2)16^1+(0110_2)16^0</mrow>
+      <mrow>
+    (1\cdot 2^{11}+1\cdot 2^{10}+0\cdot 2^9+1\cdot 2^8)+(1\cdot 2^7+0\cdot 2^6+0\cdot 2^5+1\cdot 2^4)+(0\cdot 2^3+1\cdot 2^2+1\cdot 2^1+0\cdot 2^0)
+    </mrow>
+    <mrow> 
+    =(1\cdot 2^{3}+1\cdot 2^{2}+0\cdot 2^1+1\cdot 2^0)2^8+(1\cdot 2^3+0\cdot 2^2+0\cdot 2^1+1\cdot 2^0)2^4+(0\cdot 2^3+1\cdot 2^2+1\cdot 2^1+0\cdot 2^0)2^0
+    </mrow>
+    </md>. On peut maintenant remarquer deux choses. Dans un premier temps, on a <m>2^8=(2^4)^2=16^2, 2^4=16^1</m> et <m>2^0=16^0</m>. En regroupant comme cela, on fait ressortir des puissances de 16, justement les puissances nécessaires pour écrire en base hexadécimale. Ensuite, dans les parenthèses, il ne reste que des puissance de deux entre <m>0</m> et <m>3</m>. Avec quatre chiffre binaire, on peut obtenir n'importe quel nombre entre <m>0000_2=0</m> et <m>1111_2=15</m>, exactement le nombre de caractères utilisés dans la base hexadécimale. Le nombre peut donc se réécrire comme suit:
+    <md>
+    <mrow tag="star" xml:id="eq-bintohex">(1\cdot 2^{3}+1\cdot 2^{2}+0\cdot 2^1+1\cdot 2^0)16^2+(1\cdot 2^3+0\cdot 2^2&amp;+0\cdot 2^1+1\cdot 2^0)16^1+(0\cdot 2^3+1\cdot 2^2+1\cdot 2^1+0\cdot 2^0)16^0 
+    </mrow> 
+    <mrow>&amp;=(1101_2)16^2+(1001_2)16^1+(0110_2)16^0</mrow>
     <!--<intertext>C'est trois nombres binaires sont respectivement de gauche à droite 13,9 et 6. En utilisant le fait qu'en hexadécimale 13 correspond à D, on a</intertext>-->
     <mrow>&amp;=D\cdot 16^2+9\cdot 16^1+6\cdot 16^0</mrow>
     <mrow>&amp;=D96_{16}</mrow>
@@ -544,10 +551,10 @@
     <solution><p>Pour convertir les nombres hexadecimaux en binaire, on suit la procédure établie dans l'algorithme <xref ref="algo-binhex"/>. Pour <m>1234_{16}</m>, on obtient <m>0001\,0010\,0011\,0100</m>, ce qui donne en regroupant et en éliminant les zéros de gauche <m>1234_{16}=1001000110100_2</m>. Ensuite pour <m>BEBE2020_{16}</m>, on a <m>1011\,1110\,1011\,1110\,0010\,0000\,0010\,0000</m>, ce qui donne <m>BEBE2020_{16}=10111110101111100010000000100000_2</m>. On voit bien ici l'avantage du système hexadécimal pour la longueur du nombre.</p></solution>
     </example>
     </subsection>
-    <subsection>
+    <subsection xml:id="subs-opeElemBin">
     <title>Opérations élémentaires en base deux</title>
     <p>On s'intéresse maintenant à l'arithmétique dans les autres bases. Par simplicité, on n'utilise que le binaire, mais les opérations dans les autres bases se font essentiellement de la même manière.</p>
-    <p>Pour additionner deux nombres, on apprend assez tôt de faire l'addition position par position, en appliquant la retenue lorsque la somme des chiffres d'une même colonne dépasse dix. Le principe est le même en binaire, toutefois les retenues arrivent dès que la somme est supérieure ou égale à deux. En binaire, <m>1_2+1_2=10_2</m>. Voici un exemple d'addition de <m>110101_2</m> et <m>101110_2</m> en base deux.
+    <p xml:id="para-addBin"> Pour additionner deux nombres, on apprend assez tôt de faire l'addition position par position, en appliquant la retenue lorsque la somme des chiffres d'une même colonne dépasse dix. Le principe est le même en binaire, toutefois les retenues arrivent dès que la somme est supérieure ou égale à deux. En binaire, <m>1_2+1_2=10_2</m>. Voici un exemple d'addition de <m>110101_2</m> et <m>101110_2</m> en base deux.
     <md alignment="alignat">
     <mrow>&amp; &amp;&amp;\small{1}&amp;\small{1}&amp;\small{1}&amp;\small{1}&amp;\small{1}&amp;\small{1}&amp;&amp;\scriptsize{(\text{retenues})}&amp;</mrow>
     <mrow>&amp; &amp;&amp;&amp;1&amp;1&amp;0&amp;1&amp;0&amp;1_2&amp;&amp;</mrow>
@@ -556,7 +563,7 @@
     </md>
     Dans la colonne à droite de cet exemple, on effectue <m>1+1</m> en binaire. Le résultat donne <m>10_2</m>, d'où le <m>0</m> dans la troisième ligne et le <m>1</m> dans la ligne des retenues. Ensuite, on additionne cette retenue avec le <m>0</m> et le <m>1</m> de cette colonne. Ceci donne encore une fois <m>1+0+1=10_2</m>, entrainant une autre retenue dans la colonne à gauche. Cette fois, pour la troisième colonne, il y a deux <m>1</m> à additionner en plus de la retenue. Cela donne <m>1+1+1=11_2</m>, expliquant pourquoi dans la réponse on obtient un <m>1</m> ainsi que dans la retenue. On poursuit ensuite de droite à gauche jusqu'à épuisement des nombres et des retenues.
     </p>
-    <p>Les soustractions fonctionnent aussi de manière similaire à l'arithmétique en base dix. Au lieu d'avoir des retenues, on fait des emprunts lorsqu'on doit soustraire <m>1</m> à <m>0</m>. Dans ce cas, la soustraction <m>0_2-1_2</m>  devient <m>10_2-1_2=1_2</m> après emprunt, et l'emprunt se fait vers la gauche sur le prochain chiffre non nul (on ne peut emprunter à un <m>0</m>). Voici un exemple de la soustraction de <m>1100101_2</m> et <m>1001010_2</m>.
+    <p xml:id="para-sousBin">Les soustractions fonctionnent aussi de manière similaire à l'arithmétique en base dix. Au lieu d'avoir des retenues, on fait des emprunts lorsqu'on doit soustraire <m>1</m> à <m>0</m>. Dans ce cas, la soustraction <m>0_2-1_2</m>  devient <m>10_2-1_2=1_2</m> après emprunt, et l'emprunt se fait vers la gauche sur le prochain chiffre non nul (on ne peut emprunter à un <m>0</m>). Voici un exemple de la soustraction de <m>1100101_2</m> et <m>1001010_2</m>.
     <md alignment="alignat">
     <mrow>&amp; &amp; &amp; &amp; &amp;\small{0}&amp;\small{1}&amp;\small{1}&amp;\small{0}&amp;\small{1}&amp;&amp;\scriptsize{(\text{emprunts})}&amp;</mrow>
     <mrow>&amp; &amp; &amp; &amp;1&amp;\bcancel{1}&amp;0&amp;0&amp;{\bcancel{1}}&amp;0&amp;1_2&amp;&amp;</mrow>
@@ -565,7 +572,7 @@
     </md>
     </p>
     <p>Dans la deuxième colonne, il a été nécessaire de faire un emprunt. On a donc remplacé le <m>0</m> de la première colonne par <m>10_2</m> et en soustrayant le <m>1</m>, on obtient <m>10_2-1_2=1_2</m>. Il a aussi fallu emprunter dans la troisième colonne. Comme la quatrième est aussi nulle, on emprunte à la cinquième, ainsi <m>100_2</m> devient <m>011_2</m> avec le dernier <m>1</m> considéré comme <m>10_2</m>. La troisième colonne devient <m>10_2-1_2=1_2</m>, la quatrième <m>1_2-0_2=1_2</m> et la cinquième <m>0_2-0_2=0_2</m>. Finalement, la dernière colonne est <m>1_2-1_2=0_2</m>. Au final on a <m>1100101_2-1001010_2=11011_2</m>.</p>
-    <p>On veut maintenant effectuer une multiplication de deux nombres binaires. L'algorithme utilisé pour faire une multiplication en base dix peut être repris, mais on utilise une approche différente, similaire à la manière dont les ordinateurs font les calculs. Celle-ci exploite le fait que multiplié un nombre par une puissance de deux est équivalents à ajouter un certain nombre de zéros à la fin, comme multiplié par <m>10,100,1000,</m> etc. en base dix. Par exemple, pour faire <m>1101_2\times 100_2</m> on a
+    <p xml:id="para-multBin">On veut maintenant effectuer une multiplication de deux nombres binaires. L'algorithme utilisé pour faire une multiplication en base dix peut être repris, mais on utilise une approche différente, similaire à la manière dont les ordinateurs font les calculs. Celle-ci exploite le fait que multiplié un nombre par une puissance de deux est équivalents à ajouter un certain nombre de zéros à la fin, comme multiplié par <m>10,100,1000,</m> etc. en base dix. Par exemple, pour faire <m>1101_2\times 100_2</m> on a
     <md>
     <mrow>1101_2\times 100_2&amp;=(2^3+2^2+2^0)\times 2^2</mrow>
     <mrow>&amp;=2^3\times 2^2+2^2\times 2^2+2^0\times 2^2</mrow>
@@ -574,7 +581,7 @@
     </md>.
     </p>
     <p>De manière plus générale, on ajoute autant de zéros qu'il y en a dans l'écriture de la puissance de deux.Pour un produit quelconque, on va décomposer l'un des facteur selon ses puissances de deux, distribuer sur l'autre facteur et additionner les nombres obtenus.</p>
-    <example>
+    <example xml:id="ex-multBin">
     <title>Une multiplication binaire</title>
     <statement><p>On veut effectuer le produit de <m>1001_2</m> par <m>1010_2</m> en décomposant <m>1010_2</m> selon ses puissances.</p></statement>
     <solution><p>Puisque <m>1010_2=1000_2+0010_2</m>, on aura
@@ -692,7 +699,7 @@
       </cell>
     </row>
   </tabular>
-  <p>Pour la division binaire, les chiffres du quotient (la réponse) ne peuvent être que <m>1</m> ou <m>0</m>. On revoit la même division que ci-dessous, mais en binaire, soit <m>1011101001_2 \div 11_2</m>.</p>
+  <p xml:id="para-divBin">Pour la division binaire, les chiffres du quotient (la réponse) ne peuvent être que <m>1</m> ou <m>0</m>. On revoit la même division que ci-dessous, mais en binaire, soit <m>1011101001_2 \div 11_2</m>.
   <tabular>
     <row>
       <cell>
@@ -872,7 +879,7 @@
       <cell>
       </cell>
     </row>
-  </tabular>
+  </tabular> </p>
   <p>On pourra vérifier que <m>11111000_2=248</m> et bien sûr, <m>1_2=1</m>. On considère un autre exemple.</p>
   <example>
   <title>Division en binaire</title>
@@ -979,7 +986,7 @@
   <p>La division de réels est bien sûr possible, mais on se restreint à la division de nombres naturels.</p>
     </subsection>
     <subsection>
-    <title>Représentation en circuits d'opérations binaires</title>
+    <title>(Section supplémentaire) Représentation en circuits d'opérations binaires </title>
     <p>À l'exercice <xref ref="exo-demiadditionneur"/>, on définit un circuit à deux entrées et deux sorties. Ce circuit est appelé un demi-additionneur. Étant donné deux entrées binaires, il retourne leur somme comme un nombre à deux chiffres, la puissance de <m>2^0</m> comme somme <m>S</m> et la puissance de <m>2^1</m> comme retenue <m>R</m>. Ainsi, <m>0_2+1_2=1_2</m> sera retournée comme <m>S=1</m> et <m>R=0</m>, alors que <m>1_2+1_2=10_2</m> sera retournée comme <m>S=0</m> et <m>R=1</m>.</p>
     <p>On peut maintenant considérer l'addition binaire générale. Une addition se fait colonne par colonne. La somme d'une colonne est obtenue en faisant la somme des chiffres des nombres à additionner plus la retenue de la colonne précédente, le cas échéant. On va maintenant construire le circuit effectuant cette opération. Dans ce circuit, on note <m>A</m> le chiffre du premier terme de l'addition, <m>B</m> le second, <m>P</m> la retenue de la colonne précédente, <m>S</m> la somme de la colonne et <m>R</m> la nouvelle retenue. La figure <xref ref="fig-additionneur"/> illustre l'additionneur.</p>
     <figure xml:id="fig-additionneur">
@@ -1177,15 +1184,15 @@ L'exercice <xref ref="exo-circuitretenue"/> permettra de montrer que <m>R\equiv 
     <conclusion xml:id="concl-representation">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <p>Les points importants de cette section sont:
     <ul>
-    <li><p>Le principe d'un système positionnel, où chaque chiffre représente un multiple d'une puissance de la base.</p></li>
-    <li><p>La conversion d'un nombre en binaire en un nombre en base dix.</p></li>
-    <li><p>La conversion d'un nombre en base dix en un nombre en binaire.</p></li>
-    <li><p>La conversion d'un nombre en hexadécimal en un nombre en base dix.</p></li>
-    <li><p>La conversion d'un nombre en base dix en un nombre en hexadécimal.</p></li>
-    <li><p>La conversion directe entre binaire et hexadécimal.</p></li>
-    <li><p>Les opérations d'addition,soustraction,multiplication et division en base deux.</p></li>
-    <li><p>Le principe de construction du circuit additionneur.</p></li>
-    </ul>
+    <li><p>Le principe d'un <xref ref="subs-sysPositionnel" text="custom"> système positionnel</xref>, où chaque chiffre représente un multiple d'une puissance de la base.</p></li>
+    <li><p>La conversion d'un nombre en <xref ref="ex-binairedecimale" text="custom">binaire en un nombre en base dix</xref>.</p></li>
+    <li><p>La conversion d'un nombre en <xref ref="ex-decimalebinaire" text="custom">base dix en un nombre en binaire</xref>.</p></li>
+    <li><p>La conversion d'un nombre en <xref ref="sol-hexadeci" text="custom">hexadécimal en un nombre en base dix</xref>.</p></li>
+    <li><p>La conversion d'un nombre en <xref ref="sol-decihexa" text="custom">base dix en un nombre en hexadécimal</xref>.</p></li>
+    <li><p>La conversion directe entre <xref ref="algo-binhex" text="custom">binaire et hexadécimal.</xref></p></li>
+    <li><p>Les opérations <xref ref="para-addBin" text="custom" > d'addition</xref>, <xref ref="para-sousBin" text="custom" >soustraction</xref>, <xref ref="para-multBin" text="custom" >multiplication</xref> et <xref ref="para-divBin" text="custom" >division</xref> en base deux.</p></li><!--
+     <li><p>Le principe de construction du circuit additionneur.</p></li>
+    --></ul>
     </p>
     </conclusion>
     <reading-questions xml:id="rq-representation">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
@@ -1229,3 +1236,7 @@ L'exercice <xref ref="exo-circuitretenue"/> permettra de montrer que <m>R\equiv 
    <!--Inclure les exercices de la section ci-dessous--> 
    <xi:include href="Exercices_representationnombres.ptx" />
 </section>
+
+
+
+
