@@ -279,13 +279,13 @@ formes+txt
   <exercise>
   <introduction><p>Soit <m>P(x)</m> le prédicat <q><m>x>2</m></q>. Déterminer si les propositions suivantes sont vraie, fausse ou indéterminée.</p></introduction>
   <task><statement><p><m>\exists x\in \R \,P(x)</m>;</p></statement></task>
-  <task><statement><p><m>\exists x&lt;0 \,P(x)</m>;</p></statement></task>
+  <task><statement><p><m>\exists x\in (\infty,0) \,P(x)</m>;</p></statement></task>
   <task><statement><p><m>\exists x\in \R \,\neg P(x)</m>;</p></statement></task>
-  <task><statement><p><m>\exists x&lt;0 \,\neg P(x)</m>;</p></statement></task>
+  <task><statement><p><m>\exists x\in (\infty,0) \,\neg P(x)</m>;</p></statement></task>
   <task><statement><p><m>\forall x\in \R \,P(x)</m>;</p></statement></task>
-  <task><statement><p><m>\forall x&lt;0 \,P(x)</m>;</p></statement></task>
+  <task><statement><p><m>\forall x\in (\infty,0) \,P(x)</m>;</p></statement></task>
   <task><statement><p><m>\forall x\in \R \,\neg P(x)</m>;</p></statement></task>
-  <task><statement><p><m>\forall x&lt;0 \,\neg P(x)</m>;</p></statement></task>
+  <task><statement><p><m>\forall x\in (\infty,0) \,\neg P(x)</m>;</p></statement></task>
   </exercise>
   <exercise><introduction><p>Dans une ferme, on retrouve les animaux suivants: un chien blanc et noir ainsi qu'un chien brun, treize vaches de couleur blanche et noire, seize moutons blancs, quatre chats noirs, trente-trois poules brunes.</p>
   <p>On considère les éléments de notation suivants:
