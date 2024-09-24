@@ -120,9 +120,9 @@ def _(a=(-100..100),b=(1..100),b_negatif=("b négatif?",False)):
     Puisque <m>q=d_n2^{n-1}+d_{n-2}2^{n-1}+\cdots d_12^0\in \mathbb{Z}</m>, on voit que <m>187=2q+d_0</m> et donc, selon la proposition <xref ref="prop-divisioneuclidienne"/>, le premier chiffre de l'écriture de <m>187</m> en binaire correspond au reste de la division de <m>187</m> par <m>2</m>. Ensuite pour trouver <m>d_1</m>, on répète avec le quotient <m>q</m>. Dans le cas de <m>187</m>, on a <m>q=93</m> et <m>d=d_0=1</m>. En continuant,
     <md>
     <mrow>
-    93&amp;=d_n2^{n-1}+d_{n-2}2^{n-1}+\cdots d_12^0
+    93&amp;=d_n2^{n-1}+d_{n-1}2^{n-2}+\cdots d_12^0
     </mrow>
-    <mrow>&amp;=2(d_n2^{n-2}+d_{n-1}2^{n-3}+\cdots d_22^2)+d_1</mrow></md>
+    <mrow>&amp;=2(d_n2^{n-2}+d_{n-1}2^{n-3}+\cdots d_22^1)+d_1</mrow></md>
     , on peut trouver <m>d_1=1</m> et le prochain quotient égal à <m>46</m>. Avec cela, on obtient <m>d_2=0</m>, amenant le quotient suivant à <m>23</m>. On obtient <m>d_3=1</m> et le quotient suivant vaut <m>11</m>. On continue avec <m>d_4=1</m> pour un quotient de <m>5</m>, puis <d>d_5=1</d> pour un quotient de <m>2</m>, <m>d_6=0</m> pour un quotient de <m>1</m> et finalement, <m>d_7=1</m> pour un quotient de <m>0</m>. On peut donc écrire <m>187=10111011_2</m>. </p>
     <p>Ce qui est bien avec le binaire, c'est que le reste se déduit facilement avec la parité du nombre divisé. Si celui-ci est pair, le reste est de <m>0</m> et s'il est impair, le reste est de <m>1.</m> On peut simplifier la procédure en écrivant les quotients et les restes dans un tableau. La colonne des restes correspond à l'écriture binaire du nombre, les nombres de droite à gauche se trouvant de haut en bas de la colonne. Afin d'illustrer, la conversion du nombre <m>101=1100101_2</m>, aussi de l'exemple <xref ref="ex-decimalebinaire"/> est donnée dans la table <xref ref="tab-binairedecimale101"/>.</p>
     <table xml:id="tab-binairedecimale101">

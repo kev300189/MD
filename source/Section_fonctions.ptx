@@ -559,7 +559,7 @@ Ellipse+Pts+Fleches+Txt+Fct
     <p>On a vu dans l'exemple <xref ref="ex-composagi"/> que certaines fonctions envoient plusieurs éléments sur une même image. On a aussi vu que certaines fonctions n'atteignent pas toutes les valeurs de leur codomaine. Ce sont souvent des propriétés qu'il est souhaitable d'avoir ou du moins, elles entrainent d'heureuses conséquences.</p>
     <definition xml:id="def-inj">
     <title>Fonction injective</title>
-    <statement><p>Soit <m>F:A\to B</m> une fonction. On dit que <m>f</m> est injective si et seulement si les éléments de l'image ne sont atteints par <m>f</m> que par exactement un élément du domaine.  En langage mathématique, on écrit que si <m>f(a_1)=f(a_2)</m>, alors nécessairement <m>a_1=a_2</m>.</p></statement>
+    <statement><p>Soit <m>f:A\to B</m> une fonction. On dit que <m>f</m> est injective si et seulement si les éléments de l'image ne sont atteints par <m>f</m> que par exactement un élément du domaine.  En langage mathématique, on écrit que si <m>f(a_1)=f(a_2)</m>, alors nécessairement <m>a_1=a_2</m>.</p></statement>
     </definition>
     <p>Avec une fonction injective, il n'y a pas de collision dans le codomaine, c'est-à-dire deux valeurs du domaine qui sont envoyées sur le même éléments. Dans ce cas, la préimage d'un élément du codomaine est soit l'ensemble vide, soit un élément unique du domaine.</p>
     <example xml:id="ex-inj">
@@ -582,7 +582,7 @@ Ellipse+Pts+Fleches+Txt+Fct
     </example>
     <definition xml:id="def-surj">
     <title>Fonction surjective</title>
-    <p>Soit <m>F:A\to B</m> une fonction. On dit que <m>f</m> est surjective si et seulement si tous les éléments du codomaine <m>B</m> sont atteints par <m>f</m> par au moins une valeur du domaine <m>A</m>.Ceci est équivalent à dire que le codomaine de la fonction <m>f</m> est l'image de celle-ci. En lagange mathématique, on écrit que pour tout <m>b\in B</m>, il existe au moins un <m>a\in A</m> tel que <m>f(a)=b</m>.</p>
+    <p>Soit <m>f:A\to B</m> une fonction. On dit que <m>f</m> est surjective si et seulement si tous les éléments du codomaine <m>B</m> sont atteints par <m>f</m> par au moins une valeur du domaine <m>A</m>.Ceci est équivalent à dire que le codomaine de la fonction <m>f</m> est l'image de celle-ci. En lagange mathématique, on écrit que pour tout <m>b\in B</m>, il existe au moins un <m>a\in A</m> tel que <m>f(a)=b</m>.</p>
     </definition>
     <p>Avec une fonction surjective, personne n'est laissé de côté dans le codomaine. Chaque valeur doit être atteinte.</p>
     <example xml:id="ex-surj">
