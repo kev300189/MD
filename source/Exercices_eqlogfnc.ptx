@@ -61,31 +61,31 @@
     ((p\rightarrow q)\wedge \neg q)\rightarrow \neg p &amp; \equiv \neg((\neg p \vee q)\wedge \neg q) \vee \neg p   
     </mrow>
     <mrow>
-    &amp; \equiv (\neg(\neg p \vee q)\vee \neg\neg q) \vee \neg p &amp;&amp; \text{ par De Morgan.}   
+    &amp; \equiv (\neg(\neg p \vee q)\vee \neg\neg q) \vee \neg p &amp;&amp; \text{par De Morgan.}   
     </mrow>
     <mrow>
-    &amp;\equiv ((\neg\neg p \wedge \neg q)\vee q) \vee \neg p &amp;&amp; \text{  par De Morgan.}   
+    &amp;\equiv ((\neg\neg p \wedge \neg q)\vee q) \vee \neg p &amp;&amp; \text{par De Morgan.}   
     </mrow>
     <mrow>
     &amp;\equiv ((p \wedge \neg q)\vee q) \vee \neg p 
     </mrow>
     <mrow>
-    &amp;\equiv ((p\vee q) \wedge (\neg q\vee q)) \vee \neg p &amp;&amp; \text{   par la distributivité.} 
+    &amp;\equiv ((p\vee q) \wedge (\neg q\vee q)) \vee \neg p &amp;&amp; \text{par la distributivité.} 
     </mrow>
     <mrow>
-    &amp;\equiv ((p\vee q) \wedge V ) \vee \neg p &amp;&amp;\text{   par domination.} 
+    &amp;\equiv ((p\vee q) \wedge V ) \vee \neg p &amp;&amp;\text{par domination.} 
     </mrow>
     <mrow>
-    &amp;\equiv p\vee q   \vee \neg p &amp;&amp;\text{   par identité et associativité.} 
+    &amp;\equiv p\vee q   \vee \neg p &amp;&amp;\text{par identité et associativité.} 
     </mrow>
     <mrow>
-    &amp;\equiv p\vee \neg p   \vee q &amp;&amp;\text{   par commutativité.} 
+    &amp;\equiv p\vee \neg p   \vee q &amp;&amp;\text{par commutativité.} 
     </mrow>
     <mrow>
-    &amp;\equiv V \vee q  &amp;&amp;\text{   par les propriétés de négation.}
+    &amp;\equiv V \vee q  &amp;&amp;\text{par les propriétés de négation.}
     </mrow>
     <mrow>
-    &amp;\equiv V  &amp;&amp;\text{   par domination.} 
+    &amp;\equiv V  &amp;&amp;\text{par domination.} 
     </mrow>
     </md>
     Ainsi, cette proposition est une tautologie.
@@ -212,22 +212,22 @@
     (p\wedge (p\rightarrow q))\rightarrow q &amp;\equiv \neg(p\wedge (\neg p\vee q))\vee q
     </mrow>
     <mrow>
-    &amp;\equiv \neg((p\wedge\neg p) \vee (p\wedge q) )\vee q &amp;&amp;\text{ par distributivité.}
+    &amp;\equiv \neg((p\wedge\neg p) \vee (p\wedge q) )\vee q &amp;&amp;\text{par distributivité.}
     </mrow>
     <mrow>
-    &amp;\equiv \neg( F \vee (p\wedge q) )\vee q &amp;&amp;\text{ par les propriétés de la négation.}
+    &amp;\equiv \neg( F \vee (p\wedge q) )\vee q &amp;&amp;\text{par les propriétés de la négation.}
     </mrow>
     <mrow>
-    &amp; \equiv \neg( p\wedge q )\vee q &amp;&amp;\text{ par la propriété de l'identité.}
+    &amp; \equiv \neg( p\wedge q )\vee q &amp;&amp;\text{par la propriété de l'identité.}
     </mrow>
     <mrow>
-    &amp;\equiv  \neg p \vee (\neg q \vee q) &amp;&amp;\text{ par De Morgan et associativité.}
+    &amp;\equiv  \neg p \vee (\neg q \vee q) &amp;&amp;\text{par De Morgan et associativité.}
     </mrow>
     <mrow>
-    &amp;\equiv  \neg p \vee V &amp;&amp;\text{ par les proporiétés de la négation.}
+    &amp;\equiv  \neg p \vee V &amp;&amp;\text{par les proporiétés de la négation.}
     </mrow>
     <mrow>
-    &amp;\equiv  V &amp;&amp;\text{ par domination.}
+    &amp;\equiv  V &amp;&amp;\text{par domination.}
     </mrow>
     </md>
     Ainsi, cette proposition est toujours vraie, et donc est une tautologie.
@@ -340,7 +340,7 @@
     p\rightarrow (q \wedge r) &amp;\equiv \neg p \vee (q\wedge r) &amp;&amp; \text{par } <xref ref="ex-implicationsansfleche"/>
     </mrow> 
     <mrow> 
-    &amp; \equiv (\neg p \vee q )\wedge (\neg p \vee r) &amp;&amp;\text{ par la distributivité.} 
+    &amp; \equiv (\neg p \vee q )\wedge (\neg p \vee r) &amp;&amp;\text{par la distributivité.} 
     </mrow>
     <mrow>
     &amp;\equiv (p\rightarrow q)\wedge (p\rightarrow r) &amp;&amp;  \text{par } <xref ref="ex-implicationsansfleche"/>
@@ -353,25 +353,25 @@
     <solution>
     <md>
     <mrow>
-    \neg (p \vee (\neg p \wedge q)) &amp; \equiv \neg p \wedge \neg(\neg p \wedge q) &amp;&amp; \text{ par De Morgan.} 
+    \neg (p \vee (\neg p \wedge q)) &amp; \equiv \neg p \wedge \neg(\neg p \wedge q) &amp;&amp; \text{par De Morgan.} 
     </mrow>
     <mrow>
-    &amp; \equiv \neg p \wedge (\neg\neg p \vee \neg q) &amp;&amp; \text{ par De Morgan.} 
+    &amp; \equiv \neg p \wedge (\neg\neg p \vee \neg q) &amp;&amp; \text{par De Morgan.} 
     </mrow>
     <mrow>
     &amp; \equiv \neg p \wedge (p \vee \neg q)
     </mrow>
     <mrow>
-    &amp; \equiv (\neg p \wedge p) \vee (\neg p \wedge \neg q) &amp;&amp;\text{ par distributivité.} 
+    &amp; \equiv (\neg p \wedge p) \vee (\neg p \wedge \neg q) &amp;&amp;\text{par distributivité.} 
     </mrow>
     <mrow>
-    &amp; \equiv (F)) \vee (\neg p \wedge \neg q) &amp;&amp; \text{ par la négation.} 
+    &amp; \equiv (F)) \vee (\neg p \wedge \neg q) &amp;&amp; \text{par la négation.} 
     </mrow>
     <mrow>
-    &amp; \equiv (\neg p \wedge \neg q) &amp;&amp;\text{ par l'identité.} 
+    &amp; \equiv (\neg p \wedge \neg q) &amp;&amp;\text{par l'identité.} 
     </mrow>
     <mrow>
-    &amp;\equiv \neg( p \vee q) &amp;&amp;\text{ par De Morgan.} 
+    &amp;\equiv \neg( p \vee q) &amp;&amp;\text{par De Morgan.} 
     </mrow>
     </md>
     </solution>
@@ -380,13 +380,13 @@
     <solution>
     <md>
     <mrow>
-    \neg (p \wedge (q \vee r)) &amp;\equiv \neg p \vee \neg(q \vee r) &amp;&amp;\text{ par De Morgan.} 
+    \neg (p \wedge (q \vee r)) &amp;\equiv \neg p \vee \neg(q \vee r) &amp;&amp;\text{par De Morgan.} 
     </mrow>
     <mrow>
-    &amp; \equiv \neg p \vee (\neg q \wedge \neg r) &amp;&amp;\text{ par De Morgan.} 
+    &amp; \equiv \neg p \vee (\neg q \wedge \neg r) &amp;&amp;\text{par De Morgan.} 
     </mrow>
     <mrow>
-    &amp; \equiv (\neg p \vee \neg q) \wedge (\neg p \vee \neg r) &amp;&amp;\text{ par distributivité.} 
+    &amp; \equiv (\neg p \vee \neg q) \wedge (\neg p \vee \neg r) &amp;&amp;\text{par distributivité.} 
     </mrow>
     <mrow>
     &amp;\equiv (p \rightarrow \neg q) \wedge ( p \rightarrow \neg r) &amp;&amp; \text{par }<xref ref="ex-implicationsansfleche"/>
@@ -942,7 +942,7 @@
       En prenant une deuxième fois la négation, trouve la forme normale conjonctive suivante:
       <md>
         <mrow> (\neg p \wedge q) \vee \neg (\neg r \vee \neg q) \amp\equiv \neg ((p\wedge q\wedge \neg r)\vee (p\wedge\neg q \wedge r)\vee (p\wedge \neg q \wedge \neg r)\vee(\neg p \wedge\neg q\wedge r)\vee(\neg p \wedge\neg q \wedge \neg r))</mrow>
-        <mrow>\amp \equiv (\neg p\vee \neg q \vee r)\wedge (\neg p\vee q \vee \neg r)\wedge (\neg p \vee q\vee r)\wedge(p\vee q\vee \neg r)\wedge(p\vee q\vee r)</mrow> \amp\amp \text{ par De Morgan}
+        <mrow>\amp \equiv (\neg p\vee \neg q \vee r)\wedge (\neg p\vee q \vee \neg r)\wedge (\neg p \vee q\vee r)\wedge(p\vee q\vee \neg r)\wedge(p\vee q\vee r)</mrow> \amp\amp \text{par De Morgan}
       </md>
     </p>
     </solution>
@@ -1188,7 +1188,41 @@ f(p,q) \equiv (p \wedge \neg q)\vee(\neg p \wedge q)
   </exercisegroup>
     <exercisegroup>
     <title>Exercices supplémentaires</title>
-    <exercise><statement><p>Utiliser les autres <xref ref="li-oplogprop" text="custom">équivalences </xref> de la logique pour démontrer les <xref ref="li-oplogabs" text="custom">propriétés d'absorption</xref>.</p></statement></exercise>
+    <exercise>
+      <statement><p>Utiliser les autres <xref ref="li-oplogprop" text="custom">équivalences </xref> de la logique pour démontrer les <xref ref="li-oplogabs" text="custom">propriétés d'absorption</xref>.</p></statement>
+      <solution>
+        <md>
+          <mrow>
+          p\wedge(p\vee q) &amp;\equiv (p\vee F)\wedge(p\vee q) &amp;&amp;\text{par identité.} 
+          </mrow>
+          <mrow>
+          &amp; \equiv  p \vee (F \wedge q ) &amp;&amp;\text{par distributivité.} 
+          </mrow>
+          <mrow>
+          &amp; \equiv  p \vee F &amp;&amp;\text{par domination.} 
+          </mrow>
+          <mrow>
+          &amp;\equiv p &amp;&amp; \text{par identité.}
+          </mrow>
+          </md>
+      </solution>
+      <solution>
+        <md>
+          <mrow>
+          p\vee(p\wedge q) &amp;\equiv (p\wedge V)\vee(p\wedge q) &amp;&amp;\text{par identité.} 
+          </mrow>
+          <mrow>
+          &amp; \equiv  p \wedge (V \vee q ) &amp;&amp;\text{par distributivité.} 
+          </mrow>
+          <mrow>
+          &amp; \equiv  p \wedge V &amp;&amp;\text{par domination.} 
+          </mrow>
+          <mrow>
+          &amp;\equiv p &amp;&amp; \text{par identité.}
+          </mrow>
+          </md>
+      </solution>
+    </exercise>
     <exercise><introduction><p>Utiliser les lois de De Morgan pour donner la négation des propositions suivantes.</p></introduction>
     <task><statement><p>Alex est en sciences de la nature et Omar est en sciences informatiques et mathématiques.</p></statement></task>
     <task><statement><p>L'autobus est en retard ou ma montre est en avance.</p></statement></task>
