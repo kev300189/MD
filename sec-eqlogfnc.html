@@ -1228,15 +1228,15 @@ p \wedge \neg(q\rightarrow p) &amp;\equiv p\wedge \neg(\neg q \vee p)\\
 <div class="solutions"><details id="exo-eqlogfnc-2-3-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">On veut montrer que cette proposition est une tautologie. On a:<div class="displaymath process-math" id="exo-eqlogfnc-2-3-3-2-1">
 \begin{align*}
 ((p\rightarrow q)\wedge \neg q)\rightarrow \neg p &amp; \equiv \neg((\neg p \vee q)\wedge \neg q) \vee \neg p   \\
-&amp; \equiv (\neg(\neg p \vee q)\vee \neg\neg q) \vee \neg p &amp;&amp; \text{ par De Morgan.}   \\
-&amp;\equiv ((\neg\neg p \wedge \neg q)\vee q) \vee \neg p &amp;&amp; \text{  par De Morgan.}   \\
+&amp; \equiv (\neg(\neg p \vee q)\vee \neg\neg q) \vee \neg p &amp;&amp; \text{par De Morgan.}   \\
+&amp;\equiv ((\neg\neg p \wedge \neg q)\vee q) \vee \neg p &amp;&amp; \text{par De Morgan.}   \\
 &amp;\equiv ((p \wedge \neg q)\vee q) \vee \neg p \\
-&amp;\equiv ((p\vee q) \wedge (\neg q\vee q)) \vee \neg p &amp;&amp; \text{   par la distributivité.} \\
-&amp;\equiv ((p\vee q) \wedge V ) \vee \neg p &amp;&amp;\text{   par domination.} \\
-&amp;\equiv p\vee q   \vee \neg p &amp;&amp;\text{   par identité et associativité.} \\
-&amp;\equiv p\vee \neg p   \vee q &amp;&amp;\text{   par commutativité.} \\
-&amp;\equiv V \vee q  &amp;&amp;\text{   par les propriétés de négation.}\\
-&amp;\equiv V  &amp;&amp;\text{   par domination.} 
+&amp;\equiv ((p\vee q) \wedge (\neg q\vee q)) \vee \neg p &amp;&amp; \text{par la distributivité.} \\
+&amp;\equiv ((p\vee q) \wedge V ) \vee \neg p &amp;&amp;\text{par domination.} \\
+&amp;\equiv p\vee q   \vee \neg p &amp;&amp;\text{par identité et associativité.} \\
+&amp;\equiv p\vee \neg p   \vee q &amp;&amp;\text{par commutativité.} \\
+&amp;\equiv V \vee q  &amp;&amp;\text{par les propriétés de négation.}\\
+&amp;\equiv V  &amp;&amp;\text{par domination.} 
 \end{align*}
 </div>Ainsi, cette proposition est une tautologie.</div></details></div></article><article class="task exercise-like" id="exo-eqlogfnc-2-3-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para" id="exo-eqlogfnc-2-3-4-1-1"><span class="process-math">\(((p\rightarrow q)\vee \neg q)\rightarrow p\)</span></div>
@@ -1290,12 +1290,12 @@ p \wedge \neg(q\rightarrow p) &amp;\equiv p\wedge \neg(\neg q \vee p)\\
 <details id="exo-eqlogfnc-2-3-5-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">On veut montrer que cette proposition est une tautologie à l’aide des propriétés. On a<div class="displaymath process-math" id="exo-eqlogfnc-2-3-5-2-1">
 \begin{align*}
 (p\wedge (p\rightarrow q))\rightarrow q &amp;\equiv \neg(p\wedge (\neg p\vee q))\vee q\\
-&amp;\equiv \neg((p\wedge\neg p) \vee (p\wedge q) )\vee q &amp;&amp;\text{ par distributivité.}\\
-&amp;\equiv \neg( F \vee (p\wedge q) )\vee q &amp;&amp;\text{ par les propriétés de la négation.}\\
-&amp; \equiv \neg( p\wedge q )\vee q &amp;&amp;\text{ par la propriété de l'identité.}\\
-&amp;\equiv  \neg p \vee (\neg q \vee q) &amp;&amp;\text{ par De Morgan et associativité.}\\
-&amp;\equiv  \neg p \vee V &amp;&amp;\text{ par les proporiétés de la négation.}\\
-&amp;\equiv  V &amp;&amp;\text{ par domination.}
+&amp;\equiv \neg((p\wedge\neg p) \vee (p\wedge q) )\vee q &amp;&amp;\text{par distributivité.}\\
+&amp;\equiv \neg( F \vee (p\wedge q) )\vee q &amp;&amp;\text{par les propriétés de la négation.}\\
+&amp; \equiv \neg( p\wedge q )\vee q &amp;&amp;\text{par la propriété de l'identité.}\\
+&amp;\equiv  \neg p \vee (\neg q \vee q) &amp;&amp;\text{par De Morgan et associativité.}\\
+&amp;\equiv  \neg p \vee V &amp;&amp;\text{par les proporiétés de la négation.}\\
+&amp;\equiv  V &amp;&amp;\text{par domination.}
 \end{align*}
 </div>Ainsi, cette proposition est toujours vraie, et donc est une tautologie.</div></details><details id="exo-eqlogfnc-2-3-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
 <div class="para" id="exo-eqlogfnc-2-3-5-3-1">On veut montrer que cette proposition est une tautologie à l’aide d’une table de vérité.</div> <div class="para" id="exo-eqlogfnc-2-3-5-3-2"><figure class="table table-like" id="exo-eqlogfnc-2-3-5-3-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.2.15<span class="period">.</span></span><span class="space"> </span>Table de vérité de <span class="process-math">\((p\wedge (p\rightarrow q))\rightarrow q\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
@@ -1341,7 +1341,7 @@ p \wedge \neg(q\rightarrow p) &amp;\equiv p\wedge \neg(\neg q \vee p)\\
 <div class="solutions"><details id="exo-eqlogfnc-2-4-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">On a que<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-implicationsansfleche.html ./knowl/xref/ex-implicationsansfleche.html" id="exo-eqlogfnc-2-4-2-1">
 \begin{align*}
 p\rightarrow (q \wedge r) &amp;\equiv \neg p \vee (q\wedge r) &amp;&amp; \text{par } \knowl{./knowl/xref/ex-implicationsansfleche.html}{\text{2.2.8}}\\
-&amp; \equiv (\neg p \vee q )\wedge (\neg p \vee r) &amp;&amp;\text{ par la distributivité.} \\
+&amp; \equiv (\neg p \vee q )\wedge (\neg p \vee r) &amp;&amp;\text{par la distributivité.} \\
 &amp;\equiv (p\rightarrow q)\wedge (p\rightarrow r) &amp;&amp;  \text{par } \knowl{./knowl/xref/ex-implicationsansfleche.html}{\text{2.2.8}}
 \end{align*}
 </div>
@@ -1351,21 +1351,21 @@ p\rightarrow (q \wedge r) &amp;\equiv \neg p \vee (q\wedge r) &amp;&amp; \text{p
 <div class="para" id="exo-eqlogfnc-2-5-2-1-1"><span class="process-math">\(\neg(p\vee(\neg p\wedge q))\equiv \neg(p\vee q)\)</span></div>
 <div class="solutions"><details id="exo-eqlogfnc-2-5-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="displaymath process-math" id="exo-eqlogfnc-2-5-2-2-1">
 \begin{align*}
-\neg (p \vee (\neg p \wedge q)) &amp; \equiv \neg p \wedge \neg(\neg p \wedge q) &amp;&amp; \text{ par De Morgan.} \\
-&amp; \equiv \neg p \wedge (\neg\neg p \vee \neg q) &amp;&amp; \text{ par De Morgan.} \\
+\neg (p \vee (\neg p \wedge q)) &amp; \equiv \neg p \wedge \neg(\neg p \wedge q) &amp;&amp; \text{par De Morgan.} \\
+&amp; \equiv \neg p \wedge (\neg\neg p \vee \neg q) &amp;&amp; \text{par De Morgan.} \\
 &amp; \equiv \neg p \wedge (p \vee \neg q)\\
-&amp; \equiv (\neg p \wedge p) \vee (\neg p \wedge \neg q) &amp;&amp;\text{ par distributivité.} \\
-&amp; \equiv (F)) \vee (\neg p \wedge \neg q) &amp;&amp; \text{ par la négation.} \\
-&amp; \equiv (\neg p \wedge \neg q) &amp;&amp;\text{ par l'identité.} \\
-&amp;\equiv \neg( p \vee q) &amp;&amp;\text{ par De Morgan.} 
+&amp; \equiv (\neg p \wedge p) \vee (\neg p \wedge \neg q) &amp;&amp;\text{par distributivité.} \\
+&amp; \equiv (F)) \vee (\neg p \wedge \neg q) &amp;&amp; \text{par la négation.} \\
+&amp; \equiv (\neg p \wedge \neg q) &amp;&amp;\text{par l'identité.} \\
+&amp;\equiv \neg( p \vee q) &amp;&amp;\text{par De Morgan.} 
 \end{align*}
 </div></div></details></div></article><article class="task exercise-like" id="exo-eqlogfnc-2-5-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="exo-eqlogfnc-2-5-3-1-1"><span class="process-math">\((p\rightarrow \neg q)\wedge (p\rightarrow \neg r)\equiv \neg( p\wedge(q\vee r))\)</span></div>
 <div class="solutions"><details id="exo-eqlogfnc-2-5-3-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/ex-implicationsansfleche.html" id="exo-eqlogfnc-2-5-3-2-1">
 \begin{align*}
-\neg (p \wedge (q \vee r)) &amp;\equiv \neg p \vee \neg(q \vee r) &amp;&amp;\text{ par De Morgan.} \\
-&amp; \equiv \neg p \vee (\neg q \wedge \neg r) &amp;&amp;\text{ par De Morgan.} \\
-&amp; \equiv (\neg p \vee \neg q) \wedge (\neg p \vee \neg r) &amp;&amp;\text{ par distributivité.} \\
+\neg (p \wedge (q \vee r)) &amp;\equiv \neg p \vee \neg(q \vee r) &amp;&amp;\text{par De Morgan.} \\
+&amp; \equiv \neg p \vee (\neg q \wedge \neg r) &amp;&amp;\text{par De Morgan.} \\
+&amp; \equiv (\neg p \vee \neg q) \wedge (\neg p \vee \neg r) &amp;&amp;\text{par distributivité.} \\
 &amp;\equiv (p \rightarrow \neg q) \wedge ( p \rightarrow \neg r) &amp;&amp; \text{par }\knowl{./knowl/xref/ex-implicationsansfleche.html}{\text{2.2.8}}
 \end{align*}
 </div></div></details></div></article></article><article class="exercise exercise-like" id="exo-negationxor"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
@@ -1735,7 +1735,24 @@ p \oplus q \equiv \neg(\neg(p \oplus q))&amp;\equiv \neg ( (p \wedge q)\vee(\neg
 <h4 class="heading"><span class="title">Exercices supplémentaires.</span></h4>
 <div class="exercisegroup-exercises">
 <article class="exercise exercise-like" id="exo-eqlogfnc-3-2"><h5 class="heading"><span class="codenumber">11<span class="period">.</span></span></h5>
-<div class="para" id="exo-eqlogfnc-3-2-1-1">Utiliser les autres <a href="sec-eqlogfnc.html#li-oplogprop" class="xref" data-knowl="./knowl/xref/li-oplogprop.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Liste 2.2.5: Équivalences logiques de base">équivalences</a> de la logique pour démontrer les <a href="sec-eqlogfnc.html#li-oplogabs" class="xref" data-knowl="./knowl/xref/li-oplogabs.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 2.2.5:5">propriétés d’absorption</a>.</div></article><article class="exercise exercise-like" id="exo-eqlogfnc-3-3"><h5 class="heading"><span class="codenumber">12<span class="period">.</span></span></h5>
+<div class="para" id="exo-eqlogfnc-3-2-1-1">Utiliser les autres <a href="sec-eqlogfnc.html#li-oplogprop" class="xref" data-knowl="./knowl/xref/li-oplogprop.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Liste 2.2.5: Équivalences logiques de base">équivalences</a> de la logique pour démontrer les <a href="sec-eqlogfnc.html#li-oplogabs" class="xref" data-knowl="./knowl/xref/li-oplogabs.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Point 2.2.5:5">propriétés d’absorption</a>.</div>
+<div class="solutions">
+<details id="exo-eqlogfnc-3-2-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="displaymath process-math" id="exo-eqlogfnc-3-2-2-1">
+\begin{align*}
+p\wedge(p\vee q) &amp;\equiv (p\vee F)\wedge(p\vee q) &amp;&amp;\text{par identité.} \\
+&amp; \equiv  p \vee (F \wedge q ) &amp;&amp;\text{par distributivité.} \\
+&amp; \equiv  p \vee F &amp;&amp;\text{par domination.} \\
+&amp;\equiv p &amp;&amp; \text{par identité.}
+\end{align*}
+</div></div></details><details id="exo-eqlogfnc-3-2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="displaymath process-math" id="exo-eqlogfnc-3-2-3-1">
+\begin{align*}
+p\vee(p\wedge q) &amp;\equiv (p\wedge V)\vee(p\wedge q) &amp;&amp;\text{par identité.} \\
+&amp; \equiv  p \wedge (V \vee q ) &amp;&amp;\text{par distributivité.} \\
+&amp; \equiv  p \wedge V &amp;&amp;\text{par domination.} \\
+&amp;\equiv p &amp;&amp; \text{par identité.}
+\end{align*}
+</div></div></details>
+</div></article><article class="exercise exercise-like" id="exo-eqlogfnc-3-3"><h5 class="heading"><span class="codenumber">12<span class="period">.</span></span></h5>
 <div class="introduction" id="exo-eqlogfnc-3-3-1"><div class="para" id="exo-eqlogfnc-3-3-1-1">Utiliser les lois de De Morgan pour donner la négation des propositions suivantes.</div></div>
 <article class="task exercise-like" id="exo-eqlogfnc-3-3-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para" id="exo-eqlogfnc-3-3-2-1-1">Alex est en sciences de la nature et Omar est en sciences informatiques et mathématiques.</div></article><article class="task exercise-like" id="exo-eqlogfnc-3-3-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
