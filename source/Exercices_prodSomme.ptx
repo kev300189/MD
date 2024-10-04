@@ -57,8 +57,8 @@
 
 <exercise><statement><p>Lors de la finale de la course du <m>100</m> mètres aux derniers jeux Olympiques, il y avait <m>8</m> coureurs. De combien de manières possibles le podium pouvait-il être composé?</p></statement>
     <answer>
-<p><m>\frac{8!}{5!}=8\cdot 7\cdot 6</m></p>
-<p>La notation <m>k!</m> sera définie  <xref ref="def_facto" text="custom"> à la prochaine section</xref>.  </p>
+<p><m>8\cdot 7\cdot 6</m></p>
+
 </answer>
     </exercise>
 

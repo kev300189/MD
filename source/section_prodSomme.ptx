@@ -17,15 +17,15 @@
 <example xml:id="ex-introProdCostumes">
   <title>Le nombre de constumes</title>
   <statement><p>Supposons qu'un de vos amis doit choisir un costume pour animer un spectacle. Si votre ami  doit choisir parmi 3 chapeaux, 6 chandails et 4 pantalons. De combien de façons différentes peut-il s'habiller? </p></statement>
-  <solution>On sépare la tâche de choisir le costume en trois étapes: Choisir le chapeau, choisir le chandail et finalement choisir les pantalons. Il y a 3 façons d'exécuter la première tâche, 6 façons d'exécuter la deuxième tâche et 4 façons d'exécuter la troisième. Ainsi, au total, il y a <m>3\cdot 6\cdot 4 =72</m> façons de choisir un costume différent. </solution>
+  <solution>On sépare la tâche de choisir le costume en trois étapes: choisir le chapeau, choisir le chandail et finalement choisir les pantalons. Il y a 3 façons d'exécuter la première tâche, 6 façons d'exécuter la deuxième tâche et 4 façons d'exécuter la troisième. Ainsi, au total, il y a <m>3\cdot 6\cdot 4 =72</m> façons de choisir un costume différent. </solution>
 </example>
  
 <remark xml:id="rem-ordreChoixOrdre">
-  À l'exemple <xref ref="ex-introProdCostumes"/>, l'ordre dans lequel on exécute chacune des tâches n'a pas d'importance. Si votre ami choisi son chapeau en premier, ou bien il peut choisir son chandail en premier, et le nombre de costumes ne changera pas. Ainsi, lorsqu'on veut dénombrer les costumes, on peut décider d'un ordre arbitraire (par exemple, chapeau, chandail, pantalons).
+  À l'exemple <xref ref="ex-introProdCostumes"/>, l'ordre dans lequel on exécute chacune des tâches n'a pas d'importance. Si votre ami choisit son chapeau en premier, ou bien il peut choisir son chandail en premier, et le nombre de costumes ne change pas. Ainsi, lorsqu'on veut dénombrer les costumes, on peut décider d'un ordre arbitraire (par exemple, chapeau, chandail, pantalons).
 </remark>
 
 <p>
-  Le principe utilisé à l'exemple précédent est ce qu'on appelle le principe du produit. On le nomme parfois aussi le principe du ET, car on doit faire un premier choix, ET ensuite faire un deuxième choix. En language plus formel, le principe du produit peut s'énoncer de deux façons. 
+  Le principe utilisé à l'exemple précédent est ce qu'on appelle le principe du produit. On le nomme parfois aussi le principe du ET, car on doit faire un premier choix, ET ensuite faire un deuxième choix. En langage plus formel, le principe du produit peut s'énoncer de deux façons. 
 </p>
 
 
@@ -58,29 +58,29 @@
 </example>
 
 <p>
-  À l'exercice <xref ref="exo-nbrFonctions"/>, on a considérer le nombres de fonctions, de fonctions injectives et de fonctions surjective allant de <m>A=\{0,1\}</m> vers <m>B=\{a,b,c\}</m>.  Puisque ces ensembles sont assez petits, on a pû énumérer toutes ces fonctions directement. On veut maintenant utiliser le principe du produit pour compter le nombres de fonctions et le nombres de fonctions injectives allant de <m>A</m> vers <m>B</m>. Par la suite, on va généraliser à des ensembles quelconques.
+  À l'exercice <xref ref="exo-nbrFonctions"/>, on a considérer le nombres de fonctions, de fonctions injectives et de fonctions surjective allant de <m>A=\{0,1\}</m> vers <m>B=\{a,b,c\}</m>.  Puisque ces ensembles sont assez petits, on a pû énumérer toutes ces fonctions directement. On veut maintenant utiliser le principe du produit pour compter le nombre de fonctions et le nombre de fonctions injectives allant de <m>A</m> vers <m>B</m>. Par la suite, on va généraliser à des ensembles quelconques.
 </p>
 
 <example xml:id="nbrFonctionsProd">
   <title> Retour sur le nombre de fonctions</title>
  <introduction> <p>Soit <m>A=\{0,1\}</m> et <m>B=\{a,b,c\}</m>. </p> </introduction>
 <task>
-  <statement>Combien y a-t-il de fonctions <m>f:A\to B</m>.</statement>
+  <statement>Combien y a-t-il de fonctions <m>f:A\to B</m>?</statement>
   <solution>
     <p>On compte le nombre de façons qu'il y a de définir une telle fonction <m>f</m>. Pour se faire, on sépare la tâche en deux étapes: choisir la valeur de <m>f(0)</m> et ensuite choisir la  valeur de <m>f(1)</m>.</p>
     <p>Lorsqu'on choisit la valeur de <m>f(0)</m>, on a trois choix possibles: <m>f(0)=a</m>, <m>f(0)=b</m> ou bien <m>f(0)=c</m>.</p>  
     <p>Une fois qu'on a choisit <m>f(0)</m>, on doit choisir <m>f(1)</m>. Encore une fois, on a trois choix possibles: <m>f(1)=a</m>, <m>f(1)=b</m> ou bien <m>f(1)=c</m>.</p>
     <p>Par le principe du produit, il y a alors <m>3\cdot 3 =9</m> façons différentes de choisir une fonction <m>f:A\to B</m>.</p>
-    <p>On remarque encore une fois que le fait de choisir <m>f(0)</m> avant <m>f(1)</m> n'a pas d'importance. Puisque celà n'a pas d'importance, on peut donc décider d'un ordre arbitraire.</p>
+    <p>On remarque encore une fois que le fait de choisir <m>f(0)</m> avant <m>f(1)</m> n'a pas d'importance. Puisque cela n'a pas d'importance, on peut donc décider d'un ordre arbitraire.</p>
   </solution>
 </task>
 <task>
-  <statement>Combien y a-t-il de fonctions injectives <m>f:A\to B</m>.</statement>
+  <statement>Combien y a-t-il de fonctions injectives <m>f:A\to B</m>?</statement>
   <solution>
     <p>Comme à la partie précédente, on compte le nombre de façons qu'il y a de définir une telle fonction <m>f</m>. Pour se faire, on sépare la tâche en deux étapes: choisir la valeur de <m>f(0)</m> et ensuite choisir la  valeur de <m>f(1)</m>.</p>
     <p>Lorsqu'on choisit la valeur de <m>f(0)</m>, on a trois choix possibles: <m>f(0)=a</m>, <m>f(0)=b</m> ou bien <m>f(0)=c</m>.</p>  
-    <p>Une fois qu'on a choisit <m>f(0)</m>, on doit choisir <m>f(1)</m>. Attention! Ici, on veut une fonction injective! Supposons par exemple que <m>f(0)=c</m>, il ne reste alors que <em>deux choix possibles</em>:  <m>f(1)=a</m> ou bien <m>f(1)=b</m>. La même chose est vrai si on avait choisit une autre valeur pour <m>f(0)</m>, il ne resterait que deux choix possibles pour <m>f(1)</m>.</p>
-    <p>Par le principe du produit, il y a alors <m>3\cdot 2 =6</m> façons différentes de choisir une fonction <m>f:A\to B</m>.</p>
+    <p>Une fois qu'on a choisi <m>f(0)</m>, on doit choisir <m>f(1)</m>. Attention! Ici, on veut une fonction injective! Supposons par exemple que <m>f(0)=c</m>, il ne reste alors que <em>deux choix possibles</em>:  <m>f(1)=a</m> ou bien <m>f(1)=b</m>. La même chose est vraie si l'on avait choisi une autre valeur pour <m>f(0)</m>, il ne resterait que deux choix possibles pour <m>f(1)</m>.</p>
+    <p>Par le principe du produit, il y a alors <m>3\cdot 2 =6</m> façons différentes de choisir une fonction injective <m>f:A\to B</m>.</p>
   </solution>
 </task>
 </example>
@@ -97,12 +97,12 @@
 <title> Compter des fonctions : Cas général</title>
 <introduction> Soit deux ensembles <m>A</m> et <m>B</m> tels que <m>|A|=m</m> et <m>|B|=n</m>. </introduction>
 <task>
-<statement>Combien de fonctions différentes <m>f: A\rightarrow B</m> existe-t-il.</statement>
-<solution> Pour chaque élément <m>a\in A</m>, on doit choisir la valeur de <m>f(a)</m>. Ainsi, pour chaque <m>a\in A</m>,il y a <m>n</m> possibilité pour <m>f(a)</m>. Ainsi, par le principe du produit, il y aura <m> n\cdot n\cdot \cdots \cdot n =n^m</m> fonctions différentes.  </solution>
+<statement>Combien de fonctions différentes <m>f: A\rightarrow B</m> existe-t-il?</statement>
+<solution> Pour chaque élément <m>a\in A</m>, on doit choisir la valeur de <m>f(a)</m>. Ainsi, pour chaque <m>a\in A</m>,il y a <m>n</m> possibilités pour <m>f(a)</m>. Puisqu'on doit faire <m>m</m> choix et qu'il y a <m>n</m> possibilités, pour chacun de ces choix, par le principe du produit, il y aura <m> n\cdot n\cdot \cdots \cdot n =n^m</m> fonctions différentes.  </solution>
 <answer><m> n^m </m></answer>
 </task>
 <task xml:id="ex_comptFctInj">
-<statement>Combien de fonctions injectives différentes <m>f: A\rightarrow B</m> existe-t-il.</statement>
+<statement>Combien de fonctions injectives différentes <m>f: A\rightarrow B</m> existe-t-il?</statement>
 <answer><m>n\cdot (n-1)\cdot \cdots \cdot (n-(m-1)) </m> si <m>m\leq n</m>, <m>0</m> sinon.</answer>
 <solution> 
   <p>Supposons qu'on étiquette les éléments de <m>A</m> par <m>a_1,a_2,\dots,a_m</m>. On commence par choisir la valeur de <m>f(a_1)</m>. Il y a <m>n</m> choix possible. On note cette valeur  <m>b_1</m>, c'est-à-dire que <m>f(a_1)=b_1</m>.</p>
@@ -113,19 +113,19 @@
 </example>
 
 <p>
-  À la section <xref ref="sec-ens"/>, on a introduit, pour un ensemble <m>A</m>,  l'ensemble <m>\mathscr{P}(A)</m>  des puissances de <m>A</m> (voir <xref ref="def-enspuiss"/>). On avait remarqué que la cardinalité de <m>\mathscr{P}(A)</m>  semblait être donnée par <m>|\mathscr{P}(A)|= 2^{|A|}</m>. On utilise le principe du produit sur un exemple avant de généraliser à une ensemble de taille fini quelconque. 
+  À la section <xref ref="sec-ens"/>, on a introduit, pour un ensemble <m>A</m>,  l'ensemble <m>\mathscr{P}(A)</m>  des puissances de <m>A</m> (voir <xref ref="def-enspuiss"/>). On avait remarqué que la cardinalité de <m>\mathscr{P}(A)</m>  semblait être donnée par <m>|\mathscr{P}(A)|= 2^{|A|}</m>. On utilise le principe du produit sur un exemple avant de généraliser ce résultat à un ensemble de taille fini quelconque. 
 </p>
 
 <example xml:id="ex-nbrSousEnsIntro">
   <title>Retour sur l'ensemble des puissances</title>
   <statement><p>On considère l'ensemble <m>A=\{a,b,c\}</m>. On sait que <m>|\mathscr{P}(A)|=2^3</m>, car on a décrit  <m>\mathscr{P}(A)</m> en extension à la section <xref ref="sec-ens"/>.</p> 
-  <p> On veut utiliser le principe du produit pour arriver à la même conclusion. On pourra ensuite généralister au cas où <m>|A|=n</m>.</p></statement>
+  <p> On veut utiliser le principe du produit pour arriver à la même conclusion. On pourra ensuite généraliser au cas où <m>|A|=n</m>.</p></statement>
   <solution>
     <p>
-      On veut dénombrer le nombre de sous-ensembles différents de <m>A</m>. Ceci revient à compter le nombre de façons qu'on peut choisir un tel sous-ensemble <m>E \subseteq A</m>.
+      On veut dénombrer le nombre de sous-ensembles différents de <m>A</m>. Ceci revient à compter le nombre de façons différentes qu'on peut construire un tel sous-ensemble <m>E \subseteq A</m>.
     </p>
     <p>
-      Pour se faire, on sépare la tâche "choisir <m>E</m>" en trois étapes. On commence par choisir si <m>a \in E</m>. Il y a deux choix possibles (oui ou non). On choisit ensuite si <m>b\in E</m>. Il y a deux choix possibles (oui ou non). Finalement, on choisit si <m>c\in E</m>. Encore une fois, il y a deux choix possibles.
+      Pour se faire, on sépare la tâche "construire <m>E</m>" en trois étapes. On commence par choisir si <m>a \in E</m>. Il y a deux choix possibles (oui ou non). On choisit ensuite si <m>b\in E</m>. Il y a deux choix possibles (oui ou non). Finalement, on choisit si <m>c\in E</m>. Encore une fois, il y a deux choix possibles.
     </p>
     <p>
       Par le principe du produit, il y a <m>2\cdot 2\cdot 2 = 2^3=8</m> façons différentes de choisir un ensemble <m>E\in \mathscr{P}(A)</m>, et donc <m>|\mathscr{P}(A)|=2^3</m>.
@@ -139,7 +139,7 @@
 
 <example xml:id="ex-nbrSousEns">
 <title>L'ensemble des puissances: Cas général</title>
-<statement> Soit <m>A</m> un ensemble de cardinalité fini, disons <m>|A|=n\in \ \N</m>, quelle est la cardinalité de <m>\mathscr{P}(A)</m> ? C'est-à-dire, quelle est la valeur de <m>|\mathscr{P}(A)|</m>? </statement>
+<statement> Soit <m>A</m> un ensemble de cardinalité fini, disons <m>|A|=n\in \ \N</m>, quelle est la cardinalité de <m>\mathscr{P}(A)</m> ? C'est-à-dire, qu'elle est la valeur de <m>|\mathscr{P}(A)|</m>? </statement>
 
 <answer><m>|\mathscr{P}(A)|= 2^n</m> </answer>
 <solution>
@@ -150,19 +150,20 @@
 
 
 <p>
-  À la section, <xref ref="sec_arrCombinaison"/>, on étudiera plus en détails les permutations et les combinaisons. On introduit l'idée avec l'exemple <xref ref="ex-permIntro" text="custom">ci-dessous</xref>, ainsi qu'avec l'exemple <xref ref="ex-divIntro"/> .
+  À la section, <xref ref="sec_arrCombinaison"/>, on étudiera plus en détail les permutations et les combinaisons. On introduit l'idée avec l'exemple <xref ref="ex-permIntro" text="custom">ci-dessous</xref>, ainsi qu'avec l'exemple <xref ref="ex-divIntro"/> .
 </p>
 
 <example xml:id="ex-permIntro">
   <title>Les permutations</title>
-  <statement>Combien de "mots" différents peut-on écrire en utilisant les lettres du "mot" <m>ABCDE</m>. Ici, "mot" veut simplement dire une suite de lettres, même si le "mot" n'est pas un vrai mot en français (ou n'importe quelle autre langue). On dit aussi qu'il s'agit des permutations des lettres de <m>ABCDE</m>. </statement>
+  <statement>Combien de "mots" différents peut-on écrire en utilisant les lettres du "mot" <m>ABCDE</m>? Ici, "mot" veut simplement dire une suite de lettres, même si le "mot" n'est pas un vrai mot en français (ou n'importe quelle autre langue). On dit aussi qu'il s'agit des permutations des lettres de <m>ABCDE</m>. </statement>
   <solution>
     <p>On utilise le principe du produit. On choisit la première lettre du mot, ensuite la deuxième, et ainsi de suite jusqu'à la dernière lettre.</p>
     <p>Pour la première lettre, on a <m>5</m> choix possibles. Pour la deuxième lettre, il reste <m>4</m> choix possibles. Pour la troisième lettre, il reste <m>3</m> choix possibles. Pour la quatrième lettre, il reste <m>2</m> choix possibles. Finalement, il ne reste que <m>1</m> choix pour la dernière lettre.</p>
     <p>Ainsi, il y a <m>5\times 4\times 3\times 2\times 1 =120</m> mots différents qu'on peut obtenir à partir des lettres de <m>ABCDE</m>.</p>
+    <p> Ce problème est un exemple de permutations. On verra, <xref ref="sec_arrCombinaison" text="custom"> à la prochaine section </xref>, que le nombre de permutations de <m>5</m> objets est <m>5!</m>, où <xref ref="def_facto" text="custom"> la notation </xref> <m>k!</m> y sera également définie.</p>
   </solution>
   <solution>
-    <p>Une solution alternative est de remarquer qu'un mot utilisant les lettres de <m>ABCDE</m> est équivalent à une fonction injective <m>f: \{1,2,3,4,5\}\to \{A,B,C,D,E\}</m>, où <m>f(i)</m> est la lettre à la position <m>i</m> du mot. Par exemple, les mots <m>ABCDE</m> et <m>EDCBA</m> sont équivalents aux fonctions <m>f_1</m> et <m>f_2</m> définies par 
+    <p>Une solution alternative est de remarquer que d'écrire un mot utilisant les lettres de <m>ABCDE</m> est équivalent à choisir une fonction injective <m>f: \{1,2,3,4,5\}\to \{A,B,C,D,E\}</m>, où <m>f(i)</m> est la lettre à la position <m>i</m> du mot. Par exemple, les mots <m>ABCDE</m> et <m>EDCBA</m> sont équivalents aux fonctions <m>f_1</m> et <m>f_2</m> définies par 
     <md>
       <mrow>f_1(1)\amp=A \amp f_2(1)\amp=E </mrow>
       <mrow>f_1(2)\amp=B \amp f_2(2)\amp=D </mrow>
@@ -181,7 +182,7 @@
 <title>Principe de la somme</title>
 <introduction>
 <p>
-  Il est parfoit difficile d'utiliser le principe du produit directement pour dénombrer une situation. Celà  se produit souvent lorsque le nombre de façons d'accomplir une tâche dépend d'une condition. On doit alors compter le nombre de façons d'accomplir la tâche pour chaque condition, et ensuite additionner ces résultats. On commence par considérer un exemple très simple, avant d'énoncer ce principe.
+  Il est parfois difficile d'utiliser le principe du produit directement pour dénombrer une situation. Cela  se produit souvent lorsque le nombre de façons d'accomplir une tâche dépend d'une condition. On doit alors compter le nombre de façons d'accomplir la tâche pour chaque condition, et ensuite additionner ces résultats. On commence par considérer un exemple très simple, avant d'énoncer ce principe.
 </p>
 </introduction>
 
@@ -189,15 +190,15 @@
   <title>Des lettres ou des chiffres</title>
   <statement>
     <p>
-      Supposons que l'on doive créer un mot de passe composer de quatres caractères pour un site quelconque. Suppsons qu'en plus touts les caractères doivents soit tous êtres une des <m>26</m> lettres de l'alphabet, ou bien ils doivent tous être un chiffre (de <m>0</m> à <m>9</m>). Combien de façons différentes y a-t-il de choisir un mot de passe?
+      Supposons que l'on doive créer un mot de passe composé de quatre caractères pour un site quelconque. Supposons qu'en plus tous les caractères doivent soit tous être une des <m>26</m> lettres de l'alphabet, ou bien ils doivent tous être un chiffre (de <m>0</m> à <m>9</m>). Combien de façons différentes y a-t-il de choisir un mot de passe?
     </p>
   </statement>
     <solution>
       <p>
-        On sépare la tâche selon si on choisit d'utiliser des lettres où des chiffres pour notre mot de passe.
+        On sépare la tâche selon si on choisit d'utiliser des lettres ou des chiffres pour notre mot de passe.
       </p>
       <p>
-        Si on choisit d'utiliser des lettres pour le mot de passe, on aura <m>26</m> choix pour chacun des caractères, et donc <m>26^4</m> choix possibles pour le mot de passe.
+        Si l'on choisit d'utiliser des lettres pour le mot de passe, on aura <m>26</m> choix pour chacun des caractères, et donc <m>26^4</m> choix possibles pour le mot de passe.
       </p>
       <p>
         Si par contre, on choisit d'utiliser des chiffres, alors on aura <m>10</m> choix pour chacun des carctères, et donc <m>10^4</m> choix possibles pour le mot de passe. 
@@ -337,7 +338,7 @@
 </introduction>
 
   <example xml:id="ex-incluExcluIntro">
-    <title>Le nombre de constumes bleus ou vert!</title>
+    <title>Le nombre de costumes bleus ou vert!</title>
   <statement><p>Supposons qu'un de vos amis doit choisir un costume pour animer un spectacle. Si votre amis  doit choisir parmi 5 chapeaux dont 3 sont bleus, 2 chandails et 6 pantalons, dont 4 sont verts. De combien de façons différentes peut-ils s'habiller, s'il doit porter un chapeau bleau ou un pantalon vert? </p></statement>
   <solution>
     <p>On note <m>C</m> le nombre de costumes avec chapeau bleu ou pantalon vert. Pour déterminer <m>C</m>, on sépare la tâche de choisir le costume en deux catégories: la première catégorie est celle formée des costumes avec un chapeau bleu, alors que la deuxième est celle formée des costumes avec un pantalon vert.</p>
