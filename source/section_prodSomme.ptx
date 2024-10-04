@@ -201,7 +201,7 @@
         Si l'on choisit d'utiliser des lettres pour le mot de passe, on aura <m>26</m> choix pour chacun des caractères, et donc <m>26^4</m> choix possibles pour le mot de passe.
       </p>
       <p>
-        Si par contre, on choisit d'utiliser des chiffres, alors on aura <m>10</m> choix pour chacun des carctères, et donc <m>10^4</m> choix possibles pour le mot de passe. 
+        Si par contre, on choisit d'utiliser des chiffres, alors on aura <m>10</m> choix pour chacun des caractères, et donc <m>10^4</m> choix possibles pour le mot de passe. 
       </p>
       <p>
         Au total, puisqu'on doit avoir des lettres ou des chiffres, il y aura <m>26^4+10^4=466\ 976</m> choix possibles.
@@ -210,7 +210,7 @@
 </example>
 
 <p>
-  Le principe utilisé à l'exemple précédent s'appelle le principe de la somme. On le nomme également le principe du OU, car on peut accomplir la tâche d'une première façon OU d'une deuxième façon. En language plus formel, le principe de la somme peut s'énoncer de deux façons. 
+  Le principe utilisé à l'exemple précédent s'appelle le principe de la somme. On le nomme également le principe du OU, car on peut accomplir la tâche d'une première façon OU d'une deuxième façon. En langage plus formel, le principe de la somme peut s'énoncer de deux façons. 
 </p>
 
 <proposition xml:id="prop-regleSomme">
@@ -222,20 +222,20 @@
 </proposition>
 
 <p>
-  On montre ici comment utiliser le principe de la somme dans le cas  le plus simple. Dans les faits, on devra souvent utiliser le principe à plusieurs reprises, où bien le combinner au principe du produit.
+  On montre ici comment utiliser le principe de la somme dans le cas le plus simple. Dans les faits, on devra souvent utiliser le principe à plusieurs reprises, ou bien le combiner au principe du produit.
 </p>
 
 <example xml:id="ex-baseSomme">
 <title>Exemple de base du principe de la somme</title>
-<statement>Supposons que le Cégep Gérald-Godin veut choisir, parmi les professeurs en mathématiques ou les professeurs en informatique, un représentant du programme de SIM pour siéger sur un comité exécutif. Sachant qu'il y a <m>9</m> professeur en mathématiques et <m>7</m> professeurs en informatique. Combien de façons y a-t-il de choisir ce représentant, en supposons qu'un professeur ne peut pas être à la fois un professeur d'informatique et un professeur de mathématique?</statement>
+<statement>Supposons que le Cégep Gérald-Godin veut choisir, parmi les professeurs en mathématiques ou les professeurs en informatique, un représentant du programme de SIM pour siéger sur un comité exécutif. Sachant qu'il y a <m>9</m> professeurs en mathématiques et <m>7</m> professeurs en informatique. Combien de façons y a-t-il de choisir ce représentant, en supposons qu'un professeur ne peut pas être à la fois un professeur d'informatique et un professeur de mathématique?</statement>
 <solution>Il y a <m>9</m> façons de choisir un professeur de mathématiques, alors qu'il y a <m>7</m> façons de choisir un professeur d'informatique. Puisque le représentant est soit un professeur de mathématiques, soit un professeur d'informatique, il y a <m>9+7=16</m> façons différentes de choisir un tel représentant.</solution>
 <answer><m>16</m></answer>
 </example>
 <p>Évidemment, il est souvent utile de séparer une tâche en plus de deux choix. On peut alors utiliser le principe de la somme à plusieurs reprises, tel qu'illustré à l'exemple <xref ref="ex-baseSommeSuccessive"/> .</p>
 <example xml:id="ex-baseSommeSuccessive">
 <title>Utilisation successive du principe de la somme</title>
-<statement>Un élève d'un cours d'informatique doit choisir pour l'évaluation finale,  un projet parmi trois listes selon le langage de programmation utilisé. S'il y a <m>15</m> projets possibles en C, <m>12</m> projets possible en python et <m>7</m> projets possible en Pascal, combien de projets différents est-ce qu'un élève peut choisir?</statement>
-<solution>Lorsqu'un élève choisit son projet, il peut soit choisir de le faire en C, soit en python ou soit en Pascal. S'il choisit de le faire en C, il aura <m>15</m> choix possible. S'il choisit de le faire en python, il en aura <m>12</m>, alors que s'il le fait en Pascal, il n'en aura que <m>7</m>. Si on utilise le principe de la somme à deux reprises, on a qu'il y a <m>15+12+7=34</m> façons de choisir un projet pour l'évaluation finale. </solution>
+<statement>Un élève d'un cours d'informatique doit choisir pour l'évaluation finale,  un projet parmi trois listes selon le langage de programmation utilisé. S'il y a <m>15</m> projets possibles en C, <m>12</m> projets possibles en python et <m>7</m> projets possibles en Pascal, combien de projets différents est-ce qu'un élève peut choisir?</statement>
+<solution>Lorsqu'un élève choisit son projet, il peut soit choisir de le faire en C, soit en python ou soit en Pascal. S'il choisit de le faire en C, il aura <m>15</m> choix possibles. S'il choisit de le faire en python, il en aura <m>12</m>, alors que s'il le fait en Pascal, il n'en aura que <m>7</m>. Si on utilise le principe de la somme à deux reprises, on a qu'il y a <m>15+12+7=34</m> façons de choisir un projet pour l'évaluation finale. </solution>
 <answer><m>34</m></answer>
 </example>
 </subsection>
@@ -245,7 +245,7 @@
   <title>Combinaison du principe du produit et du principe de la somme</title>
   <introduction>
     <p>
-      Tel que mentionné précédemment, il est souvent nécessaire de combiner le principe de la somme avec le principe du produit. Souvent, on commence par utiliser le principe de la somme pour séparer la tâche selon certaines conditions, et ensuite on utilise le principe du produit pour dénombrer le nombre de façons d'exécuter la tâche sous chacune des conditions. Ces ce qu'on a fait à l'exemple <xref ref="ex-regleSommeIntro"/>.
+      Tel que mentionné précédemment, il est souvent nécessaire de combiner le principe de la somme avec le principe du produit. Souvent, on commence par utiliser le principe de la somme pour séparer la tâche selon certaines conditions, et ensuite on utilise le principe du produit pour dénombrer le nombre de façons d'exécuter la tâche sous chacune des conditions. C'est ce qu'on a fait à l'exemple <xref ref="ex-regleSommeIntro"/>.
     </p>
   </introduction>
 
@@ -253,8 +253,8 @@
 <example xml:id="ex-combProdSomme1">
 <title> Nombre de variables en BASIC </title>
 <statement>
-<p>Dans une version du language informatique BASIC, le nom d'une variable doit être une chaîne de caractères formée d'un ou de deux caractère alphanumérique. Un caractère alphanumérique est soit une des <m>26</m> lettre de l'alphabet ou bien un chiffre de <m>0</m> à <m>9</m>.</p>
-<p>De plus, le premier caractère doit toujours être une lettre, et il existe <m>5</m> nom de variables formées de deux caractères qui sont des variables protégées, c'est-à-dire qu'on ne peut pas donner ces noms à nos variables. Combien de noms de variables différents peut-on avoir dans cette version de BASIC?</p>
+<p>Dans une version du langage informatique BASIC, le nom d'une variable doit être une chaîne de caractères formée d'un ou de deux caractères alphanumériques. Un caractère alphanumérique est soit une des <m>26</m> lettres de l'alphabet ou bien un chiffre de <m>0</m> à <m>9</m>.</p>
+<p>De plus, le premier caractère doit toujours être une lettre, et il existe <m>5</m> noms de variables formées de deux caractères qui sont des variables protégées, c'est-à-dire qu'on ne peut pas donner ces noms à nos variables. Combien de noms de variables différents peut-on avoir dans cette version de BASIC?</p>
 </statement>
 <solution>
 <p>Soit <m>V</m> le nombre de noms de variables possible. Soit aussi <m>V_1</m> le nombre de ces noms formés d'un seul caractère, et soit <m>V_2</m> le nombre des noms formés de deux caractères. Ainsi, par le principe de la somme, on aura <m>V=V_1+V_2</m>.</p>
@@ -266,12 +266,12 @@
 </example>
 
 <p>
-  Bien que le principe de la somme et le principe du produit soient relativement simples en principe, ils ne sont pas toujours si simple de voir comment les utiliser pour répondre à un problème de dénombrement. Ceci peut rendre la résolution de problèmes de dénombrement particulièrement frustant... Voici un exemple où il faut utiliser d'un peu plus d'intuition pour trouver la solution.
+  Bien que le principe de la somme et le principe du produit soient relativement simples en principe, ils n'est pas toujours si simples de voir comment les utiliser pour répondre à un problème de dénombrement. Ceci peut rendre la résolution de problèmes de dénombrement particulièrement frustrant... Voici un exemple où il faut utiliser d'un peu plus d'intuition pour trouver la solution.
 </p>
 
 <example xml:id="ex_sousEnsPair">
 <title>Sous-ensembles de cardinalité paire</title>
-<introduction> Soit <m>E</m> un ensemble fini de cardinalité <m>n</m>. Combien de sous-ensembles de <m>E</m> on une cardinalité paire si:</introduction>
+<introduction> Soit <m>E</m> un ensemble fini de cardinalité <m>n</m>. Combien de sous-ensembles de <m>E</m> ont une cardinalité paire si:</introduction>
 <task>
 <statement><m>n=4</m>;</statement>
 <answer><m>2^{3}</m></answer>
@@ -285,7 +285,7 @@
 </md>
 </p>
 <p>
-  Avant de considérer le cas général, on fait quelques remarques. Notons <m>A=E-\{e_4\}=\{e_1, e_2, e_3\}</m>. On peut voir que le nombre de sous-ensembles de cardinalité pair de <m>E</m> est équivalent au nombre de sous-ensembles de <m>A</m>. En fait, on peut voir un lien entre ceux-ci si on liste les sous-ensembles de <m>A</m>.
+  Avant de considérer le cas général, on fait quelques remarques. Notons <m>A=E-\{e_4\}=\{e_1, e_2, e_3\}</m>. On peut voir que le nombre de sous-ensembles de cardinalité pair de <m>E</m> est équivalent au nombre de sous-ensembles de <m>A</m>. En effet, on peut voir un lien entre ceux-ci si on liste les sous-ensembles de <m>A</m>.
   <md>
     <mrow> A_1\amp=\{e_3\}  \amp  A_2\amp=\{\} </mrow>
     <mrow>A_3\amp= \{e_1\}\amp A_4\amp=\{e_1,e_2\}   </mrow>
@@ -294,7 +294,7 @@
   </md>
 </p>
 <p>
-  En effet, si on compares les sous-ensembles <m>E_i</m> aux les sous-ensembles <m>A_i</m>, on remarque que ceux ayant un indice paire  sont égaux, c'est-à-dire que <m>E_2=A_2</m>, <m>E_4=A_4</m>, <m>E_6=A_6</m> et <m>E_7A_7</m>. De même, chaque sous-ensemble <m>E_i</m> ayant un indice impair est obtenu à partir du sous-ensemble <m>A_i</m>, auquel on a ajouté l'élément <m>\color{red}e_4</m>, c'est-à-dire que <m>E_1=A_1\cup \{{\color{red}e_4}\}</m>, <m>E_3=A_3\cup \{{\color{red}e_4}\}</m>, <m>E_5=A_5\cup \{{\color{red}e_4}\}</m> et <m>E_7=A_7\cup \{{\color{red}e_4}\}</m>.
+  Si on compare les sous-ensembles <m>E_i</m> aux sous-ensembles <m>A_i</m>, on remarque que ceux ayant un indice pair  sont égaux, c'est-à-dire que <m>E_2=A_2</m>, <m>E_4=A_4</m>, <m>E_6=A_6</m> et <m>E_8=A_8</m>. De même, chaque sous-ensemble <m>E_i</m> ayant un indice impair est obtenu à partir du sous-ensemble <m>A_i</m>, auquel on a ajouté l'élément <m>\color{red}e_4</m>, c'est-à-dire que <m>E_1=A_1\cup \{{\color{red}e_4}\}</m>, <m>E_3=A_3\cup \{{\color{red}e_4}\}</m>, <m>E_5=A_5\cup \{{\color{red}e_4}\}</m> et <m>E_7=A_7\cup \{{\color{red}e_4}\}</m>.
 </p>
 <p>
   On utilisera cette remarque pour déterminer la solution dans le cas général.
@@ -305,7 +305,7 @@
 <statement><m>n</m> est un entier quelconque.</statement>
 <answer><m>2^{n-1}</m>.</answer>
 <solution> 
-<p>Suposons qu'on écrit <m>E=\{e_1,\dots,e_n\}</m> et posons <m>A=E-\{e_n\}</m>. Notons <m>P</m> le nombre de sous-ensembles de <m>E</m> de cardinalité pair. On choisit <m>X</m> un sous-ensemble de cardinalité pair de la façon suivante. Tout d'abord, on remarque que soit <m>e_n\in\, X</m>, ou bien <m>e_n\notin\, X</m>. Ainsi, par le principe de la somme, on a que <m>P=P_1+P_2</m>, où <m>P_1</m> est le nombre de sous-ensembles de cardinalité pair contenant <m>e_n</m>, et <m>P_2</m> le nombre de ces sous-ensembles qui ne contiennent pas <m>e_n</m>.</p>
+<p>Supposons qu'on écrit <m>E=\{e_1,\dots,e_n\}</m> et posons <m>A=E-\{e_n\}</m>. Notons <m>P</m> le nombre de sous-ensembles de <m>E</m> de cardinalité pair. On choisit <m>X</m> un sous-ensemble de cardinalité pair de la façon suivante. Tout d'abord, on remarque que soit <m>e_n\in\, X</m>, ou bien <m>e_n\notin\, X</m>. Ainsi, par le principe de la somme, on a que <m>P=P_1+P_2</m>, où <m>P_1</m> est le nombre de sous-ensembles de cardinalité paire contenant <m>e_n</m>, et <m>P_2</m> le nombre de ces sous-ensembles qui ne contiennent pas <m>e_n</m>.</p>
 <p> D'un côté, on remarque que  <m>e_n\notin\, X</m> si et seulement si <m>X\subseteq A</m> et <m>|X|</m> est pair. Ainsi, <m>P_1</m> est le nombre de sous-ensembles de <m>E-\{e_n\}</m> de cardinalité paire.</p>
 <p>De l'autre côté, on remarque aussi que <m>e_n\in\, X</m> si et seulement si <m>X-\{e_n\}\subseteq A</m> avec <m>|X-\{e_n\}|</m> impair. Ainsi, <m>P_2</m> est le nombre de sous-ensembles de <m>E-\{e_n\}</m> de cardinalité impair.</p>
 <p>Par ce qui précède, on a que <m>P=P_1+P_2</m> est aussi le nombre de sous-ensembles de <m>A</m>. Or, on sait que ce nombre est <m>|\mathscr{P}\left(A\right)|=2^{n-1}</m>.</p>
@@ -313,7 +313,7 @@
 </task>
 </example>
 
-<p>Dans certains problèmes de dénombrement, il arrive qu'au moins une des tâches doit être accomplie d'une certaine façon, en ajoutant une restriction quelconque. Dans ce cas, il est souvent plus utile de compter toutes les façons possibles d'accomplir la tâche, et de lui soustraire les façons d'accomplir la tâche qui ne respectent pas la restriction. On utilise alors le principe de la somme "à l'envers". Ce genre d'argument est très utile lorsqu'on voit les mots "au moins un" dans l'exercice.</p>
+<p>Dans certains problèmes de dénombrement, il arrive qu'au moins une des tâches doive être accomplie d'une certaine façon, en ajoutant une restriction quelconque. Dans ce cas, il est souvent plus utile de compter toutes les façons possibles d'accomplir la tâche, et de lui soustraire les façons d'accomplir la tâche qui ne respectent pas la restriction. On utilise alors le principe de la somme "à l'envers". Ce genre d'argument est très utile lorsqu'on voit les mots "au moins un" dans l'exercice.</p>
 <example xml:id="ex-combProdSomme2">
 <title>Nombre de mots de passe</title>
 <statement> Un site internet vous demande de choisir un mot de passe lors de la création de votre compte. Ce mot de passe doit être formé de <m>6,\ 7\text{ ou }8</m> caractères alphanumériques. De plus, chaque mot de passe doit contenir au moins un chiffre. Combien de mots de passe possible y a-t-il?</statement>
@@ -334,16 +334,16 @@
 <subsection xml:id="subs-incExclu">
 <title>Le principe d'inclusion-exclusion (ou de la soustraction )</title>
 <introduction>
-   Il arrive que, lorsqu'on sépare les façons d'effectuer une tâche en deux catégories, certaines des façons d'effectuer la tâche se retrouve dans les deux catégories. Dans ce cas, on ne peut pas simplement utiliser le principe de la somme, car on compte les éléments qui se trouves dans les deux catégories deux fois.
+   Il arrive que, lorsqu'on sépare les façons d'effectuer une tâche en deux catégories, certaines des façons d'effectuer la tâche se retrouvent dans les deux catégories. Dans ce cas, on ne peut pas simplement utiliser le principe de la somme, car on compte les éléments qui se trouvent dans les deux catégories deux fois.
 </introduction>
 
   <example xml:id="ex-incluExcluIntro">
     <title>Le nombre de costumes bleus ou vert!</title>
-  <statement><p>Supposons qu'un de vos amis doit choisir un costume pour animer un spectacle. Si votre amis  doit choisir parmi 5 chapeaux dont 3 sont bleus, 2 chandails et 6 pantalons, dont 4 sont verts. De combien de façons différentes peut-ils s'habiller, s'il doit porter un chapeau bleau ou un pantalon vert? </p></statement>
+  <statement><p>Supposons qu'un de vos amis doit choisir un costume pour animer un spectacle. Si votre ami  doit choisir parmi 5 chapeaux dont 3 sont bleus, 2 chandails et 6 pantalons, dont 4 sont verts. De combien de façons différentes peut-il s'habiller, s'il doit porter un chapeau bleau ou un pantalon vert? </p></statement>
   <solution>
     <p>On note <m>C</m> le nombre de costumes avec chapeau bleu ou pantalon vert. Pour déterminer <m>C</m>, on sépare la tâche de choisir le costume en deux catégories: la première catégorie est celle formée des costumes avec un chapeau bleu, alors que la deuxième est celle formée des costumes avec un pantalon vert.</p>
-    <p>On note <m>C_b</m> le nombre de costume avec chapeau bleu, et <m>C_v</m> le nombre de costumes avec un pantalon vert. Par le principe du produit, on a que <m>C_b=3\times 2\times 6 =36</m>. De même, on obtient  <m>C_v=5\times 2\times 4=40</m></p>
-    <p>Cependant, <m>C\neq C_b+C_v</m>! En effet, dans l'expression <m>C_b+C_v</m>, on a compter les costumes avec chapeau bleu <em>et</em> pantalon vert deux fois. Une fois dans <m>C_b</m>, et une fois dans <m>C_v</m>.  </p>
+    <p>On note <m>C_b</m> le nombre de costumes avec chapeau bleu, et <m>C_v</m> le nombre de costumes avec un pantalon vert. Par le principe du produit, on a que <m>C_b=3\times 2\times 6 =36</m>. De même, on obtient  <m>C_v=5\times 2\times 4=40</m></p>
+    <p>Cependant, <m>C\neq C_b+C_v</m>! En effet, dans l'expression <m>C_b+C_v</m>, on a compté les costumes avec chapeau bleu <em>et</em> pantalon vert deux fois. Une fois dans <m>C_b</m>, et une fois dans <m>C_v</m>.  </p>
     <p>Ainsi, on note <m>C_{bv}</m> le nombre de costumes avec chapeau bleu et pantalon vert. On obtient <m>C_{bv}=3\times 2\times 4=24 </m>. Ainsi, on a <m>C=C_b+C_v-C_{bv}=36+40-24=52</m>.</p>  
   </solution>
   </example>
