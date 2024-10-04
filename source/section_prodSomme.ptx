@@ -3,19 +3,20 @@
 <title>Méthodes de dénombrement: Principes de base</title>
 <introduction> 
 
-<p>Dans ce chapitre nous, allons étudier les différentes méthodes permettant de compter des objets ayant certaines propriétés. Les techniques de dénombrement sont basées sur des principes relativement simples, mais peuvent demander beaucoup d'ingéniosité afin de dénombrer les bons objets, ne pas en oublier et les compter une seule fois! </p>
+<p>Dans ce chapitre, nous allons étudier les différentes méthodes permettant de compter des objets ayant certaines propriétés. Les techniques de dénombrement sont basées sur des principes relativement simples, mais peuvent demander beaucoup d'ingéniosité afin de dénombrer les bons objets, ne pas en oublier et les compter une seule fois!</p>
+<p>Lorsqu'on veut dénombrer certains objets, il est souvent utile de penser au problème comme si l’on voulait accomplir la tâche et de compter le nombre de façons différentes d'accomplir cette tâche. En particulier, on va souvent décrire les problèmes de dénombrement en termes du nombre de façons de choisir certains objets.</p>
 <p>Dans cette section, nous étudierons les principes du produit et de la somme et leur variante.</p>
 </introduction>
 <subsection  xml:id="subs-regleProd">
 <title>Principe du produit</title>
 <introduction>
   <p>
-  Lorsqu'on veut compter le nombre de façons différentes d'accomplir une tâche, il peut être plus efficaces de séparer la tâche en étapes. On doit alors comptrer le nombre de façons d'accomplir chacune des étapes, et ensuite les multiplier pour obtenir le résultat. C'est ce qu'on appelle le principe du produit. On considère un exemple de base avant d'énoncer le principe en général. 
+    Lorsqu'on veut compter le nombre de façons différentes d'accomplir une tâche, il est souvent plus efficace de séparer la tâche en différentes étapes plus simples. On doit alors compter le nombre de façons d'accomplir chacune des étapes, et ensuite multiplier ces nombres pour obtenir le résultat. C'est ce qu'on appelle le principe du produit. On considère un exemple de base avant d'énoncer le principe en général. 
   </p>
 </introduction>
 <example xml:id="ex-introProdCostumes">
   <title>Le nombre de constumes</title>
-  <statement><p>Supposons qu'un de vos amis doit choisir un costume pour animer un spectacle. Si votre amis  doit choisir parmi 3 chapeaux, 6 chandails et 4 pantalons. De combien de façons différentes peut-ils s'habiller? </p></statement>
+  <statement><p>Supposons qu'un de vos amis doit choisir un costume pour animer un spectacle. Si votre ami  doit choisir parmi 3 chapeaux, 6 chandails et 4 pantalons. De combien de façons différentes peut-il s'habiller? </p></statement>
   <solution>On sépare la tâche de choisir le costume en trois étapes: Choisir le chapeau, choisir le chandail et finalement choisir les pantalons. Il y a 3 façons d'exécuter la première tâche, 6 façons d'exécuter la deuxième tâche et 4 façons d'exécuter la troisième. Ainsi, au total, il y a <m>3\cdot 6\cdot 4 =72</m> façons de choisir un costume différent. </solution>
 </example>
  
