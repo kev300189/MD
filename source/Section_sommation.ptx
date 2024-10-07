@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue une section du livre                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
+
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-sommation">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Symbole de sommation  </title>
+    <introduction xml:id= "intro-sommation">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+        <p>
+            À quelques occasions déjà, on a travailler avec des sommes de beaucoups de termes, ou bien d'un nombre indéterminé de termes. Il est alors parfois lourd de travailler ces expression du point de vue de la notaiton. On introduit donc ici un symbole permettant d'écrire une somme de <m>n</m> termes, même lorsque <m>n</m> est inconnu.
+        </p>
+
+        <p>
+            Dans cette section, on commence par donner la définition du symbole de sommation. Par la suite, on énonce quelques propriétés de la sommation, pour finalement revisiter quelques exemples vus précédemment à l'aide de notre nouvel outil.
+        </p>
+        <remark>
+            <p>
+                La notation introduite dans cette section n'est pas obligatoire pour le cours. Toutes les sommes seronts aussi écrites sans le symbole de sommation. Cependant, vous pourrez l'utiliser pour simplifier certaines expressions. Elle permet également de décrire certaines sommes de façon plus évidente, et de clarrifier les démarches (en particulier pour les preuves par récurrences <xref provisional="sec_induction"/>).
+            </p>
+        </remark>
+    </introduction>
+
+    <subsection xml:id="subsec-defSommation">
+        <title>Définition du symbole de sommation</title>
+        
+        <introduction>
+            <p>
+                On veut introduire une notation permettant d'écrire une somme de plusieurs termes. Par exemple, on veut écrire la somme suivante de façon condensée.
+                <me>
+                    a_1+a_2+a_3+ \cdots + a_{100}.
+                </me>
+                L'idée est de trouver un symbole indiquant qu'on veut prendre une somme (on utilisera le sigma majuscule, c'est-à-dire le <em>S</em> grecque) de tous les termes <m>a_k</m> pour <m>k</m> allant de <m>1</m> à <m>100</m>.
+            </p>
+        </introduction>
+
+        <definition xml:id="def_symboleSommation"> 
+            L'expression 
+            <me>
+                \sum_{k=i}^n a_k
+            </me>
+            est définie comme étant la somme de tous les termes <m>a_k</m>, pour <m>k</m> prennant toutes les valeurs entre <m>i</m> et <m>n</m>. 
+            </definition>
+    </subsection>
+    
+    <!-- Sous-sections à écrire, à même ce fichier -->
+    
+    <conclusion xml:id="concl-sommation">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    
+    </conclusion>
+    <reading-questions xml:id="rq-sommation">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <introduction>
+    <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
+    </introduction>
+  
+    <exercise>
+    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
+    </exercise>
+    </reading-questions>
+   <!--Inclure les exercices de la section ci-dessous--> 
+   <!--<xi:include href="Exercices_.ptx" />-->
+</section>

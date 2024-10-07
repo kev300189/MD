@@ -372,10 +372,10 @@
 <solution><p>Soit <m>B</m> le nombre de chaînes binaires voulues, et soit <m>B_1</m> le nombre de chaînes binaires de longueur <m>8</m> commençant par un <m>1</m> et <m>B_{00}</m> le nombre de chaînes binaires de longueur <m>8</m> se terminant avec deux <m>0</m>.</p> 
 <p>Si on utilise directement le principe de la somme (de façon erronée), on obtient 
 <me>B=B_1+B_{00}.</me>
-Cependant, on ne peut pas utiliser le principe de la somme, car il existe des chaînes binaires de longueur <m>8</m> qui commencent par un <m>1</m> <alert>ET</alert> se terminent par deux <m>0</m>. On note le nombre de ces chaînes <m>B_{100}=B_1\cap B_{00}</m>.</p>
+Cependant, on ne peut pas utiliser le principe de la somme, car il existe des chaînes binaires de longueur <m>8</m> qui commencent par un <m>1</m> <alert>ET</alert> se terminent par deux <m>0</m>. On note le nombre de ces chaînes <m>B_{100}</m>.</p>
 <p>Ainsi, par le principe d'inclusion-exclusion, on a <me>B=B_1+B_{00}-B_{100}.</me></p>
 <p>Par le principe du produit, on a que <m>B_1=2^7</m>. En effet, chaque caractère, sauf le premier (qui est fixé à <m>1</m>), peut être un <m>1</m> ou un <m>0</m>. Il reste donc <m>7</m> choix à faire, avec <m>2</m> possibilités pour chaque choix.</p>
-<p>De même, on peut voir que <m>B_00= 2^6</m>, car cette fois deux des caractères sont fixés.</p>
+<p>De même, on peut voir que <m>B_{00}= 2^6</m>, car cette fois deux des caractères sont fixés.</p>
 <p>Enfin, on peut également voir par le principe du produit que <m>B_{100}=2^5</m>, car trois des caractères sont fixés.</p>
 <p>Finalement, on a 
 <md>
