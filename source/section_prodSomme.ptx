@@ -15,7 +15,7 @@
   </p>
 </introduction>
 <example xml:id="ex-introProdCostumes">
-  <title>Le nombre de constumes</title>
+  <title>Le nombre de costumes</title>
   <statement><p>Supposons qu'un de vos amis doit choisir un costume pour animer un spectacle. Si votre ami  doit choisir parmi 3 chapeaux, 6 chandails et 4 pantalons. De combien de façons différentes peut-il s'habiller? </p></statement>
   <solution>On sépare la tâche de choisir le costume en trois étapes: choisir le chapeau, choisir le chandail et finalement choisir les pantalons. Il y a 3 façons d'exécuter la première tâche, 6 façons d'exécuter la deuxième tâche et 4 façons d'exécuter la troisième. Ainsi, au total, il y a <m>3\cdot 6\cdot 4 =72</m> façons de choisir un costume différent. </solution>
 </example>
