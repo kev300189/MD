@@ -344,7 +344,7 @@
     <p>On note <m>C</m> le nombre de costumes avec chapeau bleu ou pantalon vert. Pour déterminer <m>C</m>, on sépare la tâche de choisir le costume en deux catégories: la première catégorie est celle formée des costumes avec un chapeau bleu, alors que la deuxième est celle formée des costumes avec un pantalon vert.</p>
     <p>On note <m>C_b</m> le nombre de costumes avec chapeau bleu, et <m>C_v</m> le nombre de costumes avec un pantalon vert. Par le principe du produit, on a que <m>C_b=3\times 2\times 6 =36</m>. De même, on obtient  <m>C_v=5\times 2\times 4=40</m></p>
     <p>Cependant, <m>C\neq C_b+C_v</m>! En effet, dans l'expression <m>C_b+C_v</m>, on a compté les costumes avec chapeau bleu <em>et</em> pantalon vert deux fois. Une fois dans <m>C_b</m>, et une fois dans <m>C_v</m>.  </p>
-    <p>Ainsi, on note <m>C_{bv}</m> le nombre de costumes avec chapeau bleu et pantalon vert. On obtient <m>C_{bv}=3\times 2\times 4=24 </m>. Ainsi, on a <m>C=C_b+C_v-C_{bv}=36+40-24=52</m>.</p>  
+    <p>Ainsi, on note <m>C_{bv}</m> le nombre de costumes avec chapeau bleu et pantalon vert. On obtient <m>C_{bv}=3\times 2\times 4=24 </m>. On a alors <m>C=C_b+C_v-C_{bv}=36+40-24=52</m>.</p>  
   </solution>
   </example>
   <remark>
@@ -352,7 +352,7 @@
     <p>De cette façon, on peut utiliser le principe de la somme directement et obtenir le nombre de costumes avec chapeau bleu ou pantalon vert, qui est <m>12+24+16=52</m>. </p>
   </remark>
   <p>
-    Le principe utilisé à l'exemple <xref ref="ex-incluExcluIntro"/> est le principe d'inclusion-exclusion. Il s'agit du même principe que celui de la formule <xref ref="exo-incexc"/>. On énnonce le principe de deux façons différentes.
+    Le principe utilisé à l'exemple <xref ref="ex-incluExcluIntro"/> est le principe d'inclusion-exclusion. Il s'agit du même principe que celui de la formule <xref ref="exo-incexc"/>. On énonce le principe de deux façons différentes.
   </p>
   
 <proposition xml:id="prop-incExclu">
@@ -368,11 +368,11 @@
 
 <example xml:id="ex-incExclu">
 <title>Exemple de base du principe d'inclusion-exclusion</title>
-<statement>Une chaîne binaire est une chaîne de caractères où chaque caractère est soit un <m>1</m>, soit un <m>0</m>. Combien de chaînes binaires de longueur <m>8</m> qui commencent par un <m>1</m> ou finisse avec deux <m>0</m> ?</statement>
-<solution><p>Soit <m>B</m> le nombre de chaînes binaires voulues, et soit <m>B_1</m> les chaînes binaires de longueur <m>8</m> commençant par un <m>1</m> et <m>B_{00}</m> les chaînes binaires de longueur <m>8</m> se terminant avec deux <m>0</m>.</p> 
+<statement>Une chaîne binaire est une chaîne de caractères où chaque caractère est soit un <m>1</m>, soit un <m>0</m>. Combien de chaînes binaires de longueur <m>8</m> qui commencent par un <m>1</m> ou finissent avec deux <m>0</m> ?</statement>
+<solution><p>Soit <m>B</m> le nombre de chaînes binaires voulues, et soit <m>B_1</m> le nombre de chaînes binaires de longueur <m>8</m> commençant par un <m>1</m> et <m>B_{00}</m> le nombre de chaînes binaires de longueur <m>8</m> se terminant avec deux <m>0</m>.</p> 
 <p>Si on utilise directement le principe de la somme (de façon erronée), on obtient 
 <me>B=B_1+B_{00}.</me>
-Cependant, on ne peut pas utiliser le principe de la somme, car il existe des chaînes binaires de longueur <m>8</m> qui commence par un <m>1</m> <alert>ET</alert> se terminent par deux <m>0</m>. On note ces chaînes <m>B_{100}=B_1\cap B_{00}</m>.</p>
+Cependant, on ne peut pas utiliser le principe de la somme, car il existe des chaînes binaires de longueur <m>8</m> qui commencent par un <m>1</m> <alert>ET</alert> se terminent par deux <m>0</m>. On note le nombre de ces chaînes <m>B_{100}=B_1\cap B_{00}</m>.</p>
 <p>Ainsi, par le principe d'inclusion-exclusion, on a <me>B=B_1+B_{00}-B_{100}.</me></p>
 <p>Par le principe du produit, on a que <m>B_1=2^7</m>. En effet, chaque caractère, sauf le premier (qui est fixé à <m>1</m>), peut être un <m>1</m> ou un <m>0</m>. Il reste donc <m>7</m> choix à faire, avec <m>2</m> possibilités pour chaque choix.</p>
 <p>De même, on peut voir que <m>B_00= 2^6</m>, car cette fois deux des caractères sont fixés.</p>
@@ -391,41 +391,41 @@ Cependant, on ne peut pas utiliser le principe de la somme, car il existe des ch
 <title>Le principe de la division</title>
 <introduction>
   <p>Une technique de dénombrement intéressante pour obtenir certaines égalités de manière très efficace est de compter la même chose de deux façons différentes. On peut se servir de cette idée lorsqu'on utilise le principe du produit de deux façons différentes pour la même tâche. Ceci nous permettra de simplifier certains problèmes de dénombrement.</p>
-  <p>Par exemple, on considère deux problèmes simillaire, mais pour lesquels celui qui semble plus complexe est simple à résoudre.</p>
-  <p> D'un côté,  supposons qu'on doive choisir trois personnes dans un groupe de quatre, sans leur attribuer un rôle particulier. Ceci est équivalent à dénombrer les sous-ensemble <m>X\subseteq A</m>, avec <m>|X|=3</m> et <m>|A|=4</m>. Avec de petite cardinalité, on peut simplement énumérer les sous-ensembles <m>X</m>. Cependant, il est à priori difficile de dénombrer cette situation avec des cardinalités plus élevés. </p>
-  <p>D'un autre côté, supposons que qu'on doive choisir un président, un vice-président et un trésorier parmi un groupe de quatre personnes. En utilisant le principe du produit, il est facile de compter le nombre de façons d'accomplir cette tâche.</p>
-  <p>On remarque qu'on peut séparer la tâche de choisir un président, un vice-président et un trésorier  parmi quatres personnes en deux étapes. Tout d'abord on choisit les trois personnes parmi quatres, et ensuite on choisit leur rôle. Étonnament, il est plus difficile de comptrer le nombre de façons de choisir trois personnes, que de choisir trois personnes avec un rôle.</p> 
-  <p>L'exemple ci-dessous nous permettra de montrer comment utiliser le lien entre ces deux situations pour dénombrer le nombre de façons de choisir trois personnes parmi quatres sans rôle.</p>
+  <p>Par exemple, on considère deux problèmes similaire, mais pour lesquels celui qui semble plus complexe est simple à résoudre.</p>
+  <p> D'un côté,  supposons qu'on doive choisir trois personnes dans un groupe de quatre, sans leur attribuer un rôle particulier. Ceci est équivalent à dénombrer les sous-ensembles <m>X\subseteq A</m>, avec <m>|X|=3</m> et <m>|A|=4</m>. Avec de petites cardinalités, on peut simplement énumérer les sous-ensembles <m>X</m>. Cependant, il est à priori difficile de dénombrer cette situation avec des cardinalités plus élevées. </p>
+  <p>D'un autre côté, supposons qu'on doive choisir un président, un vice-président et un trésorier parmi un groupe de quatre personnes. En utilisant le principe du produit, il est facile de compter le nombre de façons d'accomplir cette tâche.</p>
+  <p>On remarque qu'on peut séparer la tâche de choisir un président, un vice-président et un trésorier  parmi quatre personnes en deux étapes. Tout d'abord on choisit les trois personnes parmi quatre, et ensuite on choisit leur rôle. Étonnamment, il est plus difficile de compter le nombre de façons de choisir trois personnes, que de choisir trois personnes avec un rôle.</p> 
+  <p>L'exemple ci-dessous nous permettra de montrer comment utiliser le lien entre ces deux situations pour dénombrer le nombre de façons de choisir trois personnes parmi quatre sans rôle.</p>
 </introduction>
 
 <example xml:id="ex-divIntro">
   <title>Choisir trois personnes parmi quatre</title>
   <introduction>
     <p>
-      On doit choisir trois personnes parmi un groupe de quatre personnes afin de former un commité. 
+      On doit choisir trois personnes parmi un groupe de quatre personnes afin de former un comité. 
     </p>
   </introduction>
   <task xml:id="ex-divAvecOrdre">
     <statement>
       <p>
-        De combien de façon peut-on choisir ces trois personnes, si on doit choisir un président, un vice-président et un trésorier?
+        De combien de façons peut-on choisir ces trois personnes, si on doit choisir un président, un vice-président et un trésorier?
       </p>
     </statement>
     <solution>
       <p>
-        On doit choisir un président, et ensuite choisir un vice-président, et finalement choisir un trésorier. Par le principe du produit, il y a <m>4\times 3\times 2 =24</m> façons de former le commité.
+        On doit choisir un président, et ensuite choisir un vice-président, et finalement choisir un trésorier. Par le principe du produit, il y a <m>4\times 3\times 2 =24</m> façons de former le comité.
       </p>
     </solution>
   </task>
   <task xml:id="ex-divSansOrdre">
     <statement>
       <p>
-        De combien de façon peut-on choisir ces trois personnes, si on ne leur atribue pas un rôle particulier?
+        De combien de façons peut-on choisir ces trois personnes, si on ne leur attribue pas un rôle particulier?
       </p>
     </statement>
     <solution>
       <p>
-         Tout d'abord, on rappel qu'en <xref ref="ex-divAvecOrdre"/>, on a vue qu'il y a <m>24</m> façons de choisir un président, un vice-président et un trésorier. Ensuite, on remarque que qu'on peut séparer cette tâche en deux étapes.
+         Tout d'abord, on rappel qu'en <xref ref="ex-divAvecOrdre"/>, on a vu qu'il y a <m>24</m> façons de choisir un président, un vice-président et un trésorier. Ensuite, on remarque qu'on peut séparer cette tâche en deux étapes.
       </p>
       <p>
         Premièrement, on choisit trois personnes parmi quatre. On note <m>C_3^4</m> le nombre de façons d'accomplir cette étape. Ensuite, on choisit un rôle pour chacune des personnes. À l'aide du principe du produit, on sait qu'il y a <m>3\times 2\times 1 =6</m> façons d'accomplir cette étape. 
@@ -443,8 +443,8 @@ Cependant, on ne peut pas utiliser le principe de la somme, car il existe des ch
 <title>Principe de la division</title>
 <statement> 
 <ol>
-<li>S'il est possible d'accomplir une procédure de <m>n</m> façon, mais que pour chacune de ces façons, il y a exactement <m>d</m> façons qui sont équivalentes, alors il y aura <m>\frac{n}{d}</m> façons différentes d'accomplir la tâche.</li>
-<li>Soit <m>A</m> et <m>B</m> deux ensembles finis et non vides, alors <m>|A|=\frac{|A\times B|}{|B|}</m>
+<li>S'il est possible d'accomplir une procédure de <m>n</m> façons, mais que pour chacune de ces façons, il y a exactement <m>d</m> façons qui sont équivalentes, alors il y aura <m>\frac{n}{d}</m> façons différentes d'accomplir la tâche.</li>
+<li>Soit <m>A</m> et <m>B</m> deux ensembles finis et non vides, alors <m>|A|=\frac{|A\times B|}{|B|}</m>.
 </li>
 <li>Si <m>f: A\rightarrow B</m> est une fonction de <m>A</m> vers <m>B</m> deux ensembles finis, et si pour chaque <m>b\in\ B</m>, il existe exactement <m>d\gt 0</m> préimages de <m>b</m>, c'est-à-dire que <m>\left|f^{-1}(b)\right|=d</m>, alors <m>|B|=\frac{|A|}{d}</m></li>
 </ol>
@@ -453,14 +453,14 @@ Cependant, on ne peut pas utiliser le principe de la somme, car il existe des ch
 
 <example xml:id="ex-div">
 <title>Exemple de base du principe de la division</title>
-<statement> <p>Supposons qu'on doivent placer quatre personnes, Damien, Jean-Michel, Alexandre et Valérie, autours du table rondes (à quatre chaises).</p> 
+<statement> <p>Supposons qu'il faille placer quatre personnes, Damien, Jean-Michel, Alexandre et Valérie, autour d'une table ronde (à quatre chaises).</p> 
   <p> De combien de façons différentes peut-on accomplir cette tâche, si deux façons de s'assoir sont considérées les mêmes si chaque personne possède le même voisin à gauche et le même voisin à droite. </p> </statement>
 <answer><m>6</m></answer>
 <solution>
 <p> On commence par assigner une première chaise à Valérie. Celle-ci choisit arbitrairement une chaise qu'on numérote par <m>1</m>. Ensuite, on numérote les autres chaises de <m>2</m> à <m>4</m> de façon systématique (disons en tournant dans le sens horaire). Il y aura <m>4</m> façons différentes de faire ceci, car le résultat dépend uniquement du choix de Valérie.</p>
 <p> Par la suite, on assigne arbitrairement une personne à la chaise <m>2</m> (il y aura <m>3</m> façons de faire ce choix).  On continue pour la chaise <m>3</m> (<m>2</m> façons) et finalement la chaise <m>4</m> ( <m>1</m> seule façon de faire).</p>
 <p>Par le principe du produit, il y a <m>4\cdot 3\cdot 2\cdot 1 = 4!=24</m> façons d'accomplir cette tâche.</p>
-<p>Cependant, on se rend compte que le choix de la première chaise n'a pas d'impacte sur l'arrangement final, car on distingue deux arrangements seulement si les voisins des gens sont différents. Par le principe de la division, il y aura <m>\frac{24}{4}=6</m> façons différentes d'assoir les gens.</p>
+<p>Cependant, on se rend compte que le choix de la première chaise n'a pas d'impacte sur l'arrangement final, car on distingue deux arrangements seulement si les voisins des gens sont différents. Par le principe de la division, on doit diviser par <m>4</m> le résultat précédent, et il y aura donc <m>\frac{24}{4}=6</m> façons différentes d'assoir les gens.</p>
 </solution>
 </example>
 
@@ -474,7 +474,7 @@ Cependant, on ne peut pas utiliser le principe de la somme, car il existe des ch
       Dans les problèmes de dénombrement, on remarque qu'une petite modification à une question peut entraîner une grande différence dans la méthode de résolution. Il est alors important d'utiliser le bon principe au bon moment.  
     </p>
     <p>
-      On remarque également que, pour résoudre certain problème, il est parfois plus facile de transformer celui-ci en un problème déjà résolu. À la section <xref ref="sec_arrCombinaison"/>, on introduit quelques cas de base qui nous servirons à résoudre une grande partie des problèmes de dénombrement.
+      On remarque également que, pour résoudre certains problèmes, il est parfois plus facile de transformer celui-ci en un problème déjà résolu. À la section <xref ref="sec_arrCombinaison"/>, on introduit quelques cas de base qui nous serviront à résoudre une grande partie des problèmes de dénombrement.
     </p>
     <p>Les points importants de cette section sont:
     <ul>
