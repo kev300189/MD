@@ -125,7 +125,7 @@
 
 <exercise>
 
-<introduction><p>Supposons qu'un mot de passe pour un système informatique doit avoir entre <m>8</m> et <m>12</m> (inclusivement) caractères, où chaque caractère est soit une lettre minuscule ou manjuscule, un chiffre ou l'un des caractères spéciaux  <m>\ast,\, \gt,\,\lt,\,!,\,+\text{ et }= </m>.</p></introduction>
+<introduction><p>Supposons qu'un mot de passe pour un système informatique doit avoir entre <m>8</m> et <m>12</m> (inclusivement) caractères, où chaque caractère est soit une lettre minuscule ou majuscule, un chiffre ou l'un des caractères spéciaux  <m>\ast,\, \gt,\,\lt,\,!,\,+\text{ et }= </m>.</p></introduction>
 
 <task>
 <statement><p>Combien de mots de passe différents sont disponibles pour ce système informatique?</p></statement>
