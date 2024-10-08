@@ -7,5 +7,6 @@
 <xi:include href="./section_prodSomme.ptx" />¸
 <xi:include href="./section_arrCombinaison.ptx" /> 
 <xi:include href="./Section_combinatoireExoSupp.ptx" /> 
+<!--<xi:include href="./Section_sommation.ptx" /> -->
 
 </chapter>

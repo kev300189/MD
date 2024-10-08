@@ -22,14 +22,14 @@
         </p>
         <remark>
             <p>
-                La notation introduite dans cette section n'est pas obligatoire pour le cours. Toutes les sommes seronts aussi écrites sans le symbole de sommation. Cependant, vous pourrez l'utiliser pour simplifier certaines expressions. Elle permet également de décrire certaines sommes de façon plus évidente, et de clarrifier les démarches (en particulier pour les preuves par récurrences <xref provisional="sec_induction"/>).
+                La notation introduite dans cette section n'est pas obligatoire pour le cours. Toutes les sommes seront aussi écrites sans le symbole de sommation. Cependant, vous pourrez l'utiliser pour simplifier certaines expressions. Elle permet également de décrire certaines sommes de façon plus évidente, et de clarifier les démarches (en particulier pour les preuves par récurrences <xref provisional="sec_induction"/>).
             </p>
         </remark>
     </introduction>
 
     <subsection xml:id="subsec-defSommation">
         <title>Définition du symbole de sommation</title>
-        
+
         <introduction>
             <p>
                 On veut introduire une notation permettant d'écrire une somme de plusieurs termes. Par exemple, on veut écrire la somme suivante de façon condensée.
@@ -41,12 +41,33 @@
         </introduction>
 
         <definition xml:id="def_symboleSommation"> 
-            L'expression 
+        <p> L'expression 
             <me>
                 \sum_{k=i}^n a_k
             </me>
-            est définie comme étant la somme de tous les termes <m>a_k</m>, pour <m>k</m> prennant toutes les valeurs entre <m>i</m> et <m>n</m>. 
+            est définie comme étant la somme de tous les termes <m>a_k</m>, pour <m>k</m> prennant toutes les valeurs entières entre <m>i</m> et <m>n</m>. Oralement, on lit cette expressions comme étant <em>la sommation, pour <m>k</m> allant de <m>i</m> à <m>n</m>, des <m>a_k</m></em>.
+        </p>
+        <p>
+            Le <m>k</m> est appelé l'indice de sommation, le <m>i</m> est la borne inférieire de sommation et le <m>n</m> est la borne supérieure de sommation.
+        </p>
             </definition>
+
+            <example xml:id="exe_symboleSommation">
+            <p>
+                <ol>
+                    <li>
+                        <p>
+                            <m>\sum_{k=1}^100 a_k =a_1+a_2+a_3+\cdots + a_{100}</m>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <m>\sum_{k=-15}^3 \bigl(2k+1\bigr)=\bigl(2(-15)+1\bigr) + \bigl(2(-14)+1\bigr) + \cdots + \bigl(2(3)+1\bigr)</m>
+                        </p>
+                    </li>
+                </ol>
+            </p>
+            </example>
     </subsection>
     
     <!-- Sous-sections à écrire, à même ce fichier -->

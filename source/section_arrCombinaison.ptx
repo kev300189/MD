@@ -311,7 +311,7 @@ formées de quatre caractères <m>1</m> et trois caractères <m>0</m>?
 <p>Une première solution est d'étiqueter les <m>1</m>  et les <m>0</m> par <m>1_a,</m> <m>1_b,</m> <m>1_c</m> et <m>1_d</m>, ainsi que <m>0_a,</m> <m>0_b</m> et <m>0_c</m>. Le nombre de permutations de ces nouveaux caractères est <m>(4+3)!=7!</m>. </p>  
 <p>Cependant, lorsqu'on enlève l'étiquetage, on remarque que pour chaque permutation qu'on vient de dénombrer, il y en a plusieurs autres qui sont équivalentes. Par exemple, lorsqu'on a les étiquettes, la chaîne <m>1_a1_b1_c1_d0_a0_b0_c</m> est initialement considérée comme différente à la chaîne <m>1_b1_c1_a1_d0_b0_a0_c</m>. Cependant, lorsqu'on enlève les étiquettes, les deux chaînes donnent la même, soit <m>1111000</m>. </p>
 <p>Pour chaque chaîne obtenue, on en a <m>4!\cdot 3!</m> qui sont équivalents. Le <m>4!</m> provient des permutations des quatre <m>1,</m> alors que le <m>3!</m> correspond aux permutations des <m>0</m>.</p>
-<p>Par le principe de la division, on a que le nombre de chaînes binaires est <me>\frac{8!}{4!\cdot 3!}=\Binomial{8}{4}</me>.</p>
+<p>Par le principe de la division, on a que le nombre de chaînes binaires est <me>\frac{7!}{4!\cdot 3!}=\Binomial{7}{4}</me>.</p>
 </solution>
 <solution>
 <p>Une autre solution est de voir le problème comme étant une combinaison, comme on a fait à l'exemple <xref ref="ex-chaineBin"/> . En effet, on peut choisir une telle chaîne binaire en choisissant les positions des <m>1</m>. Puisqu'il y aura <m>8</m> positions au total et qu'on doit choisir la position pour les quatre caractères <m>1</m>. Ainsi, il s'agit d'une combinaison de <m>4</m> objets parmi <m>8</m>.</p>
