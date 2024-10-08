@@ -8,7 +8,7 @@
 <html lang="fr-CA" dir="ltr">
 <head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>MaDIR Logique mathématique</title>
+<title>MaDIR Symbole de sommation</title>
 <meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
@@ -312,6 +312,9 @@ window.MathJax = {
 #def_combBin-1 { counter-set: def_combBin-1 0; }
 #def_combBin-1 > li::marker { content: ""counter(def_combBin-1,decimal)"."; }
 #def_combBin-1 > li { counter-increment: def_combBin-1; }
+#exe_symboleSommation-1-1 { counter-set: exe_symboleSommation-1-1 0; }
+#exe_symboleSommation-1-1 > li::marker { content: ""counter(exe_symboleSommation-1-1,decimal)"."; }
+#exe_symboleSommation-1-1 > li { counter-increment: exe_symboleSommation-1-1; }
 </style>
 </head>
 <body class="pretext book ignore-math">
@@ -331,7 +334,7 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-fonctions.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="madir.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="sec-logprop.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-combinatoireExoSupp.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-denombrement.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><span class="next-button button disabled"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
 \newcommand{\Z}{\mathbb{Z}}                
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -433,7 +436,7 @@ $\Box$
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter active">
+<li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="chap-logique.html" class="internal"><span class="codenumber">2</span> <span class="title">Logique mathématique</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-section">
@@ -514,9 +517,9 @@ $\Box$
 </li>
 </ul>
 </li>
-<li class="toc-item toc-chapter">
+<li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="chap-denombrement.html" class="internal"><span class="codenumber">4</span> <span class="title">Dénombrement</span></a></div>
-<ul class="structural toc-item-list">
+<ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec_prodSomme.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Méthodes de dénombrement: Principes de base</span></a></div>
 <ul class="structural toc-item-list">
@@ -557,20 +560,57 @@ $\Box$
 <div class="toc-title-box"><a href="sec-combinatoireExoSupp.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices supplémentaires</span></a></div>
 <ul class="structural toc-item-list"><li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-combinatoireExoSupp.html#exo-combinatoireExoSupp" class="internal"><span class="codenumber">4.3</span> <span class="title">Exercices</span></a></div></li></ul>
 </li>
+<li class="toc-item toc-section active">
+<div class="toc-title-box"><a href="sec-sommation.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Symbole de sommation</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-sommation.html#subsec-defSommation" class="internal"><span class="codenumber">4.4.1</span> <span class="title">Définition du symbole de sommation</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-sommation.html#rq-sommation" class="internal"><span class="codenumber">4.4.2</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="chap-logique"><h2 class="heading">
-<span class="type">Chapitre</span><span class="space"> </span><span class="codenumber">2</span><span class="space"> </span><span class="title">Logique mathématique</span>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-sommation"><h2 class="heading hide-type">
+<span class="type">Section</span><span class="space"> </span><span class="codenumber">4.4</span><span class="space"> </span><span class="title">Symbole de sommation</span>
 </h2>
-<section class="introduction" id="intro-logique"></section><nav class="summary-links"><ul>
-<li><a href="sec-logprop.html" class="internal"><span class="codenumber">2.1</span> <span class="title">La logique propositionnelle</span></a></li>
-<li><a href="sec-eqlogfnc.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Équivalence logique et formes normales</span></a></li>
-<li><a href="sec-propquant.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Les propositions quantifiées</span></a></li>
-<li><a href="sec-circuits.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Circuits logiques</span></a></li>
-</ul></nav><section class="conclusion" id="concl-logique"></section></section></div>
+<section class="introduction" id="intro-sommation"> <div class="para" id="intro-sommation-1">À quelques occasions déjà, on a travailler avec des sommes de beaucoups de termes, ou bien d’un nombre indéterminé de termes. Il est alors parfois lourd de travailler ces expression du point de vue de la notaiton. On introduit donc ici un symbole permettant d’écrire une somme de <span class="process-math">\(n\)</span> termes, même lorsque <span class="process-math">\(n\)</span> est inconnu.</div> <div class="para" id="intro-sommation-2">Dans cette section, on commence par donner la définition du symbole de sommation. Par la suite, on énonce quelques propriétés de la sommation, pour finalement revisiter quelques exemples vus précédemment à l’aide de notre nouvel outil.</div> <article class="remark remark-like" id="intro-sommation-3"><h3 class="heading">
+<span class="type">Remarque</span><span class="space"> </span><span class="codenumber">4.4.1</span><span class="period">.</span>
+</h3>
+<div class="para" id="intro-sommation-3-1">La notation introduite dans cette section n’est pas obligatoire pour le cours. Toutes les sommes seront aussi écrites sans le symbole de sommation. Cependant, vous pourrez l’utiliser pour simplifier certaines expressions. Elle permet également de décrire certaines sommes de façon plus évidente, et de clarifier les démarches (en particulier pour les preuves par récurrences <code class="code-inline tex2jax_ignore">[provisional cross-reference: sec_induction]</code>).</div></article></section><section class="subsection" id="subsec-defSommation"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">4.4.1</span><span class="space"> </span><span class="title">Définition du symbole de sommation</span>
+</h3>
+<section class="introduction" id="subsec-defSommation-2"><div class="para logical" id="subsec-defSommation-2-1">
+<div class="para">On veut introduire une notation permettant d’écrire une somme de plusieurs termes. Par exemple, on veut écrire la somme suivante de façon condensée.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_1+a_2+a_3+ \cdots + a_{100}.
+\end{equation*}
+</div>
+<div class="para">L’idée est de trouver un symbole indiquant qu’on veut prendre une somme (on utilisera le sigma majuscule, c’est-à-dire le <em class="emphasis">S</em> grecque) de tous les termes <span class="process-math">\(a_k\)</span> pour <span class="process-math">\(k\)</span> allant de <span class="process-math">\(1\)</span> à <span class="process-math">\(100\text{.}\)</span>
+</div>
+</div></section><article class="definition definition-like" id="def_symboleSommation"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">4.4.2</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def_symboleSommation-1">
+<div class="para">L’expression</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=i}^n a_k
+\end{equation*}
+</div>
+<div class="para">est définie comme étant la somme de tous les termes <span class="process-math">\(a_k\text{,}\)</span> pour <span class="process-math">\(k\)</span> prennant toutes les valeurs entières entre <span class="process-math">\(i\)</span> et <span class="process-math">\(n\text{.}\)</span> Oralement, on lit cette expressions comme étant <em class="emphasis">la sommation, pour <span class="process-math">\(k\)</span> allant de <span class="process-math">\(i\)</span> à <span class="process-math">\(n\text{,}\)</span> des <span class="process-math">\(a_k\)</span></em>.</div>
+</div> <div class="para" id="def_symboleSommation-2">Le <span class="process-math">\(k\)</span> est appelé l’indice de sommation, le <span class="process-math">\(i\)</span> est la borne inférieire de sommation et le <span class="process-math">\(n\)</span> est la borne supérieure de sommation.</div></article><details id="exe_symboleSommation" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">4.4.3</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="exe_symboleSommation-1"><ol class="decimal" id="exe_symboleSommation-1-1">
+<li id="exe_symboleSommation-1-1-1"><div class="para" id="exe_symboleSommation-1-1-1-1"><span class="process-math">\(\displaystyle \sum_{k=1}^100 a_k =a_1+a_2+a_3+\cdots + a_{100}\)</span></div></li>
+<li id="exe_symboleSommation-1-1-2"><div class="para" id="exe_symboleSommation-1-1-2-1"><span class="process-math">\(\displaystyle \sum_{k=-15}^3 \bigl(2k+1\bigr)=\bigl(2(-15)+1\bigr) + \bigl(2(-14)+1\bigr) + \cdots + \bigl(2(3)+1\bigr)\)</span></div></li>
+</ol></div></article></details></section><section class="conclusion" id="concl-sommation"></section><section class="reading-questions" id="rq-sommation"><h3 class="heading hide-type">
+<span class="type">Questions de compréhension de la lecture</span><span class="space"> </span><span class="codenumber">4.4.2</span><span class="space"> </span><span class="title">Questions de compréhension de la lecture</span>
+</h3>
+<section class="introduction" id="rq-sommation-1"><div class="para" id="rq-sommation-1-1">Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</div></section><article class="exercise exercise-like" id="rq-sommation-2"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="rq-sommation-2-1-1">Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</div></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-fonctions.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-logprop.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-combinatoireExoSupp.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><span class="next-button button disabled"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></span>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

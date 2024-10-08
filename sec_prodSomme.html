@@ -105,7 +105,7 @@ window.MathJax = {
 <link href="_static/pretext/css/toc_default.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/knowls_default.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/style_default.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/colors_green_plum.css" rel="stylesheet" type="text/css">
 <link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
 <style>
 #ex-ensext-2-1-1 { counter-set: ex-ensext-2-1-1 0; }
@@ -787,7 +787,7 @@ A_7\amp= \{e_1, e_2, e_3\} \amp A_8\amp  = \{e_2,e_3\}.
 B=B_1+B_{00}.
 \end{equation*}
 </div>
-<div class="para">Cependant, on ne peut pas utiliser le principe de la somme, car il existe des chaînes binaires de longueur <span class="process-math">\(8\)</span> qui commencent par un <span class="process-math">\(1\)</span> <em class="alert">ET</em> se terminent par deux <span class="process-math">\(0\text{.}\)</span> On note le nombre de ces chaînes <span class="process-math">\(B_{100}=B_1\cap B_{00}\text{.}\)</span>
+<div class="para">Cependant, on ne peut pas utiliser le principe de la somme, car il existe des chaînes binaires de longueur <span class="process-math">\(8\)</span> qui commencent par un <span class="process-math">\(1\)</span> <em class="alert">ET</em> se terminent par deux <span class="process-math">\(0\text{.}\)</span> On note le nombre de ces chaînes <span class="process-math">\(B_{100}\text{.}\)</span>
 </div>
 </div> <div class="para logical" id="ex-incExclu-3-3">
 <div class="para">Ainsi, par le principe d’inclusion-exclusion, on a</div>
@@ -796,7 +796,7 @@ B=B_1+B_{00}.
 B=B_1+B_{00}-B_{100}.
 \end{equation*}
 </div>
-</div> <div class="para" id="ex-incExclu-3-4">Par le principe du produit, on a que <span class="process-math">\(B_1=2^7\text{.}\)</span> En effet, chaque caractère, sauf le premier (qui est fixé à <span class="process-math">\(1\)</span>), peut être un <span class="process-math">\(1\)</span> ou un <span class="process-math">\(0\text{.}\)</span> Il reste donc <span class="process-math">\(7\)</span> choix à faire, avec <span class="process-math">\(2\)</span> possibilités pour chaque choix.</div> <div class="para" id="ex-incExclu-3-5">De même, on peut voir que <span class="process-math">\(B_00= 2^6\text{,}\)</span> car cette fois deux des caractères sont fixés.</div> <div class="para" id="ex-incExclu-3-6">Enfin, on peut également voir par le principe du produit que <span class="process-math">\(B_{100}=2^5\text{,}\)</span> car trois des caractères sont fixés.</div> <div class="para logical" id="ex-incExclu-3-7">
+</div> <div class="para" id="ex-incExclu-3-4">Par le principe du produit, on a que <span class="process-math">\(B_1=2^7\text{.}\)</span> En effet, chaque caractère, sauf le premier (qui est fixé à <span class="process-math">\(1\)</span>), peut être un <span class="process-math">\(1\)</span> ou un <span class="process-math">\(0\text{.}\)</span> Il reste donc <span class="process-math">\(7\)</span> choix à faire, avec <span class="process-math">\(2\)</span> possibilités pour chaque choix.</div> <div class="para" id="ex-incExclu-3-5">De même, on peut voir que <span class="process-math">\(B_{00}= 2^6\text{,}\)</span> car cette fois deux des caractères sont fixés.</div> <div class="para" id="ex-incExclu-3-6">Enfin, on peut également voir par le principe du produit que <span class="process-math">\(B_{100}=2^5\text{,}\)</span> car trois des caractères sont fixés.</div> <div class="para logical" id="ex-incExclu-3-7">
 <div class="para">Finalement, on a</div>
 <div class="displaymath process-math" id="ex-incExclu-3-7-1">
 \begin{align*}
@@ -928,7 +928,7 @@ B\amp=B_1+B_{00}-B_{100}=2^7+2^6-2^5\\
 <div class="solutions">
 <details id="exo-prodSomme-2-7-3-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content">L’énoncé “n’est divisible ni par <span class="process-math">\(4\text{,}\)</span> ni par <span class="process-math">\(6\)</span>” est la négation de l’éoncé “est divisible par <span class="process-math">\(4\)</span> ou par <span class="process-math">\(6\)</span>”.</div></details><details id="exo-prodSomme-2-7-3-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-prodSomme-2-7-3-3-1"><span class="process-math">\(666\,667\)</span></div></div></details>
 </div></article></article><article class="exercise exercise-like" id="exo-prodSomme-2-8"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
-<div class="introduction" id="exo-prodSomme-2-8-1"><div class="para" id="exo-prodSomme-2-8-1-1">Supposons qu’un mot de passe pour un système informatique doit avoir entre <span class="process-math">\(8\)</span> et <span class="process-math">\(12\)</span> (inclusivement) caractères, où chaque caractère est soit une lettre minuscule ou manjuscule, un chiffre ou l’un des caractères spéciaux  <span class="process-math">\(\ast,\, \gt,\,\lt,\,!,\,+\text{ et }= \text{.}\)</span>
+<div class="introduction" id="exo-prodSomme-2-8-1"><div class="para" id="exo-prodSomme-2-8-1-1">Supposons qu’un mot de passe pour un système informatique doit avoir entre <span class="process-math">\(8\)</span> et <span class="process-math">\(12\)</span> (inclusivement) caractères, où chaque caractère est soit une lettre minuscule ou majuscule, un chiffre ou l’un des caractères spéciaux  <span class="process-math">\(\ast,\, \gt,\,\lt,\,!,\,+\text{ et }= \text{.}\)</span>
 </div></div>
 <article class="task exercise-like" id="exo-prodSomme-2-8-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para" id="exo-prodSomme-2-8-2-1-1">Combien de mots de passe différents sont disponibles pour ce système informatique?</div>
