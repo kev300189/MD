@@ -256,6 +256,7 @@ $\Box$
    <!-- <xi:include href="Chapitre_preuveMath.ptx"/>
     <xi:include href="Chapitre_relationRecurrence.ptx"/>
     <xi:include href="Chapitre_graphe.ptx"/>  -->
+    <!--<xi:include href="Back.ptx"/> -->
     <conclusion><p>Version du  <date><today format='yyyy/mm/dd' /></date> </p></conclusion>
   </book>
 </pretext>

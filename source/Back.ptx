@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Ce fichier constitue le "backmatter    "                              -->
+<!--                                                                        -->
+<!--      Mathématiques discrètes : Intuition et rigueur                    -->
+<!--                                                                        -->
+<!-- Creative Commons Attribution Share Alike 4.0 International             -->
+<!-- CC-BY-4.0                                                              -->
+<!-- Jean-Sébastien Turcotte                                                -->
+
+
+
+
+<backmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="Back">   <!-- Ajouter l'identifiant du chapitre après le - du xml:id -->
+    <title> Annexe </title>
+    <appendix>
+        <title>Notation sigma</title>
+        <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-sommation">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+            <title> Symbole de sommation  </title>
+            <introduction xml:id= "intro-sommation">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+                <p>
+                    À quelques occasions déjà, on a travaillé avec des sommes de beaucoups de termes, ou bien d'un nombre indéterminé de termes. Il est alors parfois lourd de travailler ces expressions du point de vue de la notaiton. On introduit donc ici un symbole permettant d'écrire une somme de <m>n</m> termes, même lorsque <m>n</m> est inconnu.
+                </p>
+        
+                <p>
+                    Dans cette section, on commence par donner la définition du symbole de sommation. Par la suite, on énonce quelques propriétés de la sommation, pour finalement revisiter quelques exemples vus précédemment à l'aide de notre nouvel outil.
+                </p>
+                <remark>
+                    <p>
+                        La notation introduite dans cette section n'est pas obligatoire pour le cours. Toutes les sommes seront aussi écrites sans le symbole de sommation. Cependant, vous pourrez l'utiliser pour simplifier certaines expressions. Elle permet également de décrire certaines sommes de façon plus évidente, et de clarifier les démarches (en particulier pour les preuves par récurrences <xref provisional="sec_induction"/>).
+                    </p>
+                </remark>
+            </introduction>
+        
+            <subsection xml:id="subsec-defSommation">
+                <title>Définition du symbole de sommation</title>
+        
+                <introduction>
+                    <p>
+                        On veut introduire une notation permettant d'écrire une somme de plusieurs termes. Par exemple, on veut écrire la somme suivante de façon condensée.
+                        <me>
+                            a_1+a_2+a_3+ \cdots + a_{100}.
+                        </me>
+                        L'idée est de trouver un symbole indiquant qu'on veut prendre une somme (on utilisera le sigma majuscule, c'est-à-dire le <em>S</em> grecque) de tous les termes <m>a_k</m> pour <m>k</m> allant de <m>1</m> à <m>100</m>.
+                    </p>
+                </introduction>
+        
+                <definition xml:id="def_symboleSommation"> 
+                <p> L'expression 
+                    <me>
+                        \sum_{k=i}^n a_k
+                    </me>
+                    est définie comme étant la somme de tous les termes <m>a_k</m>, pour <m>k</m> prennant toutes les valeurs entières entre <m>i</m> et <m>n</m>. Oralement, on lit cette expressions comme étant <em>la sommation, pour <m>k</m> allant de <m>i</m> à <m>n</m>, des <m>a_k</m></em>.
+                </p>
+                <p>
+                    Le <m>k</m> est appelé l'indice de sommation, le <m>i</m> est la borne inférieire de sommation et le <m>n</m> est la borne supérieure de sommation.
+                </p>
+                    </definition>
+        
+                    <example xml:id="exe_symboleSommation">
+                    <p>
+                        <ol>
+                            <li>
+                                <p>
+                                    <m>\sum_{k=1}^{100} a_k =a_1+a_2+a_3+\cdots + a_{100}</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <m>\sum_{k=1}^{100} k =1+2+3+\cdots + {100}</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <m>\sum_{k=-15}^3 \bigl(2k+1\bigr)=\bigl(2(-15)+1\bigr) + \bigl(2(-14)+1\bigr) + \cdots + \bigl(2(3)+1\bigr)</m>
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                    </example>
+            </subsection>
+        
+        </section>
+    </appendix>
+    <appendix>
+        <title>Propriétés des nombres Réels</title>
+        <introduction>
+            <p>
+                Petit Test
+            </p>
+        </introduction>
+        
+        <section>
+            <title>Allo</title>
+            <p>
+                piou
+            </p>
+        </section>
+        <section>
+            <title>Bye</title>
+            <p>
+                piou piou
+            </p>
+        </section>
+    </appendix>
+    <appendix>
+        <title>Propriétés des nombres premiers ??</title>
+    </appendix>
+</backmatter>
+
+
+

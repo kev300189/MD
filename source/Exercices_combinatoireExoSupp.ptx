@@ -33,10 +33,10 @@
     <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
 
     <exercise xml:id="exo-blocsAnagrammes">
-        <statement><p>On a placé 16 cubes de couleurs rouge, vert, bleu et orange en trois quatres colonnes tel qu'illustré ci-dessous. De combien de façons peut-on ramasser ces cubes, si on doit toujours ramasser un cube se trouvant au-dessus d'une colonne.</p>
+        <statement><p>On a placé 16 cubes de couleur rouge, vert, bleu et orange en quatre colonnes tel qu'illustré ci-dessous. De combien de façons peut-on ramasser ces cubes, si on doit toujours ramasser un cube se trouvant au-dessus d'une colonne.</p>
         <p><figure xml:id="fig-cubesCoul">
-            <caption>Dispositions des cubes</caption>
-            <image  width="25%" xml:id="img-cubesCoul" source="Page1.png ">
+            <caption>Disposition des cubes</caption>
+            <image  width="25%" xml:id="img-cubesCoul" source="Page1.jpg">
             </image>
             </figure></p>
         <!--<p>
@@ -53,21 +53,21 @@
 
         </p>-->
         </statement>
-        <hint><p>Utiliser les lettres <m>R, V, B</m> et <m>O</m> pour représenter, respectivement, les cubes de couleurs rouge, vert, bleu et orange. Représenter une façon de ramasser les cubes à l'aide de ces lettres.</p></hint>
+        <hint><p>Utiliser les lettres <m>R, V, B</m> et <m>O</m> pour représenter, respectivement, les cubes de couleur rouge, vert, bleu et orange. Utiliser ces lettres  pour  compter le nombre de façons de ramasser les cubes.</p></hint>
         <answer><p><m>\frac{16!}{6!4!2!4!}</m></p></answer>
     </exercise>
 
     <exercise xml:id="exo-ordrePasOrdre">
-        <statement><p> On considère l'ensemble <m>A=\{0,1,2,3,\dots, 9\}</m>. Combiens de <m>3-</m>permutations de <m>A</m> sont telles que les nombres sont en ordre croissant. Par exemple, <m>126</m> et <m>079</m> sont en ordre croissant, mais <m>405</m> ne l'est pas.</p> </statement>
+        <statement><p> On considère l'ensemble <m>A=\{0,1,2,3,\dots, 9\}</m>. Combien de <m>3-</m>permutations de <m>A</m> sont telles que les nombres sont en ordre croissant. Par exemple, <m>126</m> et <m>079</m> sont en ordre croissant, mais <m>405</m> ne l'est pas.</p> </statement>
         <answer><p><m>\Binomial{10}{3}=\frac{10!}{7!3!}</m>.</p></answer>
     </exercise>
 
     <exercise>
-        <introduction><p>On veut assoir huits personnes autour d'une table circulaire.</p></introduction>
+        <introduction><p>On veut assoir huit personnes autour d'une table circulaire.</p></introduction>
         <task>
             <statement>
                 <p>
-                    De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins à gauche et à droite?
+                    De combien de façons peut-on accomplir cette tâche si deux compositions sont équivalentes lorsque tout le monde a les mêmes voisins à gauche et à droite?
                 </p>
             </statement>
             <answer><m>\frac{8!}{8}=7!</m>.</answer>
@@ -75,7 +75,7 @@
         <task>
             <statement>
                 <p>
-                    De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins, peu importe qu'ils soient à gauche ou à droite?
+                    De combien de façons peut-on accomplir cette tâche si deux compositions sont équivalentes lorsque tout le monde a les mêmes voisins, peu importe qu'ils soient à gauche ou à droite?
                 </p>
             </statement>
             <answer><m>\frac{8!}{8\cdot 2}=\frac{7!}{2}</m>.</answer>
@@ -83,30 +83,30 @@
     </exercise>
 
     <exercise>
-        <statement><p>On veut assoir <m>15</m> personnes autour de deux tables circulaires. On peut Assoir <m>10</m> personnes à la première table, et les cinq autres à la seconde table. De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins à gauche et à droite?</p></statement>
+        <statement><p>On veut assoir <m>15</m> personnes autour de deux tables circulaires. On peut assoir <m>10</m> personnes à la première table, et les cinq autres à la seconde table. De combien de façons peut-on accomplir cette tâche si deux compositions sont équivalentes lorsque tout le monde a les mêmes voisins à gauche et à droite?</p></statement>
         <hint><p>Commencer par choisir les personnes qui seront à la première table, et ensuite placer tout le monde sur les tables.</p></hint>
         <answer><m>\Binomial{15}{10}\cdot \frac{10!}{10} \cdot \frac{5!}{5}=\Binomial{15}{10}\cdot {9!} \cdot {4!}</m></answer>
     </exercise>
 
     <exercise>
         <task>
-            <statement><p>Combiens de mots différents peut-on former à partir des lettres du mot <m>DATAGRAMME</m>?</p></statement>
+            <statement><p>Combien de mots différents peut-on former à partir des lettres du mot <m>DATAGRAMME</m>?</p></statement>
             <answer><p><m>\frac{10!}{3!2!}</m></p></answer>
         </task>
         <task>
-            <statement><p>Parmi les mots formés à la première partie, combiens d'entres eux ont tous les <m>A</m> ensembles?</p></statement>
+            <statement><p>Parmi les mots formés à la première partie, combien d'entres eux ont tous les <m>A</m> ensembles?</p></statement>
             <answer><p><m>\frac{8!}{2!}</m></p></answer>
         </task>
         <task>
-            <statement><p>Parmi les mots formés à la première partie, combiens d'entres eux ont tous les <m>M</m> ensembles?</p></statement>
+            <statement><p>Parmi les mots formés à la première partie, combien d'entres eux ont tous les <m>M</m> ensembles?</p></statement>
             <answer><p><m>\frac{9!}{3!}</m></p></answer>
         </task>
         <task>
-            <statement><p>Parmi les mots formés à la première partie, combiens d'entres eux ont tous les <m>A</m> ensembles et tous les <m>M</m> ensembles?</p></statement>
+            <statement><p>Parmi les mots formés à la première partie, combien d'entres eux ont tous les <m>A</m> ensembles et tous les <m>M</m> ensembles?</p></statement>
             <answer><p><m>{7!}</m></p></answer>
         </task>
         <task>
-            <statement><p>Parmi les mots formés à la première partie, combiens d'entres eux ont tous les <m>A</m> ensembles ou tous les <m>M</m> ensembles?</p></statement>
+            <statement><p>Parmi les mots formés à la première partie, combien d'entres eux ont tous les <m>A</m> ensembles ou tous les <m>M</m> ensembles?</p></statement>
             <answer><p><m>\frac{8!}{2!}+\frac{9!}{3!}-7!</m></p></answer>
         </task>
     </exercise>
@@ -154,16 +154,21 @@
             </image>
             </figure></p></statement>
         <answer><m>\Binomial{8}{3}=\frac{8!}{3!5!}</m></answer>
+        <solution>
+            <p>
+                Il suffit de choisir trois points parmi les huit points pour former chaque triangle.
+            </p>
+        </solution>
     </exercise>
 
-    <exercise>
+   <!-- <exercise>
         <statement><p>On place huit personnes autour d'une table carré, en mettant deux personnes par côté. De combien de façons peut-on accomnplir cette tâche si les deux premières compositions ci-dessous sont équivalentes, mais pas la troisièrme?</p>
         <p> <figure xml:id="fig-configuration">
             <caption>Trois configurations</caption>
             <sidebyside>
             <figure xml:id="fig-tableA">
             <caption>Équivalent</caption>
-            <image width="25%" source="tableA.png">
+            <image width="25%" source="tableA.pdf">
             </image>
             </figure>
             <figure xml:id="fig-tableB">
@@ -180,7 +185,7 @@
             </figure></p>
         </statement>
         <answer><p><m>\frac{8!}{4}</m></p></answer>
-    </exercise>
+    </exercise> -->
     <exercise>
         <statement><p>De combien de façons peut-on placer quatre billes noires (indiscernables) dans cinq urnes différentes?</p></statement>
         <answer>
@@ -188,6 +193,15 @@
                 <m>\Binomial{8}{4}=\frac{8!}{4!4!}</m>
             </p>
         </answer>
+        <solution>
+            <p>
+                Il faut compter le nombre de solutions à l'équation 
+                <me>
+                    x_1 + x_2 + x_3 + x_4 + x_5 = 4
+                </me>
+                où <m>x_i\in\ \N</m>. 
+            </p>
+        </solution>
     </exercise>
     <exercise>
         <introduction><p>Déterminer le coefficient du terme <m>x^9y^3</m> dans le développement de:</p></introduction>
