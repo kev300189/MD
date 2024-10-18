@@ -3850,7 +3850,7 @@ var ptx_lunr_docs = [
   "type": "Section",
   "number": "4.3",
   "title": "Exercices supplémentaires",
-  "body": "  Exercices supplémentaires          Exercices    À faire en classe  Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.  On a placé 16 cubes de couleurs rouge, vert, bleu et orange en trois quatres colonnes tel qu'illustré ci-dessous. De combien de façons peut-on ramasser ces cubes, si on doit toujours ramasser un cube se trouvant au-dessus d'une colonne.   Dispositions des cubes      Utiliser les lettres et pour représenter, respectivement, les cubes de couleurs rouge, vert, bleu et orange. Représenter une façon de ramasser les cubes à l'aide de ces lettres.  On considère l'ensemble . Combiens de permutations de sont telles que les nombres sont en ordre croissant. Par exemple, et sont en ordre croissant, mais ne l'est pas.  .  On veut assoir huits personnes autour d'une table circulaire.  De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins à gauche et à droite?  .  De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins, peu importe qu'ils soient à gauche ou à droite?  .  On veut assoir personnes autour de deux tables circulaires. On peut Assoir personnes à la première table, et les cinq autres à la seconde table. De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins à gauche et à droite? Commencer par choisir les personnes qui seront à la première table, et ensuite placer tout le monde sur les tables.  Combiens de mots différents peut-on former à partir des lettres du mot ? Parmi les mots formés à la première partie, combiens d'entres eux ont tous les ensembles? Parmi les mots formés à la première partie, combiens d'entres eux ont tous les ensembles? Parmi les mots formés à la première partie, combiens d'entres eux ont tous les ensembles et tous les ensembles? Parmi les mots formés à la première partie, combiens d'entres eux ont tous les ensembles ou tous les ensembles?  De combien de façons peut-on placer livres différents sur quatre étagères? Représenter un placement à l'aide des nombres à pour les livres et des barres pour séparer les étagères. Par exemple représente le placement avec les livres , et sur la première étagère, les livres et sur la deuxième étagère, les livres et sur la troisième étagère et les livres à sur la dernière.  Un palindrome est un mot qui est le même si on le lit à l'endroit que si on le lit à l'envers. Par exemple, est un palindrome.  Combien de palindromes de cinq lettres peut-on former avec les lettres de l'alphabet ?  Il suffit de choisir les trois premières lettres. .  Combien de palindromes de six lettres peut-on former avec les lettres de l'alphabet ?  Il suffit de choisir les trois premières lettres. .  Combien de palindromes de lettres peut-on former avec les lettres de l'alphabet ?  La réponse dépend de la parité de . Si est pair, on pose . Si est impair, on pose . La réponse est alors .  Combien de palindromes de cinq lettres peut-on former avec les lettres de l'alphabet si chaque lettre ne peut pas être utilisée plus de deux fois?  .  On place huit points, notés de à sur un cercle à égale distance. Combien de triangles peut-on former à partir de ces points, tel qu'illustré sur la figure ci-dessous?   Un triangle dans un cercle     On place huit personnes autour d'une table carré, en mettant deux personnes par côté. De combien de façons peut-on accomnplir cette tâche si les deux premières compositions ci-dessous sont équivalentes, mais pas la troisièrme?    Trois configurations    Équivalent      Équivalent      Pas équivalent        De combien de façons peut-on placer quatre billes noires (indiscernables) dans cinq urnes différentes?      Déterminer le coefficient du terme dans le développement de:  Un joueur de poker pige cinq cartes d'un paquet de cartes standard. Combien de mains différentes peut-il obtenir: telles que les cinq cartes sont de la même sorte? qui contiennent quatre as? qui contiennent quatre cartes de la même valeur? qui contiennent trois as et deux valets? qui contiennent trois as et une paire? qui contiennent deux paires (et une carte d'une troisième valeur)?  Déterminer le nombre de solutions entières à l'équation où pour . pour . et .  Déterminer le nombre de solutions entières à l'équation où pour . pour .   Combien de solutions entières positives y a-t-il pour la paire d'équations     "
+  "body": "  Exercices supplémentaires          Exercices    À faire en classe  Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.  On a placé 16 cubes de couleur rouge, vert, bleu et orange en quatre colonnes tel qu'illustré ci-dessous. De combien de façons peut-on ramasser ces cubes, si on doit toujours ramasser un cube se trouvant au-dessus d'une colonne.   Disposition des cubes      Utiliser les lettres et pour représenter, respectivement, les cubes de couleur rouge, vert, bleu et orange. Utiliser ces lettres pour compter le nombre de façons de ramasser les cubes.  On considère l'ensemble . Combien de permutations de sont telles que les nombres sont en ordre croissant. Par exemple, et sont en ordre croissant, mais ne l'est pas.  .  On veut assoir huit personnes autour d'une table circulaire.  De combien de façons peut-on accomplir cette tâche si deux compositions sont équivalentes lorsque tout le monde a les mêmes voisins à gauche et à droite?  .  De combien de façons peut-on accomplir cette tâche si deux compositions sont équivalentes lorsque tout le monde a les mêmes voisins, peu importe qu'ils soient à gauche ou à droite?  .  On veut assoir personnes autour de deux tables circulaires. On peut assoir personnes à la première table, et les cinq autres à la seconde table. De combien de façons peut-on accomplir cette tâche si deux compositions sont équivalentes lorsque tout le monde a les mêmes voisins à gauche et à droite? Commencer par choisir les personnes qui seront à la première table, et ensuite placer tout le monde sur les tables.  Combien de mots différents peut-on former à partir des lettres du mot ? Parmi les mots formés à la première partie, combien d'entres eux ont tous les ensembles? Parmi les mots formés à la première partie, combien d'entres eux ont tous les ensembles? Parmi les mots formés à la première partie, combien d'entres eux ont tous les ensembles et tous les ensembles? Parmi les mots formés à la première partie, combien d'entres eux ont tous les ensembles ou tous les ensembles?  De combien de façons peut-on placer livres différents sur quatre étagères? Représenter un placement à l'aide des nombres à pour les livres et des barres pour séparer les étagères. Par exemple représente le placement avec les livres , et sur la première étagère, les livres et sur la deuxième étagère, les livres et sur la troisième étagère et les livres à sur la dernière.  Un palindrome est un mot qui est le même si on le lit à l'endroit que si on le lit à l'envers. Par exemple, est un palindrome.  Combien de palindromes de cinq lettres peut-on former avec les lettres de l'alphabet ?  Il suffit de choisir les trois premières lettres. .  Combien de palindromes de six lettres peut-on former avec les lettres de l'alphabet ?  Il suffit de choisir les trois premières lettres. .  Combien de palindromes de lettres peut-on former avec les lettres de l'alphabet ?  La réponse dépend de la parité de . Si est pair, on pose . Si est impair, on pose . La réponse est alors .  Combien de palindromes de cinq lettres peut-on former avec les lettres de l'alphabet si chaque lettre ne peut pas être utilisée plus de deux fois?  .  On place huit points, notés de à sur un cercle à égale distance. Combien de triangles peut-on former à partir de ces points, tel qu'illustré sur la figure ci-dessous?   Un triangle dans un cercle     Il suffit de choisir trois points parmi les huit points pour former chaque triangle.    De combien de façons peut-on placer quatre billes noires (indiscernables) dans cinq urnes différentes?      Il faut compter le nombre de solutions à l'équation où .   Déterminer le coefficient du terme dans le développement de:  Un joueur de poker pige cinq cartes d'un paquet de cartes standard. Combien de mains différentes peut-il obtenir: telles que les cinq cartes sont de la même sorte? qui contiennent quatre as? qui contiennent quatre cartes de la même valeur? qui contiennent trois as et deux valets? qui contiennent trois as et une paire? qui contiennent deux paires (et une carte d'une troisième valeur)?  Déterminer le nombre de solutions entières à l'équation où pour . pour . et .  Déterminer le nombre de solutions entières à l'équation où pour . pour .   Combien de solutions entières positives y a-t-il pour la paire d'équations     "
 },
 {
   "id": "exo-blocsAnagrammes",
@@ -3859,7 +3859,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.1",
   "title": "",
-  "body": "On a placé 16 cubes de couleurs rouge, vert, bleu et orange en trois quatres colonnes tel qu'illustré ci-dessous. De combien de façons peut-on ramasser ces cubes, si on doit toujours ramasser un cube se trouvant au-dessus d'une colonne.   Dispositions des cubes      Utiliser les lettres et pour représenter, respectivement, les cubes de couleurs rouge, vert, bleu et orange. Représenter une façon de ramasser les cubes à l'aide de ces lettres. "
+  "body": "On a placé 16 cubes de couleur rouge, vert, bleu et orange en quatre colonnes tel qu'illustré ci-dessous. De combien de façons peut-on ramasser ces cubes, si on doit toujours ramasser un cube se trouvant au-dessus d'une colonne.   Disposition des cubes      Utiliser les lettres et pour représenter, respectivement, les cubes de couleur rouge, vert, bleu et orange. Utiliser ces lettres pour compter le nombre de façons de ramasser les cubes. "
 },
 {
   "id": "exo-ordrePasOrdre",
@@ -3868,7 +3868,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.2",
   "title": "",
-  "body": "On considère l'ensemble . Combiens de permutations de sont telles que les nombres sont en ordre croissant. Par exemple, et sont en ordre croissant, mais ne l'est pas.  . "
+  "body": "On considère l'ensemble . Combien de permutations de sont telles que les nombres sont en ordre croissant. Par exemple, et sont en ordre croissant, mais ne l'est pas.  . "
 },
 {
   "id": "exo-combinatoireExoSupp-2-5",
@@ -3877,7 +3877,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.3",
   "title": "",
-  "body": "On veut assoir huits personnes autour d'une table circulaire.  De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins à gauche et à droite?  .  De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins, peu importe qu'ils soient à gauche ou à droite?  . "
+  "body": "On veut assoir huit personnes autour d'une table circulaire.  De combien de façons peut-on accomplir cette tâche si deux compositions sont équivalentes lorsque tout le monde a les mêmes voisins à gauche et à droite?  .  De combien de façons peut-on accomplir cette tâche si deux compositions sont équivalentes lorsque tout le monde a les mêmes voisins, peu importe qu'ils soient à gauche ou à droite?  . "
 },
 {
   "id": "exo-combinatoireExoSupp-2-6",
@@ -3886,7 +3886,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.4",
   "title": "",
-  "body": "On veut assoir personnes autour de deux tables circulaires. On peut Assoir personnes à la première table, et les cinq autres à la seconde table. De combien de façons peut-on accomnplir cette tâche si deux compositions sont équivalentes lorsque tout le monde à les mêmes voisins à gauche et à droite? Commencer par choisir les personnes qui seront à la première table, et ensuite placer tout le monde sur les tables. "
+  "body": "On veut assoir personnes autour de deux tables circulaires. On peut assoir personnes à la première table, et les cinq autres à la seconde table. De combien de façons peut-on accomplir cette tâche si deux compositions sont équivalentes lorsque tout le monde a les mêmes voisins à gauche et à droite? Commencer par choisir les personnes qui seront à la première table, et ensuite placer tout le monde sur les tables. "
 },
 {
   "id": "exo-combinatoireExoSupp-2-7",
@@ -3895,7 +3895,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.5",
   "title": "",
-  "body": "Combiens de mots différents peut-on former à partir des lettres du mot ? Parmi les mots formés à la première partie, combiens d'entres eux ont tous les ensembles? Parmi les mots formés à la première partie, combiens d'entres eux ont tous les ensembles? Parmi les mots formés à la première partie, combiens d'entres eux ont tous les ensembles et tous les ensembles? Parmi les mots formés à la première partie, combiens d'entres eux ont tous les ensembles ou tous les ensembles? "
+  "body": "Combien de mots différents peut-on former à partir des lettres du mot ? Parmi les mots formés à la première partie, combien d'entres eux ont tous les ensembles? Parmi les mots formés à la première partie, combien d'entres eux ont tous les ensembles? Parmi les mots formés à la première partie, combien d'entres eux ont tous les ensembles et tous les ensembles? Parmi les mots formés à la première partie, combien d'entres eux ont tous les ensembles ou tous les ensembles? "
 },
 {
   "id": "exo-combinatoireExoSupp-2-8",
@@ -3922,7 +3922,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.8",
   "title": "",
-  "body": "On place huit points, notés de à sur un cercle à égale distance. Combien de triangles peut-on former à partir de ces points, tel qu'illustré sur la figure ci-dessous?   Un triangle dans un cercle    "
+  "body": "On place huit points, notés de à sur un cercle à égale distance. Combien de triangles peut-on former à partir de ces points, tel qu'illustré sur la figure ci-dessous?   Un triangle dans un cercle     Il suffit de choisir trois points parmi les huit points pour former chaque triangle.  "
 },
 {
   "id": "exo-combinatoireExoSupp-2-11",
@@ -3931,7 +3931,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.9",
   "title": "",
-  "body": "On place huit personnes autour d'une table carré, en mettant deux personnes par côté. De combien de façons peut-on accomnplir cette tâche si les deux premières compositions ci-dessous sont équivalentes, mais pas la troisièrme?    Trois configurations    Équivalent      Équivalent      Pas équivalent       "
+  "body": "De combien de façons peut-on placer quatre billes noires (indiscernables) dans cinq urnes différentes?      Il faut compter le nombre de solutions à l'équation où .  "
 },
 {
   "id": "exo-combinatoireExoSupp-2-12",
@@ -3940,7 +3940,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.10",
   "title": "",
-  "body": "De combien de façons peut-on placer quatre billes noires (indiscernables) dans cinq urnes différentes?     "
+  "body": "Déterminer le coefficient du terme dans le développement de: "
 },
 {
   "id": "exo-combinatoireExoSupp-2-13",
@@ -3949,7 +3949,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.11",
   "title": "",
-  "body": "Déterminer le coefficient du terme dans le développement de: "
+  "body": "Un joueur de poker pige cinq cartes d'un paquet de cartes standard. Combien de mains différentes peut-il obtenir: telles que les cinq cartes sont de la même sorte? qui contiennent quatre as? qui contiennent quatre cartes de la même valeur? qui contiennent trois as et deux valets? qui contiennent trois as et une paire? qui contiennent deux paires (et une carte d'une troisième valeur)? "
 },
 {
   "id": "exo-combinatoireExoSupp-2-14",
@@ -3958,7 +3958,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.12",
   "title": "",
-  "body": "Un joueur de poker pige cinq cartes d'un paquet de cartes standard. Combien de mains différentes peut-il obtenir: telles que les cinq cartes sont de la même sorte? qui contiennent quatre as? qui contiennent quatre cartes de la même valeur? qui contiennent trois as et deux valets? qui contiennent trois as et une paire? qui contiennent deux paires (et une carte d'une troisième valeur)? "
+  "body": "Déterminer le nombre de solutions entières à l'équation où pour . pour . et . "
 },
 {
   "id": "exo-combinatoireExoSupp-2-15",
@@ -3967,7 +3967,7 @@ var ptx_lunr_docs = [
   "type": "Exercice",
   "number": "4.3.13",
   "title": "",
-  "body": "Déterminer le nombre de solutions entières à l'équation où pour . pour . et . "
+  "body": "Déterminer le nombre de solutions entières à l'équation où pour . pour . "
 },
 {
   "id": "exo-combinatoireExoSupp-2-16",
@@ -3975,15 +3975,6 @@ var ptx_lunr_docs = [
   "url": "sec-combinatoireExoSupp.html#exo-combinatoireExoSupp-2-16",
   "type": "Exercice",
   "number": "4.3.14",
-  "title": "",
-  "body": "Déterminer le nombre de solutions entières à l'équation où pour . pour . "
-},
-{
-  "id": "exo-combinatoireExoSupp-2-17",
-  "level": "2",
-  "url": "sec-combinatoireExoSupp.html#exo-combinatoireExoSupp-2-17",
-  "type": "Exercice",
-  "number": "4.3.15",
   "title": "",
   "body": "Combien de solutions entières positives y a-t-il pour la paire d'équations  "
 }
