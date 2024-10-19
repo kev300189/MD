@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec_methodePreuve">
 <title>Méthodes de preuves</title>
-<introduction> <p>Depuis le début du cours, (et dans vos autres cours de mathématiques) nous avons présenté plusieurs propriétés pour lesquelles nous avons également fournis une démonstration.</p>
-<p>Dans ce chapitre, nous allons explorer plus en détails les différentes méthodes de preuves utilisées en mathématiques.</p>
+<introduction> <p>Depuis le début du cours (et dans vos autres cours de mathématiques), nous avons présenté plusieurs propriétés pour lesquelles nous avons également fourni une démonstration.</p>
+<p>Dans ce chapitre, nous allons explorer plus en détail les différentes méthodes de preuves utilisées en mathématiques.</p>
 <p>Dans la présente section, nous présenterons les méthodes de preuves de base, soit les preuves directes, les preuves indirectes et les preuves par contradiction.</p>
-<p>Dans les prochaines sections, nous présenterons des méthodes de preuves plus avancées, telles que les preuves pas récurence et les preuves utilisant le principe des tiroirs de Dirichlet.</p>
+<p>Dans les prochaines sections, nous présenterons des méthodes de preuves plus avancées, telles que les preuves pas récurrence et les preuves utilisant le principe des tiroirs de Dirichlet.</p>
 </introduction>
 
 
@@ -12,15 +12,15 @@
 <title>Un peu de terminologie</title>
 <introduction>
 <p>
-Un théorème ou une proposition est un énoncé que l'on peut montrer être vrai. L'argument permettant de vérifier qu'un théorème est vrai est appellé une preuve. 
+Un théorème ou une proposition est un énoncé que l'on peut montrer être vrai. L'argument permettant de vérifier qu'un théorème est vrai est appelé une preuve. 
 </p>
 
 <p>
-Beaucoup de théorèmes peuvent être énoncés sous la forme d'une implication logique (avec ou sans quantificateurs). Dans ce cas, pour démontrer le théorème, on peut supposer que l'hypothèse est vraie, et à l'aide de <em>propriétés connues</em> et de raisonements d'inférence, montrer que la conclusion est alors vraie. 
+Beaucoup de théorèmes peuvent être énoncés sous la forme d'une implication logique (avec ou sans quantificateurs). Dans ce cas, pour démontrer le théorème, on peut supposer que l'hypothèse est vraie, et à l'aide de <em>propriétés connues</em> et de raisonnements d'inférence, montrer que la conclusion est alors vraie. 
 </p>
 
 <p>
-Dans n'importe quelle théorie mathématique, il y aura des énoncés qui seront considérés comme étant vrais, sans que l'on puisse les démontrer. On appelle ces énoncés des <em>axiomes</em>. Certains théorèmes sont <q>moins importants</q> que d'autres, et on leur donne des noms particuliers. Un <em>lemme</em> est un théorème qu'on utilise principalement pour en démontrer un autre, alors qu'un <em>corollaire</em> est un théormème qui découle directement d'un autre.
+Dans n'importe quelle théorie mathématique, il y aura des énoncés qui seront considérés comme étant vrais, sans que l'on puisse les démontrer. On appelle ces énoncés des <em>axiomes</em>. Certains théorèmes sont <q>moins importants</q> que d'autres, et on leur donne des noms particuliers. Un <em>lemme</em> est un théorème qu'on utilise principalement pour en démontrer un autre, alors qu'un <em>corollaire</em> est un théorème qui découle directement d'un autre.
 </p>
 </introduction>
 
@@ -51,13 +51,13 @@ On a alors que <m>n^2</m> est pair.
 <title>Les carrés parfaits </title>
 <statement>Donner une preuve directe que si <m>m</m> et <m>n</m> sont des carrés parfaits, alors <m>mn</m> est aussi un carré parfait. Un carré parfait est un entier <m>a</m> tel que <m>a=b^2</m>, pour <m>b</m> un entier. </statement>
 <solution>
-<p>Si <m>m</m> et <m>n</m> sont des entier parfait, alors par définition, il existe des entiers <m>s</m> et <m>t</m> tels que <m>m=s^2</m> et <m>n=t^2</m>.</p>
+<p>Si <m>m</m> et <m>n</m> sont des entiers parfaits, alors par définition, il existe des entiers <m>s</m> et <m>t</m> tels que <m>m=s^2</m> et <m>n=t^2</m>.</p>
 <p>Ainsi on a que <m>mn=s^2t^2=(ss)(tt)=(st)(st)=(st)^2</m>, où on a utilisé la commutativité et l'associativité du produit dans les entiers. Par définition d'un carré parfait, on peut conclure que <m>mn</m> est un carré parfait.</p>
 </solution>
 </example>
 
 <remark>
-<p>Formelement, la plupart des théorèmes sont des énoncés avec quantificateurs. L'énoncé de l'exercice précédent aurait pû être écrit sous la forme suivante. <me>\forall m\in\,\Z\forall n\in\,\Z\left(P(n)\wedge P(m)\rightarrow P(m\cdot n)\right)</me>, où <m>P(m)</m> est la proposition <q><m>m</m> est un carré parfait</q>.</p>
+<p>Formellement, la plupart des théorèmes sont des énoncés avec quantificateurs. L'énoncé de l'exercice précédent aurait pu être écrit sous la forme suivante. <me>\forall m\in\,\Z\forall n\in\,\Z\left(P(n)\wedge P(m)\rightarrow P(m\cdot n)\right)</me>, où <m>P(m)</m> est la proposition <q><m>m</m> est un carré parfait</q>.</p>
 <p>Pour montrer que l'énoncé est vrai pour tout entier <m>m</m> et pour tout entier <m>n</m>, il suffit de choisir <m>m</m> et <m>n</m> des entiers <em>quelconques</em>, c'est-à-dire qu'on utilise uniquement le fait qu'ils sont des entiers, et rien d'autre!</p>
 </remark>
 
