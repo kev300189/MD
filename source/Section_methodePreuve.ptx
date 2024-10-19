@@ -61,7 +61,7 @@ On a alors que <m>n^2</m> est pair.
 <p>Pour montrer que l'énoncé est vrai pour tout entier <m>m</m> et pour tout entier <m>n</m>, il suffit de choisir <m>m</m> et <m>n</m> des entiers <em>quelconques</em>, c'est-à-dire qu'on utilise uniquement le fait qu'ils sont des entiers, et rien d'autre!</p>
 </remark>
 
-<p>Pour plusieurs des exemples et exercices de la sections, on démontrera des propriétés des nombres rationnels et des nombres irrationnels. On rappelle ici les définitions.</p>
+<p>Pour plusieurs des exemples et exercices de la section, on démontrera des propriétés des nombres rationnels et des nombres irrationnels. On rappelle ici les définitions.</p>
 
 <definition xml:id="def-nbrQ"> 
 <statement> L'ensemble des nombres rationnels est l'ensemble <m>\Q=\{\frac{a}{b}\mid a\in\,\Z,\,b\in\,\Z,\,b\neq 0\}</m></statement>
@@ -107,7 +107,7 @@ On a alors que <m>n^2</m> est pair.
 <subsubsection xml:id="subsub-preuvInd">
 <title> Preuve indirecte</title>
 <introduction>
-<p>Il est parfois difficile de trouver un chemin directe pour montrer que <m>p\rightarrow q</m>. Dans certains cas, il sera plus facile de passer par la contraposée! On rappelle que la contraposée de <m>p\rightarrow q</m> est l'implication <m>\neg q \rightarrow \neg p,</m> et que <m>p\rightarrow q\equiv \neg q\rightarrow \neg p</m>.</p>
+<p>Il est parfois difficile de trouver un chemin direct pour montrer que <m>p\rightarrow q</m>. Dans certains cas, il sera plus facile de passer par la contraposée! On rappelle que la contraposée de <m>p\rightarrow q</m> est l'implication <m>\neg q \rightarrow \neg p,</m> et que <m>p\rightarrow q\equiv \neg q\rightarrow \neg p</m>.</p>
 <p>Ainsi, au lieu de montrer que si <m>p</m> est vrai alors <m>q</m>, on montre que si <m>q</m> est fausse, alors <m>p</m> est fausse.</p>
 </introduction>
 
@@ -116,7 +116,7 @@ On a alors que <m>n^2</m> est pair.
 <statement>Montrer que, si <m>n=ab</m> pour <m>a,b\in\,\N</m> alors <m>a\leq \sqrt{n}</m> ou <m>b\leq \sqrt{n}</m>.</statement>
 
 <solution>
-<p>On suppose que la conclusion est fausse, c'est à dire que <m>\neg(a\leq \sqrt{n}\vee b\leq \sqrt{n})</m> est vraie. Par les lois de De Morgan, on suppose que la proposition <m>a\gt \sqrt{n} \wedge b\gt \sqrt{n}</m> est vraie, et on veut montrer que la proposition <m>n\neq ab</m> est vraie.</p>
+<p>On suppose que la conclusion est fausse, c'est-à-dire que <m>\neg(a\leq \sqrt{n}\vee b\leq \sqrt{n})</m> est vraie. Par les lois de De Morgan, on suppose que la proposition <m>a\gt \sqrt{n} \wedge b\gt \sqrt{n}</m> est vraie, et on veut montrer que la proposition <m>n\neq ab</m> est vraie.</p>
 <p>On rappel que si <m>0\lt s\lt t</m> et <m>0\lt u\lt v</m>, alors <m>su\lt tv</m>.</p> 
 <p>Ainsi, si <m>a\gt \sqrt{n}</m> et <m>b\gt \sqrt{n}</m>, on aura <m>n=\sqrt{n}\cdot \sqrt{n} \lt ab</m>. En particulier, si <m>n\lt ab</m>, alors <m>n\neq ab</m>.  </p>
 
@@ -144,16 +144,16 @@ On a alors que <m>n^2</m> est impair.
 <title>Preuve par contradiction</title>
 <introduction>
 <p>Supposons qu'on veuille montrer qu'une proposition <m>p</m> est vraie. Suppons également que l'on arrive a montrer que <m>\neg p \rightarrow q</m> est vraie, où <m>q</m> une contradiction (une proposition qui est toujours fausse).</p>
-<p> Si <m>\neg p \rightarrow q</m> est vraie et que <m>q</m> est fausse, alors nécessairement <m>\neg p</m> est fausse, c'est-à-dire que <m>p</m> est vraie. La contradiction <m>q</m> sera souvent former par <m>q\equiv (r \wedge \neg r)</m>.</p>
+<p> Si <m>\neg p \rightarrow q</m> est vraie et que <m>q</m> est fausse, alors nécessairement <m>\neg p</m> est fausse, c'est-à-dire que <m>p</m> est vraie. La contradiction <m>q</m> sera souvent formé par <m>q\equiv (r \wedge \neg r)</m>.</p>
 
 </introduction>
 
 <example xml:id="exe-sqrt2Qc"> 
-<title>Un premier nombre irrationel</title>
+<title>Un premier nombre irrationnel</title>
 <statement> Montrer que <m>\sqrt{2}\in\,\Q^c</m>.</statement>
 <solution>
-<p>On suppose que <m>\sqrt{2}\in\,\Q</m>, et on cerche à montrer que celà implique une contradiction.</p>
-<p> Si <m>\sqrt{2}\in\,\Q</m>, alors <m>\sqrt{2}=\frac{a}{b}</m>, où <m>a,b\in\,\Z</m> et <m>b\neq 0</m>. De plus, on peut supposer que cette faction est réduite, c'est-a-dire que <m>\pgcd(a,b)=1</m>.</p>
+<p>On suppose que <m>\sqrt{2}\in\,\Q</m>, et on cherche à montrer que celà implique une contradiction.</p>
+<p> Si <m>\sqrt{2}\in\,\Q</m>, alors <m>\sqrt{2}=\frac{a}{b}</m>, où <m>a,b\in\,\Z</m> et <m>b\neq 0</m>. De plus, on peut supposer que cette faction est réduite, c'est-à-dire que <m>\pgcd(a,b)=1</m>.</p>
 <p>On a alors <me>2=(\sqrt{2})^2=\left(\frac{a}{b}\right)=\frac{a^2}{b^2}</me>. En isolant, on obtient <m>a^2=2b^2</m>. Ainsi, par  <xref ref="exe-nCarrePairnPair" text="custom"> un des exemples précédents</xref> on a que <m>a^2</m> est un nombre pair, et donc <m>a</m> l'est également. On peut donc écrire <m>a=2k</m>, pour <m>k\in\,\Z</m>, d'où <me>a^2=(2k)^2=4k^2=2b^2</me>. </p>
 <p>En divisant par <m>2</m> des deux côtés, on a <m>2k^2=b^2</m>. Par le même argument que précédemment, on a que <m> b</m> est pair. Or, si <m>a</m> et  <m>b</m> sont pair, on a que <m>2\leq\pgcd(a,b)=1</m>. Ceci est une contradiction, car <m>2\leq 1</m> est faux.</p>
 
@@ -161,8 +161,8 @@ On a alors que <m>n^2</m> est impair.
 </example>
 
 <example xml:id="exe-sommeQQc">
-<title>La somme d'un rationnel et d'un irrationel </title>
-<statement>Montrer par contradiction que la somme d'un nombre rationnel et d'un nombre irrationel est un nombre irrationel.</statement>
+<title>La somme d'un rationnel et d'un irrationnel </title>
+<statement>Montrer par contradiction que la somme d'un nombre rationnel et d'un nombre irrationnel est un nombre irrationnel.</statement>
 <solution>
 <p> Soit <m>r\in\,\Q</m> et <m>x\in\,\Q^c</m>, on suppose que <m>r+x=s\in\,\Q</m>. On cherche une contradiction.</p>
 <p>En isolant <m>x,</m> on a <m>x=s-r=s+(-r).</m> On sait que <m>-r\in\,\Q</m> par <xref ref="exe-prodQisQ"/>, et donc <m>s+(-r)\in\,\Q</m> par <xref ref="exe-sommeQisQ"/>.  Ceci est une contradiction, car <m>x\in\,\Q^c</m>.</p>
@@ -177,8 +177,8 @@ On a alors que <m>n^2</m> est impair.
 <p>On a une implication <m>P\rightarrow Q</m>, où <me>P:\ m+n \text{ et } n+p \text{ sont pairs }</me> et <me>Q:\ m+p\text{ est pair}.</me></p>
 <p>On  fait une preuve par contradiction. Puisque <m>P\rightarrow Q\equiv \neg P \vee  Q </m>, la négation de <m>P\rightarrow Q</m> est <m>P\wedge \neg Q.</m></p>
 <p>Ainsi, on suppose que <m>m+n</m> et <m>n+p</m> sont pairs, mais que <m>m+p</m> est impair. On cherche ensuite une contradiction.</p>
-<p>On sait que la somme de deux nombres pairs est paire et la somme d'un nombre pair et d'un nombre impaire est impaire (on demande la preuve de ceci dans les questions de compréhension de la lecture). Ainsi, <m>(m+n)+(n+p)+(m+p)</m> est impair, mais <me>(m+n)+(n+p)+(m+p)=2(m+n+p)</me> est donc pair. On a ainsi une contradiction.</p>
-<p>On a montrer qu'il est impossible que les nombres <m>m+n</m> et <m>n+p</m> soient pairs  et que <m>m+p</m> soit impair. Ainsi, si <m>m+n</m> et <m>n+p</m> sont pairs, alors <m>m+p</m> est pair.</p>
+<p>On sait que la somme de deux nombres pairs est paire et la somme d'un nombre pair et d'un nombre impair est impaire (on demande la preuve de ceci dans les questions de compréhension de la lecture). Ainsi, <m>(m+n)+(n+p)+(m+p)</m> est impair, mais <me>(m+n)+(n+p)+(m+p)=2(m+n+p)</me> est donc pair. On a ainsi une contradiction.</p>
+<p>On a montré qu'il est impossible que les nombres <m>m+n</m> et <m>n+p</m> soient pairs  et que <m>m+p</m> soit impair. Ainsi, si <m>m+n</m> et <m>n+p</m> sont pairs, alors <m>m+p</m> est pair.</p>
 </solution>
 </example>
 
@@ -204,7 +204,7 @@ On a alors que <m>n^2</m> est impair.
 Ainsi, soit <m>m-n=0,</m> ou bien <m>m+n=0</m>, c'est-à-dire que <m>m=n</m> ou <m>m=-n</m>.
 </p>
 <p>
-On supposonse maintenant que <m>m=n</m> ou <m>m=-n</m>. Dans ce cas, <m>m-n=0,</m> ou bien <m>m+n=0</m>, et donc 
+On supposons maintenant que <m>m=n</m> ou <m>m=-n</m>. Dans ce cas, <m>m-n=0,</m> ou bien <m>m+n=0</m>, et donc 
 <md>
 <mrow> 0 \amp = (m-n)(m+n)    </mrow>
 <mrow>   \amp = m^2-n^2,   </mrow>
@@ -218,7 +218,7 @@ d'où <m>m^2=n^2</m>.
 </example>
 
 <example xml:id="exe-plusieursEquiv">
-<title> Un petit racourci</title>
+<title> Un petit raccourci</title>
 <statement>
 Montrer que si <m>n</m> est un entier, alors les trois énoncés suivants sont équivalents.
 <ol>
@@ -253,7 +253,7 @@ Puisque <m>n+5</m> est impair, on a
 <mrow>1\amp\equiv n+5 \mod 2</mrow>
 <mrow>\amp\equiv n + 1 \mod 2.</mrow>
 </md>
-Ainsi, <m>n\equiv 0 \mod 2,</m> et donc <m>n^2\equiv 0 \mod 2,</m> c'est à dire que <m>n^2</m> est pair.
+Ainsi, <m>n\equiv 0 \mod 2,</m> et donc <m>n^2\equiv 0 \mod 2,</m> c'est-à-dire que <m>n^2</m> est pair.
 </p>
 </li>
 <li>
