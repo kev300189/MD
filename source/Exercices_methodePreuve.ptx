@@ -229,6 +229,31 @@ Ainsi, <m>a^3</m> est pair, d'où <m>a</m> est également pair par <xref ref="ex
 </solution>
 </exercise>
 
+<exercise xml:id="exo-cercleMoser">
+    <introduction>Pour ce numéro, on considère un cercle quelconque <m>C</m>. On choisit ensuite deux poits sur ce cercle, disons les points <m>P_0</m> et <m>P_1</m>, et on trace le segment de droite <m>\overline{P_0P_1}</m> reliant ces deux points. On remarque que le segment sépare l'intérieur du cercle en deux régions. On choisit ensuite un troisième point <m>P_2</m> sur le cercle, et on trace tous les segements de droite relient le nouveau point au deux points précédents. On remarque alors que les segments de droite séparent le cercle en quatre région. Supposons qu'on aie choisit les points <m>P_0</m> jusqu'à <m>P_{n-1}</m>, en traçant les segments de droites reliant tous les points. On peut poursuivre cet exercice, c'est-à-dire choisir un point <m>P_n</m> sur le cercle, et tracer les segments de droite reliant ce nouveau point à chacun des points déjà obtenus. On veut déterminer en combien de régions est-ce que les segments de droites séparent l'intérieur du cercle. </introduction>
+    <task>
+        <statement>
+            <p>
+                Après avoir tracer un cercle, avoir choisi quatre points et avoir tracer les segments de droite reliant les points, compter le nombre de régions obtenu à l'intérieur du cercle.
+            </p>
+        </statement>
+    </task>
+    <task>
+        <statement>
+            <p>
+                Après avoir tracer un cercle, avoir choisi quatre points et avoir tracer les segments de droite reliant les points, compter le nombre de régions obtenu à l'intérieur du cercle.
+            </p>
+        </statement>
+    </task>
+    <task>
+        <statement>
+            <p>
+                Après avoir tracer un cercle, avoir choisi quatre points et avoir tracer les segments de droite reliant les points, compter le nombre de régions obtenu à l'intérieur du cercle.
+            </p>
+        </statement>
+    </task>
+    </exercise>
+
 <exercise xml:id="exo-pordQQcisQc">
 <statement>Montrer ou réfuter que le produit d'un nombre rationnel différent de <m>0</m> par un irrationnel est un irrationel.</statement>
 <hint>C'est vrai!</hint>
@@ -247,7 +272,7 @@ Ainsi, <m>a^3</m> est pair, d'où <m>a</m> est également pair par <xref ref="ex
 
 <exercise>
 <statement>
-Montrer que si <m>n</m> est un entier, alors les quatres énoncés suivants sont équivalents.
+Montrer que si <m>n</m> est un entier, alors les quatre énoncés suivants sont équivalents.
 <ol>
 <li> <m>n</m> est pair,</li>
 <li><m>n+1</m> est impair,</li>
