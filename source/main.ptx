@@ -245,7 +245,6 @@ $\Box$
     <!-- <xi:include href="./bookinfo.xml" />     À inclure éventuellement, voir les autres projets MBK pour info -->  
     
     <!--Structure principale -->
-
   <book xml:id="madir">
     <title>Mathématiques discrètes</title>
     <subtitle>Version préliminaire</subtitle>
