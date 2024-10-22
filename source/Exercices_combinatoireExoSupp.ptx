@@ -39,27 +39,28 @@
             <image  width="25%" xml:id="img-cubesCoul" source="Page1.jpg">
             </image>
             </figure></p>
-        <!--<p>
-            <figure>
-                <caption>RNA Codons Table, by Florian Hollandt</caption>
-                <image xml:id="rna-codons-table" width="100%">
-                    <description>A table of the RNA codons.</description>
-                    <latex-image>
-                        j
-                    </latex-image>
-                </image>
-            </figure>
-
-
-        </p>-->
         </statement>
+
         <hint><p>Utiliser les lettres <m>R, V, B</m> et <m>O</m> pour représenter, respectivement, les cubes de couleur rouge, vert, bleu et orange. Utiliser ces lettres  pour  compter le nombre de façons de ramasser les cubes.</p></hint>
+       <!-- <solution>
+            <p>
+                Tel qu'indiqué dans l'indice, le nombre de façon d'accomplir cette tâche est équivalente à permuter six lettres <m>R</m>, quatre lettres <m>V</m>, deux lettres <m>B</m> et quatre lettres <m>O</m>. À l'aide de la formule des permutations d'objets indiscernables, on obtient <p><m>\frac{16!}{6!4!2!4!}</m>.
+            </p>
+        </solution> --> <!-- INCLURE ?????-->
         <answer><p><m>\frac{16!}{6!4!2!4!}</m></p></answer>
     </exercise>
 
     <exercise xml:id="exo-ordrePasOrdre">
         <statement><p> On considère l'ensemble <m>A=\{0,1,2,3,\dots, 9\}</m>. Combien de <m>3-</m>permutations de <m>A</m> sont telles que les nombres sont en ordre croissant. Par exemple, <m>126</m> et <m>079</m> sont en ordre croissant, mais <m>405</m> ne l'est pas.</p> </statement>
         <answer><p><m>\Binomial{10}{3}=\frac{10!}{7!3!}</m>.</p></answer>
+        <solution>
+            <p>
+                Ici, on utilisera le principe du produit afin de résoudre le problème. On montrera ainsi qu'il exsite <m>\Binomial{10}{3}</m> <m>3-</m>permutations de <m>A</m> qui sont en orde croissant. Avant de montrer la démarche, on fait quelsques remarques, puisque la réponse à ce problème est parfois contre-inbtuitive. En effet, dans la question, on cherche le nombre de <m>3-</m>permutations de <m>A</m> avec un ordre particulier. Il est donc tentant d'utiliser l'expression <m>\Permutation{10}{3} </m>. Cependant, comme on veut uniquement les <m>3</m>-permutations de <m>A</m> qui ont un ordre particulier. On verra que ceci revient à choisir les objets sans considérer l'ordre. 
+            </p>
+            <p>
+                On fait maintenant la démarche. On sépare la tâche en deux étapes. Tout d'abord, on choisit trois objets parmi les dix éléments de <m>A</m>, et ensuite on les mets en ordre croissant. On sait qu'il y a <m>\Binomial{10}{3}</m> façons de choisir trois objets parmi dix. Par la suite, si on a trois éléments <m>A</m>, il y a une seule façon de choisir l'ordre, car on doit nécessairement les mettre en ordre croissant! Par le principe du produit, il y a donc <m>\Binomial{10}{3}\cdot 1 =\frac{10!}{3!7!}</m> façons d'accomplir cette tâche.
+            </p>
+        </solution> <!-- INCLURE ?????-->
     </exercise>
 
     <exercise>
@@ -71,6 +72,11 @@
                 </p>
             </statement>
             <answer><m>\frac{8!}{8}=7!</m>.</answer>
+            <solution>
+                <p>
+                    
+                </p>
+            </solution> <!-- INCLURE ?????-->
         </task>
         <task>
             <statement>
@@ -79,6 +85,11 @@
                 </p>
             </statement>
             <answer><m>\frac{8!}{8\cdot 2}=\frac{7!}{2}</m>.</answer>
+            <solution>
+                <p>
+                    
+                </p>
+            </solution> <!-- INCLURE ?????-->
         </task>
     </exercise>
 
