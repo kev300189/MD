@@ -107,6 +107,18 @@
     </exercise>
     <exercise>
         <statement>
+            <p>
+                Montrer qu'il existe une infinité de nombres premiers.
+            </p>
+        </statement>
+        <hint>
+            <p>
+                Faire une preuve par contradiction.
+            </p>
+        </hint>
+    </exercise>
+    <exercise>
+        <statement>
             <p>Montrer que, pour <m>n\in \N^\ast</m>, la somme des <m>n</m> premiers cubes est <me>\frac{n^2(n+1)^2}{4}</me>.</p>
             <p>Ainsi, on veut montrer que <me>1^3+2^3+\cdots + n^3 =\frac{n^2(n+1)^2}{4}</me></p>
         </statement>
@@ -187,7 +199,44 @@
         <p>Ainsi, soit <m>a-b \equiv 0 \mod p </m>, ou bien <m>a+b \equiv 0 \mod p </m>.</p>
         </solution>
     </exercise>
-
+    <exercise>
+        <statement xml:id="exo-binomSommeNewton">
+            <p>
+                Montrer que <me>\Binomial{n}{n} + \Binomial{n}{n-1} +\Binomial{n}{n-2} + \cdots + \Binomial{n}{2} + \Binomial{n}{1} + \Binomial{n}{0} = 2^n,</me> ou encore (avec la sommation)
+                <me>
+                    \sum_{k=0}^n \Binomial{n}{n-k}=2^n.
+                </me>
+            </p>
+        </statement>
+        <hint>
+            <p>
+                On peut utiliser plusieurs méthodes pour cette preuve. La première solution, qui ressemble plus aux méthodes utilisées dans ce chapitre, se fera à l'aide du <xref ref="prop-binomNewton" text="custom">binôme de Newton</xref>. La deuxième méthode utilise un argument combinatoire à l'aide du <xref ref="exo-nmbrSsEnsInd" text="custom"> nombre de sous-ensembles</xref>.
+            </p>
+        </hint>
+        <solution>
+            <p>
+                On remarque que <m>2^n=(1+1)^n</m>. En posant <m>x=y=1</m>, la formule du binôme de Newton nous donne
+                <md>
+                    <mrow> 2^n = (1+1)^n \amp=(x+y)^n \amp\amp \text{en posant } x=y=1</mrow>
+                    <mrow> \amp=\Binomial{n}{n}x^n + \Binomial{n}{n-1}x^{n-1}y^1 + \Binomial{n}{n-2}x^{n-2}y^2 + \cdots + \Binomial{n}{2}x^{2}y^{n-2} + \Binomial{n}{1}x^1y^{n-1} +\Binomial{n}{0}y^n \amp\amp \text{par } <xref ref="prop-binomNewton"/> </mrow>
+                    <mrow> \amp=\Binomial{n}{n} + \Binomial{n}{n-1} +\Binomial{n}{n-2} + \cdots + \Binomial{n}{2} + \Binomial{n}{1} + \Binomial{n}{0} \amp\amp \text{en remplaçant } x, y \text{ par } 1.</mrow>
+                </md>
+            </p>
+            <p>
+                Ici, il est possible d'utiliser la notation sigma. On obtient alors
+                <md>
+                    <mrow> 2^n = (1+1)^n \amp=(x+y)^n \amp\amp \text{en posant } x=y=1</mrow>
+                    <mrow> \amp=\sum_{r=0}^{n} \Binomial{n}{n-r}x^{n-r}y^{r} \amp\amp \text{par } <xref ref="prop-binomNewton"/> </mrow>
+                    <mrow> \amp=\sum_{r=0}^{n} \Binomial{n}{n-r} \amp\amp \text{en remplaçant } x, y \text{ par } 1.</mrow>
+                </md>
+            </p>
+        </solution>
+        <solution>
+            <p>
+               aaa 
+            </p>
+        </solution>
+    </exercise>
     <!--<exercise>
         <statement>
             <p>Montrer que, pour <m>n\in \N^\ast</m>, alors

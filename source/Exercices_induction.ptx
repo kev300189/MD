@@ -13,6 +13,94 @@
     <title>À faire en classe</title>
     <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
 
+  
+
+    <exercise>
+      <introduction>
+      Sans utiliser les classes d'équivalences modulo un entier, montrer par réccurence que:
+      </introduction>
+      <task>
+        <statement>
+          <p>
+            <m>9^n-1</m> est divisible par <m>8</m> pour <m>n \in \N</m>, c'est-à-dire que <m>(9^n-1) = 8q</m> pour un entier <m>q\in \N</m>.
+          </p>
+        </statement>
+        <solution>
+          <p>On pose <m>P(n)</m> la proposition <m>9^n-1</m> est divisible par <m>8</m> pour <m>n\in\,\N</m>.</p>
+          <p><alert>Étape de base:</alert> On Doit montrer que <m>P(0)</m> est vraie. Or, on a que <m>9^0-1 =1-1=0</m>, et donc, en <m>n=0</m>, la proposition est <m>P(0): 0</m> est divisible par <m>8</m>. Cette proposition est vraie, puisque <m>0=8\cdot 0</m>.</p>
+          <p><alert> Étape d'induction:</alert> On suppose que <m>k</m> est un entier quelconque <m>k\geq 0,</m> et que <m>P(k)</m> est vraie (c'est-à-dire que <m>8\cdot q = (9^k-1)</m> pour un entier <m>q\in \N</m> est notre H.I.), on veut alors montrer que <m>P(k+1)</m> est vraie.</p>
+          
+          <p>Ainsi, on veut montrer que <me>8\cdot q_1 = (9^{k+1}-1),</me>  pour un entier <m>q_1\in \N</m>, à l'aide de l'H.I.</p>
+          <p>On part de l'expression <m>9^{k+1}-1</m>, et on veut y faire apparaître <m>9^{k}-1</m>. On a:  
+          
+          <md>
+          <mrow> 9^{k+1}-1 \amp= 9\cdot 9^k - 1 \amp\amp \text{ par les propriétés des exposants.}</mrow>
+          <mrow>\amp= (8+1)\cdot 9^k - 1 \amp\amp  </mrow>
+          <mrow> \amp= 8\cdot 9^k + (9^k -1) \amp\amp \text{ par la distributivité du produit sur la somme.}</mrow>
+          <mrow> \amp= 8\cdot 9^k + 8\cdot  q \amp\amp\text{ par l'H.I.}</mrow>
+          <mrow> \amp= 8\cdot (9^k + q) \amp\amp \text{ mise en évidence du } 8. </mrow>
+          <mrow>\amp=8\cdot (q_1) \amp\amp \text{ en posant } q_1 = 9^k+q \in \N.</mrow>
+          </md>
+          Ainsi, <m>9^{k+1}-1</m> est bien divisible par <m>8</m>.
+          </p>
+          <p>On a montré que <m>P(0)</m> est vraie, et que si <m>P(k)</m> est vraie pour un entier <m>k\geq 0</m>, alors <m>P(k+1)</m> est vraie. Ainsi, par le principe d'induction, on a montré que la proposition est vraie pour tout <m>n\geq 0</m>.</p>
+          </solution>
+      </task>
+      <task>
+      <statement>
+        <p>
+          <m>15^n-1</m> est divisible par <m>14</m> pour <m>n \in \N</m>, c'est-à-dire que <m>(15^n-1) = 14q</m> pour un entier <m>q\in \N</m>.
+        </p>
+      </statement>
+        <solution>
+          <p>On pose <m>P(n)</m> la proposition <m>15^n-1</m> est divisible par <m>14</m> pour <m>n\in\,\N</m>.</p>
+          <p><alert>Étape de base:</alert> On Doit montrer que <m>P(0)</m> est vraie. Or, on a que <m>15^0-1 =1-1=0</m>, et donc, en <m>n=0</m>, la proposition est <m>P(0): 0</m> est divisible par <m>14</m>. Cette proposition est vraie, puisque <m>0=14\cdot 0</m>.</p>
+          <p><alert> Étape d'induction:</alert> On suppose que <m>k</m> est un entier quelconque <m>k\geq 0,</m> et que <m>P(k)</m> est vraie (c'est-à-dire que <m>14\cdot q = (15^k-1)</m> pour un entier <m>q\in \N</m> est notre H.I.), on veut alors montrer que <m>P(k+1)</m> est vraie.</p>
+          
+          <p>Ainsi, on veut montrer que <me>14\cdot q_1 = (15^{k+1}-1),</me>  pour un entier <m>q_1\in \N</m>, à l'aide de l'H.I.</p>
+          <p>On part de l'expression <m>15^{k+1}-1</m>, et on veut y faire apparaître <m>15^{k}-1</m>. On a:  
+          
+          <md>
+          <mrow> 15^{k+1}-1 \amp= 15\cdot 15^k - 1 \amp\amp \text{ par les propriétés des exposants.}</mrow>
+          <mrow>\amp= (14+1)\cdot 15^k - 1 \amp\amp  </mrow>
+          <mrow> \amp= 14\cdot 15^k + (15^k -1) \amp\amp \text{ par la distributivité du produit sur la somme.}</mrow>
+          <mrow> \amp= 14\cdot 15^k + 14\cdot  q \amp\amp\text{ par l'H.I.}</mrow>
+          <mrow> \amp= 14\cdot (15^k + q) \amp\amp \text{ mise en évidence du } 14. </mrow>
+          <mrow>\amp=14\cdot (q_1) \amp\amp \text{ en posant } q_1 = 15^k+q \in \N.</mrow>
+          </md>
+          Ainsi, <m>15^{k+1}-1</m> est bien divisible par <m>14</m>.
+          </p>
+          <p>On a montré que <m>P(0)</m> est vraie, et que si <m>P(k)</m> est vraie pour un entier <m>k\geq 0</m>, alors <m>P(k+1)</m> est vraie. Ainsi, par le principe d'induction, on a montré que la proposition est vraie pour tout <m>n\geq 0</m>.</p>
+        </solution>
+      </task>
+      <task>
+      <statement>
+        <p>
+          <m>p^n-1</m> est divisible par <m>p-1</m> pour <m>n \in \N</m>, c'est-à-dire que <m>(p^n-1) = (p-1)q</m> pour un entier <m>q\in \N</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>On pose <m>P(n)</m> la proposition <m>p^n-1</m> est divisible par <m>p-1</m> pour <m>n\in\,\N</m>.</p>
+        <p><alert>Étape de base:</alert> On Doit montrer que <m>P(0)</m> est vraie. Or, on a que <m>p^0-1 =1-1=0</m>, et donc, en <m>n=0</m>, la proposition est <m>P(0): 0</m> est divisible par <m>p-1</m>. Cette proposition est vraie, puisque <m>0=(p-1)\cdot 0</m>.</p>
+        <p><alert> Étape d'induction:</alert> On suppose que <m>k</m> est un entier quelconque <m>k\geq 0,</m> et que <m>P(k)</m> est vraie (c'est-à-dire que <m>(p-1)\cdot q = (p^k-1)</m> pour un entier <m>q\in \N</m> est notre H.I.), on veut alors montrer que <m>P(k+1)</m> est vraie.</p>
+        
+        <p>Ainsi, on veut montrer que <me>(p-1)\cdot q_1 = (p^{k+1}-1),</me>  pour un entier <m>q_1\in \N</m>, à l'aide de l'H.I.</p>
+        <p>On part de l'expression <m>p^{k+1}-1</m>, et on veut y faire apparaître <m>p^{k}-1</m>. On a:  
+        
+        <md>
+        <mrow> p^{k+1}-1 \amp= p\cdot p^k - 1 \amp\amp \text{ par les propriétés des exposants.}</mrow>
+        <mrow>\amp= (p-1+1)\cdot p^k - 1 \amp\amp  </mrow>
+        <mrow> \amp= (p-1)\cdot 15^k + (15^k -1) \amp\amp \text{ par la distributivité du produit sur la somme.}</mrow>
+        <mrow> \amp= (p-1)\cdot p^k + (p-1)\cdot  q \amp\amp\text{ par l'H.I.}</mrow>
+        <mrow> \amp= (p-1)\cdot (p^k + q) \amp\amp \text{ mise en évidence du } 14. </mrow>
+        <mrow>\amp=(p-1)\cdot (q_1) \amp\amp \text{ en posant } q_1 = p^k+q \in \N.</mrow>
+        </md>
+        Ainsi, <m>p^{k+1}-1</m> est bien divisible par <m>p-1</m>.
+        </p>
+        <p>On a montré que <m>P(0)</m> est vraie, et que si <m>P(k)</m> est vraie pour un entier <m>k\geq 0</m>, alors <m>P(k+1)</m> est vraie. Ainsi, par le principe d'induction, on a montré que la proposition est vraie pour tout <m>n\geq 0</m>.</p>
+      </solution>
+    </task>
+  </exercise>
 
 <exercise>
 <statement> Montrer par récurrence que pour <m>n \geq 1</m> un entier, alors <m>1^2+2^2+\cdot + n^2=\frac{n(n+1)(2n+1)}{6}</m>.</statement>
@@ -107,7 +195,7 @@
 
 </exercise>
 
-<exercise>
+<exercise xml:id="exo-nmbrSsEnsInd">
     <statement>
       <p>
         Soit <m>A</m> un ensemble de cardinalité <m>n\in \N</m>, c'est-à-dire que <m>|A|=n</m>. Montrer par récurrence que le nombre de sous-ensemblea de <m>A</m> est <m>2^n</m>.

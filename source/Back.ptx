@@ -13,7 +13,16 @@
 
 <backmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="Back">   <!-- Ajouter l'identifiant du chapitre après le - du xml:id -->
     <title> Annexe </title>
-    <appendix>
+    <introduction>
+        <p>
+            Les annexes au cours sont présentement en construction! Il risque d'y avoir plusieurs coquilles (qui seront corrigées le plus rapidement possible) et des mises à jours régulières.
+        </p>
+
+        <p>
+            L'annexe <xref ref="ann-sommation" color="green"/> sert à introduire la notation sigma. Cette notation n'est pas évaluée dans le cours, mais elle permettra de simplifier la notation à quelque moment. À utiliser seulement si ça aide votre compréhension. L'annexe <xref ref="ann-systemeNombre"/> contient les propriétés de base des différents systèmes de nombres. Finalement, l'annexe <xref ref="ann-propositionClasse"/> contient une liste de propositions utiles qui sont démontrés dans les notes dont on peut se servir pour poruver d'autres résultats. Ces propositions seront principalamement utilisées dans <xref ref="chap-preuveMath"   text="custom">le chapitre sur les méthodes de preuves </xref>. 
+        </p>
+    </introduction>
+    <appendix xml:id="ann-sommation">
         <title>Notation sigma</title>
         <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-sommation">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
             <title> Symbole de sommation  </title>
@@ -27,7 +36,7 @@
                 </p>
                 <remark>
                     <p>
-                        La notation introduite dans cette section n'est pas obligatoire pour le cours. Toutes les sommes seront aussi écrites sans le symbole de sommation. Cependant, vous pourrez l'utiliser pour simplifier certaines expressions. Elle permet également de décrire certaines sommes de façon plus évidente, et de clarifier les démarches (en particulier pour les preuves par récurrences <xref provisional="sec_induction"/>).
+                        La notation introduite dans cette section n'est pas obligatoire pour le cours. Toutes les sommes seront aussi écrites sans le symbole de sommation. Cependant, vous pourrez l'utiliser pour simplifier certaines expressions. Elle permet également de décrire certaines sommes de façon plus évidente, et de clarifier les démarches (en particulier pour les preuves par récurrences <xref provisional="sec-induction"/>).
                     </p>
                 </remark>
             </introduction>
@@ -45,7 +54,7 @@
                     </p>
                 </introduction>
         
-                <definition xml:id="def_symboleSommation"> 
+                <definition xml:id="def-symboleSommation"> 
                 <p> L'expression 
                     <me>
                         \sum_{k=i}^n a_k
@@ -55,9 +64,17 @@
                 <p>
                     Le <m>k</m> est appelé l'indice de sommation, le <m>i</m> est la borne inférieire de sommation et le <m>n</m> est la borne supérieure de sommation.
                 </p>
-                    </definition>
-        
-                    <example xml:id="exe_symboleSommation">
+                </definition>
+                <remark xml:id="rem-indiceMuet">
+                    <p>
+                        On dit que l'indice de sommation est une variable muette, car on peut changer cette variable sans changer la valeur de l'expression. Voir la partie <xref ref="part-indiceMuet"/> de la proposition <xref ref="prop-notationSigma"/>.
+                    </p>
+                </remark>
+
+                <p>
+                    On regarde maintenant quelques exemples de base pour se familiariser avec cette notation.
+                </p>
+                    <example xml:id="exe-symboleSommation">
                     <p>
                         <ol>
                             <li>
@@ -78,33 +95,136 @@
                         </ol>
                     </p>
                     </example>
+
+                    <p>
+                        Une des raisons pour laquelle on utilise la notation sigma est de simplifier nos démarches. Pour ce faire, on peut utiliser des propriétés de la sommation. En voici quelques-unes, sont données sans démonstrations.
+                    </p>
+                    <proposition xml:id="prop-notationSigma">
+                        <statement>
+                            <p>
+                                Soit <m>a_k</m> une suite de nombres et <m>C</m> une constante, alors
+                            </p>
+                            <ol>
+                                <li  xml:id="part-indiceMuet">
+                                    <p>
+                                        <m>\sum_{k=i}^{n} a_k = \sum_{l=i}^{n} a_l = \sum_{j=i}^{n} a_j = \cdots </m>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <m>\sum_{k=1}^{n}C=nC</m>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <m>\sum_{k=m}^nC=(n-m+1)C</m>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <m>\sum_{k=1}^{n}Ca_k=C\sum_{k=1}^{n}a_k</m>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <m>\sum_{k=1}^{n}\bigl(a_k+b_k\bigr)=\left(\sum_{k=1}^{n}a_k\right)+\left(\sum_{k=1}^{n}b_k\right)</m>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <m>\sum_{k=1}^{n} k= \frac{n(n+1)}{2}</m>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <m>\sum_{k=1}^{n} k^2 = \frac{n(n+1)(2n+1)}{6}</m>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <m>\sum_{k=1}^{n}k^3 = \frac{n^2(n+1)^2}{4}</m>
+                                    </p>
+                                </li>
+                            </ol>
+                        </statement>
+                    </proposition>
             </subsection>
         
         </section>
+        <section xml:id="sec-utilisationSigma">
+            <title>Retour sur des exemples à l'aide de la notation Sigma</title>
+            <introduction>
+                <p>
+                    Ici, on illustre comment la notation sigma peut être utilisée afin de rendre plus concis certaines de nos démarches. Il est important de se rappeller que cette notation est un outil suplémentaire, mais n'est pas sujet à évation dans le cours. Aussi, une mauvaise utilisation de la notation peut mener à plusieurs erreurs, il est donc déconseillé de l'utiliser lorsqu'on ne la maîtrise pas suffisemment.
+                </p>
+            </introduction>
+            <proposition xml:id="prop-binomNewtonPrise2">
+                <title> Retour sur le binome de Newton</title>
+                <statement>
+                    <p>
+                        Soit <m>n\in \N</m> tel que <m>n\geq 1</m>, alors 
+                        <md>
+                            <mrow>\bigl( x+y\bigr)^n \amp=  \Binomial{n}{n}x^n + \Binomial{n}{n-1}x^{n-1}y^1 + \Binomial{n}{n-2}x^{n-2}y^2 + \cdots + \Binomial{n}{1}x^{1}y^{n-1} + \Binomial{n}{0}x^{n-2}y^n</mrow>
+                            <mrow> \amp=\sum_{r=0}^{n} \Binomial{n}{n-r}x^{n-r}y^r.</mrow>
+                        </md>
+                         
+                    </p>
+                </statement>
+            </proposition>
+        </section>
+        <subsection xml:id="subsec-test">
+            <title>test</title>
+            <introduction>
+                <p>
+                    Allo
+                </p>
+            </introduction>
+        </subsection>
     </appendix>
-    <appendix>
-        <title>Propriétés des nombres Réels</title>
-        <introduction>
-            <p>
-                Petit Test
-            </p>
-        </introduction>
+    
+    <appendix xml:id="ann-systemeNombre">
+        <title>Propriétés des différents systèmes de nombres</title>
+            <introduction>
+                <p>
+                    Ici, on énumère quelques propriétés des entiers naturels et relatifs, des nombres rationnels ainsi que des nombres réels.
+                </p>
+            </introduction>
         
+
         <section>
-            <title>Allo</title>
+            <title>Nombre entier naturel <m>\N</m></title>
             <p>
-                piou
+                piou piou
             </p>
         </section>
         <section>
-            <title>Bye</title>
+            <title>Nombre entier (relatif) <m>\Z</m></title>
             <p>
                 piou piou
             </p>
         </section>
     </appendix>
-    <appendix>
-        <title>Propriétés des nombres premiers ??</title>
+
+    <appendix xml:id="ann-propositionClasse">
+        <title>Propositions démontréss en classe</title>
+        <introduction>
+            <p>
+                Ici, on donne une courte liste de propositions qui ont été démontrés dans les notes, et donc qu'on peut utiliser dans les exercices, les quiz et les examens!
+            </p>
+        </introduction>
+        
+        <section>
+            <title>Divisibilité et nombre premier</title>
+            <p>
+                piou
+            </p>
+        </section>
+        <section>
+            <title>Nombre rationnel <m>\Q</m> ou irrationnel <m>\Q^c</m> </title>
+            <p>
+                piou piou
+            </p>
+        </section>
     </appendix>
 </backmatter>
 
