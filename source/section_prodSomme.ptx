@@ -116,7 +116,7 @@
   À la section <xref ref="sec-ens"/>, on a introduit, pour un ensemble <m>A</m>,  l'ensemble <m>\mathscr{P}(A)</m>  des puissances de <m>A</m> (voir <xref ref="def-enspuiss"/>). On avait remarqué que la cardinalité de <m>\mathscr{P}(A)</m>  semblait être donnée par <m>|\mathscr{P}(A)|= 2^{|A|}</m>. On utilise le principe du produit sur un exemple avant de généraliser ce résultat à un ensemble de taille fini quelconque. 
 </p>
 
-<example xml:id="ex-nbrSousEnsIntro">
+<example xml:id="exe-nbrSousEnsIntro">
   <title>Retour sur l'ensemble des puissances</title>
   <statement><p>On considère l'ensemble <m>A=\{a,b,c\}</m>. On sait que <m>|\mathscr{P}(A)|=2^3</m>, car on a décrit  <m>\mathscr{P}(A)</m> en extension à la section <xref ref="sec-ens"/>.</p> 
   <p> On veut utiliser le principe du produit pour arriver à la même conclusion. On pourra ensuite généraliser au cas où <m>|A|=n</m>.</p></statement>
@@ -137,7 +137,7 @@
   En utilisant un argument similaire, on peut déterminer la taille de l'ensemble des puissances pour un ensemble fini de taille quelconque.
 </p>
 
-<example xml:id="ex-nbrSousEns">
+<example xml:id="exe-nbrSousEns">
 <title>L'ensemble des puissances: Cas général</title>
 <statement> Soit <m>A</m> un ensemble de cardinalité fini, disons <m>|A|=n\in \ \N</m>, quelle est la cardinalité de <m>\mathscr{P}(A)</m> ? C'est-à-dire, qu'elle est la valeur de <m>|\mathscr{P}(A)|</m>? </statement>
 

@@ -233,7 +233,11 @@
         </solution>
         <solution>
             <p>
-               aaa 
+               On pose <m>Q</m> comme étant le nombre de sous-ensembles d'un ensemble <m>A</m> de cardinalité <m>n</m>. D'un côté, on a que <m>Q=2^n</m>, par <xref ref="exe-nbrSousEns"/>. D'un autre côté, on peut utiliser le principe de la somme pour compter cette quatité. En effet, on rappel que le nombre de sous-ensembles de l'ensemble <m>A</m> de taille <m>r</m> est donné par <m>\Binomial{n}{r}</m>. Lorsqu'on veut choisir un sous-ensemble quelconque de <m>A</m>, celui-ci peut être de cardinalité <m>n</m>, ou bien de cardinalité <m>n-1</m>, ou bien de cardinalité <m>n-2</m>, <m>dots</m>, ou bien de cardinalité <m>1</m> ou bien de cardinalité <m>0</m>. Ainsi, par le principe de la somme:
+               <me>
+                Q=\Binomial{n}{n-1}+\Binomial{n}{n-2}+\Binomial{n}{n-3} \cdots +\Binomial{n}{2}+\Binomial{n}{1}+\Binomial{n}{0}.
+               </me>
+               Par ce qui précède, on a <m>2^n=Q=\Binomial{n}{n-1}+\Binomial{n}{n-2}+\Binomial{n}{n-3} \cdots +\Binomial{n}{2}+\Binomial{n}{1}+\Binomial{n}{0}</m>.
             </p>
         </solution>
     </exercise>
@@ -306,7 +310,7 @@
         </solution>
     </exercise>
     <exercise>
-        <statement> <p>On place les entiers <m>1</m> à <m>10</m> autour d'un cercle, dans n'importe quel ordre. Montrer  qu'il existe trois entiers dans des emplacements consécutifs qutour du cercle dont la somme est plus grande ou égale à <m>17</m>.</p></statement>
+        <statement> <p>On place les entiers <m>1</m> à <m>10</m> autour d'un cercle, dans n'importe quel ordre. Montrer  qu'il existe trois entiers dans des emplacements consécutifs autour du cercle dont la somme est plus grande ou égale à <m>17</m>.</p></statement>
         <solution>
             <p>Supposons que les entiers sont dans l'ordre <m>a_1, a_2,\dots , a_{10}</m>. On veut regrouper toutes les sommes de trois voisins consécutifs. Notons donc <m>A_1=a_{10}+a_{1}+a_2</m>, <m>A_{10}=a_9+a_{10}+a_1</m>, et <m>A_{i}=a_{i-1}+a_i+a_{i+1}</m> pour <m>2\leq i \leq 9</m>. </p>
             <p>On a alors que la moyenne des <m>A_i</m> est  <m>\frac{3(1+2+\cdots +10)}{10}=16,5</m>. Par l'exercice <xref ref="exo-plusMoyenne"/>, on a qu'au moins un des <m>A_i\geq 16,5</m>. Puisque <m>A_i</m> est un entier, on a bien que <m>A_i\geq 17</m>.</p>
