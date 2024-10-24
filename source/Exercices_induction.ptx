@@ -15,7 +15,7 @@
 
 
 <exercise>
-<statement> Montrer par réccurence que pour <m>n \geq 1</m> un entier, alors <m>1^2+2^2+\cdot + n^2=\frac{n(n+1)(2n+1)}{6}</m>.</statement>
+<statement> Montrer par récurrence que pour <m>n \geq 1</m> un entier, alors <m>1^2+2^2+\cdot + n^2=\frac{n(n+1)(2n+1)}{6}</m>.</statement>
 <solution>
 <p>On pose <m>P(n)</m> la proposition <m>1^2+2^2+\cdots + n^2=\frac{n(n+1)(2n+1)}{6}</m> pour <m>n\in\,\N^\ast</m>.</p>
 <p><alert>Étape de base:</alert> On montre que <m>P(1)</m> est vraie. Or, on a que <m>P(1): 1^2 = \frac{(1)(1+1)(2(1)+1)}{6},</m> ce qui est vrai, puisque <m>1^2=1</m> et <me>\frac{(1)(1+1)(2(1)+1)}{6}=\frac{(1)(2)(3)}{6}=1</me>.</p>
@@ -110,7 +110,7 @@
 <exercise>
     <statement>
       <p>
-        Soit <m>A</m> un ensemble de cardinalité <m>n\in \N</m>, c'est-à-dire que <m>|A|=n</m>. Montrer par récurrence que le nombre de sous-ensemble de <m>A</m> est <m>2^n</m>.
+        Soit <m>A</m> un ensemble de cardinalité <m>n\in \N</m>, c'est-à-dire que <m>|A|=n</m>. Montrer par récurrence que le nombre de sous-ensemblea de <m>A</m> est <m>2^n</m>.
       </p>
     </statement>
     <solution>
@@ -179,7 +179,7 @@ c'est-à-dire que <m>2^{k+1}\gt (k+1)^2 </m>.</p>
 <exercise>
 <introduction> On considère l'expression <me>S(n)=\frac{1}{1\cdot 2}+\frac{1}{2\cdot 3}+\cdots + \frac{1}{n\cdot (n+1)}</me>.</introduction>
 <task> 
-<statement><p>En remplaçant <m>n</m> par certaine valeurs, trouver une formule pour l'expression de <m>S(n)</m>.</p></statement>
+<statement><p>En remplaçant <m>n</m> par certaines valeurs, trouver une formule pour l'expression de <m>S(n)</m>.</p></statement>
 <hint><p>Remarquer que  <m>S(1)=\frac{1}{2},</m> <m>S(2)=\frac{2}{3},</m> <m>S(3)=\frac{3}{4}</m> et <m>S(4)=\frac{4}{5}.</m></p></hint>
 <answer><m>S(n)=\frac{n}{n+1}</m> </answer>
 </task>
