@@ -4,8 +4,8 @@
 
 <introduction>
 <p>Si on considère la proposition <m> P(n):\, 1+2+\cdots + n =\frac{n(n+1)}{2} .</m>  Comment peut-on montrer que la proposition <m>P(n)</m> est vraie pour  tout <m>n\in\, \N^\ast?</m> En remplaçant <m>n</m> par différentes valeurs, on peut remarquer que la proposition est vraie, mais il est difficile (mais pas impossible) de le montrer directement en utilisant les méthodes utilisées jusqu'à maintenant. </p>
-<p>Une méthode efficace permettant de démontrer ce genre de théorème est ce qu'on appelle une preuve par récurrence. Pour ilustré l'idée, considérons l'exemple suivant.</p>
-<p>On s'imagine une échelle infinie (avec une infinité de barreaux). On se demande à jusqu'à quel barreau est-ce qu'on peut se rendre si on sait les informations suivantes. Premièrement, on suppose qu'on est en mesure d'atteindre le premier barreau. Ensuite, on suppose que si on est en mesure d'atteindre le <m>k</m> ième barreau, alors on est également capable d'atteindre le <m>(k+1)</m> ième barreau. Jusqu'où peut-on se rendre?</p>
+<p>Une méthode efficace permettant de démontrer ce genre de théorème est ce qu'on appelle une preuve par récurrence. Pour illustrer l'idée, considérons l'exemple suivant.</p>
+<p>On s'imagine une échelle infinie (avec une infinité de barreaux). On se demande jusqu'à quel barreau est-ce qu'on peut se rendre si on sait les informations suivantes. Premièrement, on suppose qu'on est en mesure d'atteindre le premier barreau. Ensuite, on suppose que si on est en mesure d'atteindre le <m>k</m> ième barreau, alors on est également capable d'atteindre le <m>(k+1)</m> ième barreau. Jusqu'où peut-on se rendre?</p>
 <p>Par ce qui précède, on peut conclure qu'on peut se rendre à tous les barreaux de l'échelle! En effet, puisqu'on peut se rendre au premier, on peut se rendre au deuxième. Puisqu'on peut se rendre au deuxième, on peut se rendre au troisième. Puisqu'on peut se rendre au troisième, on peut se rendre au quatrième. Puisqu'on peut se rendre au quatrième... et ainsi de suite. </p>
 </introduction>
 
@@ -18,7 +18,7 @@ Si on garde l'exemple de l'échelle infinie en tête, on remarque qu'il y avait 
 <p>Par la suite, on a dit que <em>si</em> on pouvait se rendre au <m>k</m> ième barreau, alors on pouvait se rendre au <m>(k+1)</m> ième barreau. C'est l'étape d'induction. </p>
 </introduction>
 <definition xml:id="def-induction">
-<title>Preuve par récurence</title>
+<title>Preuve par récurrence</title>
 <statement> 
 <p>Pour démontrer qu'une proposition <m>P(n)</m> est vraie pour tout <m>n \in\, \N^\ast,</m> on peut procéder de la façon suivante.
 <ol>
@@ -31,7 +31,7 @@ Si on garde l'exemple de l'échelle infinie en tête, on remarque qu'il y avait 
 </definition>
 <remark>
 <title>Une petite généralisation</title>
-<statement> En modifiant l'étape de base de la preuve par induction, on peut montrer qu'un proposition est vraie pour tout entier <m>n \geq n_0</m>, où <m>n_0</m> est un entier quelconque. L'étape de base sera alors de montrer que <m>P(n_0)</m> est vraie. L'étape d'induction sera alors de montrer que <m>P(k)\rightarrow P(k+1)</m> est vraie pour tout <m>k\geq n_0</m>. </statement>
+<statement> En modifiant l'étape de base de la preuve par induction, on peut montrer qu'une proposition est vraie pour tout entier <m>n \geq n_0</m>, où <m>n_0</m> est un entier quelconque. L'étape de base sera alors de montrer que <m>P(n_0)</m> est vraie. L'étape d'induction sera alors de montrer que <m>P(k)\rightarrow P(k+1)</m> est vraie pour tout <m>k\geq n_0</m>. </statement>
 </remark>
 </subsection>
 
@@ -44,10 +44,10 @@ Si on garde l'exemple de l'échelle infinie en tête, on remarque qu'il y avait 
 <statement> Montrer par récurrence que, pour <m>n\in\,\N^\ast,</m> on a <m>1+2+\cdots + n = \frac{n(n+1)}{2}.</m> </statement>
 <solution>
 <p> On pose <m>P(n):\, 1+ 2 + \cdots + n = \frac{n(n+1)}{2}.</m> </p>
-<p><alert> Étape de base:</alert> On veut montrer que <m>P(1)</m> est vraie. Tout d'abord on remaque que <m>P(1)</m> est la proposition <m>1=\frac{1(1+1)}{2}</m>. Ceci est clairement vraie, car <m>\frac{2}{2}=1.</m></p>
+<p><alert> Étape de base:</alert> On veut montrer que <m>P(1)</m> est vraie. Tout d'abord on remarque que <m>P(1)</m> est la proposition <m>1=\frac{1(1+1)}{2}</m>. Ceci est clairement vraie, car <m>\frac{2}{2}=1.</m></p>
 
 <p><alert> Étape d'induction:</alert> On suppose maintenant que <m>P(k)</m> est vraie, c'est-à-dire que <m>1+2+\cdots + k = \frac{k(k+1)}{2},</m> où <m>k \geq 1</m> est un entier. On veut montrer que <m>P(k+1)</m> est vraie.</p>
-<p>On remarque que <m>P(k+1)</m> est la proposition <me>1+2+\cdots + k + (k+1) = \frac{(k+1)(k+2)}{2}</me> En partant de l'égalité à gauche, on a
+<p>On remarque que <m>P(k+1)</m> est la proposition <me>1+2+\cdots + k + (k+1) = \frac{(k+1)(k+2)}{2}.</me> En partant de l'égalité à gauche, on a
 <md>
 <mrow> 1+2+\dots + k+(k+1) \amp = \frac{k(k+1)}{2} +(k+1) \text{, par H.I.}</mrow>
 <mrow> \amp= \frac{k(k+1)}{2}+\frac{2(k+1)}{2} = \frac{k(k+1)+2(k+1)}{2}</mrow>
@@ -83,7 +83,7 @@ Par la fermeture de la somme dans <m>\Z,</m> on a que <m>(q+k^2+k)\in\,\Z</m>, e
 <statement>Montrer par récurrence que pour tout entier naturel <m>n\in \N</m>, on a que <m>n\lt 2^n</m>.</statement>
 <solution>
 <p><alert> Étape de base:</alert> On veut montrer que la proposition est vraie pour <m>n=0.</m> En <m>n=0,</m> la proposition devient <m>0\lt 2^0=1,</m> ce qui est vrai.</p>
-<p><alert> Étape d'induction:</alert> On suppose que la propoistion est vraie pour <m>n=k</m> un entier naturel quelconque. Ainsi, on suppose que <m>k\lt 2^k.</m> On veut montrer qu'elle est vraie pour <m>n=k+1</m>, c'est-à-dire que <m>(k+1)\lt 2^{k+1}</m>. </p>
+<p><alert> Étape d'induction:</alert> On suppose que la proposition est vraie pour <m>n=k</m> un entier naturel quelconque. Ainsi, on suppose que <m>k\lt 2^k.</m> On veut montrer qu'elle est vraie pour <m>n=k+1</m>, c'est-à-dire que <m>(k+1)\lt 2^{k+1}</m>. </p>
 <p>
 On a que 
 <md>
@@ -100,23 +100,23 @@ Ainsi, sous l'H.I., la proposition est également vraie pour <m>n=k+1</m>.</p>
 
 <example xml:id="exe-faussePreuve">
 <title> Erreur commune d'une <q>preuve</q> par récurrence</title>
-<statement><p> Trouver l'erreur dans le raisonement suivant permettant de <q>montrer</q> que pour tout ensemble de <m>n\geq 2</m> droites dans le plan,  si aucune n'est parallèle à une autre, alors il existe un point commun à toutes ces droites:</p>
+<statement><p> Trouver l'erreur dans le raisonnement suivant permettant de <q>montrer</q> que pour tout ensemble de <m>n\geq 2</m> droites dans le plan,  si aucune n'est parallèle à une autre, alors il existe un point commun à toutes ces droites:</p>
 <p><alert> Étape de base :</alert> On doit montrer que la proposition est vraie pour <m>n=2.</m> Or, si on a deux droites qui ne sont pas parallèles dans le plan, elles ont nécessairement un point en commun.</p>
 <p><alert> Étape d'induction :</alert> On suppose que la proposition est vraie pour <m>n=k</m>, et on veut montrer qu'elle est vraie pour <m>n=k+1,</m> pour <m>k</m> un entier tel que <m>k\geq 2</m>.</p>
-<p>On considère un ensemble de <m>k+1</m> droites dans le plan qui ne sont deux à deux non-parallèles. Si on regarde les <m>k</m> premières droites, alors par l'H.I., il existe un point <m>p_1</m> qui est en commun aux <m>k</m> premières droites.</p>
+<p>On considère un ensemble de <m>k+1</m> droites dans le plan qui sont deux à deux non-parallèles. Si on regarde les <m>k</m> premières droites, alors par l'H.I., il existe un point <m>p_1</m> qui est en commun aux <m>k</m> premières droites.</p>
 <p>Par le même argument, il existe un point <m>p_2</m> qui est en commun au <m>k</m> dernières droites. On veut montrer que <m>p_1=p_2</m>.</p>
-<p>Supposons que ces points soient distincts. Alors toutes les <m>k-1</m> droites contenant ces deux points seront les mêmes droites (car il y a une seule droite passant par deux points dans le plan). Ceci est une contradiction, car ces droites son distinctes. On doit donc avoir <m>p_1=p_2</m>, et donc toutes les <m>k+1</m> droites possèdent un point en commun.</p>
+<p>Supposons que ces points soient distincts. Alors toutes les <m>k-1</m> droites contenant ces deux points seront les mêmes droites (car il y a une seule droite passant par deux points dans le plan). Ceci est une contradiction, car ces droites sont distinctes. On doit donc avoir <m>p_1=p_2</m>, et donc toutes les <m>k+1</m> droites possèdent un point en commun.</p>
 </statement>
 <solution> À l'étape d'induction, l'argument démontrant que <m>p_1=p_2</m> ne fonctionne pas en <m>k=2.</m> En effet, si <m>k=2,</m> alors <m>k+1=3,</m> et <m>p_1</m> est un point de la première et de la deuxième droite, alors que <m>p_2</m> est un point de la deuxième et la troisième droite. Ainsi, seule la deuxième droite contient les points <m>p_1</m> et <m>p_2,</m> ce qui n'est pas une contradiction!</solution>
 </example>
 
 <example xml:id="exe-faussePreuve2">
   <title> Une autre <q>preuve</q> par récurrence</title>
-  <statement><p> Trouver l'erreur dans le raisonement suivant permettant de <q>montrer</q> que  toutes les voitures sont de la même couleur:</p>
+  <statement><p> Trouver l'erreur dans le raisonnement suivant permettant de <q>montrer</q> que  toutes les voitures sont de la même couleur:</p>
   <p>On considère <m>E_n=\{v_1, v_2, \dots, v_n\}</m> un ensemble de <m>n</m> voitures <m>v_i</m>. On pose  <m>P(n)</m>  la proposition: Toutes les voitures de l'ensemble <m>E_n</m> sont de la même couleur.</p>
   <p><alert> Étape de base :</alert> On doit montrer que la proposition est vraie pour <m>n=1</m>. Or, si <m>n=1</m>, <m>E_1=\{v_1\}</m>, et on a bien que toutes les voitures sont de la même couleur (celle de <m>v_1</m>).</p>
-  <p><alert> Étape d'induction :</alert> On suppose que la proposition est vraie pour tous les ensembles de <m>n=k</m> voitures, et on veut montrer qu'elle est vraie pour tous les enembles de <m>n=k+1</m> voitures, pour <m>k</m> un entier tel que <m>k\geq 1</m>.</p>
-  <p>On considère l'ensemble <m>E_{k+1}=\{v_1, v_2, \dots, v_{k}, v_{k+1}\}</m> formé de <m>k+1</m> voiture. On a alors que <me>E_{k+1}=\{v_1, v_2, \dots, v_{k}\}\cup \{v_2, \dots, v_{k},v_{k+1}\}</me> Par l'H.I., toutes les voitures de <m>\{v_1, v_2, \dots, v_{k}\}</m> sont de la même couleur que la voiture <m>v_2</m>. De même, toutes les voitures de <m>\{v_2, \dots, v_{k}, v_{k+1}\}</m> sont de la même couleur que la voiture <m>v_2</m>. </p>
+  <p><alert> Étape d'induction :</alert> On suppose que la proposition est vraie pour tous les ensembles de <m>n=k</m> voitures, et on veut montrer qu'elle est vraie pour tous les ensembles de <m>n=k+1</m> voitures, pour <m>k</m> un entier tel que <m>k\geq 1</m>.</p>
+  <p>On considère l'ensemble <m>E_{k+1}=\{v_1, v_2, \dots, v_{k}, v_{k+1}\}</m> formé de <m>k+1</m> voiture. On a alors que <me>E_{k+1}=\{v_1, v_2, \dots, v_{k}\}\cup \{v_2, \dots, v_{k},v_{k+1}\}.</me> Par l'H.I., toutes les voitures de <m>\{v_1, v_2, \dots, v_{k}\}</m> sont de la même couleur que la voiture <m>v_2</m>. De même, toutes les voitures de <m>\{v_2, \dots, v_{k}, v_{k+1}\}</m> sont de la même couleur que la voiture <m>v_2</m>. </p>
   <p>Ainsi, toutes les voitures de <m>E_{k+1}</m> sont de la même couleur que la voiture <m>v_2</m>.</p>
   </statement>
   <solution> 
@@ -124,7 +124,7 @@ Ainsi, sous l'H.I., la proposition est également vraie pour <m>n=k+1</m>.</p>
      À l'étape d'induction, l'argument démontrant que toutes les voitures sont de la même couleur ne fonctionne pas pour <m>k=1</m>. En effet, dans ce cas, <m>E_{k+1}=E_2=\{v_1, v_2\}</m>. 
     </p>
     <p>
-      On a encore <m>E_2=\{v_1\}\cup \{v_2\}</m>, mais il n'y a pas d'élément en commun dans ces deux ensembles (car <m>v_2\notin \{v_1\}</m>). L'argument ne fonctionne donc pas à cet étape! La proposition n'est donc pas vrai pour <m>n\gt 1</m>.
+      On a encore <m>E_2=\{v_1\}\cup \{v_2\}</m>, mais il n'y a pas d'élément en commun dans ces deux ensembles (car <m>v_2\notin \{v_1\}</m>). L'argument ne fonctionne donc pas à cet étape! La proposition n'est donc pas vraie pour <m>n\gt 1</m>.
     </p>
     </solution>
   </example>
