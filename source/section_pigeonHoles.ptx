@@ -5,7 +5,7 @@
 
 <subsection xml:id="subs_statement">
     <title>Introduction </title>
-<introduction><p>  Le principe des tiroirs de Dirichlet (ou le principe des nids de pigeons), est un principle très simple, qui peut être utilisé afin de démontrer des résultats complexes, si on l'utilise de façon <em>intelligente</em>. </p> </introduction>
+<introduction><p>  Le principe des tiroirs de Dirichlet (ou le principe des nids de pigeons), est un principe très simple, qui peut être utilisé afin de démontrer des résultats complexes, si on l'utilise de façon <em>intelligente</em>. </p> </introduction>
 
 <proposition> 
 <title>Principe des tiroirs de Dirichlet</title>
@@ -31,8 +31,8 @@
 <example xml:id="ex_complexPigeon">
 <statement> Montrer que pour n'importe quel <m>n\in \N^\ast</m>, il existe un multiple de <m>n</m> qui est écrit uniquement avec des <m>0</m> et des <m>1</m> dans sa représentation en base dix.</statement>
 <solution>
-<p>On considère les <m>n+1</m> nombres suivants: <m>1,\ 11,\ 111\,\dots,\ 11\dots 1</m>, où le dernier nombre est l'entier formé de <m>n+1</m> chiffres <m>1</m> dans sa représentation en base dix. On numérote <m>n</m> boites de <m>0</m> à <m>n-1</m>. Ensuite on place chacun des <m>n+1</m> nombres précédents dans la boite étiquettée par son reste lors de la division par <m>n</m>.</p> 
-<p>Puisqu'il y a <m>n+1</m> nombres et <m>n</m> boites (restes), par le principe des tiroirs de Dirichlet, il existe deux de ces entiers, disons <m>k_1\gt k_2</m>, tels que <me>k_1\equiv k_2 \mod n</me>. Par la définition d'équivalente decongruence, on a <me>n\mid (k_1-k_2)</me>.</p>
+<p>On considère les <m>n+1</m> nombres suivants: <m>1,\ 11,\ 111\,\dots,\ 11\dots 1</m>, où le dernier nombre est l'entier formé de <m>n+1</m> chiffres <m>1</m> dans sa représentation en base dix. On numérote <m>n</m> boites de <m>0</m> à <m>n-1</m>. Ensuite on place chacun des <m>n+1</m> nombres précédents dans la boite étiquetée par son reste lors de la division par <m>n</m>.</p> 
+<p>Puisqu'il y a <m>n+1</m> nombres et <m>n</m> boites (restes), par le principe des tiroirs de Dirichlet, il existe deux de ces entiers, disons <m>k_1\gt k_2</m>, tels que <me>k_1\equiv k_2 \mod n</me>. Par la définition de la congruence modulo <m>n</m>, on a <me>n\mid (k_1-k_2)</me>.</p>
 <p>Ainsi, <m>k_1-k_2</m> est un multiple de <m>n</m> et il s'écrit avec uniquement des <m>1</m> et des <m>0</m>.</p>
 </solution>
 </example>
@@ -52,7 +52,7 @@
 <example xml:id="ex_elegantPigeon1">
 <statement>Durant un mois de <m>30</m> jours, une équipe de baseball joue au moins une partie par jour, mais au plus <m>45</m> parties durant le mois. Montrer qu'il existe un nombre de jours consécutifs durant lesquels l'équipe doit jouer exactement <m>14</m> parties. </statement>
 <solution>
-<p>On note <m>a_i</m> le nombre de parties jouées avant et durant le jour <m>i,</m> pour <m>i=1,\,2,\,\dots,30.</m> Puisque l'équipe joue au moins une partie par jour et moins de <m>45</m> partie dans le mois, on a <m>1\leq a_1\lt a_2\lt\cdots \lt a_n \lt \cdots \lt a_{30} \leq 45.</m> En particulier, on a que <m>a_i\neq a_j</m> si <m>i\neq j</m>.</p>
+<p>On note <m>a_i</m> le nombre de parties jouées avant et durant le jour <m>i,</m> pour <m>i=1,\,2,\,\dots,30.</m> Puisque l'équipe joue au moins une partie par jour et moins de <m>45</m> parties dans le mois, on a <m>1\leq a_1\lt a_2\lt\cdots \lt a_n \lt \cdots \lt a_{30} \leq 45.</m> En particulier, on a que <m>a_i\neq a_j</m> si <m>i\neq j</m>.</p>
 <p> On considère également les <m>30</m> entiers <m>a_i +14</m> pour <m>i=1,\,2,\,\dots,30.</m> On aura alors <m>15\leq a_1+14\lt a_2+14\lt \cdots \lt a_n+14\lt \cdots \lt a_{30}+14 \leq 59.</m> Encore une fois, on a <m>a_i+14\neq a_j + 14 </m> si  <m>i\neq j</m>.</p>
 <p>On a donc les <m>60</m> entiers <m>a_1,a_2\dots,a_{30},a_1+14,a_2+14,\dots,a_{30}+14</m> compris entre <m>1</m> et <m>59.</m> Il y aura donc au moins deux de ces entiers qui sont égaux. Par ce qui précède, on doit avoir <m>a_j=a_i+14.</m> Ainsi, le nombre de parties jouées entre le jour <m>i</m> et le jour <m>j</m> est <m>14</m>.</p>
 </solution>
@@ -62,7 +62,7 @@
 <statement> Montrer que si on prend n'importe quel ensemble <m>A</m> formé de <m>n+1</m> nombres entiers strictement positifs et inférieurs ou égaux à <m>2n</m>, alors au moins un des éléments de <m>A</m> divise un autre élément de <m>A</m>. Symboliquement, si <m>A\subset \{1,2,\dots,2n\}</m> avec <m>|A|=n+1</m>, alors il existe <m>a_1\in\ A</m> et <m>a_2\in\ A</m> tels que <m>a_1\neq a_2</m> et <m>a_1\mid a_2</m>.</statement>
 <solution>
 <p>Tout entier <m>n\in\,A</m> peut s'écrire comme <m>n=2^kq,</m> où <m>k</m> est un entier naturel et <m>q\in\,\{1,2,\dots,2n\}</m> est impair. Supposons que la représentation en base deux de <m>q</m> est <m>d={d_md_{m-1}\cdots d_1d_0}</m>. Ainsi, la représentation en base deux de <m>n</m> est <m></m> <me>n=\overbrace{d_md_{m-1}\cdots d_1d_0}^{\text{représentation binaire de } q}\underbrace{00\cdots0_2}_{\text{ avec } k \text{ }0}</me>.</p>
-<p>Puisqu'il y a <m>n+1</m> éléments de <m>A</m> et <m>n</m> nombres impairs de <m>\{1,2,\dots,2n\},</m> il exsite <m>a_1,\,a_2\in\,A</m> tels que <m>a_1=2^{k_1}q</m> et <m>a_2=2^{k_2}q.</m> En supposant <m>a_1\lt a_2,</m> on  a alors <m>2^{k_2-k_1}a_1=2^{k_2-k_1}2^{k_1}q=2^{k_2}q=a_2.</m> Ainsi, on a <m>a_1\mid a_2</m>.</p>
+<p>Puisqu'il y a <m>n+1</m> éléments de <m>A</m> et <m>n</m> nombres impairs de <m>\{1,2,\dots,2n\},</m> il existe <m>a_1,\,a_2\in\,A</m> tels que <m>a_1=2^{k_1}q</m> et <m>a_2=2^{k_2}q.</m> En supposant <m>a_1\lt a_2,</m> on  a alors <m>2^{k_2-k_1}a_1=2^{k_2-k_1}2^{k_1}q=2^{k_2}q=a_2.</m> Ainsi, on a <m>a_1\mid a_2</m>.</p>
 </solution>
 </example>
 </subsection>
@@ -78,8 +78,8 @@
     <exercise>
 
     <introduction>
-        <p>Utiliser le principe des tiroires de Dirichlet pour montrer les propositions suivantes.</p>
-        <p>Lorsqu'on utilise la méthode des tiroires de Dirichlet, il faut indiquer quels sont les objets,  quels sont les boites et comment on place les objets dans ces boites.</p>    
+        <p>Utiliser le principe des tiroirs de Dirichlet pour montrer les propositions suivantes.</p>
+        <p>Lorsqu'on utilise la méthode des tiroirs de Dirichlet, il faut indiquer quels sont les objets,  quelles sont les boites et comment on place les objets dans ces boites.</p>    
     </introduction>
     <task>
         <statement><p>On forme un groupe de dix personnes pour travailler sur un projet informatique. Montrer qu'il existe au moins deux personnes qui sont nées la même journée de la semaine. </p></statement>        
@@ -89,7 +89,7 @@
     </task>
     <task>
         <statement><p><statement>On choisit aléatoirement sept entiers dans l'ensemble <m>\{1,2,3,4,5,6,7,8,9,10\}.</m> Montrer qu'il doit y avoir une paire telle que sa somme est <m>11</m>.</statement>
-            <hint> Condidérer les ensembles <m>\{1,10\},\,\{2,9\},\,\{3,8\}\,\{4,7\}</m> et <m>\{5,6\}</m>.</hint></p></statement>        
+            <hint> Considérer les ensembles <m>\{1,10\},\,\{2,9\},\,\{3,8\}\,\{4,7\}</m> et <m>\{5,6\}</m>.</hint></p></statement>        
     </task>
     <task>
         <statement><p> Soit un sous-ensemble <m>X\subseteq \{1,2,3,\dots,9\}</m>, on définit la fonction <m>f(X)</m> par <m>f(X)=0</m> si <m>X=\emptyset</m>, et comme la somme des éléments de <m>X</m> sinon.</p>
