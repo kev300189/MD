@@ -478,8 +478,8 @@ est <m>\Binomial{n+r-1}{n}=\Binomial{n+r-1}{r-1}</m>.
         <introduction><p>On considère l'ensemble <m>A=\{a,b,c,d,e,f,g\}</m></p></introduction>
         <task><statement><p>Combien de permutations de l'ensemble <m>A</m> y a-t-il?</p></statement></task>
         <task><statement><p>Combien de permutations de l'ensemble <m>A</m> commencent par <m>g</m>?</p></statement></task>
-        <task xml:id="exo-sousEns"><statement><p>Combien de sous-ensembles de <m>A</m> sont possèdent quatre éléments?</p></statement></task>
-        <task xml:id="exo-sousEnsComplement"><statement><p>Combien de sous-ensembles de <m>A</m> sont possèdent trois éléments?</p></statement></task>
+        <task xml:id="exo-sousEns"><statement><p>Combien de sous-ensembles de <m>A</m> possèdent quatre éléments?</p></statement></task>
+        <task xml:id="exo-sousEnsComplement"><statement><p>Combien de sous-ensembles de <m>A</m> possèdent trois éléments?</p></statement></task>
         <task><statement>
             <p>Que peut-on remarquer lorsqu'on compare les résultats de <xref ref="exo-sousEns"/> et de <xref ref="exo-sousEnsComplement"/>? Donner une explication intuitive de ce qu'on observe.</p>
         </statement></task>
