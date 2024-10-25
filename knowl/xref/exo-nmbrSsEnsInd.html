@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h5 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">6<span class="period">.</span></span>
+</h5>
+<div class="para">Soit <span class="process-math">\(A\)</span> un ensemble de cardinalité <span class="process-math">\(n\in \N\text{,}\)</span> c’est-à-dire que <span class="process-math">\(|A|=n\text{.}\)</span> Montrer par récurrence que le nombre de sous-ensemblea de <span class="process-math">\(A\)</span> est <span class="process-math">\(2^n\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">On pose <span class="process-math">\(P(n)\)</span> la proposition si <span class="process-math">\(|A|=n\text{,}\)</span> alors  <span class="process-math">\(|\mathscr{P}(A)|= 2^n\text{.}\)</span>
+</div> <div class="para">
+<em class="alert">Étape de base:</em>  On montre que <span class="process-math">\(P(0)\)</span> est vraie. Or, si <span class="process-math">\(|A|=n=0\text{,}\)</span> alors <span class="process-math">\(\mathscr{P}(A)=\{\emptyset\}\)</span> et <span class="process-math">\(|\{\emptyset\}|=1=2^0\text{.}\)</span>
+</div> <div class="para">
+<em class="alert">Étape d’induction:</em> On suppose que <span class="process-math">\(k\)</span> est un entier quelconque <span class="process-math">\(k\geq 0,\)</span> et on suppose que <span class="process-math">\(P(k)\)</span> est vraie (c’est-à-dire que notre H.I. est que pour tout ensemble <span class="process-math">\(E\)</span> tel que <span class="process-math">\(|E|=k\text{,}\)</span> alors <span class="process-math">\(|\mathscr{P}(E)|=2^k\)</span>), et on veut montrer que <span class="process-math">\(P(k+1)\)</span> est alors vraie.</div> <div class="para">Ainsi, on veut montrer que si <span class="process-math">\(|A|=k+1\text{,}\)</span> alors <span class="process-math">\(|\mathscr{P}(A)|=2^{k+1}\)</span>
+</div> <div class="para">On note <span class="process-math">\(A=\{a_1,a_2,\dots , a_k, a_{k+1}\}\)</span> et <span class="process-math">\(E=\{a_1,a_2,\dots , a_k\}\text{.}\)</span> Ansi, on a que <span class="process-math">\(A=E\cup \{a_{k+1}\}\text{.}\)</span>
+</div> <div class="para">On sépare la tâche de choisir un sous-ensemble <span class="process-math">\(X\)</span> de <span class="process-math">\(A\)</span> en deux étapes. Premièrement, on choisit un sous-ensemble de <span class="process-math">\(E\)</span>  et ensuite on choisit si <span class="process-math">\(a_{k+1}\in X\)</span> ou si <span class="process-math">\(a_{k+1}\notin X\text{.}\)</span> Par l’H.I., il y a <span class="process-math">\(2^k\)</span> sous-ensemble de <span class="process-math">\(E\text{,}\)</span> et il y a <span class="process-math">\(2\)</span> choix pour décider si <span class="process-math">\(a_{k+1}\in X\text{.}\)</span>
+</div> <div class="para">Par le principe du produit, on a <span class="process-math">\(2^k\cdot 2=2^{k+1}\)</span> façons de choisir <span class="process-math">\(X\text{.}\)</span> On a donc bien que <span class="process-math">\(|\mathscr{P}(A)|=2^{k+1}\text{.}\)</span>
+</div> <div class="para">On a montré que <span class="process-math">\(P(0)\)</span> est vraie, et que si <span class="process-math">\(P(k)\)</span> est vraie pour un entier <span class="process-math">\(k\geq 0\text{,}\)</span> alors <span class="process-math">\(P(k+1)\)</span> est vraie. Ainsi, par le principe d’induction, on a montré que la proposition est vraie pour tout <span class="process-math">\(n\geq 0\text{.}\)</span>
+</div>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec_induction.html#exo-nmbrSsEnsInd">Contexte</a></span>
+</body>
+</html>
