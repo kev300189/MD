@@ -172,18 +172,18 @@
                 </statement>
             </proposition>
         </section>
-        <subsection xml:id="subsec-test">
+       <!-- <subsection xml:id="subsec-test">
             <title>test</title>
             <introduction>
                 <p>
                     Allo
                 </p>
             </introduction>
-        </subsection>
+        </subsection> -->
     </appendix>
     
     <appendix xml:id="ann-systemeNombre">
-        <title>Propriétés des différents systèmes de nombres</title>
+        <!-- <title>Propriétés des différents systèmes de nombres</title>
             <introduction>
                 <p>
                     Ici, on énumère quelques propriétés des entiers naturels et relatifs, des nombres rationnels ainsi que des nombres réels.
@@ -202,11 +202,11 @@
             <p>
                 piou piou
             </p>
-        </section>
+        </section>-->
     </appendix>
 
     <appendix xml:id="ann-propositionClasse">
-        <title>Propositions démontréss en classe</title>
+        <!-- <title>Propositions démontréss en classe</title>
         <introduction>
             <p>
                 Ici, on donne une courte liste de propositions qui ont été démontrés dans les notes, et donc qu'on peut utiliser dans les exercices, les quiz et les examens!
@@ -224,7 +224,7 @@
             <p>
                 piou piou
             </p>
-        </section>
+        </section> -->
     </appendix>
 </backmatter>
 
