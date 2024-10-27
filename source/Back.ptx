@@ -183,7 +183,7 @@
     </appendix>
     
     <appendix xml:id="ann-systemeNombre">
-        <!-- <title>Propriétés des différents systèmes de nombres</title>
+        <title>Propriétés des différents systèmes de nombres</title>
             <introduction>
                 <p>
                     Ici, on énumère quelques propriétés des entiers naturels et relatifs, des nombres rationnels ainsi que des nombres réels.
@@ -202,7 +202,328 @@
             <p>
                 piou piou
             </p>
-        </section>-->
+        </section>
+        <section>
+            <title>Nombre réel <m>\R</m></title>
+            <introduction>
+                <p>
+                    Mettre du blabla ici
+                </p>
+            </introduction>
+            <subsection xml:id="subsec-axiomAddMultR">
+                <title>Axiomes pour les opérations sur <m>\R</m></title>
+                <introduction>
+                    <p>
+                        Blabla
+                    </p>
+                </introduction>
+            
+            <p>
+                Mettre du blabla ici
+            </p>
+            <axiom xml:id="axiom-addR">
+                <title>Axiomes pour l'addition dans <m>\R</m> </title>
+                <statement>
+                    <p>
+                        On considère <m>x, y, z\ \in \R</m>, on a alors:
+                        <ol>
+                            <li>
+                                <p> La fermeture de l'addition dans <m>\R</m>:
+                                   <me>x+y\ \in \R</me> 
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    La commutativité de l'addition:
+                                    <me>
+                                        x+y=y+x
+                                    </me>
+                                    
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    L'associativité de l'addition:
+                                    <me>
+                                        (x+y)+z=x+(y+z)
+                                    </me>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    L'élément neutre additif:
+                                </p>
+                                <p> Il existe un unique élément <m>0\in \R</m> tel que
+                                    <me>
+                                        0+x=x
+                                    </me>
+                                    pour tout <m>x\in \R</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    L'inverse additif (l'opposé):
+                                    <me>
+                                        x+(-x)=0
+                                    </me>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    L'élément neutre:
+                                </p>
+                                <p> Il existe un unique élément <m>-x \in \R</m> tel que 
+                                    <me>
+                                        0+x=x
+                                    </me>
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+            </axiom>
+            <p>
+                Mettre du blabla ici
+            </p>
+            <axiom xml:id="axiom-multR">
+                <title>Axiomes pour la multiplication dans <m>\R</m> </title>
+                <statement>
+                    <p>
+                        On considère <m>x, y, z\ \in \R</m>, on a alors:
+                        <ol>
+                            <li>
+                                <p> La fermeture de la multiplication dans <m>\R</m>:
+                                   <me>xy\ \in \R</me> 
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    La commutativité de la multiplication:
+                                    <me>
+                                        xy=yx
+                                    </me>
+                                    
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    L'associativité de la multiplication:
+                                    <me>
+                                        (xy)z=x(yz)
+                                    </me>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    L'élément neutre multiplicatif:
+                                </p>
+                                <p> Il existe un unique élément <m>1\in \R</m> tel que <m>1\neq 0</m> et
+                                    <me>
+                                        1x=x
+                                    </me>
+                                    pour tout <m>x\in \R</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    L'inverse multiplicatif:
+                                </p>
+                                <p> Si <m>x\neq 0</m>, alors il existe un unique élément <m>\frac{1}{x}\in \R</m> tel que 
+                                    <me>
+                                        x\left(\frac{1}{x}\right)=1
+                                    </me>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    L'élément neutre:
+                                </p>
+                                <p> Il existe un unique élément <m>-x \in \R</m> tel que 
+                                    <me>
+                                        0+x=x
+                                    </me>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    La distributivité de la multiplication sur l'addition: 
+                                    <me>
+                                        (x+y)z = xz+yz.
+                                    </me>
+                                </p>
+                            </li>
+                        </ol>
+                    </p>
+                </statement>
+            </axiom>
+            </subsection>
+            <subsection xml:id="subsec-propAddMultR">
+                <title>Prorpiétés des opérations sur <m>\R</m></title>
+                <introduction>
+                <p>
+                    Dans cette sous-section, on énonce les propriétés de base des opérations <m>+</m> et <m>\times</m> qu'on peut déduire des axiomes vue en <xref ref="axiom-addR"/> et <xref ref="axiom-multR"/>. Encore une fois, on remarque qu'il s'agit de propriétés bien connues et qui semblent trivial. Cependant, lorsqu'on construit des objets mathématiques aussi important que les nombres réels, il est crucial de le faire rigoureusement et de s'assurer qu'on puisse démontrer ces résultats. L'avantage de passer par la méthode axiomatique est que, dès qu'on peut montrer que'un ensemble muni d'opérations satifaisant les axiomes de l'addition et de la mutliplication, alors toutes les propriétés qui en découlent seront aussi vraies! Il n'est alors pas nécessaire de répéter ces démonstrations.
+                </p>
+                </introduction>
+                <p>
+                    On commence par donner les propriétés concernant l'addition sur <m>\R</m>. Ces propopriétés découlent directement des axiomes <xref ref="axiom-addR"/>.
+                </p>
+                <proposition xml:id="prop-addR">
+                    <statement>
+                        <p>
+                            Soit <m>x, y, z\ \in \R</m>, on a:
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Si <m>x+y = x+z</m>, alors <m>y=z</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>x+y = x </m>, alors <m>y=0</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>x+y = 0</m>, alors <m>y=-x</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <m>-(-x) = x</m>.
+                                </p>
+                            </li>
+                        </ol>
+                    </statement>
+                </proposition>
+                <p>
+                    On donne maintenant les propriétés de la multiplication. Ces propriétés découlent directement des axiomes <xref ref="axiom-multR"/>.
+                </p>
+                <proposition xml:id="prop-multR">
+                    <statement>
+                        <p>
+                            Soit <m>x, y, z\ \in \R</m>, on a:
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Si <m>x\neq 0</m> et <m>xy = xz</m>, alors <m>y=z</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>x\neq 0</m> et <m>xy = x </m>, alors <m>y=1</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>x\neq 0</m> et <m>xy = 1</m>, alors <m>y=\frac{1}{x}</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>x\neq 0</m>, alor <m>\frac{1}{\left(\frac{1}{x}\right)} = x</m>.
+                                </p>
+                            </li>
+                        </ol>
+                    </statement>
+                </proposition>
+                <p>
+                    Finalement, en combinant les axiomes <xref ref="axiom-addR"/> et <xref ref="axiom-multR"/>, on obtient les propriétés suivantes.
+                </p>
+                <proposition xml:id="prop-addMultR">
+                    <statement>
+                        <p>
+                            Soit <m>x, y, z\ \in \R</m> on a: 
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    <m>0x=0</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>x\neq 0</m> et <m>y\neq 0</m>, alors <m>xy\neq 0</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <m>(-x)y=-(xy)=x(-y)</m>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    <m>(-x)(-y)=xy</m>
+                                </p>
+                            </li>
+                        </ol>
+                    </statement>
+                </proposition>
+            </subsection>
+            <subsection xml:id="subsec-ordreR">
+                <title>Relation d'ordre dans <m>\R</m></title>
+                <introduction>
+                    <p>
+                        Les nombres réels sont ce qu'on appelle un corps ordonné, c'est-à-dire qu'il s'agit d'un ensemble avec deux opérations, ainsi qu'une relation d'ordre <m>\lt</m>. Cette relation d'ordre doit s'atisfaire certaines propriété par rapport à l'addition et à la multiplication.
+                    </p>
+                </introduction>
+                <axiom xml:id="axiom-ordAddMultR">
+                    <statement>
+                        <p>
+                            Soit <m>x, y, z, \in \R</m>, on a:
+                        </p>
+                        <ol>
+                            <li>
+                                <p>
+                                    Il y a trois cas possible, soit <m>x\lt y</m>, soit <m>x=y</m> ou bien <m>y \lt x</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>x\lt y</m> et <m>y \lt z</m>, alors <m>x \lt z</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                   Si  <m>y \lt z</m>, alors <m>x + y \lt x+z</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>0\lt x</m> et <m>0 \lt y</m>, alors <m>0\lt xy</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                   Si <m>0\lt x</m>, alors <m>-x\lt 0</m> et vice versa.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>0 \lt x</m> et si <m>y\lt z</m>, alors <m>xy\lt xz</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                   Si <m>x \lt 0</m> et <m>y\lt z</m>, alors <m>xz\lt xy</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m>x\neq 0</m>, alors <m>0\lt x^2</m>.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Si <m> 0 \lt x \lt y</m>, alors <m>0 \lt \frac{1}{y} \lt \frac{1}{x}</m>.
+                                </p>
+                            </li>
+                        </ol>
+                    </statement>
+                </axiom>
+            </subsection>
+        </section>
     </appendix>
 
     <appendix xml:id="ann-propositionClasse">
