@@ -183,7 +183,7 @@
     </appendix>
     
     <appendix xml:id="ann-systemeNombre">
-        <title>Propriétés des différents systèmes de nombres</title>
+       <!-- <title>Propriétés des différents systèmes de nombres</title>
             <introduction>
                 <p>
                     Ici, on énumère quelques propriétés des entiers naturels et relatifs, des nombres rationnels ainsi que des nombres réels.
@@ -523,7 +523,7 @@
                     </statement>
                 </axiom>
             </subsection>
-        </section>
+        </section> -->
     </appendix>
 
     <appendix xml:id="ann-propositionClasse">

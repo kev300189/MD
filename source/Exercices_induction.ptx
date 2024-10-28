@@ -90,7 +90,7 @@
         <md>
         <mrow> p^{k+1}-1 \amp= p\cdot p^k - 1 \amp\amp \text{ par les propriétés des exposants.}</mrow>
         <mrow>\amp= (p-1+1)\cdot p^k - 1 \amp\amp  </mrow>
-        <mrow> \amp= (p-1)\cdot 15^k + (15^k -1) \amp\amp \text{ par la distributivité du produit sur la somme.}</mrow>
+        <mrow> \amp= (p-1)\cdot p^k + (p^k -1) \amp\amp \text{ par la distributivité du produit sur la somme.}</mrow>
         <mrow> \amp= (p-1)\cdot p^k + (p-1)\cdot  q \amp\amp\text{ par l'H.I.}</mrow>
         <mrow> \amp= (p-1)\cdot (p^k + q) \amp\amp \text{ mise en évidence du } 14. </mrow>
         <mrow>\amp=(p-1)\cdot (q_1) \amp\amp \text{ en posant } q_1 = p^k+q \in \N.</mrow>
