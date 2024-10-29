@@ -107,7 +107,7 @@ Puisqu'il ya plus d'objets que de boites, il y aura au moins deux objets dans la
 </exercise>
 
 <exercise>
-<statement>Soit <m>(a_i,b_i),</m> des paires d'entiers ordonnés (c'est-à-dire <m>a_i,\,b_i\in\,\Z</m>) pour <m>i=1,2,3,\dots,17.</m> Montrer qu'il existe, parmi ces <m>17</m> paires d'entirs, deux paires d'entiers <m>(a,b)</m> et <m>(c,d)</m> telles que <m>a\equiv c\mod 4 </m> et <m>b \equiv d \mod 4</m></statement>
+<statement>Soit <m>(a_i,b_i),</m> des paires d'entiers ordonnés (c'est-à-dire <m>a_i,\,b_i\in\,\Z</m>) pour <m>i=1,2,3,\dots,17.</m> Montrer qu'il existe, parmi ces <m>17</m> paires d'entiers, deux paires d'entiers <m>(a,b)</m> et <m>(c,d)</m> telles que <m>a\equiv c\mod 4 </m> et <m>b \equiv d \mod 4</m></statement>
 <solution>
 <p>
 <ul>
