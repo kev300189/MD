@@ -121,11 +121,39 @@ Puisqu'il ya plus d'objets que de boites, il y aura au moins deux objets dans la
 </exercise>
 
 <exercise> 
-<statement> Soit <m>(x_i,y_i),\,i=1,2,3,4,5,</m> cinq points du plan cartésien <m>\R^2</m>. Montrer que si <m>x_i,\,y_i\in\,\Z</m> pour <m>i=1,2,3,4,5,</m> alors le point milieu d'au moins un des segments reliant une paire de ces points a des coordonnées entières. </statement>
+<statement> Soit <m>(x_i,y_i),\,i=1,2,3,4,5</m> cinq points du plan cartésien <m>\R^2</m>. Montrer que si <m>x_i,\,y_i\in\,\Z</m> pour <m>i=1,2,3,4,5</m> alors le point milieu d'au moins un des segments reliant une paire de ces points a des coordonnées entières. </statement>
 <hint> Le point milieu entre le point <m>(x_1,y_1)</m> et le point <m>(x_2,y_2)</m> est le point <m>\left(\frac{x_1+x_2}{2},\frac{y_1+y_2}{2}\right)</m>.</hint>
 <hint>À quel moment est-ce que <m>\frac{x_i+x_j}{2}</m> et <m>\frac{y_i+y_j}{2}</m> sont des entiers?</hint>
 </exercise>
 
 
+    </subexercises>
+
+    <subexercises>
+        <title>Exercices supplémentaires</title>
+        <exercise>
+            <statement>
+                <p>
+                    Soit <m>n\gt 0</m> un entier. Démontrer que si on choisit aléatoirement <m>n+1</m> entiers quelconques, alors deux de ces entiers ont exactement le même reste lorsqu'ils sont divisé par <m>n</m>.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                    Soit <m>n \gt 0</m> un entier. Démontrer que, dans tout ensemble de <m>n</m> entiers consécutifs, il y a exactement un entier qui est divisible par <m>n</m>.
+                </p>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement> Soit <m>(x_i,y_i,z_i),\,i=1,2,\dots,8,9</m> neuf points de l'espace <m>\R^3</m>. Montrer que si <m>x_i,\,y_i\, z_i\in\,\Z</m> pour tout <m>i</m> alors le point milieu d'au moins un des segments reliant une paire de ces points a des coordonnées entières. </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <p>
+                    On suppose qu'une université offre, durant une session <m>300</m> cours différents. Sachant qu'il existe <m>20</m> périodes durant lesquels on peut donner un cours, combien de salles de classes sont nécessaires?  
+                </p>
+            </statement>
+        </exercise>
     </subexercises>
 </exercises>
