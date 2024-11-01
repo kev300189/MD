@@ -34,7 +34,7 @@
     
     <exercise>
         <statement>
-            <p>Soit <m>n\in \N</m>, montrer que <m>5</m> disvie <m>n^5-n</m>.</p>
+            <p>Soit <m>n\in \N</m>, montrer que <m>5</m> divise <m>n^5-n</m>.</p>
         </statement>
         <solution>
             <p>On travaille modulo <m>5</m>. On a 
@@ -86,8 +86,8 @@
         </statement>
         <solution>
              <p> procède par récurrence sur <m>n</m> .</p>
-             <p><alert> Étape de base:</alert> On montre que la proposition est vrai pour <m>n=0</m>. Dans ce cas, on a nécessairement <m>r=0</m>, et <m>(x+y)^0=1=1x^0y^0</m>, et on a bien que le coefficient devant <m>x^{n-r}y^{r}=x^0y^0</m> est <m>1=\Binomial{n}{n-r}=\Binomial{0}{0}=1</m>.</p>
-             <p><alert>Étape d'induction:</alert> On suppose que la proposition est vrai pour <m>n=k</m>, c'est-à-dire que <me>(x+y)^{k}=\Binomial{k}{k}x^ky^0+\Binomial{k}{k-1}x^{k-1}ky^1+\cdots +\Binomial{k}{k-(k-1)}x^{1}y^{k-1}+\Binomial{k}{k-k}x^0y^k</me></p>
+             <p><alert> Étape de base:</alert> On montre que la proposition est vraie pour <m>n=0</m>. Dans ce cas, on a nécessairement <m>r=0</m>, et <m>(x+y)^0=1=1x^0y^0</m>, et on a bien que le coefficient devant <m>x^{n-r}y^{r}=x^0y^0</m> est <m>1=\Binomial{n}{n-r}=\Binomial{0}{0}=1</m>.</p>
+             <p><alert>Étape d'induction:</alert> On suppose que la proposition est vraie pour <m>n=k</m>, c'est-à-dire que <me>(x+y)^{k}=\Binomial{k}{k}x^ky^0+\Binomial{k}{k-1}x^{k-1}ky^1+\cdots +\Binomial{k}{k-(k-1)}x^{1}y^{k-1}+\Binomial{k}{k-k}x^0y^k</me></p>
              <p>Ainsi, on a 
 
                 <md>
@@ -170,7 +170,7 @@
             <mrow> \amp = 3^3k^3</mrow>
             <mrow> q^3 \amp = 3^2k^3</mrow>
         </md>.
-        Ainsi, on a que <m>3\mid q^3</m>, et par le même argument, on a que <m>3\mid q</m>. On a donc que <m>3\leq \pgcd(p,q)= 1</m>, ce qui est un contradiction. On peut alors conclure que <m>\sqrt[3]{3}\in \Q^c</m>.</p>
+        Ainsi, on a que <m>3\mid q^3</m>, et par le même argument, on a que <m>3\mid q</m>. On a donc que <m>3\leq \pgcd(p,q)= 1</m>, ce qui est une contradiction. On peut alors conclure que <m>\sqrt[3]{3}\in \Q^c</m>.</p>
         </solution>
     </exercise>
     <exercise>
@@ -233,7 +233,7 @@
         </solution>
         <solution>
             <p>
-               On pose <m>Q</m> comme étant le nombre de sous-ensembles d'un ensemble <m>A</m> de cardinalité <m>n</m>. D'un côté, on a que <m>Q=2^n</m>, par <xref ref="exe-nbrSousEns"/>. D'un autre côté, on peut utiliser le principe de la somme pour compter cette quatité. En effet, on rappel que le nombre de sous-ensembles de l'ensemble <m>A</m> de taille <m>r</m> est donné par <m>\Binomial{n}{r}</m>. Lorsqu'on veut choisir un sous-ensemble quelconque de <m>A</m>, celui-ci peut être de cardinalité <m>n</m>, ou bien de cardinalité <m>n-1</m>, ou bien de cardinalité <m>n-2</m>, <m>dots</m>, ou bien de cardinalité <m>1</m> ou bien de cardinalité <m>0</m>. Ainsi, par le principe de la somme:
+               On pose <m>Q</m> comme étant le nombre de sous-ensembles d'un ensemble <m>A</m> de cardinalité <m>n</m>. D'un côté, on a que <m>Q=2^n</m>, par <xref ref="exe-nbrSousEns"/>. D'un autre côté, on peut utiliser le principe de la somme pour compter cette quantité. En effet, on rappel que le nombre de sous-ensembles de l'ensemble <m>A</m> de taille <m>r</m> est donné par <m>\Binomial{n}{r}</m>. Lorsqu'on veut choisir un sous-ensemble quelconque de <m>A</m>, celui-ci peut être de cardinalité <m>n</m>, ou bien de cardinalité <m>n-1</m>, ou bien de cardinalité <m>n-2</m>, <m>dots</m>, ou bien de cardinalité <m>1</m> ou bien de cardinalité <m>0</m>. Ainsi, par le principe de la somme:
                <me>
                 Q=\Binomial{n}{n-1}+\Binomial{n}{n-2}+\Binomial{n}{n-3} \cdots +\Binomial{n}{2}+\Binomial{n}{1}+\Binomial{n}{0}.
                </me>
@@ -281,7 +281,7 @@
     </exercise>
     <exercise>
         <statement>
-            <p> Soit <m>k\in \N</m>, on note <m>P(k)</m> la propposition suivante,</p>
+            <p> Soit <m>k\in \N</m>, on note <m>P(k)</m> la proposition suivante,</p>
             <p><m>P(k):</m> Pour tout <m>m,n \in N</m>, si <m>k\mid (mn)</m>, alors <m>k\mid m</m> ou <m>k\mid n</m>.</p>
             <p>On considère <m>p\in \N</m> tel que <m>p\gt 1</m>. Montrer que si la proposition <m>P(p)</m> est vraie, alors <m>p</m> est un nombre premier.</p>
         </statement>
@@ -294,10 +294,10 @@
             <p>Soit <m>n\in \N</m>, <m>n\geq 2</m>. Montrer  par récurrence que si <m>p</m> est un nombre premier et si <m>p\mid (a_1a_2\cdots a_n)</m>, alors il existe un <m>i</m>, <m>1\leq i\leq n</m> tel que <m>p\mid a_i</m>. </p>
         </statement>
         <solution>
-            <p><alert>Étape de base:</alert> On veut montrer que la proposition est vraie pour <m>n=2</m>. Or, pour <m>n=2</m>, ceci est vraie par <xref ref="exo-prime"/>. </p>
+            <p><alert>Étape de base:</alert> On veut montrer que la proposition est vraie pour <m>n=2</m>. Or, pour <m>n=2</m>, ceci est vrai par <xref ref="exo-prime"/>. </p>
             <p><alert>Étape d'induction:</alert> On suppose que la proposition est vraie pour <m>n=k</m>. Supposons que <m>p\mid (a_1a_2\cdots a_ka_{k+1}) </m>. Par <xref ref="exo-prime"/>, on a que <m>p\mid (a_1a_2\cdots a_k)</m> ou bien <m>p\mid a_{k+1}</m>. Si <m>p\mid a_{k+1}</m>, on a terminé. Si <m>p\mid (a_1a_2\cdots a_k)</m>, par notre hypothèse d'induction, on a que <m>p\mid a_i</m> pour <m>1\leq i \leq k </m>. Ainsi, la proposition est vraie pour <m>n=k+1</m>.</p>
             <p>
-                On a montré que la proposition est vraie pour <m>n=2</m>, et que si elle est vraie pour <m>n=k</m>, alors elle est vraie pour <m>n=k+1</m>. Ainsi, la proposition est vraie pour tout  les entiers <m>n \geq 2</m>.
+                On a montré que la proposition est vraie pour <m>n=2</m>, et que si elle est vraie pour <m>n=k</m>, alors elle est vraie pour <m>n=k+1</m>. Ainsi, la proposition est vraie pour tous  les entiers <m>n \geq 2</m>.
              </p>
         </solution>
     </exercise>
@@ -340,7 +340,7 @@
                 Par le principe de récurrence, la proposition est vraie.
                 </p>
         </statement>  
-        <solution><p>À l'étape d'induction, si <m>max(x_2-1,y_2-1)=k</m> avec <m>x_2, y_2\in \N^\ast</m>, on peu avoir <m>x_2 =0 \notin \N^\ast</m> ou <m>y_2=0\notin \N^\ast</m>. On ne pourrait alors pas utiliser l'hypothèse d'induction. </p></solution>  
+        <solution><p>À l'étape d'induction, si <m>max(x_2-1,y_2-1)=k</m> avec <m>x_2, y_2\in \N^\ast</m>, on peut avoir <m>x_2 =0 \notin \N^\ast</m> ou <m>y_2=0\notin \N^\ast</m>. On ne pourrait alors pas utiliser l'hypothèse d'induction. </p></solution>  
 
     </exercise>
     </subexercises>
