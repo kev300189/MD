@@ -433,7 +433,7 @@ est <m>\Binomial{n+r-1}{n}=\Binomial{n+r-1}{r-1}</m>.
 </task>
 
 <task> 
-<statement><p> <m>x_3\leq 3</m></p></statement>
+<statement><p> <m>x_3\lt 3</m></p></statement>
 <answer><m>\Binomial{12}{7}=\frac{12!}{7!5!}</m></answer>
 <solution>
 <p>On compte toutes les solutions à l'équation (sans restriction) et on retire les solutions qui ne respectent pas la condition, c'est-à-dire les solutions telles que <m>x_3\geq 3</m>. Pour s'assurer que <m>x_3\geq 3</m>, on introduit la variable intermédiaire <m>y_3\geq 0</m> telle que <m>x_3=y_3+3</m>. Ainsi, en remplaçant dans l'équation <m>x_1+x_2+(y_3+3)+x_4+x_5+x_6=13</m>, on obtient <m>x_1+x_2+y_3+x_4+x_5+x_6=10</m>.</p>

@@ -20,7 +20,7 @@
     <subsection xml:id="subs-defRelRec">
         <title>Suites et relations de récurrence</title>
     <definition xml:id="def-suite">
-    <p>Une suite est une fonction partant d'un sous ensemble des entiers (souvent <m>\{0,1,2,\dots\}</m> ou <m>\{1,2,\dots\}</m>) vers un ensemble <m>S</m> quelconque. On utilise la notation <m>a_n</m> pour représenter l'image de <m>n</m> par la fonction. On appelle <m>a_n</m> un terme de la suite. On utilisera la notation <m>\{a_n\}</m> pour représenter la suite elle même.</p>
+    <p>Une suite est une fonction partant d'un sous-ensemble des entiers (souvent <m>\{0,1,2,\dots\}</m> ou <m>\{1,2,\dots\}</m>) vers un ensemble <m>S</m> quelconque. On utilise la notation <m>a_n</m> pour représenter l'image de <m>n</m> par la fonction. On appelle <m>a_n</m> un terme de la suite. On utilisera la notation <m>\{a_n\}</m> pour représenter la suite elle même.</p>
     </definition>    
     
     <example xml:id="exe-suite"> 
@@ -70,7 +70,7 @@
     </example>
     
      
-    <p>Les relations de récurrence sont utilisées afin de nous aider à dénombrer des situation qui ne peuvent être dénombré facilement à l'aide des techinques vues précédemment.</p>
+    <p>Il est possible d'utiliser les relations de récurrence afin de résoudre des problèmes de dénombrement qui seraient très difficile de résoudre à l'aide des techinques vues précédemment. On donne deux exemples ici, et on ecplorera d'autres exemples dans les prochaines sections.</p>
 
     <example xml:id="exe-denombrement">
         <title>Dénombrement avec relation de récurrence: Chaînes binaires</title>

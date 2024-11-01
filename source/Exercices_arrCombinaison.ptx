@@ -103,9 +103,9 @@
     <exercise><statement><p>Aux olympiades scolaire de l'école du Bonheur, tous les participants gagnent une médaille. S'il y a <m>24</m> élèves et qu'on attribue <m>5</m> médailles d'or, <m>7</m> médailles d'argent et le reste en bronze, de combien de manières est-ce que la distribution peut être faite?</p></statement>
     <answer><p><m>\frac{24!}{5!7!12!}</m></p></answer>
     </exercise>
-    <exercise><statement><p>Dans un groupe de <m>25</m> personnes, on veut former deux équipes. La première sera composée de <m>3</m> attaquants, <m>2</m> défenseurs, <m>2</m> gardiens et <m>3</m> réservistes. La deuxième équipe sera formée de <m>2</m> avants, <m>1</m> passeur,<m>3</m> arrières et <m>2</m> réservistes. On suppose que personne ne fait partie des deux équipes. Combien y a-t-il de possibilités?</p></statement>
+    <!--<exercise><statement><p>Dans un groupe de <m>25</m> personnes, on veut former deux équipes. La première sera composée de <m>3</m> attaquants, <m>2</m> défenseurs, <m>2</m> gardiens et <m>3</m> réservistes. La deuxième équipe sera formée de <m>2</m> avants, <m>1</m> passeur,<m>3</m> arrières et <m>2</m> réservistes. On suppose que personne ne fait partie des deux équipes. Combien y a-t-il de possibilités?</p></statement>
     <answer><p><m>\frac{25!}{3!2!2!3!2!1!3!2!7!}</m></p></answer>
-    </exercise>
+    </exercise> -->
     <exercise><introduction><p>Pour une fin de semaine au chalet, on veut apporter <m>5</m> jeux de société. Dans la collection, on trouve <m>5</m> jeux coopératifs et <m>8</m> jeux de stratégies. Combien de possibilités y a-t-il si:</p></introduction>
     <task>
     <statement><p>On ne donne aucune restriction?</p></statement>
