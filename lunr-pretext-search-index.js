@@ -4879,6 +4879,609 @@ var ptx_lunr_docs = [
   "body": " On considère la proposition Pour tout entier positif , si et sont des entiers positifs, et si , alors .  On rappelle aussiq que .  Clairement, la proposition est fausse. Trouver l'erreur dans la démarche ci-dessous.   Étape de base: Pour , si , alors , d'où . De même, , d'où   Étape d'induction: Soit un entier positif. On suppose que si et sont des entiers positifs, alors implique que .  On veut montrer que si et sont des entiers positifs tels que , alors .  Si , alors . Par hypothèse d'induction, on a que , donc .  Par le principe de récurrence, la proposition est vraie.  À l'étape d'induction, si avec , on peut avoir ou . On ne pourrait alors pas utiliser l'hypothèse d'induction. "
 },
 {
+  "id": "sec-relRecLinHom",
+  "level": "1",
+  "url": "sec-relRecLinHom.html",
+  "type": "Section",
+  "number": "6.1",
+  "title": "Relations de récurrence linéaires homogènes",
+  "body": "  Relations de récurrence linéaires homogènes    Dans plusieurs branches des mathématiques, on étudie des objets placés un à la suite de l'autre selon une règle particulière. On peut penser à la suite des entiers positifs pairs la suite des nombres premiers et la suite de Fibbonacci Dans le cours, nous allons principalement considérer des suites qui seront définies par récurrence.  Tout d'abord, on donne la définition formelle d'une suite. Par la suite, on considère les suites définies par récurrence. Finalement, on montre comment trouver le terme général des suites satisfaisant une relation de récurrence linéaire homogène.    Suites et relations de récurrence   Une suite est une fonction partant d'un sous-ensemble des entiers (souvent ou ) vers un ensemble quelconque. On utilise la notation pour représenter l'image de par la fonction. On appelle un terme de la suite. On utilisera la notation pour représenter la suite elle-même.    Une suite qui tend vers 0   On considère la suite où .  Ainsi, si on écrit les premiers termes de la suite, c'est-à-dire on a .    Nous allons maintenant considérer des suites qui seront définies par récurrence. On commence par considérer quelques exemples avant de donner la définition formelle.   Des suites définies par récurrence   Soit la suite satisfaisant la relation de récurrence pour telle que Quels sont les termes et ?  On a que . Puisqu'on vient de déterminer , on peut maintenant obtenir Finalement, on a .   Soit la suite satisfaisant la relation de récurrence pour telle que et Quels sont les termes et ?  On a que . Ainsi, on peut maintenant obtenir Finalement, on a .    Une relation de récurrence pour une suite est une expression du terme en fonction d'un ou plusieurs des termes précédents de la suite, et ce, pour On dira aussi que la suite est une solution à la relation de récurrence.    La suite de Fibonacci   Soit la suite satisfaisant la relation de récurrence pour telle que et On appelle cette suite la suite de Fibonacci. Quels sont les termes et ?   En utilisant la relation de récurrence, on trouve que et .    La factorielle   On considère la suite telle que pour et . Quelle est la valeur de ?     Il est possible d'utiliser les relations de récurrence afin traiter des problèmes de dénombrement qui seraient très difficile à résoudre à l'aide des techniques vues précédemment. On donne deux exemples ici, et on explorera d'autres exemples dans les prochaines sections.   Dénombrement avec relation de récurrence: Chaînes binaires   On note le nombre de chaînes binaires de longueur qui n'ont pas deux consécutifs. Il est difficile de déterminer directement, mais on peut tout de même trouver une relation de récurrence et des conditions initiales pour .    Tout d'abord, on remarque que pour , les deux seules chaînes binaires de longueur ne peuvent pas contenir deux consécutifs. Ainsi, .  Ensuite, si alors il y a une unique chaîne binaire contenant deux consécutifs. Ainsi, .  Supposons maintenant que . On note le nombre de chaînes binaires de longueur n'ayant pas deux consécutifs et se terminant par un De même, on note le nombre de chaînes binaires de longueur n'ayant pas deux consécutifs et se terminant par un Par le principe de la somme, on a  On remarque que toute chaîne de longueur n'ayant pas deux consécutifs et se terminant par un est formé d'une chaîne de longueur n'ayant pas deux consécutifs. Ainsi, .  D'un autre côté, si on considère une chaîne binaire de longueur n'ayant pas deux consécutifs et se terminant par un alors cette chaîne doit en fait se terminer par car sinon elle aurait deux consécutifs. Ainsi, toute chaîne de longueur n'ayant pas deux consécutifs et se terminant par un est formé d'une chaîne de longueur n'ayant pas deux consécutifs. On a donc .  Par ce qui précède, on a avec et .  Pour le moment, il est encore difficile de déterminer , mais nous allons introduire les outils permettant de résoudre ce genre de problème.     Dénombrement avec relation de récurrence: Fonctions surjectives  Soit un ensemble de cardinalité et avec . On note le nombre de fonctions surjectives . Trouvons une relation de récurrence pour     On commence par considérer un élément particulier et on choisit la valeur de . Il y a choix possible. Notons Il reste alors uniquement à déterminer les valeurs de sur .  Par la suite, on sépere la situation en deux cas. Soit est la seule préimage de , soit il y a au moins une autre préimage pour .  Dans le premier cas, la restriction de sur est une fonction surjective vers l'ensemble . Il y aura donc choix possibles.  Dans le deuxième cas, la restriction de sur est une fonction surjective vers l'ensemble . Il y aura donc choix possibles.  Ainsi, par le principe du produit et de la somme, on a .      Relations de récurrence et forme générale    Dans les exemples précédents, nous avons observé qu'il est souvent plus facile de trouver une relation de récurrence pour une suite que de trouver sa forme générale. On peut extraire certaines informations sur ces suites à l'aide de la relation de récurrence (limite de la suite, croissance\/décroissance, bornes, etc.).  Cependant, il est souvent très long (même pour un ordinateur) de déterminer le terme d'une suite lorsque est assez grand. Heureusement, on peut utiliser la relation de récurrence afin de nous aider à trouver la forme générale.  Nous allons montrer quelques exemples pour lesquels on peut facilement trouver le terme général d'une suite à partir de la relation de récurrence. Par la suite, on étudiera une classe particulière de relations de récurrence pour lesquelles on connaît la forme générale. Il s'agit des relations de récurrence linéaires homogènes (à coefficients constants). On étudiera en particulier celles d'ordre .    Forme générale d'une relation de récurrence   On considère la suite telle que pour et . Qelle est la forme générale de ?   .   On calcul pour les premières valeurs de mais en essayant de ne pas trop simplifier l'expression. On a      Forme générale d'une relation de récurrence: une deuxième stratégie   On considère la suite telle que pour et . Qelle est la forme générale de ?   .   On écrit en fonction de , c'est-à-dire . Par la suite, on développe en fonction de . Ici, en remplaçant par dans la relation de récurrence, on a . On poursuit de cette manière jusqu'à obtenir une expression de qui dépend uniquement de .     Les deux exemples précédents sont des exemples de relations de récurrence linéaire ( non-homogène pour , et homogène pour ). On regarde un dernier exemple, qui sera un peu plus complexe que les précédents.  Le reste de la section sera dédiée à l'étude des relations de récurrence linéaire homogène, et on gardera en tête la forme de la solution de l'exemple afin de trouver la forme générale pour ce genre de relations. On étudiera les relations non-homogène dans la prochaine section.   On considère la suite telle que pour  et . Qelle est la forme générale de ?   où est le reste de la division de par .   On calcule pour quelques valeurs de . Ici, il faut réfléchir un peu plus pour trouver la forme générale en raison du comportement du signe de mais on peut se convaincre que où est le reste de la division de par .      Relations de récurrence linéaires homogènes   Tel que mentionné, la plupart des relations de récurrence sont difficiles à résoudre. Nous donnons ici les définitions pour certaines de ces relations pour lesquelles on connaît la solution.    Une relation de récurrence linéaire homogène (à coefficient constant) est une relation de la forme: où les sont des constantes réeles, et On dira que cette relation est d'ordre .    Les relations de récurrence suivantes sont linéaires homogènes    Voici quelques exemples de relations qui ne sont pas linéaires homogènes (ou n'ont pas des coefficients constants).    Les relations suivantes ne sont pas linéaires homogènes.   La relation suivante est linéaire homogène, mais n'est pas à coefficients constants. .      Solutions aux équations de récurrence linéaires homogènes d'ordre 2: Cas 1   On a déjà remarqué que, pour une relation de récurrence donnée, il peut y avoir plusieurs suites qui la satisfont. Si on connaît également quelques termes (disons ) alors la solution devient alors unique.  On veut trouver la forme générale des solutions pour une relation de récurrence linéaire homogène d'ordre c'est-à-dire une relation de la forme . On s'inspire de l'exemple .    Une première solution à une relation de récurrence linéaire homogène d'ordre 2  Soit la relation , est-ce possible que la suite au terme général soit une solution à cette relation? Si oui, sous quelle(s) condition(s)?   On suppose que est une solution à la relation de récurrence, où Ici, on rejette le cas car il s'agit de la solution triviale. En particulier, on a et . Ainsi, en remplaçant dans l'équation, on a Ainsi, on a que si est une racine du polynôme , alors est effectivement une solution à la relation de récurrence.     Équation caractéristique   Soit une relation de récurrence, l'équation caractéristique associée à cette relation est l'équation     Puisque l'équation caractéristique d'une relation de récurrence linéaire d'Ordre 2 est un polynôme d'ordre 2, on risque donc d'obtenir deux solutions différentes à l'aide de l'équation caractéristique. Peut-on en obtenir davantage?   L'équation caractéristique: Un premier cas   On considère la relation de récurrence Trouvons (si elles existent) les deux solutions et à son équation caractéristique. Vérifions également que la suite satisfait la relation de récurrence.   L'équation caractéristique est obtenue en remplaçant par . On a alors .  Ainsi, les deux solutions à cette équation sont et En particulier, on a que   Pour vérifier que satisfait la relation de récurrence, on doit vérifier que .  D'un côté, on a que (c'est ce qu'on a supposé)  De l'autre côté, on a que Ainsi, on a bien que satisfait à la relation de récurrence.     En relisant la solution à l'exemple précédent, on constate que les valeurs des constantes devant les n'ont pas affecté nos démarches. La seule chose qu'on a utilisée, c'est le fait que les sont des solutions à l'équation caractéristique.  En fait, on peut même montrer que toutes les solutions seront de cette forme.   Solution aux relations de récurrence linéaires homogènes d'ordre : cas 1   Soit une relation de récurrence. Supposons que et sont deux solutions distinctes à l'équation caractéristique .  Dans ce cas, la suite satisfait la relation de récurrence si et seulement si où les sont des constantes réelles.  Pour déterminer la valeur de et on doit connaître la valeur de deux termes consécutifs de la suite .     Une première solution   Trouver la suite telle que sachant que et .     À l'exemple , on a déjà montré que l'équation caractéristique de cette relation possède et comme solution.  Par la proposition , on sait que la solution devra avoir la forme .  Ainsi, puisque et en remplaçant par et dans , on obtient un système d'équations suivant. En résolvant ce système d'équations, on a que et .  Ainsi, on a que la suite est la suite dont le terme général est .     Une deuxième solution   Trouver la suite telle que sachant que et .     L'équation caractéristique de cette relation est Ainsi, on pose et les deux solutions à cette équation.  Par la proposition , on sait que la solution devra avoir la forme .  Ainsi, puisque et en remplaçant par et dans , on obtient le système d'équations suivant. En résolvant ce système d'équations, on a que et .  Ainsi, on a que la suite est la suite dont le terme général est .      Solutions aux équations de récurrence linéaires homogènes d'ordre 2: Cas 2   Jusqu'à maintenant, les équations caractéristiques que l'on a rencontrées avaient des solutions distinctes. Nous allons maintenant regarder le cas où il y a une seule solution.    Équations caractéristiques à une seule racine   Trouver l'unique racine à l'Équation caractéristique de la relation de récurrence  Vérifier que si alors la suite satisfait à la relation de récurrence.    L'équation caractéristique est donnée par Ainsi, l'unique solution à cette équation est Par définition, on a alors que On peut le vérifier en remplaçant par c'est-à-dire en vérifiant que   Pour vérifier que satisfait à la relation de récurrence, on doit vérifier que .  Or, on a que     On a une nouvelle version de la proposition dans le cas où l'équation caractéristique ne possède qu'une seule racine.   Solution aux relations de récurrence linéaires homogènes d'ordre : cas 2   Soit une relation de récurrence. Supposons que est l'unique solution à l'équation caractéristique .  Dans ce cas, la suite satisfait la relation de récurrence si et seulement si où les sont des constantes réelles.  Pour déterminer la valeur de et on doit connaître la valeur de deux termes de la suite .     Une première solution  Trouver la suite telle que sachant que et .  .   À l'exemple , on a déjà montré que l'équation caractéristique de cette relation possède l'unique solution .  Par la proposition , on sait que la solution devra avoir la forme .  Ainsi, puisque et en remplaçant par et dans , on obtient le système d'équations suivant. En résolvant ce système d'équations, on a que et .  Ainsi, on a que la suite est la suite dont le terme général est .     Une deuxième solution  Trouver la suite telle que sachant que et .     L'équation caractéristique de cette relation de récurrence est L'unique solution à cette équation est .  Par la proposition , on sait que la solution devra avoir la forme .  Ainsi, puisque et en remplaçant par et dans , on obtient un système d'équations suivant. En résolvant ce système d'équations, on a que et .  Ainsi, on a que la suite est la suite dont le terme général est .      Relations de récurrence linéaires homogènes d'ordre   Pour le moment, nous avons étudié les relations linéaires d'ordre mais le traitement effectué peut se faire pour des relations d'ordre quelconque. Par exemple, on peut facilement trouver les solutions générales pour des relations d'ordre (voir exemple ).  En théorie, la situation n'est pas bien plus compliquée si Cependant, il faudra résoudre une équation polynomiale de degré ce qui peut-être très difficile! De plus, pour trouver la solution respectant les conditions initiales, il faut résoudre un système de équations à inconnues. Ceci n'est pas trop difficile, mais requiert des méthodes que vous verrez dans le cours d'algèbre linéaire.  On donne ici la généralisation des méthodes pour des relations d'ordre .    Équation caractéristique   Soit une relation de récurrence d'odre (c'est-à-dire que ), l'équation caractéristique associée à cette relation est l'équation     On obtient cette équation en remplaçant par dans la relation de récurrence. On voir alors que la suite de terme général satisfait la relation de récurrence si et seulement si est une solution à l'équation caractéristique . Si l'équation caractéristique possède racines distinctes, on à la proposition suivante.   Solution aux relations de récurrence linéaires homogènes d'ordre : Racines distinctes   Soit une relation de récurrence. Supposons que soient les solutions distinctes à l'équation caractéristique .  Dans ce cas, la suite satisfait la relation de récurrence si et seulement si où les sont des constantes réelles.  Pour déterminer la valeur des on doit connaître la valeur de termes consécutifs de la suite .           Ces questions sont à faire avant de venir en classe et à remettre au début du cours.   Déterminer et si: pour sachant que et pour sachant que et pour sachant que et  Pour chacune des relations de récurrences ci-dessous, déterminer l'équation caractéristique et trouver les racines de celle-ci.  Pour chacune des relations de récurrences ci-dessous, trouver la solution générale respectant les conditions initiales données. , où et . , où et .  Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision\/clarification à apporter. Note: cette question est facultative.      Exercices    À faire en classe  Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.  Déterminer et si: pour sachant que et  pour sachant que et  pour sachant que et   On considère le nombre de chaînes binaires de longueur possédant un nombre pair de Trouver une relation de récurrence pour ainsi que la condition initiale ( ). avec  On considère le nombre de chaînes de chiffres (en base dix) de longueur possédant un nombre pair de Trouver une relation de récurrence pour ainsi que la condition initiale ( ). avec   On pose le nombre de permutations d'un ensemble fini à éléments. On sait déjà que On veut retrouver cette formule à l'aide d'une relation de récurrence.  Trouver une relation de récurrence pour Déterminer   Utiliser la relation de récurrence et la condition initiale trouver dans les étapes précédentes pour vérifier que En utilisant la relation de récurrence à plusieurs reprises (à reprise pour être exacte), on a    Une machine distributrices accepte uniquement des pièces de des pièces de et des billets de   Posons le nombre de façons de donner dollars à cette machine si l'ordre dans laquelle on donne l'argent est importante.  Trouver une relation de récurrence pour .   On cherche une relation de récurrence pour Pour déterminer on utilise le principe de la somme selon la denrnière pièce ou le dernier billet utilisé afin de donner les dollars.  Il s'agit soit d'une pièce de soit une pièce de ou bien un billet de   Ainsi, avant de donner la dernière pièce\/le dernier billet, on avait donné ou bien dollar.  Par le principe de la somme, on a .  Trouver les conditions initiales pour ce problème. Compter selon le nombre de utilisé. Il faudra faire des permutations d'objets indiscernables (l'ordre est importante, mais on ne peut pas distinger les pièces de la même sorte).  On peut également trouver et et ensuite trouver une relation de récurrence pour et de la même manière qu'on l'a fait pour .  On aura  et .    Déterminer . Utiliser la relation de récurrence jusqu'à ce que tous les indices soit entre et .    On note le nombre de chaînes binaires de longueurs qui contiennent trois consécutifs.  Trouver une relation de récurrencepour .  Trouver les conditions initiales. , et . Déterminer   On note le nombre de chaînes binaires de longueurs qui ne contiennent pas trois consécutifs.  Trouver une relation de récurrencepour .  Trouver les conditions initiales. , et . Déterminer    Trouver la forme générale de la suite si pour sachant que et .  Écrire les premiers termes comme un produit d'une puissance de par une puissance de Chercher le terme général des exposants de et . Les exposants font partie de la suite de Fibonacci. Voir l'exercice pour .   Trouver la forme générale de la suite de Fibonacci où pour et .    À l'aide de l'exercice , montrer que si . Par , on sait que est le ième terme de la suite de Fibonacci. On sait également que les termes de la suite de Fibonacci sont des entiers naturels. Ainsi, .  Pour chacune des relations de récurrences ci-dessous, trouver la solution générale respectant les conditions initiales données. , où et . , où et . , où et . , où et . , où et .    "
+},
+{
+  "id": "def-suite",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#def-suite",
+  "type": "Définition",
+  "number": "6.1.1",
+  "title": "",
+  "body": " Une suite est une fonction partant d'un sous-ensemble des entiers (souvent ou ) vers un ensemble quelconque. On utilise la notation pour représenter l'image de par la fonction. On appelle un terme de la suite. On utilisera la notation pour représenter la suite elle-même.  "
+},
+{
+  "id": "exe-suite",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-suite",
+  "type": "Exemple",
+  "number": "6.1.2",
+  "title": "Une suite qui tend vers 0.",
+  "body": " Une suite qui tend vers 0   On considère la suite où .  Ainsi, si on écrit les premiers termes de la suite, c'est-à-dire on a .   "
+},
+{
+  "id": "subs-defRelRec-5",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#subs-defRelRec-5",
+  "type": "Exemple",
+  "number": "6.1.3",
+  "title": "Des suites définies par récurrence.",
+  "body": " Des suites définies par récurrence   Soit la suite satisfaisant la relation de récurrence pour telle que Quels sont les termes et ?  On a que . Puisqu'on vient de déterminer , on peut maintenant obtenir Finalement, on a .   Soit la suite satisfaisant la relation de récurrence pour telle que et Quels sont les termes et ?  On a que . Ainsi, on peut maintenant obtenir Finalement, on a .  "
+},
+{
+  "id": "def-relReccurence",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#def-relReccurence",
+  "type": "Définition",
+  "number": "6.1.4",
+  "title": "",
+  "body": " Une relation de récurrence pour une suite est une expression du terme en fonction d'un ou plusieurs des termes précédents de la suite, et ce, pour On dira aussi que la suite est une solution à la relation de récurrence.  "
+},
+{
+  "id": "exe-Fibonacci",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-Fibonacci",
+  "type": "Exemple",
+  "number": "6.1.5",
+  "title": "La suite de Fibonacci.",
+  "body": " La suite de Fibonacci   Soit la suite satisfaisant la relation de récurrence pour telle que et On appelle cette suite la suite de Fibonacci. Quels sont les termes et ?   En utilisant la relation de récurrence, on trouve que et .  "
+},
+{
+  "id": "exe-factorielle",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-factorielle",
+  "type": "Exemple",
+  "number": "6.1.6",
+  "title": "La factorielle.",
+  "body": " La factorielle   On considère la suite telle que pour et . Quelle est la valeur de ?    "
+},
+{
+  "id": "exe-denombrement",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-denombrement",
+  "type": "Exemple",
+  "number": "6.1.7",
+  "title": "Dénombrement avec relation de récurrence: Chaînes binaires.",
+  "body": " Dénombrement avec relation de récurrence: Chaînes binaires   On note le nombre de chaînes binaires de longueur qui n'ont pas deux consécutifs. Il est difficile de déterminer directement, mais on peut tout de même trouver une relation de récurrence et des conditions initiales pour .    Tout d'abord, on remarque que pour , les deux seules chaînes binaires de longueur ne peuvent pas contenir deux consécutifs. Ainsi, .  Ensuite, si alors il y a une unique chaîne binaire contenant deux consécutifs. Ainsi, .  Supposons maintenant que . On note le nombre de chaînes binaires de longueur n'ayant pas deux consécutifs et se terminant par un De même, on note le nombre de chaînes binaires de longueur n'ayant pas deux consécutifs et se terminant par un Par le principe de la somme, on a  On remarque que toute chaîne de longueur n'ayant pas deux consécutifs et se terminant par un est formé d'une chaîne de longueur n'ayant pas deux consécutifs. Ainsi, .  D'un autre côté, si on considère une chaîne binaire de longueur n'ayant pas deux consécutifs et se terminant par un alors cette chaîne doit en fait se terminer par car sinon elle aurait deux consécutifs. Ainsi, toute chaîne de longueur n'ayant pas deux consécutifs et se terminant par un est formé d'une chaîne de longueur n'ayant pas deux consécutifs. On a donc .  Par ce qui précède, on a avec et .  Pour le moment, il est encore difficile de déterminer , mais nous allons introduire les outils permettant de résoudre ce genre de problème.   "
+},
+{
+  "id": "exe-fctSurj",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-fctSurj",
+  "type": "Exemple",
+  "number": "6.1.8",
+  "title": "Dénombrement avec relation de récurrence: Fonctions surjectives.",
+  "body": " Dénombrement avec relation de récurrence: Fonctions surjectives  Soit un ensemble de cardinalité et avec . On note le nombre de fonctions surjectives . Trouvons une relation de récurrence pour     On commence par considérer un élément particulier et on choisit la valeur de . Il y a choix possible. Notons Il reste alors uniquement à déterminer les valeurs de sur .  Par la suite, on sépere la situation en deux cas. Soit est la seule préimage de , soit il y a au moins une autre préimage pour .  Dans le premier cas, la restriction de sur est une fonction surjective vers l'ensemble . Il y aura donc choix possibles.  Dans le deuxième cas, la restriction de sur est une fonction surjective vers l'ensemble . Il y aura donc choix possibles.  Ainsi, par le principe du produit et de la somme, on a .   "
+},
+{
+  "id": "exe-formGen1",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-formGen1",
+  "type": "Exemple",
+  "number": "6.1.9",
+  "title": "Forme générale d’une relation de récurrence.",
+  "body": " Forme générale d'une relation de récurrence   On considère la suite telle que pour et . Qelle est la forme générale de ?   .   On calcul pour les premières valeurs de mais en essayant de ne pas trop simplifier l'expression. On a    "
+},
+{
+  "id": "exe-formGen2",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-formGen2",
+  "type": "Exemple",
+  "number": "6.1.10",
+  "title": "Forme générale d’une relation de récurrence: une deuxième stratégie.",
+  "body": " Forme générale d'une relation de récurrence: une deuxième stratégie   On considère la suite telle que pour et . Qelle est la forme générale de ?   .   On écrit en fonction de , c'est-à-dire . Par la suite, on développe en fonction de . Ici, en remplaçant par dans la relation de récurrence, on a . On poursuit de cette manière jusqu'à obtenir une expression de qui dépend uniquement de .    "
+},
+{
+  "id": "exe-formGenNonLin",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-formGenNonLin",
+  "type": "Exemple",
+  "number": "6.1.11",
+  "title": "",
+  "body": " On considère la suite telle que pour  et . Qelle est la forme générale de ?   où est le reste de la division de par .   On calcule pour quelques valeurs de . Ici, il faut réfléchir un peu plus pour trouver la forme générale en raison du comportement du signe de mais on peut se convaincre que où est le reste de la division de par .   "
+},
+{
+  "id": "def-recLinHom",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#def-recLinHom",
+  "type": "Définition",
+  "number": "6.1.12",
+  "title": "",
+  "body": " Une relation de récurrence linéaire homogène (à coefficient constant) est une relation de la forme: où les sont des constantes réeles, et On dira que cette relation est d'ordre .  "
+},
+{
+  "id": "exe-RecLinHom1",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-RecLinHom1",
+  "type": "Exemple",
+  "number": "6.1.13",
+  "title": "",
+  "body": " Les relations de récurrence suivantes sont linéaires homogènes   "
+},
+{
+  "id": "exe-noRecLinHom",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-noRecLinHom",
+  "type": "Exemple",
+  "number": "6.1.14",
+  "title": "",
+  "body": "  Les relations suivantes ne sont pas linéaires homogènes.   La relation suivante est linéaire homogène, mais n'est pas à coefficients constants. .   "
+},
+{
+  "id": "exe-solLinHomDeux",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-solLinHomDeux",
+  "type": "Exemple",
+  "number": "6.1.15",
+  "title": "Une première solution à une relation de récurrence linéaire homogène d’ordre 2.",
+  "body": " Une première solution à une relation de récurrence linéaire homogène d'ordre 2  Soit la relation , est-ce possible que la suite au terme général soit une solution à cette relation? Si oui, sous quelle(s) condition(s)?   On suppose que est une solution à la relation de récurrence, où Ici, on rejette le cas car il s'agit de la solution triviale. En particulier, on a et . Ainsi, en remplaçant dans l'équation, on a Ainsi, on a que si est une racine du polynôme , alors est effectivement une solution à la relation de récurrence.   "
+},
+{
+  "id": "def-equCar",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#def-equCar",
+  "type": "Définition",
+  "number": "6.1.16",
+  "title": "Équation caractéristique.",
+  "body": " Équation caractéristique   Soit une relation de récurrence, l'équation caractéristique associée à cette relation est l'équation    "
+},
+{
+  "id": "exe-equCarPlusieursSol",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-equCarPlusieursSol",
+  "type": "Exemple",
+  "number": "6.1.17",
+  "title": "L’équation caractéristique: Un premier cas.",
+  "body": " L'équation caractéristique: Un premier cas   On considère la relation de récurrence Trouvons (si elles existent) les deux solutions et à son équation caractéristique. Vérifions également que la suite satisfait la relation de récurrence.   L'équation caractéristique est obtenue en remplaçant par . On a alors .  Ainsi, les deux solutions à cette équation sont et En particulier, on a que   Pour vérifier que satisfait la relation de récurrence, on doit vérifier que .  D'un côté, on a que (c'est ce qu'on a supposé)  De l'autre côté, on a que Ainsi, on a bien que satisfait à la relation de récurrence.    "
+},
+{
+  "id": "prop-solRecLinHomDeux",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#prop-solRecLinHomDeux",
+  "type": "Proposition",
+  "number": "6.1.18",
+  "title": "Solution aux relations de récurrence linéaires homogènes d’ordre <span class=\"process-math\">\\(2\\text{:}\\)<\/span> cas 1.",
+  "body": " Solution aux relations de récurrence linéaires homogènes d'ordre : cas 1   Soit une relation de récurrence. Supposons que et sont deux solutions distinctes à l'équation caractéristique .  Dans ce cas, la suite satisfait la relation de récurrence si et seulement si où les sont des constantes réelles.  Pour déterminer la valeur de et on doit connaître la valeur de deux termes consécutifs de la suite .   "
+},
+{
+  "id": "exe-solLinHom1",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-solLinHom1",
+  "type": "Exemple",
+  "number": "6.1.19",
+  "title": "Une première solution.",
+  "body": " Une première solution   Trouver la suite telle que sachant que et .     À l'exemple , on a déjà montré que l'équation caractéristique de cette relation possède et comme solution.  Par la proposition , on sait que la solution devra avoir la forme .  Ainsi, puisque et en remplaçant par et dans , on obtient un système d'équations suivant. En résolvant ce système d'équations, on a que et .  Ainsi, on a que la suite est la suite dont le terme général est .   "
+},
+{
+  "id": "exe-solLinHom2",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-solLinHom2",
+  "type": "Exemple",
+  "number": "6.1.20",
+  "title": "Une deuxième solution.",
+  "body": " Une deuxième solution   Trouver la suite telle que sachant que et .     L'équation caractéristique de cette relation est Ainsi, on pose et les deux solutions à cette équation.  Par la proposition , on sait que la solution devra avoir la forme .  Ainsi, puisque et en remplaçant par et dans , on obtient le système d'équations suivant. En résolvant ce système d'équations, on a que et .  Ainsi, on a que la suite est la suite dont le terme général est .   "
+},
+{
+  "id": "exe-LinHomMult",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-LinHomMult",
+  "type": "Exemple",
+  "number": "6.1.21",
+  "title": "Équations caractéristiques à une seule racine.",
+  "body": " Équations caractéristiques à une seule racine   Trouver l'unique racine à l'Équation caractéristique de la relation de récurrence  Vérifier que si alors la suite satisfait à la relation de récurrence.    L'équation caractéristique est donnée par Ainsi, l'unique solution à cette équation est Par définition, on a alors que On peut le vérifier en remplaçant par c'est-à-dire en vérifiant que   Pour vérifier que satisfait à la relation de récurrence, on doit vérifier que .  Or, on a que    "
+},
+{
+  "id": "prop-solRecLinHomDeuxMult",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#prop-solRecLinHomDeuxMult",
+  "type": "Proposition",
+  "number": "6.1.22",
+  "title": "Solution aux relations de récurrence linéaires homogènes d’ordre <span class=\"process-math\">\\(2\\text{:}\\)<\/span> cas 2.",
+  "body": " Solution aux relations de récurrence linéaires homogènes d'ordre : cas 2   Soit une relation de récurrence. Supposons que est l'unique solution à l'équation caractéristique .  Dans ce cas, la suite satisfait la relation de récurrence si et seulement si où les sont des constantes réelles.  Pour déterminer la valeur de et on doit connaître la valeur de deux termes de la suite .   "
+},
+{
+  "id": "exe-solRecLinHomDeuxMult",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-solRecLinHomDeuxMult",
+  "type": "Exemple",
+  "number": "6.1.23",
+  "title": "Une première solution.",
+  "body": " Une première solution  Trouver la suite telle que sachant que et .  .   À l'exemple , on a déjà montré que l'équation caractéristique de cette relation possède l'unique solution .  Par la proposition , on sait que la solution devra avoir la forme .  Ainsi, puisque et en remplaçant par et dans , on obtient le système d'équations suivant. En résolvant ce système d'équations, on a que et .  Ainsi, on a que la suite est la suite dont le terme général est .   "
+},
+{
+  "id": "exe-solRecLinHomDeuxMult2",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exe-solRecLinHomDeuxMult2",
+  "type": "Exemple",
+  "number": "6.1.24",
+  "title": "Une deuxième solution.",
+  "body": " Une deuxième solution  Trouver la suite telle que sachant que et .     L'équation caractéristique de cette relation de récurrence est L'unique solution à cette équation est .  Par la proposition , on sait que la solution devra avoir la forme .  Ainsi, puisque et en remplaçant par et dans , on obtient un système d'équations suivant. En résolvant ce système d'équations, on a que et .  Ainsi, on a que la suite est la suite dont le terme général est .   "
+},
+{
+  "id": "def-equCarOrdrek",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#def-equCarOrdrek",
+  "type": "Définition",
+  "number": "6.1.25",
+  "title": "Équation caractéristique.",
+  "body": " Équation caractéristique   Soit une relation de récurrence d'odre (c'est-à-dire que ), l'équation caractéristique associée à cette relation est l'équation    "
+},
+{
+  "id": "prop-solRecLinHomDeuxK",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#prop-solRecLinHomDeuxK",
+  "type": "Proposition",
+  "number": "6.1.26",
+  "title": "Solution aux relations de récurrence linéaires homogènes d’ordre <span class=\"process-math\">\\(k\\text{:}\\)<\/span> Racines distinctes.",
+  "body": " Solution aux relations de récurrence linéaires homogènes d'ordre : Racines distinctes   Soit une relation de récurrence. Supposons que soient les solutions distinctes à l'équation caractéristique .  Dans ce cas, la suite satisfait la relation de récurrence si et seulement si où les sont des constantes réelles.  Pour déterminer la valeur des on doit connaître la valeur de termes consécutifs de la suite .   "
+},
+{
+  "id": "rq-relRecLinHom-2",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#rq-relRecLinHom-2",
+  "type": "Question de compréhension",
+  "number": "6.1.7.1",
+  "title": "",
+  "body": "Déterminer et si: pour sachant que et pour sachant que et pour sachant que et "
+},
+{
+  "id": "rq-relRecLinHom-3",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#rq-relRecLinHom-3",
+  "type": "Question de compréhension",
+  "number": "6.1.7.2",
+  "title": "",
+  "body": "Pour chacune des relations de récurrences ci-dessous, déterminer l'équation caractéristique et trouver les racines de celle-ci. "
+},
+{
+  "id": "rq-relRecLinHom-4",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#rq-relRecLinHom-4",
+  "type": "Question de compréhension",
+  "number": "6.1.7.3",
+  "title": "",
+  "body": "Pour chacune des relations de récurrences ci-dessous, trouver la solution générale respectant les conditions initiales données. , où et . , où et . "
+},
+{
+  "id": "rq-relRecLinHom-5",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#rq-relRecLinHom-5",
+  "type": "Question de compréhension",
+  "number": "6.1.7.4",
+  "title": "",
+  "body": "Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision\/clarification à apporter. Note: cette question est facultative. "
+},
+{
+  "id": "exo-relRecLinHom-2-3",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-3",
+  "type": "Exercice",
+  "number": "6.1.8.1",
+  "title": "",
+  "body": "Déterminer et si: pour sachant que et  pour sachant que et  pour sachant que et  "
+},
+{
+  "id": "exo-relRecLinHom-2-4",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-4",
+  "type": "Exercice",
+  "number": "6.1.8.2",
+  "title": "",
+  "body": "On considère le nombre de chaînes binaires de longueur possédant un nombre pair de Trouver une relation de récurrence pour ainsi que la condition initiale ( ). avec "
+},
+{
+  "id": "exo-relRecLinHom-2-5",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-5",
+  "type": "Exercice",
+  "number": "6.1.8.3",
+  "title": "",
+  "body": "On considère le nombre de chaînes de chiffres (en base dix) de longueur possédant un nombre pair de Trouver une relation de récurrence pour ainsi que la condition initiale ( ). avec "
+},
+{
+  "id": "exo-relRecLinHom-2-6",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-6",
+  "type": "Exercice",
+  "number": "6.1.8.4",
+  "title": "",
+  "body": " On pose le nombre de permutations d'un ensemble fini à éléments. On sait déjà que On veut retrouver cette formule à l'aide d'une relation de récurrence.  Trouver une relation de récurrence pour Déterminer   Utiliser la relation de récurrence et la condition initiale trouver dans les étapes précédentes pour vérifier que En utilisant la relation de récurrence à plusieurs reprises (à reprise pour être exacte), on a  "
+},
+{
+  "id": "exo-relRecLinHom-2-7",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-7",
+  "type": "Exercice",
+  "number": "6.1.8.5",
+  "title": "",
+  "body": " Une machine distributrices accepte uniquement des pièces de des pièces de et des billets de   Posons le nombre de façons de donner dollars à cette machine si l'ordre dans laquelle on donne l'argent est importante.  Trouver une relation de récurrence pour .   On cherche une relation de récurrence pour Pour déterminer on utilise le principe de la somme selon la denrnière pièce ou le dernier billet utilisé afin de donner les dollars.  Il s'agit soit d'une pièce de soit une pièce de ou bien un billet de   Ainsi, avant de donner la dernière pièce\/le dernier billet, on avait donné ou bien dollar.  Par le principe de la somme, on a .  Trouver les conditions initiales pour ce problème. Compter selon le nombre de utilisé. Il faudra faire des permutations d'objets indiscernables (l'ordre est importante, mais on ne peut pas distinger les pièces de la même sorte).  On peut également trouver et et ensuite trouver une relation de récurrence pour et de la même manière qu'on l'a fait pour .  On aura  et .    Déterminer . Utiliser la relation de récurrence jusqu'à ce que tous les indices soit entre et .   "
+},
+{
+  "id": "exo-relRecLinHom-2-8",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-8",
+  "type": "Exercice",
+  "number": "6.1.8.6",
+  "title": "",
+  "body": "On note le nombre de chaînes binaires de longueurs qui contiennent trois consécutifs.  Trouver une relation de récurrencepour .  Trouver les conditions initiales. , et . Déterminer  "
+},
+{
+  "id": "exo-relRecLinHom-2-9",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-9",
+  "type": "Exercice",
+  "number": "6.1.8.7",
+  "title": "",
+  "body": "On note le nombre de chaînes binaires de longueurs qui ne contiennent pas trois consécutifs.  Trouver une relation de récurrencepour .  Trouver les conditions initiales. , et . Déterminer  "
+},
+{
+  "id": "exo-relRecLinHom-2-10",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-10",
+  "type": "Exercice",
+  "number": "6.1.8.8",
+  "title": "",
+  "body": " Trouver la forme générale de la suite si pour sachant que et .  Écrire les premiers termes comme un produit d'une puissance de par une puissance de Chercher le terme général des exposants de et . Les exposants font partie de la suite de Fibonacci. Voir l'exercice pour . "
+},
+{
+  "id": "exo-fibo",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-fibo",
+  "type": "Exercice",
+  "number": "6.1.8.9",
+  "title": "",
+  "body": " Trouver la forme générale de la suite de Fibonacci où pour et .   "
+},
+{
+  "id": "exo-relRecLinHom-2-12",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-12",
+  "type": "Exercice",
+  "number": "6.1.8.10",
+  "title": "",
+  "body": "À l'aide de l'exercice , montrer que si . Par , on sait que est le ième terme de la suite de Fibonacci. On sait également que les termes de la suite de Fibonacci sont des entiers naturels. Ainsi, . "
+},
+{
+  "id": "exo-relRecLinHom-2-13",
+  "level": "2",
+  "url": "sec-relRecLinHom.html#exo-relRecLinHom-2-13",
+  "type": "Exercice",
+  "number": "6.1.8.11",
+  "title": "",
+  "body": "Pour chacune des relations de récurrences ci-dessous, trouver la solution générale respectant les conditions initiales données. , où et . , où et . , où et . , où et . , où et . "
+},
+{
+  "id": "sec-relRecLinNonHom",
+  "level": "1",
+  "url": "sec-relRecLinNonHom.html",
+  "type": "Section",
+  "number": "6.2",
+  "title": "Relations de récurrence linéaires non-homogènes",
+  "body": "  Relations de récurrence linéaires non-homogènes    Nous allons maintenant étudier les relations linéaires non-homogènes. Pour trouver les solutions à ces relations, il faudra trouver une solution particulière, ainsi que la solution générale à son équation homogène associée.       À la section précédente, on a déjà vue certaines relations de récurrence qui étaient linéaires non-homogènes. En fait, on a même déjà trouvé la solution à certaines de ces relations assez facilement .  Malheureusement, il s'agit d'exemples particuliers. La plupart des relations non-homogènes seront difficiles à résoudre. Tout de même, on peut séparer la résolution des relations homogènes en deux parties.  D'une part, on pourra résoudre la partie homogène de l'équation à l'aide des méthodes de la section précédente. Par la suite, on devra trouver une solution qui tient en compte uniquement la partie non-homogène. Ceci est difficile en général, mais on pourra trouver des solutions dans certains cas particuliers.  On commence par donner quelques définitions pour pouvoir bien décrire cette méthode et les solutions obtenues.     Une relation de récurrence linéaire non-homogène (à coefficients constants) est une relation de la forme où les sont des constantes réelles et .  L'ordre de la relation est alors .  De plus, est une fonction qui n'est pas identiquement nulle (c'est-à-dire qu'il y a au moins une valeur de pour laquelle ).  Finalement, la relation de récurrence linéaire homogène associée est celle obtenue en postant , c'est-à-dire .    Voici quelques exemples   Relations linéaires non-homogènes   Chacune des relations de récurrence ci-dessous sont linéaires non-homogènes.   Les relations linéaires homogènes associées à celles-ci sont respectivement     Tel que mentionné plus haut, pour trouver la solution générale à une relation non-homogène, il suffit de trouver une solution particulière ainsi qu'une solution à la relation homogène assiciée.   Solutions aux relations de récurrence linéaires non-homogènes  Soit une suite satisfaisant la relation de récurrence ci-dessous alors toutes les solutions sont de la forme où est une solution à la relation de récurrence homogène associée.    Il existe certaines classes de fonctions pour lesquelles on connait la forme que doit prendre la suite . Cependant, pour notre cours, des candidats pour les solutions particulières seront fournis. Il faudra alors vérifier sous quelles conditions ces candidats sont des solutions.   Solution particulière: Terme linéaire   Trouver toutes les solutions à la relation en considérant la solution particulière Trouver ensuite la solution telle que .   Toutes les solutions auront la forme où est une solution de la relation homgogène .  On peut montrer, à l'aide des méthodes vue dans la section précédente, que .  Par la suite, on veut déterminer sous quelles conditions est-ce que est une solution à la relation initiale. Pour cela, on doit avoir Pour que cette égalité soit vraie, il faut que les termes devant chaque puissance de doivents être les mêmes à gauche et à droite de l'égalité. Ainsi,     Ainsi, toute les solutions à la relation de récurrence seront .  Pour trouver la solution telle que on considère l'équation Ainsi, .     Solution particulière: Terme exponentiel   Trouver toutes les solutions à la relation en considérant la solution particulière   Toutes les solutions auront la forme où est une solution de la relation homgogène .  On peut alors montrer que .  Par la suite, on veut déterminer sous quelles conditions est-ce que est une solution à la relation initiale. Pour cela, on doit avoir Ainsi, toute les solutions à la relation de récurrence seront .     La somme des premiers entiers positifs   On considère la relation avec condition initiale On peut alors remarquer que est la somme des premiers entiers positifs.  On connait déjà la fromule pour mais on veut la retrouver à l'aide de la relation de récurrence à l'aide d'une solution particulière de la forme .    On sait que et on peut facilement montrer que en résolvant la relation de récurrence homogène .  Par la suite, on veut déterminer sous quelles conditions est-ce que est une solution à la relation initiale. Pour cela, on doit avoir Pour que cette égalité soit vraie, il faut que les termes devant chaque puissance de doivents être les mêmes à gauche et à droite de l'égalité. Ainsi,     Ainsi, toute les solutions à la relation de récurrence seront .  Pour trouver la solution telle que on considère l'équation Ainsi, .     Solution particulière: D'autres termes exponentiels   On considère la suite telle que  et .  Trouver la forme générale de la suite à l'aide d'une solution particulière de la forme .    On sait que la soultion aura la forme où par l'exemple , et on propose  Pour trouver la valeur de telle que est une solution particulière, on remplace par dans la relation de récurrence, et on trouve la valeur de satisfaisant l'équation résultante.  On a Ainsi, est une solution particulière à la relation de récurrence.  On a donc .  Pour trouver et , on doit résoudre le système d'équations En résolvant ces équations, on trouve et .    On considère la suite telle que  et .  Trouver la forme générale de la suite à l'aide d'une solution particulière de la forme .    On sait que la soultion aura la forme où par l'exemple , et on propose  Pour trouver la valeur de telle que est une solution particulière, on remplace par dans la relation de récurrence, et on trouve la valeur de satisfaisant l'équation résultante.  On a Pour que cette égalité soit vraie, on doit avoir et . On trouve alors  Ainsi, est une solution particulière à la relation de récurrence.  On a donc .  Pour trouver et , on doit résoudre le système d'équations En résolvant ces équations, on trouve et .           Ces questions sont à faire avant de venir en classe et à remettre au début du cours.   On considère la relation de récurrence . Déterminer la forme générale de la solution à cette relation à l'aide d'une solution particulière .  Trouver la solution générale de la partie sachant que .   On considère la relation de récurrence . Déterminer la forme générale de la solution à cette relation à l'aide d'une solution particulière .  Trouver la solution générale de la partie sachant que .   On considère la relation de récurrence . Déterminer la forme générale de la solution à cette relation à l'aide d'une solution particulière .  Trouver la solution générale de la partie sachant que et .    On considère la relation de récurrence . Déterminer la forme générale de la solution à cette relation à l'aide d'une solution particulière .   Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision\/clarification à apporter. Note: cette question est facultative.      Exercices    À faire en classe  Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.  Pour chacune des relations de récurrence ci-dessous, trouver la solution générale à l'aide de la solution particulière proposée.  , avec , où et sont des constantes.     , avec , où est une constante.     , avec .     , avec , où et sont des constantes.      On considère , où .  Vérifier que la suite satisfait la relation avec condition initiale .   Par définition de et de , on a que .  Aussi, en posant , on a .  Résoudre la relation de récurrence en utilisant , où les sont des constantes.      On considère l'équation .   Trouver la solution générale lorsque     .   Trouver une solution particulière , lorsque . Utiliser une solution de la forme , où est une constante.      À l'aide des réponses aux questions précédentes, trouver la solution générale à la relation de récurence lorsque .      Lorsque , expliquer pourquoi on ne peut pas utiliser une solution particulière de la forme , où est une constante.   Puisque est une solution à la relation de récurrence homogène, si on remplace dans la relation, on obtiendra toujours .     Soit une solution à la relation et une solution à la relation . Montrer que est une solution à la relation .  On a    À l'aide de l'exercice , montrer que si et deux solutions à la relation , alors est une solution à l'équation  Poser dans l'exercice .   On considère . Trouver une solution particulière à cette équation si:   , avec , où est une constante;     , avec , où et sont des constantes;      .  Utiliser les parties précédentes, ainsi que l'exercice .         "
+},
+{
+  "id": "def-recNonHom",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#def-recNonHom",
+  "type": "Définition",
+  "number": "6.2.1",
+  "title": "",
+  "body": "  Une relation de récurrence linéaire non-homogène (à coefficients constants) est une relation de la forme où les sont des constantes réelles et .  L'ordre de la relation est alors .  De plus, est une fonction qui n'est pas identiquement nulle (c'est-à-dire qu'il y a au moins une valeur de pour laquelle ).  Finalement, la relation de récurrence linéaire homogène associée est celle obtenue en postant , c'est-à-dire .   "
+},
+{
+  "id": "exe-linNonHom",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exe-linNonHom",
+  "type": "Exemple",
+  "number": "6.2.2",
+  "title": "Relations linéaires non-homogènes.",
+  "body": " Relations linéaires non-homogènes   Chacune des relations de récurrence ci-dessous sont linéaires non-homogènes.   Les relations linéaires homogènes associées à celles-ci sont respectivement    "
+},
+{
+  "id": "prop-solLinNonHom",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#prop-solLinNonHom",
+  "type": "Proposition",
+  "number": "6.2.3",
+  "title": "Solutions aux relations de récurrence linéaires non-homogènes.",
+  "body": " Solutions aux relations de récurrence linéaires non-homogènes  Soit une suite satisfaisant la relation de récurrence ci-dessous alors toutes les solutions sont de la forme où est une solution à la relation de récurrence homogène associée.   "
+},
+{
+  "id": "exe-solNonHom",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exe-solNonHom",
+  "type": "Exemple",
+  "number": "6.2.4",
+  "title": "Solution particulière: Terme linéaire.",
+  "body": " Solution particulière: Terme linéaire   Trouver toutes les solutions à la relation en considérant la solution particulière Trouver ensuite la solution telle que .   Toutes les solutions auront la forme où est une solution de la relation homgogène .  On peut montrer, à l'aide des méthodes vue dans la section précédente, que .  Par la suite, on veut déterminer sous quelles conditions est-ce que est une solution à la relation initiale. Pour cela, on doit avoir Pour que cette égalité soit vraie, il faut que les termes devant chaque puissance de doivents être les mêmes à gauche et à droite de l'égalité. Ainsi,     Ainsi, toute les solutions à la relation de récurrence seront .  Pour trouver la solution telle que on considère l'équation Ainsi, .   "
+},
+{
+  "id": "exe-solNonHom2",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exe-solNonHom2",
+  "type": "Exemple",
+  "number": "6.2.5",
+  "title": "Solution particulière: Terme exponentiel.",
+  "body": " Solution particulière: Terme exponentiel   Trouver toutes les solutions à la relation en considérant la solution particulière   Toutes les solutions auront la forme où est une solution de la relation homgogène .  On peut alors montrer que .  Par la suite, on veut déterminer sous quelles conditions est-ce que est une solution à la relation initiale. Pour cela, on doit avoir Ainsi, toute les solutions à la relation de récurrence seront .   "
+},
+{
+  "id": "exe-solNonHom3",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exe-solNonHom3",
+  "type": "Exemple",
+  "number": "6.2.6",
+  "title": "La somme des <span class=\"process-math\">\\(n\\)<\/span> premiers entiers positifs.",
+  "body": " La somme des premiers entiers positifs   On considère la relation avec condition initiale On peut alors remarquer que est la somme des premiers entiers positifs.  On connait déjà la fromule pour mais on veut la retrouver à l'aide de la relation de récurrence à l'aide d'une solution particulière de la forme .    On sait que et on peut facilement montrer que en résolvant la relation de récurrence homogène .  Par la suite, on veut déterminer sous quelles conditions est-ce que est une solution à la relation initiale. Pour cela, on doit avoir Pour que cette égalité soit vraie, il faut que les termes devant chaque puissance de doivents être les mêmes à gauche et à droite de l'égalité. Ainsi,     Ainsi, toute les solutions à la relation de récurrence seront .  Pour trouver la solution telle que on considère l'équation Ainsi, .   "
+},
+{
+  "id": "exe-solPart1",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exe-solPart1",
+  "type": "Exemple",
+  "number": "6.2.7",
+  "title": "Solution particulière: D’autres termes exponentiels.",
+  "body": " Solution particulière: D'autres termes exponentiels   On considère la suite telle que  et .  Trouver la forme générale de la suite à l'aide d'une solution particulière de la forme .    On sait que la soultion aura la forme où par l'exemple , et on propose  Pour trouver la valeur de telle que est une solution particulière, on remplace par dans la relation de récurrence, et on trouve la valeur de satisfaisant l'équation résultante.  On a Ainsi, est une solution particulière à la relation de récurrence.  On a donc .  Pour trouver et , on doit résoudre le système d'équations En résolvant ces équations, on trouve et .    On considère la suite telle que  et .  Trouver la forme générale de la suite à l'aide d'une solution particulière de la forme .    On sait que la soultion aura la forme où par l'exemple , et on propose  Pour trouver la valeur de telle que est une solution particulière, on remplace par dans la relation de récurrence, et on trouve la valeur de satisfaisant l'équation résultante.  On a Pour que cette égalité soit vraie, on doit avoir et . On trouve alors  Ainsi, est une solution particulière à la relation de récurrence.  On a donc .  Pour trouver et , on doit résoudre le système d'équations En résolvant ces équations, on trouve et .   "
+},
+{
+  "id": "rq-relRexLinNonHom-2",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#rq-relRexLinNonHom-2",
+  "type": "Question de compréhension",
+  "number": "6.2.2.1",
+  "title": "",
+  "body": "On considère la relation de récurrence . Déterminer la forme générale de la solution à cette relation à l'aide d'une solution particulière .  Trouver la solution générale de la partie sachant que .  "
+},
+{
+  "id": "rq-relRexLinNonHom-3",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#rq-relRexLinNonHom-3",
+  "type": "Question de compréhension",
+  "number": "6.2.2.2",
+  "title": "",
+  "body": "On considère la relation de récurrence . Déterminer la forme générale de la solution à cette relation à l'aide d'une solution particulière .  Trouver la solution générale de la partie sachant que .  "
+},
+{
+  "id": "rq-relRexLinNonHom-4",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#rq-relRexLinNonHom-4",
+  "type": "Question de compréhension",
+  "number": "6.2.2.3",
+  "title": "",
+  "body": "On considère la relation de récurrence . Déterminer la forme générale de la solution à cette relation à l'aide d'une solution particulière .  Trouver la solution générale de la partie sachant que et .  "
+},
+{
+  "id": "rq-relRexLinNonHom-5",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#rq-relRexLinNonHom-5",
+  "type": "Question de compréhension",
+  "number": "6.2.2.4",
+  "title": "",
+  "body": " On considère la relation de récurrence . Déterminer la forme générale de la solution à cette relation à l'aide d'une solution particulière .  "
+},
+{
+  "id": "rq-relRexLinNonHom-6",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#rq-relRexLinNonHom-6",
+  "type": "Question de compréhension",
+  "number": "6.2.2.5",
+  "title": "",
+  "body": "Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision\/clarification à apporter. Note: cette question est facultative. "
+},
+{
+  "id": "exo-relRecLinNonHom-2-3",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exo-relRecLinNonHom-2-3",
+  "type": "Exercice",
+  "number": "6.2.3.1",
+  "title": "",
+  "body": "Pour chacune des relations de récurrence ci-dessous, trouver la solution générale à l'aide de la solution particulière proposée.  , avec , où et sont des constantes.     , avec , où est une constante.     , avec .     , avec , où et sont des constantes.    "
+},
+{
+  "id": "exo-relRecLinNonHom-2-4",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exo-relRecLinNonHom-2-4",
+  "type": "Exercice",
+  "number": "6.2.3.2",
+  "title": "",
+  "body": " On considère , où .  Vérifier que la suite satisfait la relation avec condition initiale .   Par définition de et de , on a que .  Aussi, en posant , on a .  Résoudre la relation de récurrence en utilisant , où les sont des constantes.    "
+},
+{
+  "id": "exo-relRecLinNonHom-2-5",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exo-relRecLinNonHom-2-5",
+  "type": "Exercice",
+  "number": "6.2.3.3",
+  "title": "",
+  "body": " On considère l'équation .   Trouver la solution générale lorsque     .   Trouver une solution particulière , lorsque . Utiliser une solution de la forme , où est une constante.      À l'aide des réponses aux questions précédentes, trouver la solution générale à la relation de récurence lorsque .      Lorsque , expliquer pourquoi on ne peut pas utiliser une solution particulière de la forme , où est une constante.   Puisque est une solution à la relation de récurrence homogène, si on remplace dans la relation, on obtiendra toujours .   "
+},
+{
+  "id": "exo-combLinSolPartie",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exo-combLinSolPartie",
+  "type": "Exercice",
+  "number": "6.2.3.4",
+  "title": "",
+  "body": " Soit une solution à la relation et une solution à la relation . Montrer que est une solution à la relation .  On a   "
+},
+{
+  "id": "exo-relRecLinNonHom-2-7",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exo-relRecLinNonHom-2-7",
+  "type": "Exercice",
+  "number": "6.2.3.5",
+  "title": "",
+  "body": "À l'aide de l'exercice , montrer que si et deux solutions à la relation , alors est une solution à l'équation  Poser dans l'exercice . "
+},
+{
+  "id": "exo-relRecLinNonHom-2-8",
+  "level": "2",
+  "url": "sec-relRecLinNonHom.html#exo-relRecLinNonHom-2-8",
+  "type": "Exercice",
+  "number": "6.2.3.6",
+  "title": "",
+  "body": " On considère . Trouver une solution particulière à cette équation si:   , avec , où est une constante;     , avec , où et sont des constantes;      .  Utiliser les parties précédentes, ainsi que l'exercice .      "
+},
+{
+  "id": "sec-relRecSupp",
+  "level": "1",
+  "url": "sec-relRecSupp.html",
+  "type": "Section",
+  "number": "6.3",
+  "title": "Exercices supplémentaires",
+  "body": "  Exercices supplémentaires             Exercices    À faire en classe  Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.   Un modèle qu'on peut utilisé pour approximer le nombre de homards pêchés par année est de supposer que le nombre de homards pêchés dans une année est la moyennes du nombre de homards pêchés dans les deux années précédentes.   En supposant que le modèle est vrai, trouver une relation de récurrence pour la suite , où est le nombre de homard pêchés à l'année .  On a .  Déterminer , sachant que 100 000 homards ont été pêchés à l'an 1, et 300 000 ont été pêchés à l'an 2.  On a .   Un client d'une banque dépose 100 000 dans un compte d'investissement. À la fin de chaque année (le dernier jour de l'année), on ajoute au compte de banque deux montants. Le premier est du montant dans le compte durant cette année, et le deuxième est du montant dans le compte durant l'année précédente.   Trouver une relation de récurrence pour la suite , où est le montant en dans le compte à la fin de l'an .  On a .  En utilisant et , trouver une expression pour .  À l'aide de l'équation caractéristique est des conditions initiales, on à .   Un nouvel enmployé dans une compagnie se fait offrir un salaire de par année. De plus, l'employé se fait promettre qu'à la fin de chaque année, son salaire sera le double de celui de l'année précédente plus par année passée à travailler pour la compagnie.   Trouver une relation pour la suite , où est le salaire en de l'employé à l'année . Ici, la condition initiale est .  On a .  Trouver l'expression de . Utiliser une solution particulière de la forme , où et sont des constantes à déterminer.   On commence par résoudre la relation homogène. On trouve alors   Ensuite, on remplaçant par dans la relation, on obtient .  En comparant les termes devant les et les termes constant, on obtient les deux équations et . On peut alors résoudre ce système d'équations et trouver . On a alors que la solution particulière est .  Ainsi, on a que . À l'aide de la condition initiale, on a , et donc .  Par ce qui précède, on a .    On considère un échiquier de dimension , c'est-à-dire un échiquer formé de deux rangés, et chacune de ces rangés est formée de cases. On veut recouvrir cet échiquer à l'aide de tuiles de dimension , et .  On note le nombre de façons d'accomplir cette tâche.   Déterminer et .   Si , l'échiquier est de dimension . Il y a donc une seule façon d'accomplir cette tâche, en plaçant une tuile . Ainsi, .  Si , l'échiquier est de dimension . Il y a donc trois façons d'accomplir cette tâche. En plaçant deux tuiles de dimension , en plaçant deux tuiles de dimension ou encore en plaçant une tuile de dimension . Ainsi, .   Trouver une relation de récurrence pour .   On sépare la tâche en trois catégories. Pour se faire, on regarde quelle sorte de tuile à été utilisée afin de recouvrir la case en haut à gauche de l'échiquer. Il y a trois façons de le faire, une pour chaque type de tuiles, , ou .  Si on a utilisé une tuile de dimension , il reste à recouvrir un échiquier de dimension . Il y a façons d'accomplir cette tâche.  Si on a utilisé une tuile de dimension , alors on a nécessairement urilisé une autre tuile de dimension pour recouvrir la case en bas à gauche. Il reste donc à recouvrir un échiquier de dimension . Il y a façons d'accomplir cette tâche.  Finalement, si on a utilisé une tuile de dimension , il reste à recouvrir un échiquier de dimension . Il y a façons d'accomplir cette tâche.  Ainsi, par le principe de la somme, on a .   Résoudre la relation de récurrence à l'aide des conditions initiales (à l'aide de et ).   À l'aide de l'équation caractéristique, on trouve que .  Puisque et , on peut résoudre ces équations et obtenir et .  Ainsi, .   On considère le nombre de chaînes binaites de longueur qui contiennent la suite de caractères .  Trouver les conditions initiales, c'est-à-dire, déterminer et .  On a et .  Trouver une relation re récurrence pour la suite .  La relation est une relation linéaire non homogène.  On considère la tâche d'écrire une chaîne binaire de longueur contenant la suite . On utilise le principe de la somme selon le premier caractère utilisé.  Si le premier caractère est un , alors il doit y avoir la suite à quelque part dans les caractères restants. Ainsi, il reste à choisir une chaînes à caractères contenant la suite . Il y a façons d'accomplir cette tâche.  Si le premier caractère utilisé est un , il faut faire plus attention. On doit encore séparer en deux cas.  Tout d'abord, si la chaîne commence par , il se peut que la suite se trouve parmi les caractères restants. Ainsi, il reste à choisir une chaînes à caractères contenant la suite . Il y a façons d'accomplir cette tâche.  Cependant, on remarque que dans le cas précédent, on ne compte pas les chaînes qui contiennent la suite uniquement dans les deux premiers caractères. On suppose donc que la suite se retouve dans la chaîne uniquement au début de celle-ci. C'est-à-dire que la chaîne commence par , mais n'a pas la suite dans les caractères restants. Ainsi, il reste à choisir une chaîne de caractères qui ne contient pas la suite . En passant par le complément, il y a façons d'accomplir cette tâche.  Par le principe de la somme, on a .  Trouver une expression pour . Puisque la relation est non homogène, on devra utiliser une solution particulière. Prendre une solution particulière de la forme , où est une constante à déterminer.  On commence par résoudre la relation homogène. On trouve alors   Ensuite, on remplaçant par dans la relation, on obtient .  Ainsi, on a que . À l'aide des conditions initiales, on a et . On peut résoudre ces équations et obtenir et .  Par ce qui précède, on a .      "
+},
+{
+  "id": "exo-relRecSupp-2-3",
+  "level": "2",
+  "url": "sec-relRecSupp.html#exo-relRecSupp-2-3",
+  "type": "Exercice",
+  "number": "6.3.1",
+  "title": "",
+  "body": " Un modèle qu'on peut utilisé pour approximer le nombre de homards pêchés par année est de supposer que le nombre de homards pêchés dans une année est la moyennes du nombre de homards pêchés dans les deux années précédentes.   En supposant que le modèle est vrai, trouver une relation de récurrence pour la suite , où est le nombre de homard pêchés à l'année .  On a .  Déterminer , sachant que 100 000 homards ont été pêchés à l'an 1, et 300 000 ont été pêchés à l'an 2.  On a . "
+},
+{
+  "id": "exo-relRecSupp-2-4",
+  "level": "2",
+  "url": "sec-relRecSupp.html#exo-relRecSupp-2-4",
+  "type": "Exercice",
+  "number": "6.3.2",
+  "title": "",
+  "body": " Un client d'une banque dépose 100 000 dans un compte d'investissement. À la fin de chaque année (le dernier jour de l'année), on ajoute au compte de banque deux montants. Le premier est du montant dans le compte durant cette année, et le deuxième est du montant dans le compte durant l'année précédente.   Trouver une relation de récurrence pour la suite , où est le montant en dans le compte à la fin de l'an .  On a .  En utilisant et , trouver une expression pour .  À l'aide de l'équation caractéristique est des conditions initiales, on à . "
+},
+{
+  "id": "exo-relRecSupp-2-5",
+  "level": "2",
+  "url": "sec-relRecSupp.html#exo-relRecSupp-2-5",
+  "type": "Exercice",
+  "number": "6.3.3",
+  "title": "",
+  "body": " Un nouvel enmployé dans une compagnie se fait offrir un salaire de par année. De plus, l'employé se fait promettre qu'à la fin de chaque année, son salaire sera le double de celui de l'année précédente plus par année passée à travailler pour la compagnie.   Trouver une relation pour la suite , où est le salaire en de l'employé à l'année . Ici, la condition initiale est .  On a .  Trouver l'expression de . Utiliser une solution particulière de la forme , où et sont des constantes à déterminer.   On commence par résoudre la relation homogène. On trouve alors   Ensuite, on remplaçant par dans la relation, on obtient .  En comparant les termes devant les et les termes constant, on obtient les deux équations et . On peut alors résoudre ce système d'équations et trouver . On a alors que la solution particulière est .  Ainsi, on a que . À l'aide de la condition initiale, on a , et donc .  Par ce qui précède, on a .  "
+},
+{
+  "id": "exo-relRecSupp-2-6",
+  "level": "2",
+  "url": "sec-relRecSupp.html#exo-relRecSupp-2-6",
+  "type": "Exercice",
+  "number": "6.3.4",
+  "title": "",
+  "body": " On considère un échiquier de dimension , c'est-à-dire un échiquer formé de deux rangés, et chacune de ces rangés est formée de cases. On veut recouvrir cet échiquer à l'aide de tuiles de dimension , et .  On note le nombre de façons d'accomplir cette tâche.   Déterminer et .   Si , l'échiquier est de dimension . Il y a donc une seule façon d'accomplir cette tâche, en plaçant une tuile . Ainsi, .  Si , l'échiquier est de dimension . Il y a donc trois façons d'accomplir cette tâche. En plaçant deux tuiles de dimension , en plaçant deux tuiles de dimension ou encore en plaçant une tuile de dimension . Ainsi, .   Trouver une relation de récurrence pour .   On sépare la tâche en trois catégories. Pour se faire, on regarde quelle sorte de tuile à été utilisée afin de recouvrir la case en haut à gauche de l'échiquer. Il y a trois façons de le faire, une pour chaque type de tuiles, , ou .  Si on a utilisé une tuile de dimension , il reste à recouvrir un échiquier de dimension . Il y a façons d'accomplir cette tâche.  Si on a utilisé une tuile de dimension , alors on a nécessairement urilisé une autre tuile de dimension pour recouvrir la case en bas à gauche. Il reste donc à recouvrir un échiquier de dimension . Il y a façons d'accomplir cette tâche.  Finalement, si on a utilisé une tuile de dimension , il reste à recouvrir un échiquier de dimension . Il y a façons d'accomplir cette tâche.  Ainsi, par le principe de la somme, on a .   Résoudre la relation de récurrence à l'aide des conditions initiales (à l'aide de et ).   À l'aide de l'équation caractéristique, on trouve que .  Puisque et , on peut résoudre ces équations et obtenir et .  Ainsi, .  "
+},
+{
+  "id": "exo-relRecSupp-2-7",
+  "level": "2",
+  "url": "sec-relRecSupp.html#exo-relRecSupp-2-7",
+  "type": "Exercice",
+  "number": "6.3.5",
+  "title": "",
+  "body": "On considère le nombre de chaînes binaites de longueur qui contiennent la suite de caractères .  Trouver les conditions initiales, c'est-à-dire, déterminer et .  On a et .  Trouver une relation re récurrence pour la suite .  La relation est une relation linéaire non homogène.  On considère la tâche d'écrire une chaîne binaire de longueur contenant la suite . On utilise le principe de la somme selon le premier caractère utilisé.  Si le premier caractère est un , alors il doit y avoir la suite à quelque part dans les caractères restants. Ainsi, il reste à choisir une chaînes à caractères contenant la suite . Il y a façons d'accomplir cette tâche.  Si le premier caractère utilisé est un , il faut faire plus attention. On doit encore séparer en deux cas.  Tout d'abord, si la chaîne commence par , il se peut que la suite se trouve parmi les caractères restants. Ainsi, il reste à choisir une chaînes à caractères contenant la suite . Il y a façons d'accomplir cette tâche.  Cependant, on remarque que dans le cas précédent, on ne compte pas les chaînes qui contiennent la suite uniquement dans les deux premiers caractères. On suppose donc que la suite se retouve dans la chaîne uniquement au début de celle-ci. C'est-à-dire que la chaîne commence par , mais n'a pas la suite dans les caractères restants. Ainsi, il reste à choisir une chaîne de caractères qui ne contient pas la suite . En passant par le complément, il y a façons d'accomplir cette tâche.  Par le principe de la somme, on a .  Trouver une expression pour . Puisque la relation est non homogène, on devra utiliser une solution particulière. Prendre une solution particulière de la forme , où est une constante à déterminer.  On commence par résoudre la relation homogène. On trouve alors   Ensuite, on remplaçant par dans la relation, on obtient .  Ainsi, on a que . À l'aide des conditions initiales, on a et . On peut résoudre ces équations et obtenir et .  Par ce qui précède, on a .  "
+},
+{
   "id": "sec-sommation",
   "level": "1",
   "url": "sec-sommation.html",
