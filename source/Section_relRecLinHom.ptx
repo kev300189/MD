@@ -20,7 +20,7 @@
     <subsection xml:id="subs-defRelRec">
         <title>Suites et relations de récurrence</title>
     <definition xml:id="def-suite">
-    <p>Une suite est une fonction partant d'un sous-ensemble des entiers (souvent <m>\{0,1,2,\dots\}</m> ou <m>\{1,2,\dots\}</m>) vers un ensemble <m>S</m> quelconque. On utilise la notation <m>a_n</m> pour représenter l'image de <m>n</m> par la fonction. On appelle <m>a_n</m> un terme de la suite. On utilisera la notation <m>\{a_n\}</m> pour représenter la suite elle même.</p>
+    <p>Une suite est une fonction partant d'un sous-ensemble des entiers (souvent <m>\{0,1,2,\dots\}</m> ou <m>\{1,2,\dots\}</m>) vers un ensemble <m>S</m> quelconque. On utilise la notation <m>a_n</m> pour représenter l'image de <m>n</m> par la fonction. On appelle <m>a_n</m> un terme de la suite. On utilisera la notation <m>\{a_n\}</m> pour représenter la suite elle-même.</p>
     </definition>    
     
     <example xml:id="exe-suite"> 
@@ -36,27 +36,27 @@
         <title>Des suites définies par récurrence</title>
     <task xml:id="exe-relReccurence"> 
     <statement>
-    <p>Soit <m>\{a_n\}</m> la suite satisfaisant la relation de récurrence <m>a_n=a_{n-1}+4</m> pour <m>n=1,2,3,\dots,</m> telle que <m>a_0=3.</m> Quels sonts les termes <m>a_1,a_2</m> et <m>a_3</m>?</p>
+    <p>Soit <m>\{a_n\}</m> la suite satisfaisant la relation de récurrence <m>a_n=a_{n-1}+4</m> pour <m>n=1,2,3,\dots,</m> telle que <m>a_0=3.</m> Quels sont les termes <m>a_1,a_2</m> et <m>a_3</m>?</p>
     </statement>
-    <solution><p> On a que <m>a_1=a_0+3=3+4=7</m>. Puisqu'on vient de détermnier <m>a_1</m>, on peut maintenant obtenir <m>a_2=a_1+4=7+4=11.</m> Finalement, on a <m>a_3=a_2+4=11+4=15</m>.</p></solution>
+    <solution><p> On a que <m>a_1=a_0+3=3+4=7</m>. Puisqu'on vient de déterminer <m>a_1</m>, on peut maintenant obtenir <m>a_2=a_1+4=7+4=11.</m> Finalement, on a <m>a_3=a_2+4=11+4=15</m>.</p></solution>
     </task>
 
     <task xml:id="exe-relReccurence2"> 
     <statement>
-    <p>Soit <m>\{a_n\}</m> la suite satisfaisant la relation de récurrence <m>a_n=a_{n-1}-a_{n-2}</m> pour <m>n=2,3,4,\dots,</m> telle que <m>a_0=2</m> et <m>a_1=6.</m> Quels sonts les termes <m>a_2,a_3</m> et <m>a_4</m>?</p>
+    <p>Soit <m>\{a_n\}</m> la suite satisfaisant la relation de récurrence <m>a_n=a_{n-1}-a_{n-2}</m> pour <m>n=2,3,4,\dots,</m> telle que <m>a_0=2</m> et <m>a_1=6.</m> Quels sont les termes <m>a_2,a_3</m> et <m>a_4</m>?</p>
     </statement>
     <solution><p> On a que <m>a_2=a_1 - a_0=6-2=4</m>. Ainsi, on peut maintenant obtenir <m>a_3=a_2-a_1=4-6=-2.</m> Finalement, on a <m>a_4=a_3-a_2=-2-4=-6</m>.</p></solution>
     </task>
     </example>
 
     <definition xml:id="def-relReccurence">
-    <p>Une relation de recurrence pour une suite <m>\{a_n\}</m> est une expression du terme <m>a_n</m> en fonction d'un ou plusieurs des termes précédents de la suite, et ce, pour <m>n\geq n_0 \in\, \N.</m> On dira aussi que la suite <m>\{a_n\}</m> est une solution à la relation de récurrence.</p>
+    <p>Une relation de récurrence pour une suite <m>\{a_n\}</m> est une expression du terme <m>a_n</m> en fonction d'un ou plusieurs des termes précédents de la suite, et ce, pour <m>n\geq n_0 \in\, \N.</m> On dira aussi que la suite <m>\{a_n\}</m> est une solution à la relation de récurrence.</p>
     </definition>
     
     <example xml:id="exe-Fibonacci"> 
     <title>La suite de Fibonacci</title>
     <statement>
-    <p>Soit <m>\{a_n\}</m> la suite satisfaisant la relation de récurrence <m>a_n=a_{n-1}+a_{n-2}</m> pour <m>n=2,3,4,\dots,</m> telle que <m>a_0=1</m> et <m>a_1=1.</m> On appelle cette suite la suite de Fibonacci. Quels sont les terme <m>a_2,a_3,a_4,a_5</m> et <m>a_6</m>?</p>
+    <p>Soit <m>\{a_n\}</m> la suite satisfaisant la relation de récurrence <m>a_n=a_{n-1}+a_{n-2}</m> pour <m>n=2,3,4,\dots,</m> telle que <m>a_0=1</m> et <m>a_1=1.</m> On appelle cette suite la suite de Fibonacci. Quels sont les termes <m>a_2,a_3,a_4,a_5</m> et <m>a_6</m>?</p>
     </statement>
     <solution> En utilisant la relation de récurrence, on trouve que <m>a_2=2,a_3=3,a_4=5,a_5=8</m> et <m>a_6=13</m>.</solution>
     </example>
@@ -70,7 +70,7 @@
     </example>
     
      
-    <p>Il est possible d'utiliser les relations de récurrence afin de résoudre des problèmes de dénombrement qui seraient très difficile de résoudre à l'aide des techinques vues précédemment. On donne deux exemples ici, et on ecplorera d'autres exemples dans les prochaines sections.</p>
+    <p>Il est possible d'utiliser les relations de récurrence afin traiter des problèmes de dénombrement qui seraient très difficile à résoudre à l'aide des techniques vues précédemment. On donne deux exemples ici, et on explorera d'autres exemples dans les prochaines sections.</p>
 
     <example xml:id="exe-denombrement">
         <title>Dénombrement avec relation de récurrence: Chaînes binaires</title>
@@ -78,7 +78,7 @@
     <p> On note <m>S_n</m> le nombre de chaînes binaires de longueur <m>n</m> qui n'ont pas deux <m>0</m> consécutifs. Il est difficile de déterminer <m>S_n</m> directement, mais on peut tout de même trouver une relation de récurrence et des conditions initiales pour <m>S_n</m>.</p>
     </statement>
     <solution>
-    <p>Tout d'abord  on remarque que pour <m>n=1</m>, les deux seules chaînes binaires de longueur <m>1</m> ne peuvent pas contenir deux <m>0</m> consécutifs. Ainsi, <m>S_1=2</m>. </p>
+    <p>Tout d'abord,  on remarque que pour <m>n=1</m>, les deux seules chaînes binaires de longueur <m>1</m> ne peuvent pas contenir deux <m>0</m> consécutifs. Ainsi, <m>S_1=2</m>. </p>
     <p>Ensuite, si <m>n=2,</m> alors il y a une unique chaîne binaire contenant deux <m>0</m> consécutifs. Ainsi, <m>S_2=4-1=3</m>.</p>
     <p>Supposons maintenant que <m>n\geq 3</m>. On note <m>S_{n,1}</m> le nombre de chaînes binaires de longueur <m>n</m> n'ayant pas deux <m>0</m> consécutifs et se terminant par un <m>1.</m> De même, on note <m>S_{n,0}</m> le nombre de chaînes binaires de longueur <m>n</m> n'ayant pas deux <m>0</m> consécutifs et se terminant par un <m>0.</m> Par le principe de la somme, on a <m>S_n=S_{n,1}+S_{n,0}</m></p>
     <p>On remarque que toute chaîne de longueur <m>n</m> n'ayant pas deux <m>0</m> consécutifs et se terminant par un <m>1</m> est formé d'une chaîne de longueur <m>n-1</m> n'ayant pas deux <m>0</m> consécutifs. Ainsi, <m>S_{n,1}=S_{n-1}</m>.</p>
@@ -90,12 +90,12 @@
 
     <example xml:id="exe-fctSurj">
         <title>Dénombrement avec relation de récurrence: Fonctions surjectives</title>
-    <statement> Soit <m>A</m> un ensemble de cardinalité <m>n</m> et <m>B=\{1,2,\dots,k\}</m> avec <m>n\geq k</m>. On note <m>C(n,k)</m> le nombre de fonction surjective <m>f:A\to B</m>. Trouvons une relation de récurrence pour <m>C(n,k)</m> 
+    <statement> Soit <m>A</m> un ensemble de cardinalité <m>n</m> et <m>B=\{1,2,\dots,k\}</m> avec <m>n\geq k</m>. On note <m>C(n,k)</m> le nombre de fonctions surjectives <m>f:A\to B</m>. Trouvons une relation de récurrence pour <m>C(n,k)</m> 
     </statement>
     <answer><p><m>C(n,k)=k\left(C(n-1,k)+C(n-1,k-1)\right)</m></p></answer>
     <solution>
     <p>On commence par considérer un élément particulier <m>a\in\,A</m> et on choisit la valeur de <m>f(a)</m>. Il y a <m>k</m> choix possible. Notons <m>f(a)=b\in\,B.</m> Il reste alors uniquement à déterminer les valeurs de <m>f</m> sur <m>A-\{a\}</m>.</p>
-    <p>Par la suite, on sépere en deux cas. Soit <m>a</m> est la seule préimage de <m>b</m>, soit il y a au moins une autre préimage pour <m>b</m>.</p>
+    <p>Par la suite, on sépere la situation en deux cas. Soit <m>a</m> est la seule préimage de <m>b</m>, soit il y a au moins une autre préimage pour <m>b</m>.</p>
     <p>Dans le premier cas, la restriction de <m>f</m> sur <m>A-\{a\}</m> est une fonction surjective vers l'ensemble <m>B-\{b\}</m>. Il y aura donc <m>C(n-1,k-1)</m> choix possibles.</p>
     <p>Dans le deuxième cas, la restriction de <m>f</m> sur <m>A-\{a\}</m> est une fonction surjective vers l'ensemble <m>B</m>. Il y aura donc <m>C(n-1,k)</m> choix possibles.</p>
     <p>Ainsi, par le principe du produit et de la somme, on a <m>C(n,k)=k\left(C(n-1,k)+C(n-1,k-1)\right)</m>.</p>
@@ -105,9 +105,9 @@
     <subsection xml:id="subs-relRecLinHom">
     <title>Relations de récurrence  et forme générale</title>
     <introduction xml:id= "intro-relRecLinHom">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    <p>Dans les exemples précédents, nous avons montrer qu'il est souvent plus facile de trouver une relation de récurrence pour une suite <m>\{a_n\}</m> que de trouver sa forme générale. On peut extraire certaines informations sur ces suites à l'aide de la relation de récurrence (limite de la suite, croissance/décroissance, bornes, etc.).</p>
+    <p>Dans les exemples précédents, nous avons observé qu'il est souvent plus facile de trouver une relation de récurrence pour une suite <m>\{a_n\}</m> que de trouver sa forme générale. On peut extraire certaines informations sur ces suites à l'aide de la relation de récurrence (limite de la suite, croissance/décroissance, bornes, etc.).</p>
     <p>Cependant, il est souvent très long (même pour un ordinateur) de déterminer le <m>n^{\text{ième}}</m> terme d'une suite <m>\{a_n\}</m> lorsque <m>n</m> est assez grand.  Heureusement, on peut utiliser la relation de récurrence afin de nous aider à trouver la forme générale.</p>
-    <p>Nous allons montrer quelques exemples pour lesquels on peut facilement trouver le terme général d'une suite à partir de la relation de récurrence. Par la suite, on étudiera une classe particulière de relations de récurrence pour lesquelles on connait la forme générale. Il s'agit des relations de récurrence linéaires homogènes (à coefficients constants). On étudiera en particulier celles d'ordre <m>2</m>.</p>
+    <p>Nous allons montrer quelques exemples pour lesquels on peut facilement trouver le terme général d'une suite à partir de la relation de récurrence. Par la suite, on étudiera une classe particulière de relations de récurrence pour lesquelles on connaît la forme générale. Il s'agit des relations de récurrence linéaires homogènes (à coefficients constants). On étudiera en particulier celles d'ordre <m>2</m>.</p>
     </introduction>
 <example xml:id="exe-formGen1">
 <title> Forme générale d'une relation de récurrence</title>
@@ -149,14 +149,14 @@
 </solution>
 </example>    
 
-<p>Les deux exemples précédant sont des exemples de relations de récurrence linéaire ( non-homogène pour <xref ref="exe-formGen1"/>, et homogène pour <xref ref="exe-formGen2"/>). On regarde un dernier exemple, qui sera un peu plus complexe que les précédent.</p>
-<p>Le reste de la section sera dédiée à l'étude des relations de récurence linéaire homogène, et on gardera en tête la forme de la solution de l'exemple <xref ref="exe-formGen2"/> afin de trouver la forme générale pour ce genre de relations. On étudiera les relation non-homogène dans la prochaine section</p>
+<p>Les deux exemples précédents sont des exemples de relations de récurrence linéaire ( non-homogène pour <xref ref="exe-formGen1"/>, et homogène pour <xref ref="exe-formGen2"/>). On regarde un dernier exemple, qui sera un peu plus complexe que les précédents.</p>
+<p>Le reste de la section sera dédiée à l'étude des relations de récurrence linéaire homogène, et on gardera en tête la forme de la solution de l'exemple <xref ref="exe-formGen2"/> afin de trouver la forme générale pour ce genre de relations. On étudiera les relations non-homogène dans la prochaine section.</p>
 
 <example xml:id="exe-formGenNonLin">
 <statement> On considère la suite <m>\{a_n\}</m> telle que <m>a_n=-a_{n-1}a_{n-2} </m> pour <m>n\geq 2,</m> <m>a_0=1</m> et <m>a_1=-1</m>. Qelle est la forme générale de <m>a_n</m>?</statement>
 <answer> <p><m>a_n=(-1)^{r_n},</m> où <m>r_n= n \mod 3</m> est le reste de la division de <m>n</m> par <m>3</m>.</p></answer>
 <solution>
-<p>On calcul <m>a_n</m> pour quelques valeurs de <m>n</m>.
+<p>On calcule <m>a_n</m> pour quelques valeurs de <m>n</m>.
 <md>
 <mrow> a_2\amp=-a_1a_{0}=-(1)(-1)=1</mrow>
 <mrow> a_3\amp=-a_2a_{1}=-(-1)(1)=1</mrow>
@@ -178,7 +178,7 @@ Ici, il faut réfléchir un peu plus pour trouver la forme générale en raison 
 <subsection xml:id="subs-recLinHom">
 <title> Relations de récurrence linéaires homogènes</title>
 <introduction xml:id="intro-recLinHom">
-<p>Tel que mentionnée, la plupart des relation de récurrence sont difficile à résoudre. Nous donnons ici les définitions pour certaines de ces relations pour lesquelles on connait la solution.</p>
+<p>Tel que mentionné, la plupart des relations de récurrence sont difficiles à résoudre. Nous donnons ici les définitions pour certaines de ces relations pour lesquelles on connaît la solution.</p>
 </introduction>
 <definition xml:id="def-recLinHom">
 <statement> Une relation de récurrence linéaire homogène (à coefficient constant) est une relation de la forme:
@@ -198,7 +198,7 @@ Les relations de récurrence suivantes sont linéaires homogènes
 </statement>
 </example>
 
-<p>Voici quelques exemples de relations qui ne sont pas linéaire homogène (ou n'ont pas des coefficients constants).</p>
+<p>Voici quelques exemples de relations qui ne sont pas linéaires homogènes (ou n'ont pas des coefficients constants).</p>
 
 <example xml:id="exe-noRecLinHom">
 <statement> 
@@ -218,16 +218,16 @@ La relation suivante est linéaire homogène, mais n'est pas à coefficients con
 </subsection>
 
 <subsection xml:id="subs-solLinHom">
-<title> Solutions aux équations de récurrence linéaires homogènes d'odre 2: Cas 1</title>
+<title> Solutions aux équations de récurrence linéaires homogènes d'ordre 2: Cas 1</title>
 <introduction>
-<p>On a déjà remarqué que, pour une relation de récurrence donnée, il peut y avoir plusieurs suites qui la satisfont. Si on connait également quelques termes (disons <m>a_0,a_1,\dots ,a_k</m>) alors la solution devient alors unique.</p>
-<p>On veut trouver la forme générale des solutions pour une relation de récurence linéaire homogène d'ordre <m>2,</m> c'est-à-dire une relation de la forme <m>a_n=c_1a_{n-1}+c_2a_{n-2}</m>. On s'inspire de l'exemple <xref ref="exe-formGen2"/>. </p>
+<p>On a déjà remarqué que, pour une relation de récurrence donnée, il peut y avoir plusieurs suites qui la satisfont. Si on connaît également quelques termes (disons <m>a_0,a_1,\dots ,a_k</m>) alors la solution devient alors unique.</p>
+<p>On veut trouver la forme générale des solutions pour une relation de récurrence linéaire homogène d'ordre <m>2,</m> c'est-à-dire une relation de la forme <m>a_n=c_1a_{n-1}+c_2a_{n-2}</m>. On s'inspire de l'exemple <xref ref="exe-formGen2"/>. </p>
 </introduction>
 <example xml:id="exe-solLinHomDeux">
 <title> Une première solution à une relation de récurrence linéaire homogène d'ordre 2</title>
 <statement>Soit la relation <m>a_n=c_1a_{n-1}+c_2a_{n-2}</m>, est-ce possible que la suite  au terme général <m>a_n=r^n</m> soit une solution à cette relation? Si oui, sous quelle(s) condition(s)?</statement>
 <solution> 
-<p>On suppose que <m>a_n=r_1^n</m> est une solution à la relation de récurrence, où <m>r_1\neq 0.</m> Ici, on rejette le cas <m>r_1=0,</m> car il s'agit de la solution triviale. En particuler, on a <m>a_{n-1}=r_1^{n-1}</m> et <m>a_{n-2}=r_1^{n-2}</m>. Ainsi, en remplaçant dans l'équation, on a
+<p>On suppose que <m>a_n=r_1^n</m> est une solution à la relation de récurrence, où <m>r_1\neq 0.</m> Ici, on rejette le cas <m>r_1=0,</m> car il s'agit de la solution triviale. En particulier, on a <m>a_{n-1}=r_1^{n-1}</m> et <m>a_{n-2}=r_1^{n-2}</m>. Ainsi, en remplaçant dans l'équation, on a
 <md>
 <mrow> r_1^n\amp=c_1r_1^{n-1}+ c_2r_1^{n-2} </mrow>
 <mrow> 0\amp=r_1^n-c_1r_1^{n-1} -c_2r_1^{n-2} = r_1^{n-2}\left(r_1^2-c_1r_1-c_2 \right)</mrow>
@@ -247,7 +247,7 @@ Ainsi, on a que si <m>r_1</m> est une racine du polynôme <m>r^2-c_1r-c_2</m>, a
 </statement>
 </definition>
 
-<p>Puisque l'équation caractéristique d'une relation de récurrence linéaire d'Ordre 2 est un polynôme d'ordre 2, on risque donc d'obtenir deux solutions différentes à l'aide de l'équation caractéristiques. Peut-on en obtenir d'avantage?</p>
+<p>Puisque l'équation caractéristique d'une relation de récurrence linéaire d'Ordre 2 est un polynôme d'ordre 2, on risque donc d'obtenir deux solutions différentes à l'aide de l'équation caractéristique. Peut-on en obtenir davantage?</p>
 
 <example xml:id="exe-equCarPlusieursSol">
     <title> L'équation caractéristique: Un premier cas</title>
@@ -261,8 +261,8 @@ Ainsi, on a que si <m>r_1</m> est une racine du polynôme <m>r^2-c_1r-c_2</m>, a
 <mrow> r_2^{n}\amp=r_2^{n-1} +2r_2^{n-2}</mrow>
 </md>
 </p>
-<p>Pour vérifier que <m>a_n=3r_1^n+4r_2^n</m> satisfait la relation de récurrence, on doit vérivier que <m>a_n=a_{n-1}+2a_{n-2}</m>.</p>
-<p>D'une côté, on a que <m>a_n=3r_1^n+4r_2^n</m> (c'est ce qu'on a supposé)</p>
+<p>Pour vérifier que <m>a_n=3r_1^n+4r_2^n</m> satisfait la relation de récurrence, on doit vérifier que <m>a_n=a_{n-1}+2a_{n-2}</m>.</p>
+<p>D'un côté, on a que <m>a_n=3r_1^n+4r_2^n</m> (c'est ce qu'on a supposé)</p>
 <p>De l'autre côté, on a que 
 <md>
 <mrow> a_{n-1}+2a_{n-2}\amp= (3r_1^{n-1}+4r_2^{n-1})+2(3r_1^{n-2}+4r_2^{n-2})</mrow>
@@ -274,7 +274,7 @@ Ainsi, on a bien que <m>a_n=3r_1^n+4r_2^n</m> satisfait à la relation de récur
 </solution>
 </statement>
 </example>
-<p>En relisant la solution à l'exemple précédent, on constate que les valeurs des constantes devant les <m>r_i</m> n'ont pas affecté nos démarches. La seule chose qu'on a utilisée, c'est le fait que les <m>r_i</m> sont des solutions à l'équations caractéristiques.</p>
+<p>En relisant la solution à l'exemple précédent, on constate que les valeurs des constantes devant les <m>r_i</m> n'ont pas affecté nos démarches. La seule chose qu'on a utilisée, c'est le fait que les <m>r_i</m> sont des solutions à l'équation caractéristique.</p>
 <p>En fait, on peut même montrer que toutes les solutions seront de cette forme.</p>
 
 <proposition xml:id="prop-solRecLinHomDeux">
@@ -295,14 +295,14 @@ où les <m>\alpha_i</m> sont des constantes réelles. </p>
 </statement>
 <answer><m>a_n=\frac{16}{3}(2)^n+\frac{-1}{3}(-1)^n</m></answer>
 <solution>
-<p>À l'exemple <xref ref="exe-equCarPlusieursSol"/>, on a déjà montrer que l'équation caractéristique de cette relation possède <m>r_1=2</m> et <m>r_2=(-1)</m> comme solution.</p>
+<p>À l'exemple <xref ref="exe-equCarPlusieursSol"/>, on a déjà montré que l'équation caractéristique de cette relation possède <m>r_1=2</m> et <m>r_2=(-1)</m> comme solution.</p>
 <p>Par la proposition <xref ref="prop-solRecLinHomDeux" />, on sait que la solution devra avoir la forme <men xml:id="eq-formGen">a_n=\alpha_1r_1^n+\alpha_2r_2^n=\alpha_1(2)^n+\alpha_2(-1)^n</men>.</p>
-<p>Ainsi, puisque <m>a_0=5</m> et <m>a_1=11,</m> en remplaçant <m>n</m> par <m>0</m> et <m>1</m> dans <xref ref="eq-formGen"/>, on obtient un système d'équations suivants. 
+<p>Ainsi, puisque <m>a_0=5</m> et <m>a_1=11,</m> en remplaçant <m>n</m> par <m>0</m> et <m>1</m> dans <xref ref="eq-formGen"/>, on obtient un système d'équations suivant. 
 <md>
 <mrow> 5\amp= \alpha_1 (2)^0+\alpha_2(-1)^0=\alpha_1+\alpha_2;</mrow>
 <mrow> 11\amp= \alpha_1 (2)^1+\alpha_2(-1)^1=2\alpha_1-\alpha_2.</mrow>
 </md>
-En résolvant ce sytème d'équations, on a que <m>\alpha_1=\frac{16}{3}</m> et <m>\alpha_2=\frac{-1}{3}</m>.
+En résolvant ce système d'équations, on a que <m>\alpha_1=\frac{16}{3}</m> et <m>\alpha_2=\frac{-1}{3}</m>.
 </p>
 <p>Ainsi, on a que la suite <m>\{a_n\}</m> est la suite dont le terme général est <m>a_n=\frac{16}{3}(2)^n+\frac{-1}{3}(-1)^n</m>.</p>
 </solution>
@@ -318,12 +318,12 @@ En résolvant ce sytème d'équations, on a que <m>\alpha_1=\frac{16}{3}</m> et 
 <solution>
 <p>L'équation caractéristique de cette relation est <m>0=r^2-5r+6=(r-2)(r-3).</m> Ainsi, on pose <m>r_1=2</m> et <m>r_2=3</m> les deux solutions à cette équation.</p>
 <p>Par la proposition <xref ref="prop-solRecLinHomDeux" />, on sait que la solution devra avoir la forme <men xml:id="eq-formGenn">a_n=\alpha_1r_1^n+\alpha_2r_2^n=\alpha_1(2)^n+\alpha_2(3)^n</men>.</p>
-<p>Ainsi, puisque <m>a_0=1</m> et <m>a_1=0,</m> en remplaçant <m>n</m> par <m>0</m> et <m>1</m> dans <xref ref="eq-formGenn"/>, on obtient le système d'équations suivants. 
+<p>Ainsi, puisque <m>a_0=1</m> et <m>a_1=0,</m> en remplaçant <m>n</m> par <m>0</m> et <m>1</m> dans <xref ref="eq-formGenn"/>, on obtient le système d'équations suivant. 
 <md>
 <mrow> 1\amp=\alpha_1+\alpha_2;</mrow>
 <mrow> 0\amp= 2\alpha_1 +3\alpha_2.</mrow>
 </md>
-En résolvant ce sytème d'équations, on a que <m>\alpha_1=3</m> et <m>\alpha_2=-2</m>.
+En résolvant ce système d'équations, on a que <m>\alpha_1=3</m> et <m>\alpha_2=-2</m>.
 </p>
 <p>Ainsi, on a que la suite <m>\{a_n\}</m> est la suite dont le terme général est <m>a_n=3(2)^n-2(3)^n</m>.</p>
 </solution>
@@ -332,7 +332,7 @@ En résolvant ce sytème d'équations, on a que <m>\alpha_1=3</m> et <m>\alpha_2
 </subsection>
 
 <subsection xml:id="subs-solLinHom2">
-<title>Solutions aux équations de récurrence linéaires homogènes d'odre 2: Cas 2 </title>
+<title>Solutions aux équations de récurrence linéaires homogènes d'ordre 2: Cas 2 </title>
 <introduction>
 <p>Jusqu'à maintenant, les équations caractéristiques que l'on a rencontrées avaient des solutions distinctes. Nous allons maintenant regarder le cas où il y a une seule solution.</p>
 </introduction>
@@ -358,7 +358,7 @@ En résolvant ce sytème d'équations, on a que <m>\alpha_1=3</m> et <m>\alpha_2
 </solution>
 </example>
 
-<p>On a une nouvelle version de la proposition <xref ref="prop-solRecLinHomDeux"/> dans le cas où l'équation caractéristique ne possède q'une seule racine.</p>
+<p>On a une nouvelle version de la proposition <xref ref="prop-solRecLinHomDeux"/> dans le cas où l'équation caractéristique ne possède qu'une seule racine.</p>
 
 <proposition xml:id="prop-solRecLinHomDeuxMult">
 <title> Solution aux relations de récurrence linéaires homogènes d'ordre <m>2</m>: cas 2 </title>
@@ -380,12 +380,12 @@ Trouver la suite <m>\{a_n\}</m> telle que <m>a_n=6a_{n-1}-9a_{n-2},</m> sachant 
 <solution>
 <p>À l'exemple <xref ref="exe-LinHomMult"/>, on a déjà montré que l'équation caractéristique de cette relation possède l'unique solution <m>r_1=3</m>.</p>
 <p>Par la proposition <xref ref="prop-solRecLinHomDeuxMult" />, on sait que la solution devra avoir la forme <men xml:id="eq-formGenMult">a_n=\alpha_1r_1^n+\alpha_2nr_1^n=\alpha_1(3)^n+\alpha_2 n(3)^n</men>.</p>
-<p>Ainsi, puisque <m>a_0=2</m> et <m>a_1=15,</m> en remplaçant <m>n</m> par <m>0</m> et <m>1</m> dans <xref ref="eq-formGenMult"/>, on obtient le système d'équations suivants. 
+<p>Ainsi, puisque <m>a_0=2</m> et <m>a_1=15,</m> en remplaçant <m>n</m> par <m>0</m> et <m>1</m> dans <xref ref="eq-formGenMult"/>, on obtient le système d'équations suivant. 
 <md>
 <mrow> 2\amp= \alpha_1(3)^0 +\alpha_2(0)(3)^0=\alpha_1;</mrow>
 <mrow> 15\amp= \alpha_1 (3)^1+\alpha_2(1)(3)^1=3\alpha_1+3\alpha_2.</mrow>
 </md>
-En résolvant ce sytème d'équations, on a que <m>\alpha_1=2</m> et <m>\alpha_2=3</m>.
+En résolvant ce système d'équations, on a que <m>\alpha_1=2</m> et <m>\alpha_2=3</m>.
 </p>
 <p>Ainsi, on a que la suite <m>\{a_n\}</m> est la suite dont le terme général est <m>a_n=2(3)^n+3n(3)^n</m>.</p>
 </solution>
@@ -400,12 +400,12 @@ Trouver la suite <m>\{a_n\}</m> telle que <m>a_n=4a_{n-1}-4a_{n-2},</m> sachant 
 <solution>
 <p>L'équation caractéristique de cette relation de récurrence est <m>0=r^2-4r+4=(r-2)^2.</m> L'unique solution à cette équation est <m>r_1=2</m>.</p>
 <p>Par la proposition <xref ref="prop-solRecLinHomDeuxMult" />, on sait que la solution devra avoir la forme <men xml:id="eq-formGenMult2">a_n=\alpha_1r_1^n+\alpha_2nr_1^n=\alpha_1(2)^n+\alpha_2 n(2)^n</men>.</p>
-<p>Ainsi, puisque <m>a_0=0</m> et <m>a_1=-12,</m> en remplaçant <m>n</m> par <m>0</m> et <m>1</m> dans <xref ref="eq-formGenMult2"/>, on obtient un système d'équations suivants. 
+<p>Ainsi, puisque <m>a_0=0</m> et <m>a_1=-12,</m> en remplaçant <m>n</m> par <m>0</m> et <m>1</m> dans <xref ref="eq-formGenMult2"/>, on obtient un système d'équations suivant. 
 <md>
 <mrow> 0\amp =\alpha_1;</mrow>
 <mrow> -12\amp=2\alpha_1+2\alpha_2.</mrow>
 </md>
-En résolvant ce sytème d'équations, on a que <m>\alpha_1=0</m> et <m>\alpha_2=-6</m>.
+En résolvant ce système d'équations, on a que <m>\alpha_1=0</m> et <m>\alpha_2=-6</m>.
 </p>
 <p>Ainsi, on a que la suite <m>\{a_n\}</m> est la suite dont le terme général est <m>a_n=-6n(2)^n</m>.</p>
 </solution>
@@ -417,7 +417,7 @@ En résolvant ce sytème d'équations, on a que <m>\alpha_1=0</m> et <m>\alpha_2
 <title> Relations de récurrence linéaires homogènes d'ordre <m>k</m></title>
 <introduction>
 <p>Pour le moment, nous avons étudié les relations linéaires d'ordre <m>2,</m> mais le traitement effectué peut se faire pour des relations d'ordre <m>k</m> quelconque. Par exemple, on peut facilement trouver les solutions générales pour des relations d'ordre <m>1</m> (voir exemple <xref ref="exe-formGen2"/>). </p>
-<p>En théorie, la situation n'est pas bien plus compliqué si <m>k\geq 3.</m> Cependant, il faudra résoudre une équation polynômiale de degré <m>k,</m> ce qui peut-être très difficile! De plus, pour trouver la solution respectant les conditions initiales, il faut résoudre un système de <m>k</m> équations à <m>k</m> inconnues. Ceci n'est pas trop difficile, mais requiert des méthodes que vous verrez dans le cours d'algèbre linéaire.</p>
+<p>En théorie, la situation n'est pas bien plus compliquée si <m>k\geq 3.</m> Cependant, il faudra résoudre une équation polynomiale de degré <m>k,</m> ce qui peut-être très difficile! De plus, pour trouver la solution respectant les conditions initiales, il faut résoudre un système de <m>k</m> équations à <m>k</m> inconnues. Ceci n'est pas trop difficile, mais requiert des méthodes que vous verrez dans le cours d'algèbre linéaire.</p>
 <p>On donne ici la généralisation des méthodes pour des relations d'ordre <m>k</m>.</p>
 </introduction>
 
@@ -431,7 +431,7 @@ En résolvant ce sytème d'équations, on a que <m>\alpha_1=0</m> et <m>\alpha_2
 </statement>
 </definition>
 
-<p>On obtien cette équation en remplaçant <m>a_n</m> par <m>r^n</m> dans la relation de récurrence. On voir alors que la suite <m>\{a_n\}</m> de terme général <m>a_n=r_1^n</m> satisfait la relation de récurrence <xref ref="equ-relRecK"/> si et seulement si <m>r_1</m> est une solution à l'équation caractéristique <xref ref="eq-eqCarK"/>. Si l'équation caractéristique possède <m>k</m> racines distinctes, on à la proposition suivante.</p>
+<p>On obtient cette équation en remplaçant <m>a_n</m> par <m>r^n</m> dans la relation de récurrence. On voir alors que la suite <m>\{a_n\}</m> de terme général <m>a_n=r_1^n</m> satisfait la relation de récurrence <xref ref="equ-relRecK"/> si et seulement si <m>r_1</m> est une solution à l'équation caractéristique <xref ref="eq-eqCarK"/>. Si l'équation caractéristique possède <m>k</m> racines distinctes, on à la proposition suivante.</p>
 
 <proposition xml:id="prop-solRecLinHomDeuxK">
 <title> Solution aux relations de récurrence linéaires homogènes d'ordre <m>k</m>: Racines distinctes </title>

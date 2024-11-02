@@ -56,7 +56,7 @@
     <answer><m> P_k = k P_{k-1}</m></answer>
     </task>
     <task><statement>Déterminer <m>P_1</m> </statement> <answer> <m> P_1=1</m></answer></task>
-    <task><statement> Utiliser la relation de récurrence et la condition initiale trouver dans les étapes précédentes pour vérifier que <m>P_k=k!</m></statement>
+    <task><statement> Utiliser la relation de récurrence et la condition initiale trouvée dans les étapes précédentes pour vérifier que <m>P_k=k!</m></statement>
     <solution><p> En utilisant la relation de récurrence à plusieurs reprises (à <m>k-1</m> reprise pour être exacte), on a
 <md>
 <mrow> P_k\amp=kP_{k-1} </mrow>
@@ -72,14 +72,14 @@
 
     <exercise>
     <introduction>
-    <p> Une machine distributrices accepte uniquement des pièces de <m>1\$,</m> des pièces de <m>2\$</m> et des billets de <m>5\$</m> </p> 
+    <p> Une machine distributrice accepte uniquement des pièces de <m>1\$,</m> des pièces de <m>2\$</m> et des billets de <m>5\$</m> </p> 
     <p> Posons <m>p_n</m> le nombre de façons de donner <m>n</m> dollars à cette machine si l'ordre dans laquelle on donne l'argent est importante.</p>
     </introduction>
     <task>
     <statement><p> Trouver une relation de récurrence pour <m>p_n</m>.</p></statement>
     <answer> <m>p_{n}=p_{n-1}+p_{n-2}+p_{n-5}</m></answer>
     <solution>
-    <p>On cherche une relation de récurrence pour <m>n\geq 5.</m> Pour déterminer <m>p_n,</m> on utilise le principe de la somme selon la denrnière pièce ou le dernier billet utilisé afin de donner les <m>n</m> dollars.</p>
+    <p>On cherche une relation de récurrence pour <m>n\geq 5.</m> Pour déterminer <m>p_n,</m> on utilise le principe de la somme selon la dernière pièce ou le dernier billet utilisé afin de donner les <m>n</m> dollars.</p>
     <p>Il s'agit soit d'une pièce de <m>1\$,</m> soit une pièce de <m>2\$</m> ou bien un billet de <m>5\$</m> </p>
     <p>Ainsi, avant de donner la dernière pièce/le dernier billet, on avait donné <m>n-1,\, n-2</m> ou bien <m>n-5</m> dollar. </p>
     <p>Par le principe de la somme, on a <m>p_n=p_{n-1} + p_{n-2}+p_{n-5}</m>. </p>
@@ -88,7 +88,7 @@
     <task>
     <statement>Trouver les conditions initiales pour ce problème.</statement>
     <hint> Compter <m>p_n</m> selon le nombre de <m>1\$</m> utilisé.</hint>
-    <hint> Il faudra faire des permutations d'objets indiscernables (l'ordre est importante, mais on ne peut pas distinger les pièces de la même sorte).</hint>
+    <hint> Il faudra faire des permutations d'objets indiscernables (l'ordre est important, mais on ne peut pas distinguer les pièces de la même sorte).</hint>
     <hint>
     <p> On peut également trouver <m>p_1=1</m> et <m>p_2=2,</m> et ensuite trouver une relation de récurrence pour <m>p_3,\,p_4</m> et <m>p_5</m> de la même manière qu'on l'a fait pour <m>n\geq 5</m>.</p>
     <p> On aura <m>p_3=p_1+p_2,</m> <m>p_4=p_3+p_2</m> et <m>p_5=p_4+p_3+1</m>.</p>
@@ -105,7 +105,7 @@
     </task>
     <task>
     <statement> Déterminer <m>p_{10}</m>. </statement>
-    <hint> Utiliser la relation de récurrence jusqu'à ce que tous les indices soit entre <m> 1</m> et <m> 5</m>.</hint>
+    <hint> Utiliser la relation de récurrence jusqu'à ce que tous les indices soient entre <m> 1</m> et <m> 5</m>.</hint>
     <answer> <m> p_{10}=128</m> </answer>
     </task>
     </exercise>
@@ -113,7 +113,7 @@
 <exercise>
 <introduction><p> On note <m>a_n</m> le nombre de chaînes binaires de longueurs <m>n</m> qui contiennent trois <m>0</m> consécutifs.</p> </introduction>
 <task>
-<statement> Trouver une relation de récurrencepour <m>a_n</m>.</statement>
+<statement> Trouver une relation de récurrence pour <m>a_n</m>.</statement>
 <answer><m>a_n = a_{n-1} + a_{n-2}+a_{n-3}+2^{n-3} </m> </answer>
 </task>
 <task>
