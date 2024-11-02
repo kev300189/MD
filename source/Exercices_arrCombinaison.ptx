@@ -34,7 +34,7 @@
         
     
     <exercise xml:id="exo-moinsDur">
-        <introduction> <p>On forme des chaînes binaires de longueur <m>10</m>, formés de <m>5</m> caractères "<m>0</m>" et cinq caractères "<m>1</m>".</p></introduction>
+        <introduction> <p>On forme des chaînes binaires de longueur dix, formés de cinq caractères "<m>0</m>" et cinq caractères "<m>1</m>".</p></introduction>
         <task>
             <statement><p>Combiens de ces chaînes binaires y a-t-il?</p></statement>
             <answer><p> <m>\Binomial{10}{5}=\frac{10!}{5!\cdot 5!}</m></p></answer>

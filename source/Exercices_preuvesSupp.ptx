@@ -306,7 +306,12 @@
             <p>Montrer que si <m>n\in \N^\ast</m> est tel que la somme de ses diviseurs <m>n+1</m>, alors <m>n</m> est un nombre premier.</p>
         </statement>
         <solution>
-            <p>Par contradiction, supposons que la somme des diviseurs de <m>n</m> est <m>n+1</m>, mais que <m>n</m> n'est pas un nombre premier. Si <m>n</m> n'est pas un nombre premier, alors <m>n</m> possède au moins trois facteurs différents, soit <m>1</m>, <m>n</m> et <m>1\lt m \lt n</m>. La somme des facteurs est donc au moins de <m>n+1+m \gt n+1</m>, ce qui est en contradiction avec notre hypothèse. Ainsi, on doit avoir  que <m>n</m>  est un nombre premier.</p>
+            <p>Par contradiction, supposons que la somme des diviseurs de <m>n</m> est <m>n+1</m>, mais que <m>n</m> n'est pas un nombre premier. Si <m>n</m> n'est pas un nombre premier, alors <m>n</m> possède au moins trois facteurs différents, soit <m>1</m>, <m>n</m> et <m>m\in \N^\ast </m> tel que <m> 1\lt m \lt n</m>. La somme des facteurs est donc au moins de <m>n+1+m \gt n+1</m>, ce qui est en contradiction avec notre hypothèse. Ainsi, on doit avoir  que <m>n</m>  est un nombre premier.</p>
+            <remark>
+                <p>
+                    Lorsqu'on montre qu'une proposition <m>p\rightarrow q</m> est vraie par contradiction, celà revient souvent à faire une preuve indirecte. En effet, on a montré que si <m>\neg q</m> est vraie, alors <m>\neg p</m> est vraie.
+                </p>
+            </remark>
         </solution>
     </exercise>
     <exercise>
