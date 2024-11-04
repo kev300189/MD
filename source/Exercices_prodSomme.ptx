@@ -55,12 +55,17 @@
 </task>
     </exercise>
 
-<exercise><statement><p>Lors de la finale de la course du <m>100</m> mètres aux derniers jeux Olympiques, il y avait <m>8</m> coureurs. De combien de manières possibles le podium pouvait-il être composé?</p></statement>
+<exercise>
+    <statement><p>Lors de la finale de la course du <m>100</m> mètres aux derniers jeux Olympiques, il y avait <m>8</m> coureurs. De combien de manières possibles le podium pouvait-il être composé?</p></statement>
     <answer>
-<p><m>8\cdot 7\cdot 6</m></p>
-
-</answer>
-    </exercise>
+        <p><m>8\cdot 7\cdot 6</m></p>
+    </answer>
+    <solution>
+        <p>
+            On construit le podium en trois étapes. On choisit la personne qui est première, et ensuite la personne qui est deuxième, et finalement la personne qui est troisième. Il y a <m>8</m> choix pour la première personne, <m>7</m> choix pour la deuxième et <m>6</m> choix pour la troisième. Par le principe du produit, il y a <m>8\cdot 7\cdot 6</m> podiums différents.
+        </p>
+    </solution>
+</exercise>
 
 <exercise>
 
@@ -69,34 +74,74 @@
 <task>
 <statement><p>si les lettres peuvent se répéter?</p></statement>
 <answer><p><m> 26^7 </m></p></answer>
+<solution>
+    <p>
+    Il y a <m>26</m> possibilités pour chacune des sept lettres, puisqu'il peut y avoir des répétitions. Par le principe du produit, il y a <m>26\cdot 26 \cdot 26\cdot 26\cdot 26\cdot 26\cdot 26 =26^7 </m> chaînes possibles.
+    </p>
+</solution>
 </task>
 <task>
 <statement><p>si les lettres ne peuvent pas se répéter?  </p></statement>
 <answer><p><m> 26\cdot 25\cdot 24\cdot 23\cdot 22\cdot 21 \cdot 20  </m></p></answer>
+<solution>
+    <p>
+        Pour la première lettre qu'on choisit, il y a <m>26</m> possibilités. Cependant, puisque les répétitions ne sont pas autorisées, il ne restera que <m>26-1=25</m> choix pour la deuxième lettre. De même, il ne restera que <m>24</m> lettres pour la troisième, et ainsi de suite. Par la principe du produit, il y a donc <m>26\cdot 25\cdot 24 \cdot 23 \cdot 22 \cdot 21 \cdot 20</m> chaînes différentes.
+    </p>
+</solution>
 </task>
 <task>
 <statement><p> qui commencent par un <q>x</q>, si les lettres peuvent se répéter? </p></statement>
 <answer><p><m> 26^6 </m></p></answer>
+<solution>
+    <p>
+        Puisque la première lettre est un <q>x</q>, il n'y a qu'une seule possibilité pour cette lettre. Puisque les répétitions sont permises, il y aura <m>26</m> choix pour les six lettres restantes. Par le principe du produit, il y aura <m>1 \cdot 26 \cdot 26 \cdot 26 \cdot 26 \cdot 26 \cdot 26= 26^6</m> chaînes différentes.
+    </p>
+</solution>
 </task>
 <task>
 <statement><p> qui commencent par un <q>x</q>, si les lettres ne peuvent pas se répéter? </p></statement>
 <answer><p><m>  25\cdot 24\cdot 23\cdot 22\cdot 21 \cdot 20  </m></p></answer>
+<solution>
+    <p>
+        Puisque la première lettre est un <q>x</q>, il n'y a qu'une seule possibilité pour cette lettre.  Puisque les répétitions ne sont pas autorisées, il ne restera que <m>26-1=25</m> choix pour la deuxième lettre. De même, il ne restera que <m>24</m> lettres pour la troisième, et ainsi de suite. Par la principe du produit, il y a donc <m>1\cdot 25\cdot 24 \cdot 23 \cdot 22 \cdot 21 \cdot 20</m> chaînes différentes. 
+    </p>
+</solution>
 </task>
 <task>
 <statement><p> qui commencent et se terminent par un <q>x</q>, si les lettres peuvent se répéter? </p></statement>
 <answer><p><m> 26^5 </m></p></answer>
+<solution>
+    <p>
+        Puisque la première lettre est un <q>x</q>, il n'y a qu'une seule possibilité pour cette lettre. De même, il n'y a qu'une seule possibilité pour la dernière lettre. Il reste cinq lettres à déterminer, et puisque les répétitions sont permises, il y a <m>26</m> choix possibles pour ces cinq lettres. Par le prinicipe du produit, il y a <m>1 \cdot 1\cdot 26\cdot 26\cdot 26\cdot 26\cdot 26 = 26^5</m> chaînes différentes.
+    </p>
+</solution>
 </task>
-<task>
+<task xml:id="exo-chaineBo">
 <statement><p> qui commencent par les lettres <q>bo</q> (dans cet ordre), si les lettres peuvent se répéter? </p></statement>
 <answer><p><m> 26^5 </m></p></answer>
+<solution>
+    <p>
+        Puisque la première lettre est un <q>b</q>, il n'y a qu'une seule possibilité pour cette lettre. De même, il n'y a qu'une seule possibilité pour la deuxième  lettre, car il s'agit d'un <q>o</q>. Il reste cinq lettres à déterminer, et puisque les répétitions sont permises, il y a <m>26</m> choix possibles pour ces cinq lettres. Par le prinicipe du produit, il y a <m>1 \cdot 1\cdot 26\cdot 26\cdot 26\cdot 26\cdot 26 = 26^5</m> chaînes différentes.
+    </p>
+</solution>
 </task>
-<task>
+<task xml:id="exo-chaineBoEtBo">
 <statement><p> qui commencent  <em>et</em> se terminent par les lettres <q>bo</q> (dans cet ordre), si les lettres peuvent se répéter? </p></statement>
 <answer><p><m> 26^3 </m></p></answer>
+<solution>
+    <p>
+        Puisque les deux premières lettres sont <q>bo</q>, il n'y a qu'une seule possibilité pour ces deux lettres. De même, il n'y a qu'une seule possibilité pour les deux dernières lettre, qui sont aussi <q>bo</q>. Il reste trois lettres à déterminer, et puisque les répétitions sont permises, il y a <m>26</m> choix possibles pour ces trois lettres. Par le prinicipe du produit, il y a <m>1 \cdot 1\cdot 1\cdot 1\cdot 26\cdot 26\cdot 26 = 26^3</m> chaînes différentes.
+    </p>
+</solution>
 </task>
-<task>
+<task xml:id="exo-chaineBoOuBo">
 <statement><p> qui commencent  <em>ou</em> se terminent par les lettres <q>bo</q> (dans cet ordre), si les lettres peuvent se répéter? </p></statement>
 <answer><p><m> 26^5+26^5-26^3 </m></p></answer>
+<solution>
+    <p>
+        On note <m>C_{bo}</m> les chaînes commençant par <q>bo</q>. Par l'exercice <xref ref="exo-chaineBo"/>, on a que <m>C_{bo}=26^5</m>. On note ensuite <m>C^{bo}</m> les chaînes se terminant par <q>bo</q>. Par un argument similaire, on a que <m>C^{bo}=26^5</m>. Finalement, on note <m>C_{bo}^{bo}</m> les chaînes qui commencent et se terminent par <q>bo</q>. Par l'exercice <xref ref="exo-chaineBoEtBo"/>, on a que <m>C_{bo}^{bo}=26^3</m>. Par le principe d'inclusion-exclusion, le nombre de chaînes qui commencent  <em>ou</em> se terminent par les lettres <q>bo</q> sera <m>C_{bo} + C^{bo} - C_{bo}^{bo} = 26^5+26^5-26^3</m>.
+    </p>
+</solution>
 </task>
 </exercise>
 
@@ -110,16 +155,37 @@
 </exercise>
 
 <exercise>
-<introduction><p>On considère les entiers <m>n</m>, <m>0\lt n\lt 1\,000\,000</m>.</p></introduction>
-<task>
+<introduction><p>On considère les entiers <m>n</m> tel que <m>0\lt n\lt 1\,000\,000</m>.</p></introduction>
+<task xml:id="exo-div4Ou6">
 <statement><p>Combien de ces entiers <m>n</m> sont divisibles par <m>4</m> ou <m>6</m>?</p></statement>
 <hint><p>Pour être divisible par <m>4</m> et par <m>6</m>, il faut et il suffit d'être divisible par <m>12</m>.</p></hint>
 <answer><p><m>333\,332 </m></p></answer>
+<solution>
+    <p>
+        On note <m>N_4 = \{n\in \N ~|~ 0 \lt n \lt 1\ 000\ 000 \text{ et } 4 \text{ divise } n\}</m>. Si <m>4|n</m>, alors <m>n</m> s'écrit comme <m>n=4 t</m> pour <m>t\in \Z</m>. Ainsi, on peut réécrire <m>N_4</m> comme <m>N_4 = \{4t \in \N ~|~ 0 \lt 4t \lt 1\ 000\ 000 \text{ et } t\in \Z\}</m>. On peut alors conclure que <m>|N_4|</m> est le nombre de <m>t</m> satisfaisant les innéquations <m>0 \lt 4t \lt 1\ 000\ 000</m>. En divisant par <m>4</m>, celles-ci deviennent alors <m>0 \lt t \lt 250\ 000 </m>, ou encore <m>1\leq t \leq 249\ 999</m>. Ansi, <m>|N_4|=249\ 999</m>.
+    </p>
+    <p>
+        On note ensuite <m>N_6 = \{n\in \N ~|~ 0 \lt n \lt 1\ 000\ 000 \text{ et } 6 \text{ divise } n\}</m>. Par le même argument que pour <m>N_4</m>, on a que <m>|N_6|</m> est le nombre de <m>t</m> satisfaisant les innéquations <m>0 \lt 6t \lt 1\ 000\ 000</m>. En divisant par <m>6</m>, celles-ci deviennent alors <m>0 \lt t \lt \frac{1\ 000\ 000}{6} = 166\ 666,\overline{6} </m>, ou encore <m>1\leq t \leq 166\ 666</m>. Ansi, <m>|N_6|=166\ 666</m>.
+    </p>
+    <p>
+        Enfin, on note <m>N_{12} = \{n\in \N ~|~ 0 \lt n \lt 1\ 000\ 000 \text{ et } 12 \text{ divise } n\}</m>. Par le même argument que pour <m>N_4</m>, on a que <m>|N_{12}|</m> est le nombre de <m>t</m> satisfaisant les innéquations <m>0 \lt 12t \lt 1\ 000\ 000</m>. En divisant par <m>12</m>, celles-ci deviennent alors <m>0 \lt t \lt \frac{1\ 000\ 000}{12} = 83\ 333,\overline{3} </m>, ou encore <m>1\leq t \leq 83\ 333</m>. Ansi, <m>|N_6|=83\ 333</m>.
+    </p>
+    <p>
+        Par le principe d'inclusion-exclusion, et par l'indice, on a que le nombre d'entiers <m>n</m> tels que <m>0 \lt n \lt 1\ 000\ 000</m> avec <m>4|n</m> ou <m>6|n</m> est donné par <m>|N_{4}|+|N_{6}|-|N_{12}|=249\ 999 + 166\ 666-83\ 333=333\ 332</m>.
+    </p>
+</solution>
 </task>
+
 <task>
 <statement><p>Combien de ces entiers <m>n</m> ne sont divisibles ni par <m>4</m> ni par <m>6</m>?</p></statement>
 <hint>L'énoncé <q>n'est divisible ni par <m>4</m>, ni par <m>6</m></q> est la négation de l'éoncé <q>est divisible par <m>4</m> ou par <m>6</m></q>.</hint>
 <answer><p><m>666\,667</m></p></answer>
+<solution>
+    <p>
+        On sait qu'il y a <m> 9\999\ 999</m> entiers <m>n</m> tels que <m>0 \lt n \lt 1\ 000\ 000</m>. Par le principe de la soustraction, l'indice et l'exercice <xref ref="exo-div4Ou6"/>, on a que parmi les entiers <m>n</m> tels que <m>0 \lt n \lt 1\ 000\ 000</m>, le nombre de ceux-ci qui ne sont divisibles ni par <m>4</m>, ni par <m>6</m> est <m>9\ 999\ 999 - 333\ 332</m>
+    </p>
+</solution>
+
 </task>
 </exercise>
 
@@ -127,15 +193,41 @@
 
 <introduction><p>Supposons qu'un mot de passe pour un système informatique doit avoir entre <m>8</m> et <m>12</m> (inclusivement) caractères, où chaque caractère est soit une lettre minuscule ou majuscule, un chiffre ou l'un des caractères spéciaux  <m>\ast,\, \gt,\,\lt,\,!,\,+\text{ et }= </m>.</p></introduction>
 
-<task>
+<task xml:id="exo-psw8A12">
 <statement><p>Combien de mots de passe différents sont disponibles pour ce système informatique?</p></statement>
 <hint>Pour chaque caractère, il y a <m>26+26+10+6</m> possibilités. Il faut utiliser le principe de la somme selon le nombre de caractères.</hint>
-<answer><p><m>9\,920\,671\,339\,261\,325\,541\,376</m></p></answer>
+<answer><p><m>68^{8}+68^{9}+68^{10}+68^{11}+68^{12}=9\,920\,671\,339\,261\,325\,541\,376</m></p></answer>
+<solution>
+    <p>
+        On note <m>P_i</m> le nombre de mots de passe valides composés <m>i</m> caractères, pour <m>i\in \{8,9,10,11,12\}</m>.  
+    </p>
+    <p>
+        En applicant le principe du produit sur chaque <m>P_i</m>, on a que 
+        <md>
+            <mrow> P_{8}\amp =  68^{8} </mrow>
+            <mrow> P_{9}\amp =  68^{9} </mrow>
+            <mrow> P_{10}\amp =  68^{10} </mrow>
+            <mrow> P_{11}\amp =  68^{11} </mrow>
+            <mrow> P_{12}\amp =  68^{12} </mrow>.
+        </md>
+    </p>
+    <p>
+        Ensuite, en utilisant le principe de la somme, on a que le nombre de mots de passe disponible est <m>P_{8}+P_{9}+P_{10}+P_{11}+P_{12}=68^{8}+68^{9}+68^{10}+68^{11}+68^{12}</m>.
+    </p>
+</solution>
 </task>
 <task>
 <statement><p>Combien de ces mots de passe contiennent au moins un des caractères spéciaux? </p></statement>
-<hint>Combien de ces mots de passe ne contiennt pas de caractères spéciaux?</hint>
-<answer><p><m>6\,641\,514\,961\,387\,068\,437\,760</m></p></answer>
+<hint>Combien de ces mots de passe ne contiennent pas de caractères spéciaux?</hint>
+<answer><p><m>\left(68^{8}+68^{9}+68^{10}+68^{11}+68^{12}\right) - \left( 62^{8}+62^{9}+62^{10}+62^{11}+62^{12}\right)=6\,641\,514\,961\,387\,068\,437\,760</m></p></answer>
+<solution>
+    <p>
+        On commence par trouver le nombre de mots de passe qui ne contiennent pas de caractères spéciaux, qu'on notera <m>P^n</m>. Par un argument similaire à celui de l'exercice <xref ref="exo-psw8A12"/>, on a que <m>P^n=62^{8}+62^{9}+62^{10}+62^{11}+62^{12}</m>.
+    </p>
+    <p>
+        Par le principe de la soustraction et par l'exercice <xref ref="exo-psw8A12"/>, on a que le nombre de mots de passe qui contiennent au moins un des caractères spéciaux est <m>\left(68^{8}+68^{9}+68^{10}+68^{11}+68^{12}\right) - \left( 62^{8}+62^{9}+62^{10}+62^{11}+62^{12}\right)</m>
+    </p>
+</solution>
 </task>
 </exercise>
 
@@ -144,16 +236,26 @@
 
 <introduction><p>On considère l'ensemble des propositions formées à partir de <m>n</m> propositions atomiques.</p></introduction>
 
-<task>
+<task xml:id="exo-tabVeriteNbrLigne">
 <statement><p>Combien de lignes possède le tableau de vérité d'une de ces propositions?</p></statement>
 <hint><p> Chaque de ligne dans le tableau de vérité correspond à une combinaison des valeurs de vérités des <m>n</m> propositions atomiques.</p></hint>
 <answer><p><m>2^n</m></p></answer>
+<solution>
+    <p>
+        Tel qu'indiquer dans l'indice, chaque ligne du tableau de vérité correspond à un choix de la valeur de vérité des propositions atomiques. Puisqu'il y a deux possibilités pour la valeur de vérité d'une proposition, par le principe du produit, il y aura <m>2\cdot 2\cdots 2 = 2^n</m> lignes.
+    </p>
+</solution>
 </task>
 <task>
 <statement><p>Combien de tableaux de vérité différents y a-t-il pour ces propositions? On considère que deux tableaux sont les mêmes si leur dernière colone sont les mêmes.</p></statement>
 <hint>On considère que deux tableaux de vérités sont les mêmes si les propositions se trouvant à la dernière colone sont équivalentes.</hint>
 <hint>Si <m>P</m> est une proposition de cet ensemble, pour chaque ligne du tableau de vérité, combien de valeur de vérité est-ce que <m>P</m> peut avoir ?</hint>
 <answer><p><m>2^{2^n}</m></p></answer>
+<solution>
+    <p>
+        Pour chacune des lignes du tableau de vérité d'une proposition <m>P</m>, celle-ci est vraie ou fausse. Il y a donc <m>2</m> possibilités par ligne. Par le principe du produit, il y aura <m>2\cdot 2\cdots 2 = 2^{\text nombre de ligne}</m> possibilités pour les valeurs de vérité de <m>P</m>. Par l'exercice <xref ref="exo-tabVeriteNbrLigne"/>, on sait que le tableau de vérité de la proposition <m>P</m> sera formé de <m>2^n</m> lignes. Ainsi, il y a <m>2^{2^n}</m> propositions différentes formées à partir de <m>n</m> propositions atomiques.   
+    </p>
+</solution>
 </task>
 </exercise>
 
@@ -169,6 +271,17 @@
 <task>
 <statement><p>Combien de ces fonctions sont telles que <m>f(1)=f(n)=0</m>?</p></statement>
 <answer>Si <m>n=1</m> ou <m>n=2</m>, il y en a une seule. Si <m>n \geq 3</m>, il y en a <m>2^{n-2}</m>.</answer>
+<solution>
+    <p>
+        Si <m>n=1</m>, alors on considère une fonction injective <m>f:\{1\}\to \{0,1\}</m>. Pour déterminer <m>f</m>, il suffit de déterminer la valeur de <m>f(1)</m>. Il y a deux valeurs possibles (<m>f(1)=0</m> ou bien <m>f(1)=1</m>). Dans les deux cas, la fonction <m>f</m> sera injective.
+    </p>
+    <p>
+        Si <m>n=2</m>, alors on considère une fonction injective <m>f:\{1,2\}\to \{0,1\}</m>. Pour déterminer <m>f</m>, il suffit de déterminer la valeur de <m>f(1)</m> ainsi que la valeur de <m>f(2)</m>. Si on commence par choisir la valeur de <m>f(1)</m>, alors il y a deux valeurs possibles (<m>f(1)=0</m> ou bien <m>f(1)=1</m>). Ensuite, pour que <m>f</m> soit injective, il faut et il suffit que  <m>f(1)\neq f(2)</m> . Ainsi, il ne restera qu'une seule valeur possible pour <m>f(2)</m>. Par le principe du produit, il y aura <m>2\cdot 1 = 2</m> fonctions injectives possibles.
+    </p>
+    <p>
+        Finalement, si <m>n\geq 3</m>, alors alors on considère une fonction injective <m>f:\{1,2,3,\dots,n\}\to \{0,1\}</m>. Après avoir choisi la valeur de <m>f(1)</m> et la valeur de <m>f(2)</m>, puisque <m>f(1)\neq f(2)</m>, alors on aura soit <m>f(1)=0</m> et <m>f(2)=1</m>, ou bien <m>f(1)=1</m> et <m>f(2)=0</m>. Dans les deux cas, il sera impossible de choisir une valeur pour <m>f(3)</m> telle que <m>f(1)\neq f(3)</m> et <m>f(2)\neq f(3)</m>. Il n'y a donc auncune fonction onjective <m>f:\{1,2,3,\dots,n\} \to \{0,1\}</m> si <m>n\geq 3</m>.
+    </p>
+</solution>
 </task>
 <task>
 <statement><p>Combien de ces fonctions sont telles que <m>|f^{-1}(1)\cap\{1,2,\dots,n-1\}|=1</m>? </p></statement>
@@ -176,11 +289,6 @@
 <answer><p>Si <m>n\geq 2</m>, alors il y aura <m>2\cdot(n-1)</m> fonctions qui respectent la condition.</p></answer>
 </task>
 </exercise>
-
-
-
-
-
 
 
 
