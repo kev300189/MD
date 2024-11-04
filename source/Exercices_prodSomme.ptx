@@ -267,10 +267,6 @@
 <task>
 <statement><p>Conbien de ces fonctions sont injectives?</p></statement>
 <answer><p>Si <m>n=1</m>, il y en a <m>2</m>. Si <m>n=2</m>, il y en a aussi 2. Si <m>n\geq3</m>, il y en a <m>0</m>.</p></answer>
-</task>
-<task>
-<statement><p>Combien de ces fonctions sont telles que <m>f(1)=f(n)=0</m>?</p></statement>
-<answer>Si <m>n=1</m> ou <m>n=2</m>, il y en a une seule. Si <m>n \geq 3</m>, il y en a <m>2^{n-2}</m>.</answer>
 <solution>
     <p>
         Si <m>n=1</m>, alors on considère une fonction injective <m>f:\{1\}\to \{0,1\}</m>. Pour déterminer <m>f</m>, il suffit de déterminer la valeur de <m>f(1)</m>. Il y a deux valeurs possibles (<m>f(1)=0</m> ou bien <m>f(1)=1</m>). Dans les deux cas, la fonction <m>f</m> sera injective.
@@ -284,9 +280,29 @@
 </solution>
 </task>
 <task>
+<statement><p>Combien de ces fonctions sont telles que <m>f(1)=f(n)=0</m>?</p></statement>
+<answer>Si <m>n=1</m> ou <m>n=2</m>, il y en a une seule. Si <m>n \geq 3</m>, il y en a <m>2^{n-2}</m>.</answer>
+<solution>
+    <p>
+        Si <m>n=1</m>, alors on considère une fonction <m>f:\{1\}\to \{0,1\}</m>. Pour déterminer <m>f</m>, il suffit de déterminer la valeur de <m>f(1)</m>. La condition <m>f(1)=0</m> fait en sorte qu'il n'y a qu'une seule possibilité, d'où il n'y a qu'une seule fonction allant de <m>\{1\}</m> vers <m>\{0,1\}</m>.
+    </p>
+    <!--<p>
+        Si <m>n=2</m>, alors on considère une fonction injective <m>f:\{1,2\}\to \{0,1\}</m>. Pour déterminer <m>f</m>, il suffit de déterminer la valeur de <m>f(1)</m> ainsi que la valeur de <m>f(2)</m>. Si on commence par choisir la valeur de <m>f(1)</m>, alors il y a deux valeurs possibles (<m>f(1)=0</m> ou bien <m>f(1)=1</m>). Ensuite, pour que <m>f</m> soit injective, il faut et il suffit que  <m>f(1)\neq f(2)</m> . Ainsi, il ne restera qu'une seule valeur possible pour <m>f(2)</m>. Par le principe du produit, il y aura <m>2\cdot 1 = 2</m> fonctions injectives possibles.
+    </p>
+    <p>
+        Finalement, si <m>n\geq 3</m>, alors alors on considère une fonction injective <m>f:\{1,2,3,\dots,n\}\to \{0,1\}</m>. Après avoir choisi la valeur de <m>f(1)</m> et la valeur de <m>f(2)</m>, puisque <m>f(1)\neq f(2)</m>, alors on aura soit <m>f(1)=0</m> et <m>f(2)=1</m>, ou bien <m>f(1)=1</m> et <m>f(2)=0</m>. Dans les deux cas, il sera impossible de choisir une valeur pour <m>f(3)</m> telle que <m>f(1)\neq f(3)</m> et <m>f(2)\neq f(3)</m>. Il n'y a donc auncune fonction onjective <m>f:\{1,2,3,\dots,n\} \to \{0,1\}</m> si <m>n\geq 3</m>.
+    </p>-->
+</solution>
+</task>
+<task>
 <statement><p>Combien de ces fonctions sont telles que <m>|f^{-1}(1)\cap\{1,2,\dots,n-1\}|=1</m>? </p></statement>
 <hint><p>Ici, on doit supposer que <m>n\geq 2</m>, car sinon la notation <m>\{1,2,\dots,n-1\}</m> n'est pas cohérente. </p></hint>
 <answer><p>Si <m>n\geq 2</m>, alors il y aura <m>2\cdot(n-1)</m> fonctions qui respectent la condition.</p></answer>
+<solution>
+    <p>
+        
+    </p>
+</solution>
 </task>
 </exercise>
 
