@@ -202,7 +202,7 @@
 	<hint>Chaque <m>3</m>-partition de <m>A</m> est formé de deux ensembles de cardinalité <m>1</m> et un ensemble de cardinalité <m>2</m>.</hint>
 	<hint> Chaque <m>3</m>-partition est uniquement définie par le sous-ensemble de carinalité <m>2</m> qu'elle contient.</hint>
     </exercise>
-    <exercise>
+   <!-- <exercise>
     <statement><p>Une éducatrice en garderie a un groupe de <m>8</m> enfants. De combien de manières peut-elle former trois sous-groupes? On suppose qu'un groupe n'est pas vide, mais pourrait contenir un seul enfant.</p>
         <answer>
             <p>
@@ -215,7 +215,7 @@
             </p>
         </hint>
     </statement>
-    </exercise>
+    </exercise>-->
     <!--
     <exercise><statement><p>On considère l'ensemble <m>A=\{1,2,3\}</m>. Combien de fonctions de <m>A</m> vers <m>A</m> ont la propriété que, si <m>a\leq b</m>, alors <m>f(a)\leq f(b)</m>. Par exemple, <m>f(1)=1,f(2)=2,f(3)=2</m> est un telle fonction. </p>
     <p>Une telle fonction est dite monotone.</p>
@@ -254,6 +254,11 @@
     <exercise><introduction>Une boite de beignes d'une chaine populaire contient six compartiments qu'un employé remplit pour un client selon les règles suivantes.</introduction>
     <task><statement><p>Il y a trois sortes de beignes, par exemple Chocolat, Erable et Vanille et on remplit la boite. Par exemple VVECCV est une configuration.</p></statement>
     <answer><p><m>729</m></p></answer>
+    <solution>
+        <p>
+            Il s'agit d'une permutation avec répétition 
+        </p>
+    </solution>
     </task>
     <task><statement><p>Même chose, mais on permet de laisser un compartiment vide (et le client sera potentiellement déçu). Par exemple, VVE_C_ est une configuration où _ représente l'absence d'un beigne.</p></statement>
     <answer><p><m>4096</m></p></answer></task>

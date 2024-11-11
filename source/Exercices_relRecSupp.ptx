@@ -105,13 +105,49 @@
     </task>
 </exercise>
 <exercise>
-    <statement><p> On considère <m>C(n)</m> le nombre de chaînes binaires de longueur <m>n</m> possédant un nombre pair de <m>0.</m> Trouver une relation de récurrence pour <m>C(n)</m> ainsi que la condition initiale (<m>C(1)</m>). </p></statement>
-    <answer><m> C(n)= 2C(n-1)</m> avec <m>C(1)=1</m></answer>
+    <statement><p> On considère <m>C(n)</m> le nombre de chaînes binaires de longueur <m>n</m> possédant un nombre pair de <m>0.</m> Trouver une relation de récurrence pour <m>C(n)</m> ainsi que la condition initiale, c'est-à-dire déterminer la valeur de <m>C(1)</m>. </p></statement>
+    <answer><m> C(n)= 2*C(n-1)</m> avec <m>C(1)=1</m></answer>
+    <solution>
+        <p>
+            Les chaîne binaires de longueur un sont soit <m>1</m> ou <m>0</m>. Ainsi, la chaîne <m>1</m> est la seule contenant un nombre pair de <m>0</m>, d'où <m>C(1)=1</m>.
+        </p>
+        <p>
+            Par la suite, on considère une chaîne binaire de longueur <m>n</m>, qu'on note <m>d_1d_2\dots d_{n-1}d_n</m>, avec <m>d_i\in \{0,1\}</m>. Pour déterminer <m>C(n)</m> on utilise le principe de la somme sur la valeur de <m>d_n</m>. Il ya deux cas possible, soit <m>d_n=1</m>, ou bien <m>d_n=0</m>. 
+
+        </p>
+        <p>
+            Si <m>d_n=1</m>, puisque la chaîne <m>d_1d_2\dots d_{n-1}1</m> possède un nombre pair de <m>0</m>, il doit y avoir un nombre pair de <m>0</m> dans la chaîne <m>d_1d_2\dots d_{n-1}</m>. Il en en a donc <m>C(n-1)</m>.
+        </p>
+        <p>
+            Si <m>d_n=0</m>, puisque la chaîne <m>d_1d_2\dots d_{n-1}0</m> possède un nombre pair de <m>0</m>,  il doit y avoir un nombre impair de <m>0</m> dans la chaîne <m>d_1d_2\dots d_{n-1}</m>. Par l'exercice <xref ref="Exo-chaineBinZeroImpPair"/>, on sait qu'il a aussi <m>C(n-1)</m> suite de ce type.
+        </p>
+        <p>
+            Par le principe de la somme, on a que <m>C(n)=C(n-1)+C(n-1)=2C(n-1)</m>.
+        </p>
+    </solution>
     </exercise>
 
     <exercise>
-    <statement><p> On considère <m>D(n)</m> le nombre de chaînes de chiffres (en base dix) de longueur <m>n</m> possédant un nombre pair de <m>0.</m> Trouver une relation de récurrence pour <m>D(n)</m> ainsi que la condition initiale (<m>D(1)</m>). </p></statement>
+    <statement><p> On considère <m>D(n)</m> le nombre de chaînes de chiffres (en base dix) de longueur <m>n</m> possédant un nombre pair de <m>0.</m> Trouver une relation de récurrence pour <m>D(n)</m> ainsi que la condition initiale, c'est-à-dire déterminer la valeur de <m>D(1)</m>. </p></statement>
     <answer><m> D(n)= 9D(n-1)+(10^{n-1}-D(n-1))=8D(n-1)+10^{n-1}</m> avec <m>D(1)=9</m></answer>
+    <solution>
+        <p>
+            Les chaîne de chiffres en base dix de longueur un sont  <m>0, 1, 2, 3, 4, 5, 6, 7, 8</m> ou <m>9</m>. Ainsi, il y en a <m>9</m> contenant un nombre pair de <m>0</m>, d'où <m>D(1)=9</m>.
+        </p>
+        <p>
+            Par la suite, on considère une chaîne chiffres en base dix de longueur <m>n</m>, qu'on note <m>d_1d_2\dots d_{n-1}d_n</m>, avec <m>d_i\in \{0,1,\dots,9\}</m>. Pour déterminer <m>D(n)</m> on utilise le principe de la somme sur la valeur de <m>d_n</m>. Il ya deux cas possible, soit <m>d_n\neq 0</m>, ou bien <m>d_n=0</m>. 
+
+        </p>
+        <p>
+            Si <m>d_n\neq 0</m> il y a <m>9</m> choix pour <m>d_n</m> et puisque la chaîne <m>d_1d_2\dots d_{n-1}\ast</m> possède un nombre pair de <m>0</m>, il doit y avoir un nombre pair de <m>0</m> dans la chaîne <m>d_1d_2\dots d_{n-1}</m>. Il y a donc <m>9\cdot D(n-1)</m> chaînes de chiffres de longueur <m>n</m> ayant un nombre pair de <m>0</m> avec <m>d_n \neq 0</m>.
+        </p>
+        <p>
+            Si <m>d_n=0</m>, puisque la chaîne <m>d_1d_2\dots d_{n-1}0</m> possède un nombre pair de <m>0</m>, il doit y avoir un nombre impair de <m>0</m> dans la chaîne <m>d_1d_2\dots d_{n-1}</m>. On veut donc compter le nombre de chaînes de chiffre de longueur <m>n-1</m> ayant un nombre impair de <m>0</m> à l'aide de <m>D(n-1)</m>. Puisqu'il y a <m>10^{n-1}</m> chaînes de chiffres de longueur <m>n-1</m>, il y en aura <m>10^{n-1}-D(n-1)</m> avec un nombre impair de <m>0</m>. 
+        </p>
+        <p>
+            Par le principe de la somme, on a que <m>D(n)=9\cdot D(n-1)+(10^{n-1}-D(n-1))=8C(n-1)+10^{n-1}</m>.
+        </p>
+    </solution>
     </exercise>
      
     <exercise>
@@ -120,6 +156,11 @@
     </introduction>
     <task> <statement>Trouver une relation de récurrence pour <m>P_k</m></statement>
     <answer><m> P_k = k P_{k-1}</m></answer>
+    <solution>
+        <p>
+            Pour effectuer une permutation de notre ensemble, on commence par choisir la position d'un des élément de l'ensemble, et ensuite on permute les <m>k-1</m> élments restant. On a donc que <m>P_k=k\cdot P_{k-1}</m>.
+        </p>
+    </solution>
     </task>
     <task><statement>Déterminer <m>P_1</m> </statement> <answer> <m> P_1=1</m></answer></task>
     <task><statement> Utiliser la relation de récurrence et la condition initiale trouvée dans les étapes précédentes pour vérifier que <m>P_k=k!</m></statement>
@@ -152,7 +193,7 @@
     </solution>
     </task>
     <task>
-    <statement>Trouver les conditions initiales pour ce problème.</statement>
+    <statement>Trouver les conditions initiales pour ce problème, c'est-à-dire déterminer <m>p_1, p_2, p_3, p_4</m> et <m>p_5</m>.</statement>
     <hint> Compter <m>p_n</m> selon le nombre de <m>1\$</m> utilisé.</hint>
     <hint> Il faudra faire des permutations d'objets indiscernables (l'ordre est important, mais on ne peut pas distinguer les pièces de la même sorte).</hint>
     <hint>
@@ -177,13 +218,33 @@
     </exercise>
 
 <exercise>
-<introduction><p> On note <m>a_n</m> le nombre de chaînes binaires de longueurs <m>n</m> qui contiennent trois <m>0</m> consécutifs.</p> </introduction>
+<introduction><p> On note <m>a_n</m> le nombre de chaînes binaires de longueur <m>n</m> qui contiennent trois <m>0</m> consécutifs.</p> </introduction>
 <task>
-<statement> Trouver une relation de récurrence pour <m>a_n</m>.</statement>
+<statement> Trouver une relation de récurrence pour <m>a_n</m> avec <m>n\geq 4</m>.</statement>
 <answer><m>a_n = a_{n-1} + a_{n-2}+a_{n-3}+2^{n-3} </m> </answer>
+<solution>
+    <p>
+        Soit <m>d_1\dots d_{n-3}d_{n-2}d_{n-1}d_n</m> une chaîne binaire de longueur <m>n</m> qui contient trois <m>0</m> consécutifs. On sépare en plusieurs cas selon les valeurs des derniers caractères. En particulier, on sépare selon l'endroit où se trouve le dernier <m>1</m> dans la chaîne <m>d_1\dots d_{n-3}d_{n-2}d_{n-1}d_n</m>. Il y aura quatre cas différents.
+    </p>
+    <p>
+        Si le dernier <m>1</m> est à la dernière position, c'est-à-dire si <m>d_n=1</m>, alors les trois <m>0</m> consécutifs se trouvent dans la chaîne <m>d_1\dots d_{n-3}d_{n-2}d_{n-1}</m>. Il y a donc <m>a_{n-1}</m> possibilités.
+    </p>
+    <p>
+        Si le dernier <m>1</m> est à l'avant dernière position, c'est-à-dire si <m>d_{n-1}d_n=10</m>, alors les trois <m>0</m> consécutifs se trouvent dans la chaîne <m>d_1\dots d_{n-3}d_{n-2}</m>. Il y a donc <m>a_{n-2}</m> possibilités.
+    </p>
+    <p>
+        Si le dernier <m>1</m> est à la troisième position en partant de la fin, c'est-à-dire si <m>d_{n-2}d_{n-1}d_n=100</m>, alors les trois <m>0</m> consécutifs se trouvent dans la chaîne <m>d_1\dots d_{n-3}</m>. Il y a donc <m>a_{n-3}</m> possibilités.
+    </p>
+    <p>
+        Finalement, si le dernier <m>1</m> est avant <m>d_{n-2}</m>, c'est-à-dire si <m>d_{n-2}d_{n-1}d_n=000</m>, alors il y a déjà trois <m>0</m> consécutifs dans la chaîne <m>d_1\dots d_{n-3}d_{n-2}d_{n-1}d_n=d_1\dots d_{n-3}000</m>. Il n'y a donc aucune restriction sur la chaîne <m>d_1\dots d_{n-3}</m>, c'est-à-dire qu'il y a <m>2^{n-3}</m> possibilités.
+    </p>
+    <p>
+        Par le principe de la somme, on a <m>a_n=a_{n-1} + a_{n-2}+a_{n-3}+2^{n-3}</m>.
+    </p>
+</solution>
 </task>
 <task>
-<statement>Trouver les conditions initiales. </statement>
+<statement>Trouver les conditions initiales, c'est-à-dire déterminer <m>a_1, a_2</m> et <m>a_3</m>. </statement>
 <answer><m>a_1=0</m>, <m>a_2=0</m> et <m>a_3=1</m>. </answer>
 </task>
 <task>
@@ -194,13 +255,33 @@
 
 
 <exercise>
-<introduction><p> On note <m>a_n</m> le nombre de chaînes binaires de longueurs <m>n</m> qui ne contiennent pas trois <m>0</m> consécutifs.</p> </introduction>
+<introduction><p> On note <m>a_n</m> le nombre de chaînes binaires de longueur <m>n</m> qui ne contiennent pas trois <m>0</m> consécutifs.</p> </introduction>
 <task>
 <statement> Trouver une relation de récurrencepour <m>a_n</m>.</statement>
 <answer><m>a_n = a_{n-1} + a_{n-2}+a_{n-3} </m> </answer>
+<solution>
+    <p>
+        Soit <m>d_1\dots d_{n-3}d_{n-2}d_{n-1}d_n</m> une chaîne binaire de longueur <m>n</m> qui ne contient pas trois <m>0</m> consécutifs. On sépare en plusieurs cas selon les valeurs des derniers caractères. En particulier, on sépare selon l'endroit où se trouve le dernier <m>1</m> dans la chaîne <m>d_1\dots d_{n-3}d_{n-2}d_{n-1}d_n</m>. Il y aura trois cas différents.
+    </p>
+    <p>
+        Si le dernier <m>1</m> est à la dernière position, c'est-à-dire si <m>d_n=1</m>, alors la chaîne <m>d_1\dots d_{n-3}d_{n-2}d_{n-1}</m> ne doit pas contenir trois <m>0</m> consécutifs. Il y a donc <m>a_{n-1}</m> possibilités.
+    </p>
+    <p>
+        Si le dernier <m>1</m> est à l'avant dernière position, c'est-à-dire si <m>d_{n-1}d_n=10</m>, alors la chaîne <m>d_1\dots d_{n-3}d_{n-2}</m> ne doit pas contenir trois <m>0</m> consécutifs. Il y a donc <m>a_{n-2}</m> possibilités.
+    </p>
+    <p>
+        Si le dernier <m>1</m> est à la troisième position en partant de la fin, c'est-à-dire si <m>d_{n-2}d_{n-1}d_n=100</m>, alors la chaîne <m>d_1\dots d_{n-3}</m> ne doit pas contenir trois <m>0</m> consécutifs. Il y a donc <m>a_{n-3}</m> possibilités.
+    </p>
+    <p>
+        Finalement, on remarque que le dernier <m>1</m> ne peu pas être avant le <m>d_{n-2}</m>. En effet, si c'était le cas, on aurait <m>d_{n-2}d_{n-1}d_n=000</m>, mais alors il y aurait trois <m>0</m> consécutifs dans la chaîne <m>d_1\dots d_{n-3}d_{n-2}d_{n-1}d_n=d_1\dots d_{n-3}000</m>.
+    </p>
+    <p>
+        Par le principe de la somme, on a <m>a_n=a_{n-1} + a_{n-2}+a_{n-3}</m>.
+    </p>
+</solution>
 </task>
 <task>
-<statement>Trouver les conditions initiales. </statement>
+<statement>Trouver les conditions initiales, c'est-à-dire trouver <m>a_1, a_2</m> et <m>a_3</m>. </statement>
 <answer><m>a_1=2</m>, <m>a_2=4</m> et <m>a_3=7</m>. </answer>
 </task>
 <task>

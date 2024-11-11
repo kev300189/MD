@@ -266,8 +266,8 @@ Ainsi, on a que si <m>r_1</m> est une racine du polynôme <m>r^2-c_1r-c_2</m>, a
 <p>De l'autre côté, on a que 
 <md>
 <mrow> a_{n-1}+2a_{n-2}\amp= (3r_1^{n-1}+4r_2^{n-1})+2(3r_1^{n-2}+4r_2^{n-2})</mrow>
-<mrow>                 \amp= (3r_1^{n-1}+3\cdot 2r_1^{n-2})+(4r_2^{n-2}+4\cdot 2r_2^{n-2})</mrow>
-<mrow>                 \amp= 3(r_1^{n-1}+ 2r_1^{n-2})+4(r_2^{n-2}+ 2r_2^{n-2})</mrow>
+<mrow>                 \amp= (3r_1^{n-1}+3\cdot 2r_1^{n-2})+(4r_2^{n-1}+4\cdot 2r_2^{n-2})</mrow>
+<mrow>                 \amp= 3(r_1^{n-1}+ 2r_1^{n-2})+4(r_2^{n-1}+ 2r_2^{n-2})</mrow>
 <mrow>                 \amp= 3r_1^n+4r_2^{n}=a_n</mrow>
 </md>
 Ainsi, on a bien que <m>a_n=3r_1^n+4r_2^n</m> satisfait à la relation de récurrence.</p>

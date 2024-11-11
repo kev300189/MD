@@ -346,7 +346,19 @@
                 </p>
         </statement>  
         <solution><p>À l'étape d'induction, si <m>max(x_2-1,y_2-1)=k</m> avec <m>x_2, y_2\in \N^\ast</m>, on peut avoir <m>x_2 =0 \notin \N^\ast</m> ou <m>y_2=0\notin \N^\ast</m>. On ne pourrait alors pas utiliser l'hypothèse d'induction. </p></solution>  
-
+    
+    </exercise>
+    <exercise xml:id="Exo-chaineBinZeroImpPair">
+        <statement>
+            <p>
+                On considère les chaînes binaire de longueur <m>n</m>. On note <m>A</m> l'ensemble des chaînes binaire de longueur <m>n</m> qui possèdent un nombre paire de <m>0</m>. Similairement, on note <m>B</m> l'ensemble des chaînes binaire de longueur <m>n</m> qui possèdent un nombre impaire de <m>0</m>. Par exemple, si <m>n=3</m>, alors <m>A=\{111,100,010,001\}</m> et <m>B=\{000,110,101,011\}</m>. Montrer que <m>|A|=|B|</m>.
+            </p>
+        </statement>
+        <solution>
+            <p>
+                Pour montrer que <m>|A|=|B|</m>, on peut montrer qu'il existe une fonction <m>f:A\to B</m> telle que <m>f</m> est bijective. Si <m>x\in A</m> on pose <m>f(x)</m> la chaîne binaire obtenue en changeant le dernier caractère de la chaîne ( un <m>1</m> devient un <m>0</m>, et un <m>0</m> devient un <m>1</m>). Ainsi, si <m>x</m> possède un nombre paire de <m>0</m>, alors <m>f(x)</m> possède un nombre impair de <m>0</m>, car <m>f(x)</m> en possède un de plus ou un de moins que <m>x</m>. On peut définir <m>f^{-1}:B\to A</m> de la même façon, et on vérifie facielement que <m>f(f^{-1}(x))=f^{-1}(f(x))=x</m>. Ainsi, <m>f</m> est une fonction bijective.
+            </p>
+        </solution>
     </exercise>
     </subexercises>
     <!--<subexercises>

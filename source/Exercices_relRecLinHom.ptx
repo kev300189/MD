@@ -33,16 +33,12 @@
     <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
     <exercise>
     <introduction><p>Déterminer <m>a_2,\,a_3</m> et <m>a_4</m> si:</p></introduction>
-    <task><statement><p><m>a_n=a_{n-1}a_{n-2}</m> pour <m>n=2,\,3,\,4,\dots,</m> sachant que <m>a_0=4</m> et <m>a_1=3</m></p></statement><answer> </answer></task>
-    <task><statement><p><m>a_n=a_{n-1}+3a_{n-2}</m> pour <m>n=2,\,3,\,4,\dots,</m> sachant que <m>a_0=1</m> et <m>a_1=2</m></p></statement><answer> </answer></task>
-    <task><statement><p><m>a_n=na_{n-1}a_{n-2}</m> pour <m>n=2,\,3,\,4,\dots,</m> sachant que <m>a_0=3</m> et <m>a_1=-5</m></p></statement><answer> </answer></task>
+    <task><statement><p><m>a_n=a_{n-1}a_{n-2}</m> pour <m>n=2,\,3,\,4,\dots,</m> sachant que <m>a_0=4</m> et <m>a_1=3</m></p></statement><answer> <m>a_2=12,\ a_3= 36,\ a_4=432</m> </answer></task>
+    <task><statement><p><m>a_n=a_{n-1}+3a_{n-2}</m> pour <m>n=2,\,3,\,4,\dots,</m> sachant que <m>a_0=1</m> et <m>a_1=2</m></p></statement><answer> <m>a_2=2,\ a_3=8,\ a_4=14</m> </answer></task>
+    <task><statement><p><m>a_n=na_{n-1}a_{n-2}</m> pour <m>n=2,\,3,\,4,\dots,</m> sachant que <m>a_0=3</m> et <m>a_1=-5</m></p></statement><answer> <m>a_2=-30,\ a_3=490,\ a_4=-58\ 800</m> </answer></task>
     </exercise>
     
     
-    <exercise>
-        <statement><p>À l'aide de l'exercice <xref ref="exo-fibo"/>, montrer que <m>\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N</m> si <m>n\in\,\N</m>.</p></statement>
-        <solution><p>Par <xref ref="exo-fibo"/>, on sait que  <m>\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n</m> est le <m>n</m> ième terme de la suite de Fibonacci. On sait également que les termes de la suite de Fibonacci sont des entiers naturels. Ainsi,  <m>\frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^n-\frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N</m>.</p></solution>
-        </exercise>
     
         <exercise>
             <introduction><p>Pour chacune des relations de récurrences ci-dessous, trouver la solution générale respectant les conditions initiales données.</p></introduction>
@@ -78,6 +74,11 @@
     <answer> <m>F_n=\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n</m>
     </answer>
     </exercise>
+
+        <exercise>
+        <statement><p>À l'aide de l'exercice <xref ref="exo-fibo"/>, montrer que <m>\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N</m> si <m>n\in\,\N</m>.</p></statement>
+        <solution><p>Par <xref ref="exo-fibo"/>, on sait que  <m>\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n</m> est le <m>n</m> ième terme de la suite de Fibonacci. On sait également que les termes de la suite de Fibonacci sont des entiers naturels. Ainsi,  <m>\frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^n-\frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N</m>.</p></solution>
+        </exercise>
 
     <exercise>
         <statement>
