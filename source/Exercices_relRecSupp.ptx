@@ -32,7 +32,7 @@
     <title>À faire en classe</title>
     <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
 
-    <exercise >
+   <!-- <exercise >
         <introduction>
             <p>Un modèle qu'on peut utilisé pour approximer  le nombre de homards pêchés par année est de supposer que le nombre de homards pêchés dans une année est la moyennes du nombre de homards pêchés dans les deux années précédentes. </p>
         </introduction>
@@ -48,22 +48,22 @@
             </statement>
             <answer><p>On a <m>L_n=\frac{800\ 000}{3}\left(\frac{-1}{2}\right)^n + \frac{700\ 000}{3}</m>.</p></answer>
         </task>
-    </exercise>
-<exercise>
+    </exercise> -->
+<!--<exercise>
     <introduction>
-        <p>Un client d'une banque dépose 100 000 <m>\$</m> dans un compte d'investissement. À la fin de chaque année (le dernier jour de l'année), on ajoute au compte de banque deux montants. Le premier est <m>20\%</m> du montant dans le compte durant cette année, et le deuxième est <m>45\%</m> du montant dans le compte durant l'année précédente.</p>
+        <p>Un client d'une banque dépose 10 000 <m>\$</m> dans un compte d'investissement. À la fin de chaque année (le dernier jour de l'année), on ajoute au compte de banque deux montants. Le premier est <m>15\%</m> du montant dans le compte durant cette année, et le deuxième est <m>20\%</m> du montant dans le compte durant l'année précédente.</p>
     </introduction>
     <task>
         <statement>
-            <p>Trouver une relation de récurrence pour la suite <m>\{P_n\}</m>, où <m>P_n</m> est le montant en <m>\$</m> dans le compte à la fin de l'an <m>n</m>.</p>
+            <p>Trouver une relation de récurrence pour la suite <m>\{M_n\}</m>, où <m>M_n</m> est le montant en <m>\$</m> dans le compte à la fin de l'an <m>n</m>.</p>
         </statement>
-        <answer><p>On a <m>P_n=1,20 P_{n-1}+045P_{n-2}</m>.</p></answer>
+        <answer><p>On a <m>M_n=1,15 M_{n-1}+0,20 M_{n-2}</m>.</p></answer>
     </task>
     <task>
         <statement>
-            <p>En utilisant <m>P_{0}=100\ 000</m> et <m>P_1=120\ 000</m>, trouver une expression pour <m>P_n</m>.</p>
+            <p>En utilisant <m>M_{0}=10\ 000</m> et <m>M_1=1\ 500</m>, trouver une expression pour <m>M_n</m>.</p>
         </statement>
-        <answer><p>À l'aide de l'équation caractéristique est des conditions initiales, on à <m>P_n=\frac{250\ 000}{3}\left(\frac{3}{2}\right)^n+\frac{50\ 000}{3}\left(\frac{-3}{10}\right)^n</m>.</p></answer>
+        <answer><p>À l'aide de l'équation caractéristique est des conditions initiales, on à <m>M_n=\frac{250\ 000}{3}\left(\frac{3}{2}\right)^n+\frac{50\ 000}{3}\left(\frac{-3}{10}\right)^n</m>.</p></answer>
     </task>
 </exercise>
 <exercise>
@@ -103,7 +103,7 @@
             </p>
         </solution>
     </task>
-</exercise>
+</exercise> -->
 <exercise>
     <statement><p> On considère <m>C(n)</m> le nombre de chaînes binaires de longueur <m>n</m> possédant un nombre pair de <m>0.</m> Trouver une relation de récurrence pour <m>C(n)</m> ainsi que la condition initiale, c'est-à-dire déterminer la valeur de <m>C(1)</m>. </p></statement>
     <answer><m> C(n)= 2*C(n-1)</m> avec <m>C(1)=1</m></answer>
