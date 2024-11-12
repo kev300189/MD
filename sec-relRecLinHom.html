@@ -1122,39 +1122,118 @@ a_n=\alpha_1r_1^n+\alpha_2r_2^n+\cdots + \alpha_kr_k^n,
 <div class="para" id="exo-relRecLinHom-2-3-3-1-1">
 <span class="process-math">\(a_n=a_{n-1}+3a_{n-2}\)</span> pour <span class="process-math">\(n=2,\,3,\,4,\dots,\)</span> sachant que <span class="process-math">\(a_0=1\)</span> et <span class="process-math">\(a_1=2\)</span>
 </div>
-<div class="solutions"><details id="exo-relRecLinHom-2-3-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(a_2=2,\ a_3=8,\ a_4=14\)</span></div></details></div></article><article class="task exercise-like" id="exo-relRecLinHom-2-3-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="solutions"><details id="exo-relRecLinHom-2-3-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(a_2=5,\ a_3=11,\ a_4=26\)</span></div></details></div></article><article class="task exercise-like" id="exo-relRecLinHom-2-3-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para" id="exo-relRecLinHom-2-3-4-1-1">
 <span class="process-math">\(a_n=na_{n-1}a_{n-2}\)</span> pour <span class="process-math">\(n=2,\,3,\,4,\dots,\)</span> sachant que <span class="process-math">\(a_0=3\)</span> et <span class="process-math">\(a_1=-5\)</span>
 </div>
-<div class="solutions"><details id="exo-relRecLinHom-2-3-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(a_2=-30,\ a_3=490,\ a_4=-58\ 800\)</span></div></details></div></article></article><article class="exercise exercise-like" id="exo-relRecLinHom-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="solutions"><details id="exo-relRecLinHom-2-3-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(a_2=-30,\ a_3=450,\ a_4=-54\ 800\)</span></div></details></div></article></article><article class="exercise exercise-like" id="exo-relRecLinHom-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
 <div class="introduction" id="exo-relRecLinHom-2-4-1"><div class="para" id="exo-relRecLinHom-2-4-1-1">Pour chacune des relations de récurrences ci-dessous, trouver la solution générale respectant les conditions initiales données.</div></div>
 <article class="task exercise-like" id="exo-relRecLinHom-2-4-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para" id="exo-relRecLinHom-2-4-2-1-1">
-<span class="process-math">\(a_n=4a_{n-1}+-3a_{n-2}\text{,}\)</span> où <span class="process-math">\(a_0=1\)</span> et <span class="process-math">\(a_1=2\text{.}\)</span>
+<span class="process-math">\(a_n=4a_{n-1}-3a_{n-2}\text{,}\)</span> où <span class="process-math">\(a_0=1\)</span> et <span class="process-math">\(a_1=2\text{.}\)</span>
 </div>
-<div class="solutions"><details id="exo-relRecLinHom-2-4-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-2-2-1"><span class="process-math">\(a_n=\frac{3^n}{2}+\frac{1}{2}\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinHom-2-4-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="solutions">
+<details id="exo-relRecLinHom-2-4-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-2-2-1"><span class="process-math">\(a_n=\frac{3^n}{2}+\frac{1}{2}\)</span></div></div></details><details id="exo-relRecLinHom-2-4-2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinHom-2-4-2-3-1">
+<div class="para">L’équation caractéristique de cette relation est <span class="process-math">\(0=r^2-4r+3\text{.}\)</span> Les racines de cette équation sont <span class="process-math">\(r_1=3\)</span> et <span class="process-math">\(r_2=1\text{.}\)</span> Ainsi, on a <span class="process-math">\(a_n=\alpha_1 (3)^n + \alpha_2 (1)^n=\alpha_1 (3)^n + \alpha_2\text{.}\)</span> Puisque <span class="process-math">\(a_0=1\)</span> et <span class="process-math">\(a_1=2\text{,}\)</span> en remplaçant successivement <span class="process-math">\(n\)</span> par <span class="process-math">\(0\)</span> et <span class="process-math">\(1\text{,}\)</span> on obtient</div>
+<div class="displaymath process-math" id="exo-relRecLinHom-2-4-2-3-1-10">
+\begin{align*}
+1 \amp = \alpha_1+\alpha_2 \\
+2 \amp = 3 \alpha_1+\alpha_2 
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinHom-2-4-2-3-2">En résolvant les équations, on trouve <span class="process-math">\(\alpha_1=\frac{1}{2}\)</span> et <span class="process-math">\(\frac{1}{2}\text{.}\)</span> Ainsi, <span class="process-math">\(a_n=\frac{3^n}{2}+\frac{1}{2}\)</span>
+</div>
+</div></details>
+</div></article><article class="task exercise-like" id="exo-relRecLinHom-2-4-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="exo-relRecLinHom-2-4-3-1-1">
 <span class="process-math">\(a_n=8a_{n-1}-16a_{n-2}\text{,}\)</span> où <span class="process-math">\(a_0=0\)</span> et <span class="process-math">\(a_1=1\text{.}\)</span>
 </div>
-<div class="solutions"><details id="exo-relRecLinHom-2-4-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-3-2-1"><span class="process-math">\(a_n=n 4^{n-1}\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinHom-2-4-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="solutions">
+<details id="exo-relRecLinHom-2-4-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-3-2-1"><span class="process-math">\(a_n=n 4^{n-1}\)</span></div></div></details><details id="exo-relRecLinHom-2-4-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinHom-2-4-3-3-1">
+<div class="para">L’équation caractéristique de cette relation est <span class="process-math">\(0=r^2-8r+16\text{.}\)</span> L’unique racine de cette équation est <span class="process-math">\(r_1=4\text{.}\)</span> Ainsi, on a <span class="process-math">\(a_n=\alpha_1 (4)^n + \alpha_2\cdot n\cdot  (4)^n\text{.}\)</span> Puisque <span class="process-math">\(a_0=0\)</span> et <span class="process-math">\(a_1=1\text{,}\)</span> en remplaçant successivement <span class="process-math">\(n\)</span> par <span class="process-math">\(0\)</span> et <span class="process-math">\(1\text{,}\)</span> on obtient</div>
+<div class="displaymath process-math" id="exo-relRecLinHom-2-4-3-3-1-9">
+\begin{align*}
+0 \amp = \alpha_1 \\
+1 \amp = 4 \alpha_1+4 \alpha_2 
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinHom-2-4-3-3-2">En résolvant les équations, on trouve <span class="process-math">\(\alpha_1=0\)</span> et <span class="process-math">\(\frac{1}{4}\text{.}\)</span> Ainsi, <span class="process-math">\(a_n=n\frac{4^n}{4}=n 4^{n-1}\)</span>
+</div>
+</div></details>
+</div></article><article class="task exercise-like" id="exo-relRecLinHom-2-4-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para" id="exo-relRecLinHom-2-4-4-1-1">
 <span class="process-math">\(a_n=-2a_{n-1}+35a_{n-2}\text{,}\)</span> où <span class="process-math">\(a_0=1\)</span> et <span class="process-math">\(a_1=4\text{.}\)</span>
 </div>
-<div class="solutions"><details id="exo-relRecLinHom-2-4-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-4-2-1"><span class="process-math">\(a_n=\frac{11\cdot 5^n}{12}+\frac{(-7)^n}{12}\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinHom-2-4-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<div class="solutions">
+<details id="exo-relRecLinHom-2-4-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-4-2-1"><span class="process-math">\(a_n=\frac{11\cdot 5^n}{12}+\frac{(-7)^n}{12}\)</span></div></div></details><details id="exo-relRecLinHom-2-4-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinHom-2-4-4-3-1">
+<div class="para">L’équation caractéristique de cette relation est <span class="process-math">\(0=r^2+2r-35\text{.}\)</span> Les racines de cette équation sont <span class="process-math">\(r_1=5\)</span> et <span class="process-math">\(r_2=-7\text{.}\)</span> Ainsi, on a <span class="process-math">\(a_n=\alpha_1 (5)^n + \alpha_2 (-7)^n\text{.}\)</span> Puisque <span class="process-math">\(a_0=1\)</span> et <span class="process-math">\(a_1=4\text{,}\)</span> en remplaçant successivement <span class="process-math">\(n\)</span> par <span class="process-math">\(0\)</span> et <span class="process-math">\(1\text{,}\)</span> on obtient</div>
+<div class="displaymath process-math" id="exo-relRecLinHom-2-4-4-3-1-10">
+\begin{align*}
+1 \amp = \alpha_1 +\alpha_2\\
+4 \amp = 5 \alpha_1-7 \alpha_2 
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinHom-2-4-4-3-2">En résolvant les équations, on trouve <span class="process-math">\(\alpha_1=\frac{11}{12}\)</span> et <span class="process-math">\(\frac{1}{12}\text{.}\)</span> Ainsi, <span class="process-math">\(a_n=\frac{11\cdot 5^n}{12}+\frac{(-7)^n}{12}\)</span>
+</div>
+</div></details>
+</div></article><article class="task exercise-like" id="exo-relRecLinHom-2-4-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
 <div class="para" id="exo-relRecLinHom-2-4-5-1-1">
 <span class="process-math">\(a_n=2a_{n-1}+35a_{n-2}\text{,}\)</span> où <span class="process-math">\(a_0=2\)</span> et <span class="process-math">\(a_1=3\text{.}\)</span>
 </div>
-<div class="solutions"><details id="exo-relRecLinHom-2-4-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-5-2-1"><span class="process-math">\(a_n=\frac{13\cdot 7^n}{12}+\frac{11 (-5)^n}{12}\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinHom-2-4-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<div class="solutions">
+<details id="exo-relRecLinHom-2-4-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-5-2-1"><span class="process-math">\(a_n=\frac{13\cdot 7^n}{12}+\frac{11 (-5)^n}{12}\)</span></div></div></details><details id="exo-relRecLinHom-2-4-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinHom-2-4-5-3-1">
+<div class="para">L’équation caractéristique de cette relation est <span class="process-math">\(0=r^2-2r-35\text{.}\)</span> Les racines de cette équation sont <span class="process-math">\(r_1=7\)</span> et <span class="process-math">\(r_2=-5\text{.}\)</span> Ainsi, on a <span class="process-math">\(a_n=\alpha_1 (7)^n + \alpha_2 (-5)^n\text{.}\)</span> Puisque <span class="process-math">\(a_0=2\)</span> et <span class="process-math">\(a_1=3\text{,}\)</span> en remplaçant successivement <span class="process-math">\(n\)</span> par <span class="process-math">\(0\)</span> et <span class="process-math">\(1\text{,}\)</span> on obtient</div>
+<div class="displaymath process-math" id="exo-relRecLinHom-2-4-5-3-1-10">
+\begin{align*}
+2 \amp = \alpha_1 +\alpha_2\\
+3 \amp = 7 \alpha_1-5 \alpha_2 
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinHom-2-4-5-3-2">En résolvant les équations, on trouve <span class="process-math">\(\alpha_1=\frac{13}{12}\)</span> et <span class="process-math">\(\frac{11}{12}\text{.}\)</span> Ainsi, <span class="process-math">\(a_n=\frac{11\cdot 5^n}{12}+\frac{(-7)^n}{12}\)</span>
+</div>
+</div></details>
+</div></article><article class="task exercise-like" id="exo-relRecLinHom-2-4-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
 <div class="para" id="exo-relRecLinHom-2-4-6-1-1">
 <span class="process-math">\(a_n=14a_{n-1}-49a_{n-2}\text{,}\)</span> où <span class="process-math">\(a_0=0\)</span> et <span class="process-math">\(a_1=0\text{.}\)</span>
 </div>
-<div class="solutions"><details id="exo-relRecLinHom-2-4-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-6-2-1"><span class="process-math">\(a_n=0\)</span></div></div></details></div></article></article><article class="exercise exercise-like" id="exo-fibo"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="solutions">
+<details id="exo-relRecLinHom-2-4-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-6-2-1"><span class="process-math">\(a_n=0\)</span></div></div></details><details id="exo-relRecLinHom-2-4-6-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">1</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinHom-2-4-6-3-1">
+<div class="para">L’équation caractéristique de cette relation est <span class="process-math">\(0=r^2-14r+49\text{.}\)</span> L’unique racine de cette équation est <span class="process-math">\(r_1=7\text{.}\)</span> Ainsi, on a <span class="process-math">\(a_n=\alpha_1 (7)^n + \alpha_2\cdot n \cdot  (7)^n\text{.}\)</span> Puisque <span class="process-math">\(a_0=0\)</span> et <span class="process-math">\(a_1=0\text{,}\)</span> en remplaçant successivement <span class="process-math">\(n\)</span> par <span class="process-math">\(0\)</span> et <span class="process-math">\(1\text{,}\)</span> on obtient</div>
+<div class="displaymath process-math" id="exo-relRecLinHom-2-4-6-3-1-9">
+\begin{align*}
+0 \amp = \alpha_1 +\alpha_2\\
+0 \amp = 7 \alpha_1 
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinHom-2-4-6-3-2">En résolvant les équations, on trouve <span class="process-math">\(\alpha_1=\alpha_2=0\text{.}\)</span> Ainsi, <span class="process-math">\(a_n=0\text{.}\)</span>
+</div>
+</div></details><details id="exo-relRecLinHom-2-4-6-4" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-4-6-4-1">On peut également utiliser une preuve par induction pour montrer que <span class="process-math">\(a_n=0\)</span> pour <span class="process-math">\(n\geq 0\text{.}\)</span>
+</div></div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-fibo"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
 <div class="para" id="exo-fibo-1-1">Trouver la forme générale de la suite de Fibonacci <span class="process-math">\(\{F_n\},\)</span> où <span class="process-math">\(F_{n}=F_{n-1}+F_{n-2}\)</span> pour <span class="process-math">\(n\geq 2,\)</span> et <span class="process-math">\(F_0=F_1=1\text{.}\)</span>
 </div>
-<div class="solutions"><details id="exo-fibo-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(F_n=\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n\)</span></div></details></div></article><article class="exercise exercise-like" id="exo-relRecLinHom-2-6"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="solutions">
+<details id="exo-fibo-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><span class="process-math">\(F_n=\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n\)</span></div></details><details id="exo-fibo-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-fibo-3-1">
+<div class="para">L’équation caractéristique de cette relation est <span class="process-math">\(0=r^2-r-1\text{.}\)</span> Les racines de cette équation sont <span class="process-math">\(r_1=\frac{1+\sqrt{5}}{2}\)</span> et <span class="process-math">\(r_2=\frac{1-\sqrt{5}}{2}\text{.}\)</span> Ainsi, on a <span class="process-math">\(F_n=\alpha_1\left(\frac{1+\sqrt{5}}{2}\right)^n+\alpha_2 \left(\frac{1-\sqrt{5}}{2}\right)^n\text{.}\)</span> Puisque <span class="process-math">\(F_0=1\)</span> et <span class="process-math">\(F_1=1\text{,}\)</span> en remplaçant successivement <span class="process-math">\(n\)</span> par <span class="process-math">\(0\)</span> et <span class="process-math">\(1\text{,}\)</span> on obtient</div>
+<div class="displaymath process-math" id="exo-fibo-3-1-10">
+\begin{align*}
+1 \amp = \alpha_1 +\alpha_2\\
+1 \amp =  \alpha_1\frac{1+\sqrt{5}}{2}+\alpha_2 \frac{1-\sqrt{5}}{2} 
+\end{align*}
+</div>
+</div> <div class="para" id="exo-fibo-3-2">En résolvant les équations, on trouve <span class="process-math">\(\alpha_1=\frac{5+\sqrt{5}}{10}\)</span> et <span class="process-math">\(\alpha_2=\frac{5-\sqrt{5}}{10}\text{.}\)</span> Ainsi, <span class="process-math">\(F_n=\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n\text{.}\)</span>
+</div>
+</div></details>
+</div></article><article class="exercise exercise-like" id="exo-relRecLinHom-2-6"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
 <div class="para" id="exo-relRecLinHom-2-6-1-1">À l’aide de l’exercice <a href="sec-relRecLinHom.html#exo-fibo" class="xref" data-knowl="./knowl/xref/exo-fibo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 6.1.8.3">6.1.8.3</a>, montrer que <span class="process-math">\(\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N\)</span> si <span class="process-math">\(n\in\,\N\text{.}\)</span>
 </div>
-<div class="solutions"><details id="exo-relRecLinHom-2-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-6-2-1">Par <a href="sec-relRecLinHom.html#exo-fibo" class="xref" data-knowl="./knowl/xref/exo-fibo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 6.1.8.3">6.1.8.3</a>, on sait que  <span class="process-math">\(\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n\)</span> est le <span class="process-math">\(n\)</span> ième terme de la suite de Fibonacci. On sait également que les termes de la suite de Fibonacci sont des entiers naturels. Ainsi,  <span class="process-math">\(\frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^n-\frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N\text{.}\)</span>
+<div class="solutions"><details id="exo-relRecLinHom-2-6-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="exo-relRecLinHom-2-6-2-1">Par <a href="sec-relRecLinHom.html#exo-fibo" class="xref" data-knowl="./knowl/xref/exo-fibo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 6.1.8.3">6.1.8.3</a>, on sait que  <span class="process-math">\(\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n\)</span> est le <span class="process-math">\(n\)</span> ième terme de la suite de Fibonacci. On sait également que les termes de la suite de Fibonacci sont des entiers naturels. Ainsi,  <span class="process-math">\(\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N\text{.}\)</span>
 </div></div></details></div></article><article class="exercise exercise-like" id="exo-relRecLinHom-2-7"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
 <div class="para" id="exo-relRecLinHom-2-7-1-1">Trouver la forme générale de la suite <span class="process-math">\(\{a_n\}\)</span> si <span class="process-math">\(a_n=a_{n-1}a_{n-2}\)</span> pour <span class="process-math">\(n=2,\,3,\,4,\dots,\)</span> sachant que <span class="process-math">\(a_0=2\)</span> et <span class="process-math">\(a_1=3\text{.}\)</span>
 </div>
