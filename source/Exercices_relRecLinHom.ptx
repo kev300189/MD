@@ -43,25 +43,91 @@
         <exercise>
             <introduction><p>Pour chacune des relations de récurrences ci-dessous, trouver la solution générale respectant les conditions initiales données.</p></introduction>
             <task>
-                <statement><p><m>a_n=4a_{n-1}+-3a_{n-2}</m>, où <m>a_0=1</m> et <m>a_1=2</m>.</p></statement>
+                <statement><p><m>a_n=4a_{n-1}-3a_{n-2}</m>, où <m>a_0=1</m> et <m>a_1=2</m>.</p></statement>
                 <answer><p><m>a_n=\frac{3^n}{2}+\frac{1}{2}</m></p></answer>
+                <solution>
+                    <p>
+                    L'équation caractéristique de cette relation est <m>0=r^2-4r+3</m>. Les racines de cette équation sont <m>r_1=3</m> et <m>r_2=1</m>. Ainsi, on a <m>a_n=\alpha_1 (3)^n + \alpha_2 (1)^n=\alpha_1 (3)^n + \alpha_2</m>. Puisque <m>a_0=1</m> et <m>a_1=2</m>, en remplaçant successivement <m>n</m> par <m>0</m> et <m>1</m>, on obtient 
+                    <md>
+                        <mrow>1 \amp = \alpha_1+\alpha_2 </mrow>
+                        <mrow>2 \amp = 3 \alpha_1+\alpha_2 </mrow>.
+                    </md>
+                    </p>
+                    <p>
+                        En résolvant les équations, on trouve <m>\alpha_1=\frac{1}{2}</m> et <m>\frac{1}{2}</m>. Ainsi, <m>a_n=\frac{3^n}{2}+\frac{1}{2}</m>
+                    </p>
+                </solution>
             </task>
             <task>
                 <statement><p><m>a_n=8a_{n-1}-16a_{n-2}</m>, où <m>a_0=0</m> et <m>a_1=1</m>.</p></statement>
                 <answer><p><m>a_n=n 4^{n-1}</m></p></answer>
+                <solution>
+                    <p>
+                    L'équation caractéristique de cette relation est <m>0=r^2-8r+16</m>. L'unique racine de cette équation est <m>r_1=4</m>. Ainsi, on a <m>a_n=\alpha_1 (4)^n + \alpha_2\cdot n\cdot  (4)^n</m>. Puisque <m>a_0=0</m> et <m>a_1=1</m>, en remplaçant successivement <m>n</m> par <m>0</m> et <m>1</m>, on obtient 
+                    <md>
+                        <mrow>0 \amp = \alpha_1 </mrow>
+                        <mrow>1 \amp = 4 \alpha_1+4 \alpha_2 </mrow>.
+                    </md>
+                    </p>
+                    <p>
+                        En résolvant les équations, on trouve <m>\alpha_1=0</m> et <m>\frac{1}{4}</m>. Ainsi, <m>a_n=n\frac{4^n}{4}=n 4^{n-1}</m>
+                    </p>
+                </solution>
             </task>
             <task>
                 <statement><p><m>a_n=-2a_{n-1}+35a_{n-2}</m>, où <m>a_0=1</m> et <m>a_1=4</m>.</p></statement>
                 <answer><p><m>a_n=\frac{11\cdot 5^n}{12}+\frac{(-7)^n}{12}</m></p></answer>
+                <solution>
+                    <p>
+                    L'équation caractéristique de cette relation est <m>0=r^2+2r-35</m>. Les racines de cette équation sont <m>r_1=5</m> et <m>r_2=-7</m>. Ainsi, on a <m>a_n=\alpha_1 (5)^n + \alpha_2 (-7)^n</m>. Puisque <m>a_0=1</m> et <m>a_1=4</m>, en remplaçant successivement <m>n</m> par <m>0</m> et <m>1</m>, on obtient 
+                    <md>
+                        <mrow>1 \amp = \alpha_1 +\alpha_2</mrow>
+                        <mrow>4 \amp = 5 \alpha_1-7 \alpha_2 </mrow>.
+                    </md>
+                    </p>
+                    <p>
+                        En résolvant les équations, on trouve <m>\alpha_1=\frac{11}{12}</m> et <m>\frac{1}{12}</m>. Ainsi, <m>a_n=\frac{11\cdot 5^n}{12}+\frac{(-7)^n}{12}</m>
+                    </p>
+                </solution>
             </task>
             <task>
                 <statement><p><m>a_n=2a_{n-1}+35a_{n-2}</m>, où <m>a_0=2</m> et <m>a_1=3</m>.</p></statement>
                 <answer><p><m>a_n=\frac{13\cdot 7^n}{12}+\frac{11 (-5)^n}{12}</m></p></answer>
+                <solution>
+                    <p>
+                    L'équation caractéristique de cette relation est <m>0=r^2-2r-35</m>. Les racines de cette équation sont <m>r_1=7</m> et <m>r_2=-5</m>. Ainsi, on a <m>a_n=\alpha_1 (7)^n + \alpha_2 (-5)^n</m>. Puisque <m>a_0=2</m> et <m>a_1=3</m>, en remplaçant successivement <m>n</m> par <m>0</m> et <m>1</m>, on obtient 
+                    <md>
+                        <mrow>2 \amp = \alpha_1 +\alpha_2</mrow>
+                        <mrow>3 \amp = 7 \alpha_1-5 \alpha_2 </mrow>.
+                    </md>
+                    </p>
+                    <p>
+                        En résolvant les équations, on trouve <m>\alpha_1=\frac{13}{12}</m> et <m>\frac{11}{12}</m>. Ainsi, <m>a_n=\frac{11\cdot 5^n}{12}+\frac{(-7)^n}{12}</m>
+                    </p>
+                </solution>
             </task>
             <task>
                 <statement><p><m>a_n=14a_{n-1}-49a_{n-2}</m>, où <m>a_0=0</m> et <m>a_1=0</m>.</p></statement>
                 <answer><p><m>a_n=0</m></p></answer>
+                <solution>
+                    <p>
+                    L'équation caractéristique de cette relation est <m>0=r^2-14r+49</m>. L'unique racine de cette équation est <m>r_1=7</m>. Ainsi, on a <m>a_n=\alpha_1 (7)^n + \alpha_2\cdot n \cdot  (7)^n</m>. Puisque <m>a_0=0</m> et <m>a_1=0</m>, en remplaçant successivement <m>n</m> par <m>0</m> et <m>1</m>, on obtient 
+                    <md>
+                        <mrow>0 \amp = \alpha_1 +\alpha_2</mrow>
+                        <mrow>0 \amp = 7 \alpha_1 </mrow>.
+                    </md>
+                    </p>
+                    <p>
+                        En résolvant les équations, on trouve <m>\alpha_1=\alpha_2=0</m>. Ainsi, <m>a_n=0</m>.
+                    </p>
+                </solution>
+                <solution>
+                    <p>
+                        On peut également utiliser une preuve par induction pour montrer que <m>a_n=0</m> pour <m>n\geq 0</m>.
+                    </p>
+                </solution>
             </task>
+
         </exercise>
 
 
@@ -73,11 +139,24 @@
     <statement> <p>Trouver la forme générale de la suite de Fibonacci <m>\{F_n\},</m> où <m>F_{n}=F_{n-1}+F_{n-2}</m> pour <m>n\geq 2,</m> et <m>F_0=F_1=1</m>.</p></statement>
     <answer> <m>F_n=\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n</m>
     </answer>
+    <solution>
+        <p>
+        L'équation caractéristique de cette relation est <m>0=r^2-r-1</m>. Les racines de cette équation sont <m>r_1=\frac{1+\sqrt{5}}{2}</m> et <m>r_2=\frac{1-\sqrt{5}}{2}</m>. Ainsi, on a <m>F_n=\alpha_1\left(\frac{1+\sqrt{5}}{2}\right)^n+\alpha_2 \left(\frac{1-\sqrt{5}}{2}\right)^n</m>. Puisque <m>F_0=1</m> et <m>F_1=1</m>, en remplaçant successivement <m>n</m> par <m>0</m> et <m>1</m>, on obtient 
+        
+        <md>
+            <mrow>1 \amp = \alpha_1 +\alpha_2</mrow>
+            <mrow>1 \amp =  \alpha_1\frac{1+\sqrt{5}}{2}+\alpha_2 \frac{1-\sqrt{5}}{2} </mrow>.
+        </md>
+        </p>
+        <p>
+            En résolvant les équations, on trouve <m>\alpha_1=\frac{5+\sqrt{5}}{10}</m> et <m>\alpha_2=\frac{5-\sqrt{5}}{10}</m>. Ainsi, <m>F_n=\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n</m>.
+        </p>
+    </solution>
     </exercise>
 
         <exercise>
         <statement><p>À l'aide de l'exercice <xref ref="exo-fibo"/>, montrer que <m>\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N</m> si <m>n\in\,\N</m>.</p></statement>
-        <solution><p>Par <xref ref="exo-fibo"/>, on sait que  <m>\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n</m> est le <m>n</m> ième terme de la suite de Fibonacci. On sait également que les termes de la suite de Fibonacci sont des entiers naturels. Ainsi,  <m>\frac{1}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^n-\frac{1}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N</m>.</p></solution>
+        <solution><p>Par <xref ref="exo-fibo"/>, on sait que  <m>\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n</m> est le <m>n</m> ième terme de la suite de Fibonacci. On sait également que les termes de la suite de Fibonacci sont des entiers naturels. Ainsi,  <m>\left(\frac{5+\sqrt{5}}{10}\right)\left(\frac{1+\sqrt{5}}{2}\right)^n+\left(\frac{5-\sqrt{5}}{10}\right)\left(\frac{1-\sqrt{5}}{2}\right)^n \in\,\N</m>.</p></solution>
         </exercise>
 
     <exercise>
