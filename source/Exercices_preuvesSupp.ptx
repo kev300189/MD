@@ -325,7 +325,7 @@
     <exercise>
         <statement>
             <p>On considère la proposition <m>P: </m> Pour tout entier positif <m>n</m>, si <m>x</m> et <m>y</m> sont des entiers positifs, et si <m>\max(x,y)=n</m>, alors <m>x=y=n</m>.</p> 
-            <p> On rappelle aussiq que 
+            <p> On rappelle aussi que 
                 
                     <me>max(x,y) = \begin{cases} x \amp \text{si  }x\geq y\\y \amp \text{si } x\lt y\end{cases}</me>.
                    

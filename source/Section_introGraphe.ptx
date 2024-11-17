@@ -33,7 +33,7 @@
     <statement>
 <p>Un graphe simple <m>G=(S,A)</m> est défini à l'aide d'une paire d'ensembles <m>S</m> et <m>A</m>.</p>
 <p>L'ensemble <m>S</m> est un ensemble non-vide quelconque. On l'appel l'ensemble des sommets de <m>G</m>.</p>
-<p> L'ensemble <m>A</m> est un ensemble formé de deux éléments <m>S</m>. C'est à dire que les éléments de <m>A</m> sont de la forme <m>a=\{s,t\}</m>, où <m>s\neq t\in\ S</m> (<m>s</m> et <m>t</m> sont des sommets de <m>G</m>). On dit que <m>A</m> est l'ensemble des arêtes de <m>G</m>.</p>
+<p> Les éléments de l'ensemble <m>A</m> sont des ensembles formés de deux éléments de <m>S</m>. C'est à dire que les éléments de <m>A</m> sont de la forme <m>a=\{s,t\}</m>, où <m>s\neq t\in\ S</m> (<m>s</m> et <m>t</m> sont des sommets de <m>G</m>). On dit que <m>A</m> est l'ensemble des arêtes de <m>G</m>.</p>
 <p>Soit <m>a=\{s,t\}\in\,A,</m> on dira que <m>s</m> et <m>t</m> sont les extrémités de <m>a</m>. On dira qu'une arête conecte ses deux extrémités ensembles.</p>
     </statement>
 </definition>
