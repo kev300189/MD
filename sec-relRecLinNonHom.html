@@ -963,10 +963,86 @@ c\cdot n^2 3^2\amp= 6c\cdot (n^2-2n+1)3-9c(n^2-4n+4)+3^2\\
 <article class="exercise exercise-like" id="exo-relRecLinNonHom-2-3"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
 <div class="introduction" id="exo-relRecLinNonHom-2-3-1">Pour chacune des relations de récurrence ci-dessous, trouver la solution générale à l’aide de la solution particulière proposée.</div>
 <article class="task exercise-like" id="exo-relRecLinNonHom-2-3-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
-<span class="process-math">\(a_n=2a_{n-1} + (n+5) \text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= cn+d \text{,}\)</span> où <span class="process-math">\(c\)</span> et <span class="process-math">\(d\)</span> sont des constantes.<div class="solutions"><details id="exo-relRecLinNonHom-2-3-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-3-2-2-1"><span class="process-math">\(a_n=\alpha_1 2^n - n - 7\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-3-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
-<span class="process-math">\(a_n=2a_{n-1} + 3\cdot 2^n \text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= n(c\cdot 2^n) \text{,}\)</span> où <span class="process-math">\(c\)</span> est une constante.<div class="solutions"><details id="exo-relRecLinNonHom-2-3-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-3-3-2-1"><span class="process-math">\(a_n=\alpha_1 2^n + 3n2^n\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-3-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
-<span class="process-math">\(a_n=a_{n-1}+ a_{n-2} + 1\text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= c\text{.}\)</span><div class="solutions"><details id="exo-relRecLinNonHom-2-3-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-3-4-2-1"><span class="process-math">\(\alpha_1\left(\frac{1+\sqrt{5}}{2}\right)^n+\alpha_2\left(\frac{1-\sqrt{5}}{2}\right)^n -1\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-3-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
-<span class="process-math">\(a_n=4a_{n-1} -4a_{n-2} + (n+1)2^n \text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= (cn^3+dn^2)2^n \text{,}\)</span> où <span class="process-math">\(c\)</span> et <span class="process-math">\(d\)</span> sont des constantes.<div class="solutions"><details id="exo-relRecLinNonHom-2-3-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-3-5-2-1"><span class="process-math">\(\alpha_1(2^n) + \alpha_2(n2^n) + \left(\frac{n^3}{6}+n^2\right)2^n\)</span></div></div></details></div></article></article><article class="exercise exercise-like" id="exo-relRecLinNonHom-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<span class="process-math">\(a_n=2a_{n-1} + (n+5) \text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= cn+d \text{,}\)</span> où <span class="process-math">\(c\)</span> et <span class="process-math">\(d\)</span> sont des constantes.<div class="solutions">
+<details id="exo-relRecLinNonHom-2-3-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-3-2-2-1"><span class="process-math">\(a_n=\alpha_1 2^n - n - 7\)</span></div></div></details><details id="exo-relRecLinNonHom-2-3-2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinNonHom-2-3-2-3-1">
+<div class="para">À l’aide des méthodes de la section <a href="sec-relRecLinHom.html" class="internal" title="Section 6.1: Relations de récurrence linéaires homogènes">6.1</a>, on trouve <span class="process-math">\(a^{(h)}_n=\alpha_1 2^n\text{.}\)</span> En suite, on pose <span class="process-math">\(a^{(p)}_n=cn+d\text{.}\)</span> En remplaçant dans la relation de récurrence, on obtient:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-relRecLinHom.html" id="exo-relRecLinNonHom-2-3-2-3-1-4">
+\begin{align*}
+cn+d \amp= 2\bigl(c(n-1)+d\bigr)+(n+5) \\
+\amp= 2cn-2c+2d+n+5 \\
+\amp= (2c+1)n-2c+2d+5. 
+\end{align*}
+</div>
+</div> <div class="para logical" id="exo-relRecLinNonHom-2-3-2-3-2">
+<div class="para">Pour que <span class="process-math">\(cn+d=(2c+1)n-2c+2d+5\)</span> pour tout <span class="process-math">\(n\in \N\text{,}\)</span> on doit avoir</div>
+<div class="displaymath process-math" id="exo-relRecLinNonHom-2-3-2-3-2-3">
+\begin{align*}
+c \amp=2c+1 \text{ et}\\
+d \amp= -2c+2d+5 .
+\end{align*}
+</div>
+<div class="para">En résolvant ces deux équations, on trouve <span class="process-math">\(c=-1\)</span> et <span class="process-math">\(d=-7\text{,}\)</span> c’est-à-dire que <span class="process-math">\(a_n^{(p)}=-n-7\text{.}\)</span> On obtient alors <span class="process-math">\(a_n=a^{(h)}_n+a^{(p)}_n=\alpha_1 2^n - n - 7\text{.}\)</span>
+</div>
+</div>
+</div></details>
+</div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-3-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<span class="process-math">\(a_n=2a_{n-1} + 3\cdot 2^n \text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= n(c\cdot 2^n) \text{,}\)</span> où <span class="process-math">\(c\)</span> est une constante.<div class="solutions">
+<details id="exo-relRecLinNonHom-2-3-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-3-3-2-1"><span class="process-math">\(a_n=\alpha_1 2^n + 3n2^n\)</span></div></div></details><details id="exo-relRecLinNonHom-2-3-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinNonHom-2-3-3-3-1">
+<div class="para">À l’aide des méthodes de la section <a href="sec-relRecLinHom.html" class="internal" title="Section 6.1: Relations de récurrence linéaires homogènes">6.1</a>, on trouve <span class="process-math">\(a^{(h)}_n=\alpha_1 2^n\text{.}\)</span> En suite, on pose <span class="process-math">\(a^{(p)}_n=n(c\cdot 2^n)\text{.}\)</span> En remplaçant dans la relation de récurrence, on obtient:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-relRecLinHom.html" id="exo-relRecLinNonHom-2-3-3-3-1-4">
+\begin{align*}
+n(c\cdot 2^n) \amp= 2\bigl((n-1)c\cdot 2^{n-1}\bigr)+3\cdot 2^n \\
+nc \amp= cn-c+3 \text{ en divisant par } 2^{n}\\
+0 \amp= -c +3. 
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinNonHom-2-3-3-3-2">On trouve donc <span class="process-math">\(c=3\text{,}\)</span> c’est-à-dire que <span class="process-math">\(a_n^{(p)}=3n\cdot 2^n\text{.}\)</span> On obtient alors <span class="process-math">\(a_n=a^{(h)}_n+a^{(p)}_n=\alpha_1 2^n +3n\cdot 2^n\text{.}\)</span>
+</div>
+</div></details>
+</div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-3-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<span class="process-math">\(a_n=a_{n-1}+ a_{n-2} + 1\text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= c\text{.}\)</span><div class="solutions">
+<details id="exo-relRecLinNonHom-2-3-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-3-4-2-1"><span class="process-math">\(\alpha_1\left(\frac{1+\sqrt{5}}{2}\right)^n+\alpha_2\left(\frac{1-\sqrt{5}}{2}\right)^n -1\)</span></div></div></details><details id="exo-relRecLinNonHom-2-3-4-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinNonHom-2-3-4-3-1">
+<div class="para">À l’aide des méthodes de la section <a href="sec-relRecLinHom.html" class="internal" title="Section 6.1: Relations de récurrence linéaires homogènes">6.1</a>, on trouve <span class="process-math">\(a^{(h)}_n=\alpha_1\left(\frac{1+\sqrt{5}}{2}\right)^n+\alpha_2\left(\frac{1-\sqrt{5}}{2}\right)^n \text{.}\)</span> En suite, on pose <span class="process-math">\(a^{(p)}_n=c\text{.}\)</span> En remplaçant dans la relation de récurrence, on obtient:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-relRecLinHom.html" id="exo-relRecLinNonHom-2-3-4-3-1-4">
+\begin{align*}
+c \amp= c+c+1 \\
+\amp= 2c+1
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinNonHom-2-3-4-3-2">On trouve donc <span class="process-math">\(c=-1\text{,}\)</span> c’est-à-dire que <span class="process-math">\(a_n^{(p)}=-1\text{.}\)</span> On obtient alors <span class="process-math">\(a_n=a^{(h)}_n+a^{(p)}_n=\alpha_1\left(\frac{1+\sqrt{5}}{2}\right)^n+\alpha_2\left(\frac{1-\sqrt{5}}{2}\right)^n -1\text{.}\)</span>
+</div>
+</div></details>
+</div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-3-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<span class="process-math">\(a_n=4a_{n-1} -4a_{n-2} + (n+1)2^n \text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= (cn^3+dn^2)2^n \text{,}\)</span> où <span class="process-math">\(c\)</span> et <span class="process-math">\(d\)</span> sont des constantes.<div class="solutions">
+<details id="exo-relRecLinNonHom-2-3-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-3-5-2-1"><span class="process-math">\(\alpha_1(2^n) + \alpha_2(n2^n) + \left(\frac{n^3}{6}+n^2\right)2^n\)</span></div></div></details><details id="exo-relRecLinNonHom-2-3-5-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinNonHom-2-3-5-3-1">
+<div class="para">À l’aide des méthodes de la section <a href="sec-relRecLinHom.html" class="internal" title="Section 6.1: Relations de récurrence linéaires homogènes">6.1</a>, on trouve <span class="process-math">\(a^{(h)}_n=\alpha_1(2^n) + \alpha_2(n2^n)\text{.}\)</span> En suite, on pose <span class="process-math">\(a^{(p)}_n=(cn^3+dn^2)2^n\text{.}\)</span> En remplaçant dans la relation de récurrence, on obtient:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-relRecLinHom.html" id="exo-relRecLinNonHom-2-3-5-3-1-4">
+\begin{align*}
+(cn^3+dn^2)2^n \amp= 4\biggl( \bigl(c(n-1)^3+d(n-1)^2\bigr)2^{n-1}\biggr)-4\biggl( \bigl(c(n-2)^3+d(n-2)^2\bigr)2^{n-2}\biggr)+(n+1)2^n \\
+(cn^3+dn^2)2^2 \amp= 4\biggl( \bigl(c(n-1)^3+d(n-1)^2\bigr)2\biggr)-4\biggl( \bigl(c(n-2)^3+d(n-2)^2\bigr)\biggr)+(n+1)2^2 \text{ en divisant par } 2^{n-2}\\
+4c\cdot n^3+4d\cdot n^2 \amp=4\biggl( \bigl(c(n^3-3n^2+3n-1)+d(n^2-2n+1)\bigr)2\biggr)-4\biggl( \bigl(c(n^3-6n^2+12n-8)+d(n^2-4n+4)\bigr)\biggr)+(n+1)4 \\
+4c\cdot n^3+4d\cdot n^2  \amp= 8c\cdot n^3-24c\cdot n^2 +24c\cdot n-8c+8d\cdot n^2-16d\cdot n+8d -4c\cdot n^3+24c\cdot n^2-48c\cdot n+32c-4d\cdot n^2+16d\cdot n-16d+4\cdot n+4\\
+{\color{red}{4c\cdot n^3}}+{\color{blue}{4d\cdot n^2}}  \amp= {\color{red}{4c\cdot n^3}}+{\color{blue}{4d\cdot n^2}} + (-24c+4)\cdot n + (24c-8d+4) \\
+0  \amp= (-24c+4)\cdot n + (24c-8d+4) 
+\end{align*}
+</div>
+</div> <div class="para logical" id="exo-relRecLinNonHom-2-3-5-3-2">
+<div class="para">Pour que <span class="process-math">\(0 = (-24c+4)\cdot n + (24c-8d+4)\)</span> pour tout <span class="process-math">\(n\in \N\text{,}\)</span> on doit avoir</div>
+<div class="displaymath process-math" id="exo-relRecLinNonHom-2-3-5-3-2-3">
+\begin{align*}
+0 \amp= -24c+4 \text{ et}\\
+0 \amp= 24c-8d+4 .
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinNonHom-2-3-5-3-3">En résolvant ces deux équations, on trouve <span class="process-math">\(c=\frac{1}{6}\)</span> et ensuite <span class="process-math">\(d=1\text{,}\)</span> c’est-à-dire que <span class="process-math">\(a_n^{(p)}=\left(\frac{n^3}{6}+n^2\right)2^n\text{.}\)</span>
+</div> <div class="para" id="exo-relRecLinNonHom-2-3-5-3-4">On obtient alors <span class="process-math">\(a_n=a^{(h)}_n+a^{(p)}_n=\alpha_1(2^n) + \alpha_2(n2^n) + \left(\frac{n^3}{6}+n^2\right)2^n\text{.}\)</span>
+</div>
+</div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-relRecLinNonHom-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
 <div class="introduction" id="exo-relRecLinNonHom-2-4-1"><div class="para" id="exo-relRecLinNonHom-2-4-1-1">On considère <span class="process-math">\(a_n=t_1 + t_2 + \cdots + t_n\text{,}\)</span> où <span class="process-math">\(t_k=\frac{k(k+1)}{2}\text{.}\)</span>
 </div></div>
 <article class="task exercise-like" id="exo-relRecLinNonHom-2-4-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
@@ -986,7 +1062,33 @@ a_n=a_{n-1} +\frac{n(n+1)}{2}
 </div>
 </div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-4-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="exo-relRecLinNonHom-2-4-3-1-1">Résoudre la relation de récurrence en utilisant <span class="process-math">\(a_n^{(p)}= c_3n^3+c_2n^2+c_1n\text{,}\)</span> où les <span class="process-math">\(c_i\)</span> sont des constantes.</div>
-<div class="solutions"><details id="exo-relRecLinNonHom-2-4-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-4-3-2-1"><span class="process-math">\(a_n=\alpha_1 + \frac{n(n+1)(n+2)}{6}\)</span></div></div></details></div></article></article><article class="exercise exercise-like" id="exo-relRecLinNonHom-2-5"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="solutions">
+<details id="exo-relRecLinNonHom-2-4-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-4-3-2-1"><span class="process-math">\(a_n=\alpha_1 + \frac{n(n+1)(n+2)}{6}\)</span></div></div></details><details id="exo-relRecLinNonHom-2-4-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinNonHom-2-4-3-3-1">
+<div class="para">À l’aide des méthodes de la section <a href="sec-relRecLinHom.html" class="internal" title="Section 6.1: Relations de récurrence linéaires homogènes">6.1</a>, on trouve <span class="process-math">\(a^{(h)}_n=\alpha_1\text{.}\)</span> En suite, on pose <span class="process-math">\(a^{(p)}_n=c_3n^3+c_2n^2+c_1n\text{.}\)</span> En remplaçant dans la relation de récurrence, on obtient:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/sec-relRecLinHom.html" id="exo-relRecLinNonHom-2-4-3-3-1-4">
+\begin{align*}
+c_3n^3+c_2n^2+c_1n \amp= c_3(n-1)^3+c_2(n-1)^2+c_1(n-1) +\frac{1}{2}n^2+\frac{1}{2}n \\
+c_3n^3+c_2n^2+c_1n \amp= c_3(n^3-3n^2+3n-1)+c_2(n^2-2n+1)+c_1(n-1) +\frac{1}{2}n^2+\frac{1}{2}n \\
+c_3n^3+c_2n^2+c_1n \amp=c_3n^3-3c_3n^2+3c_3n-c_3+c_2n^2-2c_2n+c_2+c_1n-c_1 +\frac{1}{2}n^2+\frac{1}{2}n\\
+c_3n^3+c_2n^2+c_1n \amp=c_3n^3  \left(-3c_3+c_2+\frac{1}{2}\right)\cdot n^2 +\left(3c_3-2c_2+c_1+\frac{1}{2} \right)\cdot n +(-c_3+c_2-c_1)\\
+c_2n^2+c_1n \amp= \left(-3c_3+c_2+\frac{1}{2}\right)\cdot n^2 +\left(3c_3-2c_2+c_1+\frac{1}{2} \right)\cdot n +(-c_3+c_2-c_1) 
+\end{align*}
+</div>
+</div> <div class="para logical" id="exo-relRecLinNonHom-2-4-3-3-2">
+<div class="para">Pour que cette égalité soit vraie pour tout <span class="process-math">\(n\in \N\text{,}\)</span> on doit avoir</div>
+<div class="displaymath process-math" id="exo-relRecLinNonHom-2-4-3-3-2-2">
+\begin{align*}
+c_2 \amp= -3c_3+c_2+\frac{1}{2} \\
+c_1 \amp= 3c_3-2c_2+c_1+\frac{1}{2} \text{ et}\\
+0 \amp= -c_3+c_2-c_1  
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinNonHom-2-4-3-3-3">En résolvant ces trois équations, on trouve <span class="process-math">\(c_3=\frac{1}{6}\text{,}\)</span> ensuite <span class="process-math">\(c_2=\frac{1}{2}\)</span> et finalement <span class="process-math">\(c_1=\frac{1}{3}\text{,}\)</span> c’est-à-dire que <span class="process-math">\(a_n^{(p)}=\frac{n^3}{6}+\frac{n^2}{2}+\frac{n}{3}=\frac{n(n+1)(n+2)}{6}\text{.}\)</span>
+</div> <div class="para" id="exo-relRecLinNonHom-2-4-3-3-4">On obtient alors <span class="process-math">\(a_n=a^{(h)}_n+a^{(p)}_n=\alpha_1 + \frac{n(n+1)(n+2)}{6}\text{.}\)</span>
+</div>
+</div></details>
+</div></article></article><article class="exercise exercise-like" id="exo-relRecLinNonHom-2-5"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
 <div class="introduction" id="exo-relRecLinNonHom-2-5-1"><div class="para logical" id="exo-relRecLinNonHom-2-5-1-1">
 <div class="para">On considère l’équation</div>
 <div class="displaymath process-math">
@@ -1000,29 +1102,44 @@ a_n = a_{n-1}+6a_{n-2} + F(n)\text{.}
 </div>
 <div class="solutions"><details id="exo-relRecLinNonHom-2-5-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-5-2-2-1"><span class="process-math">\(a_n=\alpha_1 (3^n)+\alpha_2(-2)^n\text{.}\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-5-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="exo-relRecLinNonHom-2-5-3-1-1">Trouver une solution particulière <span class="process-math">\(\{a_n^{(p)}\}\text{,}\)</span> lorsque <span class="process-math">\(F(n)=3^n\text{.}\)</span> Utiliser une solution de la forme <span class="process-math">\(a_n^{(p)}= n(c\cdot 3^n) \text{,}\)</span> où <span class="process-math">\(c\)</span> est une constante.</div>
-<div class="solutions"><details id="exo-relRecLinNonHom-2-5-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-5-3-2-1"><span class="process-math">\(a_n^{(p)}= \frac{n 3^{n+1}}{5}\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-5-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="solutions">
+<details id="exo-relRecLinNonHom-2-5-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-5-3-2-1"><span class="process-math">\(a_n^{(p)}= \frac{n 3^{n+1}}{5}\)</span></div></div></details><details id="exo-relRecLinNonHom-2-5-3-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinNonHom-2-5-3-3-1">
+<div class="para">On pose <span class="process-math">\(a^{(p)}_n=n(c\cdot 3^n)\text{.}\)</span> En remplaçant dans la relation de récurrence, on obtient:</div>
+<div class="displaymath process-math" id="exo-relRecLinNonHom-2-5-3-3-1-2">
+\begin{align*}
+n(c\cdot 3^n) \amp= (n-1)(c\cdot 3^{n-1})+6(n-2)(c\cdot 3^{n-2})+3^n \\
+n(c\cdot 3^2) \amp= (n-1)(c\cdot 3)+6(n-2)c+3^2 \text{ en divisant par } 3^{n-2} \\
+9c\cdot n     \amp= 3c\cdot n-3c+6c\cdot n-12c+9 \\
+9c\cdot n     \amp= 9c\cdot n-15c+9. \\
+0             \amp= -15c+9. 
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinNonHom-2-5-3-3-2">On trouve alors <span class="process-math">\(c= \frac{3}{5}\text{,}\)</span> c’est-à-dire que <span class="process-math">\(a_n^{(p)}=\frac{3}{5}\cdot 3^n=\frac{3^{n+1}}{5}\text{.}\)</span>
+</div>
+</div></details>
+</div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-5-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para" id="exo-relRecLinNonHom-2-5-4-1-1">À l’aide des réponses aux questions précédentes, trouver la solution générale à la relation de récurence lorsque <span class="process-math">\(F(n)=3^n\text{.}\)</span>
 </div>
 <div class="solutions"><details id="exo-relRecLinNonHom-2-5-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-5-4-2-1"><span class="process-math">\(a_n=\alpha_1 (3^n)+\alpha_2(-2)^n+ \frac{n 3^{n+1}}{5}\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-5-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
-<div class="para" id="exo-relRecLinNonHom-2-5-5-1-1">Lorsque <span class="process-math">\(F(n)=3^n\text{,}\)</span> expliquer pourquoi on ne peut pas utiliser une solution particulière de la forme <span class="process-math">\(a_n^{(p)}= (c\cdot 3^n) \text{,}\)</span> où <span class="process-math">\(c\)</span> est une constante.</div> <details id="exo-relRecLinNonHom-2-5-5-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-5-5-1-2-1">Puisque  <span class="process-math">\(3^n\)</span> est une solution à la relation de récurrence homogène, si on remplace <span class="process-math">\(a_n^{(p)} = 3^n\)</span> dans la relation, on obtiendra toujours <span class="process-math">\(3^n = 3^{n-1}+ 6 (3)^{n-2} \text{.}\)</span>
-</div></div></details></article></article><article class="exercise exercise-like" id="exo-combLinSolPartie"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
+<div class="para" id="exo-relRecLinNonHom-2-5-5-1-1">Lorsque <span class="process-math">\(F(n)=3^n\text{,}\)</span> expliquer pourquoi on ne peut pas utiliser une solution particulière de la forme <span class="process-math">\(a_n^{(p)}= (c\cdot 3^n) \text{,}\)</span> où <span class="process-math">\(c\)</span> est une constante.</div> <details id="exo-relRecLinNonHom-2-5-5-1-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-5-5-1-2-1">Puisque  <span class="process-math">\(3^n\)</span> est une solution à la relation de récurrence homogène, si on remplace <span class="process-math">\(a_n^{(p)} = c\cdot 3^n\)</span> dans la relation, on obtiendra toujours <span class="process-math">\(c\cdot 3^n = c\cdot 3^{n-1}+ 6 c\cdot (3)^{n-2}+3^n=c\cdot 3^{n}+3^n\text{,}\)</span> c’est-à-dire que <span class="process-math">\(0=3^n\text{,}\)</span> ce qui est impossible.</div></div></details></article></article><article class="exercise exercise-like" id="exo-combLinSolPartie"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
 <div class="para logical" id="exo-combLinSolPartie-1-1">
-<div class="para">Soit <span class="process-math">\(a_n^{(p_1)}\)</span> une solution à la relation</div>
+<div class="para">Soit <span class="process-math">\(a_n^{(p_1)}\)</span> une solution particulière à la relation</div>
 <div class="displaymath process-math">
 \begin{equation*}
 a_n=c_1a_{n-1}+c_2a_{n-2} + F_1(n)
 \end{equation*}
 </div>
-<div class="para">et <span class="process-math">\(a_n^{(p_2)}\)</span> une solution à la relation</div>
+<div class="para">et <span class="process-math">\(a_n^{(p_2)}\)</span> une solution particulière à la relation</div>
 <div class="displaymath process-math">
 \begin{equation*}
 a_n=c_1a_{n-1}+c_2a_{n-2} + F_2(n)\text{.}
 \end{equation*}
 </div>
-<div class="para">Montrer que <span class="process-math">\(a_n^{(p_1)}+a_n^{(p_2)} \)</span> est une solution à la relation</div>
+<div class="para">Montrer que si <span class="process-math">\(b_1, b_2\in \R\)</span> sont des constantes quelconques, alors <span class="process-math">\(b_1\cdot a_n^{(p_1)}+b_2\cdot a_n^{(p_2)} \)</span> est une solution particulière à la relation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-a_n=c_1a_{n-1}+c_2a_{n-2} + F_1(n)+F_2(n)\text{.}
+a_n=c_1a_{n-1}+c_2a_{n-2} + b_1\cdot F_1(n)+b_2\cdot F_2(n)\text{.}
 \end{equation*}
 </div>
 </div>
@@ -1030,34 +1147,58 @@ a_n=c_1a_{n-1}+c_2a_{n-2} + F_1(n)+F_2(n)\text{.}
 <div class="para">On a</div>
 <div class="displaymath process-math" id="exo-combLinSolPartie-2-1-1">
 \begin{align*}
-a_n^{(p_1)} +  a_n^{(p_2)} \amp =  \left(c_1a_{n-1}^{(p_1)}+c_2a_{n-2}^{(p_1)} + F_1(n)\right) +\left(c_1a_{n-1}^{(p_2)}+c_2a_{n-2}^{(p_2)} + F_2(n)\right) \\
-\amp =  c_1\left(a_{n-1}^{(p_1)}+a_{n-1}^{(p_2)}\right)+c_2\left(a_{n-2}^{(p_1)}+a_{n-2}^{(p_2)}\right) + \left(F_1(n)+F_2(n)\right) 
+b_1\cdot a_n^{(p_1)} +  b_2\cdot a_n^{(p_2)} \amp =  b_1\cdot \left(c_1a_{n-1}^{(p_1)}+c_2a_{n-2}^{(p_1)} + F_1(n)\right) +b_2\cdot \left(c_1a_{n-1}^{(p_2)}+c_2a_{n-2}^{(p_2)} + F_2(n)\right) \\
+\amp =  c_1\left(b_1\cdot a_{n-1}^{(p_1)}+b_2\cdot a_{n-1}^{(p_2)}\right)+c_2\left(b_1\cdot a_{n-2}^{(p_1)}+b_2\cdot a_{n-2}^{(p_2)}\right) + \bigl(b_1\cdot F_1(n)+b_2\cdot F_2(n)\bigr) 
 \end{align*}
 </div>
 </div></div></details></div></article><article class="exercise exercise-like" id="exo-relRecLinNonHom-2-7"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
 <div class="para logical" id="exo-relRecLinNonHom-2-7-1-1">
-<div class="para">À l’aide de l’exercice <a href="sec-relRecLinNonHom.html#exo-combLinSolPartie" class="xref" data-knowl="./knowl/xref/exo-combLinSolPartie.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 6.2.3.4">6.2.3.4</a>, montrer que si  <span class="process-math">\(a_n^{(p_1)}\)</span>  et <span class="process-math">\(a_n^{(p_2)}\)</span> deux solutions à la relation</div>
+<div class="para">À l’aide de l’exercice <a href="sec-relRecLinNonHom.html#exo-combLinSolPartie" class="xref" data-knowl="./knowl/xref/exo-combLinSolPartie.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 6.2.3.4">6.2.3.4</a>, montrer que si  <span class="process-math">\(a_n^{(p_1)}\)</span>  et <span class="process-math">\(a_n^{(p_2)}\)</span> sont des solutions particulières à la relation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-combLinSolPartie.html">
 \begin{equation*}
 a_n=c_1a_{n-1}+c_2a_{n-2} + F(n)\text{,}
 \end{equation*}
 </div>
-<div class="para">alors <span class="process-math">\(a_n^{(p_1)} - a_n^{(p_2)}\)</span> est une solution à l’équation</div>
+<div class="para">alors <span class="process-math">\(a_n^{(p_1)} - a_n^{(p_2)}\)</span> est une solution particulière à l’équation</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-combLinSolPartie.html">
 \begin{equation*}
 a_n=c_1a_{n-1}+c_2a_{n-2}
 \end{equation*}
 </div>
 </div>
-<div class="solutions"><details id="exo-relRecLinNonHom-2-7-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-7-2-1">Poser <span class="process-math">\(F_1(n)=F_2(n)=F(n)\)</span> dans l’exercice <a href="sec-relRecLinNonHom.html#exo-combLinSolPartie" class="xref" data-knowl="./knowl/xref/exo-combLinSolPartie.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 6.2.3.4">6.2.3.4</a>.</div></div></details></div></article><article class="exercise exercise-like" id="exo-relRecLinNonHom-2-8"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
+<div class="solutions">
+<details id="exo-relRecLinNonHom-2-7-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-7-2-1">Poser <span class="process-math">\(F_1(n)=F_2(n)=F(n)\)</span> dans l’exercice <a href="sec-relRecLinNonHom.html#exo-combLinSolPartie" class="xref" data-knowl="./knowl/xref/exo-combLinSolPartie.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 6.2.3.4">6.2.3.4</a>.</div></div></details><details id="exo-relRecLinNonHom-2-7-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para logical" id="exo-relRecLinNonHom-2-7-3-1">
+<div class="para">En posant <span class="process-math">\(F_1(n)=F_2(n)=F(n)\text{,}\)</span> <span class="process-math">\(b_1=1\)</span> et <span class="process-math">\(b_2=-1\text{,}\)</span> par l’exercice <a href="sec-relRecLinNonHom.html#exo-combLinSolPartie" class="xref" data-knowl="./knowl/xref/exo-combLinSolPartie.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 6.2.3.4">6.2.3.4</a>, on a que <span class="process-math">\(a_n^{(p_1)}- a_n^{(p_2)}\)</span> est une solution particulière à</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-combLinSolPartie.html">
+\begin{equation*}
+a_n=c_1a_{n-1}+c_2a_{n-2}+F_1(n)-F_2(n)=c_1a_{n-1}+c_2a_{n-2}+F(n)-F(n)=c_1a_{n-1}+c_2a_{n-2}.
+\end{equation*}
+</div>
+</div></div></details>
+</div></article><article class="exercise exercise-like" id="exo-relRecLinNonHom-2-8"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
 <div class="introduction" id="exo-relRecLinNonHom-2-8-1"><div class="para" id="exo-relRecLinNonHom-2-8-1-1">On considère <span class="process-math">\(a_n=4a_{n-1} -3a_{n-2} + F(n)\text{.}\)</span> Trouver une solution particulière à cette équation si:</div></div>
 <article class="task exercise-like" id="exo-relRecLinNonHom-2-8-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para" id="exo-relRecLinNonHom-2-8-2-1-1">
 <span class="process-math">\(F(n)=2^n\text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= c\cdot 2^n \text{,}\)</span> où <span class="process-math">\(c\)</span> est une constante;</div>
-<div class="solutions"><details id="exo-relRecLinNonHom-2-8-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-8-2-2-1"><span class="process-math">\(a_n^{(p)}= -4\cdot 2^n \)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-8-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="solutions">
+<details id="exo-relRecLinNonHom-2-8-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-8-2-2-1"><span class="process-math">\(a_n^{(p)}= -4\cdot 2^n \)</span></div></div></details><details id="exo-relRecLinNonHom-2-8-2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para logical" id="exo-relRecLinNonHom-2-8-2-3-1">
+<div class="para">On pose <span class="process-math">\(a^{(p)}_n=c\cdot 2^n\text{.}\)</span> En remplaçant dans la relation de récurrence, on obtient:</div>
+<div class="displaymath process-math" id="exo-relRecLinNonHom-2-8-2-3-1-2">
+\begin{align*}
+c\cdot 2^n \amp= 4(c\cdot 2^{n-1})-3(c\cdot 2^{n-2})+2^n \\
+c\cdot 2^2 \amp= 4(c\cdot 2)-3(c)+2^2 \text{ en divisant par } 2^{n-2} \\
+4c     \amp= 8c-3c+4 \\
+4c \amp= 5c+4. 
+\end{align*}
+</div>
+</div> <div class="para" id="exo-relRecLinNonHom-2-8-2-3-2">On trouve alors <span class="process-math">\(c= -4\text{,}\)</span> c’est-à-dire que <span class="process-math">\(a_n^{(p)}=-4\cdot 2^n\text{.}\)</span>
+</div>
+</div></details>
+</div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-8-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="exo-relRecLinNonHom-2-8-3-1-1">
 <span class="process-math">\(F(n)=n+3\text{,}\)</span> avec <span class="process-math">\(a_n^{(p)}= (cn^2+dn) \text{,}\)</span> où <span class="process-math">\(c\)</span> et <span class="process-math">\(d\)</span> sont des constantes;</div>
-<div class="solutions"><details id="exo-relRecLinNonHom-2-8-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-8-3-2-1"><span class="process-math">\(a_n^{(p)}= -\frac{n^2}{4} - \frac{5n}{2}\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-8-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="solutions"><details id="exo-relRecLinNonHom-2-8-3-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-8-3-4-1"><span class="process-math">\(a_n^{(p)}= -\frac{n^2}{4} - \frac{5n}{2}\)</span></div></div></details></div></article><article class="task exercise-like" id="exo-relRecLinNonHom-2-8-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para" id="exo-relRecLinNonHom-2-8-4-1-1"><span class="process-math">\(F(n)=2^n+(n+3)\text{.}\)</span></div>
 <div class="solutions">
 <details id="exo-relRecLinNonHom-2-8-4-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Indice</span><span class="period">.</span></summary><div class="hint solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-8-4-2-1">Utiliser les parties précédentes, ainsi que l’exercice <a href="sec-relRecLinNonHom.html#exo-combLinSolPartie" class="xref" data-knowl="./knowl/xref/exo-combLinSolPartie.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 6.2.3.4">6.2.3.4</a>.</div></div></details><details id="exo-relRecLinNonHom-2-8-4-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-relRecLinNonHom-2-8-4-3-1"><span class="process-math">\(a_n^{(p)}= -4\cdot 2^n -\frac{n^2}{4} - \frac{5n}{2}\)</span></div></div></details>

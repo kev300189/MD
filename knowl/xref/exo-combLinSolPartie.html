@@ -15,22 +15,22 @@
 <span class="type">Exercice</span><span class="space"> </span><span class="codenumber">4<span class="period">.</span></span>
 </h5>
 <div class="para logical">
-<div class="para">Soit <span class="process-math">\(a_n^{(p_1)}\)</span> une solution à la relation</div>
+<div class="para">Soit <span class="process-math">\(a_n^{(p_1)}\)</span> une solution particulière à la relation</div>
 <div class="displaymath process-math">
 \begin{equation*}
 a_n=c_1a_{n-1}+c_2a_{n-2} + F_1(n)
 \end{equation*}
 </div>
-<div class="para">et <span class="process-math">\(a_n^{(p_2)}\)</span> une solution à la relation</div>
+<div class="para">et <span class="process-math">\(a_n^{(p_2)}\)</span> une solution particulière à la relation</div>
 <div class="displaymath process-math">
 \begin{equation*}
 a_n=c_1a_{n-1}+c_2a_{n-2} + F_2(n)\text{.}
 \end{equation*}
 </div>
-<div class="para">Montrer que <span class="process-math">\(a_n^{(p_1)}+a_n^{(p_2)} \)</span> est une solution à la relation</div>
+<div class="para">Montrer que si <span class="process-math">\(b_1, b_2\in \R\)</span> sont des constantes quelconques, alors <span class="process-math">\(b_1\cdot a_n^{(p_1)}+b_2\cdot a_n^{(p_2)} \)</span> est une solution particulière à la relation</div>
 <div class="displaymath process-math">
 \begin{equation*}
-a_n=c_1a_{n-1}+c_2a_{n-2} + F_1(n)+F_2(n)\text{.}
+a_n=c_1a_{n-1}+c_2a_{n-2} + b_1\cdot F_1(n)+b_2\cdot F_2(n)\text{.}
 \end{equation*}
 </div>
 </div>
@@ -38,8 +38,8 @@ a_n=c_1a_{n-1}+c_2a_{n-2} + F_1(n)+F_2(n)\text{.}
 <div class="para">On a</div>
 <div class="displaymath process-math">
 \begin{align*}
-a_n^{(p_1)} +  a_n^{(p_2)} \amp =  \left(c_1a_{n-1}^{(p_1)}+c_2a_{n-2}^{(p_1)} + F_1(n)\right) +\left(c_1a_{n-1}^{(p_2)}+c_2a_{n-2}^{(p_2)} + F_2(n)\right) \\
-\amp =  c_1\left(a_{n-1}^{(p_1)}+a_{n-1}^{(p_2)}\right)+c_2\left(a_{n-2}^{(p_1)}+a_{n-2}^{(p_2)}\right) + \left(F_1(n)+F_2(n)\right) 
+b_1\cdot a_n^{(p_1)} +  b_2\cdot a_n^{(p_2)} \amp =  b_1\cdot \left(c_1a_{n-1}^{(p_1)}+c_2a_{n-2}^{(p_1)} + F_1(n)\right) +b_2\cdot \left(c_1a_{n-1}^{(p_2)}+c_2a_{n-2}^{(p_2)} + F_2(n)\right) \\
+\amp =  c_1\left(b_1\cdot a_{n-1}^{(p_1)}+b_2\cdot a_{n-1}^{(p_2)}\right)+c_2\left(b_1\cdot a_{n-2}^{(p_1)}+b_2\cdot a_{n-2}^{(p_2)}\right) + \bigl(b_1\cdot F_1(n)+b_2\cdot F_2(n)\bigr) 
 \end{align*}
 </div>
 </div></div></details></div></article><span class="incontext"><a class="internal" href="sec-relRecLinNonHom.html#exo-combLinSolPartie">Contexte</a></span>
