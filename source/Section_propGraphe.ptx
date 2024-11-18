@@ -480,6 +480,34 @@ On dira alors que <m>f </m> est un isomorphisme de graphe.
                 <caption> <m>G</m></caption>
                 <image width="25%" source="tikzit_QCL_BipartiOUI1.jpg"/>
             </figure></p>
+        <figure xml:id="fig-tikz-QCL_BipartiOUI1">
+            <caption> <m>G</m></caption>
+            <image width="50%" xml:id="BipartiOUI1">
+            <latex-image>
+            \begin{tikzpicture}
+	        \begin{pgfonlayer}{nodelayer}
+		    \node [style=SommetGraphe] (0) at (-3, 3) {};
+		    \node [style=SommetGraphe] (1) at (3, 3) {};
+		    \node [style=SommetGraphe] (2) at (0, 0) {};
+		    \node [style=SommetGraphe] (3) at (-3, -3) {};
+		    \node [style=SommetGraphe] (4) at (3, -3) {};
+		    \node [style=none] (5) at (-3, 3.75) {$a$};
+		    \node  (6) at (3, 3.75) {$b$};
+		    \node  (7) at (0.75, 0) {$e$};
+		    \node  (8) at (-3, -3.75) {$c$};
+		    \node  (9) at (3, -3.75) {$d$};
+	        \end{pgfonlayer}
+	        \begin{pgfonlayer}{edgelayer}
+		    \draw (0) to (2);
+		    \draw (2) to (4);
+		    \draw (1) to (2);
+		    \draw (2) to (3);
+	        \end{pgfonlayer}
+            \end{tikzpicture}
+            </latex-image>
+            </image>
+        </figure>
+
         </statement></task>
         <task><statement>
             <p><figure >

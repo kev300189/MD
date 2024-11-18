@@ -128,12 +128,28 @@ $\Box$
         <!--\pgfplotsset{axis x line = middle,
                      axis y line = middle}-->
         \usepackage{mathrsfs}
-        \usetikzlibrary{arrows}
+        \usetikzlibrary{arrows.meta}
+        \usepackage{bm}
+        \newcommand{\param}[1]{\ensuremath{\vec{\bm{#1}}}}
         \usetikzlibrary{matrix}
         \usetikzlibrary{matrix.skeleton}
         \usetikzlibrary{fit}
         \usetikzlibrary{backgrounds}
         \usetikzlibrary{automata,positioning}
+        \pgfdeclarelayer{edgelayer}
+        \pgfdeclarelayer{nodelayer}
+        \pgfsetlayers{edgelayer,nodelayer,main}
+
+        <!--% Node styles-->
+        \tikzstyle{SommetGraphe}=[fill=black, draw=black, shape=circle, scale=0.25]
+        \tikzstyle{none}=[]
+        \tikzstyle{new style 0}=[fill=green, draw=black, shape=circle, scale=0.25]
+        \tikzstyle{new style 1}=[fill=yellow, draw=black, shape=circle, scale=0.25]
+        \tikzstyle{new style 2}=[fill=blue, draw=black, shape=circle, scale=0.25]
+
+        <!--% Edge styles-->
+        \tikzstyle{new edge style 0}=[->, fill=none, draw=black, >=stealth]
+        \tikzstyle{new edge style 1}=[-]  
         </latex-image-preamble>
         <!--
         The Sage Notebook has its own interface and worksheet list.
@@ -254,7 +270,7 @@ $\Box$
     <xi:include href="Chapitre_denombrement.ptx"/>
     <xi:include href="Chapitre_preuveMath.ptx"/>
     <xi:include href="Chapitre_relationRecurrence.ptx"/>
-    <!--<xi:include href="Chapitre_graphe.ptx"/> -->
+    <xi:include href="Chapitre_graphe.ptx"/>
     <xi:include href="Back.ptx"/> 
     <conclusion><p>Version du  <date><today format='yyyy/mm/dd' /></date> </p></conclusion>
   </book>
