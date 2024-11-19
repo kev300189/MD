@@ -113,7 +113,7 @@ $\Box$
     #1
   }
 }
--->
+-->     
         </macros>
         <!-- L'affichange par défaut des xréférence. Voir la section du sample article pour tester et décider sur une version finale         -->
         <cross-references text="global" />
@@ -123,7 +123,7 @@ $\Box$
         Inserted in the preamble to each standalone latex-based image for HMTL SVG output.
         -->
         <latex-image-preamble>
-        \usepackage{pgf,tikz,<!--pgfplots-->}              % loads tikz package
+        \usepackage{pgf,tikz,tkz-graph<!--pgfplots-->}              % loads tikz package
         \usepackage{smartdiagram}           % for a circular diagram
         <!--\pgfplotsset{axis x line = middle,
                      axis y line = middle}-->
