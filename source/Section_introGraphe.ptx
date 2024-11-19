@@ -500,52 +500,47 @@ Ainsi, on a bien que <m>n</m> est pair.
         <statement>
             <p>On considère une petite compagnie de quatre employés qui travaillent sur un projet quelconque. Pour terminer le projet, les employés doivent accomplir six tâches différentes. De plus, chaque employé  est seulement formé à l'accomplissement de certaines tâches.</p>
             <p>On peut représenté la situation à l'aide d'un graphe <m>G=(S,A)</m>, où <m>S</m> est l'ensemble des employés et des tâches à accomplir. Il y aura une arête entre l'employé <m>e</m> et la tâche <m>t</m> si <m>e</m> est formé pour accomplir <m>t</m>.</p>
-            <p><figure>
-                <caption> Représentation du projet par le graphe <m>G</m></caption>
-                <image source="tikzit_exRepGrapheBi.jpg" />
-        </figure></p>
-        <p>
+            <p>
             <figure xml:id="fig-exRepGrapheBi">
                 <caption> Représentation du projet par le graphe <m>G</m></caption>
                 <image width="50%" xml:id="exRepGrapheBi">
                 <latex-image>
                     \begin{tikzpicture}
-        \begin{pgfonlayer}{nodelayer}
-            \node [style=SommetGraphe] (0) at (-3.25, 2) {};
-            \node [style=SommetGraphe] (1) at (-0.25, 2) {};
-            \node [style=SommetGraphe] (2) at (2.75, 2) {};
-            \node [style=SommetGraphe] (4) at (-4.25, -2) {};
-            \node [style=SommetGraphe] (5) at (-2, -2) {};
-            \node [style=SommetGraphe] (6) at (0.5, -2) {};
-            \node [style=SommetGraphe] (7) at (3, -2) {};
-            \node [style=SommetGraphe] (8) at (5, -2) {};
-            \node [style=SommetGraphe] (9) at (-6.75, -2) {};
-            \node [style=SommetGraphe] (10) at (-5, 2) {};
-            \node [style=none] (11) at (-5.25, 3) {Damien};
-            \node [style=none] (12) at (-3, 3) {Valérie};
-            \node [style=none] (13) at (0, 3) {Steven};
-            \node [style=none] (14) at (2.75, 3) {Amélie};
-            \node [style=none] (15) at (-7.5, -3) {Programmation};
-            \node [style=none] (16) at (-4.5, -3) {Organisation};
-            \node [style=none] (17) at (-2, -3) {Publicité};
-            \node [style=none] (18) at (1, -3) {Déploiement};
-            \node [style=none] (19) at (3.75, -3) {Recherche};
-            \node [style=none] (20) at (6, -3) {Supervision};
-        \end{pgfonlayer}
-        \begin{pgfonlayer}{edgelayer}
-            \draw (10) to (9);
-            \draw (10) to (6);
-            \draw (0) to (5);
-            \draw (0) to (7);
-            \draw (0) to (8);
-            \draw (1) to (9);
-            \draw (1) to (5);
-            \draw (1) to (7);
-            \draw (2) to (7);
-            \draw (2) to (4);
-        \end{pgfonlayer}
-    \end{tikzpicture}
-    
+                    \begin{pgfonlayer}{nodelayer}
+                        \node [style=SommetGraphe] (0) at (-3.25, 2) {};
+                        \node [style=SommetGraphe] (1) at (-0.25, 2) {};
+                        \node [style=SommetGraphe] (2) at (2.75, 2) {};
+                        \node [style=SommetGraphe] (4) at (-4.25, -2) {};
+                        \node [style=SommetGraphe] (5) at (-2, -2) {};
+                        \node [style=SommetGraphe] (6) at (0.5, -2) {};
+                        \node [style=SommetGraphe] (7) at (3, -2) {};
+                        \node [style=SommetGraphe] (8) at (5, -2) {};
+                        \node [style=SommetGraphe] (9) at (-6.75, -2) {};
+                        \node [style=SommetGraphe] (10) at (-5, 2) {};
+                        \node [style=none] (11) at (-5.25, 3) {Damien};
+                        \node [style=none] (12) at (-3, 3) {Valérie};
+                        \node [style=none] (13) at (0, 3) {Steven};
+                        \node [style=none] (14) at (2.75, 3) {Amélie};
+                        \node [style=none] (15) at (-7.5, -3) {Programmation};
+                        \node [style=none] (16) at (-4.5, -3) {Organisation};
+                        \node [style=none] (17) at (-2, -3) {Publicité};
+                        \node [style=none] (18) at (1, -3) {Déploiement};
+                        \node [style=none] (19) at (3.75, -3) {Recherche};
+                        \node [style=none] (20) at (6, -3) {Supervision};
+                \end{pgfonlayer}
+                \begin{pgfonlayer}{edgelayer}
+                        \draw (10) to (9);
+                        \draw (10) to (6);
+                        \draw (0) to (5);
+                        \draw (0) to (7);
+                        \draw (0) to (8);
+                        \draw (1) to (9);
+                        \draw (1) to (5);
+                        \draw (1) to (7);
+                        \draw (2) to (7);
+                        \draw (2) to (4);
+                \end{pgfonlayer}
+                \end{tikzpicture}
                 </latex-image>
                 </image>
             </figure>
@@ -745,6 +740,7 @@ Ainsi, on a bien que <m>n</m> est pair.
                         \node [style=SommetGraphe] (4) at (-4, -2) {};
                         \node [style=SommetGraphe] (5) at (2, -2) {};
                         \node [style=SommetGraphe] (6) at (4, -2) {};
+                        \node [style=SommetGraphe] (7) at (0, 2) {};
                     \end{pgfonlayer}
                     \begin{pgfonlayer}{edgelayer}
                         \draw (0) to (4);
@@ -757,8 +753,14 @@ Ainsi, on a bien que <m>n</m> est pair.
                         \draw (1) to (2);
                         \draw (1) to (5);
                         \draw (1) to (6);
+                        \draw (7) to (4);
+                        \draw (7) to (3);
+                        \draw (7) to (2);
+                        \draw (7) to (5);
+                        \draw (7) to (6);
                     \end{pgfonlayer}
                 \end{tikzpicture}
+                       
                 </latex-image>
                 </image>
             </figure>
