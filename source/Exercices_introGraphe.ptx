@@ -44,10 +44,47 @@
                         <image source="tikzit_cycle6Bi.jpg" width="50%" />
                 </figure></p>
                 </statement>
-                <!--<answer>
-                    <p> La réponse suivra. </p>
+                <answer>
+                    <table>
+                        <title>Degré des sommets de <m>G_1</m></title>
+                        <tabular halign="center">
+                          <row header="yes" bottom="major" >
+                            <cell right="minor">Sommet <m>s</m></cell>
+                            <cell>degré <m>\deg(s)</m></cell>
+                          </row>
+                          <row>
+                            <cell right="minor"><m>a</m></cell>
+                            <cell><m>2</m></cell>
+                          </row>
+                          <row>
+                            <cell right="minor"><m>b</m></cell>
+                            <cell><m>2</m></cell>
+                          </row>
+                          <row>
+                            <cell right="minor"><m>c</m></cell>
+                            <cell><m>2</m></cell>
+                          </row>
+                          <row>
+                            <cell right="minor"><m>d</m></cell>
+                            <cell><m>2</m></cell>
+                          </row>
+                          <row>
+                            <cell right="minor"><m>e</m></cell>
+                            <cell><m>2</m></cell>
+                          </row>
+                          <row bottom="major">
+                            <cell right="minor"><m>f</m></cell>
+                            <cell><m>2</m></cell>
+                          </row>
+                          <row>
+                            <cell right="minor">Somme</cell>
+                            <cell><m>12</m></cell>
+                          </row>
+                        </tabular>
+                      
+                      </table>
                 </answer>
-                <solution>
+                <!--<solution>
                     <p> La solution suivra. </p>
                 </solution>-->
         </task>
@@ -58,10 +95,51 @@
                     <image source="tikzit_GraphBipartiOui.jpg" width="50%"/>
                 </figure></p>
             </statement>
-            <!--<answer>
-                <p> La réponse suivra. </p>
+            <answer>
+                <table>
+                    <title>Degré des sommets de <m>G_2</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>degré <m>\deg(s)</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>a</m></cell>
+                        <cell><m>4</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>b</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>c</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>d</m></cell>
+                        <cell><m>4</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>e</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>f</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row bottom="major">
+                        <cell right="minor"><m>g</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor">Somme</cell>
+                        <cell><m>22</m></cell>
+                      </row>
+                    </tabular>
+                  
+                  </table>
             </answer>
-            <solution>
+            <!--<solution>
                 <p> La solution suivra. </p>
             </solution>-->
         </task>
@@ -72,9 +150,47 @@
                     <image source="tikzit_GraphBipartiNon.jpg" width="50%" />
                 </figure></p>
             </statement>
-            <!--<answer>
-                <p> La réponse suivra. </p>
+            <answer>
+                <table>
+                    <title>Degré des sommets de <m>G_3</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>degré <m>\deg(s)</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>a</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>b</m></cell>
+                        <cell><m>4</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>c</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>d</m></cell>
+                        <cell><m>4</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>e</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>f</m></cell>
+                        <cell><m>5</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor">Somme</cell>
+                        <cell><m>22</m></cell>
+                      </row>
+                    </tabular>
+                  
+                  </table>
             </answer>
+            <!--
             <solution>
                 <p> La solution suivra. </p>
             </solution>-->
@@ -86,10 +202,43 @@
                     <image source="tikzit_GrapheCheminEuler.jpg" width="50%"/>
                 </figure></p>
             </statement>
-            <!--<answer>
-                <p> La réponse suivra. </p>
+            <answer>
+                <table>
+                    <title>Degré des sommets de <m>G_4</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>degré <m>\deg(s)</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>a</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>b</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>c</m></cell>
+                        <cell><m>4</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>d</m></cell>
+                        <cell><m>4</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>e</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor">Somme</cell>
+                        <cell><m>16</m></cell>
+                      </row>
+                    </tabular>
+                  
+                  </table>
             </answer>
-            <solution>
+            <!--<solution>
                 <p> La solution suivra. </p>
             </solution>-->
         </task>
@@ -100,10 +249,39 @@
                     <image source="tikzit_GrapheCheminNonCircuitHamilton.jpg" width="50%" />
                 </figure></p>
             </statement>
-            <!--<answer>
-                <p> La réponse suivra. </p>
+            <answer>
+                <table>
+                    <title>Degré des sommets de <m>G_5</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>degré <m>\deg(s)</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>a</m></cell>
+                        <cell><m>1</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>b</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>c</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>d</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor">Somme</cell>
+                        <cell><m>8</m></cell>
+                      </row>
+                    </tabular>
+                  
+                  </table>
             </answer>
-            <solution>
+            <!--solution>
                 <p> La solution suivra. </p>
             </solution>-->
         </task>
@@ -114,10 +292,43 @@
                     <image source="tikzit_GrapheNoEuler.jpg"  width="50%"/>
                 </figure></p>
             </statement>
-            <!--<answer>
-                <p> La réponse suivra. </p>
+            <answer>
+                <table>
+                    <title>Degré des sommets de <m>G_6</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>degré <m>\deg(s)</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>a</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>b</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>c</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>d</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>e</m></cell>
+                        <cell><m>4</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor">Somme</cell>
+                        <cell><m>16</m></cell>
+                      </row>
+                    </tabular>
+                  
+                  </table>
             </answer>
-            <solution>
+            <!--<solution>
                 <p> La solution suivra. </p>
             </solution>-->
         </task>
@@ -128,9 +339,51 @@
                     <image source="tikzit_GrapheNoHamilton.jpg" width="50%" />
                 </figure></p>
             </statement>
-            <!--<answer>
-                <p> La réponse suivra. </p>
+            <answer>
+                <table>
+                    <title>Degré des sommets de <m>G_7</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>degré <m>\deg(s)</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>a</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>b</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>c</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>d</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>e</m></cell>
+                        <cell><m>1</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>f</m></cell>
+                        <cell><m>1</m></cell>
+                      </row>
+                      <row bottom="major">
+                        <cell right="minor"><m>g</m></cell>
+                        <cell><m>1</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor">Somme</cell>
+                        <cell><m>14</m></cell>
+                      </row>
+                    </tabular>
+                  
+                  </table>
             </answer>
+            <!--
             <solution>
                 <p> La solution suivra. </p>
             </solution>-->
@@ -142,6 +395,11 @@
                     <image source="tikzit_cycle6.jpg" width="50%"/>
                 </figure></p>
             </statement>
+            <answer>
+                <p>
+                    Le degré de chacun des sommets de <m>G_8</m> est <m>2</m>. Puisque <m>G_8</m> possède <m>6</m> sommets, on a que la somme des degrés de chaque sommet est <m>12</m>.
+                </p>
+            </answer>
             <!--<answer>
                 <p> La réponse suivra. </p>
             </answer>
@@ -156,6 +414,41 @@
                     <image source="tikzit_GrapheSame.jpg" width="50%"/>
                 </figure></p>
             </statement>
+            <answer>
+                <table>
+                    <title>Degré des sommets de <m>G_9</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>degré <m>\deg(s)</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>s_1</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>s_2</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>s_3</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>s_4</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>s_5</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor">Somme</cell>
+                        <cell><m>12</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+            </answer>
             <!--<answer>
                 <p> La réponse suivra. </p>
             </answer>
@@ -170,6 +463,41 @@
                     <image source="tikzit_GrapheSame2.jpg" width="50%" />
                 </figure></p>
             </statement>
+            <answer>
+                <table>
+                    <title>Degré des sommets de <m>G_9</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>degré <m>\deg(s)</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>t_1</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>t_2</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>t_3</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>t_4</m></cell>
+                        <cell><m>3</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>t_5</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor">Somme</cell>
+                        <cell><m>12</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+            </answer>
             <!--<answer>
                 <p> La réponse suivra. </p>
             </answer>
@@ -179,11 +507,19 @@
         </task>
         </exercise>
     
-        <exercise>
+        <exercise xml:id="exo-introIso">
             <statement>
                 <p>Dans les prochaines sections, nous verrons la notion d'isomorphismes de graphes. Intuitivement, deux graphes sont isomorphes s'ils représentent essentiellement le même graphe, mais sous une forme différente.</p>
                 <p>Parmi les graphes de l'exercice <xref ref="exo-degre"/>, est-ce qu'un certaine paire semble être isomorphe? Donner une justification intuitive.</p>
             </statement>
+            <answer>
+                <p>
+                    Intuitivement, on peut se convaincre que les graphes <m>G_8</m> et <m>G_1</m> sont essentiellement les même graphes.
+                </p>
+                <p>
+                    Aussi, les graphes <m>G_9</m> et <m>G_{10}</m> sont essentiellement les même.
+                </p>
+            </answer>
         </exercise>
     
         <exercise xml:id="exo-hyperCubeBin">
@@ -221,10 +557,6 @@
                 <p>Est-ce que les graphes ci-dessous sont bipartis? Si oui, justifier.</p>
             </introduction>
             <task><statement>
-                <p><figure >
-                    <caption> <m>G</m></caption>
-                    <image width="25%" source="tikzit_QCL_BipartiOUI1.jpg"/>
-                </figure></p>
             <figure xml:id="fig-tikz-QCL_BipartiOUI1">
                 <caption> <m>G</m></caption>
                 <image width="50%" xml:id="BipartiOUI1">

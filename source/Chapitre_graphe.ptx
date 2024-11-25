@@ -19,7 +19,7 @@
     
     <!-- Sections à inclure, dans des fichiers xml différents -->
     <xi:include href="Section_introGraphe.ptx" />
-   <!-- <xi:include href="Section_propGraphe.ptx" /> -->
+    <xi:include href="Section_propGraphe.ptx" /> 
     <conclusion xml:id="concl-theorieGraphe">  <!-- Ajouter le même identifiant du chapitre après le - du xml:id -->
     
     </conclusion>
