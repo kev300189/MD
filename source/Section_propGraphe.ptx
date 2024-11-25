@@ -89,7 +89,7 @@
             </figure>
         </p>
         <p>
-            Clairement, ces deux graphes sont essentiellement les mêmes. On donnera la définition d'isomorphisme en <xref ref="subs-isoGraphes"/> qui permettra de formaliser ce concept. On commence par donner de nouvelles façons pour représenter nos graphes.  
+            Clairement, ces deux graphes sont essentiellement les mêmes. On donnera la définition d'isomorphisme en <xref ref="subs-isoGraphe"/> qui permettra de formaliser ce concept. On commence par donner de nouvelles façons pour représenter nos graphes.  
         </p>
     </introduction>
     <p>
@@ -145,7 +145,7 @@
         </definition>
     </p>
     <example>
-        <statmement>
+        <statement>
             <p>
                 Soit <m>G_1</m> et <m>G_2</m> les graphes de la figure <xref ref="fig-exeGraphNeq"/>, donner leur liste d'adjacence.
             </p>
