@@ -85,7 +85,19 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
@@ -330,6 +342,9 @@ window.MathJax = {
 #subs-defGraphe-8-2-1-3 { counter-set: subs-defGraphe-8-2-1-3 0; }
 #subs-defGraphe-8-2-1-3 > li::marker { content: ""counter(subs-defGraphe-8-2-1-3,decimal)"."; }
 #subs-defGraphe-8-2-1-3 > li { counter-increment: subs-defGraphe-8-2-1-3; }
+#prop-isoGraphe-1-2 { counter-set: prop-isoGraphe-1-2 0; }
+#prop-isoGraphe-1-2 > li::marker { content: ""counter(prop-isoGraphe-1-2,decimal)"."; }
+#prop-isoGraphe-1-2 > li { counter-increment: prop-isoGraphe-1-2; }
 #exe-symboleSommation-1-1 { counter-set: exe-symboleSommation-1-1 0; }
 #exe-symboleSommation-1-1 > li::marker { content: ""counter(exe-symboleSommation-1-1,decimal)"."; }
 #exe-symboleSommation-1-1 > li { counter-increment: exe-symboleSommation-1-1; }
@@ -659,7 +674,8 @@ $\Box$
 </li>
 <li class="toc-item toc-chapter active">
 <div class="toc-title-box"><a href="chap-theorieGraphes.html" class="internal"><span class="codenumber">7</span> <span class="title">Théorie des graphes</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section">
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section">
 <div class="toc-title-box"><a href="sec-introGraphe.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Introduction à la théorie des graphes</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-defGraphe" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Les types de graphes</span></a></div></li>
@@ -669,7 +685,15 @@ $\Box$
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-formationGraphes" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Constructions d’un graphe à partir d’autres graphes</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introGraphe.html#exo-introGraphe" class="internal"><span class="codenumber">7.1.6</span> <span class="title">Exercices</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-propGraphes.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Propriétés des graphes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-representationGraphe" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Représentations des graphes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-isoGraphe" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Isomorphismes de graphes</span></a></div></li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-backmatter">
 <div class="toc-title-box"><a href="Back.html" class="internal"><span class="title">Annexe</span></a></div>
@@ -692,7 +716,10 @@ $\Box$
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="chap-theorieGraphes"><h2 class="heading">
 <span class="type">Chapitre</span><span class="space"> </span><span class="codenumber">7</span><span class="space"> </span><span class="title">Théorie des graphes</span>
 </h2>
-<section class="introduction" id="intro-theorieGraphes"></section><nav class="summary-links"><ul><li><a href="sec-introGraphe.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Introduction à la théorie des graphes</span></a></li></ul></nav><section class="conclusion" id="concl-theorieGraphe"></section></section></div>
+<section class="introduction" id="intro-theorieGraphes"></section><nav class="summary-links"><ul>
+<li><a href="sec-introGraphe.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Introduction à la théorie des graphes</span></a></li>
+<li><a href="sec-propGraphes.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Propriétés des graphes</span></a></li>
+</ul></nav><section class="conclusion" id="concl-theorieGraphe"></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-relRecSupp.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-introGraphe.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

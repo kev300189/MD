@@ -85,7 +85,19 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Évaluer (Sage)"
+});
+</script><link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/themes/prism.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-core.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/autoloader/prism-autoloader.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" integrity="sha512-dubtf8xMHSQlExGRQ5R7toxHLgSDZ0K7AunqPWHXmJQ8XyVIG19S1T95gBxlAeGOK02P4Da2RTnQz0Za0H0ebQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" integrity="sha512-cbQXwDFK7lj2Fqfkuxbo5iD1dSbLlJGXGpfTDqbggqjHJeyzx88I3rfwjS38WJag/ihH7lzuGlGHpDBymLirZQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.css" integrity="sha512-nXlJLUeqPMp1Q3+Bd8Qds8tXeRVQscMscwysJm821C++9w6WtsFbJjPenZ8cQVMXyqSAismveQJc0C1splFDCA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/plugins/line-highlight/prism-line-highlight.min.js" integrity="sha512-93uCmm0q+qO5Lb1huDqr7tywS8A2TFA+1/WHvyiWaK6/pvsFl6USnILagntBx8JnVbQH5s3n0vQZY6xNthNfKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><link href="_static/pretext/css/pretext_search.css" rel="stylesheet" type="text/css">
@@ -330,6 +342,9 @@ window.MathJax = {
 #subs-defGraphe-8-2-1-3 { counter-set: subs-defGraphe-8-2-1-3 0; }
 #subs-defGraphe-8-2-1-3 > li::marker { content: ""counter(subs-defGraphe-8-2-1-3,decimal)"."; }
 #subs-defGraphe-8-2-1-3 > li { counter-increment: subs-defGraphe-8-2-1-3; }
+#prop-isoGraphe-1-2 { counter-set: prop-isoGraphe-1-2 0; }
+#prop-isoGraphe-1-2 > li::marker { content: ""counter(prop-isoGraphe-1-2,decimal)"."; }
+#prop-isoGraphe-1-2 > li { counter-increment: prop-isoGraphe-1-2; }
 #exe-symboleSommation-1-1 { counter-set: exe-symboleSommation-1-1 0; }
 #exe-symboleSommation-1-1 > li::marker { content: ""counter(exe-symboleSommation-1-1,decimal)"."; }
 #exe-symboleSommation-1-1 > li { counter-increment: exe-symboleSommation-1-1; }
@@ -667,18 +682,15 @@ $\Box$
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-terminologie" class="internal"><span class="codenumber">7.1.2</span> <span class="title">Terminologie de base</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-grapheParticulier" class="internal"><span class="codenumber">7.1.3</span> <span class="title">Quelques graphes particuliers</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-graphesBiColoration" class="internal"><span class="codenumber">7.1.4</span> <span class="title">Graphes bipartis et coloration des graphes</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-formationGraphes" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Graphes issus d’autres graphes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-formationGraphes" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Constructions d’un graphe à partir d’autres graphes</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introGraphe.html#exo-introGraphe" class="internal"><span class="codenumber">7.1.6</span> <span class="title">Exercices</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-section active">
 <div class="toc-title-box"><a href="sec-propGraphes.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Propriétés des graphes</span></a></div>
 <ul class="structural toc-item-list">
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-graphesBiColoration" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Graphes bipartis et coloration des graphes</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-formationGraphes" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Graphes issus d’autres graphes</span></a></div></li>
-<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-isoGraphe" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Isomorphismes de graphes</span></a></div></li>
-<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-propGraphes.html#rq-propGraphes" class="internal"><span class="codenumber">7.2.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
-<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propGraphes.html#exo-propGraphe" class="internal"><span class="codenumber">7.2.5</span> <span class="title">Exercices</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-representationGraphe" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Représentations des graphes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-isoGraphe" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Isomorphismes de graphes</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -704,176 +716,278 @@ $\Box$
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-propGraphes"><h2 class="heading hide-type">
 <span class="type">Section</span><span class="space"> </span><span class="codenumber">7.2</span><span class="space"> </span><span class="title">Propriétés des graphes</span>
 </h2>
-<section class="introduction" id="intro-propGraphes"> <div class="para" id="intro-propGraphes-1">À l’exemple <a href="sec-introGraphe.html#exe-grapheNCube" class="xref" data-knowl="./knowl/xref/exe-grapheNCube.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.1.27: Les premiers n-cubes Q_n">7.1.27</a> de la section précédente, on a remarqué  qu’on pouvait décrire le même graphe de plusieurs façons. On aimerait donc pouvoir être en mesure de déterminer si, lorsqu’on considère deux graphes, est-ce que ceux-ci sont équivalents.</div> <div class="para" id="intro-propGraphes-2">Pour cela, on doit développer le concepte d’isomorphisme. Ce concepte est présent dans toutes les branches des mathématiques. En fait, ce concepte est tellement fondamental en mathématique, que les mathématiciens on même généralisé cette idée au point de définir toutes les branches des mathématiques à l’aide de morphismes (voir la théorie des catégories!).</div> <div class="para" id="intro-propGraphes-3">Avant de parler d’isomorphisme, on va définir certaines caractéristiques des graphes. Celles-ci nous permetrons, entre autre, de différencier certains graphes les uns des autres.</div> <div class="para" id="intro-propGraphes-4">Finalement, on verra aussi comment on peut créer un graphe à partir de graphes déjà connus.</div></section><section class="subsection" id="subs-graphesBiColoration"><h3 class="heading hide-type">
-<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">7.2.1</span><span class="space"> </span><span class="title">Graphes bipartis et coloration des graphes</span>
+<section class="introduction" id="intro-propGraphes"> <div class="para" id="intro-propGraphes-1">À l’exemple <a href="sec-introGraphe.html#exe-grapheNCube" class="xref" data-knowl="./knowl/xref/exe-grapheNCube.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.1.27: Les premiers n-cubes Q_n">7.1.27</a> ainsi qu’à l’exercice <a href="sec-introGraphe.html#exo-introIso" class="xref" data-knowl="./knowl/xref/exo-introIso.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.1.6.2">7.1.6.2</a> on a remarqué  que deux graphes qui sont définis différemment pouvaient décrire la même structure de graphe. À l’inverse, on peut parfois facilement se convaincre que deux graphes sont fondamentalement différents.  On aimerait donc pouvoir être en mesure de déterminer, lorsqu’on considère deux graphes, si ceux-ci sont en quelque sorte équivalents, ou bien s’ils sont fondamentalement différents.</div> <div class="para" id="intro-propGraphes-2">Ce problème est un problème très courant dans beaucoup de branches des mathématiques. Pour résoudre cette question, et pour la différencier de la notion d’égalité, les mathématiciens ont développé le concept d’isomorphismes (de graphes dans notre cas.)</div> <div class="para" id="intro-propGraphes-3">Dans cette section, on débutera avec l’étude de deux graphes qui sont essentiellement les mêmes graphes, bien qu’ils soient décrits différemment. De plus, on considère de nouvelles façons de représenter des graphes. Ces outils permettront de mieux détecter si deux graphes sont équivalents, surtout d’un point de vue algorithmique.</div> <div class="para" id="intro-propGraphes-4">Par la suite, on introduit formellement ce qu’on entend lorsqu’on dit que deux graphes sont équivalents à l’aide de la définition d’isomorphismes de graphes. Finalement, on aimerait trouver des critères qui permettent de montrer que deux graphes ne sont pas équivalents. Pour se faire, on identifie des invariants, c’est-à-dire certaines caractéristiques qui sont communes lorsque deux graphes sont équivalents.</div></section><section class="subsection" id="subs-representationGraphe"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">7.2.1</span><span class="space"> </span><span class="title">Représentations des graphes</span>
 </h3>
-<section class="introduction" id="subs-graphesBiColoration-2"><div class="para" id="subs-graphesBiColoration-2-1">L’une des applications récentes de la théories des graphes est la représentation  d’énormes réseaux d’informations tels que les réseaux sociaux. Dans ce cas, les usagers sont représentés par des sommets, et les liens entre les usagers sont représentés par des arêtes. L’étude de ces graphes fait l’objet de beaucoups de recherche présentement.</div> <div class="para" id="subs-graphesBiColoration-2-2">Dans plusieurs situations, il arrive qu’on puisse distinguer deux types de sommets différents. Par exemple, on pourrait construire un graphe où les sommets représentent les utilisateurs d’Amazon, ainsi que les produits vendus sur le site. Dans ce cas, il y a une arête entre un utilisateur et un produit si l’utilisateur à déjà acheté le produit. Il n’y a donc aucun lien possible entre deux utilisateurs ou entre deux produits. Les graphes de ce type sont appellés des graphes bipartis.</div> <div class="para" id="subs-graphesBiColoration-2-3">On considère ici un exemple plus simple d’utilisation d’un graphe biparti, pour ensuite en donner la définition.</div></section><details id="subs-graphesBiColoration-3" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.1</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-graphesBiColoration-3-1-1">On considère une petite compagnie de quatre employés qui travaille sur un projet quelconque. Pour terminer le projet, les employés doivent accomplir six tâches différentes. De plus, chaque employé  est seulement formé à l’accomplissement de certaines tâches.</div> <div class="para" id="subs-graphesBiColoration-3-1-2">On peut représenté la situation à l’aide d’un graphe <span class="process-math">\(G=(S,A)\text{,}\)</span> où <span class="process-math">\(S\)</span> est l’ensemble des employés et des tâches à acomplir. Il y aura une arête entre l’employé <span class="process-math">\(e\)</span> et la tâche <span class="process-math">\(t\)</span> si <span class="process-math">\(e\)</span> est formé pour accomplir <span class="process-math">\(t\text{.}\)</span>
-</div> <div class="para" id="subs-graphesBiColoration-3-1-3"><figure class="figure figure-like" id="subs-graphesBiColoration-3-1-3-1"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><img src="external/tikzit_exRepGrapheBi.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.2<span class="period">.</span></span><span class="space"> </span>Représentation du projet par le graphe <span class="process-math">\(G\)</span></figcaption></figure></div> <div class="para" id="subs-graphesBiColoration-3-1-4"><figure class="figure figure-like" id="fig-exRepGrapheBi"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/exRepGrapheBi.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.3<span class="period">.</span></span><span class="space"> </span>Représentation du projet par le graphe <span class="process-math">\(G\)</span></figcaption></figure></div></article></details><article class="definition definition-like" id="def-grapheBi"><h4 class="heading">
-<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Graphe biparti.</span>
-</h4> <div class="para" id="def-grapheBi-2-1">Une graphe <span class="process-math">\(G=(S,A)\)</span> est appelé un graphe biparti si on peut écrire l’ensemble des sommets <span class="process-math">\(S\)</span> comme l’union disjointe de deux sous-ensemble <span class="process-math">\(S_1\)</span> et <span class="process-math">\(S_2\)</span> telle que chaque arête de <span class="process-math">\(G\)</span> a une extrémité dans <span class="process-math">\(S_1\)</span> et une extrémité dans <span class="process-math">\(S_2\text{.}\)</span>
-</div> <div class="para" id="def-grapheBi-2-2">Ainsi, <span class="process-math">\(G\)</span> est biparti si <span class="process-math">\(S=S_1\cup S_2,\)</span> avec <span class="process-math">\(S_1\cap S_2=\emptyset\text{,}\)</span> et si pour tout <span class="process-math">\(a=\{s,t\}\in\,A,\text{,}\)</span> on a que <span class="process-math">\(s\in\, S_1\)</span> si et seulement si <span class="process-math">\(t\in\,S_2\text{.}\)</span>
-</div></article><details id="exe-grapheBi" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Un graphe biparti.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-grapheBi-2-1">Le graphe cyclique <span class="process-math">\(C_6\)</span> est un graphe biparti. On peut le voir à l’aide de la représention de <span class="process-math">\(C_6\)</span> ci dessous, en posant <span class="process-math">\(S_1=\{a,b,e\}\)</span> et <span class="process-math">\(S_2=\{c,d,f\}\text{.}\)</span>
-</div> <div class="para" id="exe-grapheBi-2-2"><figure class="figure figure-like" id="exe-grapheBi-2-2-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_cycle6Bi.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.6<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(C_6\)</span></figcaption></figure></div></article></details><details id="exe-grapheYesNoBi" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Reconnaître un graphe biparti.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-grapheYesNoBi-2-1">Pour déterminer si un graphe est biparti, on peut choisir aléatoirement un premier sommet <span class="process-math">\(s\)</span> et décider de mettre <span class="process-math">\(s\)</span> dans <span class="process-math">\(S_1\text{.}\)</span>
-</div> <div class="para" id="exe-grapheYesNoBi-2-2">Ensuite, on place tout le voisinage de <span class="process-math">\(s\)</span> dans <span class="process-math">\(S_2\text{.}\)</span> Pour chacun des sommets ajoutés dans <span class="process-math">\(S_2\text{,}\)</span> on place leur voisinage dans <span class="process-math">\(S_1\text{.}\)</span>
-</div> <div class="para" id="exe-grapheYesNoBi-2-3">On poursuit cette procédure jusqu’à ce que chaque sommet soit dans un seul des <span class="process-math">\(S_i\)</span> (et donc que le graphe est biparti), ou jusqu’à ce qu’un sommet soit dans <span class="process-math">\(S_1\)</span> et <span class="process-math">\(S_2\)</span> (et donc le graphe n’est pas biparti).</div> <div class="para" id="exe-grapheYesNoBi-2-4">En procédant ainsi, on peut voir que le graphe <span class="process-math">\(G\)</span> ci-dessous est biparti, mais pas le graphe <span class="process-math">\(H\text{.}\)</span>
-</div> <figure class="figure figure-like" id="exe-grapheYesNoBi-2-5"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-grapheYesNoBi-2-5-2-1"><img src="external/tikzit_GraphBipartiOui.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span>Le graphe <span class="process-math">\(G\)</span> est bipartie</figcaption></figure></div>
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-grapheYesNoBi-2-5-2-2"><img src="external/tikzit_GraphBipartiNon.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span>Le graphe <span class="process-math">\(H\)</span> n’est pas biparti</figcaption></figure></div>
+<section class="introduction" id="subs-representationGraphe-2"><div class="para" id="subs-representationGraphe-2-1">On considère les graphes simples <span class="process-math">\(G_1=(S_1,A_1)\text{,}\)</span> avec <span class="process-math">\(S_1=\{a,b,c,d\}\)</span> et <span class="process-math">\(A_1=\{\{a,b\},\{a,c\},\{b,c\},\{c,d\}\}\text{,}\)</span> et <span class="process-math">\(G_2=(S_2,A_2)\text{,}\)</span> avec <span class="process-math">\(S_2=\{1,2,3,4\}\)</span> et <span class="process-math">\(A_2=\{\{1,2\},\{2,3\},\{2,4\},\{3,4\}\}\text{.}\)</span> C’est deux graphes ne sont pas égaux. En effet, lorsqu’on définit un graphe, on le fait à l’aide de l’ensemble de ses sommets et l’ensemble de ses arêtes. Pour que deux graphes soient égaux, on doit avoir une égalité entre ces ensembles, c’est-à-dire que <span class="process-math">\(G_1:=(S_1,A_1)=G_2:=(S_2,A_2)\)</span> si et seulement si <span class="process-math">\(S_1=S_2\)</span> et <span class="process-math">\(A_1=A_2\text{.}\)</span> Dans notre cas, puisque <span class="process-math">\(S_1:=\{a,b,c,d\}\neq S_2=\{1,2,3,4\}\text{,}\)</span> on a que <span class="process-math">\(G_1\neq G_2\text{.}\)</span>
+</div> <div class="para" id="subs-representationGraphe-2-2">Cependant, en regardant attentivement ces deux graphes, on remarque beaucoup de similarités. En effet, on voit rapidement que <span class="process-math">\(|S_1|=4=|S_2|\)</span> et que <span class="process-math">\(|A_1|=4=|A_2|\text{.}\)</span> Plus encore, on remarque chacun des graphes possède un unique sommet de degré <span class="process-math">\(3\)</span> (c’est-à-dire que <span class="process-math">\(\deg(c)=3=\deg(2)\)</span>), et un unique sommet de degré <span class="process-math">\(1\)</span> (<span class="process-math">\(\deg(d)=1=\deg(1)\)</span>). Ceci est un indicateur que ces deux graphes sont possiblement équivalents d’une certaine façon. En effet, si on trace les deux graphes, on voit immédiatement qu’ils sont essentiellement les mêmes.</div> <div class="para" id="subs-representationGraphe-2-3"><figure class="figure figure-like" id="fig-exeGraphNeq"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
+<div class="sbspanel top" style="width:37.5%;"><figure class="figure figure-like" id="fig-tikzit_exesolNeqG1"><img src="generated/latex-image/tikzit_exesolNeqG1.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_1\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:37.5%;"><figure class="figure figure-like" id="fig-tikzit_exesolNeqG2"><img src="generated/latex-image/tikzit_exesolNeqG2.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(G_2\)</span></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.8<span class="period">.</span></span><span class="space"> </span>Deux graphes bipartis?</figcaption></figure></article></details><div class="para" id="subs-graphesBiColoration-7">Pour illustrer la procédure utilisée dans l’exemple précédent, on peut colorier les sommets d’un graphe, en s’assurant que tous les sommets qui sont voisins soient d’une couleur différente.</div>
-<div class="para" id="subs-graphesBiColoration-8">Un graphe sera alors biparti si et seulement si on peut faire une telle coloration en utilisant deux couleurs. De façon général, on peut résoudre certains procblèmes ou bien différentier certains graphes en déterminant le nombre de couleurs minimal qu’on doit utiliser pour colorier un graphe.</div>
-<article class="definition definition-like" id="def-colorationGraphe"><h4 class="heading">
-<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Coloration d’un graphe.</span>
-</h4> <div class="para" id="def-colorationGraphe-2-1">La coloration d’un graphe consiste à attribuer une couleur à chacun de ses sommets de manière à ce que deux sommets adjacents soient d’une couleur différente.</div> <div class="para" id="def-colorationGraphe-2-2">Plus formellement, on peut définir une coloration d’un graphe <span class="process-math">\(G=(S,A)\)</span> comme une fonction <span class="process-math">\(f:S\rightarrow C,\)</span> ou <span class="process-math">\(C\)</span> est un ensemble de couleurs, tel que si <span class="process-math">\(\{s,t\}\)</span> est une arête de <span class="process-math">\(G\text{,}\)</span> alors <span class="process-math">\(f(s)\neq f(t)\text{.}\)</span>
-</div></article><details id="exe-colCycle6" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.10</span><span class="period">.</span><span class="space"> </span><span class="title">Une coloration de <span class="process-math">\(C_6\)</span>.</span>
-</h4></summary><article class="example example-like knowl__content">Voici une coloration à deux couleurs de <span class="process-math">\(C_6\text{.}\)</span> <figure class="figure figure-like" id="exe-colCycle6-2-2"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_Cycle6Coul.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.11<span class="period">.</span></span><span class="space"> </span>Coloration à deux couleurs de <span class="process-math">\(C_6\)</span></figcaption></figure></article></details><article class="proposition theorem-like" id="prop-colorBiparti"><h4 class="heading">
-<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.2.12</span><span class="period">.</span><span class="space"> </span><span class="title">Coloration et graphe biparti.</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.1<span class="period">.</span></span><span class="space"> </span>Deux graphes différents</figcaption></figure></div> <div class="para" id="subs-representationGraphe-2-4">Clairement, ces deux graphes sont essentiellement les mêmes. On donnera la définition d’isomorphisme en <a href="sec-propGraphes.html#subs-isoGraphe" class="internal" title="Sous-section 7.2.2: Isomorphismes de graphes">7.2.2</a> qui permettra de formaliser ce concept. On commence par donner de nouvelles façons pour représenter nos graphes.</div></section><div class="para" id="subs-representationGraphe-3">Une première façon de représenter un graphe est d’utiliser une liste d’adjacence. <article class="definition definition-like" id="def-listAdj"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="prop-colorBiparti-2-1">Un graphe <span class="process-math">\(G\)</span> est un graphe biparti si et seulement si il exsite une coloration à deux couleurs de <span class="process-math">\(G\text{.}\)</span>
-</div></article><details id="exe-colorBiparti" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.13</span><span class="period">.</span><span class="space"> </span><span class="title">Coloration à deux couleurs et graphes bipartis.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-colorBiparti-2-1">En essayant de colorier les graphes de l’exemple <a href="sec-introGraphe.html#exe-grapheYesNoBi" class="xref" data-knowl="./knowl/xref/exe-grapheYesNoBi.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.1.35: Reconnaître un graphe biparti">7.1.35</a> avec un minimum de couleur, on obtient les colorations suivantes.</div> <figure class="figure figure-like" id="exe-colorBiparti-2-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-colorBiparti-2-2-2-1"><img src="external/tikzit_GraphBipartiOuiCol.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span>Le graphe <span class="process-math">\(G\)</span> est bipartie</figcaption></figure></div>
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-colorBiparti-2-2-2-2"><img src="external/tikzit_GraphBipartiNonCol.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span>Le graphe <span class="process-math">\(H\)</span> n’est pas biparti</figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.14<span class="period">.</span></span><span class="space"> </span>Deux graphes bipartis? Prise deux.</figcaption></figure> <div class="para" id="exe-colorBiparti-2-3">On voit donc que <span class="process-math">\(G\)</span> est biparti, mais pas <span class="process-math">\(H\text{.}\)</span>
-</div></article></details><div class="para" id="subs-graphesBiColoration-13">Finalement, on définit une nouvelle famille de graphes, les graphes bipartis complets.</div>
-<article class="definition definition-like" id="def-graphBipartiComplet"><h4 class="heading">
+<div class="para" id="def-listAdj-1-1">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe simple. On représente celui-ci à l’aide d’un tableau dont la première colonne représente les sommets du graphe, et la deuxième colonne représente les voisins du sommet.</div></article>
+</div>
+<details id="subs-representationGraphe-4" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.3</span><span class="period">.</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-representationGraphe-4-1-1">Soit <span class="process-math">\(G_1\)</span> et <span class="process-math">\(G_2\)</span> les graphes de la figure <a href="sec-propGraphes.html#fig-exeGraphNeq" class="xref" data-knowl="./knowl/xref/fig-exeGraphNeq.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Figure 7.2.1">7.2.1</a>, donner leur liste d’adjacence.</div>
+<div class="solutions"><details id="subs-representationGraphe-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="subs-representationGraphe-4-2-1"><figure class="table table-like" id="subs-representationGraphe-4-2-1-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.2.4<span class="period">.</span></span><span class="space"> </span>Liste d’adjacence de <span class="process-math">\(G_1\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">Voisins de <span class="process-math">\(s\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(b, c\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(a, c\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(a, b, d\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+</tr>
+</table></div></figure></div> <div class="para" id="subs-representationGraphe-4-2-2"><figure class="table table-like" id="subs-representationGraphe-4-2-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.2.5<span class="period">.</span></span><span class="space"> </span>Liste d’adjacence de <span class="process-math">\(G_2\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">Voisins de <span class="process-math">\(s\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1, 3, 4\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2, 4\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2, 3\)</span></td>
+</tr>
+</table></div></figure></div>
+</div></details></div></article></details><div class="para" id="subs-representationGraphe-5">Cette représentation peut nous aider à détecter certaines propriétés en commun de nos graphes. En particulier, lorsque le nombre de sommets augmente, la liste d’adjacence est souvent plus pratique que le dessin pour bien comprendre nos graphes. Aussi, on peut se servir d’une liste d’adjacence pour définir un graphe dans sage.</div>
+<div class="para" id="subs-representationGraphe-6"><div id="subs-representationGraphe-6-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Définition de G_1 dans sage à l'aide de la liste d'adjacence.
+d1={"a": ["b","c"], "b": ["a","c"], "c": ["a","b","d"], "d": ["c"]} # La liste d'adjacence de G_1
+g1 = Graph(d1)  #Définition de G_1
+g1.show()       #Pour afficher G_1 
+#Définition de G_2 dans sage à l'aide de la liste d'adjacence.
+d2={3: [2,4], 4: [2,3], 2: [1,3,4], 1: [2]} # La liste d'adjacence de G_2
+g2 = Graph(d2)  #Définition de G_2
+g2.show()       #Pour afficher G_2
+</script></div></div>
+<div class="para" id="subs-representationGraphe-7">Une autre façon de représenter un graphe est à l’aide d’une matrice d’adjacence. Pour pouvoir définir cet objet, on doit d’abord définir ce qu’est une matrice. Une matrice n’est rien d’autre qu’un tableau de nombre. Il s’agit d’un objet qui est surtout étudié dans un cours d’algèbre linéaire. Ici, on donne la définition d’une matrice ainsi que quelques exemples de base afin de se familiariser avec la notation avant de définir une matrice d’adjacence.</div>
+<article class="definition definition-like" id="def-matrice"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.6</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def-matrice-1-1">
+<div class="para">Une <dfn class="terminology">matrice <span class="process-math">\(m\times n\)</span></dfn> (on dit <span class="process-math">\(m\)</span> par <span class="process-math">\(n\)</span>) est un ensemble de <span class="process-math">\(m\cdot n\)</span> nombres agencés dans un tableau de <span class="process-math">\(m\)</span> lignes et <span class="process-math">\(n\)</span> colonnes. Si<span class="process-math">\(A\)</span> est une matrice, on dénote souvent par <span class="process-math">\(a_{i,j}\)</span> l’élément situé à la ligne <span class="process-math">\(i\)</span> et à la colonne <span class="process-math">\(j\text{.}\)</span> On écrira alors <span class="process-math">\(A=\bigl(a_{i,j}\bigr)\)</span> pour vouloir dire</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{pmatrix} 
+a_{1,1} &amp;a_{1,2}&amp; \dots  &amp; a_{1,n}\\
+a_{2,1} &amp;a_{2,2}&amp; \dots  &amp; a_{2,n}\\
+\vdots &amp; \vdots&amp;\ddots &amp; \vdots\\
+a_{m,1} &amp; a_{m,2}&amp;\dots  &amp; a_{m,n} 
+\end{pmatrix}
+\end{equation*}
+</div>
+</div></article><details id="subs-representationGraphe-9" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">Quelques matrices.</span>
+</h4></summary><article class="example example-like knowl__content"> <div class="para logical" id="subs-representationGraphe-9-2">
+<div class="para">La matrice</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=\bigl(a_{i,j}\bigr)=\begin{pmatrix} 
+1 &amp;2&amp; 3 \\
+4 &amp;5 &amp; 6\\
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">est une matrice <span class="process-math">\(2\times 3\)</span> avec <span class="process-math">\(a_{1,2}=2\)</span> et <span class="process-math">\(a_{2,3}=6\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="subs-representationGraphe-9-3">
+<div class="para">La matrice</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B=\bigl(b_{i,j}\bigr)=\begin{pmatrix} 
+1 &amp;2\\
+0 &amp;1\\
+2 &amp;-1\\
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">est une matrice <span class="process-math">\(3\times 2\)</span> avec <span class="process-math">\(b_{1,1}=1\)</span> et <span class="process-math">\(b_{3,2}=-1\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="subs-representationGraphe-9-4">
+<div class="para">La matrice</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C=\bigl(c_{i,j}\bigr)=\begin{pmatrix} 
+1 &amp;2&amp;3\\
+1 &amp;2&amp;3\\
+7 &amp;8&amp;9\\
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">est une matrice <span class="process-math">\(3\times 3\)</span> avec <span class="process-math">\(c_{1,1}=1\text{,}\)</span><span class="process-math">\(c_{2,2}=2\)</span> et <span class="process-math">\(c_{3,1}=7\text{.}\)</span> Puisque le nombre de lignes et de colonnes est <span class="process-math">\(3\text{,}\)</span> on dit que <span class="process-math">\(C\)</span> est une matrice carrée d’ordre <span class="process-math">\(3\text{.}\)</span>
+</div>
+</div></article></details><div class="para" id="subs-representationGraphe-10">On peut également définir une matrice <span class="process-math">\(A\)</span> à l’aide d’une règle pour les <span class="process-math">\(a_{i,j}\)</span> en termes de <span class="process-math">\(i\)</span> et <span class="process-math">\(j\text{.}\)</span>
+</div>
+<details id="exe-defAij" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Une autre façon de définir une matrice.</span>
+</h4></summary><article class="example example-like knowl__content"> <div class="para logical" id="exe-defAij-2">
+<div class="para">Si <span class="process-math">\(A=\bigl(a_{i,j}\bigr)\)</span> est une matrice <span class="process-math">\(3\times 3\)</span> avec</div>
+<div class="displaymath process-math">
+\begin{equation*}
+a_{i,j}=\begin{cases} 1 &amp; \text{si } i=j \\ 0 &amp;  \text{sinon} \end{cases}\text{,}
+\end{equation*}
+</div>
+<div class="para">alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix} 
+0 &amp;1&amp;1\\
+1 &amp;0&amp;1\\
+1 &amp;1&amp;0\\
+\end{pmatrix}.
+\end{equation*}
+</div>
+</div> <div class="para logical" id="exe-defAij-3">
+<div class="para">Si <span class="process-math">\(B=\bigl(b_{i,j}\bigr)\)</span> est une matrice <span class="process-math">\(3\times 3\)</span> avec</div>
+<div class="displaymath process-math">
+\begin{equation*}
+b_{i,j}=i+j\text{,}
+\end{equation*}
+</div>
+<div class="para">alors</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B=\begin{pmatrix} 
+2 &amp;3&amp;4\\
+3 &amp;4&amp;5\\
+4 &amp;5&amp;6\\
+\end{pmatrix}.
+\end{equation*}
+</div>
+</div></article></details><div class="para" id="subs-representationGraphe-12">On peut maintenant définir la matrice d’adjacence d’un graphe. Il est important de noter que la définition d’une matrice d’adjacence n’est pas unique pour chaque graphe. En effet, la définition dépendra de l’ordre dans lequel on considère les sommets du graphe.</div>
+<article class="definition definition-like" id="def-matriceAdjc"><h4 class="heading">
+<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.9</span><span class="period">.</span>
+</h4>
+<div class="para logical" id="def-matriceAdjc-1-1">
+<div class="para">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe simple à <span class="process-math">\(n\)</span> sommets, avec <span class="process-math">\(S=\{s_1, s_2, \dots , s_{n}\}\text{,}\)</span> alors <dfn class="terminology">la matrice d’adjacence du graphe <span class="process-math">\(G\)</span></dfn> selon l’ordre des sommets <span class="process-math">\(s_1, s_2, \dots, s_n\text{,}\)</span> qu’on notera <span class="process-math">\(M_G=\bigl(m_{i,j}\bigr)\text{,}\)</span> est la matrice <span class="process-math">\(n\times n\)</span> définie par</div>
+<div class="displaymath process-math">
+\begin{equation*}
+m_{i,j}=\begin{cases} 1 &amp; \text{si } \{s_i,s_j\}\in A \\ 0 &amp; \text{sinon.} \end{cases}\text{.}
+\end{equation*}
+</div>
+</div></article><div class="para" id="subs-representationGraphe-14">Étand donné un graphe, on veut être en mesure de trouver sa matrice d’adjacence. Inversement, étant donnée une matrice d’adjacence, peut-on déterminer un graphe correspondant.</div>
+<details id="exe-matriceAdjc" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.10</span><span class="period">.</span><span class="space"> </span><span class="title">Matrice d’adjacence.</span>
+</h4></summary><article class="example example-like knowl__content"> <div class="para" id="exe-matriceAdjc-2">On considère le graphe <span class="process-math">\(G=(S,A)\)</span> ci-dessous: <figure class="figure figure-like" id="fig-tikzit_exeMatAdjG"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/tikzit_exeMatAdjG.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.11<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G\)</span></figcaption></figure> Déterminer la matrice d’adjacence de <span class="process-math">\(G\text{.}\)</span>
+</div> <details id="exe-matriceAdjc-3" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para logical" id="exe-matriceAdjc-3-1">
+<div class="para">La matrice d’adjacence de ce graphe est la matrice</div>
+<div class="displaymath process-math">
+\begin{equation*}
+M_G=\begin{pmatrix}
+0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+\end{pmatrix}
+\end{equation*}
+</div>
+</div></div></details></article></details><details id="exe-graphAPartirMatrice" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.12</span><span class="period">.</span><span class="space"> </span><span class="title">Graphe à partir d’une matrice d’adjacence.</span>
+</h4></summary><article class="example example-like knowl__content"> <div class="para logical" id="exe-graphAPartirMatrice-2">
+<div class="para">Soit <span class="process-math">\(M_H\)</span> la matrice</div>
+<div class="displaymath process-math">
+\begin{equation*}
+M_H=\begin{pmatrix}
+0 &amp; 1 &amp; 1 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 1 &amp; 1 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp;0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{pmatrix}.
+\end{equation*}
+</div>
+<div class="para">Tracer un graphe <span class="process-math">\(H\)</span> ayant <span class="process-math">\(M_H\)</span> comme matrice d’adjacence.</div>
+</div> <article class="remark remark-like" id="exe-graphAPartirMatrice-3"><h5 class="heading">
+<span class="type">Remarque</span><span class="space"> </span><span class="codenumber">7.2.13</span><span class="period">.</span>
+</h5>
+<div class="para" id="exe-graphAPartirMatrice-3-1">Il y a plusieurs choix possibles pour <span class="process-math">\(H\text{.}\)</span>
+</div></article> <details id="exe-graphAPartirMatrice-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exe-graphAPartirMatrice-4-1">Une réponse possible est le graphe <span class="process-math">\(H\)</span> ci-dessous. <figure class="figure figure-like" id="fig-tikzit_exeMatAdjH"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/tikzit_exeMatAdjH.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.14<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(H\)</span></figcaption></figure>
+</div></div></details></article></details><div class="para" id="subs-representationGraphe-17">On peut utiliser Sage afin de tracer un graphe à partir d’une matrice d’adjacence. Voici le graphe de l’exemple <a href="sec-propGraphes.html#exe-graphAPartirMatrice" class="xref" data-knowl="./knowl/xref/exe-graphAPartirMatrice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.12: Graphe à partir d’une matrice d’adjacence">7.2.12</a> obtenu à partir d’une matrice d’adjacence. <div id="subs-representationGraphe-17-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">Mat=matrix([[0,1,1,0,1],[1,0,1,1,0],[1,1,0,0,0],[0,1,0,0,1],[1,0,0,1,0]]) #Définition de la matrice d'adjacence
+show(Mat)
+g=Graph(Mat) #Définition du graphe
+show(g)
+</script></div> Ici, on remarque que la forme obtenue par Sage est très différente de celle donnée dans l’exemple  <a href="sec-propGraphes.html#exe-graphAPartirMatrice" class="xref" data-knowl="./knowl/xref/exe-graphAPartirMatrice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.12: Graphe à partir d’une matrice d’adjacence">7.2.12</a>. En fait, cette forme semble suggérer que le graphe <span class="process-math">\(G\)</span> de l’exemple <a href="sec-propGraphes.html#exe-matriceAdjc" class="xref" data-knowl="./knowl/xref/exe-matriceAdjc.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.10: Matrice d’adjacence">7.2.10</a> est équivalent au graphe <span class="process-math">\(H\)</span> de l’exemple <a href="sec-propGraphes.html#exe-graphAPartirMatrice" class="xref" data-knowl="./knowl/xref/exe-graphAPartirMatrice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.12: Graphe à partir d’une matrice d’adjacence">7.2.12</a>. On montrera en effet que c’est le cas. Pour ce faire, on va enfin définir ce qu’est un isomorphisme de graphes.</div></section><section class="subsection" id="subs-isoGraphe"><h3 class="heading hide-type">
+<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">7.2.2</span><span class="space"> </span><span class="title">Isomorphismes de graphes</span>
+</h3>
+<section class="introduction" id="subs-isoGraphe-2"><div class="para" id="subs-isoGraphe-2-1">On est finalement prêt à donner une définition rigoureuse du fait que deux graphes qui sont décrits différemment peuvent en fait représenter deux graphes équivalents. Pour que deux graphes soient équivalents, il faut que l’un des graphes soit obtenu à partir de l’autre en changeant les noms des sommets. Ce changment de nom sera donné sous la forme d’une bijection entre les ensembles de sommets qui préservent les arêtes.</div></section><article class="definition definition-like" id="def-isoGraphe"><h4 class="heading">
 <span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.15</span><span class="period">.</span>
 </h4>
-<div class="para" id="def-graphBipartiComplet-1-1">Le graphe biparti complet <span class="process-math">\(K_{m,n}\)</span> est un graphe dont l’enemble des sommets est séparé en sous-ensembles, <span class="process-math">\(S_1\)</span> et <span class="process-math">\(S_2\text{,}\)</span> qui ont respectivement <span class="process-math">\(m\)</span> et <span class="process-math">\(n\)</span> sommets. De plus, <span class="process-math">\(\{s,t\}\)</span> est une arête de <span class="process-math">\(K_{m,n}\)</span> si et seulement si <span class="process-math">\(s\in S_1\)</span> et <span class="process-math">\(t\in S_2\text{.}\)</span>
-</div></article><div class="para" id="subs-graphesBiColoration-15">Voici quelques graphes bipartis complets.</div>
-<details id="subs-graphesBiColoration-16" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.16</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-graphesBiColoration-16-1-1">Les graphes <span class="process-math">\(K_{2,5}\text{,}\)</span> <span class="process-math">\(K_{3,3}\)</span> et <span class="process-math">\(K_{3,5}\text{.}\)</span>
-</div> <div class="para" id="subs-graphesBiColoration-16-1-2"><figure class="figure figure-like" id="subs-graphesBiColoration-16-1-2-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:4.166666666666667%;margin-right:4.166666666666667%;">
-<div class="sbspanel top" style="width:27.2727272727273%;"><figure class="figure figure-like" id="fig-tikzit_grapheK_2_5"><img src="generated/latex-image/grapheK_2_5.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(K_{2,5}\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:27.2727272727273%;"><figure class="figure figure-like" id="fig-tikzit_grapheK_3_3"><img src="generated/latex-image/grapheK_3_3.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(K_{3,3}\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:27.2727272727273%;"><figure class="figure figure-like" id="fig-tikzit_grapheK_3_5"><img src="generated/latex-image/grapheK_3_5.svg" role="img" class="contained"><figcaption><span class="codenumber">(c)</span><span class="space"> </span><span class="process-math">\(K_{3,5}\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.17<span class="period">.</span></span><span class="space"> </span>Graphes bipartis complets</figcaption></figure></div></article></details></section><section class="subsection" id="subs-formationGraphes"><h3 class="heading hide-type">
-<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">7.2.2</span><span class="space"> </span><span class="title">Graphes issus d’autres graphes</span>
-</h3>
-<section class="introduction" id="subs-formationGraphes-2"><div class="para" id="subs-formationGraphes-2-1">Un peu comme avec les ensembles, il est possible de former de nouveaux graphes à partir de graphes existants. Tout d’abord, on peut considérer les sous-graphes d’un graphe <span class="process-math">\(G\text{.}\)</span> Ensuite, on regarde comment on peut transformer un graphe en ajoutant ou en retirant des arêtes d’un graphe. Finalement, on considère l’union de deux graphes.</div></section><article class="definition definition-like" id="def-sousGraphe"><h4 class="heading">
-<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.18</span><span class="period">.</span>
-</h4>
-<div class="para" id="def-sousGraphe-1-1">Soit un graphe <span class="process-math">\(G=(S,A)\text{,}\)</span> on dira que le graphe <span class="process-math">\(H=(T,B)\)</span> est un sous-graphe de <span class="process-math">\(G\)</span> si <span class="process-math">\(T\subseteq S\)</span> et <span class="process-math">\(B\subseteq A\text{.}\)</span>
-</div></article><details id="ex-sousGraphe" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.19</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-sousGraphe-1-1">Soit le graphe <span class="process-math">\(G\)</span> ci-dessous, les graphes <span class="process-math">\(H_1\)</span> et <span class="process-math">\(H_2\)</span> suivants sont des sous-graphes de <span class="process-math">\(G\text{.}\)</span>
-</div> <div class="para" id="ex-sousGraphe-1-2"><figure class="figure figure-like" id="ex-sousGraphe-1-2-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:4.166666666666667%;margin-right:4.166666666666667%;">
-<div class="sbspanel top" style="width:27.2727272727273%;"><figure class="figure figure-like" id="fig-tikzit_defSousGrapheG"><img src="generated/latex-image/defSousGrapheG.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:27.2727272727273%;"><figure class="figure figure-like" id="fig-tikzit_defSousGrapheH1"><img src="generated/latex-image/defSousGrapheH1.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_1\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:27.2727272727273%;"><figure class="figure figure-like" id="fig-tikzit_defSousGrapheH2"><img src="generated/latex-image/defSousGrapheH2.svg" role="img" class="contained"><figcaption><span class="codenumber">(c)</span><span class="space"> </span><span class="process-math">\(H_2\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.20<span class="period">.</span></span><span class="space"> </span>Un graphe et des sous-graphes</figcaption></figure></div></article></details><div class="para" id="subs-formationGraphes-5">Étant donné un graphe <span class="process-math">\(G=(S,A)\)</span> et un sous-ensemble de sommets <span class="process-math">\(T\subseteq S\text{,}\)</span> on aimerait considérer le sous-graphe de <span class="process-math">\(G\)</span> le plus complet possible formé à partir des sommets de <span class="process-math">\(T\text{.}\)</span> C’est ce qu’on appelle le sous-graphe de <span class="process-math">\(G\)</span> induit par <span class="process-math">\(T\text{.}\)</span>
-</div>
-<article class="definition definition-like" id="def-sousGrapheInduit"><h4 class="heading">
-<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.21</span><span class="period">.</span>
-</h4>
-<div class="para" id="def-sousGrapheInduit-1-1">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe et soit <span class="process-math">\(T\subseteq S\text{,}\)</span> le sous-graphe induit par <span class="process-math">\(T\)</span> est le sous-graphe <span class="process-math">\(H=(T,B)\text{,}\)</span> où <span class="process-math">\(B\subseteq A\)</span> et pour <span class="process-math">\(\{t_1,t_2\}\in A\text{,}\)</span> on a que <span class="process-math">\(\{t_1,t_2\}\in B\)</span> si et seulement si <span class="process-math">\(t_1,\ t_2\in T\text{.}\)</span>
-</div></article><details id="subs-formationGraphes-7" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.22</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-formationGraphes-7-1-1">Soit <span class="process-math">\(G\)</span> le graphe défini à l’exemple <a href="sec-introGraphe.html#ex-sousGraphe" class="xref" data-knowl="./knowl/xref/ex-sousGraphe.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.1.47">7.1.47</a>, déterminer le sous-graphe induit par <span class="process-math">\(T=\{a,b,c,e\}\text{.}\)</span>
-</div>
-<div class="solutions"><details id="subs-formationGraphes-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="subs-formationGraphes-7-2-1"><figure class="figure figure-like" id="fig-tikzit_defSousGrapheInduit"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="generated/latex-image/defSousGrapheInduit.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.23<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div></div></details></div></article></details><div class="para" id="subs-formationGraphes-8">On regarde maintenant comment on peut ajouter ou retirer des arêtes d’un graphe.</div>
-<article class="definition definition-like" id="def-retraitArete"><h4 class="heading">
-<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.24</span><span class="period">.</span>
-</h4>
-<div class="para logical" id="def-retraitArete-1-1">
-<div class="para">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe et <span class="process-math">\(a\in A\text{,}\)</span> le sous graphe <span class="process-math">\(G-a\)</span> est le graphe dont les sommets sont <span class="process-math">\(S\)</span> et les arêtes sont <span class="process-math">\(A-\{a\}\text{.}\)</span> C’est-à-dire que</div>
-<div class="displaymath process-math">
-\begin{equation*}
-G-a=(S,A-\{a\})\text{.}
-\end{equation*}
-</div>
-</div></article><details id="ex-retraitArete" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.25</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="ex-retraitArete-1-1">Soit <span class="process-math">\(G\)</span> le graphe représenté ci-dessous, déterminer <span class="process-math">\(G-a\text{,}\)</span> où <span class="process-math">\(a\)</span> est l’arête <span class="process-math">\(\{s_1,s_4\}\)</span>
-</div> <div class="para" id="ex-retraitArete-1-2"><figure class="figure figure-like" id="fig-tikzit_exGraphePmAr"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/exGraphePmAr.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.26<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G\)</span></figcaption></figure></div>
-<div class="solutions"><details id="ex-retraitArete-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="ex-retraitArete-2-1"><figure class="figure figure-like" id="fig-tikzit_exGrapheM14Ar"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/exGrapheM14Ar.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.27<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G-a\)</span></figcaption></figure></div></div></details></div></article></details><article class="definition definition-like" id="def-ajoutArete"><h4 class="heading">
-<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.28</span><span class="period">.</span>
-</h4>
-<div class="para logical" id="def-ajoutArete-1-1">
-<div class="para">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe et <span class="process-math">\(a = \{s,t\}\text{,}\)</span> où <span class="process-math">\(s\)</span> et <span class="process-math">\(t\)</span> sont des sommets de <span class="process-math">\(G\text{,}\)</span> le graphe <span class="process-math">\(G+a\)</span> est le graphe dont les sommets sont <span class="process-math">\(S\)</span> et les arêtes sont <span class="process-math">\(A \cup \{a\}\text{.}\)</span> C’est-à-dire que</div>
-<div class="displaymath process-math">
-\begin{equation*}
-G+a=(S,A\cup \{a\})\text{.}
-\end{equation*}
-</div>
-</div></article><details id="subs-formationGraphes-12" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.29</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-formationGraphes-12-1-1">Soit <span class="process-math">\(G\)</span> le graphe défini à l’exemple <a href="sec-introGraphe.html#ex-retraitArete" class="xref" data-knowl="./knowl/xref/ex-retraitArete.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.1.53">7.1.53</a>, déterminer <span class="process-math">\(G+a\text{,}\)</span> où <span class="process-math">\(a\)</span> est l’arête <span class="process-math">\(\{s_1,s_2\}\text{.}\)</span>
-</div>
-<div class="solutions"><details id="subs-formationGraphes-12-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="subs-formationGraphes-12-2-1"><figure class="figure figure-like" id="fig-tikzit_exGrapheP12Ar"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/exGrapheP12Ar.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.30<span class="period">.</span></span><span class="space"> </span>Le  graphe <span class="process-math">\(G+a\)</span></figcaption></figure></div></div></details></div></article></details><article class="definition definition-like" id="def-unionGraphe"><h4 class="heading">
-<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.31</span><span class="period">.</span>
-</h4>
-<div class="para" id="def-unionGraphe-1-1">L’union des graphes <span class="process-math">\(G_1=(S_1,A_1)\)</span> et <span class="process-math">\(G_2=(S_2,A_2)\text{,}\)</span> qu’on note <span class="process-math">\(G_1\cup G_2\text{,}\)</span> est le graphe de sommets <span class="process-math">\(S_1\cup S_2\)</span> et d’arêtes <span class="process-math">\(A_1\cup A_2\text{.}\)</span>
-</div></article><details id="subs-formationGraphes-14" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.32</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="subs-formationGraphes-14-1-1">Soit <span class="process-math">\(G\)</span> et <span class="process-math">\(H\)</span> les graphes représentés ci-dessous, déterminer <span class="process-math">\(G\cup H\text{.}\)</span>
-</div> <div class="para" id="subs-formationGraphes-14-1-2"><figure class="figure figure-like" id="subs-formationGraphes-14-1-2-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;">
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="fig-tikzit_exGrapheUnionG"><img src="generated/latex-image/exGrapheUnionG.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="fig-tikzit_exGrapheUnionH"><img src="generated/latex-image/exGrapheUnionH.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.33<span class="period">.</span></span><span class="space"> </span>Deux graphes</figcaption></figure></div>
-<div class="solutions"><details id="subs-formationGraphes-14-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="subs-formationGraphes-14-2-1"><figure class="figure figure-like" id="fig-tikzit_exGrapheUnionGH"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/exGrapheUnionGH.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.34<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></div></details></div></article></details></section><section class="subsection" id="subs-isoGraphe"><h3 class="heading hide-type">
-<span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">7.2.3</span><span class="space"> </span><span class="title">Isomorphismes de graphes</span>
-</h3>
-<section class="introduction" id="subs-isoGraphe-2"><div class="para" id="subs-isoGraphe-2-1">On est finalement prêt à donner une définition rigoureuse du fait que deux graphes qui sont décrits différemment peuvent en fait représenter le même graphe.</div></section><article class="definition definition-like" id="def-isoGraphe"><h4 class="heading">
-<span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.35</span><span class="period">.</span>
-</h4>
 <div class="para logical" id="def-isoGraphe-1-1">
-<div class="para">Soit <span class="process-math">\(G_1=(S_1,A_1)\)</span> et <span class="process-math">\(G_2=(S_2,A_2)\)</span> deux graphes. On dit que <span class="process-math">\(G_1\)</span> et <span class="process-math">\(G_2\)</span> sont isomorphes si il existe une fonction <span class="process-math">\(f:S_1\rightarrow S_2\)</span> telle que:</div>
+<div class="para">Soit <span class="process-math">\(G_1=(S_1,A_1)\)</span> et <span class="process-math">\(G_2=(S_2,A_2)\)</span> deux graphes. On dit que <span class="process-math">\(G_1\)</span> et <span class="process-math">\(G_2\)</span> sont isomorphes s’il existe une fonction <span class="process-math">\(f:S_1\rightarrow S_2\)</span> telle que:</div>
 <ul class="disc" id="def-isoGraphe-1-1-6">
 <li id="def-isoGraphe-1-1-6-1"><div class="para" id="p-derived-def-isoGraphe-1-1-6-1">
 <span class="process-math">\(f\)</span> est une bijection;</div></li>
-<li id="def-isoGraphe-1-1-6-2"><div class="para" id="p-derived-def-isoGraphe-1-1-6-2">les sommets <span class="process-math">\(s\)</span> et <span class="process-math">\(t\)</span> sont adjacents dans <span class="process-math">\(G_1\)</span> si et seulement si <span class="process-math">\(f(s)\)</span> et <span class="process-math">\(f(t)\)</span> sont adjacents dans <span class="process-math">\(G_2\text{.}\)</span>
-</div></li>
+<li id="def-isoGraphe-1-1-6-2"><div class="para" id="p-derived-def-isoGraphe-1-1-6-2">les sommets <span class="process-math">\(s\)</span> et <span class="process-math">\(t\)</span> sont adjacents dans <span class="process-math">\(G_1\)</span> (c’est-à-dire <span class="process-math">\(\{s,t\}\in A_1\)</span>) si et seulement si <span class="process-math">\(f(s)\)</span> et <span class="process-math">\(f(t)\)</span> sont adjacents dans <span class="process-math">\(G_2\)</span> (c’est-à-dire <span class="process-math">\(\{f(s),f(t)\}\in A_2\)</span>).</div></li>
 </ul>
-<div class="para">On dira alors que <span class="process-math">\(f \)</span> est un isomorphisme de graphe.</div>
-</div></article><div class="para" id="subs-isoGraphe-4">Lorsque deux graphes sont isomorphes, ceci veut dire que ces deux graphes représente en fait exactement le même graphe, qu’on a peut-être décrit différemment. En particulier, deux graphes isomorphes ont exactement les mêmes propriétés. De même, les sommets correspondant ont également les mêmes propriétés.</div>
+<div class="para">On dira alors que <span class="process-math">\(f \)</span> est un isomorphisme de graphe, et on notera <span class="process-math">\(G_1\cong G_2\)</span>
+</div>
+</div></article><div class="para" id="subs-isoGraphe-4">Lorsque deux graphes sont isomorphes, ceci veut dire que ces deux graphes représentent en fait exactement le même graphe, qu’on a peut-être décrit différemment. En particulier, deux graphes isomorphes ont exactement les mêmes propriétés. De même, les sommets correspondants ont également les mêmes propriétés.</div>
 <article class="proposition theorem-like" id="prop-isoGraphe"><h4 class="heading">
-<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.2.36</span><span class="period">.</span>
+<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.2.16</span><span class="period">.</span>
 </h4>
 <div class="para" id="prop-isoGraphe-1-1">Soit <span class="process-math">\(f\)</span> un isomorphisme entre les graphes <span class="process-math">\(G_1=(S_1,A_1)\)</span> et <span class="process-math">\(G_2=(S_2,A_2)\text{.}\)</span>
-</div> <ul class="disc" id="prop-isoGraphe-1-2">
-<li id="prop-isoGraphe-1-2-1"><div class="para" id="p-derived-prop-isoGraphe-1-2-1">Pour tout sommet <span class="process-math">\(s\)</span> de <span class="process-math">\(G_1,\)</span> alors <span class="process-math">\(\deg(s)=\deg\left(f(s)\right)\text{.}\)</span>
+</div> <ol class="decimal" id="prop-isoGraphe-1-2">
+<li id="prop-isoGraphe-1-2-1"><div class="para" id="p-derived-prop-isoGraphe-1-2-1">Pour tout sommet <span class="process-math">\(s\)</span> de <span class="process-math">\(G_1,\)</span> alors <span class="process-math">\(V\bigl(f(s)\bigr)=\bigl\{f(t) ~|~ t\in V(s)\bigr\}\text{.}\)</span> En particulier, on a <span class="process-math">\(\deg(s)=\deg\left(f(s)\right)\text{.}\)</span>
 </div></li>
 <li id="prop-isoGraphe-1-2-2"><div class="para" id="p-derived-prop-isoGraphe-1-2-2"><span class="process-math">\(\displaystyle |S_1|=|S_2|\)</span></div></li>
 <li id="prop-isoGraphe-1-2-3"><div class="para" id="p-derived-prop-isoGraphe-1-2-3"><span class="process-math">\(\displaystyle |A_1|=|A_2|\)</span></div></li>
-<li id="prop-isoGraphe-1-2-4"><div class="para" id="p-derived-prop-isoGraphe-1-2-4">Il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_1\)</span> si et seulement si il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_2\text{.}\)</span>
+<li id="prop-isoGraphe-1-2-4"><div class="para" id="p-derived-prop-isoGraphe-1-2-4"><ul class="disc" id="prop-isoGraphe-1-2-4-1">
+<li id="prop-isoGraphe-1-2-4-1-1"><div class="para" id="p-derived-prop-isoGraphe-1-2-4-1-1">Le degré maximal d’un sommet dans <span class="process-math">\(G_1\)</span> est égal au degré maximal d’un sommet dans <span class="process-math">\(G_2\text{.}\)</span>
 </div></li>
-</ul></article><details id="exe-nonIso" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.37</span><span class="period">.</span>
+<li id="prop-isoGraphe-1-2-4-1-2"><div class="para" id="p-derived-prop-isoGraphe-1-2-4-1-2">Le degré minimal d’un sommet dans <span class="process-math">\(G_1\)</span> est égal au degré minimal d’un sommet dans <span class="process-math">\(G_2\text{.}\)</span>
+</div></li>
+<li id="prop-isoGraphe-1-2-4-1-3"><div class="para" id="p-derived-prop-isoGraphe-1-2-4-1-3">La somme du degré des sommets de <span class="process-math">\(G_1\)</span> est égale à la somme du degré des sommets de <span class="process-math">\(G_2\text{.}\)</span>
+</div></li>
+</ul></div></li>
+<li id="prop-isoGraphe-1-2-5"><div class="para" id="p-derived-prop-isoGraphe-1-2-5">Il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_1\)</span> si et seulement si il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_2\text{.}\)</span> En particulier <span class="process-math">\(\chi(G_1)=\chi(G_2)\text{.}\)</span>
+</div></li>
+</ol></article><details id="exe-nonIso" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.17</span><span class="period">.</span>
 </h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-nonIso-1-1">On peut montrer que les deux graphes ci-dessous ne sont pas isomorphes, car il existe une coloration à deux couleurs pour le graphe <span class="process-math">\(G,\)</span> mais il faut trois couleurs pour une coloration de <span class="process-math">\(H\text{.}\)</span>
 </div> <figure class="figure figure-like" id="exe-nonIso-1-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-2-2-1"><img src="external/tikzit_Graphesdiff2.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-2-2-2"><img src="external/tikzit_Graphesdiff1.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(h\)</span></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.38<span class="period">.</span></span><span class="space"> </span>Deux graphes non isomorphes</figcaption></figure> <div class="para" id="exe-nonIso-1-3">Voici des colorations de ces graphes</div> <figure class="figure figure-like" id="exe-nonIso-1-4"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.18<span class="period">.</span></span><span class="space"> </span>Deux graphes non isomorphes</figcaption></figure> <div class="para" id="exe-nonIso-1-3">Voici des colorations de ces graphes</div> <figure class="figure figure-like" id="exe-nonIso-1-4"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-4-2-1"><img src="external/tikzit_Graphesdiff2Coul.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-4-2-2"><img src="external/tikzit_GraphesdiffCoul.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.39<span class="period">.</span></span><span class="space"> </span>Coloration pour différencier des graphes</figcaption></figure></article></details><div class="para" id="subs-isoGraphe-7">Voici un exemple de deux graphes qui sont isomorphes.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.19<span class="period">.</span></span><span class="space"> </span>Coloration pour différencier des graphes</figcaption></figure></article></details><div class="para" id="subs-isoGraphe-7">Voici un exemple de deux graphes qui sont isomorphes.</div>
 <details id="exe-ouiIso" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.40</span><span class="period">.</span>
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.20</span><span class="period">.</span>
 </h4></summary><article class="example example-like knowl__content"><div class="para logical" id="exe-ouiIso-1-1">
 <div class="para">Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <span class="process-math">\(f\)</span> allant des sommets de <span class="process-math">\(G\)</span> vers les sommets de <span class="process-math">\(H\)</span> comme ceci:</div>
 <div class="displaymath process-math" id="exe-ouiIso-1-1-4">
@@ -889,9 +1003,9 @@ f(s_5)\amp=t_2
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso-1-2-2-1"><img src="external/tikzit_GrapheSame.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso-1-2-2-2"><img src="external/tikzit_GrapheSame2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(h\)</span></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.41<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure></article></details><div class="para" id="subs-isoGraphe-9">Une autre paire de graphes qui sont isomorphes</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.21<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure></article></details><div class="para" id="subs-isoGraphe-9">Une autre paire de graphes qui sont isomorphes</div>
 <details id="exe-ouiIso2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
-<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.42</span><span class="period">.</span>
+<span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.22</span><span class="period">.</span>
 </h4></summary><article class="example example-like knowl__content"><div class="para logical" id="exe-ouiIso2-1-1">
 <div class="para">Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <span class="process-math">\(g\)</span> allant des sommets de <span class="process-math">\(G\)</span> vers les sommets de <span class="process-math">\(H\)</span> comme ceci:</div>
 <div class="displaymath process-math" id="exe-ouiIso2-1-1-4">
@@ -908,86 +1022,7 @@ g(f)\amp=s_1
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso2-1-2-2-1"><img src="external/tikzit_GrapheIsoSimpleOui1.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso2-1-2-2-2"><img src="external/tikzit_GrapheIsoSimpleOui2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.43<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure></article></details></section><section class="conclusion" id="concl-propGraphes"></section><section class="reading-questions" id="rq-propGraphes"><h3 class="heading hide-type">
-<span class="type">Questions de compréhension de la lecture</span><span class="space"> </span><span class="codenumber">7.2.4</span><span class="space"> </span><span class="title">Questions de compréhension de la lecture</span>
-</h3>
-<section class="introduction" id="rq-propGraphes-1"><div class="para" id="rq-propGraphes-1-1">Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</div></section><article class="exercise exercise-like" id="rq-propGraphes-2"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para" id="rq-propGraphes-2-1-1">Pour quelles valeurs de <span class="process-math">\(n\)</span> est-ce que les graphes <span class="process-math">\(C_n\)</span> sont bipartis.</div></article><article class="exercise exercise-like" id="rq-propGraphes-3"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="introduction" id="rq-propGraphes-3-1"><div class="para" id="rq-propGraphes-3-1-1">Est-ce que les graphes ci-dessous sont bipartis? Si oui, justifier.</div></div>
-<article class="task exercise-like" id="rq-propGraphes-3-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="rq-propGraphes-3-2-1-1"><figure class="figure figure-like" id="rq-propGraphes-3-2-1-1-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_QCL_BipartiOUI1.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.44<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div> <figure class="figure figure-like" id="fig-tikz-QCL_BipartiOUI1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/BipartiOUI1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.45<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></article><article class="task exercise-like" id="rq-propGraphes-3-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="rq-propGraphes-3-3-1-1"><figure class="figure figure-like" id="rq-propGraphes-3-3-1-1-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_QCL_BipartiNON.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.46<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></article><article class="task exercise-like" id="rq-propGraphes-3-4"><h5 class="heading"><span class="codenumber">(c)</span></h5>
-<div class="para" id="rq-propGraphes-3-4-1-1"><figure class="figure figure-like" id="rq-propGraphes-3-4-1-1-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_QCL_BipartiOUI2.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.47<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></article></article><article class="exercise exercise-like" id="rq-propGraphes-4"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para" id="rq-propGraphes-4-1-1">Combien existe-t-il de sous-graphes de <span class="process-math">\(K_3\text{?}\)</span>
-</div></article><article class="exercise exercise-like" id="rq-propGraphes-5"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="introduction" id="rq-propGraphes-5-1"><div class="para" id="rq-propGraphes-5-1-1">Représenter l’union des paires de gaphes ci-dessous.</div></div>
-<article class="task exercise-like" id="rq-propGraphes-5-2"><h5 class="heading"><span class="codenumber">(a)</span></h5>
-<div class="para" id="rq-propGraphes-5-2-1-1"><figure class="figure figure-like" id="rq-propGraphes-5-2-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="rq-propGraphes-5-2-1-1-1-2-1"><img src="external/tikzit_QCL_UnionG1.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_1\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="rq-propGraphes-5-2-1-1-1-2-2"><img src="external/tikzit_QCL_UnionH1.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_1\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.48<span class="period">.</span></span><span class="space"> </span>Union de graphes</figcaption></figure></div></article><article class="task exercise-like" id="rq-propGraphes-5-3"><h5 class="heading"><span class="codenumber">(b)</span></h5>
-<div class="para" id="rq-propGraphes-5-3-1-1"><figure class="figure figure-like" id="rq-propGraphes-5-3-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="rq-propGraphes-5-3-1-1-1-2-1"><img src="external/tikzit_QCL_UnionG2.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_2\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="rq-propGraphes-5-3-1-1-1-2-2"><img src="external/tikzit_QCL_UnionH2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_2\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.49<span class="period">.</span></span><span class="space"> </span>Union de graphes</figcaption></figure></div></article></article><article class="exercise exercise-like" id="rq-propGraphes-6"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para" id="rq-propGraphes-6-1-1">Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</div></article></section><section class="exercises" id="exo-propGraphe"><h3 class="heading hide-type">
-<span class="type">Exercices</span><span class="space"> </span><span class="codenumber">7.2.5</span><span class="space"> </span><span class="title">Exercices</span>
-</h3>
-<article class="subexercises" id="exo-propGraphe-2"><h4 class="heading"><span class="title">À faire en classe</span></h4>
-<div class="introduction" id="exo-propGraphe-2-2"><div class="para" id="exo-propGraphe-2-2-1">Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d’apprentissage plus avancés.</div></div>
-<article class="exercise exercise-like" id="exo-propGraphe-2-3"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
-<div class="para" id="exo-propGraphe-2-3-1-1">Tracer tous les sous-graphes contenant au moins une arête du graphe <span class="process-math">\(G\)</span> ci-dessous. <figure class="figure figure-like" id="exo-propGraphe-2-3-1-1-2"><div class="image-box" style="width: 30%; margin-left: 35%; margin-right: 35%;"><img src="external/tikzit_grapheFleche.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.50<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure>
-</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
-<div class="para" id="exo-propGraphe-2-4-1-1">Montrer par récurence que le graphe <span class="process-math">\(K_n\)</span> possèdent <span class="process-math">\(\frac{n^2-n}{2}\)</span> arêtes, pour <span class="process-math">\(n\in \N^\ast\)</span>
-</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-5"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
-<div class="para" id="exo-propGraphe-2-5-1-1">Démonter que si <span class="process-math">\(G\)</span> est un graphe biparti avec <span class="process-math">\(v\)</span> sommets et <span class="process-math">\(e\)</span> arêtes, alors <span class="process-math">\(e\leq \frac{v^2}{4}\)</span>
-</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-6"><h5 class="heading"><span class="codenumber">4<span class="period">.</span></span></h5>
-<div class="introduction" id="exo-propGraphe-2-6-1"><div class="para" id="exo-propGraphe-2-6-1-1">Soit <span class="process-math">\(G=(S,A)\)</span> un graphe simple, on défini le graphe complémentaire à <span class="process-math">\(G\text{,}\)</span> qu’on note <span class="process-math">\(\overline{G}\text{,}\)</span> comme étant le graphe ayant les mêmes sommets que <span class="process-math">\(G\text{,}\)</span> et où deux sommets sont adjacents dans <span class="process-math">\(\overline{G}\)</span> si et seulement si ils ne le sont pas dans <span class="process-math">\(G\text{.}\)</span> Représenter ou décriver les graphes ci-dessous.</div></div>
-<article class="task exercise-like" id="exo-propGraphe-2-6-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
-<div class="para" id="exo-propGraphe-2-6-2-1-1"><span class="process-math">\(\overline{C_4}\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-6-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
-<div class="para" id="exo-propGraphe-2-6-3-1-1"><span class="process-math">\(\overline{C_5}\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-6-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
-<div class="para" id="exo-propGraphe-2-6-4-1-1"><span class="process-math">\(\overline{Q_2}\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-6-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
-<div class="para" id="exo-propGraphe-2-6-5-1-1"><span class="process-math">\(\overline{Q_3}\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-6-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
-<div class="para" id="exo-propGraphe-2-6-6-1-1">
-<span class="process-math">\(\overline{K_n}\text{,}\)</span> où <span class="process-math">\(n\in \N^\ast\)</span> est quelconque.</div></article><article class="task exercise-like" id="exo-propGraphe-2-6-7"><h6 class="heading"><span class="codenumber">(f)</span></h6>
-<div class="para" id="exo-propGraphe-2-6-7-1-1">
-<span class="process-math">\(\overline{K_{m,n}}\text{,}\)</span> où <span class="process-math">\(m,n\in \N^\ast\)</span> sont quelconques.</div></article></article><article class="exercise exercise-like" id="exo-propGraphe-2-7"><h5 class="heading"><span class="codenumber">5<span class="period">.</span></span></h5>
-<div class="para" id="exo-propGraphe-2-7-1-1">Si <span class="process-math">\(G\)</span> est un graphe simple avec <span class="process-math">\(15\)</span> arêtes et <span class="process-math">\(\overline{G}\)</span> a <span class="process-math">\(13\)</span> arêtes, combien de sommets y a-t-il dans <span class="process-math">\(G\text{?}\)</span>
-</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-8"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
-<div class="para" id="exo-propGraphe-2-8-1-1">Si <span class="process-math">\(G\)</span> est un graphe simple avec <span class="process-math">\(e\)</span> arêtes et <span class="process-math">\(v\)</span> sommets, combien y a-t-il d’arêtes dans le graphe <span class="process-math">\(\overline{G}\text{?}\)</span>
-</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-9"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
-<div class="para" id="exo-propGraphe-2-9-1-1">Démontrer que si <span class="process-math">\(G\)</span> est un graphe simple avec <span class="process-math">\(n\)</span> sommets, alors <span class="process-math">\(G\cup \overline{G}\)</span> est le graphe <span class="process-math">\(K_n\text{.}\)</span>
-</div></article><article class="exercise exercise-like" id="exo-propGraphe-2-10"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
-<div class="introduction" id="exo-propGraphe-2-10-1"><div class="para" id="exo-propGraphe-2-10-1-1">On dit que le graphe <span class="process-math">\(G\)</span> est régulier si tous ses sommets on le même degré. Pour quelles valeurs de <span class="process-math">\(m\)</span> et <span class="process-math">\(n\)</span> les graphes suivants sont-ils réguliers?</div></div>
-<article class="task exercise-like" id="exo-propGraphe-2-10-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
-<div class="para" id="exo-propGraphe-2-10-2-1-1"><span class="process-math">\(C_n\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-10-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
-<div class="para" id="exo-propGraphe-2-10-3-1-1"><span class="process-math">\(Q_n\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-10-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
-<div class="para" id="exo-propGraphe-2-10-4-1-1"><span class="process-math">\(K_n\)</span></div></article><article class="task exercise-like" id="exo-propGraphe-2-10-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
-<div class="para" id="exo-propGraphe-2-10-5-1-1"><span class="process-math">\(K_{m,n}\)</span></div></article></article><article class="exercise exercise-like" id="exo-propGraphe-2-11"><h5 class="heading"><span class="codenumber">9<span class="period">.</span></span></h5>
-<div class="introduction" id="exo-propGraphe-2-11-1"><div class="para" id="exo-propGraphe-2-11-1-1">Pour chacune des paires de graphes ci-dessous, déterminer s’ils sont isomorphes. S’il ne sont pas isomorphes, justifier. S’il le sont, trouver un isomorphisme.</div></div>
-<article class="task exercise-like" id="exo-propGraphe-2-11-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
-<div class="para" id="exo-propGraphe-2-11-2-1-1"><figure class="figure figure-like" id="exo-propGraphe-2-11-2-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-2-1-1-1-2-1"><img src="external/tikzit_isoG1.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_1\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-2-1-1-1-2-2"><img src="external/tikzit_isoH1.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_1\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.51<span class="period">.</span></span><span class="space"> </span>Deux graphes isomorphes?</figcaption></figure></div></article><article class="task exercise-like" id="exo-propGraphe-2-11-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
-<div class="para" id="exo-propGraphe-2-11-3-1-1"><figure class="figure figure-like" id="exo-propGraphe-2-11-3-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-3-1-1-1-2-1"><img src="external/tikzit_isoG2.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_2\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-3-1-1-1-2-2"><img src="external/tikzit_isoH2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_2\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.52<span class="period">.</span></span><span class="space"> </span>Deux graphes isomorphes?</figcaption></figure></div></article><article class="task exercise-like" id="exo-propGraphe-2-11-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
-<div class="para" id="exo-propGraphe-2-11-4-1-1"><figure class="figure figure-like" id="exo-propGraphe-2-11-4-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-4-1-1-1-2-1"><img src="external/tikzit_isoG3.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_3\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="exo-propGraphe-2-11-4-1-1-1-2-2"><img src="external/tikzit_isoH3.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_3\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.53<span class="period">.</span></span><span class="space"> </span>Deux graphes isomorphes?</figcaption></figure></div></article></article></article></section></section></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.23<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure></article></details></section></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-introGraphe.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="Back.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>

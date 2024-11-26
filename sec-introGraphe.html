@@ -330,6 +330,9 @@ window.MathJax = {
 #subs-defGraphe-8-2-1-3 { counter-set: subs-defGraphe-8-2-1-3 0; }
 #subs-defGraphe-8-2-1-3 > li::marker { content: ""counter(subs-defGraphe-8-2-1-3,decimal)"."; }
 #subs-defGraphe-8-2-1-3 > li { counter-increment: subs-defGraphe-8-2-1-3; }
+#prop-isoGraphe-1-2 { counter-set: prop-isoGraphe-1-2 0; }
+#prop-isoGraphe-1-2 > li::marker { content: ""counter(prop-isoGraphe-1-2,decimal)"."; }
+#prop-isoGraphe-1-2 > li { counter-increment: prop-isoGraphe-1-2; }
 #exe-symboleSommation-1-1 { counter-set: exe-symboleSommation-1-1 0; }
 #exe-symboleSommation-1-1 > li::marker { content: ""counter(exe-symboleSommation-1-1,decimal)"."; }
 #exe-symboleSommation-1-1 > li { counter-increment: exe-symboleSommation-1-1; }
@@ -355,7 +358,7 @@ window.MathJax = {
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="chap-theorieGraphes.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-theorieGraphes.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="Back.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="chap-theorieGraphes.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-theorieGraphes.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="sec-propGraphes.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
 \newcommand{\Z}{\mathbb{Z}}                
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -659,7 +662,8 @@ $\Box$
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="chap-theorieGraphes.html" class="internal"><span class="codenumber">7</span> <span class="title">Théorie des graphes</span></a></div>
-<ul class="structural toc-item-list contains-active"><li class="toc-item toc-section active">
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active">
 <div class="toc-title-box"><a href="sec-introGraphe.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Introduction à la théorie des graphes</span></a></div>
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-defGraphe" class="internal"><span class="codenumber">7.1.1</span> <span class="title">Les types de graphes</span></a></div></li>
@@ -669,7 +673,15 @@ $\Box$
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-introGraphe.html#subs-formationGraphes" class="internal"><span class="codenumber">7.1.5</span> <span class="title">Constructions d’un graphe à partir d’autres graphes</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-introGraphe.html#exo-introGraphe" class="internal"><span class="codenumber">7.1.6</span> <span class="title">Exercices</span></a></div></li>
 </ul>
-</li></ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-propGraphes.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Propriétés des graphes</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-representationGraphe" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Représentations des graphes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-isoGraphe" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Isomorphismes de graphes</span></a></div></li>
+</ul>
+</li>
+</ul>
 </li>
 <li class="toc-item toc-backmatter">
 <div class="toc-title-box"><a href="Back.html" class="internal"><span class="title">Annexe</span></a></div>
@@ -1120,26 +1132,339 @@ G+a=(S,A\cup \{a\})\text{.}
 <div class="introduction" id="exo-degre-1"><div class="para" id="exo-degre-1-1">Pour chacun des graphes ci-dessous, déterminer le degré de chaque sommet et calculer la somme des degrés de tous les sommets.</div></div>
 <article class="task exercise-like" id="exo-degre-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
 <div class="para" id="exo-degre-2-1-1"><figure class="figure figure-like" id="exo-degre-2-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_cycle6Bi.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.62<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_1\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-degre-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.62<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_1\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-2-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><figure class="table table-like" id="exo-degre-2-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.1.63<span class="period">.</span></span><span class="space"> </span>Degré des sommets de <span class="process-math">\(G_1\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">degré <span class="process-math">\(\deg(s)\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b3 r1 l0 t0 lines"><span class="process-math">\(f\)</span></td>
+<td class="c m b3 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">Somme</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(12\)</span></td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-degre-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="exo-degre-3-1-1"><figure class="figure figure-like" id="exo-degre-3-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_GraphBipartiOui.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.63<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_2\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-degre-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.64<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_2\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-3-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><figure class="table table-like" id="exo-degre-3-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.1.65<span class="period">.</span></span><span class="space"> </span>Degré des sommets de <span class="process-math">\(G_2\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">degré <span class="process-math">\(\deg(s)\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(f\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b3 r1 l0 t0 lines"><span class="process-math">\(g\)</span></td>
+<td class="c m b3 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">Somme</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(22\)</span></td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-degre-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para" id="exo-degre-4-1-1"><figure class="figure figure-like" id="exo-degre-4-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_GraphBipartiNon.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.64<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_3\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-degre-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.66<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_3\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><figure class="table table-like" id="exo-degre-4-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.1.67<span class="period">.</span></span><span class="space"> </span>Degré des sommets de <span class="process-math">\(G_3\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">degré <span class="process-math">\(\deg(s)\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(f\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(5\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">Somme</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(22\)</span></td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-degre-5"><h6 class="heading"><span class="codenumber">(d)</span></h6>
 <div class="para" id="exo-degre-5-1-1"><figure class="figure figure-like" id="exo-degre-5-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_GrapheCheminEuler.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.65<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_4\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-degre-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.68<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_4\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-5-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><figure class="table table-like" id="exo-degre-5-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.1.69<span class="period">.</span></span><span class="space"> </span>Degré des sommets de <span class="process-math">\(G_4\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">degré <span class="process-math">\(\deg(s)\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">Somme</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(16\)</span></td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-degre-6"><h6 class="heading"><span class="codenumber">(e)</span></h6>
 <div class="para" id="exo-degre-6-1-1"><figure class="figure figure-like" id="exo-degre-6-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_GrapheCheminNonCircuitHamilton.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.66<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_5\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-degre-7"><h6 class="heading"><span class="codenumber">(f)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.70<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_5\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-6-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><figure class="table table-like" id="exo-degre-6-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.1.71<span class="period">.</span></span><span class="space"> </span>Degré des sommets de <span class="process-math">\(G_5\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">degré <span class="process-math">\(\deg(s)\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">Somme</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(8\)</span></td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-degre-7"><h6 class="heading"><span class="codenumber">(f)</span></h6>
 <div class="para" id="exo-degre-7-1-1"><figure class="figure figure-like" id="exo-degre-7-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_GrapheNoEuler.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.67<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_6\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-degre-8"><h6 class="heading"><span class="codenumber">(g)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.72<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_6\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-7-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><figure class="table table-like" id="exo-degre-7-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.1.73<span class="period">.</span></span><span class="space"> </span>Degré des sommets de <span class="process-math">\(G_6\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">degré <span class="process-math">\(\deg(s)\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">Somme</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(16\)</span></td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-degre-8"><h6 class="heading"><span class="codenumber">(g)</span></h6>
 <div class="para" id="exo-degre-8-1-1"><figure class="figure figure-like" id="exo-degre-8-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_GrapheNoHamilton.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.68<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_7\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-degre-9"><h6 class="heading"><span class="codenumber">(h)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.74<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_7\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-8-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><figure class="table table-like" id="exo-degre-8-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.1.75<span class="period">.</span></span><span class="space"> </span>Degré des sommets de <span class="process-math">\(G_7\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">degré <span class="process-math">\(\deg(s)\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(a\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(b\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(c\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(d\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(e\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(f\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+</tr>
+<tr>
+<td class="c m b3 r1 l0 t0 lines"><span class="process-math">\(g\)</span></td>
+<td class="c m b3 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">Somme</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(14\)</span></td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-degre-9"><h6 class="heading"><span class="codenumber">(h)</span></h6>
 <div class="para" id="exo-degre-9-1-1"><figure class="figure figure-like" id="exo-degre-9-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_cycle6.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.69<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_8\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-degre-10"><h6 class="heading"><span class="codenumber">(i)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.76<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_8\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-9-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-degre-9-2-1">Le degré de chacun des sommets de <span class="process-math">\(G_8\)</span> est <span class="process-math">\(2\text{.}\)</span> Puisque <span class="process-math">\(G_8\)</span> possède <span class="process-math">\(6\)</span> sommets, on a que la somme des degrés de chaque sommet est <span class="process-math">\(12\text{.}\)</span>
+</div></div></details></div></article><article class="task exercise-like" id="exo-degre-10"><h6 class="heading"><span class="codenumber">(i)</span></h6>
 <div class="para" id="exo-degre-10-1-1"><figure class="figure figure-like" id="exo-degre-10-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_GrapheSame.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.70<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_9\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-degre-11"><h6 class="heading"><span class="codenumber">(j)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.77<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_9\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-10-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><figure class="table table-like" id="exo-degre-10-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.1.78<span class="period">.</span></span><span class="space"> </span>Degré des sommets de <span class="process-math">\(G_9\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">degré <span class="process-math">\(\deg(s)\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(s_1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(s_2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(s_3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(s_4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(s_5\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">Somme</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(12\)</span></td>
+</tr>
+</table></div></figure></div></details></div></article><article class="task exercise-like" id="exo-degre-11"><h6 class="heading"><span class="codenumber">(j)</span></h6>
 <div class="para" id="exo-degre-11-1-1"><figure class="figure figure-like" id="exo-degre-11-1-1-1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="external/tikzit_GrapheSame2.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.71<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_{10}\)</span></figcaption></figure></div></article></article><article class="exercise exercise-like" id="exo-introGraphe-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
-<div class="para" id="exo-introGraphe-2-4-1-1">Dans les prochaines sections, nous verrons la notion d’isomorphismes de graphes. Intuitivement, deux graphes sont isomorphes s’ils représentent essentiellement le même graphe, mais sous une forme différente.</div> <div class="para" id="exo-introGraphe-2-4-1-2">Parmi les graphes de l’exercice <a href="sec-introGraphe.html#exo-degre" class="xref" data-knowl="./knowl/xref/exo-degre.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.1.6.1">7.1.6.1</a>, est-ce qu’un certaine paire semble être isomorphe? Donner une justification intuitive.</div></article><article class="exercise exercise-like" id="exo-hyperCubeBin"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.79<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(G_{10}\)</span></figcaption></figure></div>
+<div class="solutions"><details id="exo-degre-11-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><figure class="table table-like" id="exo-degre-11-2-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.1.80<span class="period">.</span></span><span class="space"> </span>Degré des sommets de <span class="process-math">\(G_9\)</span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b3 r1 l0 t0 lines">Sommet <span class="process-math">\(s\)</span>
+</th>
+<th scope="col" class="c m b3 r0 l0 t0 lines">degré <span class="process-math">\(\deg(s)\)</span>
+</th>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(t_1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(t_2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(t_3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(t_4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(t_5\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r1 l0 t0 lines">Somme</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(12\)</span></td>
+</tr>
+</table></div></figure></div></details></div></article></article><article class="exercise exercise-like" id="exo-introIso"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="para" id="exo-introIso-1-1">Dans les prochaines sections, nous verrons la notion d’isomorphismes de graphes. Intuitivement, deux graphes sont isomorphes s’ils représentent essentiellement le même graphe, mais sous une forme différente.</div> <div class="para" id="exo-introIso-1-2">Parmi les graphes de l’exercice <a href="sec-introGraphe.html#exo-degre" class="xref" data-knowl="./knowl/xref/exo-degre.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exercice 7.1.6.1">7.1.6.1</a>, est-ce qu’un certaine paire semble être isomorphe? Donner une justification intuitive.</div>
+<div class="solutions"><details id="exo-introIso-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content">
+<div class="para" id="exo-introIso-2-1">Intuitivement, on peut se convaincre que les graphes <span class="process-math">\(G_8\)</span> et <span class="process-math">\(G_1\)</span> sont essentiellement les même graphes.</div> <div class="para" id="exo-introIso-2-2">Aussi, les graphes <span class="process-math">\(G_9\)</span> et <span class="process-math">\(G_{10}\)</span> sont essentiellement les même.</div>
+</div></details></div></article><article class="exercise exercise-like" id="exo-hyperCubeBin"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
 <div class="introduction" id="exo-hyperCubeBin-1">
 <div class="para" id="exo-hyperCubeBin-1-1">On définit <span class="process-math">\(\tilde{Q}_n=(S_n,A_n)\)</span> de la façon suivante.</div> <div class="para" id="exo-hyperCubeBin-1-2">L’ensemble <span class="process-math">\(S_n\)</span> des sommets de <span class="process-math">\(\tilde{Q}_n\)</span> est l’ensemble des chaînes binaires de longueur <span class="process-math">\(n\text{.}\)</span>
 </div> <div class="para" id="exo-hyperCubeBin-1-3">Ensuite, l’ensemble des arêtes  est l’ensemble <span class="process-math">\(A_n\)</span> tel que pour deux sommets <span class="process-math">\(s\)</span> et <span class="process-math">\(t\text{,}\)</span> alors <span class="process-math">\(\{s,t\}\in\,A_n\)</span> si et seulement si on peut obtenir la chaîne binaire <span class="process-math">\(s\)</span> à partir de la chaîne <span class="process-math">\(t\)</span> en changeant un <span class="process-math">\(0\)</span> par un <span class="process-math">\(1,\)</span> ou vise-versa.</div> <div class="para" id="exo-hyperCubeBin-1-4">Par exemple, dans <span class="process-math">\(\tilde{Q}_5\text{,}\)</span> il y a une arête entre les sommets <span class="process-math">\(00011\)</span> et <span class="process-math">\(10011\text{,}\)</span> mais pas entre les sommets <span class="process-math">\(00011\)</span> et <span class="process-math">\(11011\text{.}\)</span>
@@ -1184,13 +1509,12 @@ A_5=\{\dots,-6,-3,0,3,6,\dots \}\text{.}
 <div class="para" id="exo-introGraphe-2-7-1-1">Pour quelles valeurs de <span class="process-math">\(n\)</span> est-ce que les graphes <span class="process-math">\(C_n\)</span> sont bipartis.</div></article><article class="exercise exercise-like" id="exo-introGraphe-2-8"><h5 class="heading"><span class="codenumber">6<span class="period">.</span></span></h5>
 <div class="introduction" id="exo-introGraphe-2-8-1"><div class="para" id="exo-introGraphe-2-8-1-1">Est-ce que les graphes ci-dessous sont bipartis? Si oui, justifier.</div></div>
 <article class="task exercise-like" id="exo-introGraphe-2-8-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
-<div class="para" id="exo-introGraphe-2-8-2-1-1"><figure class="figure figure-like" id="exo-introGraphe-2-8-2-1-1-1"><div class="image-box" style="width: 25%; margin-left: 37.5%; margin-right: 37.5%;"><img src="external/tikzit_QCL_BipartiOUI1.jpg" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.72<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div> <figure class="figure figure-like" id="fig-tikz-QCL_BipartiOUI1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/BipartiOUI1.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.73<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></article><article class="task exercise-like" id="exo-introGraphe-2-8-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<figure class="figure figure-like" id="fig-tikz-QCL_BipartiOUI1"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/BipartiOUI1.svg" role="img" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.81<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></article><article class="task exercise-like" id="exo-introGraphe-2-8-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="exo-introGraphe-2-8-3-1-1"><figure class="figure figure-like" id="fig-tikzit_QCL_BipartiNON"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="generated/latex-image/tikzit_QCL_BipartiNON.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.74<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-introGraphe-2-8-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.82<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></article><article class="task exercise-like" id="exo-introGraphe-2-8-4"><h6 class="heading"><span class="codenumber">(c)</span></h6>
 <div class="para" id="exo-introGraphe-2-8-4-1-1"><figure class="figure figure-like" id="fig-tikzit_QCL_BipartiOUI2"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;"><img src="generated/latex-image/tikzit_QCL_BipartiOUI2.svg" role="img" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.75<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></article></article><article class="exercise exercise-like" id="exo-introGraphe-2-9"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.83<span class="period">.</span></span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div></article></article><article class="exercise exercise-like" id="exo-introGraphe-2-9"><h5 class="heading"><span class="codenumber">7<span class="period">.</span></span></h5>
 <div class="para" id="exo-introGraphe-2-9-1-1">Combien existe-t-il de sous-graphes de <span class="process-math">\(K_3\text{?}\)</span>
 </div></article><article class="exercise exercise-like" id="exo-introGraphe-2-10"><h5 class="heading"><span class="codenumber">8<span class="period">.</span></span></h5>
 <div class="introduction" id="exo-introGraphe-2-10-1"><div class="para" id="exo-introGraphe-2-10-1-1">Représenter l’union des paires de graphes ci-dessous.</div></div>
@@ -1199,14 +1523,14 @@ A_5=\{\dots,-6,-3,0,3,6,\dots \}\text{.}
 <div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="fig-tikzit_QCL_UnionG1"><img src="generated/latex-image/tikzit_QCL_UnionG1.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_1\)</span></figcaption></figure></div>
 <div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="fig-tikzit_QCL_UnionH1"><img src="generated/latex-image/tikzit_QCL_UnionH1.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_1\)</span></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.76<span class="period">.</span></span><span class="space"> </span>Union de graphes</figcaption></figure></div></article><article class="task exercise-like" id="exo-introGraphe-2-10-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.84<span class="period">.</span></span><span class="space"> </span>Union de graphes</figcaption></figure></div></article><article class="task exercise-like" id="exo-introGraphe-2-10-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
 <div class="para" id="exo-introGraphe-2-10-3-1-1"><figure class="figure figure-like" id="exo-introGraphe-2-10-3-1-1-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
 <div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="fig-tikzit_QCL_UnionG2"><img src="generated/latex-image/tikzit_QCL_UnionG2.svg" role="img" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G_2\)</span></figcaption></figure></div>
 <div class="sbspanel top" style="width:44.4444444444444%;"><figure class="figure figure-like" id="fig-tikzit_QCL_UnionH2"><img src="generated/latex-image/tikzit_QCL_UnionH2.svg" role="img" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H_2\)</span></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.77<span class="period">.</span></span><span class="space"> </span>Union de graphes</figcaption></figure></div></article></article></article><article class="subexercises" id="exo-introGraphe-3"><h4 class="heading"><span class="title">Exercices supplémentaires</span></h4></article></section></section></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.1.85<span class="period">.</span></span><span class="space"> </span>Union de graphes</figcaption></figure></div></article></article></article><article class="subexercises" id="exo-introGraphe-3"><h4 class="heading"><span class="title">Exercices supplémentaires</span></h4></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="chap-theorieGraphes.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="Back.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="chap-theorieGraphes.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-propGraphes.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
