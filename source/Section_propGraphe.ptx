@@ -13,10 +13,10 @@
 <section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-propGraphes">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Propriétés des graphes</title>
     <introduction xml:id= "intro-propGraphes">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-	<p>À l'exemple <xref ref="exe-grapheNCube"/> ainsi qu'à l'exercice <xref ref="exo-introIso"/> on a remarqué  que deux graphes qui sont définis différemment pouvaient décrire la même structure de graphe. À l'inverse, on peut parfois facilement se convaincre que deux graphes sont fondamentalement différents.  On aimerait donc pouvoir être en mesure de déterminer, lorsqu'on considère deux graphes, si ceux-ci sont en quelque sorte équivalents, ou bien s'il sont fondamentalement différent. </p>
-    <p>Ce problème est un problème très courrant dans beaucoup de branches des mathématiques. Pour résoudre cette question, et pour la différencier de la notion d'égalité, les mathématiciens ont développé le concept d'isomorphismes (de graphes dans notre cas.)</p>
-    <p>Dans cette section, on débutera avec l'étude de deux graphes qui sont essentiellment les mêmes graphes, bien qu'ils soient décris différemment. De plus, on considère de nouvelles façons de représenter des graphes. Ces outils permettrons de mieux détecter si deux graphes sont équivalents, surtout d'un point de vue algorithmique.   </p>
-    <p>Par la suite, on introduit formellement ce qu'on entend lorsqu'on dit que deux graphes sont équivalents à l'aide de la définition d'isomorphismes de graphes. Finalement, on aimerait trouver des critères qui permettent de montrer que deux graphes ne sont pas équivalents. Pour se faire, on indentifie des invariants, c'est-à-dire certaines caractéristiques qui sont communes lorsque deux graphes sont équivalents.</p>
+	<p>À l'exemple <xref ref="exe-grapheNCube"/> ainsi qu'à l'exercice <xref ref="exo-introIso"/> on a remarqué  que deux graphes qui sont définis différemment pouvaient décrire la même structure de graphe. À l'inverse, on peut parfois facilement se convaincre que deux graphes sont fondamentalement différents.  On aimerait donc pouvoir être en mesure de déterminer, lorsqu'on considère deux graphes, si ceux-ci sont en quelque sorte équivalents, ou bien s'ils sont fondamentalement différents. </p>
+    <p>Ce problème est un problème très courant dans beaucoup de branches des mathématiques. Pour résoudre cette question, et pour la différencier de la notion d'égalité, les mathématiciens ont développé le concept d'isomorphismes (de graphes dans notre cas.)</p>
+    <p>Dans cette section, on débutera avec l'étude de deux graphes qui sont essentiellement les mêmes graphes, bien qu'ils soient décrits différemment. De plus, on considère de nouvelles façons de représenter des graphes. Ces outils permettront de mieux détecter si deux graphes sont équivalents, surtout d'un point de vue algorithmique.   </p>
+    <p>Par la suite, on introduit formellement ce qu'on entend lorsqu'on dit que deux graphes sont équivalents à l'aide de la définition d'isomorphismes de graphes. Finalement, on aimerait trouver des critères qui permettent de montrer que deux graphes ne sont pas équivalents. Pour se faire, on identifie des invariants, c'est-à-dire certaines caractéristiques qui sont communes lorsque deux graphes sont équivalents.</p>
     </introduction>
     
     <!-- Sous-sections à écrire, à même ce fichier -->
@@ -28,7 +28,7 @@
             On considère les graphes simples <m>G_1=(S_1,A_1)</m>, avec <m>S_1=\{a,b,c,d\}</m> et <m>A_1=\{\{a,b\},\{a,c\},\{b,c\},\{c,d\}\}</m>, et <m>G_2=(S_2,A_2)</m>, avec <m>S_2=\{1,2,3,4\}</m> et <m>A_2=\{\{1,2\},\{2,3\},\{2,4\},\{3,4\}\}</m>. C'est deux graphes ne sont pas égaux. En effet, lorsqu'on définit un graphe, on le fait à l'aide de l'ensemble de ses sommets et l'ensemble de ses arêtes. Pour que deux graphes soient égaux, on doit avoir une égalité entre ces ensembles, c'est-à-dire que <m>G_1:=(S_1,A_1)=G_2:=(S_2,A_2)</m> si et seulement si <m>S_1=S_2</m> et <m>A_1=A_2</m>. Dans notre cas, puisque <m>S_1:=\{a,b,c,d\}\neq S_2=\{1,2,3,4\}</m>, on a que <m>G_1\neq G_2</m>.
         </p>
         <p>
-            Cependant, en regardant attentivement ces deux graphes, on remarques beaucoups de similarités. En effet, on voit rapidement que <m>|S_1|=4=|S_2|</m> et que <m>|A_1|=4=|A_2|</m>. Plus encore, on remarque chacun des graphes possède un unique sommet de degré <m>3</m> (c'est-à-dire que <m>\deg(c)=3=\deg(2)</m>), et un unique sommet de degré <m>1</m> (<m>\deg(d)=1=\deg(1)</m>). Ceci est un indicateur que ces deux graphes sont possiblement équivalent d'une certaine façon. En effet, si on trace les deux graphes, on voit immédiatement qu'ils sont essentiellement les mêmes.
+            Cependant, en regardant attentivement ces deux graphes, on remarque beaucoup de similarités. En effet, on voit rapidement que <m>|S_1|=4=|S_2|</m> et que <m>|A_1|=4=|A_2|</m>. Plus encore, on remarque chacun des graphes possède un unique sommet de degré <m>3</m> (c'est-à-dire que <m>\deg(c)=3=\deg(2)</m>), et un unique sommet de degré <m>1</m> (<m>\deg(d)=1=\deg(1)</m>). Ceci est un indicateur que ces deux graphes sont possiblement équivalents d'une certaine façon. En effet, si on trace les deux graphes, on voit immédiatement qu'ils sont essentiellement les mêmes.
         </p>
         <p>
             <figure xml:id="fig-exeGraphNeq">
@@ -93,55 +93,14 @@
         </p>
     </introduction>
     <p>
-        Une première façon de représenter un graphe est d'utiliser un liste d'adjacence. 
+        Une première façon de représenter un graphe est d'utiliser une liste d'adjacence. 
         <definition xml:id="def-listAdj">
             <statement>
                 <p>
-                    Soit <m>G=(S,A)</m> un graphe simple. On représente celui-ci à l'aide d'un tableau dont la première colonne représente les sommets du graphe, et la deuxième colonne représente les voisins du sommets.
+                    Soit <m>G=(S,A)</m> un graphe simple. On représente celui-ci à l'aide d'un tableau dont la première colonne représente les sommets du graphe, et la deuxième colonne représente les voisins du sommet.
                 </p>
             </statement>
-            <answer>
-                <p>
-                    <table>
-                        <title>Degré des sommets de <m>G_1</m></title>
-                        <tabular halign="center">
-                          <row header="yes" bottom="major" >
-                            <cell right="minor">Sommet <m>s</m></cell>
-                            <cell>Voisin de <m>s</m></cell>
-                          </row>
-                          <row>
-                            <cell right="minor"><m>a</m></cell>
-                            <cell><m>2</m></cell>
-                          </row>
-                          <row>
-                            <cell right="minor"><m>b</m></cell>
-                            <cell><m>2</m></cell>
-                          </row>
-                          <row>
-                            <cell right="minor"><m>c</m></cell>
-                            <cell><m>2</m></cell>
-                          </row>
-                          <row>
-                            <cell right="minor"><m>d</m></cell>
-                            <cell><m>2</m></cell>
-                          </row>
-                          <row>
-                            <cell right="minor"><m>e</m></cell>
-                            <cell><m>2</m></cell>
-                          </row>
-                          <row bottom="major">
-                            <cell right="minor"><m>f</m></cell>
-                            <cell><m>2</m></cell>
-                          </row>
-                          <row>
-                            <cell right="minor">Somme</cell>
-                            <cell><m>12</m></cell>
-                          </row>
-                        </tabular>
-                      
-                      </table>
-                </p>
-            </answer>
+            
         </definition>
     </p>
     <example>
@@ -150,7 +109,267 @@
                 Soit <m>G_1</m> et <m>G_2</m> les graphes de la figure <xref ref="fig-exeGraphNeq"/>, donner leur liste d'adjacence.
             </p>
         </statement>
+        <answer>
+            <p>
+                <table>
+                    <title>Liste d'adjacence de <m>G_1</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>Voisins de <m>s</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>a</m></cell>
+                        <cell><m>b, c</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>b</m></cell>
+                        <cell><m>a, c</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>c</m></cell>
+                        <cell><m>a, b, d</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>d</m></cell>
+                        <cell><m>c</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+            </p>
+            <p>
+                <table>
+                    <title>Liste d'adjacence de <m>G_2</m></title>
+                    <tabular halign="center">
+                      <row header="yes" bottom="major" >
+                        <cell right="minor">Sommet <m>s</m></cell>
+                        <cell>Voisins de <m>s</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>1</m></cell>
+                        <cell><m>2</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>2</m></cell>
+                        <cell><m>1, 3, 4</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>3</m></cell>
+                        <cell><m>2, 4</m></cell>
+                      </row>
+                      <row>
+                        <cell right="minor"><m>4</m></cell>
+                        <cell><m>2, 3</m></cell>
+                      </row>
+                    </tabular>
+                  </table>
+            </p>
+        </answer>
     </example>
+    <p>
+        Cette représentation peut nous aider à détecter certaines propriétés en commun de nos graphes. En particulier, lorsque le nombre de sommets augmente, la liste d'adjacence est souvent plus pratique que le dessin pour bien comprendre nos graphes. Aussi, on peut se servir d'une liste d'adjacence pour définir un graphe dans sage.
+    </p>
+    <p>
+        <sage>
+            <input>
+        #Définition de G_1 dans sage à l'aide de la liste d'adjacence.
+        d1={"a": ["b","c"], "b": ["a","c"], "c": ["a","b","d"], "d": ["c"]} # La liste d'adjacence de G_1
+        g1 = Graph(d1)  #Définition de G_1
+        g1.show()       #Pour afficher G_1 
+        #Définition de G_2 dans sage à l'aide de la liste d'adjacence.
+        d2={3: [2,4], 4: [2,3], 2: [1,3,4], 1: [2]} # La liste d'adjacence de G_2
+        g2 = Graph(d2)  #Définition de G_2
+        g2.show()       #Pour afficher G_2
+            </input>
+            </sage>
+    </p>
+    <p>
+        Une autre façon de représenter un graphe est à l'aide d'une matrice d'adjacence. Pour pouvoir définir cet objet, on doit d'abord définir ce qu'est une matrice. Une matrice n'est rien d'autre qu'un tableau de nombre. Il s'agit d'un objet qui est surtout étudié dans un cours d'algèbre linéaire. Ici, on donne la définition d'une matrice ainsi que quelques exemples de base afin de se familiariser avec la notation avant de définir une matrice d'adjacence. 
+    </p>
+    <definition xml:id="def-matrice">
+        <statement>
+            <p>
+                Une <term>matrice <m>m\times n</m></term> (on dit <m>m</m> par <m>n</m>) est un ensemble de <m>m\cdot n</m> nombres agencés dans un tableau de <m>m</m> lignes et <m>n</m> colonnes. Si<m>A</m> est une matrice, on dénote souvent par <m>a_{i,j}</m> l'élément situé à la ligne <m>i</m> et à la colonne <m>j</m>. On écrira alors <m>A=\bigl(a_{i,j}\bigr)</m> pour vouloir dire
+                <me>A = \begin{pmatrix} 
+                    a_{1,1} &amp;a_{1,2}&amp; \dots  &amp; a_{1,n}\\
+                    a_{2,1} &amp;a_{2,2}&amp; \dots  &amp; a_{2,n}\\
+                    \vdots &amp; \vdots&amp;\ddots &amp; \vdots\\
+                    a_{m,1} &amp; a_{m,2}&amp;\dots  &amp; a_{m,n} 
+                    \end{pmatrix}</me>
+            </p>
+        </statement>
+    </definition>
+    <example xmlLid="exe-matrices">
+        <title>Quelques matrices</title>
+        <p>
+            La matrice <me>A=\bigl(a_{i,j}\bigr)=\begin{pmatrix} 
+                1 &amp;2&amp; 3 \\
+                4 &amp;5 &amp; 6\\
+                \end{pmatrix}</me> est une matrice <m>2\times 3</m> avec <m>a_{1,2}=2</m> et <m>a_{2,3}=6</m>.
+        </p>
+        <p>
+            La matrice <me>B=\bigl(b_{i,j}\bigr)=\begin{pmatrix} 
+                1 &amp;2\\
+                0 &amp;1\\
+                2 &amp;-1\\
+                \end{pmatrix}</me> est une matrice <m>3\times 2</m> avec <m>b_{1,1}=1</m> et <m>b_{3,2}=-1</m>.
+        </p>
+        <p>
+            La matrice <me>C=\bigl(c_{i,j}\bigr)=\begin{pmatrix} 
+                1 &amp;2&amp;3\\
+                1 &amp;2&amp;3\\
+                7 &amp;8&amp;9\\
+                \end{pmatrix}</me> est une matrice <m>3\times 3</m> avec <m>c_{1,1}=1</m>,<m>c_{2,2}=2</m> et <m>c_{3,1}=7</m>. Puisque le nombre de lignes et de colonnes est <m>3</m>, on dit que <m>C</m> est une matrice carrée d'ordre <m>3</m>.
+        </p>
+    </example>
+    <p>
+        On peut également définir une matrice <m>A</m> à l'aide d'une règle pour les <m>a_{i,j}</m> en termes de <m>i</m> et <m>j</m>.
+    </p>
+    <example xml:id="exe-defAij">
+        <title>Une autre façon de définir une matrice</title>
+        <p>
+        Si <m>A=\bigl(a_{i,j}\bigr)</m> est une matrice <m>3\times 3</m> avec <me>a_{i,j}=\begin{cases} 1 &amp; \text{si } i=j \\ 0 &amp;  \text{sinon} \end{cases}</me>, alors 
+        <me>A=\begin{pmatrix} 
+            0 &amp;1&amp;1\\
+            1 &amp;0&amp;1\\
+            1 &amp;1&amp;0\\
+            \end{pmatrix}.</me>
+        </p>
+        <p>
+            Si <m>B=\bigl(b_{i,j}\bigr)</m> est une matrice <m>3\times 3</m> avec <me>b_{i,j}=i+j</me>, alors 
+            <me>B=\begin{pmatrix} 
+                2 &amp;3&amp;4\\
+                3 &amp;4&amp;5\\
+                4 &amp;5&amp;6\\
+                \end{pmatrix}.</me>
+            </p>
+    </example>
+    <p>
+        On peut maintenant définir la matrice d'adjacence d'un graphe. Il est important de noter que la définition d'une matrice d'adjacence n'est pas unique pour chaque graphe. En effet, la définition dépendra de l'ordre dans lequel on considère les sommets du graphe.
+    </p>
+    <definition xml:id="def-matriceAdjc">
+        <statement>
+            <p>
+                Soit <m>G=(S,A)</m> un graphe simple à <m>n</m> sommets, avec <m>S=\{s_1, s_2, \dots , s_{n}\}</m>, alors <term>la matrice d'adjacence du graphe <m>G</m></term> selon l'ordre des sommets <m>s_1, s_2, \dots, s_n</m>, qu'on notera <m>M_G=\bigl(m_{i,j}\bigr)</m>, est la matrice <m>n\times n</m> définie par <me>m_{i,j}=\begin{cases} 1 &amp; \text{si } \{s_i,s_j\}\in A \\ 0 &amp; \text{sinon.} \end{cases}</me>.
+            </p>
+        </statement>
+    </definition>
+    <p>
+        Étand donné un graphe, on veut être en mesure de trouver sa matrice d'adjacence. Inversement, étant donnée une matrice d'adjacence, peut-on déterminer un graphe correspondant.
+    </p>
+    <example xml:id="exe-matriceAdjc">
+        <title>Matrice d'adjacence</title>
+        <p>
+            On considère le graphe <m>G=(S,A)</m> ci-dessous:
+            <figure xml:id="fig-tikzit_exeMatAdjG">
+                <caption> Le graphe <m>G</m></caption>
+                <image width="50%" xml:id="tikzit_exeMatAdjG">
+                <latex-image>
+                    \begin{tikzpicture}
+                    \begin{pgfonlayer}{nodelayer}
+                        \node [style=SommetGraphe] (0) at (0, 3) {};
+                        \node [style=SommetGraphe] (1) at (-2, 1) {};
+                        \node [style=SommetGraphe] (2) at (0, 1) {};
+                        \node [style=SommetGraphe] (3) at (0, -1) {};
+                        \node [style=SommetGraphe] (4) at (2, 0) {};
+                        \node [style=none] (5) at (0, 3.75) {$s_2$};
+                        \node [style=none] (6) at (0.425, 1.5) {$s_5$};
+                        \node [style=none] (7) at (2.75, 0) {$s_4$};
+                        \node [style=none] (8) at (0, -1.75) {$s_3$};
+                        \node [style=none] (9) at (-2.6, 1) {$s_1$};
+                    \end{pgfonlayer}
+                    \begin{pgfonlayer}{edgelayer}
+                        \draw (0) to (2);
+                        \draw (2) to (3);
+                        \draw (3) to (1);
+                        \draw (1) to (0);
+                        \draw (2) to (4);
+                        \draw (4) to (3);
+                    \end{pgfonlayer}
+                \end{tikzpicture}
+                
+                </latex-image>
+                </image>
+            </figure>
+            Déterminer la matrice d'adjacence de <m>G</m>.
+        </p>
+        <answer>
+            <p>
+                La matrice d'adjacence de ce graphe est la matrice <me>M_G=\begin{pmatrix}
+                    0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\
+                    1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+                    1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 \\
+                    0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 \\
+                    0 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+                    \end{pmatrix}</me>
+            </p>
+        </answer>
+    </example>
+    <example xml:id="exe-graphAPartirMatrice">
+        <title>Graphe à partir d'une matrice d'adjacence</title>
+        <p>
+            Soit <m>M_H</m> la matrice <me>M_H=\begin{pmatrix}
+                0 &amp; 1 &amp; 1 &amp; 0 &amp; 1 \\
+                1 &amp; 0 &amp; 1 &amp; 1 &amp; 0 \\
+                1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+                0 &amp; 1 &amp;0 &amp; 0 &amp; 1 \\
+                1 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+                \end{pmatrix}.</me>
+                Tracer un graphe <m>H</m> ayant <m>M_H</m> comme matrice d'adjacence.
+        </p>
+        <remark>
+            <p>
+                Il y a plusieurs choix possibles pour <m>H</m>.
+            </p>
+        </remark>
+        <answer>
+            <p>
+                Une réponse possible est le graphe <m>H</m> ci-dessous.
+                <figure xml:id="fig-tikzit_exeMatAdjH">
+                    <caption> Le graphe <m>H</m></caption>
+                    <image width="50%" xml:id="tikzit_exeMatAdjH">
+                    <latex-image>
+                        \begin{tikzpicture}
+                        \begin{pgfonlayer}{nodelayer}
+                            \node [style=SommetGraphe] (0) at (0, 0.5) {};
+                            \node [style=SommetGraphe] (1) at (-0.75, -0.75) {};
+                            \node [style=SommetGraphe] (2) at (0, 2.5) {};
+                            \node [style=SommetGraphe] (3) at (-2.5, -1.5) {};
+                            \node [style=SommetGraphe] (4) at (2, -1.5) {};
+                            \node [style=none] (5) at (0.5, 0) {$t_4$};
+                            \node [style=none] (6) at (-0.05, 3) {$t_2$};
+                            \node [style=none] (7) at (2.5, -1.75) {$t_3$};
+                            \node [style=none] (8) at (-3, -2) {$t_1$};
+                            \node [style=none] (9) at (-0.1, -1) {$t_5$};
+                        \end{pgfonlayer}
+                        \begin{pgfonlayer}{edgelayer}
+                            \draw (0) to (2);
+                            \draw (2) to (3);
+                            \draw (3) to (1);
+                            \draw (1) to (0);
+                            \draw (2) to (4);
+                            \draw (4) to (3);
+                        \end{pgfonlayer}
+                    \end{tikzpicture}
+                            
+                    </latex-image>
+                    </image>
+                </figure>
+            </p>
+        </answer>
+    </example>
+    <p>
+        On peut utiliser Sage afin de tracer un graphe à partir d'une matrice d'adjacence. Voici le graphe de l'exemple <xref ref="exe-graphAPartirMatrice"/> obtenu à partir d'une matrice d'adjacence.
+        <sage>
+            <input>
+                Mat=matrix([[0,1,1,0,1],[1,0,1,1,0],[1,1,0,0,0],[0,1,0,0,1],[1,0,0,1,0]]) #Définition de la matrice d'adjacence
+                show(Mat)
+                g=Graph(Mat) #Définition du graphe
+                show(g)
+            </input>
+        </sage>
+Ici, on remarque que la forme obtenue par Sage est très différente de celle donnée dans l'exemple  <xref ref="exe-graphAPartirMatrice"/>. En fait, cette forme semble suggérer que le graphe <m>G</m> de l'exemple <xref ref="exe-matriceAdjc"/> est équivalent au graphe <m>H</m> de l'exemple <xref ref="exe-graphAPartirMatrice"/>. On montrera en effet que c'est le cas. Pour ce faire, on va enfin définir ce qu'est un isomorphisme de graphes.
+    </p>
 </subsection>
 
 <subsection xml:id="subs-isoGraphe">
@@ -158,35 +377,41 @@
 
 <introduction>
     <p>
-        On est finalement prêt à donner une définition rigoureuse du fait que deux graphes qui sont décrits différemment peuvent en fait représenter le même graphe.
+        On est finalement prêt à donner une définition rigoureuse du fait que deux graphes qui sont décrits différemment peuvent en fait représenter deux graphes équivalents. Pour que deux graphes soient équivalents, il faut que l'un des graphes soit obtenu à partir de l'autre en changeant les noms des sommets. Ce changment de nom sera donné sous la forme d'une bijection entre les ensembles de sommets qui préservent les arêtes. 
     </p>
 </introduction>
 
 
 <definition xml:id="def-isoGraphe">
-<statement><p> Soit <m>G_1=(S_1,A_1)</m> et <m>G_2=(S_2,A_2)</m> deux graphes. On dit que <m>G_1</m> et <m>G_2</m> sont isomorphes si il existe une fonction <m>f:S_1\rightarrow S_2</m> telle que:
+<statement><p> Soit <m>G_1=(S_1,A_1)</m> et <m>G_2=(S_2,A_2)</m> deux graphes. On dit que <m>G_1</m> et <m>G_2</m> sont isomorphes s'il existe une fonction <m>f:S_1\rightarrow S_2</m> telle que:
 <ul>
 <li><m>f</m> est une bijection;</li>
-<li>les sommets <m>s</m> et <m>t</m> sont adjacents dans <m>G_1</m> si et seulement si <m>f(s)</m> et <m>f(t)</m> sont adjacents dans <m>G_2</m>.</li>
+<li>les sommets <m>s</m> et <m>t</m> sont adjacents dans <m>G_1</m> (c'est-à-dire <m>\{s,t\}\in A_1</m>) si et seulement si <m>f(s)</m> et <m>f(t)</m> sont adjacents dans <m>G_2</m> (c'est-à-dire <m>\{f(s),f(t)\}\in A_2</m>).</li>
 </ul>
-On dira alors que <m>f </m> est un isomorphisme de graphe.
+On dira alors que <m>f </m> est un isomorphisme de graphe, et on notera <m>G_1\cong G_2</m>
 </p>
 </statement>
 </definition>
 
 <p>
-    Lorsque deux graphes sont isomorphes, ceci veut dire que ces deux graphes représente en fait exactement le même graphe, qu'on a peut-être décrit différemment. En particulier, deux graphes isomorphes ont exactement les mêmes propriétés. De même, les sommets correspondant ont également les mêmes propriétés.
+    Lorsque deux graphes sont isomorphes, ceci veut dire que ces deux graphes représentent en fait exactement le même graphe, qu'on a peut-être décrit différemment. En particulier, deux graphes isomorphes ont exactement les mêmes propriétés. De même, les sommets correspondants ont également les mêmes propriétés.
 </p>
 
 <proposition xml:id="prop-isoGraphe">
 <statement>
 <p> Soit <m>f</m> un isomorphisme entre les graphes <m>G_1=(S_1,A_1)</m> et <m>G_2=(S_2,A_2)</m>.</p>
-<ul>
-<li>Pour tout sommet <m>s</m> de <m>G_1,</m> alors <m>\deg(s)=\deg\left(f(s)\right)</m>. </li>
+<ol>
+<li>Pour tout sommet <m>s</m> de <m>G_1,</m> alors <m>V\bigl(f(s)\bigr)=\bigl\{f(t) ~|~ t\in V(s)\bigr\}</m>. En particulier, on a <m>\deg(s)=\deg\left(f(s)\right)</m>. </li>
 <li> <m> |S_1|=|S_2|</m></li>
 <li> <m> |A_1|=|A_2|</m></li>
-<li> Il existe une coloration à <m>n</m> couleurs de <m>G_1</m> si et seulement si il existe une coloration à <m>n</m> couleurs de <m>G_2</m>.</li>
-</ul>
+<li> <ul> 
+        <li>Le degré maximal d'un sommet dans <m>G_1</m> est égal au degré maximal d'un sommet dans <m>G_2</m>.</li>
+        <li>Le degré minimal d'un sommet dans <m>G_1</m> est égal au degré minimal d'un sommet dans <m>G_2</m>.</li>
+        <li>La somme du degré des sommets de <m>G_1</m> est égale à la somme du degré des sommets de <m>G_2</m>.</li>
+    </ul>
+</li>
+<li> Il existe une coloration à <m>n</m> couleurs de <m>G_1</m> si et seulement si il existe une coloration à <m>n</m> couleurs de <m>G_2</m>. En particulier <m>\chi(G_1)=\chi(G_2)</m>.</li>
+</ol>
 </statement>
 </proposition>
 
