@@ -531,11 +531,28 @@
                 </introduction>
                 <task>
                     <statement><p>Tracer <m>\tilde{Q}_n</m> pour <m>1\leq n \leq 3</m>.</p></statement>
+                      <answer>
+                        <p>
+                          À l'aide de Sage, on peut tracer ces graphes
+                          <sage>
+                            <input>
+                              for n in range(1,4):
+                                g = graphs.CubeGraph(n,embedding=0)
+                                g.show()
+                                print()
+                            </input>
+                          </sage>
+                        </p>
+                      </answer>
                 </task>
                 <task>
                     <statement><p>À quel graphe est-ce que <m>\tilde{Q}_n</m> fait penser parmi les graphes définis dans la section <xref ref="subs-grapheParticulier"/> ?</p></statement>
                 </task>
-       
+                <answer>
+                  <p>
+                    <m>Q_n</m>.
+                  </p>
+                </answer>
         </exercise>
 
         <exercise>
@@ -546,11 +563,32 @@
             <task><statement><p> <me>A_1=\{\dots,-4,-3,-2,-1,0\}</me>, <me>A_2=\{\dots ,-2,-1,0,1,2,\dots\}</me>, <me>A_3=\{\dots,-6,-4,-2,0,2,4,6,\dots\}</me>, <me>A_4=\{\dots,-5,-3,-1,1,3,5,\dots \}</me>, <me>A_5=\{\dots,-6,-3,0,3,6,\dots \}</me>.</p></statement></task>
         </exercise>
 
-        <exercise>
+        <exercise xml:id="exo-cycleBiparti">
             <statement>
                 <p>Pour quelles valeurs de <m>n</m> est-ce que les graphes <m>C_n</m> sont bipartis.</p>
             </statement>
+            <answer>
+              <p>
+                Le graphe cyclique <m>C_n</m> est biparti si et seulement si <m>n</m> est pair.
+              </p>
+            </answer>
+            <solution>
+              <p>
+                On note les sommets et les arêtes de <m>C_n</m> comme dans la définition <xref ref="def-grapheCyclique"/>. 
+              </p>
+              <p>
+                Si <m>n</m> est pair, on veut montrer que <m>C_n=(S,A)</m> est biparti.  On pose alors <m>S_1=\{s_i ~|~ i \equiv 1 \mod 2\}</m> et  <m>S_2=\{s_i ~|~ i \equiv 0 \mod 2\}</m>. Les arêtes de <m>C_n</m> sont soit de la forme <m>\{s_i, s_{i+1}\}</m> pour <m>i=1, 2, \dots n-1</m>, ou bien <m>\{s_n, s_1\}</m>. Dans le premier cas, <m>s_i \in S_1</m> si et seulement si <m>s_{i+1}</m>, car <m>i\equiv 1 \mod 2</m> si et seulement si <m>i+1\equiv 0 \mod 2</m>. Dans le deuxième cas, on a bien que <m>s_1\in S_1</m>, alors qu <m>s_n\in S_2,</m> car <m>n</m> est pair. On a bien montré que <m>C_n</m> est biparti, puisqu'on a montré que pour <m>\{s_i,s_j\}\in A</m>, alors <m>s_i\in S_1</m> si et seulement si <m>s_j\in S_2</m>.
+              </p>
+              <p>
+                Supposons maintenant <m>C_n</m> soit biparti. On veut montrer que <m>n</m> est pair. Supposons que <m>n</m> soit impair, et cherchons une contradiction. 
+              </p>
+              <p>
+                Puisque <m>C_n</m> est biparti, on peut écrire <m>S=S_1\cup S_2</m> de sorte que pour <m>\{s_i, s_j\}\in A</m>, alors <m>s_i\in S_1</m> si et seulement si <m>s_j\in S_2</m>. Sans perdre de généralité, on peut supposer que <m>s_1\in S_1</m>. Ainsi, <m>s_2\in S_2, s_3\in S_1, s_4\in S_2</m> et ainsi de suite. On remarque alors que <m>s_{1+i}\in S_1</m> si <m>i</m> est pair, alors que <m>s_{1+i} \in S_2</m> si <m>i</m> est impair. Autrement dit, si <m>k\in N</m>, alors <m>s_{2k+1}\in S_1</m> et <m>s_{2k}\in S_2</m>. Cependant, on sait que <m>n</m> est impair, c'est-à-dire que <m>s_{n}=s_{2k+1}\in S_1</m>. Ceci est une contradiction, car on sait également que <m>s_1</m> est voisin à <m>s_n</m>, ce qui contredit le fait que <m>C_n</m> soit biparti. L'entier <m>n</m> doit donc être pair. 
+              </p>
+            </solution>
         </exercise>
+
+    
     
         <exercise>
             <introduction>
@@ -585,6 +623,43 @@
                 </image>
             </figure>
             </statement>
+            <answer>
+              <p>
+                Oui.
+              </p>
+            </answer>
+            <solution>
+              <p>
+                On utilise la coloration <m>f:S\rightarrow \{vert,bleu\}</m> définie par <m>f(a)=f(b)=f(c)=f(d)=vert</m> alors que <m>f(e)=bleu</m>. On a alors
+              </p>
+              <figure xml:id="fig-tikz-QCL_BipartiOUI1Coloration">
+                <caption> <m>G</m></caption>
+                <image width="50%" xml:id="BipartiOUI1Coloration">
+                <latex-image>
+                \begin{tikzpicture}
+                \begin{pgfonlayer}{nodelayer}
+                  \node [style=new style 0] (0) at (-3, 3) {};
+		              \node [style=new style 0] (1) at (3, 3) {};
+	              	\node [style=new style 2] (2) at (0, 0) {};
+	              	\node [style=new style 0] (3) at (-3, -3) {};
+              		\node [style=new style 0] (4) at (3, -3) {};
+	              	\node [style=none] (5) at (-3, 3.75) {$a$};
+              		\node [style=none] (6) at (3, 3.75) {$b$};
+              		\node [style=none] (7) at (0.75, 0) {$e$};
+	              	\node [style=none] (8) at (-3, -3.75) {$c$};
+	              	\node [style=none] (9) at (3, -3.75) {$d$};
+                \end{pgfonlayer}
+                \begin{pgfonlayer}{edgelayer}
+                \draw (0) to (2);
+                \draw (2) to (4);
+                \draw (1) to (2);
+                \draw (2) to (3);
+                \end{pgfonlayer}
+                \end{tikzpicture}
+                </latex-image>
+                </image>
+            </figure>
+            </solution>
             </task>
             <task><statement>
                 <p>
@@ -622,7 +697,54 @@
             </latex-image>
             </image>
         </figure></p>
-            </statement></task>
+            </statement>
+            <answer>
+              <p>
+                Non, ce graphe n'est pas biparti.
+              </p>
+            </answer>
+            <solution>
+              <p>
+                Si on tente de colorer les sommets du graphe à l'aide d'un minimum de couleurs, on doit nécessairement utiliser trois couleurs pour y arriver. On obtient par exemple la coloration ci-dessous.
+              </p>
+              <p>
+                <figure xml:id="fig-tikzit_QCL_BipartiNONColoration">
+                    <caption> <m>G</m></caption>
+                <image width="35%" xml:id="tikzit_QCL_BipartiNONColoration">
+              <latex-image>
+              \begin{tikzpicture}
+	              \begin{pgfonlayer}{nodelayer}
+		              \node [style=new style 1] (0) at (-3, 2) {};
+	              	\node [style=new style 0] (1) at (0, 4) {};
+		              \node [style=new style 2] (2) at (-3, -2) {};
+		              \node [style=new style 1] (3) at (0, -4) {};
+		              \node [style=new style 2] (4) at (3, -2) {};
+		              \node [style=none] (5) at (-3.75, 2) {$a$};
+		              \node [style=none] (6) at (0, 4.75) {$b$};
+		              \node [style=none] (7) at (-3.75, -2) {$e$};
+		              \node [style=none] (8) at (0, -4.75) {$c$};
+		              \node [style=none] (9) at (3.75, -2) {$d$};
+		              \node [style=none] (10) at (3.75, 2) {$f$};
+	              	\node [style=new style 0] (11) at (3, 2) {};
+	              \end{pgfonlayer}
+	            \begin{pgfonlayer}{edgelayer}
+		            \draw (2) to (3);
+		            \draw (4) to (11);
+		            \draw (1) to (3);
+		            \draw (1) to (0);
+		            \draw (0) to (2);
+		            \draw (3) to (4);
+	            	\draw (11) to (2);
+		\draw (1) to (4);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+            </latex-image>
+            </image>
+        </figure>
+              </p>
+            </solution>
+            </task>
             <task><statement>
                 <p><figure xml:id="fig-tikzit_QCL_BipartiOUI2">
                     <caption> <m>G</m></caption>
@@ -657,8 +779,76 @@
                     </latex-image>
                     </image>
                 </figure></p>
-            </statement></task>
+            </statement>
+            <answer>
+              <p>
+                Oui
+              </p>
+            </answer>
+            <solution>
+              <p>
+                On considère la coloration à deux couleurs suivante.
+              </p>
+            \begin{tikzpicture}
+	            \begin{pgfonlayer}{nodelayer}
+		            \node [style=new style 0] (0) at (-6, 3) {};
+		            \node [ style=new style 0] (1) at (6, 3) {};
+		            \node [style=new style 1] (2) at (-3, 0) {};
+	            	\node [style=new style 0] (3) at (-6, -3) {};
+	            	\node [style=new style 0] (4) at (6, -3) {};
+		            \node [style=none] (5) at (-6, 3.75) {$a$};
+		\node [style=none] (6) at (6, 3.75) {$b$};
+		\node [style=none] (7) at (-4, 0) {$e$};
+		\node [style=none] (8) at (-6, -3.75) {$c$};
+		\node [style=none] (9) at (6, -3.75) {$d$};
+		\node [style=none] (10) at (4, 0) {$f$};
+		\node [style=new style 1] (11) at (3, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0) to (2);
+		\draw (2) to (4);
+		\draw (1) to (2);
+		\draw (2) to (3);
+		\draw (1) to (11);
+		\draw (4) to (11);
+		\draw (3) to (11);
+		\draw (11) to (0);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+            </solution></task>
         </exercise>
+
+
+
+
+        \begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=new style 0] (0) at (-6, 3) {};
+		\node [style=new style 0] (1) at (6, 3) {};
+		\node [style=new style 1] (2) at (-3, 0) {};
+		\node [style=new style 0] (3) at (-6, -3) {};
+		\node [style=new style 0] (4) at (6, -3) {};
+		\node [style=none] (5) at (-6, 3.75) {$a$};
+		\node [style=none] (6) at (6, 3.75) {$b$};
+		\node [style=none] (7) at (-4, 0) {$e$};
+		\node [style=none] (8) at (-6, -3.75) {$c$};
+		\node [style=none] (9) at (6, -3.75) {$d$};
+		\node [style=none] (10) at (4, 0) {$f$};
+		\node [style=new style 1] (11) at (3, 0) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0) to (2);
+		\draw (2) to (4);
+		\draw (1) to (2);
+		\draw (2) to (3);
+		\draw (1) to (11);
+		\draw (4) to (11);
+		\draw (3) to (11);
+		\draw (11) to (0);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
     
         <exercise>
             <statement>
@@ -730,7 +920,47 @@
                     </figure>
                     </sidebyside>
                 </figure></p>
-            </statement></task>
+            </statement>
+            <answer>
+              <p>
+                <figure xml:id="fig-tikzit_QCL_UnionG1H1">
+                        <caption> <m>G_1</m></caption>
+                        <image width="50%" xml:id="tikzit_QCL_UnionG1H1">
+                        <latex-image>
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=SommetGraphe] (0) at (-3, 2) {};
+		\node [style=SommetGraphe] (1) at (0, 4) {};
+		\node [style=SommetGraphe] (2) at (-3, -2) {};
+		\node [style=SommetGraphe] (3) at (0, -4) {};
+		\node [style=SommetGraphe] (4) at (3, -2) {};
+		\node [style=none] (5) at (0, 4.75) {$a$};
+		\node [style=none] (6) at (3.75, 2) {$b$};
+		\node [style=none] (7) at (-3.75, -2) {$e$};
+		\node [style=none] (8) at (3.75, -2) {$c$};
+		\node [style=none] (9) at (0, -4.75) {$d$};
+		\node [style=none] (10) at (-3.75, 2) {$f$};
+		\node [style=SommetGraphe] (11) at (3, 2) {};
+		\node [style=none] (12) at (11.25, -2.75) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (2) to (3);
+		\draw (4) to (11);
+		\draw (1) to (0);
+		\draw (0) to (2);
+		\draw (3) to (4);
+		\draw (1) to (11);
+		\draw (0) to (11);
+		\draw (0) to (3);
+		\draw (11) to (3);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+                      </latex-image>
+                    </image>
+                    </figure>
+              </p>
+            </answer></task>
             <task><statement>
                 <p><figure>
                     <caption> Union de graphes</caption>
@@ -791,12 +1021,249 @@
                     </figure>
                     </sidebyside>
                 </figure></p>
-            </statement></task>
+            </statement>
+            <answer>
+              <p>
+                <figure xml:id="fig-tikzit_QCL_UnionG2H2">
+                    <caption> <m>G_2</m></caption>
+                    <image width="50%" xml:id="tikzit_QCL_UnionG2H2">
+                    <latex-image>
+                  \begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=SommetGraphe] (0) at (-3.5, 2) {};
+		\node [style=SommetGraphe] (3) at (3, -4) {};
+		\node [style=none] (6) at (3, 2.75) {$b$};
+		\node [style=none] (9) at (3, -4.75) {$d$};
+		\node [style=none] (10) at (-3.5, 2.75) {$a$};
+		\node [style=SommetGraphe] (11) at (3, 2) {};
+		\node [style=SommetGraphe] (12) at (-2.75, -5) {};
+		\node [style=none] (13) at (-2.75, -5.725) {$c$};
+		\node [style=SommetGraphe] (15) at (-1, -1.5) {};
+		\node [style=none] (16) at (3, 4.75) {$e$};
+		\node [style=none] (17) at (-1, -2.25) {$g$};
+		\node [style=SommetGraphe] (19) at (3, 4) {};
+		\node [style=SommetGraphe] (20) at (-2.75, -1.5) {};
+		\node [style=none] (21) at (-2.75, -2.225) {$f$};
+		\node [style=SommetGraphe] (22) at (-1.95, 0) {};
+		\node [style=none] (23) at (-1.95, -0.5) {$h$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0) to (3);
+		\draw (3) to (11);
+		\draw (11) to (0);
+		\draw (11) to (12);
+		\draw (12) to (0);
+		\draw (22) to (15);
+		\draw (20) to (15);
+		\draw (0) to (19);
+		\draw (0) to (22);
+		\draw (0) to (20);
+	\end{pgfonlayer}
+\end{tikzpicture}
+                                      
+                    </latex-image>
+                    </image>
+                </figure>
+              </p>
+            </answer></task>
         </exercise>
 
     </subexercises>
     <subexercises>
     <title>Exercices supplémentaires</title>
+    <exercise>
+        <statement>
+            <p>
+                Tracer tous les sous-graphes contenant au moins une arête du graphe <m>G</m> ci-dessous.
+        <figure xml:id="fig-tikzit_grapheFleche">
+                    <caption> <m>G</m></caption>
+                    <image width="50%" xml:id="tikzit_grapheFleche">
+                    \begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=SommetGraphe] (0) at (-2, 2) {};
+		\node [style=SommetGraphe] (1) at (1, 2) {};
+		\node [style=SommetGraphe] (2) at (-2, -1) {};
+		\node [style=SommetGraphe] (3) at (1, -1) {};
+		\node [style=none] (4) at (-2, 2.75) {$a$};
+		\node [style=none] (5) at (-2, -1.75) {$c$};
+		\node [style=none] (6) at (1, 2.75) {$b$};
+		\node [style=none] (7) at (1, -1.75) {$d$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0) to (3);
+		\draw (0) to (1);
+		\draw (2) to (0);
+	\end{pgfonlayer}
+\end{tikzpicture}
+
+                    <latex-image>
+                  \begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=SommetGraphe] (0) at (-3.5, 2) {};
+		\node [style=SommetGraphe] (3) at (3, -4) {};
+		\node [style=none] (6) at (3, 2.75) {$b$};
+		\node [style=none] (9) at (3, -4.75) {$d$};
+		\node [style=none] (10) at (-3.5, 2.75) {$a$};
+		\node [style=SommetGraphe] (11) at (3, 2) {};
+		\node [style=SommetGraphe] (12) at (-2.75, -5) {};
+		\node [style=none] (13) at (-2.75, -5.725) {$c$};
+		\node [style=SommetGraphe] (15) at (-1, -1.5) {};
+		\node [style=none] (16) at (3, 4.75) {$e$};
+		\node [style=none] (17) at (-1, -2.25) {$g$};
+		\node [style=SommetGraphe] (19) at (3, 4) {};
+		\node [style=SommetGraphe] (20) at (-2.75, -1.5) {};
+		\node [style=none] (21) at (-2.75, -2.225) {$f$};
+		\node [style=SommetGraphe] (22) at (-1.95, 0) {};
+		\node [style=none] (23) at (-1.95, -0.5) {$h$};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw (0) to (3);
+		\draw (3) to (11);
+		\draw (11) to (0);
+		\draw (11) to (12);
+		\draw (12) to (0);
+		\draw (22) to (15);
+		\draw (20) to (15);
+		\draw (0) to (19);
+		\draw (0) to (22);
+		\draw (0) to (20);
+	\end{pgfonlayer}
+\end{tikzpicture}
+                                      
+                    </latex-image>
+                    </image>
+                </figure>
+            </p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p>
+                Montrer par récurence que le graphe <m>K_n</m> possèdent <m>\frac{n^2-n}{2}</m> arêtes, pour <m>n\in \N^\ast</m>
+            </p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <statement>
+            <p>
+                Démonter que si <m>G</m> est un graphe biparti avec <m>v</m> sommets et <m>e</m> arêtes, alors <m>e\leq \frac{v^2}{4}</m>
+            </p>
+        </statement>
+    </exercise>
+
+    <exercise>
+        <introduction>
+            <p>
+                Soit <m>G=(S,A)</m> un graphe simple, on défini le graphe complémentaire à <m>G</m>, qu'on note <m>\overline{G}</m>, comme étant le graphe ayant les mêmes sommets que <m>G</m>, et où deux sommets sont adjacents dans <m>\overline{G}</m> si et seulement si ils ne le sont pas dans <m>G</m>. Représenter ou décriver les graphes ci-dessous.
+            </p>
+        </introduction>
+        <task>
+            <statement>
+                <p>
+                    <m>\overline{C_4}</m>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    <m>\overline{C_5}</m>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    <m>\overline{Q_2}</m>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    <m>\overline{Q_3}</m>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    <m>\overline{K_n}</m>, où <m>n\in \N^\ast</m> est quelconque.
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    <m>\overline{K_{m,n}}</m>, où <m>m,n\in \N^\ast</m> sont quelconques.
+                </p>
+            </statement>
+        </task>
+    </exercise>
+
+    <exercise >
+        <statement>
+            <p>
+                Si <m>G</m> est un graphe simple avec <m>15</m> arêtes et <m>\overline{G}</m> a <m>13</m> arêtes, combien de sommets y a-t-il dans <m>G</m>?
+            </p>
+        </statement>    
+    </exercise>
+
+    <exercise >
+        <statement>
+            <p>
+                Si <m>G</m> est un graphe simple avec <m>e</m> arêtes et <m>v</m> sommets, combien y a-t-il d'arêtes dans le graphe <m>\overline{G}</m>?
+            </p>
+        </statement>    
+    </exercise>
+
+    <exercise >
+        <statement>
+            <p>
+                Démontrer que si <m>G</m> est un graphe simple avec <m>n</m> sommets, alors <m>G\cup \overline{G}</m> est le graphe <m>K_n</m>.
+            </p>
+        </statement>    
+    </exercise>
+
+
+
+        <exercise>
+            <introduction>
+                <p>
+                    On dit que le graphe <m>G</m> est régulier si tous ses sommets on le même degré. Pour quelles valeurs de <m>m</m> et <m>n</m> les graphes suivants sont-ils réguliers?
+                </p>
+            </introduction>
+            <task>
+            <statement>
+                <p>
+                    <m>C_n</m>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    <m>Q_n</m>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    <m>K_n</m>
+                </p>
+            </statement>
+        </task>
+        <task>
+            <statement>
+                <p>
+                    <m>K_{m,n}</m>
+                </p>
+            </statement>
+        </task>
+        </exercise>
     </subexercises>
 </exercises>
 

@@ -32,147 +32,90 @@
     <title>À faire en classe</title>
     <introduction><p>Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d'apprentissage plus avancés.</p></introduction>
 
-    <exercise>
-        <statement>
-            <p>
-                Tracer tous les sous-graphes contenant au moins une arête du graphe <m>G</m> ci-dessous.
-        <figure>
-            <caption> <m>G</m></caption>
-            <image width="30%" source="tikzit_grapheFleche.jpg"/>
-        </figure>
-            </p>
-        </statement>
-    </exercise>
-
-    <exercise>
-        <statement>
-            <p>
-                Montrer par récurence que le graphe <m>K_n</m> possèdent <m>\frac{n^2-n}{2}</m> arêtes, pour <m>n\in \N^\ast</m>
-            </p>
-        </statement>
-    </exercise>
-
-    <exercise>
-        <statement>
-            <p>
-                Démonter que si <m>G</m> est un graphe biparti avec <m>v</m> sommets et <m>e</m> arêtes, alors <m>e\leq \frac{v^2}{4}</m>
-            </p>
-        </statement>
-    </exercise>
-
-    <exercise>
+    <exercise xml:id="exo-isoRelEqu">
         <introduction>
             <p>
-                Soit <m>G=(S,A)</m> un graphe simple, on défini le graphe complémentaire à <m>G</m>, qu'on note <m>\overline{G}</m>, comme étant le graphe ayant les mêmes sommets que <m>G</m>, et où deux sommets sont adjacents dans <m>\overline{G}</m> si et seulement si ils ne le sont pas dans <m>G</m>. Représenter ou décriver les graphes ci-dessous.
+                On peut voir que le fait d'être isomorphe est une relation entre les différents graphes. On veut montrer que cette relation satisfait certaines propriétés. Une relation ayant les propriétés si-dessous est appelée une relation d'Équivalence. 
             </p>
         </introduction>
-        <task>
+        <task xml:id="prop-isoRefl">
             <statement>
                 <p>
-                    <m>\overline{C_4}</m>
+                    Montrer que si <m>G=(S,A)</m> est un graphe simple, alors <m>G\cong G</m>.
                 </p>
             </statement>
+            <solution>
+                <p>
+                    Il suffit de prendre <m>f:S\rightarrow S</m> la fonction identité, c'est-à-dire <m>f(s)=s</m> pour <m>s\in S</m>.
+                </p>
+            </solution>
         </task>
-        <task>
+        <task xml:id="prop-isoSym">
             <statement>
                 <p>
-                    <m>\overline{C_5}</m>
+                    S'il existe un isomorphisme <m>f:S_1\rightarrow S_2</m> du graphe <m>G_1=(S_1,A_1)</m> vers le graphe <m>G_2=(S_2,A_2)</m>, alors il existe un isomorphisme <m>g:S_2 \rightarrow S_1</m> du graphe <m>G_2</m> vers le graphe <m>G_1</m>.
                 </p>
             </statement>
+            <solution>
+                <p>
+                    Il suffit de poser <m>g=f^{-1}</m>. En effet, puisque <m>f</m> est une fonction bijective, <m>f_{-1}:S_2\rightarrow S_1</m> existe et est également une fonction bijective. 
+                </p>
+                <p>
+                    Il reste à vérifier que <m>g</m> est bien un isomorphisme de graphe, c'est-à-dire que soit <m>t_1, t_2\in S_2 </m>, alors <m>\{t_1,t_2\}\in A_2</m> si et seulement si <m>\{f^{-1}(t_1),f^{-1}(t_2)\}\in A_1</m>. Puisque <m>f</m> est surjective, on peut poser <m>t_1=f(s_1)</m> et <m>t_2=f(s_2)</m> pour <m>s_1, s_2 \in S_1</m>. Ainsi, on a également <m>s_1=f^{-1}(t_1)</m> et <m>s_2=f^{-1}(t_2).</m>
+                </p>
+                <p>
+                     Par ce qui précède, l'énoncé <q><m>\{t_1,t_2\}\in A_2</m> si et seulement si <m>\{f^{-1}(t_1),f^{-1}(t_2)\}\in A_1</m></q> devient <q><m>\{f(s_1),f(s_2)\}\in A_2</m> si et seulement si <m>\{s_1,s_2\}\in A_1</m></q>, ce qui est vrai, car <m>f</m> est un isomorphisme.
+                </p>
+                <p>
+                    On a donc bien montré que <m>g=f^{-1}</m> est un isomorphisme de <m>G_2</m> vers <m>G_1</m>.
+                </p>
+            </solution>
         </task>
-        <task>
+        <task xml:id="prop-isoTrans">
             <statement>
                 <p>
-                    <m>\overline{Q_2}</m>
+                    Soit <m>G_1=(S_1,A_1)</m>, <m>G_2=(S_2,A_2)</m> et <m>G_3=(S_3,A_3)</m> trois graphes simples tels que <m>G_1\cong G_2</m> et <m>G_2\cong G_3</m>. Montrer que <m></m>.
                 </p>
             </statement>
-        </task>
-        <task>
-            <statement>
+            <solution>
                 <p>
-                    <m>\overline{Q_3}</m>
+                    Soit <m>f:S_1\rightarrow S_2</m> un isomorphisme entre <m>G_1</m> et <m>G_2</m>, et soit <m>g:S_2\rightarrow S_3</m> un isomorphisme entre <m>G_2</m> et <m>G_3</m>. On pose <m>h=f\circ g:S_1\rightarrow S_3</m>. Par la définition de <m>f</m> et <m>g</m>, on vérifie facilement qu'il s'agit d'un isomorphisme.
                 </p>
-            </statement>
-        </task>
-        <task>
-            <statement>
-                <p>
-                    <m>\overline{K_n}</m>, où <m>n\in \N^\ast</m> est quelconque.
-                </p>
-            </statement>
-        </task>
-        <task>
-            <statement>
-                <p>
-                    <m>\overline{K_{m,n}}</m>, où <m>m,n\in \N^\ast</m> sont quelconques.
-                </p>
-            </statement>
+            </solution>
         </task>
     </exercise>
-
-    <exercise >
-        <statement>
-            <p>
-                Si <m>G</m> est un graphe simple avec <m>15</m> arêtes et <m>\overline{G}</m> a <m>13</m> arêtes, combien de sommets y a-t-il dans <m>G</m>?
-            </p>
-        </statement>    
-    </exercise>
-
-    <exercise >
-        <statement>
-            <p>
-                Si <m>G</m> est un graphe simple avec <m>e</m> arêtes et <m>v</m> sommets, combien y a-t-il d'arêtes dans le graphe <m>\overline{G}</m>?
-            </p>
-        </statement>    
-    </exercise>
-
-    <exercise >
-        <statement>
-            <p>
-                Démontrer que si <m>G</m> est un graphe simple avec <m>n</m> sommets, alors <m>G\cup \overline{G}</m> est le graphe <m>K_n</m>.
-            </p>
-        </statement>    
-    </exercise>
-
-
-
-        <exercise>
-            <introduction>
-                <p>
-                    On dit que le graphe <m>G</m> est régulier si tous ses sommets on le même degré. Pour quelles valeurs de <m>m</m> et <m>n</m> les graphes suivants sont-ils réguliers?
-                </p>
-            </introduction>
-            <task>
-            <statement>
-                <p>
-                    <m>C_n</m>
-                </p>
-            </statement>
-        </task>
-        <task>
-            <statement>
-                <p>
-                    <m>Q_n</m>
-                </p>
-            </statement>
-        </task>
-        <task>
-            <statement>
-                <p>
-                    <m>K_n</m>
-                </p>
-            </statement>
-        </task>
-        <task>
-            <statement>
-                <p>
-                    <m>K_{m,n}</m>
-                </p>
-            </statement>
-        </task>
-        </exercise>
 
     <exercise>
+        <statement>
+            <p>
+                On considère <m>C_n=(S,A)</m> le graphe cyclique à <m>n</m> sommets, disons <m>S=\{s_1, s_2, \dots s_n\}</m>. Par l'exercice <xref ref="prop-isoRefl"/>, on sait qu'il existe au moins un isomorphisme <m>f:S\rightarrow S</m>. Cependant, il pourrait y en avoir plus. Parmi toutes les <m>n!</m> bijections de <m>S</m> vers <m>S</m>, combiend d'etres elles sont des isomorphismes de graphes? Autrement dit, combien d'isomorphisme différent existe-t-il allant de <m>C_n</m> vers <m>C_n</m>. 
+            </p>
+        </statement>
+        <answer>
+            <p>
+                Il y a <m>2\cdot n</m> isomorphismes différents entre <m>C_n</m> et <m>C_n</m>.
+            </p>
+        </answer>
+    </exercise>
+    <exercise xml:id="exo-preuveProp">
+        <introduction>
+        <p> Démontrer la proposition <xref ref="prop-isoGraphe"/>. Soit <m>G_1=(S_1,A_1)\cong G_2=(S_2,A_2)</m>, Montrer que : </p>
+        </introduction>
+        <task>
+            <p>
+                
+            </p>
+        </task>
+        <task>
+            <p>
+                
+            </p>
+        </task>
+    </exercise>
+
+
+        
+    <!--<exercise>
         <introduction>
             <p>
                 Pour chacune des paires de graphes ci-dessous, déterminer s'ils sont isomorphes. S'il ne sont pas isomorphes, justifier. S'il le sont, trouver un isomorphisme.
@@ -223,7 +166,7 @@
                 </sidebyside>
             </figure></p>
         </statement></task>
-    </exercise>
+    </exercise>-->
 
     </subexercises>
     <!--<subexercises>

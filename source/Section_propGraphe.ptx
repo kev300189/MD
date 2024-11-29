@@ -414,10 +414,12 @@ On dira alors que <m>f </m> est un isomorphisme de graphe, et on notera <m>G_1\c
 </ol>
 </statement>
 </proposition>
-
+<p>
+La proposition <xref ref="prop-isoGraphe"/> est surtout utile pour montrer que deux graphes ne sont pas isomorphes. En effet, si deux graphes sont tels que toutes les conclusions de la proposition précédente sont satisfaites, celà ne garantie par que les graphes seront isomorphes (ce n'est pas un si et seulement si). Cependant, si l'une de ces conclusions ne pas satisfaites, on sait que les graphes ne sont pas isomorphes!
+</p>
 <example xml:id="exe-nonIso">
 <statement>
-<p>On peut montrer que les deux graphes ci-dessous ne sont pas isomorphes, car il existe une coloration à deux couleurs pour le graphe <m>G,</m> mais il faut trois couleurs pour une coloration de <m>H</m>.</p>
+<p>On peut montrer que les deux graphes ci-dessous ne sont pas isomorphes, car il existe une coloration à deux couleurs pour le graphe <m>G,</m> mais il faut au moins trois couleurs pour une coloration de <m>H</m>.</p>
 <figure>
     <caption> Deux graphes non isomorphes</caption>
     <sidebyside>
@@ -452,7 +454,21 @@ On dira alors que <m>f </m> est un isomorphisme de graphe, et on notera <m>G_1\c
 
 <example xml:id="exe-ouiIso">
 <statement>
-<p>Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <m>f</m> allant des sommets de <m>G</m> vers les sommets de <m>H</m> comme ceci:
+<p>Les deux graphes ci-dessous sont isomorphes. </p> 
+    <figure>
+    <caption> Graphes isomorphes</caption>
+    <sidebyside>
+        <figure >
+            <caption> <m>G</m></caption>
+            <image source="tikzit_GrapheSame.jpg"/>
+        </figure>
+        <figure >
+            <caption><m>H</m> </caption>
+            <image   source="tikzit_GrapheSame2.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+<p>En effet, on peut donner un isomorphisme <m>f</m> allant des sommets de <m>G</m> vers les sommets de <m>H</m> comme ceci:
 <md>
 <mrow> f(s_1)\amp=t_4</mrow>
 <mrow> f(s_2)\amp=t_5</mrow>
@@ -461,19 +477,32 @@ On dira alors que <m>f </m> est un isomorphisme de graphe, et on notera <m>G_1\c
 <mrow> f(s_5)\amp=t_2</mrow>
 </md>
 </p>
-<figure>
-    <caption> Graphes isomorphes</caption>
-    <sidebyside>
-        <figure >
-            <caption> <m>G</m></caption>
-            <image source="tikzit_GrapheSame.jpg"/>
-        </figure>
-        <figure >
-            <caption><m>h</m> </caption>
-            <image   source="tikzit_GrapheSame2.jpg" />
-        </figure>
-    </sidebyside>
-</figure>
+<p>
+    Il, reste à vérifier que <m>f</m> fait correspondre les arêtes de <m>G</m> aux arêtes de <m>H</m>. On peut le faire en listant toutes les arêtes de <m>\{x_1, ,x_2\}</m> de <m>G</m> et toutes les arêtes <m>\{y_1, y_2\}</m> de <m>H</m>, et vérifier que <m>\{f(x_1), f(x_2)\}=\{y_1, y_2\}</m>.  
+</p>
+<p>
+    Bien que cette méthode fonctionne, elle est un peu longue à écrire. À la place, on propose la démarche suivante. On Trouve la matrice d'adjacence <m>M_G</m> de <m>G</m> selon l'ordre <m>s_1, s_2, s_3, s_4, s_5 </m>. On fait la même chose pour <m>H</m>, mais au lieu de trouver la matrice d'adjacence <m>M_H</m> de <m>H</m> selon l'ordre habituel <m>t_1, t_2, t_3, t_4, t_5 </m>, on prend la matrice d'adjacence selon l'ordre <m>f(s_1), f(s_2), f(s_3), f(s_4), f(s_5) </m>, c'est à dire selon l'ordre <m> t_4, t_5, t_1, t_3, t_2 </m>.
+</p>
+<p>
+    On obtient 
+    <me>M_G=\begin{pmatrix} 
+    0&amp;1&amp;1&amp;0&amp;1\\
+    1&amp;0&amp;1&amp;0&amp;0\\
+    1&amp;1&amp;0&amp;1&amp;0\\
+    0&amp;0&amp;1&amp;0&amp;1\\
+    1&amp;0&amp;0&amp;1&amp;0\\
+    \end{pmatrix}.</me>
+
+    De même, pour <m>M_H</m>, on trouve 
+    <me>M_H=\begin{pmatrix} 
+    0&amp;1&amp;1&amp;0&amp;1\\
+    1&amp;0&amp;1&amp;0&amp;0\\
+    1&amp;1&amp;0&amp;1&amp;0\\
+    0&amp;0&amp;1&amp;0&amp;1\\
+    1&amp;0&amp;0&amp;1&amp;0\\
+    \end{pmatrix}.</me>
+    Puisque les deux matrrices sont les mêmes, on à bien que <m>G\cong H</m>.
+</p>
 </statement>
 </example>
 
@@ -481,17 +510,8 @@ On dira alors que <m>f </m> est un isomorphisme de graphe, et on notera <m>G_1\c
 <p>Une autre paire de graphes qui sont isomorphes</p>
 <example xml:id="exe-ouiIso2">
 <statement>
-<p>Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <m>g</m> allant des sommets de <m>G</m> vers les sommets de <m>H</m> comme ceci:
-<md>
-<mrow> g(a)\amp=s_2</mrow>
-<mrow> g(b)\amp=s_6</mrow>
-<mrow> g(c)\amp=s_4</mrow>
-<mrow> g(d)\amp=s_3</mrow>
-<mrow> g(e)\amp=s_5</mrow>
-<mrow> g(f)\amp=s_1</mrow>
-</md>
-</p>
-<figure>
+<p>Les deux graphes ci-dessous sont isomorphes.</p>
+   <figure>
     <caption> Graphes isomorphes</caption>
     <sidebyside>
         <figure >
@@ -504,6 +524,63 @@ On dira alors que <m>f </m> est un isomorphisme de graphe, et on notera <m>G_1\c
         </figure>
     </sidebyside>
 </figure>
+ <!--<figure>
+    <caption> Graphes isomorphes</caption>
+    <sidebyside>
+        <figure >
+            <caption> <m>G</m></caption>
+            <image source="tikzit_GrapheSame.jpg"/>
+        </figure>
+        <figure >
+            <caption><m>h</m> </caption>
+            <image   source="tikzit_GrapheSame2.jpg" />
+        </figure>
+    </sidebyside>
+</figure>-->
+<p>En effet, on peut donner un isomorphisme <m>g</m> allant des sommets de <m>G</m> vers les sommets de <m>H</m> comme ceci:
+<md>
+<mrow> g(a)\amp=s_2</mrow>
+<mrow> g(b)\amp=s_6</mrow>
+<mrow> g(c)\amp=s_4</mrow>
+<mrow> g(d)\amp=s_3</mrow>
+<mrow> g(e)\amp=s_5</mrow>
+<mrow> g(f)\amp=s_1</mrow>
+</md>
+</p>
+<!--<figure>
+    <caption> Graphes isomorphes</caption>
+    <sidebyside>
+        <figure >
+            <caption> <m>G</m></caption>
+            <image source="tikzit_GrapheIsoSimpleOui1.jpg"/>
+        </figure>
+        <figure >
+            <caption><m>H</m> </caption>
+            <image width="75%" source="tikzit_GrapheIsoSimpleOui2.jpg" />
+        </figure>
+    </sidebyside>
+</figure>-->
+<p>
+Encore une fois, on va trouver les matrices d'adjacence <m>M_G</m> et de <m>M_H</m>. Pour <m>G</m>, on prend l'ordre <m>a,b, c, d, e, f</m>, alors qu'on prend l'ordre <m>g(a), g(b), g(c), g(d), g(e), g(f)</m>, c'est-à-dire  l'ordre <m>s_2, s_6, s_4, s_3, s_5, s_1</m>. On obtient 
+<me>M_G=\begin{pmatrix} 
+    0&amp;0&amp;1&amp;0&amp;1&amp;0\\
+    0&amp;0&amp;0&amp;1&amp;1&amp;1\\
+    1&amp;0&amp;0&amp;1&amp;0&amp;1\\
+    0&amp;1&amp;1&amp;0&amp;0&amp;0\\
+    1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+    0&amp;1&amp;1&amp;0&amp;0&amp;0\\
+    \end{pmatrix}</me>
+et
+<me>M_H=\begin{pmatrix} 
+    0&amp;0&amp;1&amp;0&amp;1&amp;0\\
+    0&amp;0&amp;0&amp;1&amp;1&amp;1\\
+    1&amp;0&amp;0&amp;1&amp;0&amp;1\\
+    0&amp;1&amp;1&amp;0&amp;0&amp;0\\
+    1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+    0&amp;1&amp;1&amp;0&amp;0&amp;0\\
+    \end{pmatrix}.</me>
+    Puisque <m>M_G=M_H</m>, on a que <m>G\cong H</m>.
+</p>
 </statement>
 </example>
 </subsection>
@@ -629,9 +706,9 @@ On dira alors que <m>f </m> est un isomorphisme de graphe, et on notera <m>G_1\c
     <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
     </exercise>
     </reading-questions>
-
+-->
     <xi:include href="Exercices_propGraphe.ptx" />
-    -->
+    
 </section> 
 
 

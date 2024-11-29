@@ -180,3 +180,22 @@
 </proposition>
 
 </subsection>-->
+
+
+<exercises>
+
+<exercises>
+<statement>
+    <p>
+        Soit <m>G(S,A) </m> un graphe simple fini, c'est-à-dire que <m>|S|\in \N</m>, montrer que <m>G</m> peut s'écrire comme l'union de graphes <m>G_i</m> tels que pour tout <m>i</m>, <m>G_i</m> est connexe, et que si <m>j\neq i</m>, alors <m>G_i</m> n'a aucun sommet en commun avec <m>G_j</m>.
+    </p>
+</statement>
+</exercise>
+
+<exercice>
+    <statement>
+        <p>
+            Soit <m>G, H</m> deux graphes simples tels qu'il existe un isomorphisme <m>f</m> entre eux, c'est-à-dire que <m>G\cong H</m>, montrer que si <m>s_0, s_1, \dots, s_n</m> est une chaîne de <m>G</m>, alors <m>f(s_1), f(s_2), \dots, f(s_n)</m> est une chaîne de <m>H</m>.
+        </p>
+    </statement>
+</exercises>
