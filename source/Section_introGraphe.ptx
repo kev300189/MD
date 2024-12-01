@@ -556,6 +556,7 @@ Ainsi, on a bien que <m>n</m> est pair.
     <statement>
     <p> Une graphe <m>G=(S,A)</m> est appelé un graphe biparti si on peut écrire l'ensemble des sommets <m>S</m> comme l'union disjointe de deux sous-ensembles <m>S_1</m> et <m>S_2</m> telle que chaque arête de <m>G</m> a une extrémité dans <m>S_1</m> et une extrémité dans <m>S_2</m>.</p>
     <p>Ainsi, <m>G</m> est biparti si <m>S=S_1\cup S_2,</m> avec <m>S_1\cap S_2=\emptyset</m>, et si pour tout <m>a=\{s,t\}\in\,A,</m>, on a que <m>s\in\, S_1</m> si et seulement si <m>t\in\,S_2</m>.</p>
+    <p> On dira que <m>S_1</m> et <m>S_2</m> sont les parties de <m>G</m>.</p>
     </statement>
     </definition>
     

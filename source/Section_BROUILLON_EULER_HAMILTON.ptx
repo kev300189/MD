@@ -99,16 +99,57 @@
                     </figure>
                 </p>
                 <p>
-                    Les chemins <m></m>
+                    On remarque qu'il existe de nombreuses chaînes reliant <m>a</m> et <m>h</m>. Par exemple, il y a la chaîne de longueur <m>9</m> <m>a, e, d, a, e, b, c, f, g, h</m>. 
+                </p>
+                <p>
+                    Si on se limite aux chaînes simples, on peut trouver des chaînes de longueur <m>6</m>. Par exemple, les chaînes <m>a, e, b, c, g, i, h</m> et <m>a, b, d, c, f, g, h</m>. 
+                </p>
+                <p>
+                    On remarque également que la chaîne <m>a, b, c, f, g, h</m> est parmi les chaînes les plus courtes (de longueur <m>5</m>) reliant <m>a</m> et <m>h</m>.
+                </p>
+                <p>
+                    Finalement, <m>G</m> possède plusieurs cycles. Par exemple, la chaîne <m>a, b, d, a</m> est un cycle simple de longueur <m>3</m>, alors que la chaîne <m>f, g, h, i, f</m> est un cycle simple de longueur <m>4</m>.
                 </p>
             </statement>
         </example>
     </subsection>
+
+    <subsection xml:id="subsec-grapheConnexe">
+        <title>Graphes Connexes</title>
+        <p>
+            Jusqu'à maitenant, pour la grande majortié des graphes étudiés, il était toujours possible de trouver une chaîne reliant deux sommets quelconques du graphe. Ceci n'est pas toujours vrai, et les graphes ayant cette propriété seront nommé des graphes connexes. Si un graphe n'est pas connexe, il sera toujours possible de se restreindre à des sous-graphes connexes, c'erst-à-dire ses composantes connexes.
+        </p>
+        <definition xml:id="def-grapheConnexe">
+            <statement>
+                <p>
+                    Soit <m>G=(S,A)</m> un graphe simple. Si, pour tout <m>s, t \in S</m>, il existe une chaîne reliant <m>s</m> et <m>t</m>, alors on dira que <m>G</m> est un <term>graphe connexe</term>.
+                </p>
+                <p>
+                    Si on peut écrire <m>G</m> comme l'union de graphes <m>G_i=(S_i,A_i)</m> tels que <m>G_i</m> est connexe et <m>S_i\cap S_j =\emptyset</m> lorsque <m>i\neq j</m>, on dira que les graphes <m>G_i</m> sont les <term>composantes connexes</term> de <m>G</m>.
+                </p>
+            </statement>
+        </definition>
+        <p>
+            Si un graphe n'est pas connexe, il sera toujours possible de le sépaer en ses composantes connexes. Cependant, le cas où le nombre de sommets du graphe est infini est un peu plus complexe. On se limitera donc au cas où le graphe possède un nombre fini de sommets.
+        </p>
+        <proposition xml:id="prop-composanteConnexe">
+            <statement>
+                <p>
+                    Soit <m>G=(S,A)</m> un graphe simple fini, c'est-à-dire que <m>|S|\in \N^\ast</m>, alors on peut trouver des graphes <m>G_i=(S_i,A_i)</m>, pour <m>i=1, 2, \dots, n</m> tels que  <m>G=\bigcup_{i=1}^n G_i =G_1\cup G_2\cup \cdots \cup G_n</m>, <m>G_i</m> est connexe pour tout <m>i</m> et <m>S_i\cap S_j =\emptyset</m> lorsque <m>i\neq j</m>.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                    La preuve est laissé <xref ref="exo-proofPropComposanteConnexe" text="custom">en exercise</xref>.
+                </p>
+            </proof>
+        </proposition>
+   </subsection>
     
     <conclusion xml:id="concl-connexeEuler">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     
     </conclusion>
-    <reading-questions xml:id="rq-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <reading-questions xml:id="rq-connexeEuler">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     <introduction>
     <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
     </introduction>
@@ -273,11 +314,54 @@
 <exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-connexeEuler">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
     <title> Exercices </title>>
 
-<exercise>
+<exercise xml:id="exo-connexeChaineSimple">
 <statement>
     <p>
-        Soit <m>G(S,A) </m> un graphe simple fini, c'est-à-dire que <m>|S|\in \N</m>, montrer que <m>G</m> peut s'écrire comme l'union de graphes <m>G_i</m> tels que pour tout <m>i</m>, <m>G_i</m> est connexe, et que si <m>j\neq i</m>, alors <m>G_i</m> n'a aucun sommet en commun avec <m>G_j</m>.
+        Soit <m>G=(S,A)</m> un graphe simple connexe. Montrer que si <m>s, t</m> sont des sommets quelconques de <m>G</m>, alors il existe une chaîne <em>simple</em> reliant <m>s</m> et <m>t</m>.
     </p>
+</statement>
+<solution>
+    <p>
+        Puisque <m>G</m> est connexe, alors il existe une chaîne <m>s=s_0, s_1, \dots, s_n=t</m>. Supposons que cette chaîne soit de longueur minimale. On veut montrer que cette chaîne est simple.
+    </p>
+    <p> 
+        Supposons le contraire, alors il existe <m>i, j</m> des indices tels que <m>0\leq i\lt j \leq n</m> avec <m>s_i=s_j</m>. Ainsi, la chaîne <me>s_0, \dots s_{i-1}, s_i, s_{j+1}, s_{j+2}, \dots s_n</me> est une chaîne reliant <m>s</m> et <m>t</m> de longueur <m>n-(j-i)\lt n</m>. Cette chaîne est donc plus courte que la chaîne initiale. Ceci est une contradiction, car on avait supposé que la chaîne était la plus courte possible.
+    </p>
+    <p>
+        La chaîne <m>s=s_0, s_1, \dots, s_n=t</m> est donc nécessairement une chaîne simple reliant <m>s</m> et <m>t</m>.
+    </p>
+</solution>
+</exercise>
+
+<exercise xml:id="exo-proprieteGrapheBiparti">
+<statement>
+<p>
+    Soit <m>G=(S_1\cup S_2,A)</m> <xref ref="def-grapheBi" text="custom"> un graphe biparti</xref> (avec <m>S_1</m> et <m>S_2</m> les parties de <m>G</m>). Soit <m>s_0, s_1, \dots, s_n</m> une chaîne de <m>G</m>, et supposons que <m>s_1\in S_1</m>. Montrer que pour les sommets d'indice impair dans cette chaîne sont des élément de <m>S_1</m>. Plus formellement, montrer que si <m>k\in \N</m> tel que <m>1\leq 2k+1 \leq n</m>, alors <m>s_{2k+1}\in S_1</m>.
+</p>
+</statement>
+<solution>
+    <p>
+        Supposons par contradiction qu'il existe un des sommets d'indice impair qui est un élément de <m>S_2</m>, alors on peut choisir <m>s_{2k+1}\in S_2</m> avec l'indice le plus petit possible. Puisque <m>s_1\in S_1</m>, on a que <m>3\leq 2k+1\leq n</m>.
+    </p>
+    <p>    
+         Or, <m>\{s_{2k-1},s_{2k}\}</m> et <m>\{s_{2k}, s_{2k+1}\}</m> sont des arêtes de <m>G</m>. Par la minimalité de <m>2k+1</m>, on doit avoir <m>s_{2k-1}\in S_1</m>, mais alors <m>s_{2k}\in S_2</m> et donc <m>s_{2k+1}\in S_1</m>. Puisque <m>S_1\cap S_2 = \emptyset</m>, on obtient une contradiction.
+    </p>
+    <p>
+        Par ce qui précède, il ne peut pas y avoir de sommet de la chaîne d'indice impair dans <m>S_2</m>. 
+    </p>
+    <remark>
+        <p>
+            Par ce qui précède, on obtient directement que <m>s_{2k}\in S_2</m> lorsque <m>0\leq 2k \leq n</m>. 
+        </p>
+    </remark>
+</solution>
+</exercise>
+
+<exercise xml:id="exo-aretePont">
+<statement>
+<p>
+    Soit <m>G=(S,A)</m> un graphe simple connexe tel que <m>S=S_1\cup S_2</m>, <m>S_1\cap S_2=\emptyset</m>, <m>s_1\in S_1</m> et <m>s_2\in S_2</m>. Montrer qu'il existe <m>u_1\in S_1</m> et <m>u_2\in S_2</m> tels que <m>\{u_1,u_2\}</m> est une arête de <m>G</m>, c'est-à-dire que <m>\{u_1,u_2\}\in A</m>.
+</p>
 </statement>
 </exercise>
 
@@ -287,6 +371,51 @@
             Soit <m>G, H</m> deux graphes simples tels qu'il existe un isomorphisme <m>f</m> entre eux, c'est-à-dire que <m>G\cong H</m>, montrer que si <m>s_0, s_1, \dots, s_n</m> est une chaîne de <m>G</m>, alors <m>f(s_1), f(s_2), \dots, f(s_n)</m> est une chaîne de <m>H</m>.
         </p>
     </statement>
+</exercise>
+
+<exercise xml:id="exo-proofPropComposanteConnexe">
+<introduction>
+<p>
+    On veut démontrer la proposition <xref ref="prop-composanteConnexe"/>. Soit <m>G=(S,A)</m> un graphe simple tel que <m>|S|\in \N^\ast</m>, on définit <m> G_i=(S_i,A_i)</m> successivement de la façon suivante.
+</p> 
+<p>
+    On choisit un sommet quelconque <m>s_1\in S</m>. On pose <m>S_1</m> l'ensemble des sommets de <m>G</m> reliés à <m>s_1</m> par une chaîne. On pose <m>G_1</m> comme étant le <xref ref="def-sousGrapheInduit" text="custom"> sous-graphe de <m>G</m> induit par <m>S_1</m> </xref>.
+</p>
+<p>
+    Supposons maintenant qu'on ait défini les sous-graphes <m>G_1=(S_1,A_1)</m> jusqu'à <m>G_k=(S_k,A_k)</m> pour un certain entier positif <m>k</m>. Si <m>S=\bigcup_{i=1}^k S_i=S_1\cup S_2\cup \cdots \cup S_k</m>, alors on a terminé. Sinon, il existe un sommet <m>s_{k+1}\in S-\bigl(S_1\cup\cdots \cup S_k \bigr)</m>. On veut définir <m>G_{k+1}</m> à l'aide de ce sommet.
+</p>
+<p>
+    On pose <m>S_{k+1}</m> l'ensemble des sommets qui sont relié à <m>s_{k+1}</m> par une chaîne de <m>G</m>. Finalement on pose <m>G_{k+1}</m> le sous-graphe de <m>G</m> induit par <m>S_{k+1}</m>.
+</p>
+</introduction>
+<task>
+<statement>
+    <p>
+        Montrer que les graphes <m>G_i</m> obtenus dans le processus précédent sont connexe.
+    </p>
+</statement>
+</task>
+<task>
+<statement>
+<p>
+    Montrer que si <m>i \lt j</m>, et si  <m>S_i</m> et <m>S_j</m> sont les ensembles obtenus dans le processus précédent, alors <m>S_i\cap S_j=\emptyset</m>.
+</p>
+</statement>
+</task>
+<task>
+<statement>
+<p>
+    Montrer que le processus précédent se termine en un nombre fini d'étapes, c'est-à-dire qu'il existe un entier positif <m>k</m> tel que <m>S=S_1\cup\cdots \cup S_k</m>.
+</p>
+</statement>
+</task>
+<task>
+<statement>
+<p>
+    Vérifier que <m>G=G_1\cup \cdot \cup G_k</m>.
+</p>
+</statement>
+</task>
 </exercise>
 </exercises>
 </section>
