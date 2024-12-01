@@ -85,7 +85,7 @@
 		                            \draw (1) to (2);
 		                            \draw (2) to (4);
 		                            \draw (3) to (4);
-		                            \draw (3) to (1);
+		                            \draw (3) to (1); 
 		                            \draw (0) to (2);
 		                            \draw (4) to (5);
 		                            \draw (5) to (6);
@@ -105,7 +105,7 @@
         </example>
     </subsection>
     
-    <conclusion xml:id="concl-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <conclusion xml:id="concl-connexeEuler">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     
     </conclusion>
     <reading-questions xml:id="rq-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
@@ -119,7 +119,7 @@
     </reading-questions>
    <!--Inclure les exercices de la section ci-dessous--> 
    <!--<xi:include href="Exercices_.ptx" />-->
-</section>
+
 
 
 
@@ -270,9 +270,10 @@
 </subsection>-->
 
 
-<exercises>
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="exo-connexeEuler">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Exercices </title>>
 
-<exercises>
+<exercise>
 <statement>
     <p>
         Soit <m>G(S,A) </m> un graphe simple fini, c'est-à-dire que <m>|S|\in \N</m>, montrer que <m>G</m> peut s'écrire comme l'union de graphes <m>G_i</m> tels que pour tout <m>i</m>, <m>G_i</m> est connexe, et que si <m>j\neq i</m>, alors <m>G_i</m> n'a aucun sommet en commun avec <m>G_j</m>.
@@ -280,10 +281,12 @@
 </statement>
 </exercise>
 
-<exercice>
+<exercise>
     <statement>
         <p>
             Soit <m>G, H</m> deux graphes simples tels qu'il existe un isomorphisme <m>f</m> entre eux, c'est-à-dire que <m>G\cong H</m>, montrer que si <m>s_0, s_1, \dots, s_n</m> est une chaîne de <m>G</m>, alors <m>f(s_1), f(s_2), \dots, f(s_n)</m> est une chaîne de <m>H</m>.
         </p>
     </statement>
+</exercise>
 </exercises>
+</section>
