@@ -10,12 +10,100 @@
 
 <!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
 
-<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
-    <title>  </title>
-    <introduction xml:id= "intro-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-chaineEuler">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
+    <title> Chaîne, cycle et graphe eulérien </title>
+    <introduction xml:id= "intro-chaineEuler">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
+    <p>
+        
+    </p>
     </introduction>
     
     <!-- Sous-sections à écrire, à même ce fichier -->
+    <subsection xml:id="subsec-chaineCycle">
+        <title>Chaîne et cycle</title>
+        <introduction>
+            <p>
+                On veut étudier les différentes façons dont il est possible de se déplacer à l'intérieur d'un graphe, d'un sommet à l'autre en empruntant les arêtes. Non seulement les graphes sont justement utiles afin de représenter des chemins (trajets routier, aériens et autres), mais l'étude des différents chemins présent à l'intérieur d'un graphe permet souvne tde mieux comprendre ceux-ci.
+            </p>
+            <p>
+                Par exemple, on pourra donner une nouvelle caractérisation des graphes bipartis en terme de chemins présents dans ces graphes. Aussi, en étudiant les chemins présents dans un graphe, il nous sera entre autre possible de montrer que deux graphes ne sont pas isomorphe. 
+            </p>
+            <p>
+                D'un autre côté, de nombreuse applications des graphes proviennent du fait que l'on trouve le chemin le plus court entre différents sommets. On peut évidemment penser à trouver le chemin le plus court entre deux endroits dans une ville, mais on pourra également mesurer la complexité de certains algorithmes, comme des algorithme de tri, grandement utilisées en informatique.
+            </p>
+            <p>
+                Puisque la définition d'un graphe a été donnée en termes d'ensembles, on doit donner la définition d'un chemin de façon similaire. Aussi, lorsqu'on travaille avec des graphe non orienté, comme c'est notre cas, on parlera d'une chaîne plutôt qu d'un chemin. Le terme chemin étant habituellement utilisé pour les graphes orientés
+            </p>
+        </introduction>
+        <definition xml:id="def-chaineCylce">
+            <statement>
+                <p>
+                    Soit <m>G=(S,A)</m> un graphe simple, une chaîne de longueur <m>n\in \N^\ast</m> reliant les sommets <m>s, t\in S</m>, ou encore une chaîne entre <m>s</m> et <m>t</m>, est une suite de sommets <m>s_0, s_1, \dots, s_n</m> de <m>G</m> tel que <m>\{s_i, s_{i+1}\}\in A</m> pour <m>i=0, 1, \dots, n-1</m>, avec <m>s_0=s</m> et <m>s_n=t</m>. 
+                </p>
+                <p>
+                    Si toutes les arêtes formant la chaîne sont uniques, c'est-à-dire si <m>\{s_i, s_{i+1}\}\neq \{s_j, s_{j+1}\}</m> lorsque <m>i\neq j</m>, on dira que la chaîne est une chaîne simple.
+                </p>
+                <p>
+                    Si <m>s_0=s_n</m>, on parlera d'un cycle plutôt que d'une chaîne.
+                </p>
+            </statement>
+        </definition>
+        <example xml:id="exe-defChaineCycle">
+            <title>Quelsques chaînes</title>
+            <statement>
+                <p>
+                    On considère le graphe <m>G</m> ci-dessous.
+                    <figure xml:id="fig-defChaineCycle">
+                        <caption><m>G</m></caption>
+                        <image width="50%" xml:id="tikzit_defChaineCycle">
+                            <shortdescription>Un graphe pour introduire les définitions de chaînes.</shortdescription>
+                            <latex-image>
+                                \begin{tikzpicture}
+                                    \begin{pgfonlayer}{nodelayer}
+		                            \node [style=SommetGraphe] (0) at (-2, 1) {};
+		                            \node [style=SommetGraphe] (1) at (-2, -1) {};
+		                            \node [style=SommetGraphe] (2) at (0, -1) {};
+		                            \node [style=SommetGraphe] (3) at (0, 1) {};
+		                            \node [style=SommetGraphe] (4) at (0, 0) {};
+		                            \node [style=SommetGraphe] (5) at (2, 0) {};
+		                            \node [style=SommetGraphe] (6) at (3, 1) {};
+		                            \node [style=SommetGraphe] (7) at (4, 0) {};
+		                            \node [style=SommetGraphe] (8) at (3, -1) {};
+		                            \node [style=none] (9) at (-2.5, 1.5) {$a$};
+	                            	\node [style=none] (10) at (0, 1.75) {$b$};
+	                                \node [style=none] (11) at (0.5, 0.25) {$c$};
+	                            	\node [style=none] (12) at (0, -1.5) {$d$};
+	                            	\node [style=none] (13) at (-2.75, -1) {$e$};
+		                            \node [style=none] (14) at (1.75, -0.5) {$f$};
+		                            \node [style=none] (15) at (3, 1.75) {$g$};
+		                            \node [style=none] (16) at (4.5, 0) {$h$};
+		                            \node [style=none] (17) at (3, -1.5) {$i$};
+	                            \end{pgfonlayer}
+	                            \begin{pgfonlayer}{edgelayer}
+		                            \draw (0) to (3);
+		                            \draw (0) to (1);
+		                            \draw (1) to (2);
+		                            \draw (2) to (4);
+		                            \draw (3) to (4);
+		                            \draw (3) to (1);
+		                            \draw (0) to (2);
+		                            \draw (4) to (5);
+		                            \draw (5) to (6);
+		                            \draw (6) to (7);
+		                            \draw (7) to (8);
+		                            \draw (8) to (5);
+	                            \end{pgfonlayer}
+                                \end{tikzpicture}
+                            </latex-image>
+                        </image>
+                    </figure>
+                </p>
+                <p>
+                    Les chemins <m></m>
+                </p>
+            </statement>
+        </example>
+    </subsection>
     
     <conclusion xml:id="concl-">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     

@@ -1071,14 +1071,14 @@
     </subexercises>
     <subexercises>
     <title>Exercices supplémentaires</title>
-    <exercise>
+    <!--<exercise>
         <statement>
             <p>
                 Tracer tous les sous-graphes contenant au moins une arête du graphe <m>G</m> ci-dessous.
         <figure xml:id="fig-tikzit_grapheFleche">
                     <caption> <m>G</m></caption>
                     <image width="50%" xml:id="tikzit_grapheFleche">
-                    \begin{tikzpicture}
+                    <latex-image>
 	\begin{pgfonlayer}{nodelayer}
 		\node [style=SommetGraphe] (0) at (-2, 2) {};
 		\node [style=SommetGraphe] (1) at (1, 2) {};
@@ -1135,7 +1135,7 @@
                 </figure>
             </p>
         </statement>
-    </exercise>
+    </exercise>-->
 
     <exercise>
         <statement>
