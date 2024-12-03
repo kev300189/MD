@@ -23,16 +23,16 @@
         <title>Chaîne et cycle</title>
         <introduction>
             <p>
-                On veut étudier les différentes façons dont il est possible de se déplacer à l'intérieur d'un graphe, d'un sommet à l'autre en empruntant les arêtes. Non seulement les graphes sont justement utiles afin de représenter des chemins (trajets routier, aériens et autres), mais l'étude des différents chemins présent à l'intérieur d'un graphe permet souvne tde mieux comprendre ceux-ci.
+                On veut étudier les différentes façons dont il est possible de se déplacer à l'intérieur d'un graphe, d'un sommet à l'autre en empruntant les arêtes. Non seulement les graphes sont justement utiles afin de représenter des chemins (trajets routiers, aériens et autres), mais l'étude des différents chemins présents à l'intérieur d'un graphe permet souvent de mieux comprendre ceux-ci.
             </p>
             <p>
-                Par exemple, on pourra donner une nouvelle caractérisation des graphes bipartis en terme de chemins présents dans ces graphes. Aussi, en étudiant les chemins présents dans un graphe, il nous sera entre autre possible de montrer que deux graphes ne sont pas isomorphe. 
+                Par exemple, on pourra donner une nouvelle caractérisation des graphes bipartis en termes de chemins présents dans ces graphes. Aussi, en étudiant les chemins présents dans un graphe, il nous sera entre autres possible de montrer que deux graphes ne sont pas isomorphes. 
             </p>
             <p>
-                D'un autre côté, de nombreuse applications des graphes proviennent du fait que l'on trouve le chemin le plus court entre différents sommets. On peut évidemment penser à trouver le chemin le plus court entre deux endroits dans une ville, mais on pourra également mesurer la complexité de certains algorithmes, comme des algorithme de tri, grandement utilisées en informatique.
+                D'un autre côté, de nombreuses applications des graphes proviennent du fait que l'on trouve le chemin le plus court entre différents sommets. On peut évidemment penser à trouver le chemin le plus court entre deux endroits dans une ville, mais on pourra également mesurer la complexité de certains algorithmes, comme des algorithmes de tri, grandement utilisés en informatique.
             </p>
             <p>
-                Puisque la définition d'un graphe a été donnée en termes d'ensembles, on doit donner la définition d'un chemin de façon similaire. Aussi, lorsqu'on travaille avec des graphe non orienté, comme c'est notre cas, on parlera d'une chaîne plutôt qu d'un chemin. Le terme chemin étant habituellement utilisé pour les graphes orientés
+                Puisque la définition d'un graphe a été donnée en termes d'ensembles, on doit donner la définition d'un chemin de façon similaire. Aussi, lorsqu'on travaille avec des graphes non orientés, comme c'est notre cas, on parlera d'une chaîne plutôt que d'un chemin. Le terme chemin étant habituellement utilisé pour les graphes orientés
             </p>
         </introduction>
         <definition xml:id="def-chaineCylce">
@@ -41,7 +41,7 @@
                     Soit <m>G=(S,A)</m> un graphe simple, une chaîne de longueur <m>n\in \N^\ast</m> reliant les sommets <m>s, t\in S</m>, ou encore une chaîne entre <m>s</m> et <m>t</m>, est une suite de sommets <m>s_0, s_1, \dots, s_n</m> de <m>G</m> tel que <m>\{s_i, s_{i+1}\}\in A</m> pour <m>i=0, 1, \dots, n-1</m>, avec <m>s_0=s</m> et <m>s_n=t</m>. 
                 </p>
                 <p>
-                    Si toutes les arêtes formant la chaîne sont uniques, c'est-à-dire si <m>\{s_i, s_{i+1}\}\neq \{s_j, s_{j+1}\}</m> lorsque <m>i\neq j</m>, on dira que la chaîne est une chaîne simple.
+                    Si toutes les arêtes formant la chaîne sont uniques, c'est-à-dire si <m>\{s_i, s_{i+1}\}\neq \{s_j, s_{j+1}\}</m> lorsque <m>i\neq j</m>, on dirat que la chaîne est une chaîne simple.
                 </p>
                 <p>
                     Si <m>s_0=s_n</m>, on parlera d'un cycle plutôt que d'une chaîne.
@@ -115,9 +115,9 @@
     </subsection>
 
     <subsection xml:id="subsec-grapheConnexe">
-        <title>Graphes Connexes</title>
+        <title>Graphes connexes</title>
         <p>
-            Jusqu'à maitenant, pour la grande majortié des graphes étudiés, il était toujours possible de trouver une chaîne reliant deux sommets quelconques du graphe. Ceci n'est pas toujours vrai, et les graphes ayant cette propriété seront nommé des graphes connexes. Si un graphe n'est pas connexe, il sera toujours possible de se restreindre à des sous-graphes connexes, c'erst-à-dire ses composantes connexes.
+            Jusqu'à maintenant, pour la grande majorité des graphes étudiés, il était toujours possible de trouver une chaîne reliant deux sommets quelconques du graphe. Ceci n'est pas toujours vrai, et les graphes ayant cette propriété seront nommés des graphes connexes. Si un graphe n'est pas connexe, il sera toujours possible de se restreindre à des sous-graphes connexes, c'est-à-dire ses composantes connexes.
         </p>
         <definition xml:id="def-grapheConnexe">
             <statement>
@@ -130,7 +130,7 @@
             </statement>
         </definition>
         <p>
-            Si un graphe n'est pas connexe, il sera toujours possible de le sépaer en ses composantes connexes. Cependant, le cas où le nombre de sommets du graphe est infini est un peu plus complexe. On se limitera donc au cas où le graphe possède un nombre fini de sommets.
+            Si un graphe n'est pas connexe, il sera toujours possible de le séparer en ses composantes connexes. Cependant, le cas où le nombre de sommets du graphe est infini est un peu plus complexe. On se limitera donc au cas où le graphe possède un nombre fini de sommets.
         </p>
         <proposition xml:id="prop-composanteConnexe">
             <statement>
@@ -140,11 +140,85 @@
             </statement>
             <proof>
                 <p>
-                    La preuve est laissé <xref ref="exo-proofPropComposanteConnexe" text="custom">en exercise</xref>.
+                    La preuve est laissée <xref ref="exo-proofPropComposanteConnexe" text="custom">en exercise</xref>.
                 </p>
             </proof>
         </proposition>
    </subsection>
+
+   <subsection xml:id="subs-eulerien">
+<title> Chemins et circuits eulériens </title>
+<introduction>
+    <p>
+        On termine la section avec l'étude d'un type particulier de graphes connexes, les graphes eulériens. Ce type de graphes as été utilisé afin de modéliser le fameux problème du postier chinois.  
+    </p>
+</introduction>
+<definition xml:id="def-eulerien">
+<statement> 
+<p>
+<ul>
+<li> Une <term>chaîne eulérienne</term> d'un graphe <m>G</m> est une chaîne simple passant par toutes les arêtes de <m> G</m>.</li>
+<li> Un <term>cycle eulérien</term> d'un graphe <m>G</m> est un cycle simple passant par toutes les arêtes de <m>G</m>.</li>
+<li><p>Si un graphe <m>G</m> possède un cycle eulérien, on dirat que <m>G</m> est un <term>graphe eulérien</term>.</p>
+</li>
+</ul> 
+</p>
+</statement>
+</definition>
+
+<example xml:id="exe-eulerien">
+<statement> 
+<p>
+<ul>
+<li>La chaîne <m>a,c,e,d,c,b,a,d,b</m> est une chaîne eulérienne du graphe <m>G_1</m>.</li>
+<li>La chaîne <m>a,b,c,d,b</m> est une chaîne eulérien du graphe <m>G_2</m>.</li>
+<li> Le cycle <m>a,b,e,d,c,e,a</m> est un cycle eulérien du graphe <m>G_3</m>.</li>
+<li>Le graphe <m>G_4</m> ne possède aucune chaîne eulérienne, et aucun cycle eulérien.</li>
+<li>Le graphe <m>G_5</m> ne possède aucune chaîne eulérienne, et aucun cycle eulérien.</li>
+</ul>
+</p>
+<figure>
+    <caption> Chaînes et cycles eulériens</caption>
+    <sidebyside>
+        <figure>
+            <caption> <m>G_1</m></caption>
+            <image source="tikzit_GrapheCheminEuler.jpg"/>
+        </figure>
+        <figure>
+            <caption><m>G_2</m> </caption>
+            <image source="tikzit_GrapheCheminNonCircuitHamilton.jpg" />
+        </figure>
+        <figure>
+            <caption><m>G_3</m> </caption>
+            <image source="tikzit_GrapheCircuitEuler.jpg" />
+        </figure>
+        <figure>
+            <caption><m>G_4</m> </caption>
+            <image source="tikzit_GrapheNoEuler.jpg" />
+        </figure>
+        <figure>
+            <caption><m>G_5</m> </caption>
+            <image source="tikzit_GrapheNoEuler2.jpg" />
+        </figure>
+    </sidebyside>
+</figure>
+</statement>
+</example>
+
+<p>Pour montrer l'existence d'une chaîne ou d'un cycle eulérien, on peut essayer d'en trouver un. Pour montrer qu'il n'en existe pas, il faut argumenter un peu plus. </p>
+<p>Le critère donne une condition suffisante et nécessaire pour l'existence d'une chaîne ou d'un cycle eulérien</p>
+
+<proposition xml:id="prop-eulerien">
+<statement>
+<p> 
+<ul>
+<li> Un graphe <m>G</m> de trois sommets ou plus possède un cycle eulérien si et seulement si <m>\deg(s)</m> est pair pour tout sommet <m>s</m> de <m>G</m>. </li>
+<li> Un graphe <m>G</m> possède une chaîne eulérienne si et seulement si il existe exactement deux sommets de <m>G</m> ayant un degré impair.</li>
+</ul>
+</p>
+</statement>
+</proposition>
+</subsection>
     
     <conclusion xml:id="concl-connexeEuler">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
     
@@ -333,10 +407,32 @@
 </solution>
 </exercise>
 
+<exercise xml:id="exo-addChaine">
+    <introduction>
+        <p>
+            Soit <m>G=(S,A)</m> un graphe simple, et soit <m>s, t, u \in S</m>. 
+        </p>
+    </introduction>
+    <task>
+    <statement>
+        <p>
+            Montrer que s'il existe une chaîne de longueur <m>n</m> entre <m>s</m> et <m>t</m>, et 'il existe une chaîne de longueur <m>m</m> entre <m>t</m> et <m>u</m>, alors il existe une chaîne de longueur <m>m+n</m> entre <m>s</m> et <m>u</m>.
+        </p>
+    </statement>
+    </task>
+    <task>
+    <statement>
+        <p>
+            Montrer que s'il existe une chaîne de longueur <m>n</m> entre <m>s</m> et <m>t</m>, une arête entre <m>t</m> et <m>u</m>, et 'il existe une chaîne de longueur <m>m</m> entre <m>s</m> et <m>u</m>, alors il existe un cycle de longueur <m>m+n+1</m> qui commence à <m>s</m>.
+        </p>
+    </statement>
+    </task>
+</exercise>
+
 <exercise xml:id="exo-proprieteGrapheBiparti">
 <statement>
 <p>
-    Soit <m>G=(S_1\cup S_2,A)</m> <xref ref="def-grapheBi" text="custom"> un graphe biparti</xref> (avec <m>S_1</m> et <m>S_2</m> les parties de <m>G</m>). Soit <m>s_0, s_1, \dots, s_n</m> une chaîne de <m>G</m>, et supposons que <m>s_1\in S_1</m>. Montrer que pour les sommets d'indice impair dans cette chaîne sont des élément de <m>S_1</m>. Plus formellement, montrer que si <m>k\in \N</m> tel que <m>1\leq 2k+1 \leq n</m>, alors <m>s_{2k+1}\in S_1</m>.
+    Soit <m>G=(S_1\cup S_2,A)</m> <xref ref="def-grapheBi" text="custom"> un graphe biparti</xref> (avec <m>S_1</m> et <m>S_2</m> les parties de <m>G</m>). Soit <m>s_0, s_1, \dots, s_n</m> une chaîne de <m>G</m>, et supposons que <m>s_1\in S_1</m>. Montrer que pour les sommets d'indice impair dans cette chaîne sont des éléments de <m>S_1</m>. Plus formellement, montrer que si <m>k\in \N</m> tel que <m>1\leq 2k+1 \leq n</m>, alors <m>s_{2k+1}\in S_1</m>.
 </p>
 </statement>
 <solution>
@@ -344,7 +440,7 @@
         Supposons par contradiction qu'il existe un des sommets d'indice impair qui est un élément de <m>S_2</m>, alors on peut choisir <m>s_{2k+1}\in S_2</m> avec l'indice le plus petit possible. Puisque <m>s_1\in S_1</m>, on a que <m>3\leq 2k+1\leq n</m>.
     </p>
     <p>    
-         Or, <m>\{s_{2k-1},s_{2k}\}</m> et <m>\{s_{2k}, s_{2k+1}\}</m> sont des arêtes de <m>G</m>. Par la minimalité de <m>2k+1</m>, on doit avoir <m>s_{2k-1}\in S_1</m>, mais alors <m>s_{2k}\in S_2</m> et donc <m>s_{2k+1}\in S_1</m>. Puisque <m>S_1\cap S_2 = \emptyset</m>, on obtient une contradiction.
+         Or, <m>\{s_{2k-1},s_{2k}\}</m> et <m>\{s_{2k}, s_{2k+1}\}</m> sont des arêtes de <m>G</m>. Puisque <m>2k+1</m> est minimal, on doit avoir <m>s_{2k-1}\in S_1</m>, mais alors <m>s_{2k}\in S_2</m> et donc <m>s_{2k+1}\in S_1</m>. Puisque <m>S_1\cap S_2 = \emptyset</m>, on obtient une contradiction.
     </p>
     <p>
         Par ce qui précède, il ne peut pas y avoir de sommet de la chaîne d'indice impair dans <m>S_2</m>. 
@@ -355,6 +451,28 @@
         </p>
     </remark>
 </solution>
+</exercise>
+
+<exercise xml:id="exo-carBiparti">
+    <statement>
+        <p>
+            Montrer qu'un graphe <m>G=(S,A)</m> est un graphe biparti si et seulement si <m>G</m> ne possède aucun cycle de longueur impaire.
+        </p>
+    </statement>
+    <solution>
+        <p>
+            Supposons que <m>G</m> soit un graphe biparti avec <m>S_1</m> et <m>S_2</m> les parties de <m>G</m>. Supposons qu'il existe un cycle de longueur impair <m>s_0, s_1, \dots, s_{2k+1}</m> avec <m>s_1\in S_1</m>. On a alors <m>s_0\in S_2</m>. De plus, par l'exercice <xref ref="exo-proprieteGrapheBiparti"/>, on a également que <m>s_{2k+1}\in S_1</m>. Cependant, puisque <m>s_0, s_1, \dots, s_{2k+1}</m> ext un cycle, on a <m>s_0=s_{2k+1}</m>. Ceci est impossible, car <m>S_1\cap S_2 =\emptyset</m>.
+        </p>
+        <p>
+            Supposons maintenant que <m>G</m> ne possède aucun cycle de longueur impaire. On suppose que <m>G</m> est connexe. Sinon, on utilise l'argument ci-dessous sur chaque composante connexe de <m>G</m>. On choisit un sommet <m>s_0</m> quelconque de <m>G</m>, et on pose <m>S_1</m> l'ensemble des sommets relié à <m>s_0</m> par une chaîne de longueur impaire, et <m>S_2</m> l'ensemble des sommets relié à <m>s_0</m> par une chaîne de longueur paire. Puisque <m>G</m> est connexe, on a bien <m>S=S_1\cup S_2</m>.
+        </p>
+        <p>
+            On commence par montrer que <m>S_1\cap S_2=\emptyset</m>. Si <m>t\in S_1\cap S_2</m>, alors il existe une chaîne de longueur impaire ainsi qu'une chaîne de longueur paire entre <m>s_0</m> et <m>t</m>. Ainsi, par l'exercice <xref ref="exo-addChaine"/>, il existe un cycle de longueur impaire dans <m>G</m>, ce qui est une contradiction.
+        </p>
+        <p>
+            Il reste maintenant à montrer qu'il n'y a pas d'arête entre deux sommets de <m>S_i</m>, pour <m>i=1</m> et pour <m>i=2</m>. Supposons le contraire. Ainsi, il existe une arête entre <m>t_1, t_2\in S_i</m> pour <m>i=1</m> ou <m>i=2</m>. De plus, on sait qu'il existe une chaîne de longueur <m>n\equiv i \mod 2</m> entre <m>s_0</m> et <m>t_1</m>, ainsi qu'une chaîne de longueur <m>m\equiv i \mod 2</m>. Encore par l'exercice <xref ref="exo-addChaine"/>, il existe un cycle de longueur <m>n+m+1\equiv i+i+1\mod 2 \equiv 1 \mod 2</m>, c'est-à-dire qu'il existe un cycle de longueur impaire, ce qui est en contradiction avec notre hypothèse.
+        </p>
+    </solution>
 </exercise>
 
 <exercise xml:id="exo-aretePont">
@@ -373,6 +491,8 @@
     </statement>
 </exercise>
 
+
+
 <exercise xml:id="exo-proofPropComposanteConnexe">
 <introduction>
 <p>
@@ -385,13 +505,13 @@
     Supposons maintenant qu'on ait défini les sous-graphes <m>G_1=(S_1,A_1)</m> jusqu'à <m>G_k=(S_k,A_k)</m> pour un certain entier positif <m>k</m>. Si <m>S=\bigcup_{i=1}^k S_i=S_1\cup S_2\cup \cdots \cup S_k</m>, alors on a terminé. Sinon, il existe un sommet <m>s_{k+1}\in S-\bigl(S_1\cup\cdots \cup S_k \bigr)</m>. On veut définir <m>G_{k+1}</m> à l'aide de ce sommet.
 </p>
 <p>
-    On pose <m>S_{k+1}</m> l'ensemble des sommets qui sont relié à <m>s_{k+1}</m> par une chaîne de <m>G</m>. Finalement on pose <m>G_{k+1}</m> le sous-graphe de <m>G</m> induit par <m>S_{k+1}</m>.
+    On pose <m>S_{k+1}</m> l'ensemble des sommets qui sont reliés à <m>s_{k+1}</m> par une chaîne de <m>G</m>. Finalement on pose <m>G_{k+1}</m> le sous-graphe de <m>G</m> induit par <m>S_{k+1}</m>.
 </p>
 </introduction>
 <task>
 <statement>
     <p>
-        Montrer que les graphes <m>G_i</m> obtenus dans le processus précédent sont connexe.
+        Montrer que les graphes <m>G_i</m> obtenus dans le processus précédent sont connexes.
     </p>
 </statement>
 </task>

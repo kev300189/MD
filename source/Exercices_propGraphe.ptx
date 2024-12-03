@@ -103,12 +103,12 @@
         </introduction>
         <task>
             <p>
-                
+                <m>|A_1|=|A_2| </m>
             </p>
         </task>
         <task>
             <p>
-                
+                S'il existe une coloration à <m>n</m> couleurs de <m>G_1</m>, alors il existe une coloration à <m>n</m> couleurs de <m>G_2</m>.
             </p>
         </task>
     </exercise>
