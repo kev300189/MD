@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr-CA" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercice</span><span class="space"> </span><span class="codenumber">3<span class="period">.</span></span>
+</h4>
+<div class="para">Soit <span class="process-math">\(G=(S_1\cup S_2,A)\)</span> <a href="sec-introGraphe.html#def-grapheBi" class="xref" data-knowl="./knowl/xref/def-grapheBi.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Définition 7.1.31: Graphe biparti">un graphe biparti</a> (avec <span class="process-math">\(S_1\)</span> et <span class="process-math">\(S_2\)</span> les parties de <span class="process-math">\(G\)</span>). Soit <span class="process-math">\(s_0, s_1, \dots, s_n\)</span> une chaîne de <span class="process-math">\(G\text{,}\)</span> et supposons que <span class="process-math">\(s_1\in S_1\text{.}\)</span> Montrer que pour les sommets d’indice impair dans cette chaîne sont des éléments de <span class="process-math">\(S_1\text{.}\)</span> Plus formellement, montrer que si <span class="process-math">\(k\in \N\)</span> tel que <span class="process-math">\(1\leq 2k+1 \leq n\text{,}\)</span> alors <span class="process-math">\(s_{2k+1}\in S_1\text{.}\)</span>
+</div>
+<div class="solutions"><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para">Supposons par contradiction qu’il existe un des sommets d’indice impair qui est un élément de <span class="process-math">\(S_2\text{,}\)</span> alors on peut choisir <span class="process-math">\(s_{2k+1}\in S_2\)</span> avec l’indice le plus petit possible. Puisque <span class="process-math">\(s_1\in S_1\text{,}\)</span> on a que <span class="process-math">\(3\leq 2k+1\leq n\text{.}\)</span>
+</div> <div class="para">Or, <span class="process-math">\(\{s_{2k-1},s_{2k}\}\)</span> et <span class="process-math">\(\{s_{2k}, s_{2k+1}\}\)</span> sont des arêtes de <span class="process-math">\(G\text{.}\)</span> Puisque <span class="process-math">\(2k+1\)</span> est minimal, on doit avoir <span class="process-math">\(s_{2k-1}\in S_1\text{,}\)</span> mais alors <span class="process-math">\(s_{2k}\in S_2\)</span> et donc <span class="process-math">\(s_{2k+1}\in S_1\text{.}\)</span> Puisque <span class="process-math">\(S_1\cap S_2 = \emptyset\text{,}\)</span> on obtient une contradiction.</div> <div class="para">Par ce qui précède, il ne peut pas y avoir de sommet de la chaîne d’indice impair dans <span class="process-math">\(S_2\text{.}\)</span>
+</div> <article class="remark remark-like"><h5 class="heading">
+<span class="type">Remarque</span><span class="space"> </span><span class="codenumber">7.3.10</span><span class="period">.</span>
+</h5>
+<div class="para">Par ce qui précède, on obtient directement que <span class="process-math">\(s_{2k}\in S_2\)</span> lorsque <span class="process-math">\(0\leq 2k \leq n\text{.}\)</span>
+</div></article>
+</div></details></div></article><span class="incontext"><a class="internal" href="sec-chaineEuler.html#exo-proprieteGrapheBiparti">Contexte</a></span>
+</body>
+</html>

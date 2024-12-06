@@ -85,10 +85,10 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
-  "inputLocation": "div.sagecell-sage",
+  "inputLocation": "pre.sagecell-sage",
   "linked": true,
   "linkKey": "linked-sage",
   "autoeval": false,
@@ -370,7 +370,7 @@ sagecell.makeSagecell({
 <ol id="searchresults" class="searchresults"></ol>
 </div>
 </div>
-<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-introGraphe.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-theorieGraphes.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="Back.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
+<span class="nav-other-controls"></span><span class="treebuttons"><a class="previous-button button" href="sec-introGraphe.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="up-button button" href="chap-theorieGraphes.html" title="Haut"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Haut</span></a><a class="next-button button" href="sec-chaineEuler.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
 \newcommand{\Z}{\mathbb{Z}}                
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Q}{\mathbb{Q}}
@@ -691,6 +691,17 @@ $\Box$
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-representationGraphe" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Représentations des graphes</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-isoGraphe" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Isomorphismes de graphes</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propGraphes.html#exo-propGraphe" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaineEuler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Chaîne, cycle et graphe eulérien</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaineEuler.html#subsec-chaineCycle" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Chaîne et cycle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaineEuler.html#subsec-grapheConnexe" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Graphes connexes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaineEuler.html#subs-eulerien" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Chemins et circuits eulériens</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-chaineEuler.html#rq-connexeEuler" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaineEuler.html#exo-connexeEuler" class="internal"><span class="codenumber">7.3.5</span> <span class="title">Exercices</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -781,7 +792,7 @@ $\Box$
 </tr>
 </table></div></figure></div>
 </div></details></div></article></details><div class="para" id="subs-representationGraphe-5">Cette représentation peut nous aider à détecter certaines propriétés en commun de nos graphes. En particulier, lorsque le nombre de sommets augmente, la liste d’adjacence est souvent plus pratique que le dessin pour bien comprendre nos graphes. Aussi, on peut se servir d’une liste d’adjacence pour définir un graphe dans sage.</div>
-<div class="para" id="subs-representationGraphe-6"><div id="subs-representationGraphe-6-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Définition de G_1 dans sage à l'aide de la liste d'adjacence.
+<div class="para" id="subs-representationGraphe-6"><pre id="subs-representationGraphe-6-1" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Définition de G_1 dans sage à l'aide de la liste d'adjacence.
 d1={"a": ["b","c"], "b": ["a","c"], "c": ["a","b","d"], "d": ["c"]} # La liste d'adjacence de G_1
 g1 = Graph(d1)  #Définition de G_1
 g1.show()       #Pour afficher G_1 
@@ -789,7 +800,7 @@ g1.show()       #Pour afficher G_1
 d2={3: [2,4], 4: [2,3], 2: [1,3,4], 1: [2]} # La liste d'adjacence de G_2
 g2 = Graph(d2)  #Définition de G_2
 g2.show()       #Pour afficher G_2
-</script></div></div>
+</script></pre></div>
 <div class="para" id="subs-representationGraphe-7">Une autre façon de représenter un graphe est à l’aide d’une matrice d’adjacence. Pour pouvoir définir cet objet, on doit d’abord définir ce qu’est une matrice. Une matrice n’est rien d’autre qu’un tableau de nombre. Il s’agit d’un objet qui est surtout étudié dans un cours d’algèbre linéaire. Ici, on donne la définition d’une matrice ainsi que quelques exemples de base afin de se familiariser avec la notation avant de définir une matrice d’adjacence.</div>
 <article class="definition definition-like" id="def-matrice"><h4 class="heading">
 <span class="type">Définition</span><span class="space"> </span><span class="codenumber">7.2.6</span><span class="period">.</span>
@@ -935,11 +946,11 @@ M_H=\begin{pmatrix}
 <div class="para" id="exe-graphAPartirMatrice-3-1">Il y a plusieurs choix possibles pour <span class="process-math">\(H\text{.}\)</span>
 </div></article> <details id="exe-graphAPartirMatrice-4" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exe-graphAPartirMatrice-4-1">Une réponse possible est le graphe <span class="process-math">\(H\)</span> ci-dessous. <figure class="figure figure-like" id="fig-tikzit_exeMatAdjH"><div class="image-box" style="width: 50%; margin-left: 25%; margin-right: 25%;"><img src="generated/latex-image/tikzit_exeMatAdjH.svg" role="img" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.14<span class="period">.</span></span><span class="space"> </span>Le graphe <span class="process-math">\(H\)</span></figcaption></figure>
-</div></div></details></article></details><div class="para" id="subs-representationGraphe-17">On peut utiliser Sage afin de tracer un graphe à partir d’une matrice d’adjacence. Voici le graphe de l’exemple <a href="sec-propGraphes.html#exe-graphAPartirMatrice" class="xref" data-knowl="./knowl/xref/exe-graphAPartirMatrice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.12: Graphe à partir d’une matrice d’adjacence">7.2.12</a> obtenu à partir d’une matrice d’adjacence. <div id="subs-representationGraphe-17-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">Mat=matrix([[0,1,1,0,1],[1,0,1,1,0],[1,1,0,0,0],[0,1,0,0,1],[1,0,0,1,0]]) #Définition de la matrice d'adjacence
+</div></div></details></article></details><div class="para" id="subs-representationGraphe-17">On peut utiliser Sage afin de tracer un graphe à partir d’une matrice d’adjacence. Voici le graphe de l’exemple <a href="sec-propGraphes.html#exe-graphAPartirMatrice" class="xref" data-knowl="./knowl/xref/exe-graphAPartirMatrice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.12: Graphe à partir d’une matrice d’adjacence">7.2.12</a> obtenu à partir d’une matrice d’adjacence. <pre id="subs-representationGraphe-17-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">Mat=matrix([[0,1,1,0,1],[1,0,1,1,0],[1,1,0,0,0],[0,1,0,0,1],[1,0,0,1,0]]) #Définition de la matrice d'adjacence
 show(Mat)
 g=Graph(Mat) #Définition du graphe
 show(g)
-</script></div> Ici, on remarque que la forme obtenue par Sage est très différente de celle donnée dans l’exemple  <a href="sec-propGraphes.html#exe-graphAPartirMatrice" class="xref" data-knowl="./knowl/xref/exe-graphAPartirMatrice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.12: Graphe à partir d’une matrice d’adjacence">7.2.12</a>. En fait, cette forme semble suggérer que le graphe <span class="process-math">\(G\)</span> de l’exemple <a href="sec-propGraphes.html#exe-matriceAdjc" class="xref" data-knowl="./knowl/xref/exe-matriceAdjc.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.10: Matrice d’adjacence">7.2.10</a> est équivalent au graphe <span class="process-math">\(H\)</span> de l’exemple <a href="sec-propGraphes.html#exe-graphAPartirMatrice" class="xref" data-knowl="./knowl/xref/exe-graphAPartirMatrice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.12: Graphe à partir d’une matrice d’adjacence">7.2.12</a>. On montrera en effet que c’est le cas. Pour ce faire, on va enfin définir ce qu’est un isomorphisme de graphes.</div></section><section class="subsection" id="subs-isoGraphe"><h3 class="heading hide-type">
+</script></pre> Ici, on remarque que la forme obtenue par Sage est très différente de celle donnée dans l’exemple  <a href="sec-propGraphes.html#exe-graphAPartirMatrice" class="xref" data-knowl="./knowl/xref/exe-graphAPartirMatrice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.12: Graphe à partir d’une matrice d’adjacence">7.2.12</a>. En fait, cette forme semble suggérer que le graphe <span class="process-math">\(G\)</span> de l’exemple <a href="sec-propGraphes.html#exe-matriceAdjc" class="xref" data-knowl="./knowl/xref/exe-matriceAdjc.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.10: Matrice d’adjacence">7.2.10</a> est équivalent au graphe <span class="process-math">\(H\)</span> de l’exemple <a href="sec-propGraphes.html#exe-graphAPartirMatrice" class="xref" data-knowl="./knowl/xref/exe-graphAPartirMatrice.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 7.2.12: Graphe à partir d’une matrice d’adjacence">7.2.12</a>. On montrera en effet que c’est le cas. Pour ce faire, on va enfin définir ce qu’est un isomorphisme de graphes.</div></section><section class="subsection" id="subs-isoGraphe"><h3 class="heading hide-type">
 <span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">7.2.2</span><span class="space"> </span><span class="title">Isomorphismes de graphes</span>
 </h3>
 <section class="introduction" id="subs-isoGraphe-2"><div class="para" id="subs-isoGraphe-2-1">On est finalement prêt à donner une définition rigoureuse du fait que deux graphes qui sont décrits différemment peuvent en fait représenter deux graphes équivalents. Pour que deux graphes soient équivalents, il faut que l’un des graphes soit obtenu à partir de l’autre en changeant les noms des sommets. Ce changment de nom sera donné sous la forme d’une bijection entre les ensembles de sommets qui préservent les arêtes.</div></section><article class="definition definition-like" id="def-isoGraphe"><h4 class="heading">
@@ -974,9 +985,10 @@ show(g)
 </ul></div></li>
 <li id="prop-isoGraphe-1-2-5"><div class="para" id="p-derived-prop-isoGraphe-1-2-5">Il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_1\)</span> si et seulement si il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_2\text{.}\)</span> En particulier <span class="process-math">\(\chi(G_1)=\chi(G_2)\text{.}\)</span>
 </div></li>
-</ol></article><details id="exe-nonIso" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
+</ol></article><div class="para" id="subs-isoGraphe-6">La proposition <a href="sec-propGraphes.html#prop-isoGraphe" class="xref" data-knowl="./knowl/xref/prop-isoGraphe.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 7.2.16">7.2.16</a> est surtout utile pour montrer que deux graphes ne sont pas isomorphes. En effet, si deux graphes sont tels que toutes les conclusions de la proposition précédente sont satisfaites, celà ne garantie par que les graphes seront isomorphes (ce n’est pas un si et seulement si). Cependant, si l’une de ces conclusions ne pas satisfaites, on sait que les graphes ne sont pas isomorphes!</div>
+<details id="exe-nonIso" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.17</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-nonIso-1-1">On peut montrer que les deux graphes ci-dessous ne sont pas isomorphes, car il existe une coloration à deux couleurs pour le graphe <span class="process-math">\(G,\)</span> mais il faut trois couleurs pour une coloration de <span class="process-math">\(H\text{.}\)</span>
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-nonIso-1-1">On peut montrer que les deux graphes ci-dessous ne sont pas isomorphes, car il existe une coloration à deux couleurs pour le graphe <span class="process-math">\(G,\)</span> mais il faut au moins trois couleurs pour une coloration de <span class="process-math">\(H\text{.}\)</span>
 </div> <figure class="figure figure-like" id="exe-nonIso-1-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-2-2-1"><img src="external/tikzit_Graphesdiff2.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-2-2-2"><img src="external/tikzit_Graphesdiff1.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(h\)</span></figcaption></figure></div>
@@ -985,12 +997,16 @@ show(g)
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-4-2-1"><img src="external/tikzit_Graphesdiff2Coul.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
 <div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-nonIso-1-4-2-2"><img src="external/tikzit_GraphesdiffCoul.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.19<span class="period">.</span></span><span class="space"> </span>Coloration pour différencier des graphes</figcaption></figure></article></details><div class="para" id="subs-isoGraphe-7">Voici un exemple de deux graphes qui sont isomorphes.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.19<span class="period">.</span></span><span class="space"> </span>Coloration pour différencier des graphes</figcaption></figure></article></details><div class="para" id="subs-isoGraphe-8">Voici un exemple de deux graphes qui sont isomorphes.</div>
 <details id="exe-ouiIso" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.20</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="exe-ouiIso-1-1">
-<div class="para">Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <span class="process-math">\(f\)</span> allant des sommets de <span class="process-math">\(G\)</span> vers les sommets de <span class="process-math">\(H\)</span> comme ceci:</div>
-<div class="displaymath process-math" id="exe-ouiIso-1-1-4">
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-ouiIso-1-1">Les deux graphes ci-dessous sont isomorphes.</div> <figure class="figure figure-like" id="exe-ouiIso-1-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso-1-2-2-1"><img src="external/tikzit_GrapheSame.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso-1-2-2-2"><img src="external/tikzit_GrapheSame2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.21<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure> <div class="para logical" id="exe-ouiIso-1-3">
+<div class="para">En effet, on peut donner un isomorphisme <span class="process-math">\(f\)</span> allant des sommets de <span class="process-math">\(G\)</span> vers les sommets de <span class="process-math">\(H\)</span> comme ceci:</div>
+<div class="displaymath process-math" id="exe-ouiIso-1-3-4">
 \begin{align*}
 f(s_1)\amp=t_4\\
 f(s_2)\amp=t_5\\
@@ -999,16 +1015,45 @@ f(s_4)\amp=t_3\\
 f(s_5)\amp=t_2
 \end{align*}
 </div>
-</div> <figure class="figure figure-like" id="exe-ouiIso-1-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso-1-2-2-1"><img src="external/tikzit_GrapheSame.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso-1-2-2-2"><img src="external/tikzit_GrapheSame2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(h\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.21<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure></article></details><div class="para" id="subs-isoGraphe-9">Une autre paire de graphes qui sont isomorphes</div>
+</div> <div class="para" id="exe-ouiIso-1-4">Il, reste à vérifier que <span class="process-math">\(f\)</span> fait correspondre les arêtes de <span class="process-math">\(G\)</span> aux arêtes de <span class="process-math">\(H\text{.}\)</span> On peut le faire en listant toutes les arêtes de <span class="process-math">\(\{x_1, ,x_2\}\)</span> de <span class="process-math">\(G\)</span> et toutes les arêtes <span class="process-math">\(\{y_1, y_2\}\)</span> de <span class="process-math">\(H\text{,}\)</span> et vérifier que <span class="process-math">\(\{f(x_1), f(x_2)\}=\{y_1, y_2\}\text{.}\)</span>
+</div> <div class="para" id="exe-ouiIso-1-5">Bien que cette méthode fonctionne, elle est un peu longue à écrire. À la place, on propose la démarche suivante. On Trouve la matrice d’adjacence <span class="process-math">\(M_G\)</span> de <span class="process-math">\(G\)</span> selon l’ordre <span class="process-math">\(s_1, s_2, s_3, s_4, s_5 \text{.}\)</span> On fait la même chose pour <span class="process-math">\(H\text{,}\)</span> mais au lieu de trouver la matrice d’adjacence <span class="process-math">\(M_H\)</span> de <span class="process-math">\(H\)</span> selon l’ordre habituel <span class="process-math">\(t_1, t_2, t_3, t_4, t_5 \text{,}\)</span> on prend la matrice d’adjacence selon l’ordre <span class="process-math">\(f(s_1), f(s_2), f(s_3), f(s_4), f(s_5) \text{,}\)</span> c’est à dire selon l’ordre <span class="process-math">\(t_4, t_5, t_1, t_3, t_2 \text{.}\)</span>
+</div> <div class="para logical" id="exe-ouiIso-1-6">
+<div class="para">On obtient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+M_G=\begin{pmatrix} 
+0&amp;1&amp;1&amp;0&amp;1\\
+1&amp;0&amp;1&amp;0&amp;0\\
+1&amp;1&amp;0&amp;1&amp;0\\
+0&amp;0&amp;1&amp;0&amp;1\\
+1&amp;0&amp;0&amp;1&amp;0\\
+\end{pmatrix}.
+\end{equation*}
+</div>
+<div class="para">De même, pour <span class="process-math">\(M_H\text{,}\)</span> on trouve</div>
+<div class="displaymath process-math">
+\begin{equation*}
+M_H=\begin{pmatrix} 
+0&amp;1&amp;1&amp;0&amp;1\\
+1&amp;0&amp;1&amp;0&amp;0\\
+1&amp;1&amp;0&amp;1&amp;0\\
+0&amp;0&amp;1&amp;0&amp;1\\
+1&amp;0&amp;0&amp;1&amp;0\\
+\end{pmatrix}.
+\end{equation*}
+</div>
+<div class="para">Puisque les deux matrrices sont les mêmes, on à bien que <span class="process-math">\(G\cong H\text{.}\)</span>
+</div>
+</div></article></details><div class="para" id="subs-isoGraphe-10">Une autre paire de graphes qui sont isomorphes</div>
 <details id="exe-ouiIso2" class="example example-like born-hidden-knowl"><summary class="knowl__link"><h4 class="heading">
 <span class="type">Exemple</span><span class="space"> </span><span class="codenumber">7.2.22</span><span class="period">.</span>
-</h4></summary><article class="example example-like knowl__content"><div class="para logical" id="exe-ouiIso2-1-1">
-<div class="para">Les deux graphes ci-dessous sont isomorphes. On peut donner un isomorphisme <span class="process-math">\(g\)</span> allant des sommets de <span class="process-math">\(G\)</span> vers les sommets de <span class="process-math">\(H\)</span> comme ceci:</div>
-<div class="displaymath process-math" id="exe-ouiIso2-1-1-4">
+</h4></summary><article class="example example-like knowl__content"><div class="para" id="exe-ouiIso2-1-1">Les deux graphes ci-dessous sont isomorphes.</div> <figure class="figure figure-like" id="exe-ouiIso2-1-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso2-1-2-2-1"><img src="external/tikzit_GrapheIsoSimpleOui1.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
+<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso2-1-2-2-2"><img src="external/tikzit_GrapheIsoSimpleOui2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.23<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure>  <div class="para logical" id="exe-ouiIso2-1-3">
+<div class="para">En effet, on peut donner un isomorphisme <span class="process-math">\(g\)</span> allant des sommets de <span class="process-math">\(G\)</span> vers les sommets de <span class="process-math">\(H\)</span> comme ceci:</div>
+<div class="displaymath process-math" id="exe-ouiIso2-1-3-4">
 \begin{align*}
 g(a)\amp=s_2\\
 g(b)\amp=s_6\\
@@ -1018,13 +1063,68 @@ g(e)\amp=s_5\\
 g(f)\amp=s_1
 \end{align*}
 </div>
-</div> <figure class="figure figure-like" id="exe-ouiIso2-1-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso2-1-2-2-1"><img src="external/tikzit_GrapheIsoSimpleOui1.jpg" class="contained"><figcaption><span class="codenumber">(a)</span><span class="space"> </span><span class="process-math">\(G\)</span></figcaption></figure></div>
-<div class="sbspanel top" style="width:50%;"><figure class="figure figure-like" id="exe-ouiIso2-1-2-2-2"><img src="external/tikzit_GrapheIsoSimpleOui2.jpg" class="contained"><figcaption><span class="codenumber">(b)</span><span class="space"> </span><span class="process-math">\(H\)</span></figcaption></figure></div>
-</div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.2.23<span class="period">.</span></span><span class="space"> </span>Graphes isomorphes</figcaption></figure></article></details></section></section></div>
+</div>  <div class="para logical" id="exe-ouiIso2-1-4">
+<div class="para">Encore une fois, on va trouver les matrices d’adjacence <span class="process-math">\(M_G\)</span> et de <span class="process-math">\(M_H\text{.}\)</span> Pour <span class="process-math">\(G\text{,}\)</span> on prend l’ordre <span class="process-math">\(a,b, c, d, e, f\text{,}\)</span> alors qu’on prend l’ordre <span class="process-math">\(g(a), g(b), g(c), g(d), g(e), g(f)\text{,}\)</span> c’est-à-dire  l’ordre <span class="process-math">\(s_2, s_6, s_4, s_3, s_5, s_1\text{.}\)</span> On obtient</div>
+<div class="displaymath process-math">
+\begin{equation*}
+M_G=\begin{pmatrix} 
+0&amp;0&amp;1&amp;0&amp;1&amp;0\\
+0&amp;0&amp;0&amp;1&amp;1&amp;1\\
+1&amp;0&amp;0&amp;1&amp;0&amp;1\\
+0&amp;1&amp;1&amp;0&amp;0&amp;0\\
+1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;1&amp;1&amp;0&amp;0&amp;0\\
+\end{pmatrix}
+\end{equation*}
+</div>
+<div class="para">et</div>
+<div class="displaymath process-math">
+\begin{equation*}
+M_H=\begin{pmatrix} 
+0&amp;0&amp;1&amp;0&amp;1&amp;0\\
+0&amp;0&amp;0&amp;1&amp;1&amp;1\\
+1&amp;0&amp;0&amp;1&amp;0&amp;1\\
+0&amp;1&amp;1&amp;0&amp;0&amp;0\\
+1&amp;1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;1&amp;1&amp;0&amp;0&amp;0\\
+\end{pmatrix}.
+\end{equation*}
+</div>
+<div class="para">Puisque <span class="process-math">\(M_G=M_H\text{,}\)</span> on a que <span class="process-math">\(G\cong H\text{.}\)</span>
+</div>
+</div></article></details></section><section class="exercises" id="exo-propGraphe"><h3 class="heading hide-type">
+<span class="type">Exercices</span><span class="space"> </span><span class="codenumber">7.2.3</span><span class="space"> </span><span class="title">Exercices</span>
+</h3>
+<article class="subexercises" id="exo-propGraphe-2"><h4 class="heading"><span class="title">À faire en classe</span></h4>
+<div class="introduction" id="exo-propGraphe-2-2"><div class="para" id="exo-propGraphe-2-2-1">Ces exercices sont faits pour travailler en classe. Ils servent à approfondir les notions de la section et à atteindre les objectifs d’apprentissage plus avancés.</div></div>
+<article class="exercise exercise-like" id="exo-isoRelEqu"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-isoRelEqu-1"><div class="para" id="exo-isoRelEqu-1-1">On peut voir que le fait d’être isomorphe est une relation entre les différents graphes. On veut montrer que cette relation satisfait certaines propriétés. Une relation ayant les propriétés si-dessous est appelée une relation d’Équivalence.</div></div>
+<article class="task exercise-like" id="prop-isoRefl"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="prop-isoRefl-1-1">Montrer que si <span class="process-math">\(G=(S,A)\)</span> est un graphe simple, alors <span class="process-math">\(G\cong G\text{.}\)</span>
+</div>
+<div class="solutions"><details id="prop-isoRefl-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="prop-isoRefl-2-1">Il suffit de prendre <span class="process-math">\(f:S\rightarrow S\)</span> la fonction identité, c’est-à-dire <span class="process-math">\(f(s)=s\)</span> pour <span class="process-math">\(s\in S\text{.}\)</span>
+</div></div></details></div></article><article class="task exercise-like" id="prop-isoSym"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="prop-isoSym-1-1">S’il existe un isomorphisme <span class="process-math">\(f:S_1\rightarrow S_2\)</span> du graphe <span class="process-math">\(G_1=(S_1,A_1)\)</span> vers le graphe <span class="process-math">\(G_2=(S_2,A_2)\text{,}\)</span> alors il existe un isomorphisme <span class="process-math">\(g:S_2 \rightarrow S_1\)</span> du graphe <span class="process-math">\(G_2\)</span> vers le graphe <span class="process-math">\(G_1\text{.}\)</span>
+</div>
+<div class="solutions"><details id="prop-isoSym-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
+<div class="para" id="prop-isoSym-2-1">Il suffit de poser <span class="process-math">\(g=f^{-1}\text{.}\)</span> En effet, puisque <span class="process-math">\(f\)</span> est une fonction bijective, <span class="process-math">\(f_{-1}:S_2\rightarrow S_1\)</span> existe et est également une fonction bijective.</div> <div class="para" id="prop-isoSym-2-2">Il reste à vérifier que <span class="process-math">\(g\)</span> est bien un isomorphisme de graphe, c’est-à-dire que soit <span class="process-math">\(t_1, t_2\in S_2 \text{,}\)</span> alors <span class="process-math">\(\{t_1,t_2\}\in A_2\)</span> si et seulement si <span class="process-math">\(\{f^{-1}(t_1),f^{-1}(t_2)\}\in A_1\text{.}\)</span> Puisque <span class="process-math">\(f\)</span> est surjective, on peut poser <span class="process-math">\(t_1=f(s_1)\)</span> et <span class="process-math">\(t_2=f(s_2)\)</span> pour <span class="process-math">\(s_1, s_2 \in S_1\text{.}\)</span> Ainsi, on a également <span class="process-math">\(s_1=f^{-1}(t_1)\)</span> et <span class="process-math">\(s_2=f^{-1}(t_2).\)</span>
+</div> <div class="para" id="prop-isoSym-2-3">Par ce qui précède, l’énoncé “<span class="process-math">\(\{t_1,t_2\}\in A_2\)</span> si et seulement si <span class="process-math">\(\{f^{-1}(t_1),f^{-1}(t_2)\}\in A_1\)</span>” devient “<span class="process-math">\(\{f(s_1),f(s_2)\}\in A_2\)</span> si et seulement si <span class="process-math">\(\{s_1,s_2\}\in A_1\)</span>”, ce qui est vrai, car <span class="process-math">\(f\)</span> est un isomorphisme.</div> <div class="para" id="prop-isoSym-2-4">On a donc bien montré que <span class="process-math">\(g=f^{-1}\)</span> est un isomorphisme de <span class="process-math">\(G_2\)</span> vers <span class="process-math">\(G_1\text{.}\)</span>
+</div>
+</div></details></div></article><article class="task exercise-like" id="prop-isoTrans"><h6 class="heading"><span class="codenumber">(c)</span></h6>
+<div class="para" id="prop-isoTrans-1-1">Soit <span class="process-math">\(G_1=(S_1,A_1)\text{,}\)</span> <span class="process-math">\(G_2=(S_2,A_2)\)</span> et <span class="process-math">\(G_3=(S_3,A_3)\)</span> trois graphes simples tels que <span class="process-math">\(G_1\cong G_2\)</span> et <span class="process-math">\(G_2\cong G_3\text{.}\)</span> Montrer que <span class="process-math">\(\text{.}\)</span>
+</div>
+<div class="solutions"><details id="prop-isoTrans-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period">.</span></summary><div class="solution solution-like knowl__content"><div class="para" id="prop-isoTrans-2-1">Soit <span class="process-math">\(f:S_1\rightarrow S_2\)</span> un isomorphisme entre <span class="process-math">\(G_1\)</span> et <span class="process-math">\(G_2\text{,}\)</span> et soit <span class="process-math">\(g:S_2\rightarrow S_3\)</span> un isomorphisme entre <span class="process-math">\(G_2\)</span> et <span class="process-math">\(G_3\text{.}\)</span> On pose <span class="process-math">\(h=f\circ g:S_1\rightarrow S_3\text{.}\)</span> Par la définition de <span class="process-math">\(f\)</span> et <span class="process-math">\(g\text{,}\)</span> on vérifie facilement qu’il s’agit d’un isomorphisme.</div></div></details></div></article></article><article class="exercise exercise-like" id="exo-propGraphe-2-4"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<div class="para" id="exo-propGraphe-2-4-1-1">On considère <span class="process-math">\(C_n=(S,A)\)</span> le graphe cyclique à <span class="process-math">\(n\)</span> sommets, disons <span class="process-math">\(S=\{s_1, s_2, \dots s_n\}\text{.}\)</span> Par l’exercice <a href="sec-propGraphes.html#prop-isoRefl" class="xref" data-knowl="./knowl/xref/prop-isoRefl.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Tâche 7.2.3.1.a">7.2.3.1.a</a>, on sait qu’il existe au moins un isomorphisme <span class="process-math">\(f:S\rightarrow S\text{.}\)</span> Cependant, il pourrait y en avoir plus. Parmi toutes les <span class="process-math">\(n!\)</span> bijections de <span class="process-math">\(S\)</span> vers <span class="process-math">\(S\text{,}\)</span> combiend d’etres elles sont des isomorphismes de graphes? Autrement dit, combien d’isomorphisme différent existe-t-il allant de <span class="process-math">\(C_n\)</span> vers <span class="process-math">\(C_n\text{.}\)</span>
+</div>
+<div class="solutions"><details id="exo-propGraphe-2-4-2" class="answer solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Réponse</span><span class="period">.</span></summary><div class="answer solution-like knowl__content"><div class="para" id="exo-propGraphe-2-4-2-1">Il y a <span class="process-math">\(2\cdot n\)</span> isomorphismes différents entre <span class="process-math">\(C_n\)</span> et <span class="process-math">\(C_n\text{.}\)</span>
+</div></div></details></div></article><article class="exercise exercise-like" id="exo-preuveProp"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<div class="introduction" id="exo-preuveProp-1"><div class="para" id="exo-preuveProp-1-1">Démontrer la proposition <a href="sec-propGraphes.html#prop-isoGraphe" class="xref" data-knowl="./knowl/xref/prop-isoGraphe.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 7.2.16">7.2.16</a>. Soit <span class="process-math">\(G_1=(S_1,A_1)\cong G_2=(S_2,A_2)\text{,}\)</span> Montrer que :</div></div>
+<article class="task exercise-like" id="exo-preuveProp-2"><h6 class="heading"><span class="codenumber">(a)</span></h6>
+<div class="para" id="exo-preuveProp-2-1"><span class="process-math">\(|A_1|=|A_2| \)</span></div></article><article class="task exercise-like" id="exo-preuveProp-3"><h6 class="heading"><span class="codenumber">(b)</span></h6>
+<div class="para" id="exo-preuveProp-3-1">S’il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_1\text{,}\)</span> alors il existe une coloration à <span class="process-math">\(n\)</span> couleurs de <span class="process-math">\(G_2\text{.}\)</span>
+</div></article></article></article></section></section></div>
 <div class="ptx-content-footer">
-<a class="previous-button button" href="sec-introGraphe.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="Back.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+<a class="previous-button button" href="sec-introGraphe.html" title="Précédent"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Précédent</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="sec-chaineEuler.html" title="Suivant"><span class="name">Suivant</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">

@@ -9,10 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
-  "inputLocation": "div.sagecell-sage",
+  "inputLocation": "pre.sagecell-sage",
   "linked": true,
   "linkKey": "linked-sage",
   "autoeval": false,
@@ -42,8 +42,8 @@ A0E2F3_{16}&amp;=A\times 16^5+0\times 16^4+E\times 16^3+2\times 16^2+F\times 16^
 \end{align*}
 </div>
 </div></div></details><details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="space"> </span><span class="codenumber">2</span><span class="period">.</span></summary><div class="solution solution-like knowl__content">
-<div class="para">Pour la conversion de la base décimale vers la base seize, on regarde encore quelle est la plus grande puissance de seize qui est inférieure ou égale au nombre à convertir. Pour <span class="process-math">\(987654321\text{,}\)</span> c’est <span class="process-math">\(16^7=268435456\)</span> qui sera utilisé. Il y a toutefois une étape supplémentaire à considérer par rapport à la conversion au binaire. Combien de fois <span class="process-math">\(16^7\)</span> rentre-t-il dans <span class="process-math">\(987654321\text{?}\)</span> On utilise Sage pour faire ce calcul, en notant qu’à la section suivante on aura un opérateur spécial qui donnera directement la réponse, sans tenir compte de la partie fractionnaire.</div> <div id="sol-decihexa-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">987654321.0/16^7
-</script></div> <div class="para logical">
+<div class="para">Pour la conversion de la base décimale vers la base seize, on regarde encore quelle est la plus grande puissance de seize qui est inférieure ou égale au nombre à convertir. Pour <span class="process-math">\(987654321\text{,}\)</span> c’est <span class="process-math">\(16^7=268435456\)</span> qui sera utilisé. Il y a toutefois une étape supplémentaire à considérer par rapport à la conversion au binaire. Combien de fois <span class="process-math">\(16^7\)</span> rentre-t-il dans <span class="process-math">\(987654321\text{?}\)</span> On utilise Sage pour faire ce calcul, en notant qu’à la section suivante on aura un opérateur spécial qui donnera directement la réponse, sans tenir compte de la partie fractionnaire.</div> <pre id="sol-decihexa-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">987654321.0/16^7
+</script></pre> <div class="para logical">
 <div class="para">Comme on obtient <span class="process-math">\(3.67929906026\text{,}\)</span> on déduit qu’on peut mettre trois puissances de <span class="process-math">\(16^7\text{,}\)</span> mais pas quatre. On a donc</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -52,10 +52,10 @@ A0E2F3_{16}&amp;=A\times 16^5+0\times 16^4+E\times 16^3+2\times 16^2+F\times 16^
 </div>
 <div class="para">On poursuit les calculs avec Sage. Dans un premier temps, que reste-t-il si on soustrait <span class="process-math">\(3\times 16^7\)</span> à <span class="process-math">\(987654321\text{?}\)</span>
 </div>
-</div> <div id="sol-decihexa-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">987654321-3*16^7
-</script></div> <div class="para">La plus grande puissance de <span class="process-math">\(16\)</span> qui est plus petite que ce nombre est <span class="process-math">\(16^6\text{.}\)</span> En répétant la méthode ci-dessus, on calcule combien de fois cette puissance rentre dans <span class="process-math">\(182347953\text{.}\)</span>
-</div> <div id="sol-decihexa-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">182347953.0/16^6
-</script></div> <div class="para logical">
+</div> <pre id="sol-decihexa-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">987654321-3*16^7
+</script></pre> <div class="para">La plus grande puissance de <span class="process-math">\(16\)</span> qui est plus petite que ce nombre est <span class="process-math">\(16^6\text{.}\)</span> En répétant la méthode ci-dessus, on calcule combien de fois cette puissance rentre dans <span class="process-math">\(182347953\text{.}\)</span>
+</div> <pre id="sol-decihexa-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">182347953.0/16^6
+</script></pre> <div class="para logical">
 <div class="para">La puissance peut rentrer <span class="process-math">\(10\)</span> fois, ce qui veut dire que le symbole utilisé sera <span class="process-math">\(A\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -64,9 +64,9 @@ A0E2F3_{16}&amp;=A\times 16^5+0\times 16^4+E\times 16^3+2\times 16^2+F\times 16^
 \end{equation*}
 </div>
 <div class="para">On soustrait <span class="process-math">\(10\times 16^6\)</span> de <span class="process-math">\(182347953\)</span> pour obtenir le reste.</div>
-</div> <div id="sol-decihexa-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">182347953-10*16^6
-</script></div> <div class="para">On effectue une dernière étape complète avant de donner la réponse. Le reste pourra être complété en exercice. La cinquième puissance de <span class="process-math">\(16\)</span> sera la prochaine à être utilisée.</div> <div id="sol-decihexa-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">14575793.0/16^5
-</script></div> <div class="para logical">
+</div> <pre id="sol-decihexa-8" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">182347953-10*16^6
+</script></pre> <div class="para">On effectue une dernière étape complète avant de donner la réponse. Le reste pourra être complété en exercice. La cinquième puissance de <span class="process-math">\(16\)</span> sera la prochaine à être utilisée.</div> <pre id="sol-decihexa-10" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">14575793.0/16^5
+</script></pre> <div class="para logical">
 <div class="para">On peut donc mettre <span class="process-math">\(13\)</span> fois <span class="process-math">\(16^5\)</span> dans <span class="process-math">\(14575793\text{,}\)</span> ce qui signifie que le symbole utilisé sera <span class="process-math">\(D\text{.}\)</span> On aura</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -74,8 +74,8 @@ A0E2F3_{16}&amp;=A\times 16^5+0\times 16^4+E\times 16^3+2\times 16^2+F\times 16^
 \end{equation*}
 </div>
 <div class="para">Le reste sera égal à <span class="process-math">\(944305\)</span> , comme le montre le calcul ci-dessous.</div>
-</div> <div id="sol-decihexa-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">14575793-13*16^5
-</script></div> <div class="para logical">
+</div> <pre id="sol-decihexa-12" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">14575793-13*16^5
+</script></pre> <div class="para logical">
 <div class="para">Au final, on peut montrer que</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/exo-hexaafinir.html">
 \begin{equation*}

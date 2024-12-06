@@ -85,10 +85,10 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
-  "inputLocation": "div.sagecell-sage",
+  "inputLocation": "pre.sagecell-sage",
   "linked": true,
   "linkKey": "linked-sage",
   "autoeval": false,
@@ -691,6 +691,17 @@ $\Box$
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-representationGraphe" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Représentations des graphes</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-isoGraphe" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Isomorphismes de graphes</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propGraphes.html#exo-propGraphe" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaineEuler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Chaîne, cycle et graphe eulérien</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaineEuler.html#subsec-chaineCycle" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Chaîne et cycle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaineEuler.html#subsec-grapheConnexe" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Graphes connexes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaineEuler.html#subs-eulerien" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Chemins et circuits eulériens</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-chaineEuler.html#rq-connexeEuler" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaineEuler.html#exo-connexeEuler" class="internal"><span class="codenumber">7.3.5</span> <span class="title">Exercices</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -1234,7 +1245,7 @@ a-c-(b+d)=(k_1+k_2)n
 </div>
 <div class="para" id="sec-modulo-6-5">Les cellules Sage ci-dessous montrent comment on peut coder ce processus. La première cellule crée une fonction qui prend un message ne contenant que des caractères alphabétiques et le convertit en liste de nombres selon la position des lettres. On enlève les espaces et on met la phrase en majuscule.</div>
 <aside class="aside aside-like" id="sec-modulo-6-6"><h4 class="heading"><span class="title">En passant.</span></h4>
-<div class="para" id="sec-modulo-6-6-2">On peut parfois utiliser la cryptographie dans un but autre que celui d’envoyer un message secret. Sur certains forums de discussions, un encodage de César est parfois utilisé afin de ne pas divulgâcher une série, un film, un jeu vidéo ou autre. Typiquement, on utilise le chiffrement de César avec décalage de 13 caractères. On l’appelle d’ailleurs ROT-13. Un exemple peut-être vu à <a class="external" href="https://www.vendetta-online.com/x/msgboard/15/10908?page=3" target="_blank">cette adresse</a><details class="ptx-footnote" aria-live="polite" id="sec-modulo-6-6-2-2"><summary class="ptx-footnote__number" title="Note de bas de page 3.3.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="sec-modulo-6-6-2-2"><code class="code-inline tex2jax_ignore">www.vendetta-online.com/x/msgboard/15/10908?page=3</code></div></details><details class="ptx-footnote" aria-live="polite" id="sec-modulo-6-6-2-3"><summary class="ptx-footnote__number" title="Note de bas de page 3.3.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="sec-modulo-6-6-2-3"><code class="code-inline tex2jax_ignore">https://www.vendetta-online.com/x/msgboard/15/10908?page=3</code></div></details> concernant Harry Potter.</div></aside><div id="sec-modulo-6-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour convertir un message en nombres
+<div class="para" id="sec-modulo-6-6-2">On peut parfois utiliser la cryptographie dans un but autre que celui d’envoyer un message secret. Sur certains forums de discussions, un encodage de César est parfois utilisé afin de ne pas divulgâcher une série, un film, un jeu vidéo ou autre. Typiquement, on utilise le chiffrement de César avec décalage de 13 caractères. On l’appelle d’ailleurs ROT-13. Un exemple peut-être vu à <a class="external" href="https://www.vendetta-online.com/x/msgboard/15/10908?page=3" target="_blank">cette adresse</a><details class="ptx-footnote" aria-live="polite" id="sec-modulo-6-6-2-2"><summary class="ptx-footnote__number" title="Note de bas de page 3.3.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="sec-modulo-6-6-2-2"><code class="code-inline tex2jax_ignore">www.vendetta-online.com/x/msgboard/15/10908?page=3</code></div></details><details class="ptx-footnote" aria-live="polite" id="sec-modulo-6-6-2-3"><summary class="ptx-footnote__number" title="Note de bas de page 3.3.4"><sup> 4 </sup></summary><div class="ptx-footnote__contents" id="sec-modulo-6-6-2-3"><code class="code-inline tex2jax_ignore">https://www.vendetta-online.com/x/msgboard/15/10908?page=3</code></div></details> concernant Harry Potter.</div></aside><pre id="sec-modulo-6-7" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour convertir un message en nombres
 def msganombres(M):
     M=M.replace(" ", "") #On enlève les espaces
     M=M.upper() #On met tous les caractères en majuscules
@@ -1243,53 +1254,53 @@ def msganombres(M):
     for lettre in M:
         Mnombres.append(Alphabet.index(lettre)+1) #Le plus 1 est nécessaire, car Sage commence ses positions à 0.
     return Mnombres
-</script></div>
+</script></pre>
 <div class="para" id="sec-modulo-6-8">La deuxième cellule crée une fonction qui, à partir d’une liste de nombres, renvoie un message. Ce message est écrit en majuscule et ne possède pas d’espaces.</div>
-<div id="sec-modulo-6-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour convertir une liste de nombres en message
+<pre id="sec-modulo-6-9" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour convertir une liste de nombres en message
 def nombresamessage(L):
     Alphabet=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     M="" #Le message
     for nombre in L:
         M=M+Alphabet[nombre-1] #Le -1 est nécessaire, car Sage commence ses positions à 0.
     return M
-</script></div>
+</script></pre>
 <div class="para" id="sec-modulo-6-10">La troisième cellule effectue le décalage d’une liste. À partir d’une liste <code class="code-inline tex2jax_ignore">L</code> et d’un nombre <span class="process-math">\(n\text{,}\)</span> on ajoute <span class="process-math">\(n\)</span> à chaque entrée de la liste, en travaillant modulo <span class="process-math">\(26\text{.}\)</span>
 </div>
-<div id="sec-modulo-6-11" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Fonction pour translater le message
+<pre id="sec-modulo-6-11" class="ptx-sagecell sagecell-sage"><script type="text/x-sage"># Fonction pour translater le message
 def Cesar(L,n):# On translate la liste L de n modulo 26
     Lt=[] #La liste translaté
     for i in range(len(L)):
         Lt.append((L[i]+n )%26)
     return Lt
-</script></div>
+</script></pre>
 <div class="para" id="sec-modulo-6-12">Finalement, la dernière fonction prend un message et un nombre <span class="process-math">\(n\)</span> et retourne le message codé.</div>
-<div id="sec-modulo-6-13" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour crypter un message
+<pre id="sec-modulo-6-13" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour crypter un message
 def EncodeurCesar(M,n):# Code le message M selon le chiffrement de césar avec paramètre n
     L=msganombres(M)
     Lt=Cesar(L,n)
     Mcode=nombresamessage(Lt)
     return Mcode
-</script></div>
+</script></pre>
 <div class="para" id="sec-modulo-6-14">On teste finalement ici avec les messages secrets “Bonjour” et “Vive les maths”. Il faut s’assurer d’avoir exécuter toutes les cellules ci-dessus pour que la prochaine fonctionne.</div>
-<div id="sec-modulo-6-15" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">print(EncodeurCesar("Bonjour",3))
+<pre id="sec-modulo-6-15" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">print(EncodeurCesar("Bonjour",3))
 print(EncodeurCesar("Vive les maths",14))
-</script></div>
+</script></pre>
 <div class="para" id="sec-modulo-6-16">Pour décoder un message crypté à l’aide de chiffrement de César, il suffit d’appliquer le chiffrement inverse. Ainsi, si on a le message “WPDPEFOTLYEDOPDTXDZYEWPDXPTWWPFCD” et qu’on sait que le message a été chiffré à l’aide d’un César avec paramètre <span class="process-math">\(11\text{,}\)</span> on peut appliquer un chiffrement de <span class="process-math">\(-11\)</span> pour décoder le message.</div>
-<div id="sec-modulo-6-17" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">print(EncodeurCesar('WPDPEFOTLYEDOPDTXDZYEWPDXPTWWPFCD',-11))
-</script></div>
+<pre id="sec-modulo-6-17" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">print(EncodeurCesar('WPDPEFOTLYEDOPDTXDZYEWPDXPTWWPFCD',-11))
+</script></pre>
 <div class="para" id="sec-modulo-6-18">Le chiffrement de César est simple, mais peu sécuritaire. Avec un message suffisament long, un personne pourrait intercepter le message et utiliser une analyse fréquentielle sur les lettres afin de deviner le paramètre de translation utilisé. Dans la langue française, la lettre “e” est la plus utilisés, avec un peu plus de <span class="process-math">\(12\%\)</span> selon <a class="external" href="https://fr.wikipedia.org/wiki/Fr%C3%A9quence_d%27apparition_des_lettres_en_fran%C3%A7ais" target="_blank">Wikipedia</a><details class="ptx-footnote" aria-live="polite" id="sec-modulo-6-18-4"><summary class="ptx-footnote__number" title="Note de bas de page 3.3.5"><sup> 5 </sup></summary><div class="ptx-footnote__contents" id="sec-modulo-6-18-4"><code class="code-inline tex2jax_ignore">fr.wikipedia.org/wiki/Fr%C3%A9quence_d%27apparition_des_lettres_en_fran%C3%A7ais</code></div></details>.</div>
 <div class="para logical" id="sec-modulo-6-19">
 <div class="para">Ainsi, si on reçoit le message</div>
 <pre class="code-display tex2jax_ignore">HBJSHPYKLSHSBULTVUHTPWPLYYVAWYLALTVPAHWSBTLWVBYLJYPYLBUTVATHJOHUKLSSLLZATVYALQLUHPWSBZKLMLBVBCYLTVPAHWVYALWVBYSHTVBYKLKPLB</pre>
 <div class="para">, on peut vérifier que la lettre la plus fréquente dans ce message est “L”. Sage peut être utile avec la fonction <code class="code-inline tex2jax_ignore">mode</code>, qui retourne l’élément d’une liste qui apparait le plus souvent.</div>
 </div>
-<div id="sec-modulo-6-20" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">Mbizarre='HBJSHPYKLSHSBULTVUHTPWPLYYVAWYLALTVPAHWSBTLWVBYLJYPYLBUTVATHJOHUKLSSLLZATVYALQLUHPWSBZKLMLBVBCYLTVPAHWVYALWVBYSHTVBYKLKPLB'
+<pre id="sec-modulo-6-20" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">Mbizarre='HBJSHPYKLSHSBULTVUHTPWPLYYVAWYLALTVPAHWSBTLWVBYLJYPYLBUTVATHJOHUKLSSLLZATVYALQLUHPWSBZKLMLBVBCYLTVPAHWVYALWVBYSHTVBYKLKPLB'
 mode(list(Mbizarre))
-</script></div>
+</script></pre>
 <div class="para" id="sec-modulo-6-21">Il est donc plausible de penser que le chiffrement a envoyé “E” sur “L” et on peut tenter de déchiffrer ce message en appliquant un chiffrement inverse. Comme <span class="process-math">\(\text{E}=5\)</span> et que <span class="process-math">\(\text{L}=12\text{,}\)</span> on essaie un chiffrement de <span class="process-math">\(-7\text{.}\)</span>
 </div>
-<div id="sec-modulo-6-22" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">EncodeurCesar(Mbizarre,-7)
-</script></div>
+<pre id="sec-modulo-6-22" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">EncodeurCesar(Mbizarre,-7)
+</script></pre>
 <div class="para" id="sec-modulo-6-23">Une belle chanson!</div>
 <div class="para" id="sec-modulo-6-24">Pire encore, étant donné le petit nombre de possibilités, même sans avoir recours à l’analyse de la lettre la plus fréquente il est possible de déchiffrer le message. Il suffit d’essayer chacune des <span class="process-math">\(25\)</span> possibilités (on n’a certainement pas fait un décalage de <span class="process-math">\(26\equiv 0 \mod 26\)</span> caractères) et de constater que la plupart des messages seront insignifiants. On pourra alors rapidement décoder le bon message.</div>
 <div class="para" id="sec-modulo-6-25">On imagine un instant que les systèmes précédents ne soient pas si facile que cela à décoder. Un autre désavantage de ces systèmes est que pour envoyer un message à quelqu’un, je dois aussi lui transmettre quelle encryption j’ai effectuée, afin qu’il puisse décrypter le messsage. Cette information doit être transmise de manière sécuritaire afin que personne d’autre que la personne visée par le message ne puisse le déchiffrer (encore une fois, on suppose que le décodage n’est pas facile). Un système où l’auteur et le destinataire doivent connaitre la méthode d’encryptage est appelé un système à clé privée.</div>
@@ -1297,24 +1308,24 @@ mode(list(Mbizarre))
 <div class="para" id="sec-modulo-6-27">On suppose que Damien veut offrir aux gens la possibilité de lui envoyer des messages privés. Pour ce faire, il choisit deux nombres premiers. Pour l’exemple, il choisit <span class="process-math">\(p=7\)</span> et <span class="process-math">\(q=13\text{.}\)</span> Il garde ces deux nombres secrets, mais donne à qui veut bien lui envoyer un message le produit <span class="process-math">\(pq=91\text{.}\)</span> Ensuite, Damien doit sélectionner un autre nombre <span class="process-math">\(e\)</span> tel que <span class="process-math">\(\pgcd{(e,(p-1)(q-1))}=1\text{.}\)</span> Puisque <span class="process-math">\((p-1)(q-1)=6\times 12=72\text{,}\)</span> Damien choisit <span class="process-math">\(e=5\text{.}\)</span> Damien donne aussi à qui veut bien lui envoyer un message ce nombre <span class="process-math">\(e\text{.}\)</span> Ensemble, la paire <span class="process-math">\((91,5)\)</span> constitue la clé publique de Damien.</div>
 <div class="para" id="sec-modulo-6-28">Dans la réalité, Damien choisirait des nombres beaucoup plus grands, sans quoi la sécurité du système RSA expliqué ci-dessous serait nulle. On considère maintenant Marie, qui souhaite envoyer le message “Bonjour” à Damien. Marie commence par transformer son message en nombres et obtient <code class="code-inline tex2jax_ignore">2 15 14 10 15 21 18 </code>. Puis, elle prend chacun de des chiffres <span class="process-math">\(M\)</span> de son message et les encode à l’aide de la formule <span class="process-math">\(C=M^e\mod pq\text{.}\)</span> Par exemple “B” devient <span class="process-math">\(2^5 \mod 91 =32\text{,}\)</span> puis “O” devient <span class="process-math">\(15^5 \mod 91=71\text{,}\)</span> “N” devient (reste) <span class="process-math">\(14\)</span> et ainsi de suite. Le message devient ainsi <code class="code-inline tex2jax_ignore">32 71 14 82 71 21 44</code>. C’est ce message qui est transmis à Damien.</div>
 <div class="para" id="sec-modulo-6-29">Damien reçoit donc le message <code class="code-inline tex2jax_ignore">32 71 14 82 71 21 44</code> et entreprend donc de le décoder. Pour cela, il doit calculer un inverse de <span class="process-math">\(e\)</span> modulo <span class="process-math">\((p-1)(q-1)\text{.}\)</span> Puisque <span class="process-math">\(e\)</span> avait été choisi pour qu’un inverse existe, il sait que  c’est posssible. Damien se souvient de l’exemple <a href="sec-modulo.html#ex-inversemodulo" class="xref" data-knowl="./knowl/xref/ex-inversemodulo.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Exemple 3.3.18: Un inverse modulo 72">3.3.18</a> et sait que <span class="process-math">\(d=29\)</span> est un inverse pour <span class="process-math">\(5\)</span> modulo <span class="process-math">\(72\text{.}\)</span> Pour décoder le message de Marie, Damien applique à chaque nombre reçu la formule <span class="process-math">\(M=C^d \mod pq\text{.}\)</span> On utilise Sage pour décoder le message.</div>
-<div id="sec-modulo-6-30" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">C=[32, 71, 14, 82, 71, 21, 44]
+<pre id="sec-modulo-6-30" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">C=[32, 71, 14, 82, 71, 21, 44]
 M=[]
 for c in C:
     M.append(c^29 % 91)
 print(M)
-</script></div>
+</script></pre>
 <div class="para" id="sec-modulo-6-31">La sécurité du système RSA vient du fait que, sans connaitre <span class="process-math">\(p\)</span> et <span class="process-math">\(q\)</span> individuellement, il est impossible de déterminer l’inverse de <span class="process-math">\(e\)</span> et ainsi décoder le message. Lorsqu’en pratique, <span class="process-math">\(p,q,e\)</span> sont choisis de sorte à posséder un très grand nombre de chiffres, même l’ordinateur le plus puissant ne pourra décoder le message en un temps raisonnable sans connaitre <span class="process-math">\(d\text{.}\)</span>
 </div>
 <div class="para" id="sec-modulo-6-32">L’explication du pourquoi le décodage fonctionne avec la formule <span class="process-math">\(M=C^d \mod pq\)</span> utilise un résultat appelé le petit théorème de Fermat. On explore ceci dans l’exercice <code class="code-inline tex2jax_ignore">[provisional cross-reference: exo-RSA]</code>. Les cellules suivantes permettent d’encoder un message avec le cryptage RSA à partir de deux nombres <span class="process-math">\(pq,e\)</span> et d’en décoder un à partir des trois nombres <span class="process-math">\(p,q,e\text{.}\)</span> Il faut s’assurer d’avoir exécuter les cellules plus haut afin de d’utiliser certaines fonctions définies dans celles-ci.</div>
-<div id="sec-modulo-6-33" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour encoder un message en RSA
+<pre id="sec-modulo-6-33" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour encoder un message en RSA
 def RSAcode(M,pq,e):
     L=msganombres(M)
     Mcode=[]
     for c in L:
         Mcode.append(c^e % pq)
     return Mcode
-</script></div>
-<div id="sec-modulo-6-34" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour décoder un message chiffré en RSA
+</script></pre>
+<pre id="sec-modulo-6-34" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">#Fonction pour décoder un message chiffré en RSA
 def RSAdecode(C,p,q,e):
     N=(p-1)*(q-1)
     if gcd(e,N)!=1:
@@ -1327,14 +1338,14 @@ def RSAdecode(C,p,q,e):
             L.append(c^d % (p*q))
         M=nombresamessage(L)
         return M
-</script></div>
-<div id="sec-modulo-6-35" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">C=RSAcode("Bonjour",91,5)
+</script></pre>
+<pre id="sec-modulo-6-35" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">C=RSAcode("Bonjour",91,5)
 print(C)
-</script></div>
-<div id="sec-modulo-6-36" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">RSAdecode(C,7,13,5)
-</script></div>
-<div id="sec-modulo-6-37" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">RSAdecode(C,7,13,3)# Un décodage non compatible car pgcd(3,72) ne donne pas 1
-</script></div>
+</script></pre>
+<pre id="sec-modulo-6-36" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">RSAdecode(C,7,13,5)
+</script></pre>
+<pre id="sec-modulo-6-37" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">RSAdecode(C,7,13,3)# Un décodage non compatible car pgcd(3,72) ne donne pas 1
+</script></pre>
 <div class="para" id="sec-modulo-6-38">Le principe RSA présenté ici est une simplification du vrai système RSA qui est encore utilisé. Dans la réalité, on va faire des blocs de lettres et juxtaposer leur équivalent en nombres avant de faire le cryptage.</div></section><section class="conclusion" id="concl-modulo"> <div class="para logical" id="concl-modulo-1">
 <div class="para">Les points importants de cette section sont:</div>
 <ol class="decimal" id="concl-modulo-1-1">

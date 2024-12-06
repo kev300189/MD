@@ -85,10 +85,10 @@ window.MathJax = {
     )}
   }
 };
-</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
 // Their results will be linked, only within language type
 sagecell.makeSagecell({
-  "inputLocation": "div.sagecell-sage",
+  "inputLocation": "pre.sagecell-sage",
   "linked": true,
   "linkKey": "linked-sage",
   "autoeval": false,
@@ -691,6 +691,17 @@ $\Box$
 <ul class="structural toc-item-list">
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-representationGraphe" class="internal"><span class="codenumber">7.2.1</span> <span class="title">Représentations des graphes</span></a></div></li>
 <li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-propGraphes.html#subs-isoGraphe" class="internal"><span class="codenumber">7.2.2</span> <span class="title">Isomorphismes de graphes</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-propGraphes.html#exo-propGraphe" class="internal"><span class="codenumber">7.2.3</span> <span class="title">Exercices</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-section">
+<div class="toc-title-box"><a href="sec-chaineEuler.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Chaîne, cycle et graphe eulérien</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaineEuler.html#subsec-chaineCycle" class="internal"><span class="codenumber">7.3.1</span> <span class="title">Chaîne et cycle</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaineEuler.html#subsec-grapheConnexe" class="internal"><span class="codenumber">7.3.2</span> <span class="title">Graphes connexes</span></a></div></li>
+<li class="toc-item toc-subsection"><div class="toc-title-box"><a href="sec-chaineEuler.html#subs-eulerien" class="internal"><span class="codenumber">7.3.3</span> <span class="title">Chemins et circuits eulériens</span></a></div></li>
+<li class="toc-item toc-reading-questions"><div class="toc-title-box"><a href="sec-chaineEuler.html#rq-connexeEuler" class="internal"><span class="codenumber">7.3.4</span> <span class="title">Questions de compréhension de la lecture</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="sec-chaineEuler.html#exo-connexeEuler" class="internal"><span class="codenumber">7.3.5</span> <span class="title">Exercices</span></a></div></li>
 </ul>
 </li>
 </ul>
@@ -784,13 +795,13 @@ a=bq+r\text{.}
 <div class="para" id="sec-divisibilite-3-10">On termine avec un exemple présentant des opérateurs de division sur Sage.</div>
 <article class="computation computation-like" id="sec-divisibilite-3-11"><h4 class="heading">
 <span class="type">Calcul</span><span class="space"> </span><span class="codenumber">3.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">La divisibilité et Sage.</span>
-</h4> <div class="para" id="sec-divisibilite-3-11-2-1">Sage est capable de calculer facilement les entiers <span class="process-math">\(q\)</span> et <span class="process-math">\(r\)</span> de la proposition <a href="sec-divisibilite.html#prop-divisioneuclidienne" class="xref" data-knowl="./knowl/xref/prop-divisioneuclidienne.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.2.3: La division euclidienne">3.2.3</a> grâce à deux opérateurs spéciaux. Si <code class="code-inline tex2jax_ignore">a/b</code> produit la division usuelle, donnant un nombre rationnel lorsque <span class="process-math">\(b\nmid a\text{,}\)</span> l’opération <code class="code-inline tex2jax_ignore">a//b</code> elle produit le quotient <span class="process-math">\(q\)</span> dans l’expession <span class="process-math">\(a=bq+r\text{.}\)</span> Pour obtenir le reste, il faut utiliser <code class="code-inline tex2jax_ignore">a%b</code>. La cellule ci-dessous illustre ces opérations.</div> <div id="sec-divisibilite-3-11-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">a=881123 #Changer a,b pour voir d'autres exemples
+</h4> <div class="para" id="sec-divisibilite-3-11-2-1">Sage est capable de calculer facilement les entiers <span class="process-math">\(q\)</span> et <span class="process-math">\(r\)</span> de la proposition <a href="sec-divisibilite.html#prop-divisioneuclidienne" class="xref" data-knowl="./knowl/xref/prop-divisioneuclidienne.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.2.3: La division euclidienne">3.2.3</a> grâce à deux opérateurs spéciaux. Si <code class="code-inline tex2jax_ignore">a/b</code> produit la division usuelle, donnant un nombre rationnel lorsque <span class="process-math">\(b\nmid a\text{,}\)</span> l’opération <code class="code-inline tex2jax_ignore">a//b</code> elle produit le quotient <span class="process-math">\(q\)</span> dans l’expession <span class="process-math">\(a=bq+r\text{.}\)</span> Pour obtenir le reste, il faut utiliser <code class="code-inline tex2jax_ignore">a%b</code>. La cellule ci-dessous illustre ces opérations.</div> <pre id="sec-divisibilite-3-11-2-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">a=881123 #Changer a,b pour voir d'autres exemples
 b=123
 show("a/b=",a/b)# La division usuelle
 show("a/b=",a/b.n()) # En décimale pour avoir une meilleure idée de l'ordre de grandeur
 show("q=",a//b) # Le quotient
 show("r=",a%b) # Le reste
-</script></div> <div class="para" id="sec-divisibilite-3-11-2-3">Voici une version interactive de la cellule précédente.</div> <div id="sec-divisibilite-3-11-2-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">@interact
+</script></pre> <div class="para" id="sec-divisibilite-3-11-2-3">Voici une version interactive de la cellule précédente.</div> <pre id="sec-divisibilite-3-11-2-4" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">@interact
 def _(a=(-100..100),b=(1..100),b_negatif=("b négatif?",False)):
     if b_negatif==True:
         b=-b
@@ -798,7 +809,7 @@ def _(a=(-100..100),b=(1..100),b_negatif=("b négatif?",False)):
     show("a/b=",a/b.n()) # En décimale pour avoir une meilleure idée de l'ordre de grandeur
     show("q=",a//b) # Le quotient
     show("r=",a%b) # Le reste
-</script></div></article><div class="para" id="sec-divisibilite-3-12">À remarquer que lorsque <span class="process-math">\(b\)</span> est négatif, Sage retourne un reste négatif alors que dans la proposition <a href="sec-divisibilite.html#prop-divisioneuclidienne" class="xref" data-knowl="./knowl/xref/prop-divisioneuclidienne.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.2.3: La division euclidienne">3.2.3</a>, on mentionne que le reste doit satisfaire <span class="process-math">\(0\leq r&lt; \lvert b \rvert\text{.}\)</span> Il existe tout de même un autre entier qui satisfait cette relation, qui entrainera une valeur du quotient différente.</div></section><section class="subsection" id="sec-divisibilite-4"><h3 class="heading hide-type">
+</script></pre></article><div class="para" id="sec-divisibilite-3-12">À remarquer que lorsque <span class="process-math">\(b\)</span> est négatif, Sage retourne un reste négatif alors que dans la proposition <a href="sec-divisibilite.html#prop-divisioneuclidienne" class="xref" data-knowl="./knowl/xref/prop-divisioneuclidienne.html" data-reveal-label="Dévoiler" data-close-label="Close" title="Proposition 3.2.3: La division euclidienne">3.2.3</a>, on mentionne que le reste doit satisfaire <span class="process-math">\(0\leq r&lt; \lvert b \rvert\text{.}\)</span> Il existe tout de même un autre entier qui satisfait cette relation, qui entrainera une valeur du quotient différente.</div></section><section class="subsection" id="sec-divisibilite-4"><h3 class="heading hide-type">
 <span class="type">Sous-section</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="space"> </span><span class="title">Retour sur la conversion à partir de la base dix</span>
 </h3>
 <div class="para logical" id="sec-divisibilite-4-2">
@@ -1008,8 +1019,8 @@ r_{t-1}&amp;=r_{t}q_{t+1}+r_{t+1} &amp; &amp;\text{avec} &amp;&amp;\phantom{0\le
         laliste.append(n)
     return laliste
 </code></pre></div>
-<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.2.11<span class="period">.</span></span><span class="space"> </span>Une algorithme sur les entiers</figcaption></figure> <div id="rq-divisibilite-6-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
-</script></div></article><article class="exercise exercise-like" id="rq-divisibilite-7"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.2.11<span class="period">.</span></span><span class="space"> </span>Une algorithme sur les entiers</figcaption></figure> <pre id="rq-divisibilite-6-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre></article><article class="exercise exercise-like" id="rq-divisibilite-7"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
 <div class="para" id="rq-divisibilite-7-1-1">L’algorithme suivant retourne un couple <span class="process-math">\(q,r\)</span> représentant le quotient et le reste de la division <span class="process-math">\(a/b\text{,}\)</span> mais il est incomplet. Pour chacun des quatre endroits écrits “ÀCOMPLÉTER”, écrire les instructions pour que l’algorithme fonctionne. Il est possible de le tester à même la cellule.</div> <figure class="listing figure-like" id="rq-divisibilite-7-1-2"><div class="code-box" style="width: 100%; margin-left: 0%; margin-right: 0%;"><pre class="program"><code class="language-py">def divisionEuclidienne(a, b):
     #Une algorithme qui retourne (q,r) la forme quotient reste de a/b:  a=bq+r
     if :#ÀCOMPLÉTER1
@@ -1032,8 +1043,8 @@ r_{t-1}&amp;=r_{t}q_{t+1}+r_{t+1} &amp; &amp;\text{avec} &amp;&amp;\phantom{0\le
                 r = #ÀCOMPLÉTER4
             return q, r
 </code></pre></div>
-<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.2.12<span class="period">.</span></span><span class="space"> </span>La division euclidienne</figcaption></figure> <div id="rq-divisibilite-7-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
-</script></div></article><article class="exercise exercise-like" id="rq-divisibilite-8"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<figcaption><span class="type">Bloc de code</span><span class="space"> </span><span class="codenumber">3.2.12<span class="period">.</span></span><span class="space"> </span>La division euclidienne</figcaption></figure> <pre id="rq-divisibilite-7-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></pre></article><article class="exercise exercise-like" id="rq-divisibilite-8"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
 <div class="para" id="rq-divisibilite-8-1-1">Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</div></article></section><section class="exercises" id="exo-divisibilite"><h3 class="heading hide-type">
 <span class="type">Exercices</span><span class="space"> </span><span class="codenumber">3.2.5</span><span class="space"> </span><span class="title">Exercices</span>
 </h3>

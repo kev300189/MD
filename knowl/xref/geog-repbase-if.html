@@ -92,89 +92,17 @@ window.MathJax = {
 <link href="_static/pretext/css/setcolors.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="https://cdn.geogebra.org/apps/deployggb.js"></script>
 </head>
-<body class="ptx-content ignore-math">
-<div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{cancel}        
-\newcommand{\Z}{\mathbb{Z}}                
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\Q}{\mathbb{Q}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\D}{\mathbb{D}}
-\newcommand{\Prob}[1]{\mathbb{P}\left(#1\right)}
-
-\newcommand{\Permutation}[2]{P_{#2}^{#1}}
-\newcommand{\Binomial}[2]{C_{#2}^{#1}}
-
-\newcommand{\Probc}[2]{\mathbb{P}\left(#1~\left|\right .~#2\right)}
-\newcommand{\E}[1]{\mathbb{E}\left(#1\right)}
-\newcommand{\Ec}[2]{\mathbb{E}\left(#1~\left|\right .~#2\right)}
-\newcommand{\indicator}[1]{1{\hskip -2.5 pt}\hbox{I}_{\left\{ {#1} \right\} }}
-\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
-\newcommand{\RH}{\overset{\text{\scalebox{0.8}{ R.H.}}}{=}}
-\newcommand{\norm}[1]{\left\|#1\right\|}
-\newcommand{\abs}[1]{\left|#1\right|}
-\newcommand{\vecl}[1]{\overrightarrow{#1}}
-\newcommand{\vecd}[2]{\begin{pmatrix}#1 \\ #2\end{pmatrix}}
-\newcommand{\vecddd}[3]{\begin{pmatrix}#1 \\ #2 \\ #3\end{pmatrix}}
-\newcommand{\pscal}[2]{\vecl{#1}\cdot \vecl{#2}}
-\newcommand{\matcold}[4]{\begin{pmatrix}#1 &amp; #3 \\ #2 &amp; #4\end{pmatrix}}
-\newcommand{\matcolt}[9]{\begin{pmatrix}#1 &amp; #4 &amp; #7 \\ #2 &amp; #5 &amp; #8 \\ #3 &amp; #6 &amp; #9\end{pmatrix}}
-\newcommand{\matsimile}[2]{\overset{\scriptsize L_{#1}\leftrightarrow L_{#2}}{\sim}}
-\newcommand{\matsimils}[2]{\overset{\scriptsize #2L_{#1}\rightarrow L_{#1}}{\sim}}
-\newcommand{\matsimilc}[3]{\overset{\scriptsize #2L_{#1}+L_{#3}\rightarrow L_{#3}}{\sim}}
-\newcommand{\matII}{\begin{pmatrix} 1&amp; 0 \\  0 &amp; 1\end{pmatrix}}
-\newcommand{\matIII}{\begin{pmatrix} 1&amp; 0 &amp; 0\\  0 &amp; 1 &amp; 0 \\ 0&amp; 0&amp; 1\end{pmatrix}}
-\DeclareMathOperator*{\argmin}{arg\,min}
-\DeclareMathOperator*{\argmax}{arg\,max}
-\DeclareMathOperator{\sech}{sech}
-\DeclareMathOperator{\csch}{csch}
-\DeclareMathOperator{\arcsec}{arcsec}
-\DeclareMathOperator{\arccot}{arccot}
-\DeclareMathOperator{\arccsc}{arccsc}
-\DeclareMathOperator{\arccosh}{arccosh}
-\DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\arctanh}{arctanh}
-\DeclareMathOperator{\arcsech}{arcsech}
-\DeclareMathOperator{\arccsch}{arccsch}
-\DeclareMathOperator{\arccoth}{arccoth}
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\Ima}{Im}
-\DeclareMathOperator{\cis}{cis}
-\DeclareMathOperator{\Arg}{Arg}
-\DeclareMathOperator{\vspan}{span}
-\DeclareMathOperator{\Det}{det}
-\DeclareMathOperator{\pgcd}{pgcd}
-\DeclareMathOperator{\ppcm}{ppcm}
-\renewcommand{\Re}{\operatorname{Re}}
-\newcommand{\CQFD}{\begin{flushright}   
-$\blacksquare$
-\end{flushright}}
-\newcommand{\cqfd}{\begin{flushright}
-$\Box$
-\end{flushright}}
-\newcommand{\lt}{&lt;}
-\newcommand{\gt}{&gt;}
-\newcommand{\amp}{&amp;}
-\definecolor{fillinmathshade}{gray}{0.9}
-\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
-\)</span></div>
-<div style="width:840px; height:840px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;">
+<body class="ptx-content ignore-math"><div style="width:840px; height:840px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;">
 <script>var slate__repbase_onload = function(slate__repbase_applet) {
 slate__repbase_applet.setCoordSystem(-8, 8,-6,6,);
-listeners(slate__repbase_applet)};
+};
 var slate__repbase_params = {
 filename:"external/repbase.ggb",
 width:840,
 height:840,
 appletOnLoad:slate__repbase_onload};
-new Promise((resolve, reject) => {
 var slate__repbase = new GGBApplet(slate__repbase_params, true);
-resolve(slate__repbase);})
-.then((slate__repbase) => {
 window.onload = function() { slate__repbase.inject('slate-repbase-container'); }
-},
-(error) => {console.log('GGB applet load failure.', error)});
 </script><div class="geogebra-applet" id="slate-repbase-container" style="width:840px; height:840px; display: block; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;"></div>
-</div>
-</body>
+</div></body>
 </html>
