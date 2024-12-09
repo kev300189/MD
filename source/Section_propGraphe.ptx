@@ -228,7 +228,7 @@
     <example xml:id="exe-defAij">
         <title>Une autre façon de définir une matrice</title>
         <p>
-        Si <m>A=\bigl(a_{i,j}\bigr)</m> est une matrice <m>3\times 3</m> avec <me>a_{i,j}=\begin{cases} 1 &amp; \text{si } i=j \\ 0 &amp;  \text{sinon} \end{cases}</me>, alors 
+        Si <m>A=\bigl(a_{i,j}\bigr)</m> est une matrice <m>3\times 3</m> avec <me>a_{i,j}=\begin{cases} 1 &amp; \text{si } i\neq j \\ 0 &amp;  \text{sinon} \end{cases}</me>, alors 
         <me>A=\begin{pmatrix} 
             0 &amp;1&amp;1\\
             1 &amp;0&amp;1\\

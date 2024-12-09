@@ -99,7 +99,7 @@
                     </figure>
                 </p>
                 <p>
-                    On remarque qu'il existe de nombreuses chaînes reliant <m>a</m> et <m>h</m>. Par exemple, il y a la chaîne de longueur <m>9</m> <m>a, e, d, a, e, b, c, f, g, h</m>. 
+                    On remarque qu'il existe de nombreuses chaînes reliant <m>a</m> et <m>h</m>. Par exemple, il y a la chaîne  <m>a, e, d, a, e, b, c, f, g, h</m> est une chaîne de longueur <m>9</m>. Celle-ci n'est pas simple, car elle passe deux fois par <m>\{a,e\}</m>. 
                 </p>
                 <p>
                     Si on se limite aux chaînes simples, on peut trouver des chaînes de longueur <m>6</m>. Par exemple, les chaînes <m>a, e, b, c, g, i, h</m> et <m>a, b, d, c, f, g, h</m>. 
@@ -416,7 +416,7 @@
     <task>
     <statement>
         <p>
-            Montrer que s'il existe une chaîne de longueur <m>n</m> entre <m>s</m> et <m>t</m>, et 'il existe une chaîne de longueur <m>m</m> entre <m>t</m> et <m>u</m>, alors il existe une chaîne de longueur <m>m+n</m> entre <m>s</m> et <m>u</m>.
+            Montrer que s'il existe une chaîne de longueur <m>n</m> entre <m>s</m> et <m>t</m>, et s'il existe une chaîne de longueur <m>m</m> entre <m>t</m> et <m>u</m>, alors il existe une chaîne de longueur <m>m+n</m> entre <m>s</m> et <m>u</m>.
         </p>
     </statement>
     </task>
