@@ -22,7 +22,7 @@
         <definition xml:id="def-arbreForet">
             <statement>
                 <p>
-                    Un graphe <m>G=(S,A)</m> simple est appellé une <term>forêt</term> s'il ne contient aucun cycle.
+                    Un graphe <m>G=(S,A)</m> simple est appelé une <term>forêt</term> s'il ne contient aucun cycle.
                 </p>
                 <p>
                     Si en plus le graphe <m>G</m> est connexe, on dira que <m>G</m> est un <term>arbre</term>. Pour expliciter qu'un graphe est un arbre, on notera souvent le graphe <m>T=(S,A)</m> au lieu de <m>G=(S,A)</m>.
@@ -80,7 +80,7 @@
                         Puisque <m>T</m> est un graphe connexe avec au moins deux sommets, il existe au moins une chaîne simple de longueur <m>n\geq 1</m>. Supposons que <m>s=s_0, s_1, \dots s_n=t</m> soit la chaîne simple la plus longue possible dans <m>T</m>. Une telle chaîne doit nécessairement exister, car le nombre d'arêtes est fini. 
                     </p>
                     <p>
-                        Puisque <m>s_{n-1}</m> est un voisin de <m>t</m>, on a que <m>\deg(t)\geq 1</m>. On veut montrer que P<m>\deg(t)=1</m>. Supposons le contraire, alors <m>t</m> possède un voisin différent de <m>s_{n-1}</m> et de <m>s_n</m>. Celui-ci doit aussi être différent de <m>s_i</m>, <m>i=0, 1, \dots n-2</m>, car sinon on obtiendrais un cycle dans <m>T</m>. Notons ce voisin <m>s_{n+1}</m>. On a alors que <m>s_0, s_1, \dots s_{n}, s_{n+1}</m> est une chaîne simple de longueur <m>n+1</m>. Ceci est une contradiction, car on avait supposé que la chaîne simple la plus longue était de longueur <m>n</m>. On doit donc avoir <m>\deg(t)=1</m>.
+                        Puisque <m>s_{n-1}</m> est un voisin de <m>t</m>, on a que <m>\deg(t)\geq 1</m>. On veut montrer que P<m>\deg(t)=1</m>. Supposons le contraire, alors <m>t</m> possède un voisin différent de <m>s_{n-1}</m> et de <m>s_n</m>. Celui-ci doit aussi être différent de <m>s_i</m>, <m>i=0, 1, \dots n-2</m>, car sinon on obtiendrait un cycle dans <m>T</m>. Notons ce voisin <m>s_{n+1}</m>. On a alors que <m>s_0, s_1, \dots s_{n}, s_{n+1}</m> est une chaîne simple de longueur <m>n+1</m>. Ceci est une contradiction, car on avait supposé que la chaîne simple la plus longue était de longueur <m>n</m>. On doit donc avoir <m>\deg(t)=1</m>.
                     </p>
                     <p>
                         Par le même argument, on peut montrer que <m>\deg(s)=1</m>. Ainsi, on a trouvé au moins deux sommets de degré <m>1</m>.
@@ -143,7 +143,7 @@
         <title>Arbre couvrant</title>
         <introduction xml:id="intro-arbreCouvrant">
             <p>
-                Lorsqu'on conçoit des algorithmes concernant les graphes, il est souvent utile d'avoir une méthode afin de nous assurer de parcourir l'ensemble des sommets de façon sistématique. Une méthode pour accomplir cette tâche est de parcourir les sommets de notre graphe à l'aide d'un arbre couvrant.
+                Lorsqu'on conçoit des algorithmes concernant les graphes, il est souvent utile d'avoir une méthode afin de nous assurer de parcourir l'ensemble des sommets de façon systématique. Une méthode pour accomplir cette tâche est de parcourir les sommets de notre graphe à l'aide d'un arbre couvrant.
             </p>
         </introduction>
 
@@ -155,263 +155,7 @@
             </statement>
         </definition>
         <p>
-            Pour pouvoir démontrer la proposition <xref ref="prop-arbreCouvrant"/>, on a besoin d'un résultat intermédiraire. Puisque le résultat sert principalement à démontrer une proposition plus importante, on dira qu'il s'agit d'un lemme.
-        </p>
-        <lemma xml:id="lem-arbreCouvrant">
-            <statement>
-                <p>
-                    Soit <m>G=(S,A)</m> un graphe connexe. Supposons que <m>s_0, s_1, \dots, s_{n-1}, s_0</m> soit un cycle simple de longueur <m>n</m> dans <m>G</m>. Le <xref ref="def-retraitArete" text="custom" >graphe <m>G_0=G-\{s_0,s_{n-1}\}</m> </xref> est aussi un graphe connexe. Pour ce faire, on devra utiliser le fait que la chaîne <m>s_0, s_1, \dots s_{n-1}</m> est une chaîne de <m>G_0</m> reliant <m>s_0</m> et <m>s_{n-1}</m>.
-                </p>
-            </statement>
-            <proof>
-                <p>
-                    Soit <m>s, t\in S</m>, puisque <m>G</m> est connexe, on sait qu'il y a une chaîne simple reliant <m>s</m> et <m>t</m>. Si cette chaîne ne passe pas par <m>\{s_0, s_{n-1}\}</m>, alors cette chaîne est aussi une chaîne de <m>G_0</m>. Si cette chaîne passe par <m>s_0, s_{n-1}</m>, alors on peut écrire cette chaîne de la façon suivante.
-                </p>
-                <p>
-                    On a <m>s= t_0, t_1, \dots, t_{i-1}, t_{i}, t_{i+1}, t_{i+2}, \dots, t_{m}=t  </m>, avec <m>t_{i}=s_0</m> et <m>t_{i+1}=s_{n-1}</m>. Mais alors on sait qu'il y a une chaîne de <m>G_0</m> entre <m>t_0=s</m> et <m>t_{i}</m>, qu'il y a une chaîne de <m>G_0</m> entre <m>t_i=s_0</m> et <m>t_{i+1}=s_{n-1}</m> et qu'il y a une chaîne de <m>G_0</m> entre <m>t_{i+1}</m> et <m>t_{m}=t</m>. Ainsi, par l'exercice <xref ref="exo-addChaine"/>, il y a une chaîne entre <m>s</m> et <m>t</m> dans <m>G_0</m>.
-                </p>
-                <p>
-                    On a montré qu'il existe une chaîne de <m>G_0</m> entre chaque paire de sommets, c'est-à-dire que <m>G_0</m> est connexe.
-                </p>
-            </proof>
-        </lemma>
-        <example xml:id="exe-arbreCouvrantLemme">
-            <p>
-                On montre un cas particulier du lemme précédent pour bien visualiser. Soit <m>G</m> le graphe ci-dessous, et <m>G_1</m> le graphe obtenu de <m>G</m> en enlevant l'arête <m>\{1, 2\}</m> de <m>G</m>. On remarque que la chaîne <m>0, 1, 2, 3</m> est une chaîne de <m>G</m> reliant <m>0</m> avec <m>3</m>. Puisque <m>G_1</m> ne possède pas l'arête <m>\{1,2\}</m>, cette chaîne n'est pas une chaîne de <m>G_1</m>. Cependant, puisque <m>\{1,2\}</m> fait parti d'un cycle dans <m>G</m>, on remarque que la chaîne <m>0,1,4,5,6,7,2,3</m> est une chaîne de <m>G_1</m> reliant <m>0</m> et <m>3</m>.
-            </p>
-            <sage>
-                <input>
-                    G=Graph({0:[1],1:[2,4],2:[3,7],4:[5],5:[6],6:[7]})
-                    print("G")
-                    G.show(save_pos=True)
-                    G.delete_edge((1,2))
-                    print()
-                    print("G1")
-                    G.show()
-                </input>
-            </sage>
-        </example>
-        <proposition xml:id="prop-arbreCouvrant">
-            <statement>
-                <p>
-                    Soit <m>G=(S,A)</m> un graphe simple connexe, alors <m>G</m> possède un arbre couvrant <m>T</m>.
-                </p>
-            </statement>
-            <proof>
-                <p>
-                    On construit une suite <m>G_k=(S,A_k)</m> de sous-graphe de <m>G</m> par récurrence, c'est-à-dire qu'on définit <m>G_0</m>, et ensuite, ayant défini <m>G_k=(S,A_k)</m> pour <m>k\geq 0</m>, on définit <m>G_{k+1}</m>. On va continuer le processus jusqu'à ce que le graphe obtenu soit un arbre. Ce processus se terminera nécesairement en un nombre fini d'étape, disons <m>n</m> étapes. À la fin, on posera <m>T=G_n</m>.
-                </p>
-                <p>
-                    On pose <m>G_0=G</m>. Ensuite, on suppose qu'on a définit <m>G_k=(S,A_k)</m> un graphe simple connexe pour <m>k\geq 0</m>. Si <m>G_k</m> est un arbre, alors il s'agit d'un arbre couvrant pour <m>G</m>, et on a terminé. Si au contraire <m>G_k</m> n'est pas un arbre, on doit définir <m>G_{k+1}</m> un graphe simple connexe contenant une arête de moins que <m>G_k</m>.
-                </p>
-                <p>
-                    Puisque <m>G_k</m> n'est pas un arbre, <m>G_k</m> possède un cycle, disons le cycle <m>s_0, s_1, \dots, s_{m-1}, s_m</m>, avec <m>s_{m}=s_0</m>. On pose alors <m>G_{k+1}=(S,A_{k+1}):= G_k-\{s_{m-1}, s_m\}=(S,A_k-\{s_{m-1},s_m\})</m>. Le graphe obtenu est donc un graphe avec les mêmes sommets que <m>G</m>, possédant une arête de moins que le graphe <m>G_k</m>. On doit vérifier qu'il s'agit toujours de graphe connexe. Or, par le lemme <xref ref="lem-arbreCouvrant"/>, on sait que <m>G_{k+1}</m> est connexe.
-                </p>
-                <p>
-                    Puisqu'on enlève une arête à chaque étape, et que le nombre d'arête de <m>G</m> est fini, on doit nécessairement arriver à un point où <m>G_k</m> ne possède pas de cycle. Si le processus se termine avec <m>k=n</m>, alors on pose <m>T=G_n</m>. Puisque <m>T</m> possède les mêmes sommets que <m>G</m>, est connexe et ne possède aucun cycle. <m>T</m> est donc bien un arbre couvrant de <m>G</m>.
-                </p>
-            </proof>
-        </proposition>
-    </subsection>
-
-    <subsection xml:id="subsec-arborescence">
-        <title>Arborescence</title>
-    <introduction xml:id="intro-arborescence">
-        <p>
-            Un exemple classique d'utilisation des arbres est les arbres généalogiques. Une façon de représenter un arbre généalogique est de commencer par un ancêtre commun de la famille, qu'on représente par un sommet, et de relier ce sommet par une arête  à un sommet représentant chacun des enfants de cette personne. Par la suite, on ajoute un sommet pour chaque enfant de la génération suivante, reliant les enfants à leur parent. 
-        </p>
-        <p>
-            On veut utiliser cette idée afin de représenter les arbres, c'est-à-dire qu'on choisira un sommet pour être l'ancêtre de tous les autres sommets. Ceci permettrat de donner un certain ordre à nos arbres. Pour chaque sommet, on pourra considérer l'unique chaîne simple le reliant à l'ancêtre commun. La longueur de cette chaîne représentera en quelque sorte la génération à laquelle chaque sommet apartient. 
-        </p>
-        <p>
-            Cette représentation est très utile lorsqu'on veut représenter un arbre de décision, c'est-à-dire un arbre permettant de répondre à un problème particulier. En effet, cette représentation nous permettra de donner une longueur minimale associée à notre arbre de décision. Ceci servira à vérifier si l'algorithme utilisé peut être optimisé, ou bien s'il s'agit déjà de l'algorithme le plus efficace. 
-        </p>
-        <p>
-            La combinaison d'un arbre et de notre ancêtre commun est ce qu'on appelle une arborescence. Ainsi, une arborescence n'est rien d'autre qu'un arbre pour lequel on a choisi un sommet particulier.
-        </p>
-    </introduction>
-    <definition xml:id="def-arborescence">
-        <statement>
-            <p>
-                Une <term>arborescence</term> est une paire <m>(T,r)</m> où <m>T=(S,A)</m> est un arbre et <m>r\in S</m> est un sommet de <m>T</m>. On appellera <m>r</m> la racine de <m>T</m>.
-            </p>
-        </statement>
-    </definition>
-
-    <p>
-        Si <m>(T,r)</m> est une arborescence, puisque <m>T</m> est un arbre, pour tout sommet <m>s</m> de <m>T</m>, il existe une unique chaîne simple entre <m>r</m> et <m>s</m>. Ceci nous permet de donner les définitions suivantes. 
-    </p>
-    <definition xml:id="def-arboDescendant">
-        <statement>
-            <p>
-                Soit <m>(T,r)</m> une arborescence et soit <m>s</m> un sommet de <m>T</m>. On note l'unique chaîne de <m>T</m> entre  entre <m>s</m> par <m>r=s_0, s_1, \dots , s_{n}=s</m>
-            </p>
-            <ul>
-                <li>
-                    <p>
-                        Le <term>niveau</term> du sommet <m>s</m> est la longueur de la chaîne <m>s_0, \dots s_n</m>, c'est-à-dire <m>n</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Le plus grand niveau de l'arborescence <m>T</m> est appe<?xml version="1.0" encoding="UTF-8"?>
-
-<!-- Ce fichier constitue une section du livre                              -->
-<!--                                                                        -->
-<!--      Mathématiques discrètes : Intuition et rigueur                    -->
-<!--                                                                        -->
-<!-- Creative Commons Attribution Share Alike 4.0 International             -->
-<!-- CC-BY-4.0                                                              -->
-<!-- Jean-Sébastien Turcotte                                                -->
-
-<!-- Les sections sont divisées en quatre parties, en plus du titre. Les parties introduction et conclusion sont facultatives. Le texte de ceux-ci apparait respectivement avant et après les sections. Les exercices sont à la fin de la section -->
-
-<section xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="sec-arbre">   <!-- Ajouter l'identifiant de la section après le - du xml:id -->
-    <title> Arbre et arborescence </title>
-    <introduction xml:id= "intro-arbre">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    </introduction>
-    <p>
-        Pour cette section, on suppose que tous les graphes sont finis, c'est-à-dire qu'ils possèdent un nombre fini de sommets, et donc aussi un nombre fini d'arêtes.
-    </p>
-    <subsection xml:id="subsec-arbreDef">
-        <title>Forêt et arbre</title>
-        <definition xml:id="def-arbreForet">
-            <statement>
-                <p>
-                    Un graphe <m>G=(S,A)</m> simple est appellé une <term>forêt</term> s'il ne contient aucun cylce.
-                </p>
-                <p>
-                    Si en plus le graphe <m>G</m> est connxe, on dirat que <m>G</m> est un <term>arbre</term>. Pour expliciter qu'un graphe est un arbre, on notera souvent le graphe <m>T=(S,A)</m> au lieu de <m>G=(S,A)</m>.
-                </p>
-            </statement>
-        </definition>
-        <example xml:id="exe-arbre">
-        <title>Une forêt et deux arbres</title>
-            Les graphes <m>T_1</m> et <m>T_2</m> ci-dessous sont des arbres. Le graphe <m>F</m> est une forêt.
-            <sage>
-                <input>
-                    G=Graph({0:[1,2,3,4],1:[5,6,7],4:[8,9,10],6:[11,12],9:[13,14]})
-                    print("T1")
-                    G.show(layout='tree',tree_root=0, save_pos=True)
-                </input>
-            </sage>
-            <sage>
-                <input>
-                    G=Graph({0:[1,2,3],1:[4,5,6],4:[7],5:[8,9]})
-                    print("T2")
-                    G.show(layout='tree',tree_root=0, save_pos=True)
-                </input>
-            </sage>
-            <sage>
-                <input>
-                    G=Graph({0:[1,2,3,4],1:[5,6,7],4:[8,9,10],6:[11,12],9:[13,14],"a":["b","c","d"],"b":["e","f","g"],"e":["h"],"f":["i","j"]})
-                    print("F")
-                    G.show(layout='forest', tree_root="a",save_pos=True)
-                </input>
-            </sage>
-        </example>
-        <proposition xml:id="prop-caractArbre">
-            <statement>
-                <p>
-                    Un graphe <m>T=(S,A)</m> est un arbre si et seulement si pour chaque paire de sommets <m>s, t\in S</m>, il existe une unique chaîne reliant <m>s</m> et <m>t</m>.
-                </p>
-            </statement>
-        </proposition>
-        <p>
-            On termine la sous-section <xref ref="subsec-arbreDef"/> avec deux propositions concernant les arbres.
-        </p>
-        <p>
-            Tout d'abord, lorsqu'on regarde les graphes d'un arbre, on remarque que certain des sommets ont une caractéristique particulière. En effet, on peut remarquer que pour chaque exemple, il y a toujours des sommets de degré <m>1</m>. Ceci n'est pas une coïncidence.
-        </p>
-        <p>
-            Par la suite, on remarque aussi qu'il existe une relation entre le nombre d'arêtes d'un arbre et le nombre de sommets de celui-ci.
-        </p>
-        <proposition xml:id="prop-arbreFeuille">
-            <statement>
-                <p>
-                    Soit <m>T=(S,A)</m> un arbre tel que <m>|S|\geq 2</m>, alors il existe au moins deux sommets distincts <m>s, t\in S</m> tels que <m>\deg(s)=\deg(t)=1</m>.
-                </p>
-                <proof>
-                    <p>
-                        Puisque <m>T</m> est un graphe connexe avec au moins deux sommets, il existe au moins une chaîne simple de longueur <m>n\geq 1</m>. Supposons que <m>s=s_0, s_1, \dots s_n=t</m> soit la chaîne simple la plus longue possible dans <m>T</m>. Une telle chaîne doit nécessairement exister, car le nombre d'arêtes est fini. 
-                    </p>
-                    <p>
-                        Puisque <m>s_{n-1}</m> est un voisin de <m>t</m>, on a que <m>\deg(t)\geq 1</m>. On veut montrer que P<m>\deg(t)=1</m>. Supposons le contraire, alors <m>t</m> possède un voisin différent de <m>s_{n-1}</m> et de <m>s_n</m>. Celui-ci doit aussi être différent de <m>s_i</m>, <m>i=0, 1, \dots n-2</m>, car sinon on obtiendrait un cycle dans <m>T</m>. Notons ce voisin <m>s_{n+1}</m>. On a alors que <m>s_0, s_1, \dots s_{n}, s_{n+1}</m> est une chaîne simple de loingueur <m>n+1</m>. Ceci est une contradiction, car on avait supposé que la chaîne simple la plus longue était de longueur <m>n</m>. On doit donc avoir <m>\deg(t)=1</m>.
-                    </p>
-                    <p>
-                        Par le même argument, on peut montrer que <m>\deg(s)=1</m>. Ainsi, on a trouvé au moins deux sommets de degré <m>1</m>.
-                    </p>
-                </proof>
-            </statement>
-        </proposition>
-        <p>
-            Cette proposition nous pousse donc à donner une nom aux sommets de degré <m>1</m>, ainsi qu'à donner un nom aux sommets de degré plus grand que <m>1</m>.
-        </p>
-        <definition xml:id="def-feuilleSommetInterne">
-            <statement>
-                <p>
-                    Soit <m>T=(S,A)</m> un arbre et soit <m>s\in S</m> un sommet quelconque.
-                    <ul>
-                        <li>
-                            <p>
-                                On dit que <m>s</m> est <term>une feuille</term> de l'arbre <m>T</m> si <m>\deg(s)=1</m>.
-                            </p>
-                        </li>
-                        <li>
-                            <p>
-                                On dit que <m>s</m> est <term>un sommet interne</term>, ou bien <term>une branche</term> de l'arbre <m>T</m> si <m>\deg(s)>1</m>.
-                            </p>
-                        </li>
-                    </ul>
-                </p>
-            </statement>
-        </definition>
-        <proposition xml:id="prop-sommetAreteArbre">
-            <statement>
-                <p>
-                    Soit <m>T=(S,A)</m> un arbre, alors <m>|S|=|A|+1</m>. 
-                </p>
-                <proof>
-                    <p>
-                        On procède par induction sur <m>|A|</m>. C'est-à-dire qu'on suppose que <m>|A|=n</m>, et on montre par induction que <m>|S|=n+1</m>.
-                    </p>
-                    <p>
-                        <alert>ÉTAPE DE BASE:</alert> Pour <m>n=0</m>, alors <m>T</m> ne possède aucune arête. Puisque <m>T</m> est un graphe connexe, on doit nécessairement avoir <m>|S|=1</m>. Ansi, on a bien <m>|S|=n+1=0+1=1</m>. 
-                    </p>
-                    <p>
-                        <alert>ÉTAPE D'INDUCTION:</alert> On suppose que si un arbre quelconque possède <m>k</m> arêtes, pour <m>k\geq 0</m>, alors cet arbre possède <m>k+1</m> sommets. (H.I.)
-                    </p>
-                    <p>
-                         Soit <m>T=(S,A)</m> avec <m>|A|=k+1</m>, on veut montrer, à l'aide de l'H.I. que <m>|S|=(k+1)+1=k+2</m>. Puisque <m>k\geq 0</m>, alors <m>|A|=k+1\geq 1</m>. Si <m>T</m>, possède au moins une arête, alors <m>T</m> possède au moins deux sommets, c'est-à-dire que <m>|S|\geq 2</m>. Ainsi, par <xref ref="prop-arbreFeuille"/>, on sait qu'il existe au moins deux sommets de degré <m>1</m>. Soit <m>s_0\in S</m> tel que <m>\deg(s_0)=1</m> et <m>s_1</m> l'unique voisin de <m>s_0</m>. On remarque que si une chaîne simple contient l'arête <m>\{s_0,s_1\}</m>, alors elle commence (ou termine) nécessairement par cette arête, puisque <m>\deg(s_0)=1</m>.
-                    </p>
-                    <p>
-                        On pose donc <m>T_0==(S-\{s_0\},A-\{s_0,s_1\})</m>, c'et-à-dire que <m>T_0</m> est l'arbre obtenu en enlevant l'arête <m>\{s_0,s_1\}</m> et le sommet <m>s_0</m> à <m>T</m>. Ainsi, <m>|A-\{s_0,s_1\}|=k</m> et <m>|S-\{s_0\}|=|S|-1</m>. Par hypothèse d'induction, on a <m>|S-\{s_0\}|=k+1</m>, d'où <m>|S|=(k+1)+1=k+2</m>.
-                    </p>
-                    <p>
-                        On a montré que si <m>|A|=0</m>, alors <m>|S|=0+1=1</m>. De plus, on a montré que si on suppose que <m>|A|=k</m> implique que <m>|S|=k+1</m> pour un certain <m>k\geq 0</m>, alors <m>|A|=k+1</m> implique <m>|S|=k+2</m>. Par le principe d'induction, on a donc bien montré que si <m>|A|=n</m>, alors <m>|S|=n+1</m> pour tout entier <m>n\geq 0</m>. 
-                    </p>
-                </proof>
-            </statement>
-        </proposition>
-    </subsection>
-
-    <subsection xml:id="subsec-arbreCouvrant">
-        <title>Arbre couvrant</title>
-        <introduction xml:id="intro-arbreCouvrant">
-            <p>
-                Lorsqu'on concoit des algorithmes concernant les graphes, il est souvent utile d'avoir une méthode afin de nous assurer de parcourir l'ensemble des sommets de façon systématique. Une méthode pour accomplir cette tâche est de parcourir les sommets de notre graphe à l'aide d'un arbre couvrant.
-            </p>
-        </introduction>
-
-        <definition xml:id="def-arbreCouvrant">
-            <statement>
-                <p>
-                    Soit <m>G=(S,A)</m> un graphe simple connexe. Un <term>arbre couvrant de <m>G</m></term> est un sous-graphe <m>T=(S,A_0)</m> tel que <m>T</m> est un arbre. Ainsi, un arbre couvrant de <m>G</m> est un arbre ayant les mêmes sommets que <m>G</m>.
-                </p>
-            </statement>
-        </definition>
-        <p>
-            Pour pouvoir démontrer la proposition <xref ref="prop-arbreCouvrant"/>, on a besoin d'un résultat intermédiaire. Puisque le résultat sert principalement à démontrer une proposition plus importante, on dirat qu'il s'agit d'un lemme.
+            Pour pouvoir démontrer la proposition <xref ref="prop-arbreCouvrant"/>, on a besoin d'un résultat intermédiaire. Puisque le résultat sert principalement à démontrer une proposition plus importante, on dira qu'il s'agit d'un lemme.
         </p>
         <lemma xml:id="lem-arbreCouvrant">
             <statement>
@@ -455,10 +199,10 @@
             </statement>
             <proof>
                 <p>
-                    On construit une suite <m>G_k=(S,A_k)</m> de sous-graphe de <m>G</m> par récurrence, c'est-à-dire qu'on définit <m>G_0</m>, et ensuite, ayant définit <m>G_k=(S,A_k)</m> pour <m>k\geq 0</m>, on définit <m>G_{k+1}</m>. On va continuer le processus jusqu'à ce que le graphe obtenu soit un arbre. Ce processus se terminera nécessairement en un nombre fini d'étape, disons <m>n</m> étapes. À la fin, on posera <m>T=G_n</m>.
+                    On construit une suite <m>G_k=(S,A_k)</m> de sous-graphe de <m>G</m> par récurrence, c'est-à-dire qu'on définit <m>G_0</m>, et ensuite, ayant défini <m>G_k=(S,A_k)</m> pour <m>k\geq 0</m>, on définit <m>G_{k+1}</m>. On va continuer le processus jusqu'à ce que le graphe obtenu soit un arbre. Ce processus se terminera nécessairement en un nombre fini d'étape, disons <m>n</m> étapes. À la fin, on posera <m>T=G_n</m>.
                 </p>
                 <p>
-                    On pose <m>G_0=G</m>. Ensuite, on suppose qu'on a définit <m>G_k=(S,A_k)</m> un graphe simple connexe pour <m>k\geq 0</m>. Si <m>G_k</m> est un arbre, alors il s'agit d'un arbre couvrant pour <m>G</m>, et on a terminé. Si au contraire <m>G_k</m> n'est pas un arbre, on doit définir <m>G_{k+1}</m> un graphe simple connexe contenant une arête de moins que <m>G_k</m>.
+                    On pose <m>G_0=G</m>. Ensuite, on suppose qu'on a défini <m>G_k=(S,A_k)</m> un graphe simple connexe pour <m>k\geq 0</m>. Si <m>G_k</m> est un arbre, alors il s'agit d'un arbre couvrant pour <m>G</m>, et on a terminé. Si au contraire <m>G_k</m> n'est pas un arbre, on doit définir <m>G_{k+1}</m> un graphe simple connexe contenant une arête de moins que <m>G_k</m>.
                 </p>
                 <p>
                     Puisque <m>G_k</m> n'est pas un arbre, <m>G_k</m> possède un cycle, disons le cycle <m>s_0, s_1, \dots, s_{m-1}, s_m</m>, avec <m>s_{m}=s_0</m>. On pose alors <m>G_{k+1}=(S,A_{k+1}):= G_k-\{s_{m-1}, s_m\}=(S,A_k-\{s_{m-1},s_m\})</m>. Le graphe obtenu est donc un graphe avec les mêmes sommets que <m>G</m>, possédant une arête de moins que le graphe <m>G_k</m>. On doit vérifier qu'il s'agit toujours de graphe connexe. Or, par le lemme <xref ref="lem-arbreCouvrant"/>, on sait que <m>G_{k+1}</m> est connexe.
@@ -477,13 +221,13 @@
             Un exemple classique d'utilisation des arbres est les arbres généalogiques. Une façon de représenter un arbre généalogique est de commencer par un ancêtre commun de la famille, qu'on représente par un sommet, et de relier ce sommet par une arête  à un sommet représentant chacun des enfants de cette personne. Par la suite, on ajoute un sommet pour chaque enfant de la génération suivante, reliant les enfants à leur parent. 
         </p>
         <p>
-            On veut utiliser cette idée afin de représenter les arbres, c'est-à-dire qu'on choisira un sommet pour être l'ancêtre de tous les autres sommets. Ceci permettra de donner une certain ordre à nos arbres. Pour chaque sommet, on pourra considérer l'unique chaîne simple le reliant à l'ancêtre commun. La longueur de cette chaîne représentera en quelque sorte la génération à laquelle chaque sommet appartient. 
+            On veut utiliser cette idée afin de représenter les arbres, c'est-à-dire qu'on choisira un sommet pour être l'ancêtre de tous les autres sommets. Ceci permettra de donner un certain ordre à nos arbres. Pour chaque sommet, on pourra considérer l'unique chaîne simple le reliant à l'ancêtre commun. La longueur de cette chaîne représentera en quelque sorte la génération à laquelle chaque sommet appartient. 
         </p>
         <p>
-            Cette représentation est très utile lorsqu'on veut représenter un arbre de décision, c'est-à-dire un arbre permettant de répondre à un problème particulier. En effet, cette représentation nous permettra de donner une longueur minimal associé à notre abre de décision. Ceci servira à vérifier si l'algorithme utilisé peut être optimisé, ou bien s'il s'agit déjà de l'algorithme le plus efficace. 
+            Cette représentation est très utile lorsqu'on veut représenter un arbre de décision, c'est-à-dire un arbre permettant de répondre à un problème particulier. En effet, cette représentation nous permettra de donner une longueur minimale associée à notre arbre de décision. Ceci servira à vérifier si l'algorithme utilisé peut être optimisé, ou bien s'il s'agit déjà de l'algorithme le plus efficace. 
         </p>
         <p>
-            La combinaison d'un arbre et de notre ancêtre commun est ce qu'on appelle une arborescence. Ainsi, une arborescence n'est rien d'autre qu'un arbre pour lequel on a choisit un sommet particulier.
+            La combinaison d'un arbre et de notre ancêtre commun est ce qu'on appelle une arborescence. Ainsi, une arborescence n'est rien d'autre qu'un arbre pour lequel on a choisi un sommet particulier.
         </p>
     </introduction>
     <definition xml:id="def-arborescence">
@@ -510,7 +254,7 @@
                 </li>
                 <li>
                     <p>
-                        Le plus grand niveau de l'arborescence <m>T</m> est appellé la <term>hauteur</term> de <m>T</m>.
+                        Le plus grand niveau de l'arborescence <m>T</m> est appelé la <term>hauteur</term> de <m>T</m>.
                     </p>
                 </li>
                 <li>
@@ -520,40 +264,7 @@
                 </li>
                 <li>
                     <p>
-                        Le sommet <m>s_{n-1}</m> est appellé le <term>parent</term> de <m>s</m>, alors qu'on dira que <m>s</m> est <term>l'enfant</term> de <m>s_{n-1}</m> 
-                    </p>
-                </li>
-            </ul>
-        </statement>
-    </definition>
-    </subsection>
-    
-    <conclusion xml:id="concl-arbre">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    
-    </conclusion>
-    <reading-questions xml:id="rq-arbre">  <!-- Ajouter le même identifiant de la section après le - du xml:id -->
-    <introduction>
-    <p>Ces questions sont à faire avant de venir en classe et à remettre au début du cours.</p>
-    </introduction>
-  
-    <exercise>
-    <statement><p>Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision/clarification à apporter. Note: cette question est facultative.</p></statement>
-    </exercise>
-    </reading-questions>
-   <!--Inclure les exercices de la section ci-dessous--> 
-   <!--<xi:include href="Exercices_.ptx" />-->
-</section>
-lé la <term>hauteur</term> de <m>T</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Les sommets <m>s_0, s_1, \dots, s_{n-1}</m> sont appellés les <term>ancêtres</term> de <m>s</m>. À l'inverse, on dira que <m>s</m> est un <term>descendant</term> des sommets <m>s_0, s_1, \dots, s_{n-1}</m>.
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Le sommet <m>s_{n-1}</m> est appellé le <term>parent</term> de <m>s</m>, alors qu'on dira que <m>s</m> est <term>l'enfant</term> de <m>s_{n-1}</m> 
+                        Le sommet <m>s_{n-1}</m> est appelé le <term>parent</term> de <m>s</m>, alors qu'on dira que <m>s</m> est <term>l'enfant</term> de <m>s_{n-1}</m> 
                     </p>
                 </li>
             </ul>
