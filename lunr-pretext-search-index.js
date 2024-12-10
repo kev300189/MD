@@ -6283,6 +6283,132 @@ var ptx_lunr_docs = [
   "body": " On veut démontrer la proposition . Soit un graphe simple tel que , on définit successivement de la façon suivante.  On choisit un sommet quelconque . On pose l'ensemble des sommets de reliés à par une chaîne. On pose comme étant le sous-graphe de induit par  .  Supposons maintenant qu'on ait défini les sous-graphes jusqu'à pour un certain entier positif . Si , alors on a terminé. Sinon, il existe un sommet . On veut définir à l'aide de ce sommet.  On pose l'ensemble des sommets qui sont reliés à par une chaîne de . Finalement on pose le sous-graphe de induit par .   Montrer que les graphes obtenus dans le processus précédent sont connexes.   Montrer que si , et si et sont les ensembles obtenus dans le processus précédent, alors .   Montrer que le processus précédent se termine en un nombre fini d'étapes, c'est-à-dire qu'il existe un entier positif tel que .   Vérifier que .  "
 },
 {
+  "id": "sec-arbre",
+  "level": "1",
+  "url": "sec-arbre.html",
+  "type": "Section",
+  "number": "7.4",
+  "title": "Arbre et arborescence",
+  "body": "  Arbre et arborescence     Pour cette section, on suppose que tous les graphes sont finis, c'est-à-dire qu'ils possèdent un nombre fini de sommets, et donc aussi un nombre fini d'arêtes.   Forêt et arbre    Un graphe simple est appelé une forêt s'il ne contient aucun cycle.  Si en plus le graphe est connexe, on dira que est un arbre . Pour expliciter qu'un graphe est un arbre, on notera souvent le graphe au lieu de .     Une forêt et deux arbres Les graphes et ci-dessous sont des arbres. Le graphe est une forêt.       Un graphe est un arbre si et seulement si pour chaque paire de sommets , il existe une unique chaîne reliant et .    On termine la sous-section avec deux propositions concernant les arbres.  Tout d'abord, lorsqu'on regarde les graphes d'un arbre, on remarque que certains des sommets ont une caractéristique particulière. En effet, on peut remarquer que pour chaque exemple, il y a toujours des sommets de degré . Ceci n'est pas une coïncidence.  Par la suite, on remarque aussi qu'il existe une relation entre le nombre d'arêtes d'un arbre et le nombre de sommets de celui-ci.    Soit un arbre tel que , alors il existe au moins deux sommets distincts tels que .   Puisque est un graphe connexe avec au moins deux sommets, il existe au moins une chaîne simple de longueur . Supposons que soit la chaîne simple la plus longue possible dans . Une telle chaîne doit nécessairement exister, car le nombre d'arêtes est fini.  Puisque est un voisin de , on a que . On veut montrer que P . Supposons le contraire, alors possède un voisin différent de et de . Celui-ci doit aussi être différent de , , car sinon on obtiendrait un cycle dans . Notons ce voisin . On a alors que est une chaîne simple de longueur . Ceci est une contradiction, car on avait supposé que la chaîne simple la plus longue était de longueur . On doit donc avoir .  Par le même argument, on peut montrer que . Ainsi, on a trouvé au moins deux sommets de degré .     Cette proposition nous pousse donc à donner un nom aux sommets de degré , ainsi qu'à donner un nom aux sommets de degré plus grand que .    Soit un arbre et soit un sommet quelconque.   On dit que est une feuille de l'arbre si .    On dit que est un sommet interne , ou bien une branche de l'arbre si .         Soit un arbre, alors .   On procède par induction sur . C'est-à-dire qu'on suppose que , et on montre par induction que .   ÉTAPE DE BASE: Pour , alors ne possède aucune arête. Puisque est un graphe connexe, on doit nécessairement avoir . Ansi, on a bien .   ÉTAPE D'INDUCTION: On suppose que si un arbre quelconque possède arêtes, pour , alors cet arbre possède sommets. (H.I.)  Soit avec , on veut montrer, à l'aide de l'H.I. que . Puisque , alors . Si , possède au moins une arête, alors possède au moins deux sommets, c'est-à-dire que . Ainsi, par , on sait qu'il existe au moins deux sommets de degré . Soit tel que et l'unique voisin de . On remarque que si une chaîne simple contient l'arête , alors elle commence (ou termine) nécessairement par cette arête, puisque .  On pose donc , c'est-à-dire que est l'arbre obtenu en enlevant l'arête et le sommet à . Ainsi, et . Par hypothèse d'induction, on a , d'où .  On a montré que si , alors . De plus, on a montré que si on suppose que implique que pour un certain , alors implique . Par le principe d'induction, on a donc bien montré que si , alors pour tout entier .       Arbre couvrant   Lorsqu'on conçoit des algorithmes concernant les graphes, il est souvent utile d'avoir une méthode afin de nous assurer de parcourir l'ensemble des sommets de façon systématique. Une méthode pour accomplir cette tâche est de parcourir les sommets de notre graphe à l'aide d'un arbre couvrant.     Soit un graphe simple connexe. Un arbre couvrant de est un sous-graphe tel que est un arbre. Ainsi, un arbre couvrant de est un arbre ayant les mêmes sommets que .    Pour pouvoir démontrer la proposition , on a besoin d'un résultat intermédiaire. Puisque le résultat sert principalement à démontrer une proposition plus importante, on dira qu'il s'agit d'un lemme.    Soit un graphe connexe. Supposons que soit un cycle simple de longueur dans . Le graphe  est aussi un graphe connexe. Pour ce faire, on devra utiliser le fait que la chaîne est une chaîne de reliant et .    Soit , puisque est connexe, on sait qu'il y a une chaîne simple reliant et . Si cette chaîne ne passe pas par , alors cette chaîne est aussi une chaîne de . Si cette chaîne passe par , alors on peut écrire cette chaîne de la façon suivante.  On a , avec et . Mais alors on sait qu'il y a une chaîne de entre et , qu'il y a une chaîne de entre et et qu'il y a une chaîne de entre et . Ainsi, par l'exercice , il y a une chaîne entre et dans .  On a montré qu'il existe une chaîne de entre chaque paire de sommets, c'est-à-dire que est connexe.     On montre un cas particulier du lemme précédent pour bien visualiser. Soit le graphe ci-dessous, et le graphe obtenu de en enlevant l'arête de . On remarque que la chaîne est une chaîne de reliant avec . Puisque ne possède pas l'arête , cette chaîne n'est pas une chaîne de . Cependant, puisque fait parti d'un cycle dans , on remarque que la chaîne et une chaîne de reliant et .      Soit un graphe simple connexe, alors possède un arbre couvrant .    On construit une suite de sous-graphe de par récurrence, c'est-à-dire qu'on définit , et ensuite, ayant défini pour , on définit . On va continuer le processus jusqu'à ce que le graphe obtenu soit un arbre. Ce processus se terminera nécessairement en un nombre fini d'étape, disons étapes. À la fin, on posera .  On pose . Ensuite, on suppose qu'on a défini un graphe simple connexe pour . Si est un arbre, alors il s'agit d'un arbre couvrant pour , et on a terminé. Si au contraire n'est pas un arbre, on doit définir un graphe simple connexe contenant une arête de moins que .  Puisque n'est pas un arbre, possède un cycle, disons le cycle , avec . On pose alors . Le graphe obtenu est donc un graphe avec les mêmes sommets que , possédant une arête de moins que le graphe . On doit vérifier qu'il s'agit toujours de graphe connexe. Or, par le lemme , on sait que est connexe.  Puisqu'on enlève une arête à chaque étape, et que le nombre d'arêtes de est fini, on doit nécessairement arriver à un point où ne possède pas de cycle. Si le processus se termine avec , alors on pose . Puisque possède les mêmes sommets que , est connexe et ne possède aucun cycle. est donc bien un arbre couvrant de .      Arborescence   Un exemple classique d'utilisation des arbres est les arbres généalogiques. Une façon de représenter un arbre généalogique est de commencer par un ancêtre commun de la famille, qu'on représente par un sommet, et de relier ce sommet par une arête à un sommet représentant chacun des enfants de cette personne. Par la suite, on ajoute un sommet pour chaque enfant de la génération suivante, reliant les enfants à leur parent.  On veut utiliser cette idée afin de représenter les arbres, c'est-à-dire qu'on choisira un sommet pour être l'ancêtre de tous les autres sommets. Ceci permettra de donner un certain ordre à nos arbres. Pour chaque sommet, on pourra considérer l'unique chaîne simple le reliant à l'ancêtre commun. La longueur de cette chaîne représentera en quelque sorte la génération à laquelle chaque sommet appartient.  Cette représentation est très utile lorsqu'on veut représenter un arbre de décision, c'est-à-dire un arbre permettant de répondre à un problème particulier. En effet, cette représentation nous permettra de donner une longueur minimale associée à notre arbre de décision. Ceci servira à vérifier si l'algorithme utilisé peut être optimisé, ou bien s'il s'agit déjà de l'algorithme le plus efficace.  La combinaison d'un arbre et de notre ancêtre commun est ce qu'on appelle une arborescence. Ainsi, une arborescence n'est rien d'autre qu'un arbre pour lequel on a choisi un sommet particulier.     Une arborescence est une paire où est un arbre et est un sommet de . On appellera la racine de .    Si est une arborescence, puisque est un arbre, pour tout sommet de , il existe une unique chaîne simple entre et . Ceci nous permet de donner les définitions suivantes.    Soit une arborescence et soit un sommet de . On note l'unique chaîne entre de entre par     Le niveau du sommet est la longueur de la chaîne , c'est-à-dire .    Le plus grand niveau de l'arborescence est appelé la hauteur de .    Les sommets sont appelés les ancêtres de . À l'inverse, on dira que est un descendant des sommets .    Le sommet est appelé le parent de , alors qu'on dira que est l'enfant de              Ces questions sont à faire avant de venir en classe et à remettre au début du cours.   Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision\/clarification à apporter. Note: cette question est facultative.     "
+},
+{
+  "id": "def-arbreForet",
+  "level": "2",
+  "url": "sec-arbre.html#def-arbreForet",
+  "type": "Définition",
+  "number": "7.4.1",
+  "title": "",
+  "body": "  Un graphe simple est appelé une forêt s'il ne contient aucun cycle.  Si en plus le graphe est connexe, on dira que est un arbre . Pour expliciter qu'un graphe est un arbre, on notera souvent le graphe au lieu de .   "
+},
+{
+  "id": "exe-arbre",
+  "level": "2",
+  "url": "sec-arbre.html#exe-arbre",
+  "type": "Exemple",
+  "number": "7.4.2",
+  "title": "Une forêt et deux arbres.",
+  "body": " Une forêt et deux arbres Les graphes et ci-dessous sont des arbres. Le graphe est une forêt.    "
+},
+{
+  "id": "prop-caractArbre",
+  "level": "2",
+  "url": "sec-arbre.html#prop-caractArbre",
+  "type": "Proposition",
+  "number": "7.4.3",
+  "title": "",
+  "body": "  Un graphe est un arbre si et seulement si pour chaque paire de sommets , il existe une unique chaîne reliant et .   "
+},
+{
+  "id": "prop-arbreFeuille",
+  "level": "2",
+  "url": "sec-arbre.html#prop-arbreFeuille",
+  "type": "Proposition",
+  "number": "7.4.4",
+  "title": "",
+  "body": "  Soit un arbre tel que , alors il existe au moins deux sommets distincts tels que .   Puisque est un graphe connexe avec au moins deux sommets, il existe au moins une chaîne simple de longueur . Supposons que soit la chaîne simple la plus longue possible dans . Une telle chaîne doit nécessairement exister, car le nombre d'arêtes est fini.  Puisque est un voisin de , on a que . On veut montrer que P . Supposons le contraire, alors possède un voisin différent de et de . Celui-ci doit aussi être différent de , , car sinon on obtiendrait un cycle dans . Notons ce voisin . On a alors que est une chaîne simple de longueur . Ceci est une contradiction, car on avait supposé que la chaîne simple la plus longue était de longueur . On doit donc avoir .  Par le même argument, on peut montrer que . Ainsi, on a trouvé au moins deux sommets de degré .    "
+},
+{
+  "id": "def-feuilleSommetInterne",
+  "level": "2",
+  "url": "sec-arbre.html#def-feuilleSommetInterne",
+  "type": "Définition",
+  "number": "7.4.5",
+  "title": "",
+  "body": "  Soit un arbre et soit un sommet quelconque.   On dit que est une feuille de l'arbre si .    On dit que est un sommet interne , ou bien une branche de l'arbre si .      "
+},
+{
+  "id": "prop-sommetAreteArbre",
+  "level": "2",
+  "url": "sec-arbre.html#prop-sommetAreteArbre",
+  "type": "Proposition",
+  "number": "7.4.6",
+  "title": "",
+  "body": "  Soit un arbre, alors .   On procède par induction sur . C'est-à-dire qu'on suppose que , et on montre par induction que .   ÉTAPE DE BASE: Pour , alors ne possède aucune arête. Puisque est un graphe connexe, on doit nécessairement avoir . Ansi, on a bien .   ÉTAPE D'INDUCTION: On suppose que si un arbre quelconque possède arêtes, pour , alors cet arbre possède sommets. (H.I.)  Soit avec , on veut montrer, à l'aide de l'H.I. que . Puisque , alors . Si , possède au moins une arête, alors possède au moins deux sommets, c'est-à-dire que . Ainsi, par , on sait qu'il existe au moins deux sommets de degré . Soit tel que et l'unique voisin de . On remarque que si une chaîne simple contient l'arête , alors elle commence (ou termine) nécessairement par cette arête, puisque .  On pose donc , c'est-à-dire que est l'arbre obtenu en enlevant l'arête et le sommet à . Ainsi, et . Par hypothèse d'induction, on a , d'où .  On a montré que si , alors . De plus, on a montré que si on suppose que implique que pour un certain , alors implique . Par le principe d'induction, on a donc bien montré que si , alors pour tout entier .    "
+},
+{
+  "id": "def-arbreCouvrant",
+  "level": "2",
+  "url": "sec-arbre.html#def-arbreCouvrant",
+  "type": "Définition",
+  "number": "7.4.7",
+  "title": "",
+  "body": "  Soit un graphe simple connexe. Un arbre couvrant de est un sous-graphe tel que est un arbre. Ainsi, un arbre couvrant de est un arbre ayant les mêmes sommets que .   "
+},
+{
+  "id": "lem-arbreCouvrant",
+  "level": "2",
+  "url": "sec-arbre.html#lem-arbreCouvrant",
+  "type": "Lemme",
+  "number": "7.4.8",
+  "title": "",
+  "body": "  Soit un graphe connexe. Supposons que soit un cycle simple de longueur dans . Le graphe  est aussi un graphe connexe. Pour ce faire, on devra utiliser le fait que la chaîne est une chaîne de reliant et .    Soit , puisque est connexe, on sait qu'il y a une chaîne simple reliant et . Si cette chaîne ne passe pas par , alors cette chaîne est aussi une chaîne de . Si cette chaîne passe par , alors on peut écrire cette chaîne de la façon suivante.  On a , avec et . Mais alors on sait qu'il y a une chaîne de entre et , qu'il y a une chaîne de entre et et qu'il y a une chaîne de entre et . Ainsi, par l'exercice , il y a une chaîne entre et dans .  On a montré qu'il existe une chaîne de entre chaque paire de sommets, c'est-à-dire que est connexe.   "
+},
+{
+  "id": "exe-arbreCouvrantLemme",
+  "level": "2",
+  "url": "sec-arbre.html#exe-arbreCouvrantLemme",
+  "type": "Exemple",
+  "number": "7.4.9",
+  "title": "",
+  "body": " On montre un cas particulier du lemme précédent pour bien visualiser. Soit le graphe ci-dessous, et le graphe obtenu de en enlevant l'arête de . On remarque que la chaîne est une chaîne de reliant avec . Puisque ne possède pas l'arête , cette chaîne n'est pas une chaîne de . Cependant, puisque fait parti d'un cycle dans , on remarque que la chaîne et une chaîne de reliant et .   "
+},
+{
+  "id": "prop-arbreCouvrant",
+  "level": "2",
+  "url": "sec-arbre.html#prop-arbreCouvrant",
+  "type": "Proposition",
+  "number": "7.4.10",
+  "title": "",
+  "body": "  Soit un graphe simple connexe, alors possède un arbre couvrant .    On construit une suite de sous-graphe de par récurrence, c'est-à-dire qu'on définit , et ensuite, ayant défini pour , on définit . On va continuer le processus jusqu'à ce que le graphe obtenu soit un arbre. Ce processus se terminera nécessairement en un nombre fini d'étape, disons étapes. À la fin, on posera .  On pose . Ensuite, on suppose qu'on a défini un graphe simple connexe pour . Si est un arbre, alors il s'agit d'un arbre couvrant pour , et on a terminé. Si au contraire n'est pas un arbre, on doit définir un graphe simple connexe contenant une arête de moins que .  Puisque n'est pas un arbre, possède un cycle, disons le cycle , avec . On pose alors . Le graphe obtenu est donc un graphe avec les mêmes sommets que , possédant une arête de moins que le graphe . On doit vérifier qu'il s'agit toujours de graphe connexe. Or, par le lemme , on sait que est connexe.  Puisqu'on enlève une arête à chaque étape, et que le nombre d'arêtes de est fini, on doit nécessairement arriver à un point où ne possède pas de cycle. Si le processus se termine avec , alors on pose . Puisque possède les mêmes sommets que , est connexe et ne possède aucun cycle. est donc bien un arbre couvrant de .   "
+},
+{
+  "id": "def-arborescence",
+  "level": "2",
+  "url": "sec-arbre.html#def-arborescence",
+  "type": "Définition",
+  "number": "7.4.11",
+  "title": "",
+  "body": "  Une arborescence est une paire où est un arbre et est un sommet de . On appellera la racine de .   "
+},
+{
+  "id": "def-arboDescendant",
+  "level": "2",
+  "url": "sec-arbre.html#def-arboDescendant",
+  "type": "Définition",
+  "number": "7.4.12",
+  "title": "",
+  "body": "  Soit une arborescence et soit un sommet de . On note l'unique chaîne entre de entre par     Le niveau du sommet est la longueur de la chaîne , c'est-à-dire .    Le plus grand niveau de l'arborescence est appelé la hauteur de .    Les sommets sont appelés les ancêtres de . À l'inverse, on dira que est un descendant des sommets .    Le sommet est appelé le parent de , alors qu'on dira que est l'enfant de      "
+},
+{
+  "id": "rq-arbre-2",
+  "level": "2",
+  "url": "sec-arbre.html#rq-arbre-2",
+  "type": "Question de compréhension",
+  "number": "7.4.4.1",
+  "title": "",
+  "body": "Noter toute question qui demeure suite à la lecture de la section et la résolution des exercices ci-dessus ou toute précision\/clarification à apporter. Note: cette question est facultative. "
+},
+{
   "id": "sec-sommation",
   "level": "1",
   "url": "sec-sommation.html",
